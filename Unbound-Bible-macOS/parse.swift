@@ -1,0 +1,102 @@
+//
+//  parse.swift
+//  Unbound-Bible-macOS
+//
+//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//
+
+import Foundation
+import Cocoa
+
+let defaultAttribute = [NSAttributedStringKey.foregroundColor: NSColor.black, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14)]
+
+func xmlToList(string: String) -> [String] {
+    var result: [String] = []
+    var temp = ""
+    
+    for c in string {
+        if c == "<" {
+            result.append(temp)
+            temp = ""
+        }
+        temp.append(c)
+        
+        if c == ">" {
+            result.append(temp)
+            temp = ""
+        }
+    }
+    if !temp.isEmpty {
+        result.append(temp)
+    }
+    return result
+}
+
+func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
+    let result = string.mutable(attributes: defaultAttribute)
+    let range = NSRange(location: 0, length: result.length)
+    var set = tags
+    if set.contains("<S>") { set.remove("<J>") }
+    if set.contains("<f>") { set.remove("<J>") }
+    for element in set {
+        switch element {
+        case "<i>":
+            result.addAttribute(NSAttributedStringKey.font, value: NSFont(name:"Verdana-Italic", size:13.0)!, range: range)
+        case "<J>","<r>":
+            result.addAttribute(NSAttributedStringKey.foregroundColor, value: NSColor.red, range: range)
+        case "<l>":
+            result.addAttribute(NSAttributedStringKey.foregroundColor, value: navyColor, range: range)
+        case "<S>":
+            result.addAttribute(NSAttributedStringKey.font, value: NSFont.systemFont(ofSize: 9), range: range)
+            result.addAttribute(NSAttributedStringKey.foregroundColor, value: NSColor.brown, range: range)
+            result.addAttribute(NSAttributedStringKey.baselineOffset, value: 5.0, range: range)
+        case "<f>":
+            result.addAttribute(NSAttributedStringKey.font, value: NSFont.systemFont(ofSize: 9), range: range)
+            result.addAttribute(NSAttributedStringKey.baselineOffset, value: 5.0, range: range)
+        default: break
+        }
+    }
+    return result
+}
+
+func replaceTags(list: inout [String], jtag: Bool) {
+    if list.isEmpty { return }
+
+    for i in 0...list.count-1 {
+        switch list[i] {
+            case "<FI>": list[i] = "<i>"
+            case "<Fi>": list[i] = "</i>"
+            case "<FR>": list[i] = "<J>"
+            case "<Fr>": list[i] = "</J>"
+            default: break
+        }
+        if !jtag {
+            if list[i] == "<J>" { list[i] = "<->" }
+        }
+    }
+}
+
+func parse(_ string: String, jtag: Bool) -> NSMutableAttributedString {
+    let result = NSMutableAttributedString()
+    
+    var list = xmlToList(string: string)
+    replaceTags(list: &list, jtag: jtag)
+    
+    var tags = Set<String>()
+    
+    for s in list {
+        if s.hasPrefix("<") {
+            if s.hasPrefix("</") {
+                let r = s.replace("/", "")
+                tags.remove(r)
+            } else {
+                tags.insert(s)
+            }
+        } else {
+            let attrString = attrStringFromTags(s, tags: tags)
+            result.append(attrString)
+        }
+    }
+    return result
+}
+
