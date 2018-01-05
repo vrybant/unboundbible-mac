@@ -13,7 +13,6 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.window?.titleVisibility = .hidden
         self.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "AutosaveWindows")
         
         //      self.window?.titlebarAppearsTransparent = true      // Bible Verse Desktop
