@@ -13,7 +13,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-//      self.window?.titleVisibility = .hidden
+        self.window?.titleVisibility = .hidden
         self.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "AutosaveWindows")
         
         //      self.window?.titlebarAppearsTransparent = true      // Bible Verse Desktop
@@ -21,6 +21,10 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         //      self.window?.isMovableByWindowBackground = true
     }
     
+    @IBAction func copyAction(_ sender: NSButton) {
+        copyVerses(options: copyOptions).copyToPasteboard()
+    }
+
     @IBAction func searchFieldAction(_ sender: NSSearchField) {
         let string = searchField.stringValue.trimmed()
         if string.length() > 2 {

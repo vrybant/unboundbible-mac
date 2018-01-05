@@ -669,19 +669,35 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="DE7679E1-5C22-4BF6-A118-8237A9B03BF8" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="L2m-g2-jxe">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="915EF61D-7D80-4B52-B8A6-1E66A13D0540" label="" paletteLabel="" image="library" id="27b-dy-bLb">
+                                <toolbarItem implicitItemIdentifier="915EF61D-7D80-4B52-B8A6-1E66A13D0540" label="" paletteLabel="" image="NSBookmarksTemplate" id="27b-dy-bLb">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="40" height="32"/>
                                     <size key="maxSize" width="42" height="32"/>
                                     <button key="view" verticalHuggingPriority="750" id="7BN-JD-2QK">
                                         <rect key="frame" x="0.0" y="14" width="40" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="library" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mRc-hz-f0P">
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mRc-hz-f0P">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
                                             <segue destination="Sh0-jQ-Xz7" kind="sheet" id="xva-27-Pof"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="1D509AE2-E468-4037-A32B-C017EA1B7CCE" label="" paletteLabel="" image="copy" id="X5F-hi-XtT">
+                                    <nil key="toolTip"/>
+                                    <size key="minSize" width="42" height="32"/>
+                                    <size key="maxSize" width="42" height="32"/>
+                                    <button key="view" verticalHuggingPriority="750" id="hQ5-QW-Kxg">
+                                        <rect key="frame" x="0.0" y="14" width="42" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="copy" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymh-vF-lXr">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="copyAction:" target="B8D-0N-5wS" id="bVG-3B-lAo"/>
                                         </connections>
                                     </button>
                                 </toolbarItem>
@@ -704,11 +720,11 @@
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="OEK-s8-IK3"/>
                                 <toolbarItem implicitItemIdentifier="A3229C8B-008C-457C-8E48-3920C2E194F3" label="" paletteLabel="" id="ioW-Ze-zCi">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="96" height="22"/>
-                                    <size key="maxSize" width="150" height="32"/>
+                                    <size key="minSize" width="100" height="22"/>
+                                    <size key="maxSize" width="180" height="32"/>
                                     <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="n2B-PU-L83">
-                                        <rect key="frame" x="0.0" y="14" width="150" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="180" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" id="CBo-JE-JPt">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -719,14 +735,14 @@
                                         </connections>
                                     </searchField>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="9EB1AFDE-396A-4DA3-8D5C-2A801D3F39F4" label="" paletteLabel="" image="options" id="4wT-ad-omF">
+                                <toolbarItem implicitItemIdentifier="9EB1AFDE-396A-4DA3-8D5C-2A801D3F39F4" label="" paletteLabel="" image="NSSmartBadgeTemplate" id="4wT-ad-omF">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="32" height="32"/>
-                                    <size key="maxSize" width="41" height="35"/>
+                                    <size key="minSize" width="42" height="32"/>
+                                    <size key="maxSize" width="42" height="32"/>
                                     <button key="view" verticalHuggingPriority="750" id="XOO-wQ-JkF">
-                                        <rect key="frame" x="0.0" y="14" width="41" height="32"/>
+                                        <rect key="frame" x="0.0" y="14" width="42" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="options" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mJu-V0-yQp">
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSSmartBadgeTemplate" imagePosition="above" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mJu-V0-yQp">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -739,7 +755,7 @@
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="27b-dy-bLb"/>
-                                <toolbarItem reference="HU9-qb-1eZ"/>
+                                <toolbarItem reference="X5F-hi-XtT"/>
                                 <toolbarItem reference="0Ju-Qv-L82"/>
                                 <toolbarItem reference="ioW-Ze-zCi"/>
                                 <toolbarItem reference="4wT-ad-omF"/>
@@ -976,11 +992,11 @@
             <objects>
                 <viewController id="81U-iW-K9k" customClass="MainView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mJV-td-xAQ">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="290"/>
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="218"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="NwT-YQ-Qhx">
-                                <rect key="frame" x="0.0" y="19" width="450" height="271"/>
+                                <rect key="frame" x="0.0" y="19" width="450" height="199"/>
                                 <connections>
                                     <segue destination="BCt-5G-3Bm" kind="embed" id="kYT-sn-CgX"/>
                                 </connections>
@@ -1014,7 +1030,7 @@
                 </viewController>
                 <customObject id="Dee-xY-iaZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="700"/>
+            <point key="canvasLocation" x="75" y="736"/>
         </scene>
         <!--Copy Special-->
         <scene sceneID="Boy-6Q-tKa">
@@ -1710,9 +1726,10 @@ Gw
     </scenes>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>
+        <image name="NSBookmarksTemplate" width="17" height="18"/>
+        <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
-        <image name="library" width="15" height="12"/>
-        <image name="options" width="14" height="14"/>
+        <image name="copy" width="14" height="14"/>
     </resources>
 </document>
