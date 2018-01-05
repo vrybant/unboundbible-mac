@@ -69,3 +69,7 @@ fastlane/test_output
 # FMDB
 
 fmdb/
+
+# Other
+
+*.DS_Store
