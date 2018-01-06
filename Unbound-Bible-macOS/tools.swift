@@ -35,7 +35,7 @@ func loadCompare() {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + name + "</l>\n" + text
             attrString.append( parse(string, jtag: false) )
-            attrString.append( text.mutable(attributes: defaultAttribute) )
+//          attrString.append( text.mutable(attributes: defaultAttribute) )
         }
     }  
 
@@ -60,6 +60,7 @@ func searchText(string: String) {
     } else {
         let out = "<i>\n You search for \"\(string)\" produced no results.</i>"
         attributedString.append(parse(out, jtag: false))
+        mainView.updateStatus("")
     }
     
     rigthView.searchTextView.textStorage?.setAttributedString(attributedString)
