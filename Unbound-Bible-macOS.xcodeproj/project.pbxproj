@@ -19,6 +19,8 @@
 		E73BF4661EF854BF0028FB62 /* CustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4651EF854BF0028FB62 /* CustomText.swift */; };
 		E73BF4681EF854F80028FB62 /* SuperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4671EF854F80028FB62 /* SuperText.swift */; };
 		E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74040F11ED5A40F00F96C48 /* CopyView.swift */; };
+		E74EB5A9200D3C9400B69AC5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E74EB5AB200D3C9400B69AC5 /* InfoPlist.strings */; };
+		E74EB5AF200D3C9500B69AC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E74EB5B1200D3C9500B69AC5 /* Localizable.strings */; };
 		E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E76ED6DC1E242616005AE4F2 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76ED6DB1E242616005AE4F2 /* extensions.swift */; };
 		E77BCA6D1FF4E44A00F950B5 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
@@ -52,6 +54,9 @@
 		E73BF4651EF854BF0028FB62 /* CustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomText.swift; sourceTree = "<group>"; };
 		E73BF4671EF854F80028FB62 /* SuperText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuperText.swift; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
+		E74EB5AA200D3C9400B69AC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E74EB5AC200D3C9400B69AC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		E74EB5B0200D3C9500B69AC5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E75F12C01FF25D79006EDAC9 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
 		E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "сonfig.xcconfig"; sourceTree = "<group>"; };
 		E76ED6DB1E242616005AE4F2 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
@@ -110,6 +115,8 @@
 		CE2F17EF1D33C31800BA91A6 /* Unbound-Bible-macOS */ = {
 			isa = PBXGroup;
 			children = (
+				E74EB5B1200D3C9500B69AC5 /* Localizable.strings */,
+				E74EB5AB200D3C9400B69AC5 /* InfoPlist.strings */,
 				CE2F17F41D33C31800BA91A6 /* Assets.xcassets */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
@@ -193,7 +200,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Vladimir Rybant Ministries";
 				TargetAttributes = {
 					CE2F17EC1D33C31800BA91A6 = {
@@ -226,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2F17F51D33C31800BA91A6 /* Assets.xcassets in Resources */,
+				E74EB5AF200D3C9500B69AC5 /* Localizable.strings in Resources */,
+				E74EB5A9200D3C9400B69AC5 /* InfoPlist.strings in Resources */,
 				CE2F17F81D33C31800BA91A6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,8 +281,25 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE2F17F71D33C31800BA91A6 /* Base */,
+				E74EB5AC200D3C9400B69AC5 /* ru */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E74EB5AB200D3C9400B69AC5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E74EB5AA200D3C9400B69AC5 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E74EB5B1200D3C9500B69AC5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E74EB5B0200D3C9500B69AC5 /* ru */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -283,6 +309,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -336,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
