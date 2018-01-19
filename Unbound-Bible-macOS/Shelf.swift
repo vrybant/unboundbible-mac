@@ -95,7 +95,7 @@ class Bible {
         }
         
         if name.isEmpty { name = fileName }
-        info = info.removeTags()
+        info = info.removeTags
     }
     
     func loadDatabase() {
@@ -107,7 +107,7 @@ class Bible {
             
             while results.next() == true {
                 guard let stbook = results.string(forColumn: z.book) else { break }
-                let x = stbook.toInt()
+                let x = stbook.toInt
                 if x <= 0 { continue }
 
                 var book = Book()
@@ -255,7 +255,7 @@ class Bible {
     
     func search(string: String, options: SearchOption, range: SearchRange?) -> [Content]? {
         let list = string.components(separatedBy: " ")
-        var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars()
+        var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
         string = string.replace(" ", "%")
         
         let queryRange = range == nil ? "" : " and \(z.book) >= \(encodeIndex(range!.from)) and \(z.book) <= \(encodeIndex(range!.to))"
@@ -271,10 +271,10 @@ class Bible {
                 guard let number = results.string(forColumn: z.verse) else { break }
                 guard let text = results.string(forColumn: z.text) else { break }
                 
-                let verse = Verse(book: decodeIndex(book.toInt()), chapter: chapter.toInt(), number: number.toInt(), count: 1)
+                let verse = Verse(book: decodeIndex(book.toInt), chapter: chapter.toInt, number: number.toInt, count: 1)
                 let content = Content(verse: verse, text: text)
                 
-                if text.removeTags().contains(list: list, options: options) { lines.append(content) }
+                if text.removeTags.contains(list: list, options: options) { lines.append(content) }
             }
             var result : [Content] = []
             

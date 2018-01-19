@@ -10,42 +10,41 @@ import Cocoa
 
 extension String
 {
-    func length() -> Int {
+    var length: Int {
         return self.count
     }
     
-    func toInt() -> Int {
+    var quoted: String {
+        return "\"" + self + "\""
+    }
+    
+    var toInt: Int {
         if let number = Int(self) { return number }
         else { return 0 }
     }
     
-    func trimmed() -> String {
+    var trimmed: String {
         return self.trimmingCharacters(in: CharacterSet.whitespaces)
     }
     
-    func components() -> [String] {
+    var components: [String] {
         let separator = "\t"
         var list = self.components(separatedBy: separator)
         
         if list.count > 0 {
             for i in 0...list.count-1 {
-                list[i] = list[i].trimmed()
+                list[i] = list[i].trimmed
             }
         }
         return list
     }
     
-    func componentsSeparatedByEol() -> [String] {
+    var componentsSeparatedByEol: [String] {
         let separator = CharacterSet.newlines
         return self.components(separatedBy: separator)
     }
     
-    func replace(_ string: String, _ withString: String) -> String
-    {
-        return self.replacingOccurrences(of: string, with: withString, options: NSString.CompareOptions.literal, range: nil)
-    }
-
-    func removeTags() -> String {
+    var removeTags: String {
         var s = ""
         var l = true
         
@@ -57,11 +56,7 @@ extension String
         return s
     }
     
-    func mutable(attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
-        return NSMutableAttributedString(string: self, attributes: attributes)
-    }
-    
-    func removeLeadingChar() -> String {
+    var removeLeadingChar: String {
         var s = ""
         var l = false
         
@@ -71,15 +66,28 @@ extension String
         return s
     }
     
-    func removeLeadingChars() -> String {
-        let list = self.trimmed().components(separatedBy: " ")
+    var removeLeadingChars: String {
+        let list = self.trimmed.components(separatedBy: " ")
         
         var result: [String] = []
         for line in list {
-            let s = line.removeLeadingChar()
+            let s = line.removeLeadingChar
             result.append(s)
         }
         return result.joined(separator: " ")
+    }
+    
+    var localized: String {
+        return NSLocalizedString(self, comment:"")
+    }
+    
+    func replace(_ string: String, _ with: String) -> String
+    {
+        return self.replacingOccurrences(of: string, with: with, options: NSString.CompareOptions.literal, range: nil)
+    }
+    
+    func mutable(attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
+        return NSMutableAttributedString(string: self, attributes: attributes)
     }
     
     func contains(other: String, options: SearchOption) -> Bool {

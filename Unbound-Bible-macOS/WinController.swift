@@ -25,8 +25,8 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
 
     @IBAction func searchFieldAction(_ sender: NSSearchField) {
-        let string = searchField.stringValue.trimmed()
-        if string.length() > 2 {
+        let string = searchField.stringValue.trimmed
+        if string.length > 2 {
             selectTab(at: .search)
             searchText(string: string)
         }
