@@ -62,11 +62,11 @@ class MainView: NSViewController, NSWindowDelegate {
         
         selectTab(at: .notes)
         let alert = NSAlert()
-        alert.messageText = "Do you want to save the changes?"
-        alert.informativeText = "Your changes will be lost if you don't save them."
-        alert.addButton(withTitle: "Save…")
-        alert.addButton(withTitle: "Cancel")
-        alert.addButton(withTitle: "Don't Save")
+        alert.messageText = "Do you want to save the changes?".localized
+        alert.informativeText = "Your changes will be lost if you don't save them.".localized
+        alert.addButton(withTitle: "Save…".localized)
+        alert.addButton(withTitle: "Cancel".localized)
+        alert.addButton(withTitle: "Don't Save".localized)
         let choice = alert.runModal()
         
         switch choice {
@@ -85,7 +85,7 @@ class MainView: NSViewController, NSWindowDelegate {
         rigthView.notesTextView.clean()
         selectTab(at: .notes)
         notesURL = nil
-        appDelegate.saveMenuItem.title = "Save.."
+        appDelegate.saveMenuItem.title = "Save…".localized
     }
     
     @IBAction func openDocument(_ sender: NSMenuItem) {
@@ -135,11 +135,11 @@ class MainView: NSViewController, NSWindowDelegate {
                 do {
                     try rigthView.notesTextView.saveToFile(url: url)
                     notesURL = url
-                    appDelegate.saveMenuItem.title = "Save"
+                    appDelegate.saveMenuItem.title = "Save".localized
                 } catch {
                     let alert = NSAlert()
-                    alert.messageText = "Failed to save document"
-                    alert.informativeText = "Permission denied"
+                    alert.messageText = "Failed to save document".localized
+                    alert.informativeText = "Permission denied".localized
                     alert.runModal()
                 }
             }
