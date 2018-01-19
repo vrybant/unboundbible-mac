@@ -89,7 +89,7 @@
                                                 <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="67Q-05-QuX"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" hidden="YES" id="aJh-i4-bef"/>
+                                        <menuItem isSeparatorItem="YES" enabled="YES" id="aJh-i4-bef"/>
                                         <menuItem title="Page Setup…" hidden="YES" enabled="NO" keyEquivalent="P" id="vJi-4M-UiB"/>
                                         <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
                                             <connections>
