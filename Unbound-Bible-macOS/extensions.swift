@@ -77,9 +77,9 @@ extension String
         return result.joined(separator: " ")
     }
     
-    var localized: String {
-        return NSLocalizedString(self, comment:"")
-    }
+//    var localized: String {
+//        return NSLocalizedString(self, comment:"")
+//    }
     
     func replace(_ string: String, _ with: String) -> String
     {

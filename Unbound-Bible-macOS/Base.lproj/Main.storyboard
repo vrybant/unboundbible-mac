@@ -153,7 +153,7 @@
                                                 <action selector="copyVersesAction:" target="Ady-hI-5gd" id="CAR-dc-bUd"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Copy As..." id="jAM-iY-hx5">
+                                        <menuItem title="Copy As…" id="jAM-iY-hx5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="copyDialogAction:" target="Ady-hI-5gd" id="G4r-Gj-tXH"/>
@@ -1170,7 +1170,7 @@ Gw
                                 <action selector="copyVersesAction:" target="qmf-oa-nxB" id="HGK-Ll-8yw"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Copy As..." id="cf8-0C-v73">
+                        <menuItem title="Copy As…" id="cf8-0C-v73">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="copyVersesAction:" target="aEP-du-uoE" id="Cms-mZ-naH"/>

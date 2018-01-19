@@ -56,11 +56,11 @@ func searchText(string: String) {
             let out = "<l>\(link)</l> \(text)\n\n"
             attributedString.append(parse(out, jtag: false))
         }
-        let message = "verses was found".localized
+        let message = NSLocalizedString("verses was found", comment: "")
         mainView.updateStatus("\(searchResult.count) \(message)")
     } else {
-        let message = "You search for % produced no results.".localized.replace("%", string.quoted)
-        let out = "<i>\n \(message) </i>"
+        let message = NSLocalizedString("You search for % produced no results.", comment: "")
+        let out = "<i>\n \(message.replace("%", string.quoted)) </i>"
         attributedString.append(parse(out, jtag: false))
         mainView.updateStatus("")
     }
