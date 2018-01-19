@@ -146,16 +146,5 @@ class MainView: NSViewController, NSWindowDelegate {
         }
     }
     
-    @IBAction func printDocument(_ sender: Any) {
-        let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
-        switch identifier {
-        case "bible"   : rigthView.bibleTextView.printView(self)
-        case "search"  : rigthView.searchTextView.printView(self)
-        case "compare" : rigthView.compareTextView.printView(self)
-        case "notes"   : rigthView.notesTextView.printView(self)
-        default : break
-        }
-    }
-
 }
 
