@@ -194,28 +194,7 @@ class Bible {
             return index
         }
     }
-    
-//    fileprivate func сontentFromString(string: String) -> Content? {
-//        let list = string.components()
-//        if list.count != 4 { return nil }
-//        let book = unboundBibleID(list[0].toInt())
-//        let verse = Verse(book: book, chapter: list[1].toInt(), number: list[2].toInt(), count: 1)
-//        return Content(verse: verse, text: list[3])
-//    }
-    
-//    func getVerse(_ verse : Verse) -> String {
-//        if let n = idxByNum(verse.book) {
-//            for s in books[n].text {
-//                if let content = сontentFromString(string: s) {
-//                    if verse.chapter == content.verse.chapter && verse.number == content.verse.number {
-//                        return content.text
-//                    }
-//                }
-//            }
-//        }
-//        return "error"
-//    }
-    
+
     func getChapter(_ verse : Verse) -> [String] {
         let id = encodeIndex(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
