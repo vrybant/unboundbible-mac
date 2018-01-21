@@ -318,24 +318,21 @@ class Bible {
         var title = ""
         var limit = 0
         
-        for i in 0...self.books.count-1 {
-            if link.hasPrefix(self.books[i].title) {
-                title = self.books[i].title
-                verse.book = self.books[i].number
+        for book in books {
+            if link.hasPrefix(book.title) {
+                title = book.title
+                verse.book = book.number
                 break
             }
-        }
-        
-        if title == ""  { return nil }
-            
-        for i in 0...self.books.count-1 {
-            if link.hasPrefix(self.books[i].abbr) {
-                title = self.books[i].abbr
-                verse.book = self.books[i].number
+            if link.hasPrefix(book.abbr) {
+                title = book.abbr
+                verse.book = book.number
                 break
             }
         }
 
+        if title == ""  { return nil }
+        
         let index = link.index(link.startIndex, offsetBy: title.count)
         var string = link[index...].trimmed()
         

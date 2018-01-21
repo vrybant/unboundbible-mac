@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func initialization() {
         if shelf.bibles.isEmpty { return }
         leftView.bibleMenuInit()
-        //mainView.updateStatus(shelf.bibles[current].info)
+        mainView.updateStatus(shelf.bibles[current].info)
         leftView.makeBookList()
         goToVerse(activeVerse, select: (activeVerse.number > 1))
     }
@@ -56,8 +56,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 procedure TMainForm.ReadIniFile;
   CurrFont.Name := IniFile.ReadString('Application', 'FontName', CurrFont.Name);
   CurrFont.Size := IniFile.ReadInteger('Application', 'FontSize', CurrFont.Size);
-  PanelLeft.Width := IniFile.ReadInteger('Application', 'Splitter', 270);
-  FaceLang := IniFile.ReadString('Application', 'Interface', GetDefaultLanguage);
   ShortLink := IniFile.ReadBool('Application', 'ShortLink', True);
   FBPageVisited := IniFile.ReadBool('Application', 'FBPage', False);
   Max := IniFile.ReadInteger('Reopen', 'Count', ReopenList.Count);
