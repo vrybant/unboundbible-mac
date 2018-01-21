@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-class SuperTextView: CustomTextView {
+class СommonTextView: CustomTextView {
     
     func getLink() -> String? {
         if self.selectedRange.length > 0 { return nil }
@@ -35,6 +35,10 @@ class SuperTextView: CustomTextView {
         if let verse = shelf.bibles[current].stringToVerse(link: link) {
             goToVerse(verse, select: true)
         }
+    }
+    
+    @IBAction func printDocument(_ sender: NSMenuItem) {
+        printView(self)
     }
     
 }

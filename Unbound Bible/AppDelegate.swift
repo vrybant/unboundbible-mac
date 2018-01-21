@@ -13,7 +13,6 @@ var appDelegate = AppDelegate()
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    @IBOutlet weak var copySpecial: NSMenuItem!
     @IBOutlet weak var saveMenuItem: NSMenuItem!
     
     func applicationWillFinishLaunching(_ notification: Notification) {

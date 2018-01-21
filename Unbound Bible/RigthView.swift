@@ -21,9 +21,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
 
     @IBOutlet weak var tabView: NSTabView!
     @IBOutlet weak var bibleTextView: BibleTextView!
-    @IBOutlet weak var searchTextView: SuperTextView!
-    @IBOutlet weak var compareTextView: SuperTextView!
-    @IBOutlet weak var notesTextView: SuperTextView!
+    @IBOutlet weak var searchTextView: СommonTextView!
+    @IBOutlet weak var compareTextView: СommonTextView!
+    @IBOutlet weak var notesTextView: NotesTextView!
     @IBOutlet weak var popupMenu: NSMenu!
 
     override func viewDidLoad() {
@@ -47,17 +47,6 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         let identifier = tabView.selectedTabViewItem?.identifier as! String
         if identifier == "compare" {
             loadCompare()
-        }
-    }
-    
-    @IBAction func printDocument(_ sender: Any) {
-        let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
-        switch identifier {
-        case "bible"   : rigthView.bibleTextView.printView(self)
-        case "search"  : rigthView.searchTextView.printView(self)
-        case "compare" : rigthView.compareTextView.printView(self)
-        case "notes"   : rigthView.notesTextView.printView(self)
-        default : break
         }
     }
     
