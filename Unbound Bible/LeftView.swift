@@ -98,8 +98,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if tableView == bookTableView {
             if tableView.tag != programmatically {
                 let name = bookTableViewList[bookTableView.selectedRow]
-                if let n = shelf.bibles[current].bookByName(name) {
-                    let book = shelf.bibles[current].books[n].number
+                if let book = shelf.bibles[current].bookByName(name) {
                     activeVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
                 }
             }

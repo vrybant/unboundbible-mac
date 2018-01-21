@@ -174,10 +174,8 @@ class Bible {
     }
     
     func bookByName(_ s : String) -> Int? {
-        if !books.isEmpty {
-            for result in 0...books.count-1 {
-                if books[result].title == s { return result }
-            }
+        for book in books {
+            if book.title == s { return book.number }
         }
         return nil
     }
