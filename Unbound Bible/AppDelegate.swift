@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func initialization() {
         if shelf.bibles.isEmpty { return }
         leftView.bibleMenuInit()
-        mainView.updateStatus(shelf.bibles[current].info)
+        //mainView.updateStatus(shelf.bibles[current].info)
         leftView.makeBookList()
         goToVerse(activeVerse, select: (activeVerse.number > 1))
     }
@@ -69,11 +69,11 @@ procedure TMainForm.ReadIniFile;
         activeVerse.chapter = UserDefaults.standard.integer(forKey: "activeVerseChapter")
         activeVerse.number  = UserDefaults.standard.integer(forKey: "activeVerseNumber")
         activeVerse.count   = UserDefaults.standard.integer(forKey: "activeVerseCount")
-        
+
         if let file = UserDefaults.standard.string(forKey: "current") {
             shelf.setCurrent(file)
         }
-        
+
         let value = UserDefaults.standard.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
     }

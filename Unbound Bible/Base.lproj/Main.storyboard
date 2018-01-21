@@ -191,7 +191,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Unbound-Bible-macOS Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Unbound Bible Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
                                             </connections>
@@ -205,7 +205,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible_macOS" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
                     <connections>
                         <outlet property="copyVerses" destination="Nw4-XF-BPz" id="lcg-58-tlA"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
@@ -219,7 +219,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WinController" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="WinController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Unbound Bible" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="AutosaveApp" animationBehavior="default" tabbingMode="disallowed" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -335,7 +335,7 @@
         <!--Search View-->
         <scene sceneID="mOZ-N5-yvt">
             <objects>
-                <viewController storyboardIdentifier="Popover" id="Ut9-5s-h3e" customClass="SearchView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Popover" id="Ut9-5s-h3e" customClass="SearchView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1LL-3m-fbO">
                         <rect key="frame" x="0.0" y="0.0" width="147" height="209"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -452,7 +452,7 @@
         <!--Library View-->
         <scene sceneID="h0q-fG-dNM">
             <objects>
-                <viewController id="Sh0-jQ-Xz7" customClass="LibraryView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sh0-jQ-Xz7" customClass="LibraryView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rso-cC-phK">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="297"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -547,7 +547,7 @@
         <!--Main View-->
         <scene sceneID="AAu-Wg-NAp">
             <objects>
-                <viewController id="81U-iW-K9k" customClass="MainView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="81U-iW-K9k" customClass="MainView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="mJV-td-xAQ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="218"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -592,7 +592,7 @@
         <!--Copy Verses-->
         <scene sceneID="Boy-6Q-tKa">
             <objects>
-                <viewController title="Copy Verses" id="03V-8r-HtA" customClass="CopyView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Copy Verses" id="03V-8r-HtA" customClass="CopyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="z1o-OH-tt9">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="342"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -741,7 +741,7 @@ Gw
         <!--Split View-->
         <scene sceneID="pBL-To-aD2">
             <objects>
-                <splitViewController id="BCt-5G-3Bm" customClass="SplitView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="BCt-5G-3Bm" customClass="SplitView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="TQB-dG-mk9"/>
                         <splitViewItem id="QJb-uo-9et"/>
@@ -766,7 +766,7 @@ Gw
         <!--Left View-->
         <scene sceneID="v9Q-6T-5b8">
             <objects>
-                <viewController id="veV-6G-nPF" customClass="LeftView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="veV-6G-nPF" customClass="LeftView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="asP-6E-CbQ">
                         <rect key="frame" x="0.0" y="0.0" width="222" height="308"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -973,7 +973,7 @@ Gw
         <!--Rigth View-->
         <scene sceneID="iCY-Fm-IkA">
             <objects>
-                <viewController id="aEP-du-uoE" customClass="RigthView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aEP-du-uoE" customClass="RigthView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yZR-tP-ovo">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="425"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -993,7 +993,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="427" height="390"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Zuh-Fk-nWM" customClass="BibleTextView" customModule="Unbound_Bible_macOS" customModuleProvider="target">
+                                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Zuh-Fk-nWM" customClass="BibleTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="427" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1037,7 +1037,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="427" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="SuperTextView" customModule="Unbound_Bible_macOS" customModuleProvider="target">
+                                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="SuperTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="427" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1077,7 +1077,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="427" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="eU7-Os-3Pu" customClass="SuperTextView" customModule="Unbound_Bible_macOS" customModuleProvider="target">
+                                                            <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="eU7-Os-3Pu" customClass="SuperTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="427" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1117,7 +1117,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="427" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="SuperTextView" customModule="Unbound_Bible_macOS" customModuleProvider="target">
+                                                            <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="SuperTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="-1" width="427" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1200,7 +1200,7 @@ Gw
         <!--Download View-->
         <scene sceneID="wyC-6X-bhL">
             <objects>
-                <viewController id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y49-Vi-QQe">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="297"/>
                         <autoresizingMask key="autoresizingMask"/>
