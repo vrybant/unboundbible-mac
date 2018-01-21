@@ -9,10 +9,11 @@ import Cocoa
 
 struct CopyOptions : OptionSet {
     let rawValue: Int
-    static let abbreviate = CopyOptions(rawValue: 1 << 0)
-    static let  quotation = CopyOptions(rawValue: 1 << 1)
-    static let  enumerate = CopyOptions(rawValue: 1 << 2)
-    static let endinglink = CopyOptions(rawValue: 1 << 3)
+    static let  abbreviate = CopyOptions(rawValue: 1 << 0)
+    static let   enumerate = CopyOptions(rawValue: 1 << 1)
+    static let  guillemets = CopyOptions(rawValue: 1 << 2)
+    static let parentheses = CopyOptions(rawValue: 1 << 3)
+    static let  endinglink = CopyOptions(rawValue: 1 << 4)
 }
 
 var copyOptions: CopyOptions = []
@@ -24,8 +25,9 @@ class CopyView: NSViewController {
     @IBOutlet weak var textView: NSTextView!
     
     @IBOutlet weak var abbreviateButton: NSButton!
-    @IBOutlet weak var quotationButton: NSButton!
     @IBOutlet weak var enumeratedButton: NSButton!
+    @IBOutlet weak var guillemetsButton: NSButton!
+    @IBOutlet weak var parenthesesButton: NSButton!
     @IBOutlet weak var endingButton: NSButton!
     @IBOutlet weak var defaultButton: NSButton!
     
@@ -49,10 +51,11 @@ class CopyView: NSViewController {
         
         options = copyOptions
         
-        abbreviateButton.state = NSControl.StateValue(rawValue: options.contains(.abbreviate) ? 1 : 0)
-         quotationButton.state = NSControl.StateValue(rawValue: options.contains(.quotation ) ? 1 : 0)
-        enumeratedButton.state = NSControl.StateValue(rawValue: options.contains(.enumerate ) ? 1 : 0)
-            endingButton.state = NSControl.StateValue(rawValue: options.contains(.endinglink) ? 1 : 0)
+         abbreviateButton.state = NSControl.StateValue(rawValue: options.contains(.abbreviate ) ? 1 : 0)
+         enumeratedButton.state = NSControl.StateValue(rawValue: options.contains(.enumerate  ) ? 1 : 0)
+         guillemetsButton.state = NSControl.StateValue(rawValue: options.contains(.guillemets ) ? 1 : 0)
+        parenthesesButton.state = NSControl.StateValue(rawValue: options.contains(.parentheses) ? 1 : 0)
+             endingButton.state = NSControl.StateValue(rawValue: options.contains(.endinglink ) ? 1 : 0)
         
         textView.textStorage?.setAttributedString(copyVerses(options: options))
     }
@@ -60,10 +63,11 @@ class CopyView: NSViewController {
     @IBAction func checkButtonAction(_ sender: NSButton) {
         options = []
         
-        if abbreviateButton.state.rawValue == 1 { options.insert(.abbreviate) }
-        if  quotationButton.state.rawValue == 1 { options.insert(.quotation ) }
-        if enumeratedButton.state.rawValue == 1 { options.insert(.enumerate ) }
-        if     endingButton.state.rawValue == 1 { options.insert(.endinglink) }
+        if  abbreviateButton.state.rawValue == 1 { options.insert(.abbreviate ) }
+        if  enumeratedButton.state.rawValue == 1 { options.insert(.enumerate  ) }
+        if  guillemetsButton.state.rawValue == 1 { options.insert(.guillemets ) }
+        if parenthesesButton.state.rawValue == 1 { options.insert(.parentheses) }
+        if      endingButton.state.rawValue == 1 { options.insert(.endinglink ) }
         
         textView.textStorage?.setAttributedString(copyVerses(options: options))
     }

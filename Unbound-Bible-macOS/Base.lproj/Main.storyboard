@@ -594,11 +594,11 @@
             <objects>
                 <viewController title="Copy Verses" id="03V-8r-HtA" customClass="CopyView" customModule="Unbound_Bible_macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="z1o-OH-tt9">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="354"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="365"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS6-b9-OHv">
-                                <rect key="frame" x="6" y="158" width="389" height="190"/>
+                                <rect key="frame" x="6" y="169" width="389" height="190"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="zi2-BE-R1O">
                                     <rect key="frame" x="1" y="1" width="372" height="188"/>
@@ -625,14 +625,14 @@
                                 </scroller>
                             </scrollView>
                             <box fixedFrame="YES" title="Options" translatesAutoresizingMaskIntoConstraints="NO" id="jI7-K0-guy">
-                                <rect key="frame" x="4" y="26" width="271" height="124"/>
+                                <rect key="frame" x="4" y="26" width="271" height="135"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="snZ-Qo-9as">
-                                    <rect key="frame" x="2" y="2" width="267" height="107"/>
+                                    <rect key="frame" x="2" y="2" width="267" height="118"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1kN-Z8-To4">
-                                            <rect key="frame" x="18" y="77" width="237" height="18"/>
+                                            <rect key="frame" x="18" y="88" width="237" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Abbreviation" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gCS-F5-sao">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -642,19 +642,8 @@
                                                 <action selector="checkButtonAction:" target="03V-8r-HtA" id="yDQ-a8-Jyk"/>
                                             </connections>
                                         </button>
-                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QLS-nj-LPK">
-                                            <rect key="frame" x="18" y="57" width="237" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="Guillemets" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VfQ-ag-RSK">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="checkButtonAction:" target="03V-8r-HtA" id="pK5-U3-Wye"/>
-                                            </connections>
-                                        </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AP0-4L-kVL">
-                                            <rect key="frame" x="18" y="37" width="237" height="18"/>
+                                            <rect key="frame" x="18" y="68" width="237" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Enumerated" bezelStyle="regularSquare" imagePosition="left" inset="2" id="xQD-7b-MDh">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -664,8 +653,30 @@
                                                 <action selector="checkButtonAction:" target="03V-8r-HtA" id="m0V-fY-4In"/>
                                             </connections>
                                         </button>
+                                        <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QLS-nj-LPK">
+                                            <rect key="frame" x="18" y="48" width="237" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Guillemets" bezelStyle="regularSquare" imagePosition="left" inset="2" id="VfQ-ag-RSK">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="checkButtonAction:" target="03V-8r-HtA" id="pK5-U3-Wye"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qem-dm-bsT">
+                                            <rect key="frame" x="18" y="28" width="237" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Parentheses" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Uo6-JW-Cwo">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="checkButtonAction:" target="k4K-DK-EHW" id="JG9-mw-5z6"/>
+                                            </connections>
+                                        </button>
                                         <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ifH-N0-X6T">
-                                            <rect key="frame" x="18" y="17" width="237" height="18"/>
+                                            <rect key="frame" x="18" y="8" width="237" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Link in the end" bezelStyle="regularSquare" imagePosition="left" inset="2" id="p6g-fZ-Ky2">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -678,14 +689,6 @@
                                     </subviews>
                                 </view>
                             </box>
-                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-gi-2aF">
-                                <rect key="frame" x="24" y="6" width="227" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="check" title="Set Default" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gRb-sU-5BH">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3uA-VM-0Pf">
                                 <rect key="frame" x="284" y="23" width="105" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -700,8 +703,16 @@ Gw
                                     <action selector="cancelButtonAction:" target="03V-8r-HtA" id="rzt-r7-THT"/>
                                 </connections>
                             </button>
+                            <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LX4-gi-2aF">
+                                <rect key="frame" x="24" y="6" width="227" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="check" title="Set Default" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gRb-sU-5BH">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wt7-Cg-oCC">
-                                <rect key="frame" x="284" y="72" width="105" height="32"/>
+                                <rect key="frame" x="284" y="78" width="105" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7b2-p7-I0H">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -718,13 +729,14 @@ Gw
                         <outlet property="defaultButton" destination="LX4-gi-2aF" id="EyH-eg-fQx"/>
                         <outlet property="endingButton" destination="ifH-N0-X6T" id="9Ue-sx-MLy"/>
                         <outlet property="enumeratedButton" destination="AP0-4L-kVL" id="g2I-3s-KP5"/>
-                        <outlet property="quotationButton" destination="QLS-nj-LPK" id="gFl-Qx-ccE"/>
+                        <outlet property="guillemetsButton" destination="QLS-nj-LPK" id="eqT-Zb-CBK"/>
+                        <outlet property="parenthesesButton" destination="Qem-dm-bsT" id="cet-cT-zU8"/>
                         <outlet property="textView" destination="od3-rb-CCr" id="RJ6-RO-iTp"/>
                     </connections>
                 </viewController>
                 <customObject id="k4K-DK-EHW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="1343"/>
+            <point key="canvasLocation" x="1210" y="1348.5"/>
         </scene>
         <!--Split View-->
         <scene sceneID="pBL-To-aD2">

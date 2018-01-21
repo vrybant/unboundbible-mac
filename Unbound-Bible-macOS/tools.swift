@@ -87,7 +87,7 @@ func copyVerses(options: CopyOptions) -> NSMutableAttributedString {
     var out = ""
     
     let full = !options.contains(.abbreviate)
-    let link = "<l>" + shelf.bibles[current].verseToString(activeVerse, full: full) + "</l>"
+    var link = "<l>" + shelf.bibles[current].verseToString(activeVerse, full: full) + "</l>"
     var n = activeVerse.number
     var l = false
     
@@ -100,7 +100,8 @@ func copyVerses(options: CopyOptions) -> NSMutableAttributedString {
         l = true
     }
     
-    if options.contains(.quotation) { out = "«" + out + "»" }
+    if options.contains(.guillemets ) { out  = "«" + out  + "»" }
+    if options.contains(.parentheses) { link = "(" + link + ")" }
     
     if options.contains(.endinglink) {
         out += " " + link
