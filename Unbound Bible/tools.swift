@@ -71,7 +71,7 @@ func searchText(string: String) {
 func goToVerse(_ verse: Verse, select: Bool) {
     if shelf.bibles.isEmpty { return }
     if !shelf.bibles[current].goodLink(verse) { return }
-    if let index = shelf.bibles[current].bookByNum(verse.book) {
+    if let index = shelf.bibles[current].idxByNum(verse.book) {
         activeVerse = verse
         leftView.bookTableView.selectRow(index: index)
         leftView.chapterTableView.selectRow(index: verse.chapter - 1)

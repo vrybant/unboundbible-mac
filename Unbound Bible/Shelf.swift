@@ -164,7 +164,7 @@ class Bible {
         return 0
     }
     
-    func bookByNum(_ n : Int) -> Int? {
+    func idxByNum(_ n : Int) -> Int? {
         if !books.isEmpty {
             for result in 0...books.count-1 {
                 if books[result].number == n { return result }
@@ -204,7 +204,7 @@ class Bible {
 //    }
     
 //    func getVerse(_ verse : Verse) -> String {
-//        if let n = bookByNum(verse.book) {
+//        if let n = idxByNum(verse.book) {
 //            for s in books[n].text {
 //                if let content = сontentFromString(string: s) {
 //                    if verse.chapter == content.verse.chapter && verse.number == content.verse.number {
@@ -297,7 +297,7 @@ class Bible {
     }
     
     func verseToString(_ verse: Verse, full: Bool) -> String {
-        if let n = bookByNum(verse.book) {
+        if let n = idxByNum(verse.book) {
             var name = full ? books[n].title : books[n].abbr
             if !name.contains(".") { name += " " }
             var result = name + String(verse.chapter) + ":" + String(verse.number)
