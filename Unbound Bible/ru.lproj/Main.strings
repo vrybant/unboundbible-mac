@@ -169,6 +169,9 @@
 /* Class = "NSTabViewItem"; label = "Search"; ObjectID = "lPA-7y-syC"; */
 "lPA-7y-syC.label" = "Поиск";
 
+/* Class = "NSMenuItem"; title = "Hyperlink"; ObjectID = "mHR-fU-Ejx"; */
+"mHR-fU-Ejx.title" = "Гиперссылка";
+
 /* Class = "NSMenu"; title = "Open Recent"; ObjectID = "oas-Oc-fiZ"; */
 "oas-Oc-fiZ.title" = "Открыть недавние";
 

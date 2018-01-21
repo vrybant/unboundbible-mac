@@ -18,7 +18,7 @@ class CustomTextView: NSTextView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        //      self.isContinuousSpellCheckingEnabled = false
+//      self.isContinuousSpellCheckingEnabled = false
     }
     
     func colored(x: Int) -> Bool {
@@ -32,9 +32,12 @@ class CustomTextView: NSTextView {
         return false
     }
     
+    func makeHyperlink() {
+        self.textStorage?.addAttribute(NSAttributedStringKey.foregroundColor, value: navyColor, range: selectedRange)
+    }
+    
     func getSelection() -> String {
-        let range = self.selectedRange
-        let attrStr = self.attributedString().attributedSubstring(from: range)
+        let attrStr = self.attributedString().attributedSubstring(from: selectedRange)
         return attrStr.string
     }
     
