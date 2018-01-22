@@ -100,7 +100,6 @@ class MainView: NSViewController, NSWindowDelegate {
         dialog.allowsMultipleSelection = false
         dialog.allowedFileTypes        = ["rtf"]
         
-        /*
         if dialog.runModal() == NSApplication.ModalResponse.OK {
             if let url = dialog.url {
                 do {
@@ -115,7 +114,6 @@ class MainView: NSViewController, NSWindowDelegate {
                 }
             }
         }
-        */
         
     }
     
