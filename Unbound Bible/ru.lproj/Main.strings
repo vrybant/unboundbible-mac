@@ -184,8 +184,8 @@
 /* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
 "pa3-QI-u2k.title" = "Очистить";
 
-/* Class = "NSMenuItem"; title = "Save"; ObjectID = "pxx-59-PXV"; */
-"pxx-59-PXV.title" = "Сохранить";
+/* Class = "NSMenuItem"; title = "Save…"; ObjectID = "pxx-59-PXV"; */
+"pxx-59-PXV.title" = "Сохранить…";
 
 /* Class = "NSButtonCell"; title = "Case Sensitive"; ObjectID = "s7i-b7-2cd"; */
 "s7i-b7-2cd.title" = "Регистр";

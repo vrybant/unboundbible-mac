@@ -26,6 +26,9 @@
 "Save…" = "Сохранить…";
 
 /* No comment provided by engineer. */
+"The document % could not be opened." = "Не удается открыть документ %.";
+
+/* No comment provided by engineer. */
 "You search for % produced no results." = "По запросу % ничего не найдено.";
 
 /* No comment provided by engineer. */

@@ -84,7 +84,7 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="Save" keyEquivalent="s" id="pxx-59-PXV">
+                                        <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
                                             <connections>
                                                 <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="67Q-05-QuX"/>
                                             </connections>
@@ -213,7 +213,6 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
                     <connections>
-                        <outlet property="copyVerses" destination="Nw4-XF-BPz" id="lcg-58-tlA"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
                     </connections>
                 </customObject>
@@ -347,7 +346,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-u5-EGu">
-                                <rect key="frame" x="19" y="137" width="108" height="85"/>
+                                <rect key="frame" x="19" y="137" width="108" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                             <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Oh-1j-u0u">

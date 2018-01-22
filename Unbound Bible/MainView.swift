@@ -44,21 +44,26 @@ class MainView: NSViewController, NSWindowDelegate {
         statusBar.title = title
     }
     
-    func saveDocument() {
+    func saveDocument(url: URL?) {
         if !rigthView.notesTextView.modified { return }
-        if notesURL == nil { return }
+        if url == nil { return }
         do {
-            try rigthView.notesTextView.saveToFile(url: notesURL!)
-            rigthView.notesTextView.modified = false
+            try rigthView.notesTextView.saveToFile(url: url!)
+            notesURL = url
+            appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
         } catch {
-            // something went wrong
+            let alert = NSAlert()
+            alert.alertStyle = NSAlert.Style.critical
+            alert.messageText = NSLocalizedString("Failed to save document", comment: "")
+            alert.informativeText = NSLocalizedString("Permission denied", comment: "")
+            alert.runModal()
         }
     }
     
     func closeDocument() -> Bool {
-        saveDocument()
+        saveDocument(url: notesURL)
         if notesURL != nil { return true }
-        if rigthView.notesTextView.string == "" { return true }
+        if rigthView.notesTextView.string.isEmpty { return true }
         
         selectTab(at: .notes)
         let alert = NSAlert()
@@ -70,7 +75,7 @@ class MainView: NSViewController, NSWindowDelegate {
         let choice = alert.runModal()
         
         switch choice {
-        case NSApplication.ModalResponse.alertFirstButtonReturn: // Save…
+        case NSApplication.ModalResponse.alertFirstButtonReturn: // Save
             saveDocumentAs(self)
             if notesURL != nil { return true }
         case NSApplication.ModalResponse.alertThirdButtonReturn: // Don't Save
@@ -106,10 +111,12 @@ class MainView: NSViewController, NSWindowDelegate {
                     try rigthView.notesTextView.loadFromFile(url: url)
                     selectTab(at: .notes)
                     notesURL = url
-                    appDelegate.saveMenuItem.title = "Save"
+                    appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
                 } catch {
                     let alert = NSAlert()
-                    alert.messageText = "The document \"\(url.lastPathComponent)\" could not be opened."
+                    alert.alertStyle = NSAlert.Style.critical
+                    let message = NSLocalizedString("The document % could not be opened.", comment: "")
+                    alert.messageText = message.replace("%", url.lastPathComponent.quoted)
                     alert.runModal()
                 }
             }
@@ -119,28 +126,15 @@ class MainView: NSViewController, NSWindowDelegate {
     
     @IBAction func saveDocumentAs(_ sender: Any) {
         if notesURL != nil { return }
-        
         selectTab(at: .notes)
+
         let dialog = NSSavePanel()
-        
         dialog.showsResizeIndicator = true
         dialog.showsHiddenFiles     = false
         dialog.canCreateDirectories = true
         dialog.allowedFileTypes     = ["rtf"]
-        
         if dialog.runModal() == NSApplication.ModalResponse.OK {
-            if let url = dialog.url {
-                do {
-                    try rigthView.notesTextView.saveToFile(url: url)
-                    notesURL = url
-                    appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
-                } catch {
-                    let alert = NSAlert()
-                    alert.messageText = NSLocalizedString("Failed to save document", comment: "")
-                    alert.informativeText = NSLocalizedString("Permission denied", comment: "")
-                    alert.runModal()
-                }
-            }
+            saveDocument(url: dialog.url)
         }
     }
     

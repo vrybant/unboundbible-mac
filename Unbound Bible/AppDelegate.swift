@@ -47,10 +47,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         savePrivates()
     }
     
-    @IBAction func copySpecialAction(_ sender: NSMenuItem) {
-        copyVerses(options: copyOptions).copyToPasteboard()
-    }
-    
 /**
 procedure TMainForm.ReadIniFile;
   CurrFont.Name := IniFile.ReadString('Application', 'FontName', CurrFont.Name);
