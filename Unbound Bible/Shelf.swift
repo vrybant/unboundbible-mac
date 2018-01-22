@@ -410,11 +410,14 @@ class Shelf {
     }
     
     func setCurrent(_ fileName: String) {
-        if !bibles.isEmpty {
-            for i in 0...bibles.count-1 {
-                if bibles[i].fileName == fileName { setCurrent(i) }
+        if bibles.isEmpty { return }
+        for i in 0...bibles.count-1 {
+            if bibles[i].fileName == fileName {
+                setCurrent(i)
+                return
             }
         }
+        setCurrent(0)
     }
     
     func readDefaults() {
