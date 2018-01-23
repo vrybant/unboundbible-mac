@@ -33,7 +33,12 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     @IBAction func interlinear(_ sender: NSMenuItem) {
-        print("interlinear")
+        let range = 1...66
+        if !range.contains(activeVerse.book) { return }
+        let book = bibleHubArray[activeVerse.book]
+        let tail = book + "/" + String(activeVerse.chapter) + "-" + String(activeVerse.number) + ".htm"
+        let url = "http://biblehub.com/interlinear/" + tail
+        NSWorkspace.shared.open(URL(string: url)!)
     }
     
 }
