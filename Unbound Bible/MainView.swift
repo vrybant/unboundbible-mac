@@ -45,7 +45,6 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     func saveDocument(url: URL?) {
-        if !rigthView.notesTextView.modified { return }
         if url == nil { return }
         do {
             try rigthView.notesTextView.saveToFile(url: url!)
@@ -54,8 +53,8 @@ class MainView: NSViewController, NSWindowDelegate {
         } catch {
             let alert = NSAlert()
             alert.alertStyle = NSAlert.Style.critical
-            alert.messageText = NSLocalizedString("Failed to save document", comment: "")
-            alert.informativeText = NSLocalizedString("Permission denied", comment: "")
+            alert.messageText = NSLocalizedString("Failed to save document.", comment: "")
+            alert.informativeText = NSLocalizedString("Permission denied.", comment: "")
             alert.runModal()
         }
     }

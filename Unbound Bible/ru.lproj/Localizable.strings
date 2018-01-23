@@ -11,10 +11,10 @@
 "Don't Save" = "Не сохранять";
 
 /* No comment provided by engineer. */
-"Failed to save document" = "Не удалось сохранить документ";
+"Failed to save document." = "Не удалось сохранить документ.";
 
 /* No comment provided by engineer. */
-"Permission denied" = "Доступ запрещен";
+"Permission denied." = "Доступ запрещен.";
 
 /* No comment provided by engineer. */
 "Save" = "Сохранить";
