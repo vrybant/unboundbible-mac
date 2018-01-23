@@ -32,5 +32,9 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         }
     }
     
+    @IBAction func interlinear(_ sender: NSMenuItem) {
+        print("interlinear")
+    }
+    
 }
 

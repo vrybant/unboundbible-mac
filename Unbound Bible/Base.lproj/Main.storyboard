@@ -1167,6 +1167,7 @@ Gw
                     <connections>
                         <outlet property="bibleTextView" destination="Zuh-Fk-nWM" id="jlW-9V-f9V"/>
                         <outlet property="compareTextView" destination="eU7-Os-3Pu" id="E8V-l1-eix"/>
+                        <outlet property="interlinearItem" destination="1zZ-nN-0oB" id="pKe-tL-ezU"/>
                         <outlet property="notesTextView" destination="8mZ-f0-zEK" id="MmM-vh-d7S"/>
                         <outlet property="popupMenu" destination="c6C-nW-O0M" id="N9P-yg-bET"/>
                         <outlet property="searchTextView" destination="Imf-Do-olX" id="Aod-OG-k9T"/>
@@ -1192,6 +1193,13 @@ Gw
                             <connections>
                                 <action selector="copyVersesAction:" target="aEP-du-uoE" id="Cms-mZ-naH"/>
                                 <segue destination="03V-8r-HtA" kind="modal" id="8l2-W6-DIp"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="4hY-vp-gss"/>
+                        <menuItem title="Interlinear" id="1zZ-nN-0oB">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="interlinear:" target="qmf-oa-nxB" id="kkU-2s-HUF"/>
                             </connections>
                         </menuItem>
                     </items>

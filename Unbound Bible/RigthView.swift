@@ -25,10 +25,12 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var compareTextView: СommonTextView!
     @IBOutlet weak var notesTextView: NotesTextView!
     @IBOutlet weak var popupMenu: NSMenu!
-
+    @IBOutlet weak var interlinearItem: NSMenuItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         rigthView = self
+        interlinearItem.title = NSLocalizedString("Interlinear", comment: "") + " (biblehub.com)"
 //      bibleTextView.isEditable = false
 //      textView.hyperlink = false
     }
