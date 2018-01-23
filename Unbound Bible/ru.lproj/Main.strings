@@ -1,6 +1,9 @@
 /* Class = "NSMenuItem"; title = "Unbound Bible"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Unbound Bible";
 
+/* Class = "NSMenuItem"; title = "Interlinear"; ObjectID = "1zZ-nN-0oB"; */
+"1zZ-nN-0oB.title" = "Подстрочник";
+
 /* Class = "NSButtonCell"; title = "Bible"; ObjectID = "2js-1q-k61"; */
 "2js-1q-k61.title" = "Библия";
 

@@ -43,8 +43,8 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     @IBAction func showHelp(_ sender: NSMenuItem) {
         guard let code = NSLocale.autoupdatingCurrent.languageCode else { return }
-        var tail = "ubdownload.php"
-        if code == "ru" { tail = "ubdownloadru.php" }
+        var tail = "ubhelp.php"
+        if code == "ru" { tail = "ubhelpru.php" }
         let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }

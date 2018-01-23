@@ -14,6 +14,9 @@
 "Failed to save document." = "Не удалось сохранить документ.";
 
 /* No comment provided by engineer. */
+"Interlinear" = "Подстрочник";
+
+/* No comment provided by engineer. */
 "Permission denied." = "Доступ запрещен.";
 
 /* No comment provided by engineer. */
@@ -37,5 +40,3 @@
 /* No comment provided by engineer. */
 "verses was found" = "найденно стихов";
 
-/* No comment provided by engineer. */
-"Interlinear" = "Подстрочник";
