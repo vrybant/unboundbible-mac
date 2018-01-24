@@ -15,12 +15,12 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var bookTableView: NSTableView!
     @IBOutlet weak var chapterTableView: NSTableView!
     @IBOutlet weak var constraint: NSLayoutConstraint!
-    
-//    var width: CGFloat = 0
+    @IBOutlet weak var textFieldCell: NSTextFieldCell!
     
     var bookTableViewList: [String] = []
     var chapterTableViewCount: Int = 0
-    
+    var writingDirection : NSWritingDirection = .leftToRight
+
     override func viewDidLoad() {
         super.viewDidLoad()
         leftView = self
@@ -43,6 +43,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     func makeBookList() {
         bookTableViewList = shelf.bibles[current].getTitles()
         bookTableView.reloadData()
+        writingDirection = shelf.bibles[current].rightToLeft ? .rightToLeft : .leftToRight
     }
     
     func makeChapterList(n: Int) {
@@ -66,6 +67,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if tableView == bookTableView {
             cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellbook"), owner: self) as? NSTableCellView
             cellView?.textField!.stringValue = bookTableViewList[row]
+            cellView?.textField!.baseWritingDirection = writingDirection
             return cellView
         }
 

@@ -824,12 +824,10 @@ Gw
                                                             <rect key="frame" x="1" y="1" width="142" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="445" height="17"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="441" id="nsb-WL-Ncu"/>
-                                                                    </constraints>
-                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="Drs-Nf-FIx">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="142" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" baseWritingDirection="leftToRight" id="Drs-Nf-FIx">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -843,11 +841,6 @@ Gw
                                                                     </connections>
                                                                 </textField>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="mgi-PN-XKz" firstAttribute="centerY" secondItem="nCa-HY-7oc" secondAttribute="centerY" id="Q6a-Z3-A6v"/>
-                                                                <constraint firstItem="mgi-PN-XKz" firstAttribute="leading" secondItem="nCa-HY-7oc" secondAttribute="leading" constant="2" id="UjW-5d-l9M"/>
-                                                                <constraint firstAttribute="trailing" secondItem="mgi-PN-XKz" secondAttribute="trailing" constant="-301" id="ZOX-1D-okm"/>
-                                                            </constraints>
                                                             <connections>
                                                                 <outlet property="textField" destination="mgi-PN-XKz" id="EwS-ij-0Qi"/>
                                                             </connections>
