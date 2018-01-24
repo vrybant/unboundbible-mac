@@ -17,6 +17,8 @@ func loadChapter() {
             attributedString.append( parse(string, jtag: true) )
         }
     }
+    
+    rigthView.bibleTextView.baseWritingDirection = shelf.bibles[current].rightToLeft ? .rightToLeft : .leftToRight
     rigthView.bibleTextView.textStorage?.setAttributedString(attributedString)
 }
 

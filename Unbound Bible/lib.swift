@@ -100,4 +100,8 @@ func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NS
     return result
 }
 
+func getRightToLeft(language: String) -> Bool {
+    return language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
+}
+
 

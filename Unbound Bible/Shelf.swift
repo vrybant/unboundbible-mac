@@ -122,6 +122,7 @@ class Bible {
             setTitles()
             titles = getTitles()
             firstVerse = Verse(book: min, chapter: 1, number: 1, count: 1)
+            rightToLeft = getRightToLeft(language: language)
             loaded = true
         }
     }
