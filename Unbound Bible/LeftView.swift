@@ -80,13 +80,6 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         return cellView!
     }
     
-    func chapterTableView(_ chapterTableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView?
-    {
-        let cellView = chapterTableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cell"), owner: self) as! NSTableCellView
-        cellView.textField!.stringValue = String(row)
-        return cellView
-    }
-    
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         shelf.setCurrent(sender.indexOfSelectedItem)
         mainView.updateStatus(shelf.bibles[current].info)
