@@ -49,20 +49,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
 /**
 procedure TMainForm.ReadIniFile;
-  CurrFont.Name := IniFile.ReadString('Application', 'FontName', CurrFont.Name);
-  CurrFont.Size := IniFile.ReadInteger('Application', 'FontSize', CurrFont.Size);
-  ShortLink := IniFile.ReadBool('Application', 'ShortLink', True);
   FBPageVisited := IniFile.ReadBool('Application', 'FBPage', False);
   Max := IniFile.ReadInteger('Reopen', 'Count', ReopenList.Count);
   for i := 0 to Max - 1 do ReopenList.Add(IniFile.ReadString('Reopen', 'File_' + IntToStr(i), ''));
 **/
     
     func readDefaults() {
-        activeVerse.book    = UserDefaults.standard.integer(forKey: "activeVerseBook")
+        activeVerse.book    = UserDefaults.standard.integer(forKey: "active_VerseBook")
         activeVerse.chapter = UserDefaults.standard.integer(forKey: "activeVerseChapter")
         activeVerse.number  = UserDefaults.standard.integer(forKey: "activeVerseNumber")
         activeVerse.count   = UserDefaults.standard.integer(forKey: "activeVerseCount")
 
+        if let fontName  = UserDefaults.standard.string(forKey: "fontName") {
+            let fontSize = UserDefaults.standard.float(forKey: "fontSize")
+            defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
+        }
+        
         if let file = UserDefaults.standard.string(forKey: "current") {
             shelf.setCurrent(file)
         }
@@ -70,16 +72,18 @@ procedure TMainForm.ReadIniFile;
         let value = UserDefaults.standard.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
     }
-    
+
     func saveDefaults() {
         UserDefaults.standard.set(shelf.bibles[current].fileName, forKey: "current")
         
-        UserDefaults.standard.set(activeVerse.book,    forKey: "activeVerseBook")
-        UserDefaults.standard.set(activeVerse.chapter, forKey: "activeVerseChapter")
-        UserDefaults.standard.set(activeVerse.number,  forKey: "activeVerseNumber")
-        UserDefaults.standard.set(activeVerse.count,   forKey: "activeVerseCount")
+        UserDefaults.standard.set(activeVerse.book,      forKey: "activeVerseBook")
+        UserDefaults.standard.set(activeVerse.chapter,   forKey: "activeVerseChapter")
+        UserDefaults.standard.set(activeVerse.number,    forKey: "activeVerseNumber")
+        UserDefaults.standard.set(activeVerse.count,     forKey: "activeVerseCount")
+        UserDefaults.standard.set(copyOptions.rawValue,  forKey: "copyOptions")
+        UserDefaults.standard.set(defaultFont.fontName , forKey: "fontName")
+        UserDefaults.standard.set(defaultFont.pointSize, forKey: "fontSize")
 
-        UserDefaults.standard.set(copyOptions.rawValue, forKey: "copyOptions")
         UserDefaults.standard.synchronize()
     }
     

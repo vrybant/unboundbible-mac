@@ -8,7 +8,11 @@
 import Foundation
 import Cocoa
 
-let defaultAttribute = [NSAttributedStringKey.foregroundColor: NSColor.black, NSAttributedStringKey.font: NSFont.systemFont(ofSize: 14)]
+var defaultFont = NSFont.systemFont(ofSize: 14)
+
+var defaultAttribute: [NSAttributedStringKey : Any] {
+    return [NSAttributedStringKey.foregroundColor: NSColor.black, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
+}
 
 func xmlToList(string: String) -> [String] {
     var result: [String] = []
