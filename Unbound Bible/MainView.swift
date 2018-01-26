@@ -146,9 +146,10 @@ class MainView: NSViewController, NSWindowDelegate {
     @IBAction func showPreferences(_ sender: Any) {
         let alert = NSAlert()
         alert.messageText = NSLocalizedString("Preferences", comment: "")
-        alert.informativeText = NSLocalizedString("Text Font", comment: "")
+        let displayFont = defaultFont.displayName! + " " + String(describing: defaultFont.pointSize)
+        alert.informativeText = NSLocalizedString("Font", comment: "") + ": " + displayFont
         alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Font…", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Change Font", comment: ""))
         let choice = alert.runModal()
         if choice == .alertFirstButtonReturn { return } // OK
     
