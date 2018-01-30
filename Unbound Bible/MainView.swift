@@ -11,7 +11,7 @@ var mainView = MainView()
 
 class MainView: NSViewController, NSWindowDelegate {
 
-    var notesURL: URL?
+    var noteURL: URL?
     
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var statusBar: NSTextFieldCell!
@@ -48,7 +48,7 @@ class MainView: NSViewController, NSWindowDelegate {
         if url == nil { return }
         do {
             try rigthView.notesTextView.saveToFile(url: url!)
-            notesURL = url
+            noteURL = url
             appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
         } catch {
             let alert = NSAlert()
@@ -60,8 +60,8 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     func closeDocument() -> Bool {
-        saveDocument(url: notesURL)
-        if notesURL != nil { return true }
+        saveDocument(url: noteURL)
+        if noteURL != nil { return true }
         if rigthView.notesTextView.string.isEmpty { return true }
         
         selectTab(at: .notes)
@@ -76,7 +76,7 @@ class MainView: NSViewController, NSWindowDelegate {
         switch choice {
         case .alertFirstButtonReturn: // Save
             saveDocumentAs(self)
-            if notesURL != nil { return true }
+            if noteURL != nil { return true }
         case .alertThirdButtonReturn: // Don't Save
             return true
         default: break // Cancel
@@ -88,7 +88,7 @@ class MainView: NSViewController, NSWindowDelegate {
         if !mainView.closeDocument() { return }
         rigthView.notesTextView.clean()
         selectTab(at: .notes)
-        notesURL = nil
+        noteURL = nil
         appDelegate.saveMenuItem.title = NSLocalizedString("Save…", comment: "")
     }
     
@@ -109,7 +109,7 @@ class MainView: NSViewController, NSWindowDelegate {
             do {
                 try rigthView.notesTextView.loadFromFile(url: url)
                 selectTab(at: .notes)
-                notesURL = url
+                noteURL = url
                 appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
             } catch {
                 let alert = NSAlert()
@@ -122,7 +122,7 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     @IBAction func saveDocumentAs(_ sender: Any) {
-        if notesURL != nil { return }
+        if noteURL != nil { return }
         selectTab(at: .notes)
 
         let dialog = NSSavePanel()
