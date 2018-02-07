@@ -45,7 +45,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
-        mainView.updateStatus("")
+        mainView.refreshStatus()
         let identifier = tabView.selectedTabViewItem?.identifier as! String
         if identifier == "compare" {
             loadCompare()

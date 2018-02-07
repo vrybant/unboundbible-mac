@@ -11,7 +11,8 @@ var mainView = MainView()
 
 class MainView: NSViewController, NSWindowDelegate {
 
-    var noteURL: URL?
+    private var noteURL : URL?
+    private var status : [String] = ["","","",""]
     
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var statusBar: NSTextFieldCell!
@@ -40,8 +41,27 @@ class MainView: NSViewController, NSWindowDelegate {
         }
     }
     
-    func updateStatus(_ title: String) {
-        statusBar.title = title
+    func refreshStatus() {
+        let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
+        switch identifier {
+        case "bible"   : statusBar.title = status[0]
+        case "search"  : statusBar.title = status[1]
+        case "compare" : statusBar.title = status[2]
+        case "notes"   : statusBar.title = status[3]
+        default : break
+        }
+    }
+    
+    func updateStatus(_ string: String) {
+        let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
+        switch identifier {
+        case "bible"   : status[0] = string
+        case "search"  : status[1] = string
+        case "compare" : status[2] = string
+        case "notes"   : status[3] = string
+        default : break
+        }
+        refreshStatus()
     }
     
     func saveDocument(url: URL?) {
@@ -111,6 +131,9 @@ class MainView: NSViewController, NSWindowDelegate {
                 selectTab(at: .notes)
                 noteURL = url
                 appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
+                
+                let s = noteURL!.lastPathComponent 
+                updateStatus(s)
             } catch {
                 let alert = NSAlert()
                 alert.alertStyle = .critical
