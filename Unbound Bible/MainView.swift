@@ -12,7 +12,7 @@ var mainView = MainView()
 class MainView: NSViewController, NSWindowDelegate {
 
     private var noteURL : URL?
-    private var status : [String] = ["","","",""]
+    private var statuses : [String] = ["","","",""]
     
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var statusBar: NSTextFieldCell!
@@ -44,21 +44,21 @@ class MainView: NSViewController, NSWindowDelegate {
     func refreshStatus() {
         let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
         switch identifier {
-        case "bible"   : statusBar.title = status[0]
-        case "search"  : statusBar.title = status[1]
-        case "compare" : statusBar.title = status[2]
-        case "notes"   : statusBar.title = status[3]
+        case "bible"   : statusBar.title = statuses[0]
+        case "search"  : statusBar.title = statuses[1]
+        case "compare" : statusBar.title = statuses[2]
+        case "notes"   : statusBar.title = statuses[3]
         default : break
         }
     }
     
-    func updateStatus(_ string: String) {
+    func updateStatus(_ status: String) {
         let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
         switch identifier {
-        case "bible"   : status[0] = string
-        case "search"  : status[1] = string
-        case "compare" : status[2] = string
-        case "notes"   : status[3] = string
+        case "bible"   : statuses[0] = status
+        case "search"  : statuses[1] = status
+        case "compare" : statuses[2] = status
+        case "notes"   : statuses[3] = status
         default : break
         }
         refreshStatus()
