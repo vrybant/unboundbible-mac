@@ -132,8 +132,9 @@ class MainView: NSViewController, NSWindowDelegate {
                 noteURL = url
                 appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
                 
-                let s = noteURL!.lastPathComponent 
-                updateStatus(s)
+                let s = NSLocalizedString("Document Name", comment: "")
+                let status = s + ": " + noteURL!.lastPathComponent
+                updateStatus(status)
             } catch {
                 let alert = NSAlert()
                 alert.alertStyle = .critical
