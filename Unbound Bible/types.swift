@@ -7,6 +7,8 @@
 
 import Foundation
 
+var recentList : [String] = ["01","02","03","04"]
+
 enum FileFormat {
     case unbound, mybible
 }

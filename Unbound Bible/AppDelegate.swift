@@ -14,6 +14,8 @@ var appDelegate = AppDelegate()
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var saveMenuItem: NSMenuItem!
+    @IBOutlet weak var recentMenuItem: NSMenuItem!
+    @IBOutlet weak var recentMenu: NSMenu!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
@@ -23,7 +25,32 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         readDefaults()
         initialization()
         readPrivates()
+        createRecentMenu()
 //      split_View.splitView.setPosition(CGFloat(500), ofDividerAt: 0)
+    }
+    
+    @IBAction func menuItemSelected(_ sender : NSMenuItem) {
+        print("item-" + sender.title)
+    }
+    
+    @IBAction func clearRecentMenu(_ sender: Any?) {
+        print("clearRecentMenu")
+    }
+    
+    func createRecentMenu() {
+        let subMenu = NSMenu()
+        let newMenuItem = NSMenuItem()
+
+        for line in recentList {
+            subMenu.addItem(withTitle: line, action: #selector(menuItemSelected(_:)), keyEquivalent: "")
+        }
+        
+        let clearMenuTitle = NSLocalizedString("Clear Menu", comment: "")
+        subMenu.addItem(withTitle: clearMenuTitle, action: #selector(clearRecentMenu(_:)), keyEquivalent: "")
+        
+        newMenuItem.submenu = subMenu
+        NSApplication.shared.menu?.setSubmenu(subMenu, for: recentMenuItem)
+        recentMenu.addItem(newMenuItem)
     }
     
     func initialization() {

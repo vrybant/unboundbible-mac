@@ -144,11 +144,11 @@
                                                 <action selector="openDocument:" target="Ady-hI-5gd" id="bEk-WP-AXj"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Open Recent" hidden="YES" enabled="NO" id="tXI-mr-wws">
+                                        <menuItem title="Open Recent" id="tXI-mr-wws">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Open Recent" systemMenu="recentDocuments" id="oas-Oc-fiZ">
                                                 <items>
-                                                    <menuItem title="Clear Menu" hidden="YES" enabled="NO" id="vNY-rz-j42">
+                                                    <menuItem title="Clear Menu" id="vNY-rz-j42">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="clearRecentDocuments:" target="Ady-hI-5gd" id="Daa-9d-B3U"/>
@@ -217,6 +217,8 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
                     <connections>
+                        <outlet property="recentMenu" destination="oas-Oc-fiZ" id="apo-bz-Vm6"/>
+                        <outlet property="recentMenuItem" destination="tXI-mr-wws" id="ClC-4d-cNF"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
                     </connections>
                 </customObject>
