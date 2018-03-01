@@ -98,6 +98,10 @@ procedure TMainForm.ReadIniFile;
 
         let value = UserDefaults.standard.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
+        
+        if let list = UserDefaults.standard.string(forKey: "recentList") {
+            recentList = list.components(separatedBy: ";")
+        }
     }
 
     func saveDefaults() {
@@ -110,7 +114,10 @@ procedure TMainForm.ReadIniFile;
         UserDefaults.standard.set(copyOptions.rawValue,  forKey: "copyOptions")
         UserDefaults.standard.set(defaultFont.fontName , forKey: "fontName")
         UserDefaults.standard.set(defaultFont.pointSize, forKey: "fontSize")
-
+        
+        let list = recentList.joined(separator: ";")
+        UserDefaults.standard.set(list, forKey: "recentList")
+  
         UserDefaults.standard.synchronize()
     }
     
