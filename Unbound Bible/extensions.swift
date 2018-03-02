@@ -199,14 +199,14 @@ extension NSTableView {
 
 extension UserDefaults {
     func set(_ value: [String], forKey: String) {
-        let list = value.joined(separator: ";")
+        let list = value.joined(separator: "\t")
         UserDefaults.standard.set(list, forKey: forKey)
     }
     
-    func strings(forKey: String) -> [String]? {
+    func strings(forKey: String) -> [String] {
         if let value = UserDefaults.standard.string(forKey: forKey) {
-            return value.components(separatedBy: ";")
+            return value.components(separatedBy: "\t")
         }
-        return nil
+        return []
     }
 }

@@ -79,6 +79,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activeVerse.chapter = UserDefaults.standard.integer(forKey: "activeVerseChapter")
         activeVerse.number  = UserDefaults.standard.integer(forKey: "activeVerseNumber")
         activeVerse.count   = UserDefaults.standard.integer(forKey: "activeVerseCount")
+        recentList          = UserDefaults.standard.strings(forKey: "recentList")
 
         if let fontName  = UserDefaults.standard.string(forKey: "fontName") {
             let fontSize = UserDefaults.standard.float(forKey: "fontSize")
@@ -91,15 +92,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         let value = UserDefaults.standard.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
-        
-        if let value = UserDefaults.standard.strings(forKey: "recentList") {
-            recentList = value
-        }
     }
 
     func saveDefaults() {
         UserDefaults.standard.set(shelf.bibles[current].fileName, forKey: "current")
-        
         UserDefaults.standard.set(activeVerse.book,      forKey: "activeVerseBook")
         UserDefaults.standard.set(activeVerse.chapter,   forKey: "activeVerseChapter")
         UserDefaults.standard.set(activeVerse.number,    forKey: "activeVerseNumber")
@@ -108,7 +104,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         UserDefaults.standard.set(defaultFont.fontName , forKey: "fontName")
         UserDefaults.standard.set(defaultFont.pointSize, forKey: "fontSize")
         UserDefaults.standard.set(recentList,            forKey: "recentList")
-        
         UserDefaults.standard.synchronize()
     }
     
