@@ -74,13 +74,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         savePrivates()
     }
     
-/**
-procedure TMainForm.ReadIniFile;
-  FBPageVisited := IniFile.ReadBool('Application', 'FBPage', False);
-  Max := IniFile.ReadInteger('Reopen', 'Count', ReopenList.Count);
-  for i := 0 to Max - 1 do ReopenList.Add(IniFile.ReadString('Reopen', 'File_' + IntToStr(i), ''));
-**/
-    
     func readDefaults() {
         activeVerse.book    = UserDefaults.standard.integer(forKey: "active_VerseBook")
         activeVerse.chapter = UserDefaults.standard.integer(forKey: "activeVerseChapter")
@@ -99,8 +92,8 @@ procedure TMainForm.ReadIniFile;
         let value = UserDefaults.standard.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
         
-        if let list = UserDefaults.standard.string(forKey: "recentList") {
-            recentList = list.components(separatedBy: ";")
+        if let value = UserDefaults.standard.strings(forKey: "recentList") {
+            recentList = value
         }
     }
 
@@ -114,10 +107,8 @@ procedure TMainForm.ReadIniFile;
         UserDefaults.standard.set(copyOptions.rawValue,  forKey: "copyOptions")
         UserDefaults.standard.set(defaultFont.fontName , forKey: "fontName")
         UserDefaults.standard.set(defaultFont.pointSize, forKey: "fontSize")
+        UserDefaults.standard.set(recentList,            forKey: "recentList")
         
-        let list = recentList.joined(separator: ";")
-        UserDefaults.standard.set(list, forKey: "recentList")
-  
         UserDefaults.standard.synchronize()
     }
     
