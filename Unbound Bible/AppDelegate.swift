@@ -15,7 +15,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var saveMenuItem: NSMenuItem!
     @IBOutlet weak var recentMenuItem: NSMenuItem!
-    @IBOutlet weak var recentMenu: NSMenu!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
@@ -30,27 +29,35 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func menuItemSelected(_ sender : NSMenuItem) {
-        print("item-" + sender.title)
+        let tag = sender.tag
+        if 0..<recentList.count ~= tag {
+            let path = recentList[tag]
+            let url = URL(fileURLWithPath: path)
+            mainView.openDocument(url: url)
+        }
     }
     
     @IBAction func clearRecentMenu(_ sender: Any?) {
-        print("clearRecentMenu")
+        recentList.removeAll()
+        createRecentMenu()
     }
     
     func createRecentMenu() {
-        let subMenu = NSMenu()
-        let newMenuItem = NSMenuItem()
-
-        for line in recentList {
-            subMenu.addItem(withTitle: line, action: #selector(menuItemSelected(_:)), keyEquivalent: "")
+        let submenu = NSMenu()
+ 
+        for i in 0...recentList.count-1 {
+            let item = NSMenuItem()
+            item.title = URL(fileURLWithPath: recentList[i]).lastPathComponent
+            item.action = #selector(menuItemSelected(_:))
+            item.keyEquivalent = ""
+            item.tag = i
+            submenu.addItem(item)
         }
         
+        submenu.addItem(NSMenuItem.separator())
         let clearMenuTitle = NSLocalizedString("Clear Menu", comment: "")
-        subMenu.addItem(withTitle: clearMenuTitle, action: #selector(clearRecentMenu(_:)), keyEquivalent: "")
-        
-        newMenuItem.submenu = subMenu
-        NSApplication.shared.menu?.setSubmenu(subMenu, for: recentMenuItem)
-        recentMenu.addItem(newMenuItem)
+        submenu.addItem(withTitle: clearMenuTitle, action: #selector(clearRecentMenu(_:)), keyEquivalent: "")
+        NSApplication.shared.menu!.setSubmenu(submenu, for: recentMenuItem)
     }
     
     func initialization() {
@@ -75,36 +82,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func readDefaults() {
-        activeVerse.book    = UserDefaults.standard.integer(forKey: "active_VerseBook")
-        activeVerse.chapter = UserDefaults.standard.integer(forKey: "activeVerseChapter")
-        activeVerse.number  = UserDefaults.standard.integer(forKey: "activeVerseNumber")
-        activeVerse.count   = UserDefaults.standard.integer(forKey: "activeVerseCount")
-        recentList          = UserDefaults.standard.strings(forKey: "recentList")
+        let defaults = UserDefaults.standard
+        activeVerse.book    = defaults.integer(forKey: "active_VerseBook")
+        activeVerse.chapter = defaults.integer(forKey: "activeVerseChapter")
+        activeVerse.number  = defaults.integer(forKey: "activeVerseNumber")
+        activeVerse.count   = defaults.integer(forKey: "activeVerseCount")
+        recentList = defaults.stringArray(forKey: "recentList") ?? [String]()
 
-        if let fontName  = UserDefaults.standard.string(forKey: "fontName") {
-            let fontSize = UserDefaults.standard.float(forKey: "fontSize")
+        if let fontName  = defaults.string(forKey: "fontName") {
+            let fontSize = defaults.float(forKey: "fontSize")
             defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
         }
         
-        if let file = UserDefaults.standard.string(forKey: "current") {
+        if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
         }
 
-        let value = UserDefaults.standard.integer(forKey: "copyOptions")
+        let value = defaults.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
     }
 
     func saveDefaults() {
-        UserDefaults.standard.set(shelf.bibles[current].fileName, forKey: "current")
-        UserDefaults.standard.set(activeVerse.book,      forKey: "activeVerseBook")
-        UserDefaults.standard.set(activeVerse.chapter,   forKey: "activeVerseChapter")
-        UserDefaults.standard.set(activeVerse.number,    forKey: "activeVerseNumber")
-        UserDefaults.standard.set(activeVerse.count,     forKey: "activeVerseCount")
-        UserDefaults.standard.set(copyOptions.rawValue,  forKey: "copyOptions")
-        UserDefaults.standard.set(defaultFont.fontName , forKey: "fontName")
-        UserDefaults.standard.set(defaultFont.pointSize, forKey: "fontSize")
-        UserDefaults.standard.set(recentList,            forKey: "recentList")
-        UserDefaults.standard.synchronize()
+        let defaults = UserDefaults.standard
+        defaults.set(shelf.bibles[current].fileName, forKey: "current")
+        defaults.set(activeVerse.book,      forKey: "activeVerseBook")
+        defaults.set(activeVerse.chapter,   forKey: "activeVerseChapter")
+        defaults.set(activeVerse.number,    forKey: "activeVerseNumber")
+        defaults.set(activeVerse.count,     forKey: "activeVerseCount")
+        defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
+        defaults.set(defaultFont.fontName , forKey: "fontName")
+        defaults.set(defaultFont.pointSize, forKey: "fontSize")
+        defaults.set(recentList,            forKey: "recentList")
+        defaults.synchronize()
     }
     
     func readPrivates() {

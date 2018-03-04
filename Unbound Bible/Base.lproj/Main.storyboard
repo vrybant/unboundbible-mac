@@ -141,7 +141,7 @@
                                         </menuItem>
                                         <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
                                             <connections>
-                                                <action selector="openDocument:" target="Ady-hI-5gd" id="bEk-WP-AXj"/>
+                                                <action selector="openDocumentAction:" target="Ady-hI-5gd" id="ZmL-w4-NcB"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Open Recent" id="tXI-mr-wws">
@@ -159,7 +159,7 @@
                                         </menuItem>
                                         <menuItem title="Save…" keyEquivalent="s" id="pxx-59-PXV">
                                             <connections>
-                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="67Q-05-QuX"/>
+                                                <action selector="saveDocumentAction:" target="Ady-hI-5gd" id="qwZ-XY-h12"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" enabled="YES" id="aJh-i4-bef"/>
@@ -217,7 +217,6 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
                     <connections>
-                        <outlet property="recentMenu" destination="oas-Oc-fiZ" id="apo-bz-Vm6"/>
                         <outlet property="recentMenuItem" destination="tXI-mr-wws" id="ClC-4d-cNF"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
                     </connections>

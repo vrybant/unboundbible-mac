@@ -11,7 +11,7 @@ var mainView = MainView()
 
 class MainView: NSViewController, NSWindowDelegate {
 
-    private var noteURL : URL?
+    var noteURL : URL?
     private var statuses : [String] = ["","","",""]
     
     @IBOutlet weak var searchField: NSSearchField!
@@ -64,11 +64,49 @@ class MainView: NSViewController, NSWindowDelegate {
         refreshStatus()
     }
     
+    func rebuildRecentList() {
+        if noteURL == nil { return }
+        let max = 10
+        var list = [String]()
+        list.append(noteURL!.path)
+        for item in recentList {
+            if item != noteURL!.path {
+                if list.count < max {
+                    list.append(item)
+                }
+            }
+        }
+        recentList = list
+        appDelegate.createRecentMenu()
+    }
+    
+    func openDocument(url: URL?) {
+        if url == nil { return }
+        do {
+            try rigthView.notesTextView.loadFromFile(url: url!)
+            selectTab(at: .notes)
+            noteURL = url
+            rebuildRecentList()
+            appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
+            
+            let s = NSLocalizedString("Document Name", comment: "")
+            let status = s + ": " + noteURL!.lastPathComponent
+            updateStatus(status)
+        } catch {
+            let alert = NSAlert()
+            alert.alertStyle = .critical
+            let message = NSLocalizedString("The document % could not be opened.", comment: "")
+            alert.messageText = message.replace("%", url!.lastPathComponent.quoted)
+            alert.runModal()
+        }
+    }
+    
     func saveDocument(url: URL?) {
         if url == nil { return }
         do {
             try rigthView.notesTextView.saveToFile(url: url!)
             noteURL = url
+            rebuildRecentList()
             appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
         } catch {
             let alert = NSAlert()
@@ -95,7 +133,7 @@ class MainView: NSViewController, NSWindowDelegate {
         
         switch choice {
         case .alertFirstButtonReturn: // Save
-            saveDocumentAs(self)
+            saveDocumentAction(self)
             if noteURL != nil { return true }
         case .alertThirdButtonReturn: // Don't Save
             return true
@@ -112,7 +150,7 @@ class MainView: NSViewController, NSWindowDelegate {
         appDelegate.saveMenuItem.title = NSLocalizedString("Save…", comment: "")
     }
     
-    @IBAction func openDocument(_ sender: NSMenuItem) {
+    @IBAction func openDocumentAction(_ sender: NSMenuItem) {
         if !mainView.closeDocument() { return }
         let dialog = NSOpenPanel()
 
@@ -123,29 +161,12 @@ class MainView: NSViewController, NSWindowDelegate {
         dialog.allowsMultipleSelection = false
         dialog.allowedFileTypes        = ["rtf"]
         
-        if dialog.runModal() != .OK { return }
-        
-        if let url = dialog.url {
-            do {
-                try rigthView.notesTextView.loadFromFile(url: url)
-                selectTab(at: .notes)
-                noteURL = url
-                appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
-                
-                let s = NSLocalizedString("Document Name", comment: "")
-                let status = s + ": " + noteURL!.lastPathComponent
-                updateStatus(status)
-            } catch {
-                let alert = NSAlert()
-                alert.alertStyle = .critical
-                let message = NSLocalizedString("The document % could not be opened.", comment: "")
-                alert.messageText = message.replace("%", url.lastPathComponent.quoted)
-                alert.runModal()
-            }
+        if dialog.runModal() == .OK {
+            openDocument(url: dialog.url)
         }
     }
     
-    @IBAction func saveDocumentAs(_ sender: Any) {
+    @IBAction func saveDocumentAction(_ sender: Any) {
         if noteURL != nil { return }
         selectTab(at: .notes)
 
@@ -184,5 +205,6 @@ class MainView: NSViewController, NSWindowDelegate {
         fontPanel?.setPanelFont(defaultFont, isMultiple: false)
         fontPanel?.makeKeyAndOrderFront(sender)
     }
+    
 }
 
