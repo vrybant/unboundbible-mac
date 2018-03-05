@@ -146,14 +146,11 @@ class MainView: NSViewController, NSWindowDelegate {
     
     @IBAction func newDocument(_ sender: NSMenuItem) {
         if !mainView.closeDocument() { return }
-        rigthView.notesTextView.clean()
         selectTab(at: .notes)
-        noteURL = nil
         appDelegate.saveMenuItem.title = NSLocalizedString("Save…", comment: "")
     }
     
     @IBAction func openDocumentAction(_ sender: NSMenuItem) {
-        if !mainView.closeDocument() { return }
         let dialog = NSOpenPanel()
 
         dialog.showsResizeIndicator    = true
@@ -164,7 +161,9 @@ class MainView: NSViewController, NSWindowDelegate {
         dialog.allowedFileTypes        = ["rtf"]
         
         if dialog.runModal() == .OK {
-            openDocument(url: dialog.url)
+            if mainView.closeDocument() {
+                openDocument(url: dialog.url)
+            }
         }
     }
     
