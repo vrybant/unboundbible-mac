@@ -38,25 +38,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func clearRecentMenu(_ sender: Any?) {
-        recentList.removeAll()
+        recentList = []
         createRecentMenu()
     }
     
     func createRecentMenu() {
         let submenu = NSMenu()
  
-        for i in 0...recentList.count-1 {
-            let item = NSMenuItem()
-            item.title = URL(fileURLWithPath: recentList[i]).lastPathComponent
-            item.action = #selector(menuItemSelected(_:))
-            item.keyEquivalent = ""
-            item.tag = i
-            submenu.addItem(item)
+        if !recentList.isEmpty {
+            for i in 0...recentList.count-1 {
+                let item = NSMenuItem()
+                item.title = URL(fileURLWithPath: recentList[i]).lastPathComponent
+                item.action = #selector(menuItemSelected(_:))
+                item.keyEquivalent = ""
+                item.tag = i
+                submenu.addItem(item)
+            }
         }
         
         submenu.addItem(NSMenuItem.separator())
-        let clearMenuTitle = NSLocalizedString("Clear Menu", comment: "")
-        submenu.addItem(withTitle: clearMenuTitle, action: #selector(clearRecentMenu(_:)), keyEquivalent: "")
+        let title = NSLocalizedString("Clear Menu", comment: "")
+        let action =  recentList.isEmpty ? nil : #selector(clearRecentMenu(_:))
+        submenu.addItem(withTitle: title, action: action, keyEquivalent: "")
         NSApplication.shared.menu!.setSubmenu(submenu, for: recentMenuItem)
     }
     
