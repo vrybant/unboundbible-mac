@@ -33,7 +33,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if 0..<recentList.count ~= tag {
             let path = recentList[tag]
             let url = URL(fileURLWithPath: path)
-            mainView.openDocument(url: url)
+            if mainView.closeDocument() {
+                mainView.openDocument(url: url)
+            }
         }
     }
     

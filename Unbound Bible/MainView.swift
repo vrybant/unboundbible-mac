@@ -33,7 +33,6 @@ class MainView: NSViewController, NSWindowDelegate {
     
     func windowShouldClose(_ sender: NSWindow) -> Bool {
         if closeDocument() {
-            rigthView.notesTextView.clean() // предотвращает от повторного вызова closeDocument()
             NSApplication.shared.terminate(self)
             return true
         } else {
@@ -119,27 +118,30 @@ class MainView: NSViewController, NSWindowDelegate {
     
     func closeDocument() -> Bool {
         saveDocument(url: noteURL)
-        if noteURL != nil { return true }
-        if rigthView.notesTextView.string.isEmpty { return true }
-        
-        selectTab(at: .notes)
-        let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Do you want to save the changes?", comment: "")
-        alert.informativeText = NSLocalizedString("Your changes will be lost if you don't save them.", comment: "")
-        alert.addButton(withTitle: NSLocalizedString("Save", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Don't Save", comment: ""))
-        let choice = alert.runModal()
-        
-        switch choice {
-        case .alertFirstButtonReturn: // Save
-            saveDocumentAction(self)
-            if noteURL != nil { return true }
-        case .alertThirdButtonReturn: // Don't Save
-            return true
-        default: break // Cancel
+        var result = true
+        if noteURL == nil && !rigthView.notesTextView.string.isEmpty {
+            selectTab(at: .notes)
+            let alert = NSAlert()
+            alert.messageText = NSLocalizedString("Do you want to save the changes?", comment: "")
+            alert.informativeText = NSLocalizedString("Your changes will be lost if you don't save them.", comment: "")
+            alert.addButton(withTitle: NSLocalizedString("Save", comment: ""))
+            alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
+            alert.addButton(withTitle: NSLocalizedString("Don't Save", comment: ""))
+            let choice = alert.runModal()
+            switch choice {
+            case .alertFirstButtonReturn: // Save
+                saveDocumentAction(self)
+                if noteURL == nil { result = false }
+            case .alertSecondButtonReturn: // Cancel
+                result = false
+            default: break
+            }
         }
-        return false
+        if result {
+            rigthView.notesTextView.clean()
+            noteURL = nil
+        }
+        return result
     }
     
     @IBAction func newDocument(_ sender: NSMenuItem) {
