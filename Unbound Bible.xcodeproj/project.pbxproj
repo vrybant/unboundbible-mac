@@ -63,6 +63,9 @@
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
+		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		E7B8B602204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E7B8B603204EFF6400493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E7BECE3A1EA9372900CF3386 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		E7BECE3B1EA9372900CF3386 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		E7BECE3C1EA9372900CF3386 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -222,6 +225,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = CE2F17E41D33C31800BA91A6;
 			productRefGroup = CE2F17EE1D33C31800BA91A6 /* Products */;
@@ -290,6 +294,7 @@
 			children = (
 				CE2F17F71D33C31800BA91A6 /* Base */,
 				E7694F0D202B06FE00E807F0 /* ru */,
+				E7B8B601204EFF6300493978 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7C8238F202B07EC00287173 /* ru */,
+				E7B8B603204EFF6400493978 /* uk */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -306,6 +312,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7C82394202B07ED00287173 /* ru */,
+				E7B8B602204EFF6300493978 /* uk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
