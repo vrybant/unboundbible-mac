@@ -1,6 +1,9 @@
 /* Class = "NSMenuItem"; title = "Unbound Bible"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Unbound Bible";
 
+/* Class = "NSMenu"; title = "Alignment"; ObjectID = "1lY-6G-oEC"; */
+"1lY-6G-oEC.title" = "Выравнивание";
+
 /* Class = "NSMenuItem"; title = "Interlinear"; ObjectID = "1zZ-nN-0oB"; */
 "1zZ-nN-0oB.title" = "Подстрочник";
 
@@ -19,6 +22,9 @@
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
 "5QF-Oa-p0T.title" = "Правка";
 
+/* Class = "NSMenuItem"; title = "Underline"; ObjectID = "5ac-FK-eYE"; */
+"5ac-FK-eYE.title" = "Подчеркнутый";
+
 /* Class = "NSMenuItem"; title = "About Unbound Bible"; ObjectID = "5kV-Vb-QxS"; */
 "5kV-Vb-QxS.title" = "О Unbound Bible";
 
@@ -28,23 +34,44 @@
 /* Class = "NSButton"; ibShadowedToolTip = "Modules"; ObjectID = "7BN-JD-2QK"; */
 "7BN-JD-2QK.ibShadowedToolTip" = "Модули";
 
+/* Class = "NSMenu"; title = "Baseline"; ObjectID = "7Dg-dp-qIm"; */
+"7Dg-dp-qIm.title" = "Базовая линия";
+
 /* Class = "NSButtonCell"; title = "Copy"; ObjectID = "7b2-p7-I0H"; */
 "7b2-p7-I0H.title" = "Копировать";
+
+/* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "8AO-9O-fNc"; */
+"8AO-9O-fNc.title" = "По левому краю";
 
 /* Class = "NSButtonCell"; title = "Close"; ObjectID = "8NH-bp-5sR"; */
 "8NH-bp-5sR.title" = "Закрыть";
 
+/* Class = "NSMenuItem"; title = "Format"; ObjectID = "A4I-nP-3lF"; */
+"A4I-nP-3lF.title" = "Формат";
+
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
 "BOF-NM-1cW.title" = "Настройки…";
 
+/* Class = "NSMenuItem"; title = "Alignment"; ObjectID = "Cpm-5L-FdG"; */
+"Cpm-5L-FdG.title" = "Выравнивание";
+
+/* Class = "NSMenu"; title = "Writing Direction"; ObjectID = "Cz5-qR-NMX"; */
+"Cz5-qR-NMX.title" = "Направление письма";
+
 /* Class = "NSButtonCell"; title = "Close"; ObjectID = "DMf-m0-n8l"; */
 "DMf-m0-n8l.title" = "Закрыть";
+
+/* Class = "NSMenuItem"; title = "Fonts…"; ObjectID = "EK0-GI-FIr"; */
+"EK0-GI-FIr.title" = "Шрифты…";
 
 /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
 "F2S-fz-NVQ.title" = "Справка";
 
 /* Class = "NSMenuItem"; title = "Unbound Bible Help"; ObjectID = "FKE-Sm-Kum"; */
-"FKE-Sm-Kum.title" = "Unbound Bible Help";
+"FKE-Sm-Kum.title" = "Справка Unbound Bible";
+
+/* Class = "NSMenuItem"; title = "Bold"; ObjectID = "G6s-Zc-dGe"; */
+"G6s-Zc-dGe.title" = "Полужирный";
 
 /* Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9"; */
 "IAo-SY-fd9.title" = "Открыть…";
@@ -76,8 +103,17 @@
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
 "R4o-n2-Eq4.title" = "Масштаб";
 
+/* Class = "NSMenuItem"; title = "Bigger"; ObjectID = "RNu-K3-Zwd"; */
+"RNu-K3-Zwd.title" = "Увеличить";
+
+/* Class = "NSMenuItem"; title = "Colors…"; ObjectID = "RpF-m3-l2Q"; */
+"RpF-m3-l2Q.title" = "Цвета…";
+
 /* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
 "Ruw-6m-B2m.title" = "Выделить все";
+
+/* Class = "NSMenuItem"; title = "Superscript"; ObjectID = "SKr-E1-Dlm"; */
+"SKr-E1-Dlm.title" = "Надстрочная";
 
 /* Class = "NSMenuItem"; title = "Copy Verses"; ObjectID = "Tb2-Vk-PEr"; */
 "Tb2-Vk-PEr.title" = "Копировать стихи";
@@ -106,6 +142,12 @@
 /* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
 "WeT-3V-zwk.title" = "Вставить в текущем стиле";
 
+/* Class = "NSMenuItem"; title = "Italic"; ObjectID = "Wjv-fn-3si"; */
+"Wjv-fn-3si.title" = "Курсив";
+
+/* Class = "NSMenuItem"; title = "Left to Right"; ObjectID = "XH3-bn-YZa"; */
+"XH3-bn-YZa.title" = "Слева на право";
+
 /* Class = "NSButton"; ibShadowedToolTip = "Search Options"; ObjectID = "XOO-wQ-JkF"; */
 "XOO-wQ-JkF.ibShadowedToolTip" = "Настройки поиска";
 
@@ -121,14 +163,23 @@
 /* Class = "NSMenu"; title = "Notes"; ObjectID = "bib-Uj-vzu"; */
 "bib-Uj-vzu.title" = "Блокнот";
 
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "c6b-1l-Y1E"; */
+"c6b-1l-Y1E.title" = "По умолчанию";
+
 /* Class = "NSButtonCell"; title = "New Testament"; ObjectID = "cB7-aj-bfZ"; */
 "cB7-aj-bfZ.title" = "Новый Завет";
+
+/* Class = "NSMenuItem"; title = "Justify"; ObjectID = "cOg-7C-4En"; */
+"cOg-7C-4En.title" = "По ширине";
 
 /* Class = "NSMenuItem"; title = "Copy As…"; ObjectID = "cf8-0C-v73"; */
 "cf8-0C-v73.title" = "Копировать как…";
 
 /* Class = "NSMenuItem"; title = "Notes"; ObjectID = "dMs-cI-mzQ"; */
 "dMs-cI-mzQ.title" = "Блокнот";
+
+/* Class = "NSMenuItem"; title = "Subscript"; ObjectID = "dMv-Gg-LcY"; */
+"dMv-Gg-LcY.title" = "Подстрочная";
 
 /* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
 "dRJ-4n-Yzg.title" = "Отменить";
@@ -138,6 +189,9 @@
 
 /* Class = "NSTabViewItem"; label = "Bible"; ObjectID = "eAl-NP-4ch"; */
 "eAl-NP-4ch.label" = "Библия";
+
+/* Class = "NSMenuItem"; title = "Default"; ObjectID = "eLn-5R-Lbk"; */
+"eLn-5R-Lbk.title" = "По умолчанию";
 
 /* Class = "NSButtonCell"; title = "Abbreviation"; ObjectID = "gCS-F5-sao"; */
 "gCS-F5-sao.title" = "Короткая ссылка";
@@ -157,6 +211,9 @@
 /* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
 "hz9-B4-Xy5.title" = "Службы";
 
+/* Class = "NSMenuItem"; title = "Right to Left"; ObjectID = "iEQ-RP-d98"; */
+"iEQ-RP-d98.title" = "Справа на лево";
+
 /* Class = "NSButtonCell"; title = "Whole Words"; ObjectID = "iSQ-oH-JzE"; */
 "iSQ-oH-JzE.title" = "Слова целиком";
 
@@ -175,6 +232,9 @@
 /* Class = "NSMenuItem"; title = "Hyperlink"; ObjectID = "mHR-fU-Ejx"; */
 "mHR-fU-Ejx.title" = "Гиперссылка";
 
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "nlh-97-s7c"; */
+"nlh-97-s7c.title" = "По центру";
+
 /* Class = "NSMenu"; title = "Open Recent"; ObjectID = "oas-Oc-fiZ"; */
 "oas-Oc-fiZ.title" = "Открыть недавние";
 
@@ -189,6 +249,18 @@
 
 /* Class = "NSMenuItem"; title = "Save…"; ObjectID = "pxx-59-PXV"; */
 "pxx-59-PXV.title" = "Сохранить…";
+
+/* Class = "NSMenuItem"; title = "Strikethrough"; ObjectID = "q9e-HX-PiS"; */
+"q9e-HX-PiS.title" = "Зачеркнутый";
+
+/* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "qAw-Ah-khi"; */
+"qAw-Ah-khi.title" = "Направление письма";
+
+/* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "rDI-iQ-9a2"; */
+"rDI-iQ-9a2.title" = "Вставить стиль";
+
+/* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "rTh-d2-1br"; */
+"rTh-d2-1br.title" = "Базовая линия";
 
 /* Class = "NSButtonCell"; title = "Case Sensitive"; ObjectID = "s7i-b7-2cd"; */
 "s7i-b7-2cd.title" = "Регистр";
@@ -208,6 +280,12 @@
 /* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "vNY-rz-j42"; */
 "vNY-rz-j42.title" = "Очистить меню";
 
+/* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "vmd-Wk-tjI"; */
+"vmd-Wk-tjI.title" = "Уменьшить";
+
+/* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "wEk-Qd-O2W"; */
+"wEk-Qd-O2W.title" = "Копировать стиль";
+
 /* Class = "CocoaBindingsConnection"; ibShadowedDisplayPattern = "%{value1}@"; ObjectID = "whQ-9R-kwb"; */
 "whQ-9R-kwb.ibShadowedDisplayPattern" = "%{value1}@";
 
@@ -222,4 +300,10 @@
 
 /* Class = "NSButtonCell"; title = "Enumerated"; ObjectID = "xQD-7b-MDh"; */
 "xQD-7b-MDh.title" = "Нумерация стихов";
+
+/* Class = "NSMenu"; title = "Format"; ObjectID = "xQu-Vd-JCd"; */
+"xQu-Vd-JCd.title" = "Формат";
+
+/* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "yPb-lB-VA8"; */
+"yPb-lB-VA8.title" = "По правому краю";
 
