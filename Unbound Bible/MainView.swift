@@ -184,8 +184,6 @@ class MainView: NSViewController, NSWindowDelegate {
         defaultFont = NSFontManager.shared.convert(defaultFont)
         loadChapter()
         selectTab(at: .bible)
-        print(defaultFont.fontName)
-        print(defaultFont.pointSize)
     }
     
     @IBAction func showPreferences(_ sender: Any) {
