@@ -21,7 +21,7 @@ class CustomTextView: NSTextView {
 //      self.isContinuousSpellCheckingEnabled = false
     }
     
-    func colored(x: Int) -> Bool {
+    func colored(_ x: Int) -> Bool {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
             let attrChar = self.attributedString().attributedSubstring(from: range)
@@ -32,8 +32,13 @@ class CustomTextView: NSTextView {
         return false
     }
     
-    func makeHyperlink() {
-        self.textStorage?.addAttribute(NSAttributedStringKey.foregroundColor, value: navyColor, range: selectedRange)
+    func setStrikethrough() {
+        self.textStorage?.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: selectedRange)
+    }
+    
+    func setHyperlink() {
+        let color = colored(selectedRange.location) ? NSColor.black : navyColor
+        self.textStorage?.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: selectedRange)
     }
     
     func getSelection() -> String {

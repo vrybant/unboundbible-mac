@@ -152,7 +152,6 @@ class MainView: NSViewController, NSWindowDelegate {
     
     @IBAction func openDocumentAction(_ sender: NSMenuItem) {
         let dialog = NSOpenPanel()
-
         dialog.showsResizeIndicator    = true
         dialog.showsHiddenFiles        = false
         dialog.canChooseDirectories    = true

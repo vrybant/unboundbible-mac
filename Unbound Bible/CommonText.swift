@@ -11,14 +11,14 @@ import Cocoa
 class СommonTextView: CustomTextView {
     
     func getLink() -> String? {
-        if self.selectedRange.length > 0 { return nil }
-        if !colored(x: self.selectedRange.location) { return nil }
+        if selectedRange.length > 0 { return nil }
+        if !colored(selectedRange.location) { return nil }
         
-        let length = self.attributedString().length
-        var x1 = self.selectedRange.location
+        let length = attributedString().length
+        var x1 = selectedRange.location
         
-        while colored(x: x1) && (x1 < length) { x1 += 1 }; var x2 = x1 - 1;
-        while colored(x: x2) && (x2 > 0     ) { x2 -= 1 };
+        while colored(x1) && (x1 < length) { x1 += 1 }; var x2 = x1 - 1;
+        while colored(x2) && (x2 > 0     ) { x2 -= 1 };
         
         if x2 > 0 { x2 += 1 }
         
