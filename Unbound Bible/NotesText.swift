@@ -11,7 +11,11 @@ import Foundation
 class NotesTextView: СommonTextView {
 
     @IBAction func hyperlink(_ sender: NSMenuItem) {
-        makeHyperlink()
+        setHyperlink()
+    }
+    
+    @IBAction func strikethrough(_ sender: NSMenuItem) {
+        setStrikethrough()
     }
     
 }

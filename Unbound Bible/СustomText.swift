@@ -25,20 +25,32 @@ class CustomTextView: NSTextView {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
             let attrChar = self.attributedString().attributedSubstring(from: range)
-            if let color = attrChar.attribute(NSAttributedStringKey.foregroundColor, at: 0, effectiveRange: nil) {
+            if let color = attrChar.attribute(.foregroundColor, at: 0, effectiveRange: nil) {
                 return color as! NSColor == navyColor
             }
         }
         return false
     }
     
-    func setStrikethrough() {
-        self.textStorage?.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 1, range: selectedRange)
+    func striked(_ x: Int) -> Bool {
+        if x < self.attributedString().length {
+            let range = NSRange(location: x, length: 1)
+            let attrChar = self.attributedString().attributedSubstring(from: range)
+            if let style = attrChar.attribute(.strikethroughStyle, at: 0, effectiveRange: nil) {
+                return style as! Int == 1
+            }
+        }
+        return false
     }
     
     func setHyperlink() {
         let color = colored(selectedRange.location) ? NSColor.black : navyColor
-        self.textStorage?.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: selectedRange)
+        self.textStorage?.addAttribute(.foregroundColor, value: color, range: selectedRange)
+    }
+    
+    func setStrikethrough() {
+        let style = striked(selectedRange.location) ? 0 : 1
+        self.textStorage?.addAttribute(.strikethroughStyle, value: style, range: selectedRange)
     }
     
     func getSelection() -> String {
