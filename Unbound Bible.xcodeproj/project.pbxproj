@@ -38,6 +38,7 @@
 		E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA4AF1EE960E400022638 /* SplitView.swift */; };
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
+		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F771351DE865FE004AF6C0 /* RigthView.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		E7DDA4AF1EE960E400022638 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		E7E3D4F71E12B1C400912F37 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E7EF67621FF38F3400360C1D /* Shelf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
+		E7F5071A20509AEB0019F546 /* icns.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icns.icns; sourceTree = "<group>"; };
 		E7F771351DE865FE004AF6C0 /* RigthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RigthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 				E76ED6DB1E242616005AE4F2 /* extensions.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
+				E7F5071A20509AEB0019F546 /* icns.icns */,
 				E7BECE391EA9372900CF3386 /* fmdb */,
 			);
 			path = "Unbound Bible";
@@ -242,6 +245,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7F5071B20509AEC0019F546 /* icns.icns in Resources */,
 				CE2F17F51D33C31800BA91A6 /* Assets.xcassets in Resources */,
 				E7C82393202B07ED00287173 /* Localizable.strings in Resources */,
 				E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */,
