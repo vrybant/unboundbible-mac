@@ -42,11 +42,10 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     @IBAction func showHelp(_ sender: NSMenuItem) {
-        guard let code = NSLocale.autoupdatingCurrent.languageCode else { return }
-        var tail = "ubhelp.php"
-        if code == "ru" { tail = "ubhelpru.php" }
+        let tail = languageCode() == "ru" ? "ubhelpru.php" : "ubhelp.php"
         let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
+    
 }
 
