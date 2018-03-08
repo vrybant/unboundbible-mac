@@ -124,14 +124,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func readPrivates() {
         for item in shelf.bibles {
-            item.compare = UserDefaults.standard.bool(forKey: item.fileName)
+            item.compare = !UserDefaults.standard.bool(forKey: item.fileName)
         }
         UserDefaults.standard.synchronize()
     }
     
     func savePrivates() {
         for item in shelf.bibles {
-            UserDefaults.standard.set(item.compare, forKey: item.fileName)
+            UserDefaults.standard.set(!item.compare, forKey: item.fileName)
         }
         UserDefaults.standard.synchronize()
     }

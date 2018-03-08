@@ -338,18 +338,6 @@ class Bible {
         return nil
     }
     
-    func readDefaults() {
-        let defaults = UserDefaults.standard
-        defaults.register(defaults: [fileName + " compare" : true])
-        compare = defaults.bool(forKey: fileName + " compare")
-    }
-    
-    func saveDefaults(){
-        let defaults = UserDefaults.standard
-        defaults.set(compare, forKey: fileName + " compare")
-        defaults.synchronize()
-    }
-    
 }
 
 var current : Int = -1
@@ -361,7 +349,6 @@ class Shelf {
     init() {
         addBibles(dataPath)
         addBibles(resourcePath + slash + bibleDirectory)
-        readDefaults()
         bibles.sort(by: {$0.name < $1.name} )
     }
     
@@ -419,14 +406,6 @@ class Shelf {
             }
         }
         setCurrent(0)
-    }
-    
-    func readDefaults() {
-        for bible in bibles { bible.readDefaults() }
-    }
-    
-    func saveDefaults() {
-        for bible in bibles { bible.saveDefaults() }
     }
    
 }
