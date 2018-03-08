@@ -360,7 +360,7 @@ class Shelf {
     
     init() {
         addBibles(dataPath)
-//      addBibles(appDataPath + slash + bibleDirectory)
+        addBibles(resourcePath + slash + bibleDirectory)
         readDefaults()
         bibles.sort(by: {$0.name < $1.name} )
     }

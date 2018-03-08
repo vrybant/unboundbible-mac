@@ -10,15 +10,13 @@ import Cocoa
 
 let appName = "Unbound Bible"
 
-let slash = "/"
-
 let bibleDirectory = "bibles"
 let titleDirectory = "titles"
 
-let homeDirectory = NSHomeDirectory()
-let   libraryPath = NSSearchPathForDirectoriesInDomains( .libraryDirectory, .userDomainMask, true)[0] as String
-let dataPath = homeDirectory + slash + appName
-//let appDataPath = libraryPath + slash + appName
+let slash = "/"
+
+let resourcePath = Bundle.main.resourcePath!
+let dataPath = NSHomeDirectory() + slash + appName
 
 let navyColor = NSColor(red:0.00, green:0.00, blue:0.50, alpha:1.0)
 
