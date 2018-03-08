@@ -46,6 +46,20 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
+
+    @IBAction func facebookPage(_ sender: NSMenuItem) {
+        let url = "https://www.facebook.com/unbound.bible/"
+        NSWorkspace.shared.open(URL(string: url)!)
+    }
+    
+    @IBAction func homePage(_ sender: NSMenuItem) {
+        let tail = languageCode() == "ru" ? "ru" : ""
+        let url = "http://vladimirrybant.org/" + tail
+        NSWorkspace.shared.open(URL(string: url)!)
+    }
+
+    @IBAction func bibleFolder(_ sender: NSMenuItem) {
+    }
     
 }
 
