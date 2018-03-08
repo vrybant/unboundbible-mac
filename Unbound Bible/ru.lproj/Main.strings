@@ -1,3 +1,6 @@
+/* Class = "NSMenuItem"; title = "Facebook Page"; ObjectID = "0l1-Da-iy5"; */
+"0l1-Da-iy5.title" = "Страница в Фейсбуке";
+
 /* Class = "NSMenuItem"; title = "Unbound Bible"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Unbound Bible";
 
@@ -40,6 +43,9 @@
 /* Class = "NSButtonCell"; title = "Copy"; ObjectID = "7b2-p7-I0H"; */
 "7b2-p7-I0H.title" = "Копировать";
 
+/* Class = "NSMenuItem"; title = "Home Page"; ObjectID = "7z3-5j-CqM"; */
+"7z3-5j-CqM.title" = "Сайт программы";
+
 /* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "8AO-9O-fNc"; */
 "8AO-9O-fNc.title" = "По левому краю";
 
@@ -81,6 +87,9 @@
 
 /* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
 "Kd2-mp-pUS.title" = "Показать все";
+
+/* Class = "NSMenuItem"; title = "Bible Folder"; ObjectID = "Kp2-Of-jbZ"; */
+"Kp2-Of-jbZ.title" = "Библейская папка";
 
 /* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
 "LE2-aR-0XJ.title" = "Переместить все на передний план";

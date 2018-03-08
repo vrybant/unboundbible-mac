@@ -2,59 +2,59 @@
 "Application ID functions require SQLite 3.7.17" = "Application ID functions require SQLite 3.7.17";
 
 /* No comment provided by engineer. */
-"Cancel" = "Отменить";
+"Cancel" = "Скасувати";
 
 /* No comment provided by engineer. */
-"Change Font" = "Изменить шрифт";
+"Change Font" = "Змінити шрифт";
 
 /* No comment provided by engineer. */
-"Clear Menu" = "Очистить меню";
+"Clear Menu" = "Очистити меню";
 
 /* No comment provided by engineer. */
-"Do you want to save the changes?" = "Вы хотите сохранить изменения?";
+"Do you want to save the changes?" = "Ви хочете зберегти зміни?";
 
 /* No comment provided by engineer. */
-"Document Name" = "Имя документа";
+"Document Name" = "Ім'я документа";
 
 /* No comment provided by engineer. */
-"Don't Save" = "Не сохранять";
+"Don't Save" = "Не зберігати";
 
 /* No comment provided by engineer. */
-"Failed to save document." = "Не удалось сохранить документ.";
+"Failed to save document." = "Неможливо зберегти документ.";
 
 /* No comment provided by engineer. */
 "Font" = "Шрифт";
 
 /* No comment provided by engineer. */
-"Interlinear" = "Подстрочник";
+"Interlinear" = "Підрядковий";
 
 /* No comment provided by engineer. */
 "OK" = "OK";
 
 /* No comment provided by engineer. */
-"Permission denied." = "Доступ запрещен.";
+"Permission denied." = "Доступ заборонено.";
 
 /* No comment provided by engineer. */
-"Preferences" = "Настройки";
+"Preferences" = "Параметри";
 
 /* No comment provided by engineer. */
-"Save" = "Сохранить";
+"Save" = "Зберегти";
 
 /* No comment provided by engineer. */
 "Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
 
 /* No comment provided by engineer. */
-"Save…" = "Сохранить…";
+"Save…" = "Зберегти…";
 
 /* No comment provided by engineer. */
-"The document % could not be opened." = "Не удается открыть документ %.";
+"The document % could not be opened." = "Неможливо відкрити документ %.";
 
 /* No comment provided by engineer. */
-"You search for % produced no results." = "По запросу % ничего не найдено.";
+"You search for % produced no results." = "За запитом % нічого не знайдено.";
 
 /* No comment provided by engineer. */
-"Your changes will be lost if you don't save them." = "Ваши изменения будут потеряны, если вы не сохраните их.";
+"Your changes will be lost if you don't save them." = "Ваші зміни будуть втрачені, якщо ви не збережете їх.";
 
 /* No comment provided by engineer. */
-"verses was found" = "найденно стихов";
+"verses was found" = "знайдено віршів";
 
