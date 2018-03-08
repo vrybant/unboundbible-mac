@@ -54,8 +54,7 @@ class BibleTextView: CustomTextView {
         if self.selectedRange.length == 0 {
             self.setSelectedRange(NSRange(location: x1-1, length: 1))
         }
-        
-        if let result = Int(num) { return result } else { return 1 }
+        return Int(num) ?? 1
     }
     
     private func getParagraphNumber() {

@@ -39,14 +39,10 @@ class Titles {
         
         if let results = try? database!.executeQuery(query, values: nil) {
             results.next()
-            if let value = results.string(forColumn: "Name"        ) { name = value }
-            if let value = results.string(forColumn: "Abbreviation") { abbr = value }
+            name = results.string(forColumn: "Name") ?? String(n)
+            abbr = results.string(forColumn: "Abbreviation") ?? name
         }
-        
-        if name.isEmpty { name = String(n) }
-        if abbr.isEmpty { abbr = name }
-        
-        if abbreviation { return abbr } else { return name }
+        return abbreviation ? abbr : name
     }
     
     func getTitle(_ n: Int) -> String {

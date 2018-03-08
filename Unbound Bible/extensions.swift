@@ -19,8 +19,7 @@ extension String
     }
     
     var toInt: Int {
-        if let number = Int(self) { return number }
-        else { return 0 }
+        return Int(self) ?? 0
     }
     
     var trimmed: String {
@@ -133,12 +132,11 @@ extension String
 
 extension Substring {
 
-    func toInt() -> Int {
-        if let number = Int(self) { return number }
-        else { return 0 }
+    var toInt: Int {
+        return Int(self) ?? 0
     }
     
-    func trimmed() -> Substring {
+    var trimmed: Substring {
         let result = self.trimmingCharacters(in: CharacterSet.whitespaces)
         return Substring(result)
     }

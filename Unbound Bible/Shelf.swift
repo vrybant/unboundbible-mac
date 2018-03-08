@@ -189,11 +189,7 @@ class Bible {
     
     func decodeIndex(_ index: Int) -> Int {
         if fileFormat != .mybible { return index }
-        if let result = myBibleArray.index(of: index) {
-            return result
-        } else {
-            return index
-        }
+        return myBibleArray.index(of: index) ?? index
     }
 
     func getChapter(_ verse : Verse) -> [String] {
@@ -312,12 +308,12 @@ class Bible {
         if title == ""  { return nil }
         
         let index = link.index(link.startIndex, offsetBy: title.count)
-        var string = link[index...].trimmed()
+        var string = link[index...].trimmed
         
         if let index = string.index(of: "-") {
             let subst = string[index...]
             let idx = subst.index(after: subst.startIndex)
-            limit = subst[idx...].toInt()
+            limit = subst[idx...].toInt
             string = string[..<index]
         }
         
@@ -327,8 +323,8 @@ class Bible {
             let idx = subst.index(after: subst.startIndex)
             let number = subst[idx...]
             
-            verse.chapter = chapter.toInt()
-            verse.number = number.toInt()
+            verse.chapter = chapter.toInt
+            verse.number = number.toInt
             if limit == 0 { verse.count = 1 } else { verse.count = limit - verse.number + 1 }
             if verse.book > 0 && verse.chapter > 0 && verse.number > 0 && verse.count > 0 {
                 return verse
