@@ -348,16 +348,16 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Uab-6I-dqj"/>
-                                        <menuItem title="Facebook Page" id="0l1-Da-iy5">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="facebookPage:" target="Ady-hI-5gd" id="KPV-Sl-KHP"/>
-                                            </connections>
-                                        </menuItem>
                                         <menuItem title="Home Page" id="7z3-5j-CqM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="homePage:" target="Ady-hI-5gd" id="uYm-ll-hTR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Facebook Page" id="0l1-Da-iy5">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="facebookPage:" target="Ady-hI-5gd" id="KPV-Sl-KHP"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="8a7-HD-AgK"/>
