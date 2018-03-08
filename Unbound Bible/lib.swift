@@ -102,4 +102,10 @@ func getRightToLeft(language: String) -> Bool {
     return language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }
 
-
+func createDirectories() {
+    if FileManager.default.fileExists(atPath: dataPath) { return }
+    do {
+        try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
+    } catch {
+    }
+}

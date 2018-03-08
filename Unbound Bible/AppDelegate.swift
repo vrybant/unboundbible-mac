@@ -66,6 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func initialization() {
+        createDirectories()
         if shelf.bibles.isEmpty { return }
         leftView.bibleMenuInit()
         mainView.updateStatus(shelf.bibles[current].info)
