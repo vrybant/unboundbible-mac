@@ -18,7 +18,7 @@ class Titles {
     
     private func getFileName(language: String) -> String {
         var file : String = "english.sqlite"
-        let path : String = dataPath + slash + titleDirectory
+        let path : String = resourcePath + slash + titleDirectory
         
         if !language.isEmpty {
             let list = getFileList(path)

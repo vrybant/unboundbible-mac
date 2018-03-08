@@ -13,6 +13,7 @@
 		CE2F17F81D33C31800BA91A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F61D33C31800BA91A6 /* Main.storyboard */; };
 		E719DAF01ECB302D00137035 /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719DAEF1ECB302D00137035 /* types.swift */; };
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
+		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DF9E11DE8651C00A46DA1 /* LeftView.swift */; };
 		E73697B41DE4AEFD00FAA898 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73697B31DE4AEFD00FAA898 /* lib.swift */; };
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
@@ -52,6 +53,7 @@
 		CE2F17F91D33C31800BA91A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E719DAEF1ECB302D00137035 /* types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		E71B29CE1E0C218200173E77 /* WinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinController.swift; sourceTree = "<group>"; };
+		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
 		E72DF9E11DE8651C00A46DA1 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		E73697B31DE4AEFD00FAA898 /* lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			children = (
 				CE2F17EF1D33C31800BA91A6 /* Unbound Bible */,
 				E75525942051334A00BDD425 /* bibles */,
+				E7228FB5205142AE00C78C3C /* titles */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
 				E7BECE4A1EA9390400CF3386 /* Frameworks */,
 			);
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7F5071B20509AEC0019F546 /* icns.icns in Resources */,
+				E7228FB6205142AE00C78C3C /* titles in Resources */,
 				CE2F17F51D33C31800BA91A6 /* Assets.xcassets in Resources */,
 				E7C82393202B07ED00287173 /* Localizable.strings in Resources */,
 				E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */,
