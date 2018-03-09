@@ -43,12 +43,12 @@ class CustomTextView: NSTextView {
         return false
     }
     
-    func setHyperlink() {
+    func hyperlink() {
         let color = colored(selectedRange.location) ? NSColor.black : navyColor
         self.textStorage?.addAttribute(.foregroundColor, value: color, range: selectedRange)
     }
     
-    func setStrikethrough() {
+    func strike() {
         let style = striked(selectedRange.location) ? 0 : 1
         self.textStorage?.addAttribute(.strikethroughStyle, value: style, range: selectedRange)
     }

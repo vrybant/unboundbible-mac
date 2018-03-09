@@ -171,28 +171,28 @@
                                     <items>
                                         <menuItem title="Fonts…" keyEquivalent="t" id="EK0-GI-FIr">
                                             <connections>
-                                                <action selector="orderFrontFontPanel:" target="3aF-m0-QvB" id="xpg-Vw-Vaa"/>
+                                                <action selector="fontPanel:" target="Ady-hI-5gd" id="eTh-aa-c61"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Colors…" keyEquivalent="C" id="RpF-m3-l2Q">
                                             <connections>
-                                                <action selector="orderFrontColorPanel:" target="Ady-hI-5gd" id="5U6-Ia-E7K"/>
+                                                <action selector="colorPanel:" target="Ady-hI-5gd" id="6h5-53-235"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Gzn-vM-4sj"/>
                                         <menuItem title="Bold" tag="2" keyEquivalent="b" id="G6s-Zc-dGe">
                                             <connections>
-                                                <action selector="addFontTrait:" target="3aF-m0-QvB" id="SQq-zf-pcf"/>
+                                                <action selector="bold:" target="Ady-hI-5gd" id="M0x-m0-PTx"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Italic" tag="1" keyEquivalent="i" id="Wjv-fn-3si">
                                             <connections>
-                                                <action selector="addFontTrait:" target="3aF-m0-QvB" id="vME-Jp-PvF"/>
+                                                <action selector="italic:" target="Ady-hI-5gd" id="J47-ZF-XaX"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Underline" keyEquivalent="u" id="5ac-FK-eYE">
                                             <connections>
-                                                <action selector="underline:" target="Ady-hI-5gd" id="3up-I1-WVG"/>
+                                                <action selector="underlineAction:" target="Ady-hI-5gd" id="85e-M3-mFO"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Strikethrough" tag="4" keyEquivalent="U" id="q9e-HX-PiS">
@@ -208,12 +208,12 @@
                                         <menuItem isSeparatorItem="YES" id="dkl-CN-2gu"/>
                                         <menuItem title="Bigger" tag="3" keyEquivalent="+" id="RNu-K3-Zwd">
                                             <connections>
-                                                <action selector="modifyFont:" target="3aF-m0-QvB" id="C6x-LK-iTt"/>
+                                                <action selector="bigger:" target="Ady-hI-5gd" id="0AB-iz-VfI"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Smaller" tag="4" keyEquivalent="-" id="vmd-Wk-tjI">
                                             <connections>
-                                                <action selector="modifyFont:" target="3aF-m0-QvB" id="Hp6-0r-EfV"/>
+                                                <action selector="smaller:" target="Ady-hI-5gd" id="xZS-9X-W5x"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="8QG-zR-4Pc"/>
