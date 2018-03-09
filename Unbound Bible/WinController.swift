@@ -25,7 +25,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     func showUpdate() {
-        let tail = languageCode() == "ru" ? "ubupdate.php" : "ubhelp.php"
+        let tail = languageCode() == "ru" ? "ubupdateru.php" : "ubupdate.php"
         let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
@@ -36,18 +36,18 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         let month = calendar.component(.month, from: date)
         let year  = calendar.component(.year,  from: date)
 
-        if year == 2018 || month == 9 {
-            let alert = NSAlert()
-            alert.messageText = applicationName
-            alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
-                                    NSLocalizedString("Update to the stable version.", comment: "")
-            alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
-            alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
-            let choice = alert.runModal()
-            if choice == .alertFirstButtonReturn {
-                showUpdate()
-                exit(0)
-            }
+        if year != 2018 || month != 9 { return }
+
+        let alert = NSAlert()
+        alert.messageText = applicationName
+        alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
+                                NSLocalizedString("Update to the stable version.", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
+        alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
+        let choice = alert.runModal()
+        if choice == .alertFirstButtonReturn {
+            showUpdate()
+            exit(0)
         }
     }
     
