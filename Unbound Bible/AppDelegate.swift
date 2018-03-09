@@ -15,17 +15,25 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBOutlet weak var saveMenuItem: NSMenuItem!
     @IBOutlet weak var recentMenuItem: NSMenuItem!
+    @IBOutlet weak var defaultBaseline: NSMenuItem!
+    @IBOutlet weak var defaultDirection: NSMenuItem!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
         UserDefaults.standard.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
         UserDefaults.standard.synchronize()
-//      copySpecial.isEnabled = false
         readDefaults()
         initialization()
         readPrivates()
         createRecentMenu()
-//      split_View.splitView.setPosition(CGFloat(500), ofDividerAt: 0)
+        localization()
+    }
+    
+    func localization() {
+        if languageCode() == "uk" {
+            defaultBaseline.title = "Стандартна"
+            defaultDirection.title = "Стандартний"
+        }
     }
     
     @IBAction func menuItemSelected(_ sender : NSMenuItem) {

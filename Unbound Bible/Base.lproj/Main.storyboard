@@ -378,6 +378,8 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
                     <connections>
+                        <outlet property="defaultBaseline" destination="eLn-5R-Lbk" id="Uys-2r-y2z"/>
+                        <outlet property="defaultDirection" destination="c6b-1l-Y1E" id="oaE-NE-G6J"/>
                         <outlet property="recentMenuItem" destination="tXI-mr-wws" id="ClC-4d-cNF"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
                     </connections>
