@@ -8,7 +8,7 @@
 import Foundation
 import Cocoa
 
-let appName = "Unbound Bible"
+let applicationName = "Unbound Bible"
 
 let bibleDirectory = "bibles"
 let titleDirectory = "titles"
@@ -16,7 +16,7 @@ let titleDirectory = "titles"
 let slash = "/"
 
 let resourcePath = Bundle.main.resourcePath!
-let dataPath = NSHomeDirectory() + slash + appName
+let dataPath = NSHomeDirectory() + slash + applicationName
 
 let navyColor = NSColor(red:0.00, green:0.00, blue:0.50, alpha:1.0)
 

@@ -15,9 +15,41 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         super.windowDidLoad()
         self.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "AutosaveWindows")
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+            self.alertUpdate()
+        }
+        
         //      self.window?.titlebarAppearsTransparent = true      // Bible Verse Desktop
         //      self.window?.styleMask.insert(.fullSizeContentView)
         //      self.window?.isMovableByWindowBackground = true
+    }
+    
+    func showUpdate() {
+        let tail = languageCode() == "ru" ? "ubupdate.php" : "ubhelp.php"
+        let url = "http://vladimirrybant.org/goto/" + tail
+        NSWorkspace.shared.open(URL(string: url)!)
+    }
+    
+    func alertUpdate() {
+        let max = 9
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        if month < max { return }
+        
+        let alert = NSAlert()
+        alert.messageText = applicationName
+        alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
+                                NSLocalizedString("Update to the stable version.", comment: "")
+        alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
+        if month == max {
+            alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
+        }
+        let choice = alert.runModal()
+        if choice == .alertFirstButtonReturn {
+            showUpdate()
+            exit(0)
+        }
     }
     
     @IBAction func copyAction(_ sender: NSButton) {
