@@ -31,24 +31,23 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     func alertUpdate() {
-        let max = 9
         let date = Date()
         let calendar = Calendar.current
         let month = calendar.component(.month, from: date)
-        if month < max { return }
-        
-        let alert = NSAlert()
-        alert.messageText = applicationName
-        alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
-                                NSLocalizedString("Update to the stable version.", comment: "")
-        alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
-        if month == max {
+        let year  = calendar.component(.year,  from: date)
+
+        if year == 2018 || month == 9 {
+            let alert = NSAlert()
+            alert.messageText = applicationName
+            alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
+                                    NSLocalizedString("Update to the stable version.", comment: "")
+            alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
             alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
-        }
-        let choice = alert.runModal()
-        if choice == .alertFirstButtonReturn {
-            showUpdate()
-            exit(0)
+            let choice = alert.runModal()
+            if choice == .alertFirstButtonReturn {
+                showUpdate()
+                exit(0)
+            }
         }
     }
     
