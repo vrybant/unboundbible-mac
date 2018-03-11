@@ -336,20 +336,24 @@ class Bible {
     
 }
 
-var current : Int = -1
 var shelf = Shelf()
 
 var bible: Bible {
-    return shelf.bibles[current]
+    return shelf.bibles[shelf.current]
 }
 
 class Shelf {
     var bibles : [Bible] = []
-    
+    var current : Int = -1
+
     init() {
         addBibles(dataPath)
         addBibles(resourcePath + slash + bibleDirectory)
         bibles.sort(by: {$0.name < $1.name} )
+    }
+    
+    var isEmpty: Bool {
+        return self.bibles.isEmpty
     }
     
     func fileList(_ path: String) -> [String] {
@@ -391,9 +395,9 @@ class Shelf {
     func setCurrent(_ index: Int) {
         if index >= self.bibles.count { return }
         current = index
-        self.bibles[current].loadDatabase()
-        if !self.bibles[current].goodLink(activeVerse) {
-            activeVerse = self.bibles[current].firstVerse
+        bibles[current].loadDatabase()
+        if !bibles[current].goodLink(activeVerse) {
+            activeVerse = bibles[current].firstVerse
         }
     }
     
@@ -407,6 +411,6 @@ class Shelf {
         }
         setCurrent(0)
     }
-   
+    
 }
 

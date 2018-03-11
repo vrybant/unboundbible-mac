@@ -37,7 +37,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         for item in shelf.bibles {
             popUpButton.addItem(withTitle: item.name)
         }
-        popUpButton.selectItem(at: current)
+        popUpButton.selectItem(at: shelf.current)
     }
     
     func makeBookList() {
