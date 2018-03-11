@@ -20,8 +20,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
-        UserDefaults.standard.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
-        UserDefaults.standard.synchronize()
         initialization()
         createRecentMenu()
         localization()
@@ -30,7 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func initialization() {
         createDirectories()
         readDefaults()
-        print(shelf.current)
         if shelf.isEmpty { return }
         leftView.bibleMenuInit()
         mainView.updateStatus(bible!.info)
@@ -64,7 +61,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func createRecentMenu() {
         let submenu = NSMenu()
- 
+        
         if !recentList.isEmpty {
             for i in 0...recentList.count-1 {
                 let item = NSMenuItem()
@@ -98,12 +95,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func readDefaults() {
         let defaults = UserDefaults.standard
+        defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
+        defaults.synchronize()
+
         activeVerse.book    = defaults.integer(forKey: "active_VerseBook")
         activeVerse.chapter = defaults.integer(forKey: "activeVerseChapter")
         activeVerse.number  = defaults.integer(forKey: "activeVerseNumber")
         activeVerse.count   = defaults.integer(forKey: "activeVerseCount")
         recentList = defaults.stringArray(forKey: "recentList") ?? [String]()
-
+        
         if let fontName  = defaults.string(forKey: "fontName") {
             let fontSize = defaults.float(forKey: "fontSize")
             defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
@@ -112,13 +112,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
         } else {
-            shelf.setCurrent(0)
+            switch languageCode() {
+            case "ru" : shelf.setCurrent("rstw.unbound")
+            case "uk" : shelf.setCurrent("ubio.unbound")
+            default : shelf.setCurrent("kjv.unbound")
+            }
         }
-
+        
         let value = defaults.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
     }
-
+    
     func saveDefaults() {
         let defaults = UserDefaults.standard
         defaults.set(bible!.fileName,       forKey: "current")
@@ -148,6 +152,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         UserDefaults.standard.synchronize()
     }
-
+    
 }
 
