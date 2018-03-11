@@ -97,6 +97,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
         defaults.synchronize()
+        
+            if !UserDefaults.launchedBefore()
+            {
+                print("First launch")
+            }
 
         activeVerse.book    = defaults.integer(forKey: "active_VerseBook")
         activeVerse.chapter = defaults.integer(forKey: "activeVerseChapter")
@@ -133,6 +138,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.synchronize()
 //        let domain = Bundle.main.bundleIdentifier!
 //        defaults.removePersistentDomain(forName: domain)
+
     }
     
     func readPrivates() {

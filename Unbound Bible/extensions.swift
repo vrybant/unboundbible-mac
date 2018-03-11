@@ -195,4 +195,14 @@ extension NSTableView {
     }
 }
 
+extension UserDefaults {
+    static func launchedBefore() -> Bool {
+        let result = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !result {
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            UserDefaults.standard.synchronize()
+        }
+        return result
+    }
+}
 
