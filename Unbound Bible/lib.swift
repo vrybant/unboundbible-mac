@@ -44,13 +44,21 @@ func getFileList(_ path: String) -> [String] {
     }
 }
 
+func defaultBible() -> String {
+    switch languageCode() {
+    case "ru" : return "rstw.unbound"
+    case "uk" : return "ubio.unbound"
+    default   : return "kjv.unbound"
+    }
+}
+
 //    func getFileListWithExt(_ path: String, ext: String) -> [String] {
 //     return getFileList(path).filter{ $0.hasSuffix(".\(ext)") }
 //    }
 
-func StringByDeletingPathExtension(_ path: String) -> String {
-    return (NSURL(fileURLWithPath: path).deletingPathExtension?.lastPathComponent)! as String
-}
+//    func StringByDeletingPathExtension(_ path: String) -> String {
+//        return (NSURL(fileURLWithPath: path).deletingPathExtension?.lastPathComponent)! as String
+//    }
 
 func readFromFile(_ path: String) -> String {
     var text : String

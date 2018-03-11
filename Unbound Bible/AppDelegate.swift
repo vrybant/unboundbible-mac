@@ -112,11 +112,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
         } else {
-            switch languageCode() {
-            case "ru" : shelf.setCurrent("rstw.unbound")
-            case "uk" : shelf.setCurrent("ubio.unbound")
-            default : shelf.setCurrent("kjv.unbound")
-            }
+            shelf.setCurrent(defaultBible())
         }
         
         let value = defaults.integer(forKey: "copyOptions")
