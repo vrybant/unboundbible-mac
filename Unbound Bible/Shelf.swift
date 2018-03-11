@@ -338,7 +338,8 @@ class Bible {
 
 var shelf = Shelf()
 
-var bible: Bible {
+var bible: Bible? {
+    if shelf.current < 0 { return nil }
     return shelf.bibles[shelf.current]
 }
 
@@ -362,13 +363,13 @@ class Shelf {
         }
     }
     
-    private func checkDoubleName(bible: Bible) {
+    private func checkDoubleName(newItem: Bible) {
         var l : Bool
         repeat {
             l = false
             for item in bibles {
-                if item.name == bible.name {
-                    bible.name = bible.name + "*"
+                if item.name == newItem.name {
+                    newItem.name = newItem.name + "*"
                     l = true
                 }
             }
@@ -378,18 +379,10 @@ class Shelf {
     func addBibles(_ path: String) {
         let files = fileList(path)
         for file in files {
-            let bible = Bible(filePath: path, fileName: file)
-            checkDoubleName(bible: bible)
-            bibles.append(bible)
+            let item = Bible(filePath: path, fileName: file)
+            checkDoubleName(newItem: item)
+            bibles.append(item)
         }
-    }
-    
-    func isLoaded() -> Bool {
-        var result : Bool = true
-        for item in bibles {
-            if item.compare && !item.loaded { result = false }
-        }
-        return result
     }
     
     func setCurrent(_ index: Int) {

@@ -22,11 +22,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         appDelegate = self
         UserDefaults.standard.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
         UserDefaults.standard.synchronize()
-        readDefaults()
         initialization()
-        readPrivates()
         createRecentMenu()
         localization()
+    }
+    
+    func initialization() {
+        createDirectories()
+        readDefaults()
+        print(shelf.current)
+        if shelf.isEmpty { return }
+        leftView.bibleMenuInit()
+        mainView.updateStatus(bible!.info)
+        leftView.makeBookList()
+        goToVerse(activeVerse, select: (activeVerse.number > 1))
+        readPrivates()
     }
     
     func localization() {
@@ -73,15 +83,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NSApplication.shared.menu!.setSubmenu(submenu, for: recentMenuItem)
     }
     
-    func initialization() {
-        createDirectories()
-        if shelf.bibles.isEmpty { return }
-        leftView.bibleMenuInit()
-       mainView.updateStatus(bible.info)
-        leftView.makeBookList()
-        goToVerse(activeVerse, select: (activeVerse.number > 1))
-    }
-    
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         if mainView.closeDocument() {
             return NSApplication.TerminateReply.terminateNow
@@ -110,6 +111,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
+        } else {
+            shelf.setCurrent(0)
         }
 
         let value = defaults.integer(forKey: "copyOptions")
@@ -117,11 +120,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func saveDefaults() {
-        let domain = Bundle.main.bundleIdentifier!
-        print(domain)
-
         let defaults = UserDefaults.standard
-        defaults.set(bible.fileName,        forKey: "current")
+        defaults.set(bible!.fileName,       forKey: "current")
         defaults.set(activeVerse.book,      forKey: "activeVerseBook")
         defaults.set(activeVerse.chapter,   forKey: "activeVerseChapter")
         defaults.set(activeVerse.number,    forKey: "activeVerseNumber")
@@ -130,8 +130,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
         defaults.set(recentList,            forKey: "recentList")
-        //defaults.removePersistentDomain(forName: domain)
         defaults.synchronize()
+//        let domain = Bundle.main.bundleIdentifier!
+//        defaults.removePersistentDomain(forName: domain)
     }
     
     func readPrivates() {
