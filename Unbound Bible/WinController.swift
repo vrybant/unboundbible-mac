@@ -9,15 +9,34 @@ import Cocoa
 
 class WinController: NSWindowController, NSSearchFieldDelegate {
     
+    @IBOutlet weak var windowOutlet: NSWindow!
     @IBOutlet weak var searchField: NSSearchField!
     
     override func windowDidLoad() {
         super.windowDidLoad()
         self.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "AutosaveWindows")
         
+        if !UserDefaults.launchedBefore() {
+            setDefaultFrame()
+        }
+
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.alertUpdate()
         }
+    }
+    
+    func setDefaultFrame() {
+        let screen : NSScreen = NSScreen.main!
+        let rect: NSRect = screen.frame
+        let height = rect.size.height * 0.65
+        let width  = rect.size.width  * 0.55
+        let top  = (rect.size.height + height) / 2
+        let left = (rect.size.width  - width ) / 2
+        let point = CGPoint(x: left, y: top)
+        let frame = CGRect(x: 0, y: 0, width: width, height: height)
+        
+        windowOutlet.setFrame(frame, display: true)
+        windowOutlet.setFrameTopLeftPoint(point)
     }
     
     func showUpdate() {
