@@ -18,10 +18,6 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
             self.alertUpdate()
         }
-        
-        //      self.window?.titlebarAppearsTransparent = true      // Bible Verse Desktop
-        //      self.window?.styleMask.insert(.fullSizeContentView)
-        //      self.window?.isMovableByWindowBackground = true
     }
     
     func showUpdate() {
