@@ -339,6 +339,10 @@ class Bible {
 var current : Int = -1
 var shelf = Shelf()
 
+var bible: Bible {
+    return shelf.bibles[current]
+}
+
 class Shelf {
     var bibles : [Bible] = []
     
@@ -378,8 +382,8 @@ class Shelf {
     
     func isLoaded() -> Bool {
         var result : Bool = true
-        for bible in bibles {
-            if bible.compare && !bible.loaded { result = false }
+        for item in bibles {
+            if item.compare && !item.loaded { result = false }
         }
         return result
     }

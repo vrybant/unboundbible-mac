@@ -77,7 +77,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         createDirectories()
         if shelf.bibles.isEmpty { return }
         leftView.bibleMenuInit()
-        mainView.updateStatus(shelf.bibles[current].info)
+       mainView.updateStatus(bible.info)
         leftView.makeBookList()
         goToVerse(activeVerse, select: (activeVerse.number > 1))
     }
@@ -117,8 +117,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func saveDefaults() {
+        let domain = Bundle.main.bundleIdentifier!
+        print(domain)
+
         let defaults = UserDefaults.standard
-        defaults.set(shelf.bibles[current].fileName, forKey: "current")
+        defaults.set(bible.fileName,        forKey: "current")
         defaults.set(activeVerse.book,      forKey: "activeVerseBook")
         defaults.set(activeVerse.chapter,   forKey: "activeVerseChapter")
         defaults.set(activeVerse.number,    forKey: "activeVerseNumber")
@@ -127,6 +130,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
         defaults.set(recentList,            forKey: "recentList")
+        //defaults.removePersistentDomain(forName: domain)
         defaults.synchronize()
     }
     

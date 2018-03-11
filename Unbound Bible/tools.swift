@@ -8,7 +8,7 @@
 import Cocoa
 
 func loadChapter() {
-    let text = shelf.bibles[current].getChapter(activeVerse)
+    let text = bible.getChapter(activeVerse)
     let attributedString = NSMutableAttributedString()
     
     if text.count > 0 {
@@ -18,22 +18,22 @@ func loadChapter() {
         }
     }
     
-    rigthView.bibleTextView.baseWritingDirection = shelf.bibles[current].rightToLeft ? .rightToLeft : .leftToRight
+    rigthView.bibleTextView.baseWritingDirection = bible.rightToLeft ? .rightToLeft : .leftToRight
     rigthView.bibleTextView.textStorage?.setAttributedString(attributedString)
 }
 
 func loadCompare() {  
     if shelf.bibles.isEmpty { return }
     
-    let link = shelf.bibles[current].verseToString(activeVerse, full: true) + "\n"
+    let link = bible.verseToString(activeVerse, full: true) + "\n"
     let attrString = NSMutableAttributedString()
     attrString.append( parse(link, jtag: false) )
     
-    for bible in shelf.bibles {
-        if !bible.compare { continue }
+    for item in shelf.bibles {
+        if !item.compare { continue }
         
-        if let list = bible.getRange(activeVerse) {
-            let name = bible.name
+        if let list = item.getRange(activeVerse) {
+            let name = item.name
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + name + "</l>\n" + text
             attrString.append( parse(string, jtag: false) )
@@ -51,9 +51,9 @@ func searchText(string: String) {
     let attributedString = NSMutableAttributedString()
     let range = currentSearchRange()
     
-    if let searchResult = shelf.bibles[current].search(string: string, options: searchOption, range: range) {
+    if let searchResult = bible.search(string: string, options: searchOption, range: range) {
         for content in searchResult {
-            let link = shelf.bibles[current].verseToString(content.verse, full: true)
+            let link = bible.verseToString(content.verse, full: true)
             let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
             let out = "<l>\(link)</l> \(text)\n\n"
             attributedString.append(parse(out, jtag: false))
@@ -72,8 +72,8 @@ func searchText(string: String) {
 
 func goToVerse(_ verse: Verse, select: Bool) {
     if shelf.bibles.isEmpty { return }
-    if !shelf.bibles[current].goodLink(verse) { return }
-    if let index = shelf.bibles[current].idxByNum(verse.book) {
+    if !bible.goodLink(verse) { return }
+    if let index = bible.idxByNum(verse.book) {
         activeVerse = verse
         leftView.bookTableView.selectRow(index: index)
         leftView.chapterTableView.selectRow(index: verse.chapter - 1)
@@ -85,11 +85,11 @@ func goToVerse(_ verse: Verse, select: Bool) {
 }
 
 func copyVerses(options: CopyOptions) -> NSMutableAttributedString {
-    guard let list = shelf.bibles[current].getRange(activeVerse) else { return NSMutableAttributedString() }
+    guard let list = bible.getRange(activeVerse) else { return NSMutableAttributedString() }
     var out = ""
     
     let full = !options.contains(.abbreviate)
-    var link = "<l>" + shelf.bibles[current].verseToString(activeVerse, full: full) + "</l>"
+    var link = "<l>" + bible.verseToString(activeVerse, full: full) + "</l>"
     var n = activeVerse.number
     var l = false
     
