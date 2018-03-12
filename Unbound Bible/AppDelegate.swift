@@ -21,8 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
         initialization()
-        createRecentMenu()
-        localization()
     }
     
     func initialization() {
@@ -34,6 +32,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         leftView.makeBookList()
         goToVerse(activeVerse, select: (activeVerse.number > 1))
         readPrivates()
+        createRecentMenu()
+        localization()
     }
     
     func localization() {
@@ -100,10 +100,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //      defaults.removePersistentDomain(forName: domain) // debug
         defaults.synchronize()
 
-        activeVerse.book    = defaults.integer(forKey: "active_VerseBook")
-        activeVerse.chapter = defaults.integer(forKey: "activeVerseChapter")
-        activeVerse.number  = defaults.integer(forKey: "activeVerseNumber")
-        activeVerse.count   = defaults.integer(forKey: "activeVerseCount")
+        activeVerse.book    = defaults.integer(forKey: "verseBook")
+        activeVerse.chapter = defaults.integer(forKey: "verseChapter")
+        activeVerse.number  = defaults.integer(forKey: "verseNumber")
+        activeVerse.count   = defaults.integer(forKey: "verseCount")
         recentList = defaults.stringArray(forKey: "recentList") ?? [String]()
         
         if let fontName  = defaults.string(forKey: "fontName") {
@@ -125,10 +125,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if shelf.isEmpty { return }
         let defaults = UserDefaults.standard
         defaults.set(bible!.fileName,       forKey: "current")
-        defaults.set(activeVerse.book,      forKey: "activeVerseBook")
-        defaults.set(activeVerse.chapter,   forKey: "activeVerseChapter")
-        defaults.set(activeVerse.number,    forKey: "activeVerseNumber")
-        defaults.set(activeVerse.count,     forKey: "activeVerseCount")
+        defaults.set(activeVerse.book,      forKey: "verseBook")
+        defaults.set(activeVerse.chapter,   forKey: "verseChapter")
+        defaults.set(activeVerse.number,    forKey: "verseNumber")
+        defaults.set(activeVerse.count,     forKey: "verseCount")
         defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
