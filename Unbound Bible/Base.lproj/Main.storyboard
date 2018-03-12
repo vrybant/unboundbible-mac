@@ -742,7 +742,7 @@
                             </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sSq-Hi-Axe" secondAttribute="trailing" id="CWs-ZJ-KzL"/>
+                            <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="sSq-Hi-Axe" secondAttribute="trailing" constant="1000" id="CWs-ZJ-KzL"/>
                             <constraint firstAttribute="bottom" secondItem="NwT-YQ-Qhx" secondAttribute="bottom" constant="19" id="Fhq-QB-mIs"/>
                             <constraint firstAttribute="bottom" secondItem="sSq-Hi-Axe" secondAttribute="bottom" id="W82-lQ-tLv"/>
                             <constraint firstItem="NwT-YQ-Qhx" firstAttribute="leading" secondItem="mJV-td-xAQ" secondAttribute="leading" id="Whe-WV-zKa"/>

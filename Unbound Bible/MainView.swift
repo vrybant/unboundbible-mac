@@ -14,7 +14,6 @@ class MainView: NSViewController, NSWindowDelegate {
     var noteURL : URL?
     private var statuses : [String] = ["","","",""]
     
-    @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var statusBar: NSTextFieldCell!
     
     override func viewDidLoad() {
