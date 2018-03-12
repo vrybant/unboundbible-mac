@@ -338,8 +338,10 @@ class Bible {
 
 var shelf = Shelf()
 
-var bible: Bible? {
-    if shelf.current < 0 { return nil }
+var bible: Bible {
+    if shelf.current < 0 {
+        exit(0) // error
+    }
     return shelf.bibles[shelf.current]
 }
 
@@ -348,8 +350,8 @@ class Shelf {
     var current : Int = -1
 
     init() {
-        addBibles(dataPath)
-        addBibles(resourcePath + slash + bibleDirectory)
+//        addBibles(dataPath)
+//        addBibles(resourcePath + slash + bibleDirectory)
         bibles.sort(by: {$0.name < $1.name} )
     }
     
