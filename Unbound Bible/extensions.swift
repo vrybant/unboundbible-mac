@@ -76,9 +76,9 @@ extension String
         return result.joined(separator: " ")
     }
     
-//    var localized: String {
-//        return NSLocalizedString(self, comment:"")
-//    }
+    var lastPathComponent: String {
+        return URL(fileURLWithPath: self).lastPathComponent
+    }
     
     func replace(_ string: String, _ with: String) -> String
     {

@@ -26,7 +26,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func initialization() {
-        createDirectories()
+        copyDefaultsFiles()
         readDefaults()
         if shelf.isEmpty { return }
         leftView.bibleMenuInit()
@@ -65,7 +65,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !recentList.isEmpty {
             for i in 0...recentList.count-1 {
                 let item = NSMenuItem()
-                item.title = URL(fileURLWithPath: recentList[i]).lastPathComponent
+                item.title = recentList[i].lastPathComponent
                 item.action = #selector(menuItemSelected(_:))
                 item.keyEquivalent = ""
                 item.tag = i
@@ -114,7 +114,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
         } else {
-            shelf.setCurrent(defaultBible())
+            let path = resourcePath + slash + defaultBible()
+            shelf.setCurrent(path)
         }
         
         let value = defaults.integer(forKey: "copyOptions")
@@ -123,7 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func saveDefaults() {
         let defaults = UserDefaults.standard
-        defaults.set(bible.fileName,       forKey: "current")
+        defaults.set(bible.fileName,        forKey: "current")
         defaults.set(activeVerse.book,      forKey: "activeVerseBook")
         defaults.set(activeVerse.chapter,   forKey: "activeVerseChapter")
         defaults.set(activeVerse.number,    forKey: "activeVerseNumber")

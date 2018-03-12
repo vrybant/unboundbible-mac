@@ -38,13 +38,11 @@ class Bible {
     var loaded       : Bool = false
     var langEnable   : Bool = false
     
-    init(filePath: String, fileName : String) {
-        self.filePath = filePath
-        self.fileName = fileName
-        
-        let path = filePath + slash + fileName
-        
-        database = FMDatabase(path: path)
+    init(atPath: String) {
+        filePath = atPath
+        fileName = atPath.lastPathComponent
+
+        database = FMDatabase(path: filePath)
         openDatabase()
     }
     
@@ -93,7 +91,7 @@ class Bible {
                 }
             }
         }
-        
+
         if name.isEmpty { name = fileName }
         info = info.removeTags
     }
@@ -350,8 +348,10 @@ class Shelf {
     var current : Int = -1
 
     init() {
-//        addBibles(dataPath)
-//        addBibles(resourcePath + slash + bibleDirectory)
+        addBibles(dataPath)
+        if self.isEmpty {
+            addBibles(resourcePath + slash + bibleDirectory)
+        }
         bibles.sort(by: {$0.name < $1.name} )
     }
     
@@ -381,7 +381,7 @@ class Shelf {
     func addBibles(_ path: String) {
         let files = fileList(path)
         for file in files {
-            let item = Bible(filePath: path, fileName: file)
+            let item = Bible(atPath: file)
             checkDoubleName(newItem: item)
             bibles.append(item)
         }

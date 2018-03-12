@@ -17,18 +17,17 @@ class Titles {
     }
     
     private func getFileName(language: String) -> String {
-        var file : String = "english.sqlite"
-        let path : String = resourcePath + slash + titleDirectory
-        
+        let path = resourcePath + slash + titleDirectory
+        var result = path + slash + "english.sqlite"
+
         if !language.isEmpty {
             let list = getFileList(path)
             
             for item in list {
-                if item.hasPrefix(language) { file = item }
+                if item.lastPathComponent.hasPrefix(language) { result = item }
             }
         }
-        
-        return path + slash + file
+        return result
     }
     
     private func getTitleEx(_ n: Int, abbreviation: Bool) -> String {
