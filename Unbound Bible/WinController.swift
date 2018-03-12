@@ -28,9 +28,9 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     func setDefaultFrame() {
         let screen : NSScreen = NSScreen.main!
         let rect: NSRect = screen.frame
-        let height = rect.size.height * 0.65
-        let width  = rect.size.width  * 0.55
-        let top  = (rect.size.height + height) / 2
+        let height = rect.size.height * 0.7
+        let width  = rect.size.width  * 0.6
+        let top  = (rect.size.height + height) / 2 + 20
         let left = (rect.size.width  - width ) / 2
         let point = CGPoint(x: left, y: top)
         let frame = CGRect(x: 0, y: 0, width: width, height: height)

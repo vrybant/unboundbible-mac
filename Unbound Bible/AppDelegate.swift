@@ -96,6 +96,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func readDefaults() {
         let defaults = UserDefaults.standard
         defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
+//      let domain = Bundle.main.bundleIdentifier!
+//      defaults.removePersistentDomain(forName: domain) // debug
         defaults.synchronize()
 
         activeVerse.book    = defaults.integer(forKey: "active_VerseBook")
@@ -120,6 +122,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func saveDefaults() {
+        if shelf.isEmpty { return }
         let defaults = UserDefaults.standard
         defaults.set(bible!.fileName,       forKey: "current")
         defaults.set(activeVerse.book,      forKey: "activeVerseBook")
@@ -131,8 +134,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
         defaults.set(recentList,            forKey: "recentList")
         defaults.synchronize()
-//        let domain = Bundle.main.bundleIdentifier!
-//        defaults.removePersistentDomain(forName: domain)
     }
     
     func readPrivates() {
