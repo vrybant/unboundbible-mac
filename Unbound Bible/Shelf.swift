@@ -350,7 +350,8 @@ class Shelf {
     init() {
         addBibles(dataPath)
         if self.isEmpty {
-            append(resourcePath + slash + bibleDirectory + slash + defaultBible())
+            let defaultPath = resourcePath + slash + bibleDirectory + slash + defaultBible()
+            append(defaultPath)
         }
         bibles.sort(by: {$0.name < $1.name} )
     }
