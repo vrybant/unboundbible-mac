@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         readDefaults()
         if shelf.isEmpty { return }
         leftView.bibleMenuInit()
-        mainView.updateStatus(bible.info)
+        mainView.updateStatus(bible!.info)
         leftView.makeBookList()
         goToVerse(activeVerse, select: (activeVerse.number > 1))
         readPrivates()
@@ -122,8 +122,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func saveDefaults() {
+        if shelf.isEmpty { return }
         let defaults = UserDefaults.standard
-        defaults.set(bible.fileName,        forKey: "current")
+        defaults.set(bible!.fileName,       forKey: "current")
         defaults.set(activeVerse.book,      forKey: "activeVerseBook")
         defaults.set(activeVerse.chapter,   forKey: "activeVerseChapter")
         defaults.set(activeVerse.number,    forKey: "activeVerseNumber")

@@ -32,7 +32,7 @@ class СommonTextView: CustomTextView {
         super.mouseDown(with: event)
         guard let link = getLink() else { return }
         
-        if let verse = bible.stringToVerse(link: link) {
+        if let verse = bible!.stringToVerse(link: link) {
             goToVerse(verse, select: true)
         }
     }

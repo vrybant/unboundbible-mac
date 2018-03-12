@@ -336,11 +336,8 @@ class Bible {
 
 var shelf = Shelf()
 
-var bible: Bible {
-    if shelf.current < 0 {
-        exit(0) // error
-    }
-    return shelf.bibles[shelf.current]
+var bible: Bible? {
+    return !shelf.isEmpty ? shelf.bibles[shelf.current] : nil
 }
 
 class Shelf {
@@ -349,10 +346,6 @@ class Shelf {
 
     init() {
         addBibles(dataPath)
-        if self.isEmpty {
-            let defaultPath = resourcePath + slash + bibleDirectory + slash + defaultBible()
-            append(defaultPath)
-        }
         bibles.sort(by: {$0.name < $1.name} )
     }
     

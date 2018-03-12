@@ -41,9 +41,9 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func makeBookList() {
-        bookTableViewList = bible.getTitles()
+        bookTableViewList = bible!.getTitles()
         bookTableView.reloadData()
-        writingDirection = bible.rightToLeft ? .rightToLeft : .leftToRight
+        writingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
     }
     
     func makeChapterList(n: Int) {
@@ -81,8 +81,9 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
+        if shelf.isEmpty { return }
         shelf.setCurrent(sender.indexOfSelectedItem)
-        mainView.updateStatus(bible.info)
+        mainView.updateStatus(bible!.info)
         makeBookList()
         goToVerse(activeVerse, select: activeVerse.number > 1)
     }
@@ -93,7 +94,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if tableView == bookTableView {
             if tableView.tag != programmatically {
                 let name = bookTableViewList[bookTableView.selectedRow]
-                if let book = bible.bookByName(name) {
+                if let book = bible!.bookByName(name) {
                     activeVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
                 }
             }
@@ -113,7 +114,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     func load_Chapter() {
         loadChapter()
-        makeChapterList(n: bible.chapterCount(activeVerse))
+        makeChapterList(n: bible!.chapterCount(activeVerse))
         selectTab(at: .bible)
     }
 
