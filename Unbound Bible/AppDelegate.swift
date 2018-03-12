@@ -114,8 +114,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
         } else {
-            let path = resourcePath + slash + defaultBible()
-            shelf.setCurrent(path)
+            shelf.setCurrent(defaultBible())
         }
         
         let value = defaults.integer(forKey: "copyOptions")

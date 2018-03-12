@@ -350,7 +350,7 @@ class Shelf {
     init() {
         addBibles(dataPath)
         if self.isEmpty {
-            addBibles(resourcePath + slash + bibleDirectory)
+            append(resourcePath + slash + bibleDirectory + slash + defaultBible())
         }
         bibles.sort(by: {$0.name < $1.name} )
     }
@@ -378,13 +378,15 @@ class Shelf {
         } while l
     }
     
+    func append(_ atPath: String) {
+        let item = Bible(atPath: atPath)
+        checkDoubleName(newItem: item)
+        bibles.append(item)
+    }
+    
     func addBibles(_ path: String) {
         let files = fileList(path)
-        for file in files {
-            let item = Bible(atPath: file)
-            checkDoubleName(newItem: item)
-            bibles.append(item)
-        }
+        for file in files { append(file) }
     }
     
     func setCurrent(_ index: Int) {
