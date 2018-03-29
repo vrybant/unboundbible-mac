@@ -46,15 +46,12 @@ class Bible {
         openDatabase()
     }
     
-    func twoChars(_ string: String) -> String? {
-        if string.count < 2 { return nil }
-        let index = string.index(string.startIndex, offsetBy: 2)
-        let subst = String(string[..<index])
-        if subst.index(of: "\t") != nil {
-            let index = subst.index(string.startIndex, offsetBy: 1)
-            return String(string[..<index])
+    var minBook : Int {
+        var min = 0
+        for book in books {
+            if (book.number < min) || (min == 0) { min = book.number }
         }
-        return subst
+        return min
     }
     
     func openDatabase() {
@@ -96,31 +93,31 @@ class Bible {
         info = info.removeTags
     }
     
+    func appendBook(id: Int) {
+        var book = Book()
+        let number = decodeID(id)
+        book.number = number
+        book.id = id
+        book.sorting = sortingIndex(number)
+        books.append(book)
+    }
+    
     func loadDatabase() {
         if loaded { return }
         let query = "select distinct \(z.book) from \(z.bible)"
         
         if let results = try? database!.executeQuery(query, values: nil) {
-            var min = 0
-            
             while results.next() == true {
                 guard let stbook = results.string(forColumn: z.book) else { break }
-                let x = stbook.toInt
-                if x <= 0 { continue }
-
-                var book = Book()
-                let n = decodeIndex(x)
-                book.number = n
-                book.id = x
-                books.append(book)
-                
-                if (n < min) || (min == 0) { min = n }
+                let id = stbook.int
+                if id > 0 { appendBook(id: id) }
             }
             
             setTitles()
             titles = getTitles()
-            firstVerse = Verse(book: min, chapter: 1, number: 1, count: 1)
+            firstVerse = Verse(book: minBook, chapter: 1, number: 1, count: 1)
             rightToLeft = getRightToLeft(language: language)
+            books.sort(by: {$0.sorting < $1.sorting} )
             loaded = true
         }
     }
@@ -135,13 +132,8 @@ class Bible {
     }
     
     func getTitles() -> [String] {
-        var result : [String] = []
-        if self.filetype != "text" {
-            for book in books { if !isNewTestament(book.number) { result.append(book.title) } }
-            for book in books { if  isNewTestament(book.number) { result.append(book.title) } }
-        } else {
-            for book in books { result.append(book.title) }
-        }
+        var result = [String]()
+        for book in books { result.append(book.title) }
         return result
     }
     
@@ -153,7 +145,7 @@ class Bible {
     }
     
     func chapterCount(_ verse : Verse) -> Int {
-        let id = encodeIndex(verse.book)
+        let id = encodeID(verse.book)
         let query = "select max(\(z.chapter)) as count from \(z.bible) where \(z.book) = \(id)"
 
         if let results = try? database!.executeQuery(query, values: nil) {
@@ -179,19 +171,27 @@ class Bible {
         return nil
     }
 
-    func encodeIndex(_ index: Int) -> Int {
-        if fileFormat != .mybible { return index }
-        if index > myBibleArray.count { return 0 }
-        return myBibleArray[index]
+    func encodeID(_ id: Int) -> Int {
+        if fileFormat != .mybible { return id }
+        if id > myBibleArray.count { return 0 }
+        return myBibleArray[id]
     }
     
-    func decodeIndex(_ index: Int) -> Int {
-        if fileFormat != .mybible { return index }
-        return myBibleArray.index(of: index) ?? index
+    func decodeID(_ id: Int) -> Int {
+        if fileFormat != .mybible { return id }
+        return myBibleArray.index(of: id) ?? id
+    }
+    
+    func sortingIndex(_ number: Int) -> Int {
+        if language.hasPrefix("ru") { 
+            return sortArrayRU.index(of: number) ?? 100
+        } else {
+            return sortArrayEN.index(of: number) ?? 100
+        }
     }
 
     func getChapter(_ verse : Verse) -> [String] {
-        let id = encodeIndex(verse.book)
+        let id = encodeID(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
 
         if let results = try? database!.executeQuery(query, values: nil) {
@@ -209,7 +209,7 @@ class Bible {
     }
     
     func getRange(_ verse : Verse) -> [String]? {
-        let id = encodeIndex(verse.book)
+        let id = encodeID(verse.book)
         let toVerse = verse.number + verse.count
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
@@ -226,36 +226,43 @@ class Bible {
     }
     
     func search(string: String, options: SearchOption, range: SearchRange?) -> [Content]? {
+        var result : [Content]?
         let list = string.components(separatedBy: " ")
         var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
         string = string.replace(" ", "%")
         
-        let queryRange = range == nil ? "" : " and \(z.book) >= \(encodeIndex(range!.from)) and \(z.book) <= \(encodeIndex(range!.to))"
+        let queryRange = range == nil ? "" : " and \(z.book) >= \(encodeID(range!.from)) and \(z.book) <= \(encodeID(range!.to))"
         let query = "select * from \(z.bible) where \(z.text) like \"%\(string)%\"" + queryRange
         
         setCaseSensitiveLike(options.contains(.caseSensitive))
         
         if let results = try? database!.executeQuery(query, values: nil) {
-            var lines : [Content] = []
+            var lines = [Content]()
             while results.next() == true {
                 guard let book = results.string(forColumn: z.book) else { break }
                 guard let chapter = results.string(forColumn: z.chapter) else { break }
                 guard let number = results.string(forColumn: z.verse) else { break }
                 guard let text = results.string(forColumn: z.text) else { break }
                 
-                let verse = Verse(book: decodeIndex(book.toInt), chapter: chapter.toInt, number: number.toInt, count: 1)
+                let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
                 let content = Content(verse: verse, text: text)
                 
                 if text.removeTags.contains(list: list, options: options) { lines.append(content) }
             }
-            var result : [Content] = []
             
-            for line in lines { if !isNewTestament(line.verse.book) { result.append(line) } }
-            for line in lines { if  isNewTestament(line.verse.book) { result.append(line) } }
+            if !lines.isEmpty {
+                result = []
+                for book in books {
+                    for line in lines {
+                        if line.verse.book == book.number {
+                            result!.append(line)
+                        }
+                    }
+                }
+            }
             
-            if !result.isEmpty { return result }
         }
-        return nil
+        return result
     }
     
     func goodLink(_ verse: Verse) -> Bool {
@@ -311,7 +318,7 @@ class Bible {
         if let index = string.index(of: "-") {
             let subst = string[index...]
             let idx = subst.index(after: subst.startIndex)
-            limit = subst[idx...].toInt
+            limit = subst[idx...].int
             string = string[..<index]
         }
         
@@ -321,8 +328,8 @@ class Bible {
             let idx = subst.index(after: subst.startIndex)
             let number = subst[idx...]
             
-            verse.chapter = chapter.toInt
-            verse.number = number.toInt
+            verse.chapter = chapter.int
+            verse.number = number.int
             if limit == 0 { verse.count = 1 } else { verse.count = limit - verse.number + 1 }
             if verse.book > 0 && verse.chapter > 0 && verse.number > 0 && verse.count > 0 {
                 return verse
