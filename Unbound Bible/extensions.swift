@@ -25,7 +25,7 @@ extension String
         return "\"" + self + "\""
     }
     
-    var toInt: Int {
+    var int: Int {
         return Int(self) ?? 0
     }
     
@@ -139,7 +139,7 @@ extension String
 
 extension Substring {
 
-    var toInt: Int {
+    var int: Int {
         return Int(self) ?? 0
     }
     
