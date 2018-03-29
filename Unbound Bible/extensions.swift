@@ -8,6 +8,13 @@
 import Foundation
 import Cocoa
 
+extension Int32
+{
+    var int: Int {
+        return Int(self)
+    }
+}
+
 extension String
 {
     var length: Int {
