@@ -6,7 +6,12 @@
 //
 
 import Foundation
-import Cocoa
+
+#if os(OSX)
+    import Cocoa
+#elseif os(iOS)
+    import UIKit
+#endif
 
 var appDelegate = AppDelegate()
 
