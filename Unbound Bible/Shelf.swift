@@ -224,8 +224,19 @@ class Bible {
         return nil
     }
     
+    func rankContents(contents: [Content]) -> [Content] {
+        var result = [Content]()
+        for book in books {
+            for line in contents {
+                if line.verse.book == book.number {
+                    result.append(line)
+                }
+            }
+        }
+        return result
+    }
+    
     func search(string: String, options: SearchOption, range: SearchRange?) -> [Content]? {
-        var result : [Content]?
         let list = string.components(separatedBy: " ")
         var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
         string = string.replace(" ", "%")
@@ -248,20 +259,11 @@ class Bible {
                 
                 if text.removeTags.contains(list: list, options: options) { lines.append(content) }
             }
-            
             if !lines.isEmpty {
-                result = []
-                for book in books {
-                    for line in lines {
-                        if line.verse.book == book.number {
-                            result!.append(line)
-                        }
-                    }
-                }
+                return rankContents(contents: lines)
             }
-            
         }
-        return result
+        return nil
     }
     
     func goodLink(_ verse: Verse) -> Bool {
