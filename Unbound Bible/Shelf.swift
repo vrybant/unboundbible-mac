@@ -7,8 +7,6 @@
 
 import Foundation
 
-let bookMax = 86
-
 var activeVerse = Verse()
 
 class Bible {
@@ -71,7 +69,7 @@ class Bible {
                 if let value = results.string(forColumn: "Information") { info = value }
                 if let value = results.string(forColumn: "Description") { info = value }
                 if let value = results.string(forColumn: "Copyright"  ) { copyright = value }
-                if let value = results.string(forColumn: "Language"   ) { language = value.lowercased() }
+                if let value = results.string(forColumn: "Language"   ) { language  = value }
             }
             
             if fileFormat == .mybible {
@@ -88,7 +86,8 @@ class Bible {
                 }
             }
         }
-
+        
+        language = language.lowercased()
         if name.isEmpty { name = fileName }
         info = info.removeTags
     }
