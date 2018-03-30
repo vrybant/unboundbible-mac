@@ -182,7 +182,7 @@ class Bible {
     }
     
     func sortingIndex(_ number: Int) -> Int {
-        if language.hasPrefix("ru") { 
+        if orthodox(language: language) {
             return sortArrayRU.index(of: number) ?? 100
         } else {
             return sortArrayEN.index(of: number) ?? 100

@@ -57,6 +57,16 @@ func defaultBible() -> String {
     return result
 }
 
+func orthodox(language: String) -> Bool {
+    let list = ["ru","uk","bulg"]
+    for item in list {
+        if language.hasPrefix(item) {
+            return true
+        }
+    }
+    return false
+}
+
 //    func getFileListWithExt(_ path: String, ext: String) -> [String] {
 //     return getFileList(path).filter{ $0.hasSuffix(".\(ext)") }
 //    }
