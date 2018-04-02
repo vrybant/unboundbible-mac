@@ -119,6 +119,13 @@ extension String
         return true
     }
     
+    func hasSuffix(_ suffix: [String]) -> Bool {
+        for item in suffix {
+            if self.hasSuffix(item) { return true }
+        }
+        return false
+    }
+    
     func highlight(with: String, target: String, options: SearchOption) -> String {
         var tag = with
         tag.insert("/", at: with.index(after: with.startIndex))

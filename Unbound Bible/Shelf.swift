@@ -362,9 +362,8 @@ class Shelf {
     }
     
     func fileList(_ path: String) -> [String] {
-        return getFileList(path).filter {
-            $0.hasSuffix(".unbound") || $0.hasSuffix(".bbli") || $0.hasSuffix(".mybible") || $0.hasSuffix(".SQLite3")
-        }
+        let list = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
+        return getFileList(path).filter { $0.hasSuffix(list) }
     }
     
     private func checkDoubleName(newItem: Bible) {
