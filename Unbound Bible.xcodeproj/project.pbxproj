@@ -35,6 +35,13 @@
 		E7C21903201522F300E90AC6 /* NotesText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C21902201522F300E90AC6 /* NotesText.swift */; };
 		E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82390202B07EC00287173 /* InfoPlist.strings */; };
 		E7C82393202B07ED00287173 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82395202B07ED00287173 /* Localizable.strings */; };
+		E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EDF20906EF7004D3097 /* AppDelegate.swift */; };
+		E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EE120906EF7004D3097 /* RootViewController.swift */; };
+		E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EE320906EF7004D3097 /* DataViewController.swift */; };
+		E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EE520906EF7004D3097 /* ModelController.swift */; };
+		E7D39EE920906EF7004D3097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D39EE720906EF7004D3097 /* Main.storyboard */; };
+		E7D39EEB20906EF7004D3097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D39EEA20906EF7004D3097 /* Assets.xcassets */; };
+		E7D39EEE20906EF7004D3097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D39EEC20906EF7004D3097 /* LaunchScreen.storyboard */; };
 		E7D4637B201A2B520055F1DA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D4637A201A2B520055F1DA /* PreferencesView.swift */; };
 		E7DD51A51DE764A70003D654 /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD51A41DE764A70003D654 /* tools.swift */; };
 		E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA4AF1EE960E400022638 /* SplitView.swift */; };
@@ -87,6 +94,15 @@
 		E7C21902201522F300E90AC6 /* NotesText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesText.swift; sourceTree = "<group>"; };
 		E7C8238F202B07EC00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E7C82394202B07ED00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E7D39EDD20906EF6004D3097 /* Unbound Bible.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbound Bible.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7D39EDF20906EF7004D3097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7D39EE120906EF7004D3097 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E7D39EE320906EF7004D3097 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		E7D39EE520906EF7004D3097 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		E7D39EE820906EF7004D3097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7D39EEA20906EF7004D3097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7D39EED20906EF7004D3097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7D39EEF20906EF7004D3097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D4637A201A2B520055F1DA /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		E7DD51A41DE764A70003D654 /* tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tools.swift; sourceTree = "<group>"; };
 		E7DDA4AF1EE960E400022638 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -105,6 +121,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7D39EDA20906EF6004D3097 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -112,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2F17EF1D33C31800BA91A6 /* Unbound Bible.macOS */,
+				E7D39EDE20906EF7004D3097 /* Unbound Bible.iOS */,
 				E7D39ED820906C4E004D3097 /* Common */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
@@ -124,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */,
+				E7D39EDD20906EF6004D3097 /* Unbound Bible.iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -199,6 +224,21 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		E7D39EDE20906EF7004D3097 /* Unbound Bible.iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E7D39EDF20906EF7004D3097 /* AppDelegate.swift */,
+				E7D39EE120906EF7004D3097 /* RootViewController.swift */,
+				E7D39EE320906EF7004D3097 /* DataViewController.swift */,
+				E7D39EE520906EF7004D3097 /* ModelController.swift */,
+				E7D39EE720906EF7004D3097 /* Main.storyboard */,
+				E7D39EEA20906EF7004D3097 /* Assets.xcassets */,
+				E7D39EEC20906EF7004D3097 /* LaunchScreen.storyboard */,
+				E7D39EEF20906EF7004D3097 /* Info.plist */,
+			);
+			path = "Unbound Bible.iOS";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -219,13 +259,30 @@
 			productReference = CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E7D39EDC20906EF6004D3097 /* Unbound Bible.iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7D39EF220906EF7004D3097 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */;
+			buildPhases = (
+				E7D39ED920906EF6004D3097 /* Sources */,
+				E7D39EDA20906EF6004D3097 /* Frameworks */,
+				E7D39EDB20906EF6004D3097 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Unbound Bible.iOS";
+			productName = "Unbound Bible.iOS";
+			productReference = E7D39EDD20906EF6004D3097 /* Unbound Bible.iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CE2F17E51D33C31800BA91A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Vladimir Rybant";
 				TargetAttributes = {
@@ -234,6 +291,11 @@
 						DevelopmentTeam = ZK5Z2R2KTA;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Manual;
+					};
+					E7D39EDC20906EF6004D3097 = {
+						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = ZK5Z2R2KTA;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -252,6 +314,7 @@
 			projectRoot = "";
 			targets = (
 				CE2F17EC1D33C31800BA91A6 /* Unbound Bible */,
+				E7D39EDC20906EF6004D3097 /* Unbound Bible.iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -268,6 +331,16 @@
 				E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */,
 				CE2F17F81D33C31800BA91A6 /* Main.storyboard in Resources */,
 				E75525952051334A00BDD425 /* bibles in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7D39EDB20906EF6004D3097 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7D39EEE20906EF7004D3097 /* LaunchScreen.storyboard in Resources */,
+				E7D39EEB20906EF7004D3097 /* Assets.xcassets in Resources */,
+				E7D39EE920906EF7004D3097 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +381,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E7D39ED920906EF6004D3097 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */,
+				E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */,
+				E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */,
+				E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -337,6 +421,22 @@
 				E7B8B602204EFF6300493978 /* uk */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		E7D39EE720906EF7004D3097 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7D39EE820906EF7004D3097 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E7D39EEC20906EF7004D3097 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7D39EED20906EF7004D3097 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -486,6 +586,56 @@
 			};
 			name = Release;
 		};
+		E7D39EF020906EF7004D3097 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7D39EF120906EF7004D3097 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -503,6 +653,15 @@
 			buildConfigurations = (
 				CE2F17FD1D33C31800BA91A6 /* Debug */,
 				CE2F17FE1D33C31800BA91A6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7D39EF220906EF7004D3097 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7D39EF020906EF7004D3097 /* Debug */,
+				E7D39EF120906EF7004D3097 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
