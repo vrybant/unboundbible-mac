@@ -111,7 +111,8 @@
 		CE2F17E41D33C31800BA91A6 = {
 			isa = PBXGroup;
 			children = (
-				CE2F17EF1D33C31800BA91A6 /* Unbound Bible */,
+				CE2F17EF1D33C31800BA91A6 /* Unbound Bible.macOS */,
+				E7D39ED820906C4E004D3097 /* Common */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
@@ -127,7 +128,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE2F17EF1D33C31800BA91A6 /* Unbound Bible */ = {
+		CE2F17EF1D33C31800BA91A6 /* Unbound Bible.macOS */ = {
 			isa = PBXGroup;
 			children = (
 				E7C82395202B07ED00287173 /* Localizable.strings */,
@@ -147,21 +148,16 @@
 				E7E3D4F71E12B1C400912F37 /* SearchView.swift */,
 				E74040F11ED5A40F00F96C48 /* CopyView.swift */,
 				E7DD51A41DE764A70003D654 /* tools.swift */,
-				E719DAEF1ECB302D00137035 /* types.swift */,
 				E77BCA6C1FF4E44A00F950B5 /* Titles.swift */,
-				E7EF67621FF38F3400360C1D /* Shelf.swift */,
-				E73697B31DE4AEFD00FAA898 /* lib.swift */,
 				E7A8917B20152879008A7695 /* СustomText.swift */,
 				E73BF4631EF8548C0028FB62 /* BibleText.swift */,
 				E7A8917D20152893008A7695 /* CommonText.swift */,
 				E7C21902201522F300E90AC6 /* NotesText.swift */,
 				E76ED6DB1E242616005AE4F2 /* extensions.swift */,
-				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
 				E7F5071A20509AEB0019F546 /* icns.icns */,
-				E7BECE391EA9372900CF3386 /* fmdb */,
 			);
-			path = "Unbound Bible";
+			path = "Unbound Bible.macOS";
 			sourceTree = "<group>";
 		};
 		E7BECE391EA9372900CF3386 /* fmdb */ = {
@@ -189,6 +185,18 @@
 				E7BECE4B1EA9390400CF3386 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7D39ED820906C4E004D3097 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E7EF67621FF38F3400360C1D /* Shelf.swift */,
+				E719DAEF1ECB302D00137035 /* types.swift */,
+				E75F12C01FF25D79006EDAC9 /* parse.swift */,
+				E73697B31DE4AEFD00FAA898 /* lib.swift */,
+				E7BECE391EA9372900CF3386 /* fmdb */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -447,12 +455,12 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
-				INFOPLIST_FILE = "Unbound Bible/Info.plist";
+				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.org.Unbound-Bible";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Unbound Bible/fmdb/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/fmdb/Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -467,12 +475,12 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
-				INFOPLIST_FILE = "Unbound Bible/Info.plist";
+				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.org.Unbound-Bible";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Unbound Bible/fmdb/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Common/fmdb/Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
