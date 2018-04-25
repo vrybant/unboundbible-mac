@@ -44,19 +44,17 @@ func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedStri
     if set.contains("<f>") { set.remove("<J>") }
     for element in set {
         switch element {
-        case "<i>":
-            result.addAttribute(NSAttributedStringKey.font, value: NSFont(name:"Verdana-Italic", size:13.0)!, range: range)
-        case "<J>","<r>":
-            result.addAttribute(NSAttributedStringKey.foregroundColor, value: NSColor.red, range: range)
-        case "<l>":
-            result.addAttribute(NSAttributedStringKey.foregroundColor, value: navyColor, range: range)
-        case "<S>":
-            result.addAttribute(NSAttributedStringKey.font, value: NSFont.systemFont(ofSize: 9), range: range)
-            result.addAttribute(NSAttributedStringKey.foregroundColor, value: NSColor.brown, range: range)
-            result.addAttribute(NSAttributedStringKey.baselineOffset, value: 5.0, range: range)
-        case "<f>":
-            result.addAttribute(NSAttributedStringKey.font, value: NSFont.systemFont(ofSize: 9), range: range)
-            result.addAttribute(NSAttributedStringKey.baselineOffset, value: 5.0, range: range)
+        case "<i>": result.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!, range: range)
+        case "<J>",
+             "<r>": result.addAttribute(.foregroundColor, value: NSColor.red, range: range)
+        case "<n>": result.addAttribute(.foregroundColor, value: NSColor.green, range: range)
+        case "<m>": result.addAttribute(.foregroundColor, value: NSColor.blue , range: range)
+        case "<l>": result.addAttribute(.foregroundColor, value: navyColor, range: range)
+        case "<S>": result.addAttribute(.foregroundColor, value: NSColor.brown, range: range)
+                    result.addAttribute(.font, value: NSFont.systemFont(ofSize: 9), range: range)
+                    result.addAttribute(.baselineOffset, value: 5.0, range: range)
+        case "<f>": result.addAttribute(.font, value: NSFont.systemFont(ofSize: 9), range: range)
+                    result.addAttribute(.baselineOffset, value: 5.0, range: range)
         default: break
         }
     }
