@@ -20,9 +20,9 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
             setDefaultFrame()
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-            self.alertUpdate()
-        }
+//      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
+//          self.alertUpdate()
+//      }
     }
     
     func setDefaultFrame() {
@@ -45,26 +45,26 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         NSWorkspace.shared.open(URL(string: url)!)
     }
     
-    func alertUpdate() {
-        let date = Date()
-        let calendar = Calendar.current
-        let month = calendar.component(.month, from: date)
-        let year  = calendar.component(.year,  from: date)
-
-        if year != 2018 || month != 9 { return }
-
-        let alert = NSAlert()
-        alert.messageText = applicationName
-        alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
-                                NSLocalizedString("Update to the stable version.", comment: "")
-        alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
-        let choice = alert.runModal()
-        if choice == .alertFirstButtonReturn {
-            showUpdate()
-            exit(0)
-        }
-    }
+//  func alertUpdate() {
+//      let date = Date()
+//      let calendar = Calendar.current
+//      let month = calendar.component(.month, from: date)
+//      let year  = calendar.component(.year,  from: date)
+//
+//      if year != 2018 || month != 9 { return }
+//
+//      let alert = NSAlert()
+//      alert.messageText = applicationName
+//      alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
+//                                NSLocalizedString("Update to the stable version.", comment: "")
+//      alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
+//      alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
+//      let choice = alert.runModal()
+//      if choice == .alertFirstButtonReturn {
+//          showUpdate()
+//          exit(0)
+//      }
+//  }
     
     @IBAction func copyAction(_ sender: NSButton) {
         copyVerses(options: copyOptions).copyToPasteboard()
