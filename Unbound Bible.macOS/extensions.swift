@@ -45,9 +45,12 @@ extension String
         return list
     }
     
-    var componentsSeparatedByEol: [String] {
-        let separator = CharacterSet.newlines
-        return self.components(separatedBy: separator)
+//    var componentsSeparatedByWhitespaces: [String] {
+//        return self.components(separatedBy: CharacterSet.newlines)
+//   }
+    
+    var componentsSeparatedByNewlines: [String] {
+        return self.components(separatedBy: CharacterSet.newlines)
     }
     
     var removeTags: String {
@@ -110,13 +113,14 @@ extension String
         }
         return false
     }
+
+    func containsEvery(list: [String], options: SearchOption) -> Bool {
+        let count = list.filter { self.contains(other: $0, options: options) }.count
+        return list.count == count
+    }
     
-    func contains(list: [String], options: SearchOption) -> Bool {
-        for word in list {
-            if word.isEmpty { continue }
-            if !self.contains(other: word, options: options) { return false }
-        }
-        return true
+    func contains(list: [String]) -> Bool {
+        return list.filter { self.contains($0) }.count > 0
     }
     
     func hasSuffix(_ suffix: [String]) -> Bool {
