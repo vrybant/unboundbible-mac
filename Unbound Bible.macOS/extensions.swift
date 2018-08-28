@@ -49,9 +49,9 @@ extension String
 //        return self.components(separatedBy: CharacterSet.newlines)
 //   }
     
-    var componentsSeparatedByNewlines: [String] {
-        return self.components(separatedBy: CharacterSet.newlines)
-    }
+//    var componentsSeparatedByNewlines: [String] {
+//        return self.components(separatedBy: CharacterSet.newlines)
+//    }
     
     var removeTags: String {
         var s = ""

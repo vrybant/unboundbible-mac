@@ -33,6 +33,7 @@ class Bible {
     var fontName     : String = ""
     var fontSize     : Int = 0
     
+    var connected    : Bool = false
     var loaded       : Bool = false
     var langEnable   : Bool = false
     
@@ -85,6 +86,8 @@ class Bible {
                     }
                 }
             }
+            
+            if database!.tableExists(z.bible) { connected = true }
         }
         
         language = language.lowercased()
@@ -363,8 +366,7 @@ class Shelf {
     
     func fileList(_ path: String) -> [String] {
         let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-        let exceptions = [".dictionary",".commentaries"]
-        return getFileList(path).filter { $0.hasSuffix(extensions) && !$0.contains(list: exceptions) }
+        return getFileList(path).filter { $0.hasSuffix(extensions) }
     }
     
     private func checkDoubleName(newItem: Bible) {
@@ -382,6 +384,7 @@ class Shelf {
     
     func append(_ atPath: String) {
         let item = Bible(atPath: atPath)
+        if !item.connected { return }
         checkDoubleName(newItem: item)
         bibles.append(item)
     }
