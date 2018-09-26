@@ -109,10 +109,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activeVerse.number  = defaults.integer(forKey: "verseNumber")
         activeVerse.count   = defaults.integer(forKey: "verseCount")
         
-        if let data = defaults.object(forKey: "recentList") as? Data {
-            recentList = NSKeyedUnarchiver.unarchiveObject(with: data) as! [URL]
-        }
-
         if let fontName  = defaults.string(forKey: "fontName") {
             let fontSize = defaults.float(forKey: "fontSize")
             defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
@@ -126,6 +122,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         let value = defaults.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
+
+        if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
+            for bookmark in bookmarks {
+                if let url = try? NSURL.init(resolvingBookmarkData: bookmark, options: .withoutUI, relativeTo: nil, bookmarkDataIsStale: nil) {
+                    url.startAccessingSecurityScopedResource()
+                    recentList.append(url as URL)
+                }
+            }
+        }
     }
     
     func saveDefaults() {
@@ -139,9 +144,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
-        
-        let data = NSKeyedArchiver.archivedData(withRootObject: recentList)
-        defaults.set(data, forKey: "recentList")
+
+        var bookmarks : [Data] = []
+        for url in recentList {
+            if let bookmark = try? url.bookmarkData(options: .securityScopeAllowOnlyReadAccess, includingResourceValuesForKeys: nil, relativeTo: nil) {
+                bookmarks.append(bookmark)
+            }
+        }
+        defaults.set(bookmarks, forKey: "bookmarks")
         
         defaults.synchronize()
     }
