@@ -108,8 +108,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activeVerse.chapter = defaults.integer(forKey: "verseChapter")
         activeVerse.number  = defaults.integer(forKey: "verseNumber")
         activeVerse.count   = defaults.integer(forKey: "verseCount")
-//      recentList = defaults.stringArray(forKey: "recentList") ?? [String]()
         
+        if let data = defaults.object(forKey: "recentList") as? Data {
+            recentList = NSKeyedUnarchiver.unarchiveObject(with: data) as! [URL]
+        }
+
         if let fontName  = defaults.string(forKey: "fontName") {
             let fontSize = defaults.float(forKey: "fontSize")
             defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
@@ -136,7 +139,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
- //     defaults.set(recentList,            forKey: "recentList")
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: recentList)
+        defaults.set(data, forKey: "recentList")
+        
         defaults.synchronize()
     }
     
