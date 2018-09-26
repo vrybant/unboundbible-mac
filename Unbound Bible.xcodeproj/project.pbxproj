@@ -559,7 +559,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Unbound Bible.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
@@ -589,8 +589,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "7ecb13af-5ab9-4c98-8419-0e825e530388";
-				PROVISIONING_PROFILE_SPECIFIER = "Unbound Bible Profile";
+				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
+				PROVISIONING_PROFILE_SPECIFIER = "Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "Common/fmdb/Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
