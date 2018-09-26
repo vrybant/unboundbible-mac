@@ -51,8 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func menuItemSelected(_ sender : NSMenuItem) {
         let tag = sender.tag
         if 0..<recentList.count ~= tag {
-            let path = recentList[tag]
-            let url = URL(fileURLWithPath: path)
+            let url = recentList[tag]
             if mainView.closeDocument() {
                 mainView.openDocument(url: url)
             }
@@ -109,7 +108,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activeVerse.chapter = defaults.integer(forKey: "verseChapter")
         activeVerse.number  = defaults.integer(forKey: "verseNumber")
         activeVerse.count   = defaults.integer(forKey: "verseCount")
-        recentList = defaults.stringArray(forKey: "recentList") ?? [String]()
+//      recentList = defaults.stringArray(forKey: "recentList") ?? [String]()
         
         if let fontName  = defaults.string(forKey: "fontName") {
             let fontSize = defaults.float(forKey: "fontSize")
@@ -137,7 +136,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
-        defaults.set(recentList,            forKey: "recentList")
+ //     defaults.set(recentList,            forKey: "recentList")
         defaults.synchronize()
     }
     

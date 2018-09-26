@@ -7,7 +7,7 @@
 
 import Foundation
 
-var recentList : [String] = []
+var recentList : [URL] = []
 
 enum FileFormat {
     case unbound, mybible

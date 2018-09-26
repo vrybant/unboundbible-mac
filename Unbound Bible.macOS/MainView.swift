@@ -65,13 +65,11 @@ class MainView: NSViewController, NSWindowDelegate {
     func rebuildRecentList() {
         if noteURL == nil { return }
         let max = 10
-        var list = [String]()
-        list.append(noteURL!.path)
+        var list = [URL]()
+        list.append(noteURL!)
         for item in recentList {
-            if item != noteURL!.path {
-                if list.count < max {
-                    list.append(item)
-                }
+            if item != noteURL!, list.count < max {
+                list.append(item)
             }
         }
         recentList = list
