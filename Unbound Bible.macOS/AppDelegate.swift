@@ -124,12 +124,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         copyOptions = CopyOptions(rawValue: value)
 
         if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
-            for bookmark in bookmarks {
-                if let url = try? NSURL.init(resolvingBookmarkData: bookmark, options: .withoutUI, relativeTo: nil, bookmarkDataIsStale: nil) {
-                    url.startAccessingSecurityScopedResource()
-                    recentList.append(url as URL)
-                }
-            }
+            recentList.append(bookmarks: bookmarks)
         }
     }
     
@@ -144,15 +139,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
-
-        var bookmarks : [Data] = []
-        for url in recentList {
-            if let bookmark = try? url.bookmarkData(options: .securityScopeAllowOnlyReadAccess, includingResourceValuesForKeys: nil, relativeTo: nil) {
-                bookmarks.append(bookmark)
-            }
-        }
-        defaults.set(bookmarks, forKey: "bookmarks")
-        
+        defaults.set(recentList.bookmarks,  forKey: "bookmarks")
         defaults.synchronize()
     }
     
