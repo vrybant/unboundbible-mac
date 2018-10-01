@@ -7,7 +7,7 @@
 
 import Cocoa
 
-enum Colored {
+enum Foreground {
     case none, link, footnote, strong
 }
 
@@ -40,7 +40,7 @@ class CustomTextView: NSTextView {
         return foregroundColor(x) == navyColor
     }
     
-    func colored(_ x: Int) -> Colored {
+    func foreground(_ x: Int) -> Foreground {
         switch foregroundColor(x) {
         case navyColor     : return .link
         case NSColor.brown : return .strong
@@ -75,10 +75,43 @@ class CustomTextView: NSTextView {
         return attrStr.string
     }
     
-    func selected() -> Bool {
-        return self.selectedRange().length > 0
-    }
+    func getLink() -> String? {
+        if selectedRange.length > 0 { return nil }
+        let fore = foreground(selectedRange.location)
+        if fore == .none { return nil }
         
+        let length = attributedString().length
+        var x1 = selectedRange.location
+        
+        while foreground(x1) == fore, x1 < length { x1 += 1 }; var x2 = x1 - 1;
+        while foreground(x2) == fore, x2 > 0      { x2 -= 1 };
+        
+        if x2 > 0 { x2 += 1 }
+        
+        let range = NSRange(location: x2, length: x1-x2)
+        let string = self.attributedString().attributedSubstring(from: range).string
+//      self.setSelectedRange(range)
+        
+        print(fore, string)
+        return string
+    }
+    
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+        let fore = foreground(selectedRange.location)
+        guard let link = getLink() else { return }
+        
+        if fore == .link {
+            if let verse = bible!.stringToVerse(link: link) {
+                goToVerse(verse, select: true)
+            }
+        }
+        
+        if fore == .strong {
+            //
+        }
+    }
+    
     override func didChangeText() {
         super.didChangeText()
         modified = true
@@ -88,7 +121,7 @@ class CustomTextView: NSTextView {
         self.textStorage?.mutableString.setString("")
         self.modified = false
     }
-
+    
     func loadFromFile(url: URL) throws {
         let options : [NSAttributedString.DocumentReadingOptionKey : Any] = [ .documentType : NSAttributedString.DocumentType.rtf]
         if let attributedString: NSAttributedString = try? NSAttributedString(url: url, options: options, documentAttributes: nil) {

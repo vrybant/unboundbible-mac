@@ -19,8 +19,8 @@ class BibleTextView: CustomTextView {
         
         var x1 = 0
         while x1 < length {
-            while !navy(x1) && (x1 < length) { x1 += 1 }; var x2 = x1;
-            while  navy(x2) && (x2 < length) { x2 += 1 }
+            while !navy(x1), x1 < length { x1 += 1 }; var x2 = x1;
+            while  navy(x2), x2 < length { x2 += 1 }
             
             let range = NSRange(location: x1, length: x2-x1)
             let str = self.attributedString().attributedSubstring(from: range).string

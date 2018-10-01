@@ -99,7 +99,7 @@ func parse(_ string: String, jtag: Bool) -> NSMutableAttributedString {
             }
         } else {
             let attrString = attrStringFromTags(s, tags: tags)
-            if tags.contains("<f>") { continue } // remove footnotes
+//          if tags.contains("<f>") { continue } // remove footnotes
             result.append(attrString)
         }
     }
