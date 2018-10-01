@@ -7,6 +7,10 @@
 
 import Cocoa
 
+enum Colored {
+    case none, link, footnote, strong
+}
+
 class CustomTextView: NSTextView {
     
     var modified = false
@@ -21,15 +25,28 @@ class CustomTextView: NSTextView {
 //      self.isContinuousSpellCheckingEnabled = false
     }
     
-    func colored(_ x: Int) -> Bool {
+    func foregroundColor(_ x: Int) -> NSColor {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
             let attrChar = self.attributedString().attributedSubstring(from: range)
             if let color = attrChar.attribute(.foregroundColor, at: 0, effectiveRange: nil) {
-                return color as! NSColor == navyColor
+                return color as! NSColor
             }
         }
-        return false
+        return NSColor.black
+    }
+    
+    func navy(_ x: Int) -> Bool {
+        return foregroundColor(x) == navyColor
+    }
+    
+    func colored(_ x: Int) -> Colored {
+        switch foregroundColor(x) {
+        case navyColor     : return .link
+        case NSColor.brown : return .strong
+        case NSColor.gray  : return .footnote
+        default            : return .none
+        }
     }
     
     func striked(_ x: Int) -> Bool {
@@ -44,7 +61,7 @@ class CustomTextView: NSTextView {
     }
     
     func hyperlink() {
-        let color = colored(selectedRange.location) ? NSColor.black : navyColor
+        let color = navy(selectedRange.location) ? NSColor.black : navyColor
         self.textStorage?.addAttribute(.foregroundColor, value: color, range: selectedRange)
     }
     

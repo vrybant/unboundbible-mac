@@ -81,7 +81,8 @@ func replaceTags(list: inout [String], jtag: Bool) {
 
 func parse(_ string: String, jtag: Bool) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    let string = string.replace(" <f>", "<f>") // footnotes
+    let string = string.replace(" <f>","<f>")         // footnotes
+                       .replace("</S><S>","</S> <S>") // strongs
 
     var list = xmlToList(string: string)
     replaceTags(list: &list, jtag: jtag)
