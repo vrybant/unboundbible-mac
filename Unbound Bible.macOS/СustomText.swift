@@ -70,11 +70,6 @@ class CustomTextView: NSTextView {
         self.textStorage?.addAttribute(.strikethroughStyle, value: style, range: selectedRange)
     }
     
-    func getSelection() -> String {
-        let attrStr = self.attributedString().attributedSubstring(from: selectedRange)
-        return attrStr.string
-    }
-    
     func getLink() -> String? {
         if selectedRange.length > 0 { return nil }
         let fore = foreground(selectedRange.location)
@@ -90,7 +85,6 @@ class CustomTextView: NSTextView {
         
         let range = NSRange(location: x2, length: x1-x2)
         let string = self.attributedString().attributedSubstring(from: range).string
-//      self.setSelectedRange(range)
         
         print(fore, string)
         return string
