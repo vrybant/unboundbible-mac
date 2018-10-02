@@ -36,10 +36,6 @@ class CustomTextView: NSTextView {
         return NSColor.black
     }
     
-    func navy(_ x: Int) -> Bool {
-        return foregroundColor(x) == navyColor
-    }
-    
     func foreground(_ x: Int) -> Foreground {
         switch foregroundColor(x) {
         case navyColor     : return .link
@@ -61,7 +57,8 @@ class CustomTextView: NSTextView {
     }
     
     func hyperlink() {
-        let color = navy(selectedRange.location) ? NSColor.black : navyColor
+        let navy = foregroundColor(selectedRange.location) == navyColor
+        let color = navy ? NSColor.black : navyColor
         self.textStorage?.addAttribute(.foregroundColor, value: color, range: selectedRange)
     }
     
@@ -93,11 +90,12 @@ class CustomTextView: NSTextView {
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         let fore = foreground(selectedRange.location)
-        guard let link = getLink() else { return }
         
-        if fore == .link {
-            if let verse = bible!.stringToVerse(link: link) {
-                goToVerse(verse, select: true)
+        if fore != .text {
+            if let link = getLink() {
+                if let verse = bible!.stringToVerse(link: link) {
+                    goToVerse(verse, select: true)
+                }
             }
         }
         
