@@ -25,7 +25,7 @@ class CustomTextView: NSTextView {
 //      self.isContinuousSpellCheckingEnabled = false
     }
     
-    func selectedColor(_ x: Int) -> NSColor {
+    func foregroundColor(_ x: Int) -> NSColor {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
             let attrChar = self.attributedString().attributedSubstring(from: range)
@@ -37,11 +37,11 @@ class CustomTextView: NSTextView {
     }
     
     func navy(_ x: Int) -> Bool {
-        return selectedColor(x) == navyColor
+        return foregroundColor(x) == navyColor
     }
     
-    func selectedForeground(_ x: Int) -> Foreground {
-        switch selectedColor(x) {
+    func foreground(_ x: Int) -> Foreground {
+        switch foregroundColor(x) {
         case navyColor     : return .link
         case NSColor.brown : return .strong
         case NSColor.gray  : return .footnote
@@ -77,14 +77,14 @@ class CustomTextView: NSTextView {
     
     func getLink() -> String? {
         if selectedRange.length > 0 { return nil }
-        let foreground = selectedForeground(selectedRange.location)
-        if foreground == .none { return nil }
+        let fore = foreground(selectedRange.location)
+        if fore == .none { return nil }
         
         let length = attributedString().length
         var x1 = selectedRange.location
         
-        while selectedForeground(x1) == foreground, x1 < length { x1 += 1 }; var x2 = x1 - 1;
-        while selectedForeground(x2) == foreground, x2 > 0      { x2 -= 1 };
+        while foreground(x1) == fore, x1 < length { x1 += 1 }; var x2 = x1 - 1;
+        while foreground(x2) == fore, x2 > 0      { x2 -= 1 };
         
         if x2 > 0 { x2 += 1 }
         
@@ -92,22 +92,22 @@ class CustomTextView: NSTextView {
         let string = self.attributedString().attributedSubstring(from: range).string
 //      self.setSelectedRange(range)
         
-        print(foreground, string)
+        print(fore, string)
         return string
     }
     
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
-        let foreground = selectedForeground(selectedRange.location)
+        let fore = foreground(selectedRange.location)
         guard let link = getLink() else { return }
         
-        if foreground == .link {
+        if fore == .link {
             if let verse = bible!.stringToVerse(link: link) {
                 goToVerse(verse, select: true)
             }
         }
         
-        if foreground == .strong {
+        if fore == .strong {
             //
         }
     }
