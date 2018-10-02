@@ -8,7 +8,7 @@
 import Cocoa
 
 enum Foreground {
-    case none, link, footnote, strong
+    case text, link, footnote, strong
 }
 
 class CustomTextView: NSTextView {
@@ -45,7 +45,7 @@ class CustomTextView: NSTextView {
         case navyColor     : return .link
         case NSColor.brown : return .strong
         case NSColor.gray  : return .footnote
-        default            : return .none
+        default            : return .text
         }
     }
     
