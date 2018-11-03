@@ -9,9 +9,7 @@ import Foundation
 
 var activeVerse = Verse()
 
-class Bible {
-    var books        : [Book] = []
-    var titles       : [String] = []
+class Module {
     var filePath     : String
     var fileName     : String
     var database     : FMDatabase?
@@ -40,8 +38,16 @@ class Bible {
     init(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
-
         database = FMDatabase(path: filePath)
+    }
+}
+
+class Bible: Module {
+    var books        : [Book] = []
+    var titles       : [String] = []
+
+    override init(atPath: String) {
+        super.init(atPath: atPath)
         openDatabase()
     }
     
