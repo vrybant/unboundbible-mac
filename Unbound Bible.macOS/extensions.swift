@@ -244,3 +244,16 @@ extension Array where Element == URL {
     }
 }
 
+extension NSAppearance {
+    var isDark: Bool {
+        if #available(macOS 10.14, *) {
+            let appearance: NSAppearance.Name? = self.bestMatch(from: [.aqua, .darkAqua])
+            return appearance == .darkAqua
+        } else {
+            return false
+        }
+    }
+}
+
+
+
