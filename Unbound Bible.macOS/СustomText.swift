@@ -16,8 +16,10 @@ class CustomTextView: NSTextView {
     var modified = false
     
     override func draw(_ dirtyRect: NSRect) {
+        let oldValue = darkAppearance
+        darkAppearance = self.effectiveAppearance.isDark
+        if darkAppearance != oldValue { updateColors() }
         super.draw(dirtyRect)
-        // Drawing code here.
     }
     
     required init?(coder: NSCoder) {
@@ -38,9 +40,9 @@ class CustomTextView: NSTextView {
     
     func foreground(_ x: Int) -> Foreground {
         switch foregroundColor(x) {
-        case navyColor     : return .link
-        case NSColor.brown : return .strong
-        case NSColor.gray  : return .footnote
+        case NSColor.systemNavy  : return .link
+        case NSColor.systemBrown : return .strong
+        case NSColor.systemGray  : return .footnote
         default            : return .text
         }
     }
@@ -57,8 +59,8 @@ class CustomTextView: NSTextView {
     }
     
     func hyperlink() {
-        let navy = foregroundColor(selectedRange.location) == navyColor
-        let color = navy ? NSColor.black : navyColor
+        let navy = foregroundColor(selectedRange.location) == NSColor.systemNavy
+        let color = navy ? NSColor.black : NSColor.systemNavy
         self.textStorage?.addAttribute(.foregroundColor, value: color, range: selectedRange)
     }
     
@@ -113,11 +115,18 @@ class CustomTextView: NSTextView {
         self.textStorage?.mutableString.setString("")
         self.modified = false
     }
+
+    func updateColors() {
+        let string = self.attributedString().mutable()
+        let text = darkAppearance ? string.withSystemColors() : string.withNaturalColors()
+        self.textStorage?.setAttributedString(text)
+    }
     
     func loadFromFile(url: URL) throws {
         let options : [NSAttributedString.DocumentReadingOptionKey : Any] = [ .documentType : NSAttributedString.DocumentType.rtf]
         if let attributedString: NSAttributedString = try? NSAttributedString(url: url, options: options, documentAttributes: nil) {
-            self.textStorage?.setAttributedString(attributedString)
+            let text = darkAppearance ? attributedString.withSystemColors() : attributedString
+            self.textStorage?.setAttributedString(text)
             self.modified = false
         } else {
             throw Errors.someError
@@ -125,9 +134,8 @@ class CustomTextView: NSTextView {
     }
     
     func saveToFile(url: URL) throws {
-        let text = self.attributedString()
+        let text = darkAppearance ? self.attributedString().withNaturalColors() : self.attributedString()
         let range = NSRange(0..<text.length)
-        
         let attributes = [NSAttributedString.DocumentAttributeKey.documentType : NSAttributedString.DocumentType.rtf]
         if let wrapper = try? text.fileWrapper(from: range, documentAttributes: attributes) {
             do {
