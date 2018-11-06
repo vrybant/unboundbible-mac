@@ -179,20 +179,6 @@ extension Collection where Iterator.Element == String {
     
 }
 
-extension NSAttributedString {
-    func mutable () -> NSMutableAttributedString {
-        return self.mutableCopy() as! NSMutableAttributedString
-    }
-}
-
-extension NSMutableAttributedString {
-    func copyToPasteboard() {
-        let Pasteboard = NSPasteboard.general
-        Pasteboard.clearContents()
-        Pasteboard.writeObjects([self])
-    }
-}
-
 extension NSTabView {
     func selectedTab() -> Int? {
         if let tab = self.selectedTabViewItem {
@@ -255,6 +241,78 @@ extension NSColor {
     }
     static var systemNavy: NSColor {
         return darkAppearance ? NSColor.darkNavy : NSColor.navy
+    }
+}
+
+extension NSMutableAttributedString {
+    func copyToPasteboard() {
+        let Pasteboard = NSPasteboard.general
+        Pasteboard.clearContents()
+        Pasteboard.writeObjects([self])
+    }
+}
+
+extension NSAttributedString {
+    func mutable () -> NSMutableAttributedString {
+        return self.mutableCopy() as! NSMutableAttributedString
+    }
+
+    func withSystemColors() -> NSMutableAttributedString {
+        let result = self.mutable()
+        self.enumerateAttribute(NSAttributedStringKey.foregroundColor,
+            in: NSRange(0..<self.length), options: .longestEffectiveRangeNotRequired) {
+                value, range, stop in
+                                            
+            if let foregroundColor = value as? NSColor {
+                var color: NSColor?
+                switch foregroundColor {
+                case NSColor.black:  color = NSColor.labelColor
+                case NSColor.blue:   color = NSColor.systemBlue
+                case NSColor.brown:  color = NSColor.systemBrown
+                case NSColor.gray:   color = NSColor.systemGray
+                case NSColor.green:  color = NSColor.systemGreen
+                case NSColor.navy:   color = NSColor.systemNavy
+                case NSColor.orange: color = NSColor.systemOrange
+                case NSColor.purple: color = NSColor.systemPurple
+                case NSColor.red:    color = NSColor.systemRed
+                case NSColor.yellow: color = NSColor.systemYellow
+                default: break
+                }
+                if color != nil {
+                    result.addAttribute(.foregroundColor, value: color!, range: range)
+                }
+            }
+        }
+        return result
+    }
+
+    func withNaturalColors() -> NSMutableAttributedString {
+        let result = self.mutable()
+        self.enumerateAttribute(NSAttributedStringKey.foregroundColor,
+            in: NSRange(0..<self.length), options: .longestEffectiveRangeNotRequired) {
+                value, range, stop in
+                
+            if let foregroundColor = value as? NSColor {
+                var color: NSColor?
+                switch foregroundColor {
+                case NSColor.labelColor:   color = NSColor.black
+                case NSColor.systemBlue:   color = NSColor.blue
+                case NSColor.systemBrown:  color = NSColor.brown
+                case NSColor.systemGray:   color = NSColor.gray
+                case NSColor.systemGreen:  color = NSColor.green
+                case NSColor.systemOrange: color = NSColor.orange
+                case NSColor.darkNavy:     color = NSColor.navy
+                case NSColor.systemPurple: color = NSColor.purple
+                case NSColor.systemRed:    color = NSColor.red
+                case NSColor.systemYellow: color = NSColor.yellow
+                default: break
+                }
+                if color != nil {
+                    result.addAttribute(.foregroundColor, value: color!, range: range)
+                }
+            }
+        }
+        return result
     }
 }
 
