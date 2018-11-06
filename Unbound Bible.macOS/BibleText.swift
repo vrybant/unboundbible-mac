@@ -36,6 +36,7 @@ class BibleTextView: CustomTextView {
     
     private func paragraphFromSelection(beginning: Bool) -> Int {
         var location = self.selectedRange.location
+        if beginning { location += 1 }
         if !beginning { location += self.selectedRange.length }
         
         if location < 2 { return 1 }
