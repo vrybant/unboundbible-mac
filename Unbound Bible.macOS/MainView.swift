@@ -19,6 +19,7 @@ class MainView: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = self
+        darkAppearance = self.view.effectiveAppearance.isDark
     }
     
     override func viewDidAppear() {
