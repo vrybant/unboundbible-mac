@@ -85,7 +85,6 @@ class CustomTextView: NSTextView {
         let range = NSRange(location: x2, length: x1-x2)
         let string = self.attributedString().attributedSubstring(from: range).string
         
-        print(fore, string)
         return string
     }
     
@@ -134,7 +133,7 @@ class CustomTextView: NSTextView {
     }
     
     func saveToFile(url: URL) throws {
-        let text = darkAppearance ? self.attributedString().withNaturalColors() : self.attributedString()
+        let text = self.attributedString().withNaturalColors()
         let range = NSRange(0..<text.length)
         let attributes = [NSAttributedString.DocumentAttributeKey.documentType : NSAttributedString.DocumentType.rtf]
         if let wrapper = try? text.fileWrapper(from: range, documentAttributes: attributes) {
