@@ -11,7 +11,7 @@ import Cocoa
 var defaultFont = NSFont.systemFont(ofSize: 14)
 
 var defaultAttribute: [NSAttributedStringKey : Any] {
-    return [NSAttributedStringKey.foregroundColor: NSColor.black, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
+    return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
 }
 
 func xmlToList(string: String) -> [String] {
@@ -45,15 +45,16 @@ func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedStri
     for element in set {
         switch element {
         case "<i>": result.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!, range: range)
+                    result.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor, range: range)
         case "<J>",
-             "<r>": result.addAttribute(.foregroundColor, value: NSColor.red, range: range)
-        case "<n>": result.addAttribute(.foregroundColor, value: NSColor.gray, range: range)
-        case "<m>": result.addAttribute(.foregroundColor, value: NSColor.blue, range: range)
-        case "<l>": result.addAttribute(.foregroundColor, value: navyColor, range: range)
-        case "<S>": result.addAttribute(.foregroundColor, value: NSColor.brown, range: range)
+             "<r>": result.addAttribute(.foregroundColor, value: NSColor.systemRed, range: range)
+        case "<n>": result.addAttribute(.foregroundColor, value: NSColor.systemGray, range: range)
+        case "<m>": result.addAttribute(.foregroundColor, value: NSColor.systemNavy, range: range)
+        case "<l>": result.addAttribute(.foregroundColor, value: NSColor.systemNavy, range: range)
+        case "<S>": result.addAttribute(.foregroundColor, value: NSColor.systemBrown, range: range)
                     result.addAttribute(.font, value: NSFont.systemFont(ofSize: 9), range: range)
                     result.addAttribute(.baselineOffset, value: 5.0, range: range)
-        case "<f>": result.addAttribute(.foregroundColor, value: NSColor.gray, range: range)
+        case "<f>": result.addAttribute(.foregroundColor, value: NSColor.systemGray, range: range)
                     result.addAttribute(.font, value: NSFont.systemFont(ofSize: 9), range: range)
                     result.addAttribute(.baselineOffset, value: 5.0, range: range)
         default: break
@@ -81,8 +82,8 @@ func replaceTags(list: inout [String], jtag: Bool) {
 
 func parse(_ string: String, jtag: Bool) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    let string = string.replace(" <f>","<f>")         // footnotes
-                       .replace("</S><S>","</S> <S>") // strongs
+    let string = string.replace("</S><S>","</S> <S>") // strongs
+//                     .replace(" <f>","<f>")         // footnotes
 
     var list = xmlToList(string: string)
     replaceTags(list: &list, jtag: jtag)
