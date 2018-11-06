@@ -8,6 +8,8 @@
 import Foundation
 import Cocoa
 
+var darkAppearance: Bool = false
+
 extension Int32 {
     
     var int: Int {
@@ -244,6 +246,18 @@ extension Array where Element == URL {
     }
 }
 
+extension NSColor {
+    static var navy: NSColor {
+        return NSColor(red: 0, green: 0, blue: 0.5, alpha: 1)
+    }
+    static var darkNavy: NSColor {
+        return NSColor(red: 0, green: 0.6, blue: 1, alpha: 1)
+    }
+    static var systemNavy: NSColor {
+        return darkAppearance ? NSColor.darkNavy : NSColor.navy
+    }
+}
+
 extension NSAppearance {
     var isDark: Bool {
         if #available(macOS 10.14, *) {
@@ -254,6 +268,3 @@ extension NSAppearance {
         }
     }
 }
-
-
-
