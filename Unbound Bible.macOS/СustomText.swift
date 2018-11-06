@@ -14,11 +14,11 @@ enum Foreground {
 class CustomTextView: NSTextView {
     
     var modified = false
-    
+    var isDark = false
+
     override func draw(_ dirtyRect: NSRect) {
-        let oldValue = darkAppearance
-        darkAppearance = self.effectiveAppearance.isDark
-        if darkAppearance != oldValue { updateColors() }
+        if darkAppearance != isDark { updateColors() }
+        isDark = darkAppearance
         super.draw(dirtyRect)
     }
     
