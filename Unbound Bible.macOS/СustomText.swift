@@ -116,8 +116,7 @@ class CustomTextView: NSTextView {
     }
 
     func updateColors() {
-        let string = self.attributedString().mutable()
-        let text = darkAppearance ? string.withSystemColors() : string.withNaturalColors()
+        let text = self.attributedString().mutable().withSystemColors()
         self.textStorage?.setAttributedString(text)
     }
     

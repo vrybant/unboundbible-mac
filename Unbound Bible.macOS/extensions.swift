@@ -266,16 +266,17 @@ extension NSAttributedString {
             if let foregroundColor = value as? NSColor {
                 var color: NSColor?
                 switch foregroundColor {
-                case NSColor.black:  color = NSColor.labelColor
-                case NSColor.blue:   color = NSColor.systemBlue
-                case NSColor.brown:  color = NSColor.systemBrown
-                case NSColor.gray:   color = NSColor.systemGray
-                case NSColor.green:  color = NSColor.systemGreen
-                case NSColor.navy:   color = NSColor.systemNavy
-                case NSColor.orange: color = NSColor.systemOrange
-                case NSColor.purple: color = NSColor.systemPurple
-                case NSColor.red:    color = NSColor.systemRed
-                case NSColor.yellow: color = NSColor.systemYellow
+                case NSColor.black:    color = NSColor.labelColor
+                case NSColor.blue:     color = NSColor.systemBlue
+                case NSColor.brown:    color = NSColor.systemBrown
+                case NSColor.gray:     color = NSColor.systemGray
+                case NSColor.green:    color = NSColor.systemGreen
+                case NSColor.navy:     color = NSColor.systemNavy
+                case NSColor.darkNavy: color = NSColor.systemNavy
+                case NSColor.orange:   color = NSColor.systemOrange
+                case NSColor.purple:   color = NSColor.systemPurple
+                case NSColor.red:      color = NSColor.systemRed
+                case NSColor.yellow:   color = NSColor.systemYellow
                 default: break
                 }
                 if color != nil {
@@ -300,8 +301,8 @@ extension NSAttributedString {
                 case NSColor.systemBrown:  color = NSColor.brown
                 case NSColor.systemGray:   color = NSColor.gray
                 case NSColor.systemGreen:  color = NSColor.green
-                case NSColor.systemOrange: color = NSColor.orange
                 case NSColor.darkNavy:     color = NSColor.navy
+                case NSColor.systemOrange: color = NSColor.orange
                 case NSColor.systemPurple: color = NSColor.purple
                 case NSColor.systemRed:    color = NSColor.red
                 case NSColor.systemYellow: color = NSColor.yellow
