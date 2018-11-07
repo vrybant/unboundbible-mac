@@ -415,14 +415,14 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="1D509AE2-E468-4037-A32B-C017EA1B7CCE" label="" paletteLabel="" image="copy" id="X5F-hi-XtT">
+                                <toolbarItem implicitItemIdentifier="1D509AE2-E468-4037-A32B-C017EA1B7CCE" label="" paletteLabel="" image="CopyImage" id="X5F-hi-XtT">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="42" height="32"/>
                                     <size key="maxSize" width="42" height="32"/>
                                     <button key="view" toolTip="Copy Verses" verticalHuggingPriority="750" allowsExpansionToolTips="YES" id="hQ5-QW-Kxg">
                                         <rect key="frame" x="0.0" y="14" width="42" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="copy" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymh-vF-lXr">
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="CopyImage" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymh-vF-lXr">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -496,6 +496,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="copyButton" destination="X5F-hi-XtT" id="mkq-zi-IfF"/>
                         <outlet property="searchField" destination="n2B-PU-L83" id="xZX-Rd-S7W"/>
                         <outlet property="windowOutlet" destination="IQv-IB-iLA" id="ojZ-Qr-gTz"/>
                         <segue destination="81U-iW-K9k" kind="relationship" relationship="window.shadowedContentViewController" id="eOp-iv-lDw"/>
@@ -1531,11 +1532,11 @@ Gw
         </scene>
     </scenes>
     <resources>
+        <image name="CopyImage" width="16" height="16"/>
         <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>
         <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
-        <image name="copy" width="14" height="14"/>
     </resources>
 </document>
