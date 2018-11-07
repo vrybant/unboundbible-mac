@@ -30,8 +30,18 @@ var darkInterfaceStyle: Bool {
     return style == "Dark"
 }
 
-func languageCode() -> String {
+var languageCode: String {
     return NSLocale.autoupdatingCurrent.languageCode ?? "en"
+}
+
+var defaultBible: String {
+    var result = ""
+    switch languageCode {
+    case "ru" : result = "rstw.unbound"
+    case "uk" : result = "ubio.unbound"
+    default   : result = "kjv.unbound"
+    }
+    return result
 }
 
 func fileExists(_ atPath: String) -> Bool {
@@ -48,16 +58,6 @@ func getFileList(_ atPath: String) -> [String] {
         }
     } catch {
         // failed
-    }
-    return result
-}
-
-func defaultBible() -> String {
-    var result = ""
-    switch languageCode() {
-    case "ru" : result = "rstw.unbound"
-    case "uk" : result = "ubio.unbound"
-    default   : result = "kjv.unbound"
     }
     return result
 }

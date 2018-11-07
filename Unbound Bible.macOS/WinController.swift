@@ -40,7 +40,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     func showUpdate() {
-        let tail = languageCode() == "ru" ? "ubupdateru.php" : "ubupdate.php"
+        let tail = languageCode == "ru" ? "ubupdateru.php" : "ubupdate.php"
         let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
@@ -89,7 +89,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     @IBAction func showHelp(_ sender: NSMenuItem) {
-        let tail = languageCode() == "ru" ? "ubhelpru.php" : "ubhelp.php"
+        let tail = languageCode == "ru" ? "ubhelpru.php" : "ubhelp.php"
         let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
@@ -100,7 +100,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
     @IBAction func homePage(_ sender: NSMenuItem) {
-        let tail = languageCode() == "ru" ? "ru" : ""
+        let tail = languageCode == "ru" ? "ru" : ""
         let url = "http://vladimirrybant.org/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }

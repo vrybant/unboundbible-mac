@@ -42,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func localization() {
-        if languageCode() == "uk" {
+        if languageCode == "uk" {
             defaultBaseline.title = "Стандартна"
             defaultDirection.title = "Стандартний"
         }
@@ -117,7 +117,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let file = defaults.string(forKey: "current") {
             shelf.setCurrent(file)
         } else {
-            shelf.setCurrent(defaultBible())
+            shelf.setCurrent(defaultBible)
         }
         
         let value = defaults.integer(forKey: "copyOptions")
