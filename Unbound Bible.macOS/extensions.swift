@@ -8,8 +8,6 @@
 import Foundation
 import Cocoa
 
-var darkAppearance: Bool = false
-
 extension Int32 {
     
     var int: Int {

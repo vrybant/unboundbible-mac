@@ -25,10 +25,10 @@ enum Errors : Error {
     case someOtherError
 }
 
-var darkInterfaceStyle: Bool {
-    let style = UserDefaults.standard.string(forKey: "AppleInterfaceStyle")
-    return style == "Dark"
-}
+//  var darkInterfaceStyle: Bool {
+//      let style = UserDefaults.standard.string(forKey: "AppleInterfaceStyle")
+//      return style == "Dark"
+//  }
 
 var languageCode: String {
     return NSLocale.autoupdatingCurrent.languageCode ?? "en"

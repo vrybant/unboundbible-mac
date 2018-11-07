@@ -9,13 +9,6 @@ import Cocoa
 
 var mainView = MainView()
 
-class View: NSView {
-    override func draw(_ dirtyRect: NSRect) {
-        darkAppearance = self.effectiveAppearance.isDark
-        super.draw(dirtyRect)
-    }
-}
-
 class MainView: NSViewController, NSWindowDelegate {
 
     var noteURL : URL?
@@ -26,7 +19,6 @@ class MainView: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = self
-        darkAppearance = self.view.effectiveAppearance.isDark
     }
     
     override func viewDidAppear() {

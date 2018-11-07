@@ -14,6 +14,7 @@
 		E719DAF01ECB302D00137035 /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719DAEF1ECB302D00137035 /* types.swift */; };
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
+		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
 		E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DF9E11DE8651C00A46DA1 /* LeftView.swift */; };
 		E73697B41DE4AEFD00FAA898 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73697B31DE4AEFD00FAA898 /* lib.swift */; };
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
@@ -61,6 +62,7 @@
 		E719DAEF1ECB302D00137035 /* types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		E71B29CE1E0C218200173E77 /* WinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinController.swift; sourceTree = "<group>"; };
 		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
+		E725BA1D2193196000247627 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E72DF9E11DE8651C00A46DA1 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		E73697B31DE4AEFD00FAA898 /* lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
 				E71B29CE1E0C218200173E77 /* WinController.swift */,
 				CE2F17F21D33C31800BA91A6 /* MainView.swift */,
+				E725BA1D2193196000247627 /* View.swift */,
 				E7D4637A201A2B520055F1DA /* PreferencesView.swift */,
 				E7DDA4AF1EE960E400022638 /* SplitView.swift */,
 				E72DF9E11DE8651C00A46DA1 /* LeftView.swift */,
@@ -370,6 +373,7 @@
 				E719DAF01ECB302D00137035 /* types.swift in Sources */,
 				E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */,
 				E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */,
+				E725BA1E2193196000247627 /* View.swift in Sources */,
 				E7C21903201522F300E90AC6 /* NotesText.swift in Sources */,
 				E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */,
 				E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */,
