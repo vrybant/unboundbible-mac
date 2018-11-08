@@ -496,7 +496,6 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="copyButton" destination="X5F-hi-XtT" id="mkq-zi-IfF"/>
                         <outlet property="searchField" destination="n2B-PU-L83" id="xZX-Rd-S7W"/>
                         <outlet property="windowOutlet" destination="IQv-IB-iLA" id="ojZ-Qr-gTz"/>
                         <segue destination="81U-iW-K9k" kind="relationship" relationship="window.shadowedContentViewController" id="eOp-iv-lDw"/>
