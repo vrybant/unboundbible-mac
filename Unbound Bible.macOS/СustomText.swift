@@ -110,6 +110,17 @@ class CustomTextView: NSTextView {
         modified = true
     }
     
+    override func printView(_ sender: Any?) {
+        if darkAppearance {
+            let view = NSTextView.init(frame: self.frame)
+            let text = self.attributedString()
+            view.textStorage?.setAttributedString(text)
+            view.printView(view)
+        } else {
+            super.printView(self)
+        }
+    }
+    
     func clean() {
         self.textStorage?.mutableString.setString("")
         self.modified = false
