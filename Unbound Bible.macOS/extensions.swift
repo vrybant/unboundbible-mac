@@ -243,7 +243,7 @@ extension NSColor {
 }
 
 extension NSAttributedString {
-    func mutable () -> NSMutableAttributedString {
+    func mutable() -> NSMutableAttributedString {
         return self.mutableCopy() as! NSMutableAttributedString
     }
 
@@ -309,7 +309,7 @@ extension NSAttributedString {
     func copyToPasteboard() {
         let Pasteboard = NSPasteboard.general
         Pasteboard.clearContents()
-        Pasteboard.writeObjects([self.withNaturalColors()])
+        Pasteboard.writeObjects([self])
     }
 }
 
