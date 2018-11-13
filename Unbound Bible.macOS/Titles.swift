@@ -36,10 +36,11 @@ class Titles {
         
         let query = "SELECT * FROM Books WHERE Number=\(n)"
         
-        if let results = try? database!.executeQuery(query, values: nil) {
-            results.next()
-            name = results.string(forColumn: "Name") ?? String(n)
-            abbr = results.string(forColumn: "Abbreviation") ?? name
+        if let results = database!.executeQuery(query) {
+            if results.next() {
+                name = results.string(forColumn: "Name") ?? String(n)
+                abbr = results.string(forColumn: "Abbreviation") ?? name
+            }
         }
         return abbreviation ? abbr : name
     }

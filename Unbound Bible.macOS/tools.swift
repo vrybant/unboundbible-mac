@@ -8,16 +8,15 @@
 import Cocoa
 
 func loadChapter() {
-    let text = bible!.getChapter(activeVerse)
     let attributedString = NSMutableAttributedString()
-    
-    if text.count > 0 {
-        for i in 0...text.count-1 {
-            let string = " <l>" + String(i+1) + "</l> " + text[i] + "\n"
-            attributedString.append( parse(string, jtag: true) )
+    if let text = bible!.getChapter(activeVerse) {
+        if !text.isEmpty {
+            for i in 0...text.count-1 {
+                let string = " <l>" + String(i+1) + "</l> " + text[i] + "\n"
+                attributedString.append( parse(string, jtag: true) )
+            }
         }
     }
-    
     rigthView.bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
     rigthView.bibleTextView.textStorage?.setAttributedString(attributedString)
 }

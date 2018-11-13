@@ -68,15 +68,16 @@ class Bible: Module {
         }
         
         let query = "select * from \(z.details)"
-        if let results = try? database!.executeQuery(query, values: nil) {
+        if let results = database!.executeQuery(query) {
             
             if fileFormat == .unbound {
-                results.next()
-                if let value = results.string(forColumn: "Title"      ) { name = value }
-                if let value = results.string(forColumn: "Information") { info = value }
-                if let value = results.string(forColumn: "Description") { info = value }
-                if let value = results.string(forColumn: "Copyright"  ) { copyright = value }
-                if let value = results.string(forColumn: "Language"   ) { language  = value }
+                if results.next() {
+                    if let value = results.string(forColumn: "Title"      ) { name = value }
+                    if let value = results.string(forColumn: "Information") { info = value }
+                    if let value = results.string(forColumn: "Description") { info = value }
+                    if let value = results.string(forColumn: "Copyright"  ) { copyright = value }
+                    if let value = results.string(forColumn: "Language"   ) { language  = value }
+                }
             }
             
             if fileFormat == .mybible {
@@ -114,7 +115,7 @@ class Bible: Module {
         if loaded { return }
         let query = "select distinct \(z.book) from \(z.bible)"
         
-        if let results = try? database!.executeQuery(query, values: nil) {
+        if let results = database!.executeQuery(query) {
             while results.next() == true {
                 guard let stbook = results.string(forColumn: z.book) else { break }
                 let id = stbook.int
@@ -156,9 +157,10 @@ class Bible: Module {
         let id = encodeID(verse.book)
         let query = "select max(\(z.chapter)) as count from \(z.bible) where \(z.book) = \(id)"
 
-        if let results = try? database!.executeQuery(query, values: nil) {
-            results.next()
-            return Int( results.int(forColumn: "count") )
+        if let results = database!.executeQuery(query) {
+            if results.next() {
+                return Int( results.int(forColumn: "count") )
+            }
         }
         return 0
     }
@@ -198,12 +200,12 @@ class Bible: Module {
         }
     }
 
-    func getChapter(_ verse : Verse) -> [String] {
+    func getChapter(_ verse : Verse) -> [String]? {
         let id = encodeID(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
 
-        if let results = try? database!.executeQuery(query, values: nil) {
-            var result : [String] = []
+        if let results = database!.executeQuery(query) {
+            var result = [String]()
             while results.next() == true {
                 guard let line = results.string(forColumn: z.text) else { break }
                 
@@ -211,9 +213,9 @@ class Bible: Module {
                 
                 result.append(line_out)
             }
-            return result
+            if !result.isEmpty { return result }
         }
-        return []
+        return nil
     }
     
     func getRange(_ verse : Verse) -> [String]? {
@@ -222,13 +224,13 @@ class Bible: Module {
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
         
-        if let results = try? database!.executeQuery(query, values: nil) {
-            var result : [String] = []
+        if let results = database!.executeQuery(query) {
+            var result = [String]()
             while results.next() == true {
                 guard let line = results.string(forColumn: z.text) else { break }
                 result.append(line)
             }
-            return result
+            if !result.isEmpty { return result }
         }
         return nil
     }
@@ -255,7 +257,7 @@ class Bible: Module {
         
         setCaseSensitiveLike(options.contains(.caseSensitive))
         
-        if let results = try? database!.executeQuery(query, values: nil) {
+        if let results = database!.executeQuery(query) {
             var lines = [Content]()
             while results.next() == true {
                 guard let book = results.string(forColumn: z.book) else { break }
