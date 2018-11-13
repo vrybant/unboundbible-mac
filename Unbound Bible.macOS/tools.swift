@@ -32,12 +32,13 @@ func loadCompare() {
         if !item.compare { continue }
         
         if let list = item.getRange(activeVerse) {
-            let name = item.name
             let text = list.joined(separator: " ") + "\n"
-            let string = "\n<l>" + name + "</l>\n" + text
+            let string = "\n<l>" + item.name + "</l>\n" + text
             attrString.append( parse(string, jtag: false) )
-//          attrString.append( text.mutable(attributes: defaultAttribute) )
+        } else {
+            print(item.name)
         }
+        
     }  
 
     selectTab(at: .compare)
