@@ -37,30 +37,30 @@ func xmlToList(string: String) -> [String] {
 }
 
 func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
-    let result = string.mutable(attributes: defaultAttribute)
-    let range = NSRange(location: 0, length: result.length)
+    let s = string.mutable(attributes: defaultAttribute)
+    let r = NSRange(location: 0, length: s.length)
     var set = tags
     if set.contains("<S>") { set.remove("<J>") }
     if set.contains("<f>") { set.remove("<J>") }
     for element in set {
         switch element {
-        case "<i>": result.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!, range: range)
-                    result.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor, range: range)
+        case "<i>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!, range: r)
+                    s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor,    range: r)
         case "<J>",
-             "<r>": result.addAttribute(.foregroundColor, value: NSColor.systemRed, range: range)
-        case "<n>": result.addAttribute(.foregroundColor, value: NSColor.systemGray, range: range)
-        case "<m>": result.addAttribute(.foregroundColor, value: NSColor.systemNavy, range: range)
-        case "<l>": result.addAttribute(.foregroundColor, value: NSColor.systemNavy, range: range)
-        case "<S>": result.addAttribute(.foregroundColor, value: NSColor.systemBrown, range: range)
-                    result.addAttribute(.font, value: NSFont.systemFont(ofSize: 9), range: range)
-                    result.addAttribute(.baselineOffset, value: 5.0, range: range)
-        case "<f>": result.addAttribute(.foregroundColor, value: NSColor.systemGray, range: range)
-                    result.addAttribute(.font, value: NSFont.systemFont(ofSize: 9), range: range)
-                    result.addAttribute(.baselineOffset, value: 5.0, range: range)
+             "<r>": s.addAttribute(.foregroundColor, value: NSColor.systemRed,   range: r)
+        case "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray,  range: r)
+        case "<m>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy,  range: r)
+        case "<l>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy,  range: r)
+        case "<S>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown, range: r)
+                    s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9),   range: r)
+                    s.addAttribute(.baselineOffset,  value: 5.0,                 range: r)
+        case "<f>": s.addAttribute(.foregroundColor, value: NSColor.systemGray,  range: r)
+                    s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9),   range: r)
+                    s.addAttribute(.baselineOffset,  value: 5.0,                 range: r)
         default: break
         }
     }
-    return result
+    return s
 }
 
 func replaceTags(list: inout [String], jtag: Bool) {

@@ -236,6 +236,7 @@ extension NSColor {
     }
     static var darkNavy: NSColor {
         return NSColor(red: 0, green: 0.6, blue: 1, alpha: 1)
+        // midnight:   rgb(0, 24, 136);
     }
     static var systemNavy: NSColor {
         return darkAppearance ? NSColor.darkNavy : NSColor.navy
