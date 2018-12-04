@@ -44,7 +44,7 @@ func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedStri
     for element in set {
         switch element {
         case "<i>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
-                    s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor  )
+                    s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
         case "<J>",
              "<r>": s.addAttribute(.foregroundColor, value: NSColor.systemRed   )
         case "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
@@ -79,7 +79,7 @@ func replaceTags(list: inout [String], jtag: Bool) {
     }
 }
 
-func parse(_ string: String, jtag: Bool) -> NSMutableAttributedString {
+func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
     let string = string.replace("</S><S>","</S> <S>") // strongs
                        .replace(" <f>","<f>")         // footnotes

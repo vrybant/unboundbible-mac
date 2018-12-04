@@ -25,7 +25,7 @@ func loadCompare() {
     if shelf.isEmpty { return }
     let link = bible!.verseToString(activeVerse, full: true) + "\n"
     let attrString = NSMutableAttributedString()
-    attrString.append( parse(link, jtag: false) )
+    attrString.append( parse(link) )
     
     for item in shelf.bibles {
         if !item.compare { continue }
@@ -33,7 +33,7 @@ func loadCompare() {
         if let list = item.getRange(activeVerse) {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n" + text
-            attrString.append( parse(string, jtag: false) )
+            attrString.append( parse(string) )
         } else {
             print(item.name)
         }
@@ -55,14 +55,14 @@ func searchText(string: String) {
             let link = bible!.verseToString(content.verse, full: true)
             let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
             let out = "<l>\(link)</l> \(text)\n\n"
-            attributedString.append(parse(out, jtag: false))
+            attributedString.append(parse(out))
         }
         let message = NSLocalizedString("verses was found", comment: "")
         mainView.updateStatus("\(searchResult.count) \(message)")
     } else {
         let message = NSLocalizedString("You search for % produced no results.", comment: "")
         let out = "<i>\n \(message.replace("%", string.quoted)) </i>"
-        attributedString.append(parse(out, jtag: false))
+        attributedString.append(parse(out))
         mainView.updateStatus("")
     }
     
@@ -111,5 +111,5 @@ func copyVerses(options: CopyOptions) -> NSMutableAttributedString {
     }
     out += "\n"
     
-    return parse(out, jtag: false)
+    return parse(out)
 }

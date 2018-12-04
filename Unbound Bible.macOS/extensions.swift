@@ -333,7 +333,8 @@ extension NSAppearance {
 }
 
 extension  FMDatabase {
-    func executeQuery(_ sql: String) -> FMResultSet? {
-        return try? executeQuery(sql, values: nil)
+    func executeQuery(_ sql: String, values: [Any]? = nil) -> FMResultSet? {
+        return try? executeQuery(sql, values: values)
     }
+
 }
