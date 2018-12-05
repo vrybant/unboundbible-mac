@@ -102,7 +102,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         
         if tableView == chapterTableView {
             if tableView.tag != programmatically {
-                if tableView.selectedRow > 0 {
+                if tableView.selectedRow >= 0 {
                     let chapter = tableView.selectedRow + 1
                     activeVerse = Verse(book: activeVerse.book, chapter: chapter, number: 1, count: 1)
                 }
