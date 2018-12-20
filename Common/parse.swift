@@ -16,62 +16,47 @@ var defaultAttribute: [NSAttributedStringKey : Any] {
 
 func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
     let s = string.mutable(attributes: defaultAttribute)
-    var set = tags
-    if set.contains("<S>") { set.remove("<J>") }
-    if set.contains("<f>") { set.remove("<J>") }
-    for element in set {
+    var tags = tags
+    if tags.contains( "<S>") { tags.remove("<FR>") }
+    if tags.contains("<RF>") { tags.remove("<FR>") }
+    for element in tags {
         switch element {
-        case "<i>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
-                    s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
-        case "<J>",
-             "<r>": s.addAttribute(.foregroundColor, value: NSColor.systemRed   )
-        case "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
-        case "<m>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
-        case "<l>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
-        case "<S>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
-                    s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
-                    s.addAttribute(.baselineOffset,  value: 5.0                 )
-        case "<f>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
-                    s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
-                    s.addAttribute(.baselineOffset,  value: 5.0                 )
+        case "<FI>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
+                     s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
+        case "<FR>",
+              "<r>": s.addAttribute(.foregroundColor, value: NSColor.systemRed   )
+        case  "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
+        case  "<m>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
+        case  "<l>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
+        case  "<S>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+                     s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
+                     s.addAttribute(.baselineOffset,  value: 5.0                 )
+        case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+                     s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
+                     s.addAttribute(.baselineOffset,  value: 5.0                 )
         default: break
         }
     }
     return s
 }
 
-func replaceTags(list: inout [String], jtag: Bool) {
-    if list.isEmpty { return }
-
-    for i in 0...list.count-1 {
-        switch list[i] {
-            case "<FI>": list[i] = "<i>"
-            case "<Fi>": list[i] = "</i>"
-            case "<FR>": list[i] = "<J>"
-            case "<Fr>": list[i] = "</J>"
-            default: break
-        }
-        if !jtag {
-            if list[i] == "<J>" { list[i] = "<->" }
-        }
-    }
-}
-
 func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
 
-    var list = xmlToList(string: string)
-    replaceTags(list: &list, jtag: jtag)
-    
+    let list = xmlToList(string: string)
     var tags = Set<String>()
     
     for s in list {
         if s.hasPrefix("<") {
-            if s.hasPrefix("</") {
-                let r = s.replace("/", "")
-                tags.remove(r)
+            if tags.contains(s.uppercased()) {
+                tags.remove(s.uppercased())
             } else {
-                tags.insert(s)
+                if s.hasPrefix("</") {
+                    let r = s.replace("/", "")
+                    tags.remove(r)
+                } else {
+                    tags.insert(s)
+                }
             }
         } else {
             let attrString = attrStringFromTags(s, tags: tags)
