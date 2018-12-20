@@ -14,28 +14,6 @@ var defaultAttribute: [NSAttributedStringKey : Any] {
     return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
 }
 
-func xmlToList(string: String) -> [String] {
-    var result: [String] = []
-    var temp = ""
-    
-    for c in string {
-        if c == "<" {
-            result.append(temp)
-            temp = ""
-        }
-        temp.append(c)
-        
-        if c == ">" {
-            result.append(temp)
-            temp = ""
-        }
-    }
-    if !temp.isEmpty {
-        result.append(temp)
-    }
-    return result
-}
-
 func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
     let s = string.mutable(attributes: defaultAttribute)
     var set = tags
@@ -81,8 +59,6 @@ func replaceTags(list: inout [String], jtag: Bool) {
 
 func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    let string = string.replace("</S><S>","</S> <S>") // strongs
-                       .replace(" <f>","<f>")         // footnotes
 
     var list = xmlToList(string: string)
     replaceTags(list: &list, jtag: jtag)
@@ -99,7 +75,6 @@ func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
             }
         } else {
             let attrString = attrStringFromTags(s, tags: tags)
-//          if tags.contains("<f>") { continue } // remove footnotes
             result.append(attrString)
         }
     }

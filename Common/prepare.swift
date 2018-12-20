@@ -32,7 +32,24 @@ end;
 func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String {
     var r = "{~" + string + "~}"
     
-    r = r.replace("\n", "") // ESWORD ?
+    let list = xmlToList(string: string)
     
+    if format == .unbound {
+//        Strongs(List)
+//        Footnotes(List)
+    }
+    
+//    ReplaceTags(List);
+//    PurgeTag(List,'<TS>','<Ts>');
+//    if purge then PurgeTag(List, '<RF','<Rf>');
+    
+//    Result := Trim(ListToString(List));
+//    Replace(Result,'</S><S>','</S> <S>');
+
+    r = r.replace("\n", "") // ESWORD ?
     return r
+    
+//    let string = string.replace("</S><S>","</S> <S>") // strongs
+//                       .replace(" <f>","<f>")         // footnotes
+    
 }

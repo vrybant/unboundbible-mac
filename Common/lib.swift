@@ -44,6 +44,34 @@ var defaultBible: String {
     return result
 }
 
+func listToXml(list: [String]) -> String {
+    var result = ""
+    for item in list { result += item }
+    return result
+}
+
+func xmlToList(string: String) -> [String] {
+    var result: [String] = []
+    var temp = ""
+    
+    for c in string {
+        if c == "<" {
+            result.append(temp)
+            temp = ""
+        }
+        temp.append(c)
+        
+        if c == ">" {
+            result.append(temp)
+            temp = ""
+        }
+    }
+    if !temp.isEmpty {
+        result.append(temp)
+    }
+    return result
+}
+
 func fileExists(_ atPath: String) -> Bool {
     let fileManager = FileManager.default
     return fileManager.fileExists(atPath: atPath)
