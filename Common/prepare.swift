@@ -7,7 +7,7 @@
 
 import Foundation
 
-func replaceTag(_ string: inout String) {
+private func replaceTag(_ string: inout String) {
     var r = string
 
     switch string {
@@ -33,7 +33,7 @@ func replaceTag(_ string: inout String) {
     string = r
 }
 
-func replaceTags(list: inout [String]) {
+private func replaceTags(list: inout [String]) {
     for i in 0...list.count-1 {
         replaceTag(&list[i])
     }

@@ -14,11 +14,11 @@ var defaultAttribute: [NSAttributedStringKey : Any] {
     return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
 }
 
-func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
+private func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
     let s = string.mutable(attributes: defaultAttribute)
     var tags = tags
-    if tags.contains( "<S>") { tags.remove("<FR>") }
-    if tags.contains("<RF>") { tags.remove("<FR>") }
+    let set : Set = ["<S>","<RF>","FI"]
+    if !tags.isDisjoint(with: set) { tags.remove("<FR>") }
     for element in tags {
         switch element {
         case "<FI>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
