@@ -1,6 +1,6 @@
 //
 //  parse.swift
-//  Unbound-Bible-macOS
+//  Unbound Bible
 //
 //  Copyright © 2018 Vladimir Rybant. All rights reserved.
 //
