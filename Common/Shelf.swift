@@ -13,7 +13,7 @@ class Module {
     var filePath     : String
     var fileName     : String
     var database     : FMDatabase?
-    var fileFormat   = FileFormat.unbound
+    var format       = FileFormat.unbound
     var z            = StringAlias()
     var firstVerse   = Verse()
     
@@ -63,14 +63,14 @@ class Bible: Module {
         if !database!.open() { return }
         
         if fileName.hasSuffix(".SQLite3") {
-            fileFormat = .mybible
+            format = .mybible
             z = mybibleStringAlias
         }
         
         let query = "select * from \(z.details)"
         if let results = database!.executeQuery(query) {
             
-            if fileFormat == .unbound {
+            if format == .unbound {
                 if results.next() {
                     if let value = results.string(forColumn: "Title"      ) { name = value }
                     if let value = results.string(forColumn: "Information") { info = value }
@@ -80,7 +80,7 @@ class Bible: Module {
                 }
             }
             
-            if fileFormat == .mybible {
+            if format == .mybible {
                 while results.next() == true {
                     guard let key = results.string(forColumn: "name") else { break }
                     guard let value = results.string(forColumn: "value") else { break }
@@ -182,13 +182,13 @@ class Bible: Module {
     }
 
     func encodeID(_ id: Int) -> Int {
-        if fileFormat != .mybible { return id }
+        if format != .mybible { return id }
         if id > myBibleArray.count { return 0 }
         return myBibleArray[id]
     }
     
     func decodeID(_ id: Int) -> Int {
-        if fileFormat != .mybible { return id }
+        if format != .mybible { return id }
         return myBibleArray.index(of: id) ?? id
     }
     
@@ -208,10 +208,8 @@ class Bible: Module {
             var result = [String]()
             while results.next() == true {
                 guard let line = results.string(forColumn: z.text) else { break }
-                
-                let line_out = line.replace("\n", "")                   ////////////////  ESWORD  /////////////////////////
-                
-                result.append(line_out)
+                let text = prepare(line, format: format, purge: false)
+                result.append(text)
             }
             if !result.isEmpty { return result }
         }
@@ -228,7 +226,8 @@ class Bible: Module {
             var result = [String]()
             while results.next() == true {
                 guard let line = results.string(forColumn: z.text) else { break }
-                result.append(line)
+                let text = prepare(line, format: format)
+                result.append(text)
             }
             if !result.isEmpty { return result }
         }
@@ -263,9 +262,10 @@ class Bible: Module {
                 guard let book = results.string(forColumn: z.book) else { break }
                 guard let chapter = results.string(forColumn: z.chapter) else { break }
                 guard let number = results.string(forColumn: z.verse) else { break }
-                guard let text = results.string(forColumn: z.text) else { break }
+                guard let line = results.string(forColumn: z.text) else { break }
                 
                 let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
+                let text = prepare(line, format: format)
                 let content = Content(verse: verse, text: text)
                 
                 if text.removeTags.containsEvery(list: list, options: options) { lines.append(content) }

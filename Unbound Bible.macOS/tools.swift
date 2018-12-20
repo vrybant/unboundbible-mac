@@ -34,11 +34,8 @@ func loadCompare() {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n" + text
             attrString.append( parse(string) )
-        } else {
-            print(item.name)
         }
-        
-    }  
+    }
 
     selectTab(at: .compare)
     rigthView.compareTextView.textStorage?.setAttributedString(attrString)
