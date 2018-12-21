@@ -29,12 +29,21 @@ private func replaceTags(list: inout [String]) {
     }
 }
 
+private func strongs(_ list: inout [String]) {
+    for i in 0...list.count-1 {
+        if list[i].hasPrefix("<W") {
+            let number = list[i].replace("<W", "").replace(">", "")
+            list[i] = "<S>" + number + "</S>"
+        }
+    }
+}
+
 func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String {
     var list = xmlToList(string: string)
     
     if format == .unbound {
-//        Strongs(List)
-//        Footnotes(List)
+        strongs(&list)
+//      footnotes(&list)
     }
     
     replaceTags(list: &list)
