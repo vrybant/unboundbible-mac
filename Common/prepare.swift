@@ -15,13 +15,7 @@ private let dictionary = [
       "<h>":"<TS>", // title
      "</h>":"<Ts>",
       "<f>":"<RF>", // footnote
-     "</f>":"<Rf>",
-      "<I>":"<FI>",
-     "</I>":"<Fi>",
-      "<i>":"<FI>",
-     "</i>":"<Fi>",
-     "<em>":"<FI>",
-    "</em>":"<Fi>"]
+     "</f>":"<Rf>"]
 
 private func replaceTags(list: inout [String]) {
     for i in 0...list.count-1 {
@@ -29,24 +23,18 @@ private func replaceTags(list: inout [String]) {
     }
 }
 
-private func strongs(_ list: inout [String]) {
-    for i in 0...list.count-1 {
-        if list[i].hasPrefix("<W") {
-            let number = list[i].replace("<W","").replace(">","")
-            list[i] = "<S>" + number + "</S>"
+private func strongs(_ string: inout String) {
+    let list = xmlToList(string: string)
+    string = ""
+    for item in list {
+        if item.hasPrefix("<W") {
+            let number = item.replace("<W","").replace(">","")
+            string += "<S>" + number + "</S>"
+        } else {
+            string += item
         }
     }
 }
-
-/*
-function ExtractFootnoteMarker(s: string): string;
-var x1, x2 : integer;
-begin
-  Result := s;
-  x1 := Pos('=',s); if x1 = 0 then Exit;
-  x2 := Pos('>',s); if x2 = 0 then Exit;
-  Result := Copy(s,x1+1,x2-x1-1);
-end; */
 
 private func extractFootnoteMarker(_ string: String) -> String {
     var result = ""
@@ -56,51 +44,41 @@ private func extractFootnoteMarker(_ string: String) -> String {
     return result.replace(">","")
 }
 
-private func footnotes(_ list: inout [String]) {
-    var marker = ""
-    var l = false
-    for i in 0...list.count-1 {
-        if list[i] == "<RF>" {
-            marker = "@"
-            l = true
-            continue
-        }
-        if list[i].hasPrefix("<RF ") {
-            marker = extractFootnoteMarker(list[i])
-            list[i] = "<RF>"
-            l = true
-            continue
-        }
-        if l && list[i] == "<Rf>" {
-            l = false
-            continue
-        }
-        if marker != "" {
-            list[i] = marker
-            marker = ""
-            continue
-        }
-        if l {
-            list[i] = ""
-        }
-    }
+/* procedure FootnotesEx(var s: string);
+begin
+  Replace(s,'<RF ','<RF><');
+  Replace(s,'<Rf>','~]<Rf>');
+  ExtractMarkers(s);
+  CutStr(s,'[~','~]');
+end;
+
+procedure Footnotes(var s: string);
+begin
+  Replace(s,'<RF>','<RF>*[~');
+  Replace(s,'<Rf>','~]<Rf>');
+   CutStr(s,'[~','~]');
+end;
+*/
+
+private func footnotes(_ string: inout String) {
+    string = string.replace("<RF>","<RF>*[~")
+    string = string.replace("<Rf>","~]<Rf>" )
+    string = string.cut(from: "[~", to: "~]")
 }
 
 func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String {
-    var list = xmlToList(string: string)
-    
+    var string = string
+
     if format == .unbound {
-        if string.contains("<W" ) { strongs(&list) }   // if in win too
-        if string.contains("<RF") { footnotes(&list) }
+        if string.contains("<W"  ) { strongs(&string) }
+        if string.contains("<RF>") { footnotes(&string) }
     }
     
-    replaceTags(list: &list)
-//  PurgeTag(List,'<TS>','<Ts>');
-//  if purge then PurgeTag(List, '<RF','<Rf>');
-    
-    var result = listToXml(list: list).trimmed
-    result = result.replace("</S><S>","</S> <S>") // strongs
-//                 .replace(" <f>","<f>")         // footnotes
-//                 .replace("\n", "")             // ESWORD ?
-    return result
+//   replaceTags(list: &list)
+
+    string = string.cut(from: "<TS>", to: "<Ts>")
+    if purge { string = string.cut(from: "<RF", to:"<Rf>") }
+    string = string.replace("</S><S>","</S> <S>") // strongs
+
+    return string
 }

@@ -94,6 +94,19 @@ extension String {
     {
         return self.replacingOccurrences(of: string, with: with, options: NSString.CompareOptions.literal, range: nil)
     }
+
+    func cut(from: String, to: String) -> String {
+        var string = self
+        while string.contains(from) {
+            guard let lower = string.range(of: from)?.lowerBound else { break }
+            guard let upper = string.range(of:   to)?.upperBound else { break }
+            if lower > upper { break } 
+            let prefix = string.prefix(upTo: lower)
+            let suffix = string.suffix(from: upper)
+            string = String(prefix + suffix)
+        }
+        return string
+    }
     
     func mutable(attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
         return NSMutableAttributedString(string: self, attributes: attributes)

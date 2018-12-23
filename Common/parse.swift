@@ -37,12 +37,21 @@ private func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttrib
         default: break
         }
     }
+
+//    "<I>":"<FI>",
+//    "</I>":"<Fi>",
+//    "<i>":"<FI>",
+//    "</i>":"<Fi>",
+//    "<em>":"<FI>",
+//    "</em>":"<Fi>"]
+    
     return s
 }
 
 func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-
+    return string.mutable(attributes: defaultAttribute) // show tags
+    
     let list = xmlToList(string: string)
     var tags = Set<String>()
     
