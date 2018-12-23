@@ -17,9 +17,9 @@ private let dictionary = [
       "<f>":"<RF>", // footnote
      "</f>":"<Rf>"]
 
-private func replaceTags(list: inout [String]) {
-    for i in 0...list.count-1 {
-	  if let value = dictionary[list[i]] { list[i] = value }
+private func replaceTags(_ string: inout String) {
+    for item in dictionary {
+        string = string.replace(item.key, item.value)
     }
 }
 
@@ -44,25 +44,27 @@ private func extractFootnoteMarker(_ string: String) -> String {
     return result.replace(">","")
 }
 
-/* procedure FootnotesEx(var s: string);
-begin
-  Replace(s,'<RF ','<RF><');
-  Replace(s,'<Rf>','~]<Rf>');
-  ExtractMarkers(s);
-  CutStr(s,'[~','~]');
-end;
-
-procedure Footnotes(var s: string);
-begin
-  Replace(s,'<RF>','<RF>*[~');
-  Replace(s,'<Rf>','~]<Rf>');
-   CutStr(s,'[~','~]');
-end;
-*/
+private func extractMarkers(_ string: inout String) {
+    let list = xmlToList(string: string)
+    var string = ""
+    for item in list {
+        if item.hasPrefix("<q=") {
+            let marker = item.replace("<q=","").replace(">","")
+            string += marker + "[~"
+        } else {
+            string += item
+        }
+    }
+}
 
 private func footnotes(_ string: inout String) {
-    string = string.replace("<RF>","<RF>*[~")
-    string = string.replace("<Rf>","~]<Rf>" )
+    string = string.replace("<RF>","<RF>*[~").replace("<Rf>","~]<Rf>")
+    string = string.cut(from: "[~", to: "~]")
+}
+
+private func footnotesEx(_ string: inout String) {
+    string = string.replace("<RF ","<RF><").replace("<Rf>","~]<Rf>")
+    extractMarkers(&string)
     string = string.cut(from: "[~", to: "~]")
 }
 
@@ -70,15 +72,16 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     var string = string
 
     if format == .unbound {
-        if string.contains("<W"  ) { strongs(&string) }
-        if string.contains("<RF>") { footnotes(&string) }
+        if string.contains("<W") { strongs(&string) }
+        if !purge && string.contains("<RF>") { footnotes(&string) }
+        if !purge && string.contains("<RF ") { footnotesEx(&string) }
     }
     
-//   replaceTags(list: &list)
+    if format == .mybible { replaceTags(&string) }
 
     string = string.cut(from: "<TS>", to: "<Ts>")
     if purge { string = string.cut(from: "<RF", to:"<Rf>") }
-    string = string.replace("</S><S>","</S> <S>") // strongs
+    string = string.replace("</S><S>","</S> <S>")
 
     return string
 }

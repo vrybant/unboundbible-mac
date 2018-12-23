@@ -33,24 +33,22 @@ private func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttrib
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
         case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
                      s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
-                     s.addAttribute(.baselineOffset,  value: 5.0                 )
+                     s.addAttribute(.baselineOffset,  value: 2.0                 )
+        default: break
+        }
+        switch element.lowercased() {
+        case "<i>",
+             "<em>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
+                     s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
         default: break
         }
     }
-
-//    "<I>":"<FI>",
-//    "</I>":"<Fi>",
-//    "<i>":"<FI>",
-//    "</i>":"<Fi>",
-//    "<em>":"<FI>",
-//    "</em>":"<Fi>"]
-    
     return s
 }
 
 func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    return string.mutable(attributes: defaultAttribute) // show tags
+    //return string.mutable(attributes: defaultAttribute) // show tags
     
     let list = xmlToList(string: string)
     var tags = Set<String>()
