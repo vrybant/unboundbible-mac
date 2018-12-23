@@ -46,7 +46,7 @@ private func extractFootnoteMarker(_ string: String) -> String {
 
 private func extractMarkers(_ string: inout String) {
     let list = xmlToList(string: string)
-    var string = ""
+    string = ""
     for item in list {
         if item.hasPrefix("<q=") {
             let marker = item.replace("<q=","").replace(">","")
