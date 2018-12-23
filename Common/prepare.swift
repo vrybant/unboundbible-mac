@@ -19,7 +19,9 @@ private let dictionary = [
 
 private func replaceTags(_ string: inout String) {
     for item in dictionary {
-        string = string.replace(item.key, item.value)
+        if string.contains(item.key) {
+            string = string.replace(item.key, item.value)
+        }
     }
 }
 
