@@ -59,7 +59,7 @@ func parse(_ string: String, jtag: Bool = false) -> NSMutableAttributedString {
                 tags.remove(s.uppercased())
             } else {
                 if s.hasPrefix("</") {
-                    let r = s.replace("/", "")
+                    let r = s.replace("/", with: "")
                     tags.remove(r)
                 } else {
                     tags.insert(s)

@@ -58,7 +58,7 @@ func searchText(string: String) {
         mainView.updateStatus("\(searchResult.count) \(message)")
     } else {
         let message = NSLocalizedString("You search for % produced no results.", comment: "")
-        let out = "<i>\n \(message.replace("%", string.quoted)) </i>"
+        let out = "<i>\n \(message.replace("%", with: string.quoted)) </i>"
         attributedString.append(parse(out))
         mainView.updateStatus("")
     }

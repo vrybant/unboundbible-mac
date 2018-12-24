@@ -90,7 +90,7 @@ extension String {
         return URL(fileURLWithPath: self).lastPathComponent
     }
     
-    func replace(_ string: String, _ with: String) -> String
+    func replace(_ string: String, with: String) -> String
     {
         return self.replacingOccurrences(of: string, with: with, options: NSString.CompareOptions.literal, range: nil)
     }
@@ -146,9 +146,9 @@ extension String {
     func highlight(with: String, target: String, options: SearchOption) -> String {
         var tag = with
         tag.insert("/", at: with.index(after: with.startIndex))
-        let result = self.replace(target, "\(with)\(target)\(tag)")
+        let result = self.replace(target, with: "\(with)\(target)\(tag)")
         if searchOption.contains(.caseSensitive) { return result }
-        return result.replace(target.capitalized, "\(with)\(target.capitalized)\(tag)")
+        return result.replace(target.capitalized, with: "\(with)\(target.capitalized)\(tag)")
     }
     
     func highlight(with: String, target: [String], options: SearchOption) -> String {

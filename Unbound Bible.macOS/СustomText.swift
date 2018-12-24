@@ -43,7 +43,7 @@ class CustomTextView: NSTextView {
         case NSColor.systemNavy  : return .link
         case NSColor.systemBrown : return .strong
         case NSColor.systemGray  : return .footnote
-        default            : return .text
+        default                  : return .text
         }
     }
     

@@ -20,7 +20,7 @@ private let dictionary = [
 private func replaceTags(_ string: inout String) {
     for item in dictionary {
         if string.contains(item.key) {
-            string = string.replace(item.key, item.value)
+            string = string.replace(item.key, with: item.value)
         }
     }
 }
@@ -30,7 +30,7 @@ private func strongs(_ string: inout String) {
     string = ""
     for item in list {
         if item.hasPrefix("<W") {
-            let number = item.replace("<W","").replace(">","")
+            let number = item.replace("<W", with: "").replace(">", with: "")
             string += "<S>" + number + "</S>"
         } else {
             string += item
@@ -43,7 +43,7 @@ private func extractFootnoteMarker(_ string: String) -> String {
     if let range = string.range(of: "=") {
         result = String(string[range.lowerBound..<string.endIndex])
     }
-    return result.replace(">","")
+    return result.replace(">", with: "")
 }
 
 private func extractMarkers(_ string: inout String) {
@@ -51,7 +51,7 @@ private func extractMarkers(_ string: inout String) {
     string = ""
     for item in list {
         if item.hasPrefix("<q=") {
-            let marker = item.replace("<q=","").replace(">","")
+            let marker = item.replace("<q=", with: "").replace(">", with: "")
             string += marker + "[~"
         } else {
             string += item
@@ -60,12 +60,12 @@ private func extractMarkers(_ string: inout String) {
 }
 
 private func footnotes(_ string: inout String) {
-    string = string.replace("<RF>","<RF>*[~").replace("<Rf>","~]<Rf>")
+    string = string.replace("<RF>", with: "<RF>*[~").replace("<Rf>", with: "~]<Rf>")
     string = string.cut(from: "[~", to: "~]")
 }
 
 private func footnotesEx(_ string: inout String) {
-    string = string.replace("<RF ","<RF><").replace("<Rf>","~]<Rf>")
+    string = string.replace("<RF ", with: "<RF><").replace("<Rf>", with: "~]<Rf>")
     extractMarkers(&string)
     string = string.cut(from: "[~", to: "~]")
 }
@@ -83,7 +83,7 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
 
     string = string.cut(from: "<TS>", to: "<Ts>")
     if purge { string = string.cut(from: "<RF", to:"<Rf>") }
-    string = string.replace("</S><S>","</S> <S>")
+    string = string.replace("</S><S>", with: "</S> <S>")
 
     return string
 }

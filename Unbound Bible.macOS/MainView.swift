@@ -92,7 +92,7 @@ class MainView: NSViewController, NSWindowDelegate {
             let alert = NSAlert()
             alert.alertStyle = .critical
             let message = NSLocalizedString("The document % could not be opened.", comment: "")
-            alert.messageText = message.replace("%", url!.lastPathComponent.quoted)
+            alert.messageText = message.replace("%", with: url!.lastPathComponent.quoted)
             alert.runModal()
         }
     }

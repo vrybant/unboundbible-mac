@@ -249,7 +249,7 @@ class Bible: Module {
     func search(string: String, options: SearchOption, range: SearchRange?) -> [Content]? {
         let list = string.components(separatedBy: CharacterSet.whitespaces).filter { !$0.isEmpty }
         var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
-        string = string.replace(" ", "%")
+        string = string.replace(" ", with: "%")
         
         let queryRange = range == nil ? "" : " and \(z.book) >= \(encodeID(range!.from)) and \(z.book) <= \(encodeID(range!.to))"
         let query = "select * from \(z.bible) where \(z.text) like \"%\(string)%\"" + queryRange
