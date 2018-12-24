@@ -19,8 +19,13 @@ private func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttrib
     var tags = tags
     let set : Set = ["<S>","<RF>","FI"]
     if !tags.isDisjoint(with: set) { tags.remove("<FR>") }
-    for element in tags {
-        switch element {
+    
+    for tag in tags {
+        var tag = tag
+        let italic = ["<i>","<em>"]
+        if italic.contains(tag.lowercased()) { tag = "<FI>" }
+        
+        switch tag {
         case "<FI>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
                      s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
         case "<FR>",
@@ -32,14 +37,8 @@ private func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttrib
                      s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
         case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
-                     s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
+                     s.addAttribute(.font, value: NSFont.systemFont(ofSize: 12)  )
                      s.addAttribute(.baselineOffset,  value: 2.0                 )
-        default: break
-        }
-        switch element.lowercased() {
-        case "<i>",
-             "<em>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size:13.0)!)
-                     s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
         default: break
         }
     }
