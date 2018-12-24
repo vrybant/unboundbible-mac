@@ -92,7 +92,7 @@ class CustomTextView: NSTextView {
         super.mouseDown(with: event)
         let fore = foreground(selectedRange.location)
         
-        if fore != .text {
+        if fore == .link {
             if let link = getLink() {
                 if let verse = bible!.stringToVerse(link: link) {
                     goToVerse(verse, select: true)
@@ -101,8 +101,17 @@ class CustomTextView: NSTextView {
         }
         
         if fore == .strong {
-            //
+            if let link = getLink() {
+                print(link)
+            }
         }
+        
+        if fore == .footnote {
+            if let link = getLink() {
+                print(link)
+            }
+        }
+        
     }
     
     override func didChangeText() {

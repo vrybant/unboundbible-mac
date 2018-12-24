@@ -791,6 +791,19 @@
             </objects>
             <point key="canvasLocation" x="75" y="700"/>
         </scene>
+        <!--Notify View-->
+        <scene sceneID="fpq-kG-Tjb">
+            <objects>
+                <viewController id="hvl-k4-LBm" customClass="NotifyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="jY3-mL-p27">
+                        <rect key="frame" x="0.0" y="0.0" width="278" height="227"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="4PP-gU-0C4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="855" y="1320"/>
+        </scene>
         <!--Copy Verses-->
         <scene sceneID="Boy-6Q-tKa">
             <objects>
@@ -973,7 +986,7 @@ Gw
                 </viewController>
                 <customObject id="k4K-DK-EHW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="1337"/>
+            <point key="canvasLocation" x="1210" y="1377"/>
         </scene>
         <!--Split View-->
         <scene sceneID="pBL-To-aD2">

@@ -25,6 +25,7 @@
 		E76ED6DC1E242616005AE4F2 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76ED6DB1E242616005AE4F2 /* extensions.swift */; };
 		E77BCA6D1FF4E44A00F950B5 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
 		E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */; };
+		E790977E21D13CE000059D82 /* NotifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790977D21D13CDF00059D82 /* NotifyView.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
@@ -77,6 +78,7 @@
 		E76ED6DB1E242616005AE4F2 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E77BCA6C1FF4E44A00F950B5 /* Titles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
 		E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
+		E790977D21D13CDF00059D82 /* NotifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyView.swift; sourceTree = "<group>"; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				CE2F17F41D33C31800BA91A6 /* Assets.xcassets */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
+				E790977D21D13CDF00059D82 /* NotifyView.swift */,
 				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
 				E71B29CE1E0C218200173E77 /* WinController.swift */,
 				E725BA1D2193196000247627 /* View.swift */,
@@ -391,6 +394,7 @@
 				E7D4637B201A2B520055F1DA /* PreferencesView.swift in Sources */,
 				CE2F17F31D33C31800BA91A6 /* MainView.swift in Sources */,
 				E71B29CF1E0C218200173E77 /* WinController.swift in Sources */,
+				E790977E21D13CE000059D82 /* NotifyView.swift in Sources */,
 				CE2F17F11D33C31800BA91A6 /* AppDelegate.swift in Sources */,
 				E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */,
 			);
