@@ -11,6 +11,7 @@ var mainView = MainView()
 
 class MainView: NSViewController, NSWindowDelegate {
 
+    var popover: NSPopover?
     var noteURL : URL?
     private var statuses : [String] = ["","","",""]
     
@@ -37,6 +38,23 @@ class MainView: NSViewController, NSWindowDelegate {
         } else {
             return false
         }
+    }
+    
+    func createPopover() {
+        let id = NSStoryboard.SceneIdentifier(rawValue: "PopoverView")
+        let controller = storyboard?.instantiateController(withIdentifier: id) as! NSViewController
+        popover = NSPopover.init()
+        popover?.contentViewController = controller
+        popover?.behavior = .transient
+//      popover?.delegate = self // we can be notified when the popover appears or closes
+    }
+    
+    func showPopover(_ sender: NSTextView) {
+        if popover == nil { createPopover() }
+        let firstRect = sender.firstRect(forCharacterRange: sender.selectedRange, actualRange: nil)
+        let converted = self.view.window?.convertFromScreen(firstRect)
+        let rect = NSRect(x: converted!.minX, y: converted!.minY , width: 1, height: 1)
+        popover?.show(relativeTo: rect, of: self.view, preferredEdge: .minY)
     }
     
     func refreshStatus() {

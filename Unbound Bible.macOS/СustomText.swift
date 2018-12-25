@@ -103,15 +103,7 @@ class CustomTextView: NSTextView {
         if fore == .strong || fore == .footnote {
             if let link = getLink() {
                 print(link)
-                
-//                if !(popover.shown) {
-//                    popover.showRelativeToRect(sender.bounds, ofView: statusItem.button!, preferredEdge: NSMinYEdge)
-//                }
-//                else {
-//                    popover.close()
-//                }
-                
-                rigthView.showPopover()
+                mainView.showPopover(self)
             }
         }
         
