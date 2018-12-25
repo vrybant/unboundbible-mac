@@ -442,9 +442,6 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
-                                        <connections>
-                                            <segue destination="kdA-QI-qWe" kind="modal" id="PC6-wd-VAN"/>
-                                        </connections>
                                     </button>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0Ju-Qv-L82"/>
@@ -485,6 +482,7 @@
                             <defaultToolbarItems>
                                 <toolbarItem reference="27b-dy-bLb"/>
                                 <toolbarItem reference="X5F-hi-XtT"/>
+                                <toolbarItem reference="HU9-qb-1eZ"/>
                                 <toolbarItem reference="0Ju-Qv-L82"/>
                                 <toolbarItem reference="ioW-Ze-zCi"/>
                                 <toolbarItem reference="4wT-ad-omF"/>
@@ -789,20 +787,35 @@
                 </viewController>
                 <customObject id="Dee-xY-iaZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="700"/>
+            <point key="canvasLocation" x="104" y="700"/>
         </scene>
-        <!--Notify View-->
+        <!--Popover View-->
         <scene sceneID="fpq-kG-Tjb">
             <objects>
-                <viewController id="hvl-k4-LBm" customClass="NotifyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopoverView" id="hvl-k4-LBm" customClass="PopoverView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jY3-mL-p27">
                         <rect key="frame" x="0.0" y="0.0" width="278" height="227"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="OUB-aq-9xm">
+                                <rect key="frame" x="100" y="105" width="78" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Notify Label" id="RC7-bG-EI5">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OUB-aq-9xm" secondAttribute="trailing" constant="20" symbolic="YES" id="Db9-gX-hP2"/>
+                            <constraint firstItem="OUB-aq-9xm" firstAttribute="leading" secondItem="jY3-mL-p27" secondAttribute="leading" constant="102" id="ElQ-QI-b18"/>
+                            <constraint firstItem="OUB-aq-9xm" firstAttribute="top" secondItem="jY3-mL-p27" secondAttribute="top" constant="105" id="s2c-Xa-zFn"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <customObject id="4PP-gU-0C4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="855" y="1320"/>
+            <point key="canvasLocation" x="-318" y="705"/>
         </scene>
         <!--Copy Verses-->
         <scene sceneID="Boy-6Q-tKa">
