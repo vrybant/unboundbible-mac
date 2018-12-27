@@ -10,7 +10,7 @@ import Cocoa
 class BibleTextView: CustomTextView {
      
     private func colored(_ x: Int) -> Bool {
-        return foreground(x) == .link
+        return getForeground(x) == .link
     }
 
     func selectParagraph(number: Int) {
@@ -78,6 +78,12 @@ class BibleTextView: CustomTextView {
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         getParagraphNumber()
+        
+        if foreground == .strong { // .footnote
+            let f = loadFootnote(marker: hyperlink)
+            print(f)
+            // mainView.showPopover(self)
+        }
     }
     
     override func selectionRange(forProposedRange proposedCharRange: NSRange, granularity: NSSelectionGranularity) -> NSRange {

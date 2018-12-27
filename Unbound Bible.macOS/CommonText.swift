@@ -1,6 +1,6 @@
 //
 //  SuperText.swift
-//  Unbound Bible OSX
+//  Unbound Bible 
 //
 //  Copyright © 2018 Vladimir Rybant. All rights reserved.
 //

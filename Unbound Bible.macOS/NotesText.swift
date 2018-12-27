@@ -47,7 +47,7 @@ class NotesTextView: СommonTextView {
     }
     
     @IBAction func hyperlink(_ sender: NSMenuItem) {
-        hyperlink()
+        setHyperlink()
     }
     
     @IBAction func bigger(_ sender: NSMenuItem) {

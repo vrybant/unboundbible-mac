@@ -1,6 +1,6 @@
 //
 //  CustomText.swift
-//  Unbound Bible OSX
+//  Unbound Bible 
 //
 //  Copyright © 2018 Vladimir Rybant. All rights reserved.
 //
@@ -15,6 +15,8 @@ class CustomTextView: NSTextView {
     
     var modified = false
     var isDark = false
+    var hyperlink = ""
+    var foreground = Foreground.text
 
     override func draw(_ dirtyRect: NSRect) {
         if darkAppearance != isDark { updateColors() }
@@ -27,7 +29,7 @@ class CustomTextView: NSTextView {
 //      self.isContinuousSpellCheckingEnabled = false
     }
     
-    func foregroundColor(_ x: Int) -> NSColor {
+    private func getForegroundColor(_ x: Int) -> NSColor {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
             let attrChar = self.attributedString().attributedSubstring(from: range)
@@ -38,8 +40,8 @@ class CustomTextView: NSTextView {
         return NSColor.black
     }
     
-    func foreground(_ x: Int) -> Foreground {
-        switch foregroundColor(x) {
+    func getForeground(_ x: Int) -> Foreground {
+        switch getForegroundColor(x) {
         case NSColor.systemNavy  : return .link
         case NSColor.systemBrown : return .strong
         case NSColor.systemGray  : return .footnote
@@ -58,8 +60,8 @@ class CustomTextView: NSTextView {
         return false
     }
     
-    func hyperlink() {
-        let navy = foregroundColor(selectedRange.location) == NSColor.systemNavy
+    func setHyperlink() {
+        let navy = getForegroundColor(selectedRange.location) == NSColor.systemNavy
         let color = navy ? NSColor.black : NSColor.systemNavy
         self.textStorage?.addAttribute(.foregroundColor, value: color, range: selectedRange)
     }
@@ -69,16 +71,15 @@ class CustomTextView: NSTextView {
         self.textStorage?.addAttribute(.strikethroughStyle, value: style, range: selectedRange)
     }
     
-    func getLink() -> String? {
-        if selectedRange.length > 0 { return nil }
-        let fore = foreground(selectedRange.location)
-        if fore == .none { return nil }
+    private func getLink() -> String {
+        if selectedRange.length > 0 { return "" }
+        if foreground == .text { return "" }
         
         let length = attributedString().length
         var x1 = selectedRange.location
         
-        while foreground(x1) == fore, x1 < length { x1 += 1 }; var x2 = x1 - 1;
-        while foreground(x2) == fore, x2 > 0      { x2 -= 1 };
+        while getForeground(x1) == foreground, x1 < length { x1 += 1 }; var x2 = x1 - 1;
+        while getForeground(x2) == foreground, x2 > 0      { x2 -= 1 };
         
         if x2 > 0 { x2 += 1 }
         
@@ -90,31 +91,14 @@ class CustomTextView: NSTextView {
     
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
-        let fore = foreground(selectedRange.location)
+        foreground = getForeground(selectedRange.location)
+        hyperlink = getLink()
         
-        if fore == .link {
-            if let link = getLink() {
-                if let verse = bible!.stringToVerse(link: link) {
-                    goToVerse(verse, select: true)
-                }
+        if foreground == .link {
+            if let verse = bible!.stringToVerse(link: hyperlink) {
+                goToVerse(verse, select: true)
             }
-        }
-        
-        if fore == .strong { // .footnote
-            if let marker = getLink() {
-                print(marker)
-                let f = loadFootnote(marker: marker)
-                print(f)
-//              mainView.showPopover(self)
-            }
-        }
-        
-        if fore == .strong {
-//            if let link = getLink() {
-//                print(link)
-//            }
-        }
-        
+        }        
     }
     
     override func didChangeText() {
