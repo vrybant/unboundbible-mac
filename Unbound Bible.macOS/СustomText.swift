@@ -100,14 +100,16 @@ class CustomTextView: NSTextView {
             }
         }
         
-        if fore == .strong || fore == .footnote {
-            if let link = getLink() {
-                print(link)
-                mainView.showPopover(self)
+        if fore == .strong { // .footnote
+            if let marker = getLink() {
+                print(marker)
+                let f = loadFootnote(marker: marker)
+                print(f)
+//              mainView.showPopover(self)
             }
         }
         
-        if fore == .footnote {
+        if fore == .strong {
 //            if let link = getLink() {
 //                print(link)
 //            }

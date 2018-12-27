@@ -41,6 +41,28 @@ func loadCompare() {
     rigthView.compareTextView.textStorage?.setAttributedString(attrString)
 }
 
+/* function Load_Footnote(marker: string = ''): string;
+var s : string;
+begin
+  Result := '';
+  if (Bible.format = mybible) and (Commentaries.Count = 0) then Exit;
+  if Bible.format = unbound
+    then s := Bible.GetFootnote(ActiveVerse, marker)
+    else s := Commentaries.GetFootnote(Bible.fileName, ActiveVerse, marker);
+  if s = '' then Exit;
+  Result += rtf_open;
+  Result += '\f0\fs18 ' + ParseHTML(s);
+  Result += rtf_close;
+end; */
+
+func loadFootnote(marker: String = "") -> String {
+//  let attributedString = NSMutableAttributedString()
+    if let text = bible!.getFootnote(activeVerse, marker: marker) {
+        return text
+    }
+    return ""
+}
+
 func searchText(string: String) {
     let string = searchOption.contains(.caseSensitive) ? string : string.lowercased()
     let searchList = string.components(separatedBy: " ")

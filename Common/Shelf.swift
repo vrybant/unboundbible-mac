@@ -216,7 +216,7 @@ class Bible: Module {
         return nil
     }
     
-    func getRange(_ verse : Verse) -> [String]? {
+    func getRange(_ verse : Verse, preparation: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
         let toVerse = verse.number + verse.count
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
@@ -226,12 +226,30 @@ class Bible: Module {
             var result = [String]()
             while results.next() == true {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = prepare(line, format: format)
+                let text = preparation ? prepare(line, format: format) : line
                 result.append(text)
             }
             if !result.isEmpty { return result }
         }
         return nil
+    }
+    
+    private func extractFootnotes(_ string: String,_ marker: String) -> String {
+        let list = xmlToList(string: string)
+        var string = ""
+        let tag = marker.hasPrefix("*") ? "<RF>" : "<RF q=" + marker + ">"
+        var l = false
+        for item in list {
+            if item == "<Rf>" { l = false; string += "\n" }
+            if l { string += item }
+            if item == tag { l = true }
+        }
+        return string
+    }
+     
+    func getFootnote(_ verse : Verse, marker: String) -> String? {
+        guard let range = getRange(verse, preparation: false) else { return nil }
+        return extractFootnotes(range[0], marker)
     }
     
     func rankContents(contents: [Content]) -> [Content] {
