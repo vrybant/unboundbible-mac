@@ -1462,7 +1462,7 @@ Gw
         <!--Download View-->
         <scene sceneID="wyC-6X-bhL">
             <objects>
-                <viewController id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y49-Vi-QQe">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="297"/>
                         <autoresizingMask key="autoresizingMask"/>
