@@ -1,0 +1,88 @@
+//
+//  Module.swift
+//  Unbound Bible
+//
+//  Created by Vladimir Rybant on 28/12/2018.
+//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//
+
+import Foundation
+
+class Module {
+    var database     : FMDatabase?
+    var filePath     : String
+    var fileName     : String
+    var format       = FileFormat.unbound
+    
+    var name         : String = ""
+    var abbreviation : String = ""
+    var copyright    : String = ""
+    var info         : String = ""
+    var language     : String = ""
+    var filetype     : String = ""
+    
+    var firstVerse   = Verse()
+    var rightToLeft  : Bool = true
+    var fontName     : String = ""
+    var fontSize     : Int = 0
+    
+    var connected    : Bool = false
+    var loaded       : Bool = false
+    var strong       : Bool = false
+    var footnotes    : Bool = false
+    
+    init(atPath: String) {
+        filePath = atPath
+        fileName = atPath.lastPathComponent
+        database = FMDatabase(path: filePath)
+    }
+    
+    func openDatabase() {
+        if !database!.open() { return }
+        
+        if database!.tableExists("Details") {
+            let query = "select * from Details"
+            if let results = database!.executeQuery(query) {
+                if results.next() {
+                    if let value = results.string(forColumn: "Information" ) { info = value }
+                    if let value = results.string(forColumn: "Description" ) { info = value }
+                    if let value = results.string(forColumn: "Title"       ) { name = value }
+                    if let value = results.string(forColumn: "Abbreviation") { abbreviation = value }
+                    if let value = results.string(forColumn: "Copyright"   ) { copyright = value }
+                    if let value = results.string(forColumn: "Language"    ) { language = value }
+                    let value = results.bool(forColumn: "Strong") ; strong  = value
+
+                    connected = true
+                }
+            }
+        }
+
+        if database!.tableExists("info") {
+            let query = "select * from info"
+            if let results = database!.executeQuery(query) {
+                while results.next() == true {
+                    guard let key = results.string(forColumn: "name") else { break }
+                    guard let value = results.string(forColumn: "value") else { break }
+                    
+                    switch key {
+                    case "description"   : name = value
+                    case "detailed_info" : info = value
+                    case "language"      : language = value
+                    case "is_strong"     : strong = value == "true"
+                    case "is_footnotes"  : footnotes = value == "true"
+                    default : continue
+                    }
+                    format = .mybible
+                    connected = true
+                }
+            }
+        }
+            
+        language = language.lowercased()
+        rightToLeft = getRightToLeft(language: language)
+        if name.isEmpty { name = fileName }
+        info = info.removeTags
+    }
+    
+}
+

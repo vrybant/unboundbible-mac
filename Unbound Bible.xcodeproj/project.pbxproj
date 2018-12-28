@@ -29,6 +29,7 @@
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
 		E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */; };
+		E7B7CB6621D66EB600BC292F /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
 		E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
 		E7BECE461EA9372900CF3386 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */; };
 		E7BECE471EA9372900CF3386 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */; };
@@ -82,6 +83,7 @@
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
 		E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
+		E7B7CB6521D66EB600BC292F /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		E7B8B602204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E7B8B603204EFF6400493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 		E7D39ED820906C4E004D3097 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				E7B7CB6521D66EB600BC292F /* Module.swift */,
 				E7EF67621FF38F3400360C1D /* Shelf.swift */,
 				E719DAEF1ECB302D00137035 /* types.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
@@ -389,6 +392,7 @@
 				E7BECE481EA9372900CF3386 /* FMDatabaseQueue.m in Sources */,
 				E76ED6DC1E242616005AE4F2 /* extensions.swift in Sources */,
 				E73697B41DE4AEFD00FAA898 /* lib.swift in Sources */,
+				E7B7CB6621D66EB600BC292F /* Module.swift in Sources */,
 				E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */,
 				E7BECE491EA9372900CF3386 /* FMResultSet.m in Sources */,
 				E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */,

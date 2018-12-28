@@ -9,46 +9,19 @@ import Foundation
 
 var activeVerse = Verse()
 
-class Module {
-    var filePath     : String
-    var fileName     : String
-    var database     : FMDatabase?
-    var format       = FileFormat.unbound
-    var z            = StringAlias()
-    var firstVerse   = Verse()
-    
-    var name         : String = ""
-//  var native       : String = ""
-    var abbreviation : String = ""
-    var copyright    : String = ""
-    var info         : String = ""
-    var language     : String = ""
-    var titleLang    : String = ""
-    var filetype     : String = ""
-    
-    var rightToLeft  : Bool = true
-    var compare      : Bool = true
-    var fontName     : String = ""
-    var fontSize     : Int = 0
-    
-    var connected    : Bool = false
-    var loaded       : Bool = false
-    var langEnable   : Bool = false
-    
-    init(atPath: String) {
-        filePath = atPath
-        fileName = atPath.lastPathComponent
-        database = FMDatabase(path: filePath)
-    }
-}
-
 class Bible: Module {
-    var books        : [Book] = []
-    var titles       : [String] = []
+
+    private var books  : [Book] = []
+    private var titles : [String] = []
+    private var z = StringAlias()
+    
+    var compare : Bool = true
 
     override init(atPath: String) {
         super.init(atPath: atPath)
         openDatabase()
+        if format == .mybible { z = mybibleStringAlias }
+        if connected && !database!.tableExists(z.bible) { connected = false }
     }
     
     var minBook : Int {
@@ -57,49 +30,6 @@ class Bible: Module {
             if (book.number < min) || (min == 0) { min = book.number }
         }
         return min
-    }
-    
-    func openDatabase() {
-        if !database!.open() { return }
-        
-        if fileName.hasSuffix(".SQLite3") {
-            format = .mybible
-            z = mybibleStringAlias
-        }
-        
-        let query = "select * from \(z.details)"
-        if let results = database!.executeQuery(query) {
-            
-            if format == .unbound {
-                if results.next() {
-                    if let value = results.string(forColumn: "Title"      ) { name = value }
-                    if let value = results.string(forColumn: "Information") { info = value }
-                    if let value = results.string(forColumn: "Description") { info = value }
-                    if let value = results.string(forColumn: "Copyright"  ) { copyright = value }
-                    if let value = results.string(forColumn: "Language"   ) { language  = value }
-                }
-            }
-            
-            if format == .mybible {
-                while results.next() == true {
-                    guard let key = results.string(forColumn: "name") else { break }
-                    guard let value = results.string(forColumn: "value") else { break }
-
-                    switch key {
-                        case "description"   : name = value
-                        case "language"      : language = value
-                        case "detailed_info" : info = value
-                        default : break
-                    }
-                }
-            }
-            
-            if database!.tableExists(z.bible) { connected = true }
-        }
-        
-        language = language.lowercased()
-        if name.isEmpty { name = fileName }
-        info = info.removeTags
     }
     
     func appendBook(id: Int) {
@@ -125,7 +55,6 @@ class Bible: Module {
             setTitles()
             titles = getTitles()
             firstVerse = Verse(book: minBook, chapter: 1, number: 1, count: 1)
-            rightToLeft = getRightToLeft(language: language)
             books.sort(by: {$0.sorting < $1.sorting} )
             loaded = true
         }
