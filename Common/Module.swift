@@ -39,8 +39,9 @@ class Module {
     
     func openDatabase() {
         if !database!.open() { return }
+        if database!.tableExists("info") { format = .mybible }
         
-        if database!.tableExists("Details") {
+        if format == .unbound {
             let query = "select * from Details"
             if let results = database!.executeQuery(query) {
                 if results.next() {
@@ -57,7 +58,7 @@ class Module {
             }
         }
 
-        if database!.tableExists("info") {
+        if format == .mybible {
             let query = "select * from info"
             if let results = database!.executeQuery(query) {
                 while results.next() == true {
@@ -75,7 +76,6 @@ class Module {
                     connected = true
                 }
             }
-            format = .mybible
         }
         
         if connected {
