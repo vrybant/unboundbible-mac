@@ -46,7 +46,7 @@ class Module {
                 if results.next() {
                     if let value = results.string(forColumn: "Information" ) { info = value }
                     if let value = results.string(forColumn: "Description" ) { info = value }
-                    if let value = results.string(forColumn: "Title"       ) { name = value }
+                    if let value = results.string(forColumn: "Title"       ) { name = value } else { name = info }
                     if let value = results.string(forColumn: "Abbreviation") { abbreviation = value }
                     if let value = results.string(forColumn: "Copyright"   ) { copyright = value }
                     if let value = results.string(forColumn: "Language"    ) { language = value }
@@ -72,16 +72,18 @@ class Module {
                     case "is_footnotes"  : footnotes = value == "true"
                     default : continue
                     }
-                    format = .mybible
                     connected = true
                 }
             }
+            format = .mybible
         }
-            
-        language = language.lowercased()
-        rightToLeft = getRightToLeft(language: language)
-        if name.isEmpty { name = fileName }
-        info = info.removeTags
+        
+        if connected {
+            if name.isEmpty { name = fileName }
+            language = language.lowercased()
+            rightToLeft = getRightToLeft(language: language)
+            info = info.removeTags
+        }
     }
     
 }
