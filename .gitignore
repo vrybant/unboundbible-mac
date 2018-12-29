@@ -67,8 +67,8 @@ fastlane/screenshots
 fastlane/test_output
 
 # FMDB
-#
-#fmdb/
+
+fmdb/
 
 # Other
 
