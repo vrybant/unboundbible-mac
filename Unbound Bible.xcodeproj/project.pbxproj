@@ -65,6 +65,7 @@
 		E719DAEF1ECB302D00137035 /* types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
 		E71B29CE1E0C218200173E77 /* WinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinController.swift; sourceTree = "<group>"; };
 		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
+		E7229BDC21D76A4B00B7CEA9 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		E725BA1D2193196000247627 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E72DF9E11DE8651C00A46DA1 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		E73697B31DE4AEFD00FAA898 /* lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
@@ -99,7 +100,6 @@
 		E7BECE431EA9372900CF3386 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		E7BECE441EA9372900CF3386 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E7BECE4B1EA9390400CF3386 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		E7BECE4D1EAA092700CF3386 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		E7C21902201522F300E90AC6 /* NotesText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesText.swift; sourceTree = "<group>"; };
 		E7C8238F202B07EC00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E7C82394202B07ED00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -200,7 +200,6 @@
 		E7BECE391EA9372900CF3386 /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
-				E7BECE4D1EAA092700CF3386 /* Bridging-Header.h */,
 				E7BECE3A1EA9372900CF3386 /* FMDatabase.h */,
 				E7BECE3B1EA9372900CF3386 /* FMDatabase.m */,
 				E7BECE3C1EA9372900CF3386 /* FMDatabaseAdditions.h */,
@@ -233,6 +232,7 @@
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E73697B31DE4AEFD00FAA898 /* lib.swift */,
+				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
 				E7BECE391EA9372900CF3386 /* fmdb */,
 			);
 			path = Common;
@@ -585,7 +585,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/fmdb/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
@@ -607,7 +607,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
 				PROVISIONING_PROFILE_SPECIFIER = "Distribution Profile";
-				SWIFT_OBJC_BRIDGING_HEADER = "Common/fmdb/Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 			};
