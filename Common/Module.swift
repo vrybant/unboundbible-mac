@@ -35,6 +35,7 @@ class Module {
         filePath = atPath
         fileName = atPath.lastPathComponent
         database = FMDatabase(path: filePath)
+        openDatabase()
     }
     
     func openDatabase() {

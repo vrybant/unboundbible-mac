@@ -31,6 +31,40 @@ var mybibleStringAlias = StringAlias(
     details : "info"
 )
 
+struct CommentaryAlias {
+    var commentary = "commentary"
+    var id = "id"
+    var book = "book"
+    var chapter = "chapter"
+    var fromverse = "fromverse"
+    var toverse = "toverse"
+    var data = "data"
+}
+
+var mybibleCommentaryAlias = CommentaryAlias(
+    commentary: "commentaries",
+    id: "id",
+    book: "book_number",
+    chapter: "chapter_number_from",
+    fromverse: "verse_number_from",
+//  chapter: "chapter_number_to"
+    toverse: "verse_number_to",
+//  marker : "marker"
+    data: "text"
+)
+
+struct DictionaryAlias {
+    var dictionary = "Dictionary"
+    var word = "Word"
+    var data = "Data"
+}
+
+var mybibleDictionaryAlias = DictionaryAlias(
+    dictionary : "dictionary",
+    word : "topic",
+    data : "definition"
+)
+
 struct Verse {
     var book    = 0
     var chapter = 0
