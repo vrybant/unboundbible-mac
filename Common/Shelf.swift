@@ -17,10 +17,10 @@ class Bible: Module {
     
     var compare : Bool = true
 
-    override init(atPath: String) {
+    override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = mybibleStringAlias }
-        if connected && !database!.tableExists(z.bible) { connected = false }
+        if connected && !database!.tableExists(z.bible) { return nil }
     }
     
     var minBook : Int {
@@ -310,7 +310,7 @@ class Shelf {
     var current : Int = -1
 
     init() {
-        addBibles(dataPath)
+        load(path: dataPath)
         bibles.sort(by: {$0.name < $1.name} )
     }
     
@@ -336,13 +336,13 @@ class Shelf {
         } while l
     }
     
-    private func addBibles(_ path: String) {
+    private func load(path: String) {
         let files = fileList(path)
         for file in files {
-            let item = Bible(atPath: file)
-            if !item.connected { continue }
-            checkDoubleName(newItem: item)
-            bibles.append(item)
+            if let item = Bible(atPath: file) {
+                checkDoubleName(newItem: item)
+                bibles.append(item)
+            }
         }
     }
     

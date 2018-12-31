@@ -31,11 +31,12 @@ class Module {
     var strong       : Bool = false
     var footnotes    : Bool = false
     
-    init(atPath: String) {
+    init?(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
         database = FMDatabase(path: filePath)
         openDatabase()
+        if !connected { return nil }
     }
     
     func openDatabase() {
