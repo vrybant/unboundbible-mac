@@ -318,7 +318,7 @@ class Shelf {
         return self.bibles.isEmpty
     }
     
-    func fileList(_ path: String) -> [String] {
+    private func fileList(_ path: String) -> [String] {
         let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
         return getFileList(path).filter { $0.hasSuffix(extensions) }
     }
@@ -336,16 +336,14 @@ class Shelf {
         } while l
     }
     
-    func append(_ atPath: String) {
-        let item = Bible(atPath: atPath)
-        if !item.connected { return }
-        checkDoubleName(newItem: item)
-        bibles.append(item)
-    }
-    
-    func addBibles(_ path: String) {
+    private func addBibles(_ path: String) {
         let files = fileList(path)
-        for file in files { append(file) }
+        for file in files {
+            let item = Bible(atPath: file)
+            if !item.connected { continue }
+            checkDoubleName(newItem: item)
+            bibles.append(item)
+        }
     }
     
     func setCurrent(_ index: Int) {
