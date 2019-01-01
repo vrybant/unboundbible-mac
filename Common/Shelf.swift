@@ -311,6 +311,7 @@ class Shelf {
 
     init() {
         load(path: dataPath)
+        checkDoubleNames()
         bibles.sort(by: {$0.name < $1.name} )
     }
     
@@ -323,24 +324,19 @@ class Shelf {
         return getFileList(path).filter { $0.hasSuffix(extensions) }
     }
     
-    private func checkDoubleName(newItem: Bible) {
-        var l : Bool
-        repeat {
-            l = false
-            for item in bibles {
-                if item.name == newItem.name {
-                    newItem.name = newItem.name + "*"
-                    l = true
-                }
+    private func checkDoubleNames() {
+        for item in bibles {
+            for i in bibles {
+                if i.fileName == item.fileName { continue }
+                if i.name == item.name { i.name += "*" }
             }
-        } while l
+        }
     }
     
     private func load(path: String) {
         let files = fileList(path)
         for file in files {
             if let item = Bible(atPath: file) {
-                checkDoubleName(newItem: item)
                 bibles.append(item)
             }
         }
