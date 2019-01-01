@@ -39,6 +39,17 @@ class Module {
         if !connected { return nil }
     }
     
+    func encodeID(_ id: Int) -> Int {
+        if format != .mybible { return id }
+        if id > myBibleArray.count { return 0 }
+        return myBibleArray[id]
+    }
+    
+    func decodeID(_ id: Int) -> Int {
+        if format != .mybible { return id }
+        return myBibleArray.index(of: id) ?? id
+    }
+    
     func openDatabase() {
         if !database!.open() { return }
         if database!.tableExists("info") { format = .mybible }
@@ -63,7 +74,7 @@ class Module {
         if format == .mybible {
             let query = "select * from info"
             if let results = database!.executeQuery(query) {
-                while results.next() == true {
+                while results.next() {
                     guard let key = results.string(forColumn: "name") else { break }
                     guard let value = results.string(forColumn: "value") else { break }
                     

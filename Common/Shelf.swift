@@ -45,7 +45,7 @@ class Bible: Module {
         let query = "select distinct \(z.book) from \(z.bible)"
         
         if let results = database!.executeQuery(query) {
-            while results.next() == true {
+            while results.next() {
                 guard let stbook = results.string(forColumn: z.book) else { break }
                 let id = stbook.int
                 if id > 0 { appendBook(id: id) }
@@ -109,17 +109,6 @@ class Bible: Module {
         return nil
     }
 
-    func encodeID(_ id: Int) -> Int {
-        if format != .mybible { return id }
-        if id > myBibleArray.count { return 0 }
-        return myBibleArray[id]
-    }
-    
-    func decodeID(_ id: Int) -> Int {
-        if format != .mybible { return id }
-        return myBibleArray.index(of: id) ?? id
-    }
-    
     func sortingIndex(_ number: Int) -> Int {
         if orthodox(language: language) {
             return sortArrayRU.index(of: number) ?? 100
@@ -134,7 +123,7 @@ class Bible: Module {
 
         if let results = database!.executeQuery(query) {
             var result = [String]()
-            while results.next() == true {
+            while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
                 let text = prepare(line, format: format, purge: false)
                 result.append(text)
@@ -152,7 +141,7 @@ class Bible: Module {
         
         if let results = database!.executeQuery(query) {
             var result = [String]()
-            while results.next() == true {
+            while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
                 let text = preparation ? prepare(line, format: format) : line
                 result.append(text)
@@ -204,7 +193,7 @@ class Bible: Module {
         
         if let results = database!.executeQuery(query) {
             var lines = [Content]()
-            while results.next() == true {
+            while results.next() {
                 guard let book = results.string(forColumn: z.book) else { break }
                 guard let chapter = results.string(forColumn: z.chapter) else { break }
                 guard let number = results.string(forColumn: z.verse) else { break }
