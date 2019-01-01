@@ -90,6 +90,10 @@ extension String {
         return URL(fileURLWithPath: self).lastPathComponent
     }
     
+    var lastPathComponentWithoutExtension: String {
+        return URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
+    }
+
     func replace(_ string: String, with: String) -> String
     {
         return self.replacingOccurrences(of: string, with: with, options: NSString.CompareOptions.literal, range: nil)

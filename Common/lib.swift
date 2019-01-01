@@ -112,8 +112,7 @@ func copyToClipboard(content: String) {
 //  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
 }
 
-func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NSMutableAttributedString
-{
+func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
     result.append(left)
     result.append(right)
