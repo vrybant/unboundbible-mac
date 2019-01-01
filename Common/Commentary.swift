@@ -8,67 +8,34 @@
 import Foundation
 
 class Commentary: Module {
+    
     private var z = CommentaryAlias()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = mybibleCommentaryAlias }
         if connected && !database!.tableExists(z.commentary) { return nil }
-        
-        if connected {
-            print("Commentary - \(atPath)")
-        }
     }
+    
+    func getData(verse: Verse) -> String? {
+        
+        return nil
+    }
+    
+    func getFootnote(verse: Verse, marker: String) -> String? {
+        let id = encodeID(verse.book)
+        let query = "select * from \(z.commentary) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) and marker = \"\(marker)\" "
+        if let results = database!.executeQuery(query) {
+            if results.next() {
+                return results.string(forColumn: z.data)
+            }
+        }
+        return nil
+    }
+    
 }
 
 var commentaries = Commentaries()
-
-/*//=================================================================================================
-//                                         TCommentaries
-//=================================================================================================
-
-function Comparison(const Item1: TCommentary; const Item2: TCommentary): integer;
-var
-  s1 : string = '';
-  s2 : string = '';
-begin
-  if Orthodox(GetDefaultLanguage) then
-    begin
-      if Orthodox(Item1.language) then s1 := ' ';
-      if Orthodox(Item2.language) then s2 := ' ';
-    end;
-
-  Result := CompareText(s1 + Item1.Name, s2 + Item2.Name);
-end;
-
-function TCommentaries.GetFootnote(module: string; Verse: TVerse; marker: string): string;
-var
-  name : string;
-  i : integer;
-begin
-  Result := '';
-  if self.Count = 0 then Exit;
-  if marker = '❉' then marker := '*';
-  name := ExtractOnlyName(module);
-
-  for i:=0 to self.Count-1 do
-    begin
-      if not self[i].footnotes then Continue;
-      if not Prefix(name,self[i].filename) then Continue;
-      Result := self[i].GetFootnote(Verse, marker);
-    end;
-end;
-*/
-
-/*constructor TCommentaries.Create;
-begin
-  inherited;
-  Load(GetUserDir + AppName);
-  {$ifdef windows} if Self.Count = 0 then {$endif} Load(SharePath + 'bibles');
-  Sort(Comparison);
-end;
-
-*/
 
 class Commentaries {
     
@@ -79,6 +46,10 @@ class Commentaries {
         items.sort(by: {$0.name < $1.name} )
     }
 
+    var isEmpty: Bool {
+        return items.isEmpty
+    }
+    
     private func load(path: String) {
         let files = getDatabaseList(path).filter { $0.containsAny([".cmt.",".commentaries."]) }
         for file in files {
@@ -86,6 +57,17 @@ class Commentaries {
                 items.append(item)
             }
         }
+    }
+    
+    func getFootnote(module: String, verse: Verse, marker: String) -> String? {
+        let name = module.lastPathComponentWithoutExtension
+        
+        for item in items {
+            if !item.footnotes { continue }
+            if !item.fileName.hasPrefix(name) { continue }
+            return item.getFootnote(verse: verse, marker: marker)
+        }
+        return nil
     }
     
 }
