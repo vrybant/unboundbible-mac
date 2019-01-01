@@ -90,6 +90,11 @@ func getFileList(_ atPath: String) -> [String] {
     return result
 }
 
+func getDatabaseList(_ atPath: String) -> [String] {
+    let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
+    return getFileList(atPath).filter { $0.hasSuffix(extensions) }
+}
+
 func orthodox(language: String) -> Bool {
     let list = ["ru","uk","bulg"]
     for item in list {

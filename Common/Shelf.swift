@@ -214,7 +214,7 @@ class Bible: Module {
                 let text = prepare(line, format: format)
                 let content = Content(verse: verse, text: text)
                 
-                if text.removeTags.containsEvery(list: list, options: options) { lines.append(content) }
+                if text.removeTags.containsEvery(list, options: options) { lines.append(content) }
             }
             if !lines.isEmpty {
                 return rankContents(contents: lines)
@@ -311,17 +311,12 @@ class Shelf {
 
     init() {
         load(path: dataPath)
-        checkDoubleNames()
+        checkDoubleNames() // popUpButton can't has same names
         bibles.sort(by: {$0.name < $1.name} )
     }
     
     var isEmpty: Bool {
         return self.bibles.isEmpty
-    }
-    
-    private func fileList(_ path: String) -> [String] {
-        let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-        return getFileList(path).filter { $0.hasSuffix(extensions) }
     }
     
     private func checkDoubleNames() {
@@ -334,7 +329,7 @@ class Shelf {
     }
     
     private func load(path: String) {
-        let files = fileList(path)
+        let files = getDatabaseList(path)
         for file in files {
             if let item = Bible(atPath: file) {
                 bibles.append(item)

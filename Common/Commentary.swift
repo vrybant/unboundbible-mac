@@ -79,15 +79,9 @@ class Commentaries {
         items.sort(by: {$0.name < $1.name} )
     }
 
-    private func fileList(_ path: String) -> [String] {
-        let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-        return getFileList(path).filter { $0.hasSuffix(extensions) }
-    }
-    
     private func load(path: String) {
-        let files = fileList(path)
+        let files = getDatabaseList(path).filter { $0.containsAny([".cmt.",".commentaries."]) }
         for file in files {
-            if !file.contains(".cmt.") && !file.contains(".commentaries.") { continue }
             if let item = Commentary(atPath: file) {
                 items.append(item)
             }

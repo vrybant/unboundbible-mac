@@ -127,12 +127,12 @@ extension String {
         return false
     }
 
-    func containsEvery(list: [String], options: SearchOption) -> Bool {
+    func containsEvery(_ list: [String], options: SearchOption) -> Bool {
         let count = list.filter { self.contains(other: $0, options: options) }.count
         return list.count == count
     }
     
-    func contains(list: [String]) -> Bool {
+    func containsAny(_ list: [String]) -> Bool {
         return list.filter { self.contains($0) }.count > 0
     }
     
