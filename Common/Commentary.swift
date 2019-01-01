@@ -16,13 +16,30 @@ class Commentary: Module {
         if format == .mybible { z = mybibleCommentaryAlias }
         if connected && !database!.tableExists(z.commentary) { return nil }
     }
-    
-    func getData(verse: Verse) -> String? {
+
+    func getData(_ verse : Verse) -> [String]? {
+        let id = encodeID(verse.book)
+        let v_from = verse.number
+        let v_to   = verse.number + verse.count - 1
         
-        return nil
+        let query = "select * from \(z.commentary) " +
+                    "where \(z.book) = \(id) " +
+                    "and \(z.chapter) = \(verse.chapter) " +
+                    "and (( \(v_from) between \(z.fromverse) and \(z.toverse) ) " +
+                    "or ( \(z.fromverse) between \(v_from) and \(v_to) )) "
+        
+        var result = [String]()
+        if let results = database!.executeQuery(query) {
+            while results.next() {
+                if let line = results.string(forColumn: z.data) {
+                    result.append(line)
+                }
+            }
+        }
+        return result.isEmpty ? nil : result
     }
-    
-    func getFootnote(verse: Verse, marker: String) -> String? {
+
+    func getFootnote(_ verse: Verse, marker: String) -> String? {
         let id = encodeID(verse.book)
         let query = "select * from \(z.commentary) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) and marker = \"\(marker)\" "
         if let results = database!.executeQuery(query) {
@@ -65,7 +82,7 @@ class Commentaries {
         for item in items {
             if !item.footnotes { continue }
             if !item.fileName.hasPrefix(name) { continue }
-            return item.getFootnote(verse: verse, marker: marker)
+            return item.getFootnote(verse, marker: marker)
         }
         return nil
     }
