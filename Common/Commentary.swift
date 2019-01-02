@@ -62,10 +62,6 @@ class Commentaries {
         load(path: dataPath)
         items.sort(by: {$0.name < $1.name} )
     }
-
-    var isEmpty: Bool {
-        return items.isEmpty
-    }
     
     private func load(path: String) {
         let files = getDatabaseList(path).filter { $0.containsAny([".cmt.",".commentaries."]) }

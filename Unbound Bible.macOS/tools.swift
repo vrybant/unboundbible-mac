@@ -61,6 +61,11 @@ func loadCommentary() {
     print(attrString.string)
 }
 
+func loadStrong(number: String = "") -> String {
+    if let text = dictionaries.getStrong(activeVerse, language: bible!.language, number: number) { return text }
+    return ""
+}
+
 func loadFootnote(marker: String = "") -> String {
     if bible!.format == .unbound {
         if let text = bible!.getFootnote(activeVerse, marker: marker) { return text }
