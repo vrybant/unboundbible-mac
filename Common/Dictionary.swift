@@ -31,9 +31,14 @@ class Dictionaries {
         items.sort(by: {$0.name < $1.name} )
     }
     
+    var isEmpty: Bool {
+        return items.isEmpty
+    }
+    
     private func load(path: String) {
         let files = getDatabaseList(path).filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
+            if !file.hasSuffix(".unbound") { continue }
             if let item = TDictionary(atPath: file) {
                 items.append(item)
             }
