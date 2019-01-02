@@ -41,6 +41,26 @@ func loadCompare() {
     rigthView.compareTextView.textStorage?.setAttributedString(attrString)
 }
 
+func loadCommentary() {
+    if shelf.isEmpty { return }
+    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let attrString = NSMutableAttributedString()
+    attrString.append( parse(link) )
+    
+    for item in commentaries.items {
+        if item.footnotes { continue }
+        
+        if let list = item.getData(activeVerse) {
+            let text = list.joined(separator: " ") + "\n"
+            let string = "\n<l>" + item.name + "</l>\n" + text
+            print(string)
+            attrString.append( string.mutable(attributes: defaultAttribute) )
+        }
+    }
+    
+    print(attrString.string)
+}
+
 func loadFootnote(marker: String = "") -> String {
     if bible!.format == .unbound {
         if let text = bible!.getFootnote(activeVerse, marker: marker) { return text }

@@ -79,6 +79,8 @@ class BibleTextView: CustomTextView {
         super.mouseDown(with: event)
         getParagraphNumber()
         
+        loadCommentary() // !!!
+        
         if foreground == .strong { // .footnote
             let f = loadFootnote(marker: hyperlink)
             print(f)
