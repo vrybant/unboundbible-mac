@@ -811,9 +811,6 @@
                             <constraint firstItem="OUB-aq-9xm" firstAttribute="top" secondItem="jY3-mL-p27" secondAttribute="top" constant="105" id="s2c-Xa-zFn"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="textField" destination="RC7-bG-EI5" id="Cic-nQ-pyF"/>
-                    </connections>
                 </viewController>
                 <customObject id="4PP-gU-0C4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
