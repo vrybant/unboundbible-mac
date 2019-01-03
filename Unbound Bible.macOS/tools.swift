@@ -54,7 +54,7 @@ func loadCommentary() {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n" + text
             print(string)
-            attrString.append( string.mutable(attributes: defaultAttribute) )
+            attrString.append( string.mutable(attributes: defaultAttributes) )
         }
     }
     

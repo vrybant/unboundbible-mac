@@ -57,10 +57,12 @@ class BibleTextView: CustomTextView {
         return Int(num) ?? 1
     }
     
-    private func getParagraphNumber() {
-        if self.selectedRange.length == 0 {
+    private func getParagraphNumber(saveRange: Bool = false) {
+        if selectedRange.length == 0 {
+            let range = selectedRange()
             activeVerse.number = paragraphFromSelection(beginning: true)
             activeVerse.count = 1
+            if saveRange { setSelectedRange(range) }
         }
     }
     
@@ -77,15 +79,20 @@ class BibleTextView: CustomTextView {
     
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
-        getParagraphNumber()
+
+        getParagraphNumber(saveRange: true)
         
-        loadCommentary() // !!!
+        //loadCommentary() // !!!
         
         if foreground == .strong { // .footnote
             let f = loadFootnote(marker: hyperlink)
             print(f)
-            // mainView.showPopover(self)
+            let attrs = f.mutable(attributes: defaultAttributes)
+            mainView.showPopover(self)
+            popoverView.textView.textStorage?.setAttributedString(attrs)
         }
+        
+        getParagraphNumber()
     }
     
     override func selectionRange(forProposedRange proposedCharRange: NSRange, granularity: NSSelectionGranularity) -> NSRange {

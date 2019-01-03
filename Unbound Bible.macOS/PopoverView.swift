@@ -7,8 +7,12 @@
 
 import Cocoa
 
+var popoverView = mainView.popover?.contentViewController as! PopoverView
+
 class PopoverView: NSViewController {
 
+    @IBOutlet var textView: NSTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

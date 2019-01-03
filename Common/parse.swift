@@ -10,12 +10,12 @@ import Cocoa
 
 var defaultFont = NSFont.systemFont(ofSize: 14)
 
-var defaultAttribute: [NSAttributedStringKey : Any] {
+var defaultAttributes: [NSAttributedStringKey : Any] {
     return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
 }
 
 private func attrStringFromTags(_ string: String, tags: Set<String>) -> NSAttributedString {
-    let s = string.mutable(attributes: defaultAttribute)
+    let s = string.mutable(attributes: defaultAttributes)
     var tags = tags
     let set : Set = ["<S>","<RF>","FI"]
     if !tags.isDisjoint(with: set) { tags.remove("<FR>") }
