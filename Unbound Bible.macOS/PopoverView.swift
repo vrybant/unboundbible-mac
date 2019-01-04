@@ -7,7 +7,7 @@
 
 import Cocoa
 
-var popoverView = mainView.popover?.contentViewController as! PopoverView
+var popoverView: PopoverView?
 
 class PopoverView: NSViewController {
 
