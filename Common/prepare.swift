@@ -52,15 +52,15 @@ private func extractMarkers(_ string: inout String) {
     for item in list {
         if item.hasPrefix("<q=") {
             let marker = item.replace("<q=", with: "").replace(">", with: "")
-            string += marker + "[~"
+            string += marker + " [~"
         } else {
             string += item
         }
     }
 }
 
-private func footnotes(_ string: inout String) {
-    string = string.replace("<RF>", with: "<RF>*[~").replace("<Rf>", with: "~]<Rf>")
+private func footnotes(_ string: inout String) { // ＊ ✻ ✽
+    string = string.replace("<RF>", with: "<RF>✻ [~").replace("<Rf>", with: "~]<Rf>")
     string = string.cut(from: "[~", to: "~]")
 }
 

@@ -154,7 +154,7 @@ class Bible: Module {
     private func extractFootnotes(_ string: String,_ marker: String) -> String {
         let list = xmlToList(string: string)
         var string = ""
-        let tag = marker.hasPrefix("*") ? "<RF>" : "<RF q=" + marker + ">"
+        let tag = marker.hasPrefix("✻") ? "<RF>" : "<RF q=" + marker + ">"
         var l = false
         for item in list {
             if item == "<Rf>" { l = false; string += "\n" }

@@ -86,7 +86,7 @@ class CustomTextView: NSTextView {
         let range = NSRange(location: x2, length: x1-x2)
         let string = self.attributedString().attributedSubstring(from: range).string
         
-        return string
+        return string.trimmed
     }
     
     override func mouseDown(with event: NSEvent) {
