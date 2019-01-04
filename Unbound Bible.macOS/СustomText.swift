@@ -44,7 +44,7 @@ class CustomTextView: NSTextView {
         switch getForegroundColor(x) {
         case NSColor.systemNavy  : return .link
         case NSColor.systemBrown : return .strong
-        case NSColor.systemGray  : return .footnote
+        case NSColor.systemTeal  : return .footnote
         default                  : return .text
         }
     }

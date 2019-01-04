@@ -163,6 +163,19 @@ extension String {
         return result
     }
     
+    var htmlToAttributedString: NSAttributedString? {
+        guard let data = data(using: .utf8) else { return nil }
+        do {
+            return try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+        } catch {
+            return nil
+        }
+    }
+
+    var htmlToString: String {
+        return htmlToAttributedString?.string ?? ""
+    }
+    
 }
 
 extension Substring {
@@ -253,10 +266,18 @@ extension NSColor {
     }
     static var darkNavy: NSColor {
         return NSColor(red: 0, green: 0.6, blue: 1, alpha: 1)
-        // midnight:   rgb(0, 24, 136);
     }
     static var systemNavy: NSColor {
         return darkAppearance ? NSColor.darkNavy : NSColor.navy
+    }
+    static var teal: NSColor {
+        return NSColor(red: 0.2, green: 0.4, blue: 0.4, alpha: 1)
+    }
+    static var darkTeal: NSColor {
+        return NSColor(red:0.40, green:0.80, blue:0.80, alpha: 1)
+    }
+    static var systemTeal: NSColor {
+        return darkAppearance ? NSColor.darkTeal : NSColor.teal
     }
 }
 
@@ -274,18 +295,20 @@ extension NSAttributedString {
             if let foregroundColor = value as? NSColor {
                 var color: NSColor?
                 switch foregroundColor {
-                case NSColor.black:    color = NSColor.labelColor
-                case NSColor.blue:     color = NSColor.systemBlue
-                case NSColor.brown:    color = NSColor.systemBrown
-                case NSColor.gray:     color = NSColor.systemGray
-                case NSColor.green:    color = NSColor.systemGreen
-                case NSColor.navy:     color = NSColor.systemNavy
-                case NSColor.darkNavy: color = NSColor.systemNavy
-                case NSColor.orange:   color = NSColor.systemOrange
-                case NSColor.purple:   color = NSColor.systemPurple
-                case NSColor.red:      color = NSColor.systemRed
-                case NSColor.yellow:   color = NSColor.systemYellow
-                default: break
+                    case NSColor.black:    color = NSColor.labelColor
+                    case NSColor.blue:     color = NSColor.systemBlue
+                    case NSColor.brown:    color = NSColor.systemBrown
+                    case NSColor.gray:     color = NSColor.systemGray
+                    case NSColor.green:    color = NSColor.systemGreen
+                    case NSColor.navy:     color = NSColor.systemNavy
+                    case NSColor.darkNavy: color = NSColor.systemNavy
+                    case NSColor.orange:   color = NSColor.systemOrange
+                    case NSColor.purple:   color = NSColor.systemPurple
+                    case NSColor.red:      color = NSColor.systemRed
+                    case NSColor.teal:     color = NSColor.systemTeal
+                    case NSColor.darkTeal: color = NSColor.systemTeal
+                    case NSColor.yellow:   color = NSColor.systemYellow
+                    default: break
                 }
                 if color != nil {
                     result.addAttribute(.foregroundColor, value: color!, range: range)
@@ -304,17 +327,18 @@ extension NSAttributedString {
             if let foregroundColor = value as? NSColor {
                 var color: NSColor?
                 switch foregroundColor {
-                case NSColor.labelColor:   color = NSColor.black
-                case NSColor.systemBlue:   color = NSColor.blue
-                case NSColor.systemBrown:  color = NSColor.brown
-                case NSColor.systemGray:   color = NSColor.gray
-                case NSColor.systemGreen:  color = NSColor.green
-                case NSColor.darkNavy:     color = NSColor.navy
-                case NSColor.systemOrange: color = NSColor.orange
-                case NSColor.systemPurple: color = NSColor.purple
-                case NSColor.systemRed:    color = NSColor.red
-                case NSColor.systemYellow: color = NSColor.yellow
-                default: break
+                    case NSColor.labelColor:   color = NSColor.black
+                    case NSColor.systemBlue:   color = NSColor.blue
+                    case NSColor.systemBrown:  color = NSColor.brown
+                    case NSColor.systemGray:   color = NSColor.gray
+                    case NSColor.systemGreen:  color = NSColor.green
+                    case NSColor.darkNavy:     color = NSColor.navy
+                    case NSColor.systemOrange: color = NSColor.orange
+                    case NSColor.systemPurple: color = NSColor.purple
+                    case NSColor.systemRed:    color = NSColor.red
+                    case NSColor.systemTeal:   color = NSColor.teal
+                    case NSColor.systemYellow: color = NSColor.yellow
+                    default: break
                 }
                 if color != nil {
                     result.addAttribute(.foregroundColor, value: color!, range: range)
