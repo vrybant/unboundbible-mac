@@ -41,7 +41,8 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
         case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemTeal  )
                      s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)  )
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
-        case  "<b>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+        case "<strong>",
+             "<b>" : s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
         default: break
         }
     }
