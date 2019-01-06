@@ -133,7 +133,7 @@ class Bible: Module {
         return nil
     }
     
-    func getRange(_ verse : Verse, preparation: Bool = true) -> [String]? {
+    func getRange(_ verse: Verse, preparation: Bool = true, purge: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
         let toVerse = verse.number + verse.count
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
@@ -143,7 +143,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = preparation ? prepare(line, format: format) : line
+                let text = preparation ? prepare(line, format: format, purge: purge) : line
                 result.append(text)
             }
             if !result.isEmpty { return result }
