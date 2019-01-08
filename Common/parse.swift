@@ -52,6 +52,8 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
     //return string.mutable(attributes: defaultAttribute) // show tags
+
+    let string = string.replace("</p>", with: "\n")
     
     let list = xmlToList(string: string)
     var tags = Set<String>()

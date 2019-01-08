@@ -82,15 +82,21 @@ class BibleTextView: CustomTextView {
 
         getParagraphNumber(saveRange: true)
         
+        if selectedRange.length != 0 { return }
         //loadCommentary()
 
+        if foreground == .strong {
+            let f = loadStrong(number: hyperlink)
+            let attrs = parse(f, small: true).mutable()
+            mainView.showPopover(self)
+            popoverView!.textView.textStorage?.setAttributedString(attrs)
+        }
+
         if foreground == .footnote {
-            if selectedRange.length == 0 {
-                let f = loadFootnote(marker: hyperlink)
-                let attrs = parse(f, small: true).mutable()
-                mainView.showPopover(self)
-                popoverView!.textView.textStorage?.setAttributedString(attrs)
-            }
+            let f = loadFootnote(marker: hyperlink)
+            let attrs = parse(f, small: true).mutable()
+            mainView.showPopover(self)
+            popoverView!.textView.textStorage?.setAttributedString(attrs)
         }
 
         getParagraphNumber()
