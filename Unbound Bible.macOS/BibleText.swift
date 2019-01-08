@@ -8,7 +8,7 @@
 import Cocoa
 
 class BibleTextView: CustomTextView {
-     
+    
     private func colored(_ x: Int) -> Bool {
         return getForeground(x) == .link
     }
@@ -83,24 +83,16 @@ class BibleTextView: CustomTextView {
         getParagraphNumber(saveRange: true)
         
         //loadCommentary()
-        
+
         if foreground == .footnote {
             if selectedRange.length == 0 {
                 let f = loadFootnote(marker: hyperlink)
-
-                //let attrs = f.htmlToAttributedString!
-                
                 let attrs = parse(f, small: true).mutable()
-                //attrs.addAttribute(.font, value: NSFont.systemFont(ofSize: 12))
-                
-                //(attributes: defaultAttributes)
-                //attrs?.addAttribute(.font, value: NSFont.systemFont(ofSize: 11))
-
                 mainView.showPopover(self)
                 popoverView!.textView.textStorage?.setAttributedString(attrs)
             }
         }
-        
+
         getParagraphNumber()
     }
     

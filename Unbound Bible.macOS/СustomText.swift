@@ -17,7 +17,7 @@ class CustomTextView: NSTextView {
     var isDark = false
     var hyperlink = ""
     var foreground = Foreground.text
-
+    
     override func draw(_ dirtyRect: NSRect) {
         if darkAppearance != isDark { updateColors() }
         isDark = darkAppearance
@@ -29,6 +29,10 @@ class CustomTextView: NSTextView {
 //      self.isContinuousSpellCheckingEnabled = false
     }
     
+    private var id : String {
+        return identifier?.rawValue ?? ""
+    }
+
     private func getForegroundColor(_ x: Int) -> NSColor {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
@@ -98,7 +102,11 @@ class CustomTextView: NSTextView {
             if let verse = bible!.stringToVerse(link: hyperlink) {
                 goToVerse(verse, select: true)
             }
-        }        
+        }
+
+        if ["Bible","Compare"].contains(id) {
+            //
+        }
     }
     
     override func didChangeText() {
