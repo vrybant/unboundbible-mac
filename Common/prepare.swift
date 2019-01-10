@@ -59,8 +59,8 @@ private func extractMarkers(_ string: inout String) {
     }
 }
 
-private func footnotes(_ string: inout String) { // ＊ ✻ ✽
-    string = string.replace("<RF>", with: "<RF>✻ [~").replace("<Rf>", with: "~]<Rf>")
+private func footnotes(_ string: inout String) {
+    string = string.replace("<RF>", with: "<RF>✻[~").replace("<Rf>", with: "~]<Rf>")
     string = string.cut(from: "[~", to: "~]")
 }
 
@@ -82,8 +82,9 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     if format == .mybible { replaceTags(&string) }
 
     string = string.cut(from: "<TS>", to: "<Ts>")
-    if purge { string = string.cut(from: "<RF", to:"<Rf>") }
+    if  purge { string = string.cut(from: "<RF", to:"<Rf>") }
+    if !purge { string = string.replace("<Rf><RF>", with: "<Rf> <RF>") }
     string = string.replace("</S><S>", with: "</S> <S>")
-
+    
     return string
 }
