@@ -30,7 +30,7 @@ func loadCompare() {
     for item in shelf.bibles {
         if !item.compare { continue }
         
-        if let list = item.getRange(activeVerse, purge: false) {
+        if let list = item.getRange(activeVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n" + text
             attrString.append( parse(string) )
