@@ -71,6 +71,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
                 }
             }
         } else {
+            if !jtag { tags.remove("<FR>") }
             let attrString = attrStringFromTags(s, tags: tags, small: small)
             result.append(attrString)
         }
