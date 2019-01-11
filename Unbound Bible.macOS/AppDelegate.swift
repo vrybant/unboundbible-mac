@@ -85,11 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-        if mainView.closeDocument() {
-            return NSApplication.TerminateReply.terminateNow
-        } else {
-            return NSApplication.TerminateReply.terminateCancel
-        }
+        return mainView.closeDocument() ? .terminateNow : .terminateCancel
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
