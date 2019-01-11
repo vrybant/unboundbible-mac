@@ -9,6 +9,7 @@ import Foundation
 import Cocoa
 
 let applicationName = "Unbound Bible"
+let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 
 let bibleDirectory = "bibles"
 let titleDirectory = "titles"
@@ -123,31 +124,17 @@ func getRightToLeft(language: String) -> Bool {
     return language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }
 
-func createDirectory(atPath: String) {
-    do {
-        try FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
-    } catch {
-        // failed
-    }
-}
+func copyDefaultsFiles(update: Bool) {
+    if !update && FileManager.default.fileExists(atPath: dataPath) { return }
+    try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
 
-func copyDefaultsFiles() {
-    if FileManager.default.fileExists(atPath: dataPath) { return }
-    createDirectory(atPath: dataPath)
-    
-    do {
-        let atDirectory = resourcePath + slash + bibleDirectory
-        let items = try FileManager.default.contentsOfDirectory(atPath: atDirectory)
+    let atDirectory = resourcePath + slash + bibleDirectory
+    if let items = try? FileManager.default.contentsOfDirectory(atPath: atDirectory) {
         for item in items {
             let atPath = atDirectory + slash + item
             let toPath = dataPath + slash + item
-            do {
-                try FileManager.default.copyItem(atPath: atPath, toPath: toPath)
-            } catch {
-                // failed
-            }
+            try? FileManager.default.removeItem(at: URL(fileURLWithPath: toPath))
+            try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
         }
-    } catch {
-        // failed
     }
 }

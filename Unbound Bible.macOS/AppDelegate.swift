@@ -23,15 +23,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var defaultBaseline: NSMenuItem!
     @IBOutlet weak var defaultDirection: NSMenuItem!
     
+    var defaultVersion : String?
+    var defaultCurrent : String?
+    
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
         initialization()
     }
     
     func initialization() {
-        copyDefaultsFiles()
         readDefaults()
+        let update = applicationVersion != defaultVersion
+        copyDefaultsFiles(update: update)
         if shelf.isEmpty { return }
+        shelf.setCurrent(defaultCurrent!)
         leftView.bibleMenuInit()
         mainView.updateStatus(bible!.info)
         leftView.makeBookList()
@@ -100,20 +105,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //      defaults.removePersistentDomain(forName: domain) // debug
         defaults.synchronize()
 
+        defaultVersion = defaults.string(forKey: "applicationVersion")
+        defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
+
         activeVerse.book    = defaults.integer(forKey: "verseBook")
         activeVerse.chapter = defaults.integer(forKey: "verseChapter")
         activeVerse.number  = defaults.integer(forKey: "verseNumber")
         activeVerse.count   = defaults.integer(forKey: "verseCount")
         
-        if let fontName  = defaults.string(forKey: "fontName") {
+        if let fontName = defaults.string(forKey: "fontName") {
             let fontSize = defaults.float(forKey: "fontSize")
             defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
-        }
-        
-        if let file = defaults.string(forKey: "current") {
-            shelf.setCurrent(file)
-        } else {
-            shelf.setCurrent(defaultBible)
         }
         
         let value = defaults.integer(forKey: "copyOptions")
@@ -127,6 +129,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func saveDefaults() {
         if shelf.isEmpty { return }
         let defaults = UserDefaults.standard
+        defaults.set(applicationVersion,    forKey: "applicationVersion")
         defaults.set(bible!.fileName,       forKey: "current")
         defaults.set(activeVerse.book,      forKey: "verseBook")
         defaults.set(activeVerse.chapter,   forKey: "verseChapter")
