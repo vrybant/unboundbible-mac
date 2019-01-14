@@ -10,6 +10,7 @@ import Cocoa
 
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
+var applicationUpdate = false
 
 let bibleDirectory = "bibles"
 let titleDirectory = "titles"
@@ -124,8 +125,8 @@ func getRightToLeft(language: String) -> Bool {
     return language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }
 
-func copyDefaultsFiles(update: Bool) {
-    if !update && FileManager.default.fileExists(atPath: dataPath) { return }
+func copyDefaultsFiles() {
+    if !applicationUpdate && FileManager.default.fileExists(atPath: dataPath) { return }
     try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
 
     let atDirectory = resourcePath + slash + bibleDirectory

@@ -23,7 +23,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var defaultBaseline: NSMenuItem!
     @IBOutlet weak var defaultDirection: NSMenuItem!
     
-    var defaultVersion : String?
     var defaultCurrent : String?
     
     func applicationWillFinishLaunching(_ notification: Notification) {
@@ -33,8 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func initialization() {
         readDefaults()
-        let update = applicationVersion != defaultVersion
-        copyDefaultsFiles(update: update)
+        copyDefaultsFiles()
         if shelf.isEmpty { return }
         shelf.setCurrent(defaultCurrent!)
         leftView.bibleMenuInit()
@@ -105,7 +103,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //      defaults.removePersistentDomain(forName: domain) // debug
         defaults.synchronize()
 
-        defaultVersion = defaults.string(forKey: "applicationVersion")
+        applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
         defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
 
         activeVerse.book    = defaults.integer(forKey: "verseBook")
