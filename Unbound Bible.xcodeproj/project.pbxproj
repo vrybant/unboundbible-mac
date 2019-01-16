@@ -15,6 +15,7 @@
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
+		E72C3DF121EF46B1007A143F /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72C3DF021EF46B1007A143F /* CommentsView.swift */; };
 		E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DF9E11DE8651C00A46DA1 /* LeftView.swift */; };
 		E73697B41DE4AEFD00FAA898 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73697B31DE4AEFD00FAA898 /* lib.swift */; };
 		E7382CBA21CC006400DF8772 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
@@ -69,6 +70,7 @@
 		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
 		E7229BDC21D76A4B00B7CEA9 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		E725BA1D2193196000247627 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		E72C3DF021EF46B1007A143F /* CommentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
 		E72DF9E11DE8651C00A46DA1 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		E73697B31DE4AEFD00FAA898 /* lib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		E7382CB921CC006400DF8772 /* prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prepare.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
 				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
 				E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */,
+				E72C3DF021EF46B1007A143F /* CommentsView.swift */,
 				E71B29CE1E0C218200173E77 /* WinController.swift */,
 				E725BA1D2193196000247627 /* View.swift */,
 				CE2F17F21D33C31800BA91A6 /* MainView.swift */,
@@ -378,6 +381,7 @@
 			files = (
 				E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */,
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
+				E72C3DF121EF46B1007A143F /* CommentsView.swift in Sources */,
 				E7DD51A51DE764A70003D654 /* tools.swift in Sources */,
 				E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */,
 				E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */,

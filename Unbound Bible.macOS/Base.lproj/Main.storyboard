@@ -788,6 +788,19 @@
             </objects>
             <point key="canvasLocation" x="104" y="700"/>
         </scene>
+        <!--Comments View-->
+        <scene sceneID="alJ-cz-WRe">
+            <objects>
+                <viewController id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="oux-qS-vdl">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="FKY-uh-a4l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-531" y="273"/>
+        </scene>
         <!--Popover View-->
         <scene sceneID="fpq-kG-Tjb">
             <objects>
