@@ -35,9 +35,11 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
         case  "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
         case  "<m>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
         case  "<l>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
-        case  "<S>": s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
-                     s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
+        case  "<S>": s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
+                     if !tags.contains("<r>") {
+                     s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+                     }
         case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemTeal  )
                      s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)  )
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
@@ -54,7 +56,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
     //return string.mutable(attributes: defaultAttribute) // show tags
 
     let string = string.replace("</p>", with: "\n")
-    
+
     let list = xmlToList(string: string)
     var tags = Set<String>()
     
