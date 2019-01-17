@@ -77,12 +77,12 @@ func loadFootnote(marker: String = "") -> String {
 }
 
 func searchText(string: String) {
-    let string = searchOption.contains(.caseSensitive) ? string : string.lowercased()
-    let searchList = string.components(separatedBy: " ")
+    let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
+    let searchList = target.components(separatedBy: " ")
     let attributedString = NSMutableAttributedString()
     let range = currentSearchRange()
     
-    if let searchResult = bible!.search(string: string, options: searchOption, range: range) {
+    if let searchResult = bible!.search(string: target, options: searchOption, range: range) {
         for content in searchResult {
             let link = bible!.verseToString(content.verse, full: true)
             let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
