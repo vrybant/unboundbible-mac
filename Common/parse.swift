@@ -21,11 +21,11 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     var tags = tags
     let set : Set = ["<S>","<RF>","FI"]
     if !tags.isDisjoint(with: set) { tags.remove("<FR>") }
-    
+    let italicSet = ["<i>","<em>"]
+
     for tag in tags {
         var tag = tag
-        let italic = ["<i>","<em>"]
-        if italic.contains(tag.lowercased()) { tag = "<FI>" }
+        if italicSet.contains(tag.lowercased()) { tag = "<FI>" }
         
         switch tag {
         case "<FI>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: small ? 12 : 13)!)
