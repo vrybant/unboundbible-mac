@@ -33,12 +33,16 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
         case "<FR>",
               "<r>": s.addAttribute(.foregroundColor, value: NSColor.systemRed   )
         case  "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
-        case  "<m>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
         case  "<l>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
         case  "<S>": s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
                      if !tags.contains("<r>") {
                      s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+                     }
+        case  "<m>": s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
+                     s.addAttribute(.baselineOffset,  value: 5.0                 )
+                     if !tags.contains("<r>") {
+                     s.addAttribute(.foregroundColor, value: NSColor.systemGray )
                      }
         case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemTeal  )
                      s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)  )
