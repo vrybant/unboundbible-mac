@@ -124,11 +124,10 @@ func getRightToLeft(language: String) -> Bool {
 }
 
 func copyDefaultsFiles() {
-    if !applicationUpdate && !getDatabaseList(dataPath).isEmpty { return }
-    
     if !FileManager.default.fileExists(atPath: dataPath)  {
         try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
     }
+    if !applicationUpdate && !getDatabaseList(dataPath).isEmpty { return }
     
     let atDirectory = resourcePath + slash + bibleDirectory
     if let items = try? FileManager.default.contentsOfDirectory(atPath: atDirectory) {
