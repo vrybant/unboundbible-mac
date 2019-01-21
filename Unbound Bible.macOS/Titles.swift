@@ -21,7 +21,7 @@ class Titles {
         var result = path + slash + "english.sqlite"
         if language.isEmpty { return result }
 
-        if let list = getFileList(path) {
+        if let list = contentsOfDirectory(atPath: path) {
             for item in list {
                 if item.lastPathComponent.hasPrefix(language) { result = item }
             }

@@ -74,12 +74,7 @@ func xmlToList(string: String) -> [String] {
     return result
 }
 
-func fileExists(_ atPath: String) -> Bool {
-    let fileManager = FileManager.default
-    return fileManager.fileExists(atPath: atPath)
-}
-
-func getFileList(_ atPath: String) -> [String]? {
+func contentsOfDirectory(atPath: String) -> [String]? {
     if !FileManager.default.fileExists(atPath: atPath) { return nil }
     var result = [String]()
     if let files = try? FileManager.default.contentsOfDirectory(atPath: atPath) {
@@ -92,7 +87,7 @@ func getFileList(_ atPath: String) -> [String]? {
 
 func getDatabaseList(_ atPath: String) -> [String] {
     let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return getFileList(atPath)?.filter { $0.hasSuffix(extensions) } ?? []
+    return contentsOfDirectory(atPath: atPath)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
 func orthodox(language: String) -> Bool {
