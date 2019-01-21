@@ -87,7 +87,7 @@ func getFileList(_ atPath: String) -> [String]? {
             result.append(atPath + slash + file)
         }
     }
-    return result
+    return !result.isEmpty ? result : nil
 }
 
 func getDatabaseList(_ atPath: String) -> [String] {
