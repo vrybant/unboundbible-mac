@@ -41,7 +41,7 @@ class Dictionaries {
     }
     
     private func load(path: String) {
-        let files = getDatabaseList(path).filter { $0.containsAny([".dct.",".dictionary."]) }
+        let files = databaseList(atPath: path).filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
             if !file.hasSuffix(".unbound") { continue }
             if let item = TDictionary(atPath: file) {

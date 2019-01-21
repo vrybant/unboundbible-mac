@@ -64,7 +64,7 @@ class Commentaries {
     }
     
     private func load(path: String) {
-        let files = getDatabaseList(path).filter { $0.containsAny([".cmt.",".commentaries."]) }
+        let files = databaseList(atPath: path).filter { $0.containsAny([".cmt.",".commentaries."]) }
         for file in files {
             if let item = Commentary(atPath: file) {
                 items.append(item)

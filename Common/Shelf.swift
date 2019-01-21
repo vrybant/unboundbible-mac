@@ -318,7 +318,7 @@ class Shelf {
     }
     
     private func load(path: String) {
-        let files = getDatabaseList(path)
+        let files = databaseList(atPath: path)
         for file in files {
             if let item = Bible(atPath: file) {
                 bibles.append(item)
