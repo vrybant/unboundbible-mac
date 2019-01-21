@@ -79,22 +79,20 @@ func fileExists(_ atPath: String) -> Bool {
     return fileManager.fileExists(atPath: atPath)
 }
 
-func getFileList(_ atPath: String) -> [String] {
+func getFileList(_ atPath: String) -> [String]? {
+    if !FileManager.default.fileExists(atPath: atPath) { return nil }
     var result = [String]()
-    do {
-        let files = try FileManager.default.contentsOfDirectory(atPath: atPath)
+    if let files = try? FileManager.default.contentsOfDirectory(atPath: atPath) {
         for file in files {
             result.append(atPath + slash + file)
         }
-    } catch {
-        // failed
     }
     return result
 }
 
 func getDatabaseList(_ atPath: String) -> [String] {
     let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return getFileList(atPath).filter { $0.hasSuffix(extensions) }
+    return getFileList(atPath)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
 func orthodox(language: String) -> Bool {
@@ -126,9 +124,12 @@ func getRightToLeft(language: String) -> Bool {
 }
 
 func copyDefaultsFiles() {
-    if !applicationUpdate && FileManager.default.fileExists(atPath: dataPath) { return }
-    try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
-
+    if !applicationUpdate && !getDatabaseList(dataPath).isEmpty { return }
+    
+    if !FileManager.default.fileExists(atPath: dataPath)  {
+        try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
+    }
+    
     let atDirectory = resourcePath + slash + bibleDirectory
     if let items = try? FileManager.default.contentsOfDirectory(atPath: atDirectory) {
         for item in items {
