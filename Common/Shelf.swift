@@ -299,7 +299,7 @@ class Shelf {
     var current : Int = -1
 
     init() {
-        load(path: dataPath)
+        load()
         checkDoubleNames() // popUpButton can't has same names
         bibles.sort(by: {$0.name < $1.name} )
     }
@@ -317,8 +317,8 @@ class Shelf {
         }
     }
     
-    private func load(path: String) {
-        let files = databaseList(atPath: path)
+    private func load() {
+        let files = databaseList()
         for file in files {
             if let item = Bible(atPath: file) {
                 bibles.append(item)

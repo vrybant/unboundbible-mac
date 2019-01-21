@@ -85,9 +85,9 @@ func contentsOfDirectory(atPath: String) -> [String]? {
     return !result.isEmpty ? result : nil
 }
 
-func databaseList(atPath: String) -> [String] {
+func databaseList() -> [String] {
     let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return contentsOfDirectory(atPath: atPath)?.filter { $0.hasSuffix(extensions) } ?? []
+    return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
 func orthodox(language: String) -> Bool {
@@ -122,7 +122,7 @@ func copyDefaultsFiles() {
     if !FileManager.default.fileExists(atPath: dataPath)  {
         try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
     }
-    if !applicationUpdate && !databaseList(atPath: dataPath).isEmpty { return }
+    if !applicationUpdate && !databaseList().isEmpty { return }
     
     let atDirectory = resourcePath + slash + bibleDirectory
     if let items = try? FileManager.default.contentsOfDirectory(atPath: atDirectory) {

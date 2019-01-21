@@ -59,12 +59,12 @@ class Commentaries {
     var items = [Commentary]()
     
     init() {
-        load(path: dataPath)
+        load()
         items.sort(by: {$0.name < $1.name} )
     }
     
-    private func load(path: String) {
-        let files = databaseList(atPath: path).filter { $0.containsAny([".cmt.",".commentaries."]) }
+    private func load() {
+        let files = databaseList().filter { $0.containsAny([".cmt.",".commentaries."]) }
         for file in files {
             if let item = Commentary(atPath: file) {
                 items.append(item)

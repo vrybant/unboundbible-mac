@@ -36,12 +36,12 @@ class Dictionaries {
     var items = [TDictionary]()
     
     init() {
-        load(path: dataPath)
+        load()
         items.sort(by: {$0.name < $1.name} )
     }
     
-    private func load(path: String) {
-        let files = databaseList(atPath: path).filter { $0.containsAny([".dct.",".dictionary."]) }
+    private func load() {
+        let files = databaseList().filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
             if !file.hasSuffix(".unbound") { continue }
             if let item = TDictionary(atPath: file) {
