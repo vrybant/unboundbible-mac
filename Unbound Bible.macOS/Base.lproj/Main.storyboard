@@ -328,6 +328,13 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
+                                        <menuItem title="Commentaries" id="2Y6-x3-4Kt">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="commentariesAction:" target="Ady-hI-5gd" id="Okt-UO-YpA"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="7iL-7w-THw"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
@@ -646,7 +653,7 @@
                 </viewController>
                 <customObject id="FeA-mR-5sS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661.5" y="318.5"/>
+            <point key="canvasLocation" x="662" y="298"/>
         </scene>
         <!--Library View-->
         <scene sceneID="h0q-fG-dNM">
@@ -786,7 +793,7 @@
                 </viewController>
                 <customObject id="Dee-xY-iaZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="104" y="700"/>
+            <point key="canvasLocation" x="75" y="700"/>
         </scene>
         <!--Comments View-->
         <scene sceneID="alJ-cz-WRe">
@@ -1471,6 +1478,12 @@ Gw
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="4hY-vp-gss"/>
+                        <menuItem title="Commentaries" id="DDy-DZ-1dG">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="commentariesAction:" target="qmf-oa-nxB" id="ihr-Vc-A0N"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Interlinear" id="1zZ-nN-0oB">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
