@@ -332,6 +332,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="commentariesAction:" target="Ady-hI-5gd" id="Okt-UO-YpA"/>
+                                                <segue destination="5kc-JK-Sx1" kind="show" id="Kya-bF-wdg"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="7iL-7w-THw"/>
@@ -393,7 +394,7 @@
                 <customObject id="3aF-m0-QvB" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="-11"/>
+            <point key="canvasLocation" x="68" y="-82"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -806,7 +807,7 @@
                 </viewController>
                 <customObject id="FKY-uh-a4l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-531" y="273"/>
+            <point key="canvasLocation" x="1775" y="267"/>
         </scene>
         <!--Popover View-->
         <scene sceneID="fpq-kG-Tjb">
@@ -1482,6 +1483,7 @@ Gw
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="commentariesAction:" target="qmf-oa-nxB" id="ihr-Vc-A0N"/>
+                                <segue destination="5kc-JK-Sx1" kind="show" id="KB0-cb-Ytz"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Interlinear" id="1zZ-nN-0oB">
@@ -1602,4 +1604,7 @@ Gw
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kya-bF-wdg"/>
+    </inferredMetricsTieBreakers>
 </document>
