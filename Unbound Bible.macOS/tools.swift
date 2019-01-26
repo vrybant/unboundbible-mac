@@ -41,8 +41,8 @@ func loadCompare() {
     rigthView.compareTextView.textStorage?.setAttributedString(attrString)
 }
 
-func loadCommentary() {
-    if shelf.isEmpty { return }
+func loadCommentary() -> NSAttributedString {
+    if shelf.isEmpty { return NSAttributedString() }
     let link = bible!.verseToString(activeVerse, full: true) + "\n"
     let attrString = NSMutableAttributedString()
     attrString.append( parse(link) )
@@ -53,12 +53,11 @@ func loadCommentary() {
         if let list = item.getData(activeVerse) {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n" + text
-            print(string)
-            attrString.append( string.mutable(attributes: defaultAttributes) )
+            attrString.append( parse(string) )
         }
     }
     
-    print(attrString.string)
+    return attrString
 }
 
 func loadStrong(number: String = "") -> String {
@@ -114,9 +113,9 @@ func goToVerse(_ verse: Verse, select: Bool) {
     }
 }
 
-func copyVerses(options: CopyOptions) -> NSMutableAttributedString {
-    if shelf.isEmpty { return NSMutableAttributedString() }
-    guard let list = bible!.getRange(activeVerse) else { return NSMutableAttributedString() }
+func copyVerses(options: CopyOptions) -> NSAttributedString {
+    if shelf.isEmpty { return NSAttributedString() }
+    guard let list = bible!.getRange(activeVerse) else { return NSAttributedString() }
     var out = ""
     
     let full = !options.contains(.abbreviate)
