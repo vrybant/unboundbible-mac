@@ -23,6 +23,12 @@ class CommentsView: NSViewController {
         self.view.window?.close()
     }
     
+    func appearedBefore() -> Bool {
+        if UserDefaults.standard.bool(forKey: "cmAppearedBefore") { return true }
+        UserDefaults.standard.set(true, forKey: "cmAppearedBefore")
+        return false
+    }
+    
     func setDefaultFrame() {
         let screen = NSScreen.main!.frame.size
         let height = screen.height * 0.6
@@ -38,14 +44,12 @@ class CommentsView: NSViewController {
 
     override func viewWillAppear() {
         super.viewWillAppear()
-        
-//        if !UserDefaults.launchedBefore() {
-//            setDefaultFrame()
-//        } else {
-//            readDefaults()
-//        }
-        
-        readDefaults()
+
+        if !appearedBefore() {
+            setDefaultFrame()
+        } else {
+            readDefaults()
+        }
     }
     
     override func viewDidAppear() {
