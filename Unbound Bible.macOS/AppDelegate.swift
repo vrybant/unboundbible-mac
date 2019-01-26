@@ -101,7 +101,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 //      let domain = Bundle.main.bundleIdentifier!
 //      defaults.removePersistentDomain(forName: domain) // debug
         defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
-        defaults.synchronize()
 
         applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
         defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
@@ -137,21 +136,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
         defaults.set(recentList.bookmarks,  forKey: "bookmarks")
-        defaults.synchronize()
     }
     
     func readPrivates() {
         for item in shelf.bibles {
             item.compare = !UserDefaults.standard.bool(forKey: item.fileName)
         }
-        UserDefaults.standard.synchronize()
     }
     
     func savePrivates() {
         for item in shelf.bibles {
             UserDefaults.standard.set(!item.compare, forKey: item.fileName)
         }
-        UserDefaults.standard.synchronize()
     }
     
 }

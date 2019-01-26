@@ -65,7 +65,6 @@ class CommentsView: NSViewController {
     
     func readDefaults() {
         let defaults = UserDefaults.standard
-        defaults.synchronize()
         
         let x      = defaults.cgfloat(forKey: "cmX"     )
         let y      = defaults.cgfloat(forKey: "cmY"     )
@@ -89,8 +88,6 @@ class CommentsView: NSViewController {
         defaults.set(y,      forKey: "cmY"     )
         defaults.set(height, forKey: "cmHeight")
         defaults.set(width,  forKey: "cmWidth" )
-        
-        defaults.synchronize()
     }
     
 }
