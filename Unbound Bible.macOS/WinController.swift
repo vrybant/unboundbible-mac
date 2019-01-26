@@ -15,16 +15,16 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     override func windowDidLoad() {
         super.windowDidLoad()
         self.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "AutosaveWindows")
-        
-        if !UserDefaults.launchedBefore() {
-            setDefaultFrame()
-        }
-
-//      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) {
-//          self.alertUpdate()
-//      }
+        if !launchedBefore() { setDefaultFrame() }
+//      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { alertUpdate() }
     }
     
+    func launchedBefore() -> Bool {
+        if UserDefaults.standard.bool(forKey: "launchedBefore") { return true }
+        UserDefaults.standard.set(true, forKey: "launchedBefore")
+        return false
+    }
+
     func setDefaultFrame() {
         let screen = NSScreen.main!.frame.size
         let height = screen.height * 0.7

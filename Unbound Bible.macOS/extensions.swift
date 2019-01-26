@@ -229,14 +229,6 @@ extension NSTableView {
 }
 
 extension UserDefaults {
-    static func launchedBefore() -> Bool {
-        let result = UserDefaults.standard.bool(forKey: "launchedBefore")
-        if !result {
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
-        return result
-    }
-    
     func cgfloat(forKey defaultName: String) -> CGFloat {
         return CGFloat(self.float(forKey: defaultName))
     }
