@@ -98,9 +98,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func readDefaults() {
         let defaults = UserDefaults.standard
-        defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 //      let domain = Bundle.main.bundleIdentifier!
 //      defaults.removePersistentDomain(forName: domain) // debug
+        defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
         defaults.synchronize()
 
         applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
@@ -112,8 +112,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activeVerse.count   = defaults.integer(forKey: "verseCount")
         
         if let fontName = defaults.string(forKey: "fontName") {
-            let fontSize = defaults.float(forKey: "fontSize")
-            defaultFont = NSFont(name: fontName, size: CGFloat(fontSize))!
+            let fontSize = defaults.cgfloat(forKey: "fontSize")
+            defaultFont = NSFont(name: fontName, size: fontSize)!
         }
         
         let value = defaults.integer(forKey: "copyOptions")

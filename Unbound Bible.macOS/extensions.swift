@@ -237,6 +237,10 @@ extension UserDefaults {
         }
         return result
     }
+    
+    func cgfloat(forKey defaultName: String) -> CGFloat {
+        return CGFloat(self.float(forKey: defaultName))
+    }
 }
 
 extension Array where Element == URL {
