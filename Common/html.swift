@@ -64,7 +64,6 @@ func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool 
         if s.hasPrefix("<") {
             var s = s.lowercased()
             if s.hasPrefix("</") {
-                                                                    //result.append(attrStringFromHtml(s, tags: tags)) // debug
                 let r = s.replace("/", with: "")
                 tags.remove(r)
             } else {
@@ -72,7 +71,6 @@ func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool 
                 if s.hasPrefix("<p ") { s = "<p>" }
                 let r = s.replace("/", with: "")
                 tags.insert(r)
-                                                                    //result.append(attrStringFromHtml(s, tags: tags)) // debug
             }
         } else {
             let attrString = attrStringFromHtml(s, tags: tags)
