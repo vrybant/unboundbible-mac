@@ -52,8 +52,9 @@ func loadCommentary() -> NSAttributedString {
         
         if let list = item.getData(activeVerse) {
             let text = list.joined(separator: " ") + "\n"
-            let string = "\n<l>" + item.name + "</l>\n" + text
+            let string = "\n<l>" + item.name + "</l>\n\n"
             attrString.append( parse(string) )
+            attrString.append( html(text) )
         }
     }
     

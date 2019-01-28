@@ -25,6 +25,7 @@
 		E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E76ED6DC1E242616005AE4F2 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76ED6DB1E242616005AE4F2 /* extensions.swift */; };
 		E77BCA6D1FF4E44A00F950B5 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
+		E77FA6F921FF5B4100B0AD14 /* html.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FA6F821FF5B4100B0AD14 /* html.swift */; };
 		E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
@@ -83,6 +84,7 @@
 		E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "сonfig.xcconfig"; sourceTree = "<group>"; };
 		E76ED6DB1E242616005AE4F2 /* extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E77BCA6C1FF4E44A00F950B5 /* Titles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
+		E77FA6F821FF5B4100B0AD14 /* html.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = html.swift; sourceTree = "<group>"; };
 		E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				E7FABB9C21D938F7006B6267 /* Dictionary.swift */,
 				E719DAEF1ECB302D00137035 /* types.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
+				E77FA6F821FF5B4100B0AD14 /* html.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E73697B31DE4AEFD00FAA898 /* lib.swift */,
 				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
@@ -395,6 +398,7 @@
 				E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */,
 				E7382CBA21CC006400DF8772 /* prepare.swift in Sources */,
 				E725BA1E2193196000247627 /* View.swift in Sources */,
+				E77FA6F921FF5B4100B0AD14 /* html.swift in Sources */,
 				E7C21903201522F300E90AC6 /* NotesText.swift in Sources */,
 				E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */,
 				E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */,
