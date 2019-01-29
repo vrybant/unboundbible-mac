@@ -63,13 +63,11 @@ func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool 
     for s in list {
         if s.hasPrefix("<") {
             var s = s.lowercased()
+            if s.hasPrefix("<a ") { s = "<a>" }
+            let r = s.replace("/", with: "")
             if s.hasPrefix("</") {
-                let r = s.replace("/", with: "")
                 tags.remove(r)
             } else {
-                if s.hasPrefix("<a ") { s = "<a>" }
-                if s.hasPrefix("<p ") { s = "<p>" }
-                let r = s.replace("/", with: "")
                 tags.insert(r)
             }
         } else {

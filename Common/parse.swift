@@ -47,6 +47,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
         case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemTeal  )
                      s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)  )
                      s.addAttribute(.baselineOffset,  value: 5.0                 )
+        case "<a>" : s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
         case "<strong>",
              "<b>" : s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
         default: break
@@ -65,6 +66,8 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
     var tags = Set<String>()
     
     for s in list {
+        var s = s
+        if s.hasPrefix("<a ") { s = "<a>" }
         if s.hasPrefix("<") {
             if tags.contains(s.uppercased()) {
                 tags.remove(s.uppercased())
