@@ -67,13 +67,11 @@ func loadStrong(number: String = "") -> String {
 }
 
 func loadFootnote(marker: String = "") -> String {
-    if bible!.format == .unbound {
-        if let text = bible!.getFootnote(activeVerse, marker: marker) { return text }
-    }
     if bible!.format == .mybible {
-        if let text = commentaries.getFootnote(module: bible!.fileName, verse: activeVerse, marker: marker) { return text }
+        return commentaries.getFootnote(module: bible!.fileName, verse: activeVerse, marker: marker) ?? ""
+    } else {
+        return bible!.getFootnote(activeVerse, marker: marker) ?? ""
     }
-    return ""
 }
 
 func searchText(string: String) {

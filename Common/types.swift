@@ -10,7 +10,7 @@ import Foundation
 var recentList : [URL] = []
 
 enum FileFormat {
-    case unbound, mybible
+    case unbound, mysword, mybible
 }
 
 struct StringAlias {

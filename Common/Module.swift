@@ -34,7 +34,7 @@ class Module {
     init?(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
-        database = FMDatabase(path: filePath)
+        if filePath.pathExtension == "mybible" { format = .mysword }
         openDatabase()
         if !connected { return nil }
     }
@@ -51,10 +51,11 @@ class Module {
     }
     
     func openDatabase() {
+        database = FMDatabase(path: filePath)
         if !database!.open() { return }
         if database!.tableExists("info") { format = .mybible }
         
-        if format == .unbound {
+        if format == .unbound || format == .mysword {
             let query = "select * from Details"
             if let results = database!.executeQuery(query) {
                 if results.next() {
