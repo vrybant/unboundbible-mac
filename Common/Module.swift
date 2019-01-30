@@ -34,7 +34,8 @@ class Module {
     init?(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
-        if filePath.pathExtension == "mybible" { format = .mysword }
+        let ext = filePath.pathExtension 
+        if ext == "mybible" || ext == "bbli" { format = .mysword }
         openDatabase()
         if !connected { return nil }
     }

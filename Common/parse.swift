@@ -11,54 +11,41 @@ import Cocoa
 var defaultFont = NSFont.systemFont(ofSize: 14)
 
 var defaultAttributes: [NSAttributedStringKey : Any] {
-    return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont] as [NSAttributedStringKey : Any]
+    return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont]
 }
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
     let s = string.mutable(attributes: defaultAttributes)
     if small { s.addAttribute(.font, value: NSFont.systemFont(ofSize: 12)) }
 
-    var tags = tags
-    let set : Set = ["<S>","<RF>","FI"]
-    if !tags.isDisjoint(with: set) { tags.remove("<FR>") }
-    let italicSet = ["<i>","<em>"]
+    if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
+    if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
+    if tags.contains("<a>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
+    if tags.contains("<J>") { s.addAttribute(.foregroundColor, value: NSColor.systemRed   ) }
+    if tags.contains("<S>") { s.addAttribute(.foregroundColor, value: NSColor.systemBrown ) }
+    if tags.contains("<r>") { s.addAttribute(.foregroundColor, value: NSColor.systemRed   ) }
+    if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: NSColor.systemTeal  ) }
+    if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: NSColor.systemNavy  ) }
+    if tags.contains("<b>") { s.addAttribute(.foregroundColor, value: NSColor.systemBrown ) }
 
-    for tag in tags {
-        var tag = tag
-        if italicSet.contains(tag.lowercased()) { tag = "<FI>" }
+    if tags.intersection(["<i>","<em>"]) != [] {
+        s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: small ? 12 : 13)!)
+        s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
+    }
+
+    if tags.contains("<S>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize:  9)) }
+    if tags.contains("<m>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize:  9)) }
+    if tags.contains("<f>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)) }
         
-        switch tag {
-        case "<FI>": s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: small ? 12 : 13)!)
-                     s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
-        case "<FR>",
-              "<r>": s.addAttribute(.foregroundColor, value: NSColor.systemRed   )
-        case  "<n>": s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
-        case  "<l>": s.addAttribute(.foregroundColor, value: NSColor.systemNavy  )
-        case  "<S>": s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
-                     s.addAttribute(.baselineOffset,  value: 5.0                 )
-                     if !tags.contains("<r>") {
-                     s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
-                     }
-        case  "<m>": s.addAttribute(.font, value: NSFont.systemFont(ofSize: 9)   )
-                     s.addAttribute(.baselineOffset,  value: 5.0                 )
-                     if !tags.contains("<r>") {
-                     s.addAttribute(.foregroundColor, value: NSColor.systemGray )
-                     }
-        case "<RF>": s.addAttribute(.foregroundColor, value: NSColor.systemTeal  )
-                     s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)  )
-                     s.addAttribute(.baselineOffset,  value: 5.0                 )
-        case "<a>" : s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
-        case "<strong>",
-             "<b>" : s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
-        default: break
-        }
+    if tags.intersection(["<S>","<m>","<f>"]) != [] {
+        s.addAttribute(.baselineOffset, value: 5.0)
     }
     return s
 }
 
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    //return string.mutable(attributes: defaultAttribute) // show tags
+    //return string.mutable(attributes: defaultAttributes) // show tags
 
     let string = string.replace("</p>", with: "\n")
 
@@ -66,21 +53,16 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
     var tags = Set<String>()
     
     for s in list {
-        var s = s
-        if s.hasPrefix("<a ") { s = "<a>" }
         if s.hasPrefix("<") {
-            if tags.contains(s.uppercased()) {
-                tags.remove(s.uppercased())
+            var s = s
+            if s.hasPrefix("<a ") { s = "<a>" }
+            if s.hasPrefix("</") {
+                tags.remove(s.replace("/", with: ""))
             } else {
-                if s.hasPrefix("</") {
-                    let r = s.replace("/", with: "")
-                    tags.remove(r)
-                } else {
-                    tags.insert(s)
-                }
+                tags.insert(s)
             }
         } else {
-            if !jtag { tags.remove("<FR>") }
+            if !jtag { tags.remove("<J>") }
             let attrString = attrStringFromTags(s, tags: tags, small: small)
             result.append(attrString)
         }

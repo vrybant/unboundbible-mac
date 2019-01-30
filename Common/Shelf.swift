@@ -152,16 +152,20 @@ class Bible: Module {
     }
     
     private func extractFootnotes(_ string: String,_ marker: String) -> String {
+        var string = string
+        if format == .mysword {
+            string = string.replace("<RF", with: "<f").replace("<Rf>", with: "</f>")
+        }
         let list = xmlToList(string: string)
-        var string = ""
-        let tag = marker.hasPrefix("✻") ? "<RF>" : "<RF q=" + marker + ">"
+        var result = ""
+        let tag = marker.hasPrefix("✻") ? "<f>" : "<f q=" + marker + ">"
         var l = false
         for item in list {
-            if item == "<Rf>" { l = false; string += "\n" }
-            if l { string += item }
+            if item == "</f>" { l = false; result += "\n" }
+            if l { result += item }
             if item == tag { l = true }
         }
-        return string
+        return result
     }
      
     func getFootnote(_ verse : Verse, marker: String) -> String? {
