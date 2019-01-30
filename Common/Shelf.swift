@@ -204,9 +204,9 @@ class Bible: Module {
                 guard let line = results.string(forColumn: z.text) else { break }
                 
                 let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
-                let text = prepare(line, format: format)
+                var text = prepare(line, format: format)
                 let content = Content(verse: verse, text: text)
-                
+                text = text.replace("<S>", with: " ")
                 if text.removeTags.containsEvery(list, options: options) { lines.append(content) }
             }
             if !lines.isEmpty {
