@@ -43,6 +43,44 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     return s
 }
 
+private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttributedString {
+    let s = string.mutable(attributes: defaultAttributes)
+    s.addAttribute(.font, value: NSFont.systemFont(ofSize: 13))
+    
+    if tags.contains("<a>") {
+        s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
+    }
+    if tags.intersection(["<b>","<strong>"]) != [] {
+        s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+    }
+    if tags.intersection(["<i>","<em>"]) != [] {
+        s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: 12)!)
+    }
+    if tags.contains("<sup>") {
+        s.addAttribute(.baselineOffset, value: 5.0)
+    }
+    return s
+}
+
+private func htmlReplacement(_ string: String) -> String {
+    return string
+        .replace(   "<p/>", with: "<p>" )
+        .replace(  "<br/>", with: "<br>")
+        .replace(   "<td>", with: "<br>")
+        .replace(   "<tr>", with: "<br>")
+        .replace(  "</td>", with: "<br>")
+        .replace(  "</tr>", with: "<br>")
+        .replace(    "<p>", with:  "\n\t<p>")
+ //     .replace(    "<p ", with:  "\n\t<p ")
+        .replace(   "</p>", with: "\n\t</p>")
+        .replace(   "<br>", with: "<br>\n\t")
+        .replace( "&nbsp;", with:  " ")
+        .replace( "&quot;", with: "\"")
+        .replace("&lquot;", with:  "«")
+        .replace("&rquot;", with:  "»")
+        .replace(     "  ", with:  " ")
+}
+
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
     //return string.mutable(attributes: defaultAttributes) // show tags
@@ -70,3 +108,29 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
     return result
 }
 
+func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool = false) -> NSMutableAttributedString {
+    let result = NSMutableAttributedString()
+    //return string.mutable(attributes: defaultAttributes) // show tags
+    
+    let string = "\t" + htmlReplacement(string)
+    
+    let list = xmlToList(string: string)
+    var tags = Set<String>()
+    
+    for s in list {
+        if s.hasPrefix("<") {
+            var s = s.lowercased()
+            if s.hasPrefix("<a ") { s = "<a>" }
+            if s.hasPrefix("<p ") { s = "<p>" }
+            if s.hasPrefix("</") {
+                tags.remove(s.replace("/", with: ""))
+            } else {
+                tags.insert(s)
+            }
+        } else {
+            let attrString = attrStringFromHtml(s, tags: tags)
+            result.append(attrString)
+        }
+    }
+    return result
+}
