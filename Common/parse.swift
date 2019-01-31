@@ -64,21 +64,23 @@ private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttrib
 
 private func htmlReplacement(_ string: String) -> String {
     return string
-        .replace(   "<p/>", with: "<p>" )
-        .replace(  "<br/>", with: "<br>")
-        .replace(   "<td>", with: "<br>")
-        .replace(   "<tr>", with: "<br>")
-        .replace(  "</td>", with: "<br>")
-        .replace(  "</tr>", with: "<br>")
-        .replace(    "<p>", with:  "\n\t<p>")
- //     .replace(    "<p ", with:  "\n\t<p ")
-        .replace(   "</p>", with: "\n\t</p>")
-        .replace(   "<br>", with: "<br>\n\t")
         .replace( "&nbsp;", with:  " ")
         .replace( "&quot;", with: "\"")
         .replace("&lquot;", with:  "«")
         .replace("&rquot;", with:  "»")
-        .replace(     "  ", with:  " ")
+        
+        .replace( "<p/>", with: "<p>" )
+        .replace("<br/>", with: "<br>")
+        .replace( "<td>", with: "<br>")
+        .replace( "<tr>", with: "<br>")
+        .replace("</td>", with: "<br>")
+        .replace("</tr>", with: "<br>")
+
+        .replace("<p>", with: string.contains("</p>") ? "" : "<br>")
+
+        .replace("</p>", with: "<br>")
+        .replace("<br>", with: "\n\t")
+        .replace(  "  ", with:    " ")
 }
 
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
