@@ -121,7 +121,6 @@ func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool 
         if s.hasPrefix("<") {
             var s = s.lowercased()
             if s.hasPrefix("<a ") { s = "<a>" }
-            if s.hasPrefix("<p ") { s = "<p>" }
             if s.hasPrefix("</") {
                 tags.remove(s.replace("/", with: ""))
             } else {
