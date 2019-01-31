@@ -110,7 +110,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
     return result
 }
 
-func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool = false) -> NSMutableAttributedString {
+func html(_ string: String) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
     let string = "\t" + htmlReplacement(string)
     

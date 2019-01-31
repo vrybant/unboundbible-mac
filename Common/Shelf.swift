@@ -206,8 +206,8 @@ class Bible: Module {
                 let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
                 var text = prepare(line, format: format)
                 let content = Content(verse: verse, text: text)
-                text = text.replace("<S>", with: " ")
-                if text.removeTags.containsEvery(list, options: options) { lines.append(content) }
+                text = text.replace("<S>", with: " ").removeTags
+                if text.containsEvery(list, options: options) { lines.append(content) }
             }
             if !lines.isEmpty {
                 return rankContents(contents: lines)
