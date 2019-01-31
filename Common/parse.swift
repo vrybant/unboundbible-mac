@@ -110,8 +110,6 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
 
 func html(_ string: String, jtag: Bool = false, small: Bool = false, html: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    //return string.mutable(attributes: defaultAttributes) // show tags
-    
     let string = "\t" + htmlReplacement(string)
     
     let list = xmlToList(string: string)
