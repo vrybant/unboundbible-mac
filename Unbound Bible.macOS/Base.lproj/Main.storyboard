@@ -801,21 +801,21 @@
             <objects>
                 <viewController id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="T8a-yh-bc9">
-                        <rect key="frame" x="0.0" y="0.0" width="453" height="293"/>
+                        <rect key="frame" x="0.0" y="0.0" width="282" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncR-Ku-4mt">
-                                <rect key="frame" x="6" y="61" width="437" height="226"/>
+                                <rect key="frame" x="6" y="7" width="270" height="337"/>
                                 <clipView key="contentView" drawsBackground="NO" id="tlB-hz-DU1">
-                                    <rect key="frame" x="1" y="1" width="420" height="224"/>
+                                    <rect key="frame" x="1" y="1" width="253" height="335"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="NxI-cS-nmP">
-                                            <rect key="frame" x="0.0" y="0.0" width="420" height="224"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="253" height="335"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="420" height="224"/>
+                                            <size key="minSize" width="253" height="335"/>
                                             <size key="maxSize" width="463" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         </textView>
@@ -826,32 +826,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2Dg-tm-hnP">
-                                    <rect key="frame" x="421" y="1" width="15" height="224"/>
+                                    <rect key="frame" x="254" y="1" width="15" height="335"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tAo-D3-UFL">
-                                <rect key="frame" x="185" y="13" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zi0-na-iN8">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="CancelButton:" target="5kc-JK-Sx1" id="DKP-OM-F30"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="tAo-D3-UFL" firstAttribute="leading" secondItem="T8a-yh-bc9" secondAttribute="leading" constant="191" id="6Oy-Ic-69C"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tAo-D3-UFL" secondAttribute="trailing" constant="20" symbolic="YES" id="Na5-Og-AZ4"/>
-                            <constraint firstItem="ncR-Ku-4mt" firstAttribute="centerX" secondItem="T8a-yh-bc9" secondAttribute="centerX" constant="-2" id="Qsh-uB-Dvx"/>
-                            <constraint firstAttribute="bottom" secondItem="ncR-Ku-4mt" secondAttribute="bottom" constant="61" id="aVY-mP-3Ft"/>
+                            <constraint firstItem="ncR-Ku-4mt" firstAttribute="centerX" secondItem="T8a-yh-bc9" secondAttribute="centerX" id="Qsh-uB-Dvx"/>
+                            <constraint firstAttribute="bottom" secondItem="ncR-Ku-4mt" secondAttribute="bottom" constant="7" id="aVY-mP-3Ft"/>
                             <constraint firstItem="ncR-Ku-4mt" firstAttribute="top" secondItem="T8a-yh-bc9" secondAttribute="top" constant="6" id="hqi-4U-gXI"/>
                             <constraint firstItem="ncR-Ku-4mt" firstAttribute="leading" secondItem="T8a-yh-bc9" secondAttribute="leading" constant="6" id="nFF-Tv-Zqh"/>
-                            <constraint firstItem="tAo-D3-UFL" firstAttribute="top" secondItem="ncR-Ku-4mt" secondAttribute="bottom" constant="20" symbolic="YES" id="yBQ-bK-e2P"/>
                         </constraints>
                     </view>
                     <connections>
@@ -860,7 +844,7 @@ Gw
                 </viewController>
                 <customObject id="FKY-uh-a4l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1774.5" y="263.5"/>
+            <point key="canvasLocation" x="1686" y="318"/>
         </scene>
         <!--Popover View-->
         <scene sceneID="fpq-kG-Tjb">
