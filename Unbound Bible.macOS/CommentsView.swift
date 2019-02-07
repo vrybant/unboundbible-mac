@@ -72,9 +72,12 @@ class CommentsView: NSViewController {
         
         let x = defaults.cgfloat(forKey: "cmX")
         let y = defaults.cgfloat(forKey: "cmY")
-        let height = defaults.cgfloat(forKey: "cmHeight")
-        let width  = defaults.cgfloat(forKey: "cmWidth" )
-
+        var height = defaults.cgfloat(forKey: "cmHeight")
+        var width  = defaults.cgfloat(forKey: "cmWidth" )
+        
+        if height < 200 { height = 200 }
+        if width  < 200 { width  = 200 }
+        
         let frame = NSRect(x: x, y: y, width: width, height: height)
         self.view.window?.setFrame(frame, display: true)
     }
