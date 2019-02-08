@@ -20,7 +20,7 @@ class CommentsView: NSViewController {
     }
     
     @IBAction func CancelButton(_ sender: NSButton) {
-        self.view.window?.close()
+        view.window?.close()
     }
     
     func appearedBefore() -> Bool {
@@ -38,12 +38,13 @@ class CommentsView: NSViewController {
         let frame = CGRect(x: 0, y: 0, width: width, height: height)
         let point = CGPoint(x: x, y: y)
 
-        self.view.window?.setFrame(frame, display: true)
-        self.view.window?.setFrameTopLeftPoint(point)
+        view.window?.setFrame(frame, display: true)
+        view.window?.setFrameTopLeftPoint(point)
     }
 
     override func viewWillAppear() {
         super.viewWillAppear()
+        view.window?.minSize = NSSize(width: 250, height: 250)
 
         if !appearedBefore() {
             setDefaultFrame()
@@ -55,7 +56,7 @@ class CommentsView: NSViewController {
     override func viewDidAppear() {
         super.viewWillAppear()
 
-//       self.view.window!.styleMask.remove(NSWindow.StyleMask.fullScreen)
+ //       view.window!.styleMask.remove(NSWindow.StyleMask.fullScreen)
  //       view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
  //       view.window?.standardWindowButton(.zoomButton       )?.isHidden = true
         
@@ -72,14 +73,11 @@ class CommentsView: NSViewController {
         
         let x = defaults.cgfloat(forKey: "cmX")
         let y = defaults.cgfloat(forKey: "cmY")
-        var height = defaults.cgfloat(forKey: "cmHeight")
-        var width  = defaults.cgfloat(forKey: "cmWidth" )
-        
-        if height < 200 { height = 200 }
-        if width  < 200 { width  = 200 }
+        let height = defaults.cgfloat(forKey: "cmHeight")
+        let width  = defaults.cgfloat(forKey: "cmWidth" )
         
         let frame = NSRect(x: x, y: y, width: width, height: height)
-        self.view.window?.setFrame(frame, display: true)
+        view.window?.setFrame(frame, display: true)
     }
     
     func saveDefaults() {
