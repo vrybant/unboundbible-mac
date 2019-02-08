@@ -56,9 +56,8 @@ class CommentsView: NSViewController {
     override func viewDidAppear() {
         super.viewWillAppear()
 
- //       view.window!.styleMask.remove(NSWindow.StyleMask.fullScreen)
- //       view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
- //       view.window?.standardWindowButton(.zoomButton       )?.isHidden = true
+        view.window?.standardWindowButton(.miniaturizeButton)?.isEnabled = false
+        view.window?.standardWindowButton(.zoomButton       )?.isEnabled = false
         
         textView.textStorage?.setAttributedString(loadCommentary())
     }
