@@ -372,9 +372,17 @@ extension NSAppearance {
     }
 }
 
-extension  FMDatabase {
+extension FMDatabase {
     func executeQuery(_ sql: String, values: [Any]? = nil) -> FMResultSet? {
         return try? executeQuery(sql, values: values)
     }
-
 }
+
+extension NSViewController {
+    var isViewVisible: Bool {
+        if !isViewLoaded { return false }
+        return view.window != nil
+    }
+}
+
+
