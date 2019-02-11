@@ -32,7 +32,7 @@ class Commentary: Module {
         if let results = database!.executeQuery(query) {
             while results.next() {
                 if let line = results.string(forColumn: z.data) {
-                    result.append(line)
+                    if !line.isEmpty { result.append(line) }
                 }
             }
         }
