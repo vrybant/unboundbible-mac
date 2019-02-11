@@ -81,10 +81,10 @@ class BibleTextView: CustomTextView {
         super.mouseDown(with: event)
 
         getParagraphNumber(saveRange: true)
-        
-        if selectedRange.length != 0 { return }
-        //loadCommentary()
+        if commentsView.isViewVisible { commentsView.showCommentary() }
 
+        if selectedRange.length != 0 { return }
+        
         if foreground == .strong {
             let f = loadStrong(number: hyperlink)
             let attrs = parse(f, small: true).mutable()

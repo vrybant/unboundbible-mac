@@ -53,13 +53,17 @@ class CommentsView: NSViewController {
         }
     }
     
+    func showCommentary() {
+        textView.textStorage?.setAttributedString(loadCommentary())
+    }
+    
     override func viewDidAppear() {
         super.viewWillAppear()
 
         view.window?.standardWindowButton(.miniaturizeButton)?.isEnabled = false
         view.window?.standardWindowButton(.zoomButton       )?.isEnabled = false
         
-        textView.textStorage?.setAttributedString(loadCommentary())
+        showCommentary()
     }
 
     override func viewDidDisappear() {
