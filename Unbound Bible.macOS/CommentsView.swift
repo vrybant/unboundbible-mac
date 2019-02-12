@@ -16,11 +16,11 @@ class CommentsView: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentsView = self
-        title = "Commentaries" // NSLocalizedString("Commentaries", comment: "")
+        title = NSLocalizedString("Commentaries", comment: "")
     }
     
-    @IBAction func CancelButton(_ sender: NSButton) {
-        view.window?.close()
+    @IBAction func showHelp(_ sender: NSMenuItem) {
+        mainView.showHelp(sender)
     }
     
     func appearedBefore() -> Bool {
@@ -54,7 +54,14 @@ class CommentsView: NSViewController {
     }
     
     func showCommentary() {
-        textView.textStorage?.setAttributedString(loadCommentary())
+        if !commentaries.items.isEmpty {
+            textView.textStorage?.setAttributedString(loadCommentary())
+        } else {
+            let s = "\n У вас не установленно ни одного модуля комментариев."
+                  + "\n\n Для дополнительной информации выберите в строке меню «Справка» > «Справка Unbound Bible»."
+            let msg = s.mutable(attributes: defaultAttributes)
+            textView.textStorage?.setAttributedString(msg)
+        }
     }
     
     override func viewDidAppear() {
