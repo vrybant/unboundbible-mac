@@ -57,8 +57,8 @@ class CommentsView: NSViewController {
         if !commentaries.items.isEmpty {
             textView.textStorage?.setAttributedString(loadCommentary())
         } else {
-            let s = "\n У вас не установленно ни одного модуля комментариев."
-                  + "\n\n Для дополнительной информации выберите в строке меню «Справка» > «Справка Unbound Bible»."
+            let s = "\n " + NSLocalizedString("You don't have any commentary modules.", comment: "") + "\n\n "
+                + NSLocalizedString("For more information, choose Menu > Help, then click «Unbound Bible Help».", comment: "")
             let msg = s.mutable(attributes: defaultAttributes)
             textView.textStorage?.setAttributedString(msg)
         }
