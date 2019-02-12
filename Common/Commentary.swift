@@ -58,9 +58,14 @@ class Commentaries {
     
     var items = [Commentary]()
     
+    private func sort(_ s: String,_ language: String) -> String {
+        if !orthodox(language: languageCode) { return s }
+        return orthodox(language: language) ? " " + s : s
+    }
+    
     init() {
         load()
-        items.sort(by: {$0.name < $1.name} )
+        items.sort(by: { sort($0.name, $0.language) < sort($1.name, $1.language) } )
     }
     
     private func load() {
