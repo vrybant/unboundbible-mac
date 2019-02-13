@@ -800,7 +800,7 @@
         <scene sceneID="alJ-cz-WRe">
             <objects>
                 <viewController id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="T8a-yh-bc9">
+                    <view key="view" id="T8a-yh-bc9" customClass="View">
                         <rect key="frame" x="0.0" y="0.0" width="282" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -810,7 +810,7 @@
                                     <rect key="frame" x="1" y="1" width="253" height="335"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="NxI-cS-nmP">
+                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="NxI-cS-nmP" customClass="CustomTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="253" height="335"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -839,7 +839,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="NxI-cS-nmP" id="JSE-HQ-IY2"/>
+                        <outlet property="textView" destination="NxI-cS-nmP" id="bpR-In-R5R"/>
                     </connections>
                 </viewController>
                 <customObject id="FKY-uh-a4l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

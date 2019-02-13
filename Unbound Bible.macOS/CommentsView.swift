@@ -11,7 +11,7 @@ var commentsView = CommentsView()
 
 class CommentsView: NSViewController {
 
-    @IBOutlet weak var textView: NSTextView!
+    @IBOutlet weak var textView: CustomTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
