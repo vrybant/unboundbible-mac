@@ -13,11 +13,13 @@ class View: NSView {
     
     required init(coder: NSCoder) {
         super.init(coder: coder)!
-        darkAppearance = self.effectiveAppearance.isDark
+        darkAppearance = effectiveAppearance.isDark
     }
     
-    override func draw(_ dirtyRect: NSRect) {
-        darkAppearance = self.effectiveAppearance.isDark
-        super.draw(dirtyRect)
+    @available(macOS 10.14, *)
+    override func viewDidChangeEffectiveAppearance() {
+        super.viewDidChangeEffectiveAppearance()
+        darkAppearance = effectiveAppearance.isDark
     }
+    
 }

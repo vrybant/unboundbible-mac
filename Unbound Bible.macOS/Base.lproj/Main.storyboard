@@ -800,7 +800,7 @@
         <scene sceneID="alJ-cz-WRe">
             <objects>
                 <viewController id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="T8a-yh-bc9" customClass="View">
+                    <view key="view" id="T8a-yh-bc9" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="282" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -891,7 +891,7 @@
         <scene sceneID="Boy-6Q-tKa">
             <objects>
                 <viewController title="Copy Verses" id="03V-8r-HtA" customClass="CopyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="z1o-OH-tt9">
+                    <view key="view" id="z1o-OH-tt9" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="342"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -901,7 +901,7 @@
                                     <rect key="frame" x="1" y="1" width="371" height="188"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="od3-rb-CCr">
+                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="od3-rb-CCr" customClass="CustomTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="371" height="188"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
