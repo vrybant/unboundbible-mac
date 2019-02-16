@@ -316,3 +316,11 @@
 /* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "yPb-lB-VA8"; */
 "yPb-lB-VA8.title" = "По правому краю";
 
+/* Class = "NSMenuItem"; title = "Commentaries"; ObjectID = "2Y6-x3-4Kt"; */
+"2Y6-x3-4Kt.title" = "Коментарi";
+
+/* Class = "NSMenuItem"; title = "Commentaries"; ObjectID = "DDy-DZ-1dG"; */
+"DDy-DZ-1dG.title" = "Коментарi";
+
+/* Class = "NSViewController"; title = "Commentaries"; ObjectID = "5kc-JK-Sx1"; */
+"5kc-JK-Sx1.title" = "Коментарi";
