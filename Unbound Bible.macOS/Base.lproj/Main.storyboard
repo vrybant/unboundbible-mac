@@ -796,10 +796,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="700"/>
         </scene>
-        <!--Comments View-->
+        <!--Commentaries-->
         <scene sceneID="alJ-cz-WRe">
             <objects>
-                <viewController id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Commentaries" id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="T8a-yh-bc9" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="282" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>

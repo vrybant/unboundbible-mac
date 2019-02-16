@@ -16,7 +16,6 @@ class CommentsView: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentsView = self
-        title = NSLocalizedString("Commentaries", comment: "")
     }
     
     @IBAction func showHelp(_ sender: NSMenuItem) {
