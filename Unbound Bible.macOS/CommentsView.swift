@@ -70,11 +70,17 @@ class CommentsView: NSViewController {
         view.window?.standardWindowButton(.zoomButton       )?.isEnabled = false
         
         showCommentary()
+        
+        rigthView.commentariesItem.isHidden = true
+        appDelegate.commentariesItem.isHidden = true
     }
 
     override func viewDidDisappear() {
         super.viewDidDisappear()
         saveDefaults()
+        
+        rigthView.commentariesItem.isHidden = false
+        appDelegate.commentariesItem.isHidden = false
     }
     
     func readDefaults() {

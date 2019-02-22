@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var recentMenuItem: NSMenuItem!
     @IBOutlet weak var defaultBaseline: NSMenuItem!
     @IBOutlet weak var defaultDirection: NSMenuItem!
+    @IBOutlet weak var commentariesItem: NSMenuItem!
     
     var defaultCurrent : String?
     

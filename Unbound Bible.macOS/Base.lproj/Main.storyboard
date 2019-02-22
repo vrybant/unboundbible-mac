@@ -385,6 +385,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
                     <connections>
+                        <outlet property="commentariesItem" destination="2Y6-x3-4Kt" id="f91-wP-6V9"/>
                         <outlet property="defaultBaseline" destination="eLn-5R-Lbk" id="Uys-2r-y2z"/>
                         <outlet property="defaultDirection" destination="c6b-1l-Y1E" id="oaE-NE-G6J"/>
                         <outlet property="recentMenuItem" destination="tXI-mr-wws" id="ClC-4d-cNF"/>
@@ -1487,6 +1488,7 @@ Gw
                     </view>
                     <connections>
                         <outlet property="bibleTextView" destination="Zuh-Fk-nWM" id="jlW-9V-f9V"/>
+                        <outlet property="commentariesItem" destination="DDy-DZ-1dG" id="ors-U5-GoY"/>
                         <outlet property="compareTextView" destination="eU7-Os-3Pu" id="E8V-l1-eix"/>
                         <outlet property="interlinearItem" destination="1zZ-nN-0oB" id="pKe-tL-ezU"/>
                         <outlet property="notesTextView" destination="8mZ-f0-zEK" id="MmM-vh-d7S"/>
@@ -1642,6 +1644,6 @@ Gw
         <image name="NSStatusNone" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KB0-cb-Ytz"/>
+        <segue reference="Kya-bF-wdg"/>
     </inferredMetricsTieBreakers>
 </document>

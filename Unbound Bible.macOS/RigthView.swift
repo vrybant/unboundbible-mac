@@ -26,6 +26,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var notesTextView: NotesTextView!
     @IBOutlet weak var popupMenu: NSMenu!
     @IBOutlet weak var interlinearItem: NSMenuItem!
+    @IBOutlet weak var commentariesItem: NSMenuItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
