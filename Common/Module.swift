@@ -18,10 +18,10 @@ class Module {
     var abbreviation : String = ""
     var copyright    : String = ""
     var info         : String = ""
-    var language     : String = ""
     var filetype     : String = ""
     
     var firstVerse   = Verse()
+    var language     : String = "en"
     var rightToLeft  : Bool = true
     var fontName     : String = ""
     var fontSize     : Int = 0
@@ -95,7 +95,6 @@ class Module {
         
         if connected {
             if name.isEmpty { name = fileName }
-            language = language.lowercased()
             rightToLeft = getRightToLeft(language: language)
             info = info.removeTags
         }

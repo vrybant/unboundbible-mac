@@ -90,8 +90,8 @@ func databaseList() -> [String] {
     return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
-func orthodox(language: String) -> Bool {
-    let list = ["ru","uk","bulg"]
+func cyrillic(language: String) -> Bool {
+    let list = ["ru","uk","bg"]
     for item in list {
         if language.hasPrefix(item) {
             return true

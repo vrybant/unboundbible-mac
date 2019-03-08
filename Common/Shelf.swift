@@ -110,7 +110,7 @@ class Bible: Module {
     }
 
     func sortingIndex(_ number: Int) -> Int {
-        if orthodox(language: language) {
+        if cyrillic(language: language) {
             return sortArrayRU.index(of: number) ?? 100
         } else {
             return sortArrayEN.index(of: number) ?? 100

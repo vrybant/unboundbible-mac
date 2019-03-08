@@ -59,8 +59,8 @@ class Commentaries {
     var items = [Commentary]()
     
     private func sort(_ s: String,_ language: String) -> String {
-        if !orthodox(language: languageCode) { return s }
-        return orthodox(language: language) ? " " + s : s
+        if !cyrillic(language: languageCode) { return s }
+        return cyrillic(language: language) ? " " + s : s
     }
     
     init() {
