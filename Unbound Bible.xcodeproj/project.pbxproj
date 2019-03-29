@@ -11,7 +11,8 @@
 		CE2F17F31D33C31800BA91A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F17F21D33C31800BA91A6 /* MainView.swift */; };
 		CE2F17F51D33C31800BA91A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F41D33C31800BA91A6 /* Assets.xcassets */; };
 		CE2F17F81D33C31800BA91A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F61D33C31800BA91A6 /* Main.storyboard */; };
-		E719DAF01ECB302D00137035 /* types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E719DAEF1ECB302D00137035 /* types.swift */; };
+		E70BA7E9224DE54F002B60D7 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
+		E70BA7EA224DE54F002B60D7 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
@@ -65,7 +66,7 @@
 		CE2F17F41D33C31800BA91A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2F17F71D33C31800BA91A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE2F17F91D33C31800BA91A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E719DAEF1ECB302D00137035 /* types.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = types.swift; sourceTree = "<group>"; };
+		E70BA7E8224DE54F002B60D7 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		E71B29CE1E0C218200173E77 /* WinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinController.swift; sourceTree = "<group>"; };
 		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
 		E7229BDC21D76A4B00B7CEA9 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
@@ -237,7 +238,7 @@
 				E7EF67621FF38F3400360C1D /* Shelf.swift */,
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
 				E7FABB9C21D938F7006B6267 /* Dictionary.swift */,
-				E719DAEF1ECB302D00137035 /* types.swift */,
+				E70BA7E8224DE54F002B60D7 /* data.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E73697B31DE4AEFD00FAA898 /* lib.swift */,
@@ -389,7 +390,6 @@
 				E77BCA6D1FF4E44A00F950B5 /* Titles.swift in Sources */,
 				E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */,
 				E7BECE461EA9372900CF3386 /* FMDatabaseAdditions.m in Sources */,
-				E719DAF01ECB302D00137035 /* types.swift in Sources */,
 				E7FABB9B21D938D3006B6267 /* Commentary.swift in Sources */,
 				E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */,
 				E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */,
@@ -412,6 +412,7 @@
 				CE2F17F31D33C31800BA91A6 /* MainView.swift in Sources */,
 				E71B29CF1E0C218200173E77 /* WinController.swift in Sources */,
 				CE2F17F11D33C31800BA91A6 /* AppDelegate.swift in Sources */,
+				E70BA7E9224DE54F002B60D7 /* data.swift in Sources */,
 				E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +424,7 @@
 				E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */,
 				E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */,
 				E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */,
+				E70BA7EA224DE54F002B60D7 /* data.swift in Sources */,
 				E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
