@@ -8,13 +8,6 @@
 import Foundation
 import Cocoa
 
-let applicationName = "Unbound Bible"
-let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
-var applicationUpdate = false
-
-let bibleDirectory = "bibles"
-let titleDirectory = "titles"
-
 let slash = "/"
 
 let resourcePath = Bundle.main.resourcePath!
@@ -34,16 +27,6 @@ enum Errors : Error {
 
 var languageCode: String {
     return NSLocale.autoupdatingCurrent.languageCode ?? "en"
-}
-
-var defaultBible: String {
-    var result = ""
-    switch languageCode {
-    case "ru" : result = "rstw.unbound"
-    case "uk" : result = "ubio.unbound"
-    default   : result = "kjv.unbound"
-    }
-    return result
 }
 
 func listToXml(list: [String]) -> String {
@@ -83,11 +66,6 @@ func contentsOfDirectory(atPath: String) -> [String]? {
         }
     }
     return !result.isEmpty ? result : nil
-}
-
-func databaseList() -> [String] {
-    let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
 func cyrillic(language: String) -> Bool {

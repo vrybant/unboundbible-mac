@@ -7,6 +7,13 @@
 
 import Foundation
 
+let applicationName = "Unbound Bible"
+let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
+var applicationUpdate = false
+
+let bibleDirectory = "bibles"
+let titleDirectory = "titles"
+
 var recentList : [URL] = []
 
 enum FileFormat {
@@ -124,3 +131,17 @@ func isApocrypha(_ n: Int) -> Bool {
     return n > 66
 }
 
+var defaultBible: String {
+    var result = ""
+    switch languageCode {
+    case "ru" : result = "rstw.unbound"
+    case "uk" : result = "ubio.unbound"
+    default   : result = "kjv.unbound"
+    }
+    return result
+}
+
+func databaseList() -> [String] {
+    let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
+    return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
+}
