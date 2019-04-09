@@ -85,13 +85,6 @@ class BibleTextView: CustomTextView {
 
         if selectedRange.length != 0 { return }
         
-        if foreground == .strong {
-            let f = loadStrong(number: hyperlink)
-            let attrs = parse(f, small: true).mutable()
-            mainView.showPopover(self)
-            popoverView!.textView.textStorage?.setAttributedString(attrs)
-        }
-
         if foreground == .footnote {
             let f = loadFootnote(marker: hyperlink)
             let attrs = parse(f, small: true).mutable()

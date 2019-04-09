@@ -95,6 +95,9 @@ class CustomTextView: NSTextView {
     
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
+
+        if selectedRange.length != 0 { return }
+
         foreground = getForeground(selectedRange.location)
         hyperlink = getLink()
         
@@ -104,9 +107,15 @@ class CustomTextView: NSTextView {
             }
         }
 
-        if ["Bible","Compare"].contains(id) {
-            //
+        if !["Bible","Compare"].contains(id) { return }
+        
+        if foreground == .strong {
+            let f = loadStrong(number: hyperlink)
+            let attrs = parse(f, small: true).mutable()
+            mainView.showPopover(self)
+            popoverView!.textView.textStorage?.setAttributedString(attrs)
         }
+        
     }
     
     override func didChangeText() {
