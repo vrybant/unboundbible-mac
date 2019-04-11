@@ -42,8 +42,7 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     func createPopover() {
-        let id = NSStoryboard.SceneIdentifier(rawValue: "PopoverView")
-        popoverView = storyboard?.instantiateController(withIdentifier: id) as? PopoverView
+        popoverView = storyboard?.instantiateController(withIdentifier: "PopoverView") as? PopoverView
         popover.contentViewController = popoverView
         popover.behavior = .transient
     }

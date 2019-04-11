@@ -11,7 +11,7 @@ class SplitView: NSSplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.splitView.autosaveName = NSSplitView.AutosaveName(rawValue: "AutosaveSplit")
+        self.splitView.autosaveName = "AutosaveSplit"
     }
     
 }

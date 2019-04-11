@@ -14,7 +14,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        self.windowFrameAutosaveName = NSWindow.FrameAutosaveName(rawValue: "AutosaveWindows")
+        self.windowFrameAutosaveName = "AutosaveWindows"
         if !launchedBefore() { setDefaultFrame() }
 //      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { alertUpdate() }
     }

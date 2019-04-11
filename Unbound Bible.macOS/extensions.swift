@@ -116,7 +116,7 @@ extension String {
         return string
     }
     
-    func mutable(attributes: [NSAttributedStringKey: Any]) -> NSMutableAttributedString {
+    func mutable(attributes: [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
         return NSMutableAttributedString(string: self, attributes: attributes)
     }
     
@@ -287,7 +287,7 @@ extension NSAttributedString {
 
     func withSystemColors() -> NSMutableAttributedString {
         let result = self.mutable()
-        self.enumerateAttribute(NSAttributedStringKey.foregroundColor,
+        self.enumerateAttribute(NSAttributedString.Key.foregroundColor,
             in: NSRange(0..<self.length), options: .longestEffectiveRangeNotRequired) {
                 value, range, stop in
                                             
@@ -319,7 +319,7 @@ extension NSAttributedString {
 
     func withNaturalColors() -> NSMutableAttributedString {
         let result = self.mutable()
-        self.enumerateAttribute(NSAttributedStringKey.foregroundColor,
+        self.enumerateAttribute(NSAttributedString.Key.foregroundColor,
             in: NSRange(0..<self.length), options: .longestEffectiveRangeNotRequired) {
                 value, range, stop in
                 
@@ -355,7 +355,7 @@ extension NSAttributedString {
 }
 
 extension NSMutableAttributedString {
-    func addAttribute(_ name: NSAttributedStringKey, value: Any) {
+    func addAttribute(_ name: NSAttributedString.Key, value: Any) {
         let range = NSRange(location: 0, length: self.length)
         self.addAttribute(name, value: value, range: range)
     }
@@ -373,8 +373,8 @@ extension NSAppearance {
 }
 
 extension FMDatabase {
-    func executeQuery(_ sql: String, values: [Any]? = nil) -> FMResultSet? {
-        return try? executeQuery(sql, values: values)
+    func executeQuery(_ sql: String) -> FMResultSet? {
+        return try? executeQuery(sql, values: nil)
     }
 }
 

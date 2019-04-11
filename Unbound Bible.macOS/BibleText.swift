@@ -105,7 +105,7 @@ class BibleTextView: CustomTextView {
     }
     
     @IBAction func copyDialogAction(_ sender: NSMenuItem) {
-        mainView.presentViewControllerAsModalWindow(copyView)
+        mainView.presentAsModalWindow(copyView)
     }
     
 }

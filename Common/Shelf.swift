@@ -111,9 +111,9 @@ class Bible: Module {
 
     func sortingIndex(_ number: Int) -> Int {
         if cyrillic(language: language) {
-            return sortArrayRU.index(of: number) ?? 100
+            return sortArrayRU.firstIndex(of: number) ?? 100
         } else {
-            return sortArrayEN.index(of: number) ?? 100
+            return sortArrayEN.firstIndex(of: number) ?? 100
         }
     }
 
@@ -266,14 +266,14 @@ class Bible: Module {
         let index = link.index(link.startIndex, offsetBy: title.count)
         var string = link[index...].trimmed
         
-        if let index = string.index(of: "-") {
+        if let index = string.firstIndex(of: "-") {
             let subst = string[index...]
             let idx = subst.index(after: subst.startIndex)
             limit = subst[idx...].int
             string = string[..<index]
         }
         
-        if let index = string.index(of: ":") {
+        if let index = string.firstIndex(of: ":") {
             let chapter = string[..<index]
             let subst = string[index...]
             let idx = subst.index(after: subst.startIndex)

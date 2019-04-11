@@ -48,7 +48,7 @@ class Module {
     
     func decodeID(_ id: Int) -> Int {
         if format != .mybible { return id }
-        return myBibleArray.index(of: id) ?? id
+        return myBibleArray.firstIndex(of: id) ?? id
     }
     
     func openDatabase() {

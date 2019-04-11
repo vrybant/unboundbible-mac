@@ -10,8 +10,8 @@ import Cocoa
 
 var defaultFont = NSFont.systemFont(ofSize: 14)
 
-var defaultAttributes: [NSAttributedStringKey : Any] {
-    return [NSAttributedStringKey.foregroundColor: NSColor.labelColor, NSAttributedStringKey.font: defaultFont]
+var defaultAttributes: [NSAttributedString.Key : Any] {
+    return [NSAttributedString.Key.foregroundColor: NSColor.labelColor, NSAttributedString.Key.font: defaultFont]
 }
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {

@@ -313,7 +313,7 @@
 					CE2F17EC1D33C31800BA91A6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = ZK5Z2R2KTA;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -330,12 +330,13 @@
 			};
 			buildConfigurationList = CE2F17E81D33C31800BA91A6 /* Build configuration list for PBXProject "Unbound Bible" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 				uk,
+				ru,
 			);
 			mainGroup = CE2F17E41D33C31800BA91A6;
 			productRefGroup = CE2F17EE1D33C31800BA91A6 /* Products */;
@@ -601,8 +602,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -622,8 +622,7 @@
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
 				PROVISIONING_PROFILE_SPECIFIER = "Distribution Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
-				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
