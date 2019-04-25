@@ -107,7 +107,7 @@ class CustomTextView: NSTextView {
             }
         }
 
-        if !["Bible","Compare"].contains(id) { return }
+        if id == "Notes" { return }
         
         if foreground == .strong {
             let f = loadStrong(number: hyperlink)
