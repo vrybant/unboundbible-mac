@@ -32,7 +32,6 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
         s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: small ? 12 : 13)!)
         s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
     }
-
     if tags.contains("<S>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize:  9)) }
     if tags.contains("<m>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize:  9)) }
     if tags.contains("<f>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)) }
@@ -40,6 +39,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     if tags.intersection(["<S>","<m>","<f>"]) != [] {
         s.addAttribute(.baselineOffset, value: 5.0)
     }
+    
     return s
 }
 
@@ -70,16 +70,16 @@ private func htmlReplacement(_ string: String) -> String {
         .replace("&rquot;", with:  "»")
         
         .replace( "<p/>", with: "<p>" )
-        .replace("<br/>", with: "<br>")
-        .replace( "<td>", with: "<br>")
-        .replace( "<tr>", with: "<br>")
-        .replace("</td>", with: "<br>")
-        .replace("</tr>", with: "<br>")
+        .replace("<br/>", with: "\n\t")
+        .replace( "<td>", with: "\n\t")
+        .replace( "<tr>", with: "\n\t")
+        .replace("</td>", with: "\n\t")
+        .replace("</tr>", with: "\n\t")
 
-        .replace("<p>", with: string.contains("</p>") ? "" : "<br>")
+        .replace("<p>", with: string.contains("</p>") ? "" : "\n\t")
 
-        .replace("</p>", with: "<br>")
         .replace("<br>", with: "\n\t")
+        .replace("</p>", with: "\n\t")
         .replace(  "  ", with:    " ")
 }
 
@@ -112,7 +112,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
 
 func html(_ string: String) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    let string = "\t" + htmlReplacement(string)
+    let string = htmlReplacement(string)
     
     let list = xmlToList(string: string)
     var tags = Set<String>()
