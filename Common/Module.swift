@@ -2,8 +2,7 @@
 //  Module.swift
 //  Unbound Bible
 //
-//  Created by Vladimir Rybant on 28/12/2018.
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2019 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -15,7 +14,7 @@ class Module {
     var format       = FileFormat.unbound
     
     var name         : String = ""
-    var abbreviation : String = ""
+    var abbr         : String = ""
     var copyright    : String = ""
     var info         : String = ""
     var filetype     : String = ""
@@ -60,13 +59,13 @@ class Module {
             let query = "select * from Details"
             if let results = database!.executeQuery(query) {
                 if results.next() {
-                    if let value = results.string(forColumn: "Information" ) { info = value }
-                    if let value = results.string(forColumn: "Description" ) { info = value }
-                    if let value = results.string(forColumn: "Title"       ) { name = value } else { name = info }
-                    if let value = results.string(forColumn: "Abbreviation") { abbreviation = value }
-                    if let value = results.string(forColumn: "Copyright"   ) { copyright = value }
-                    if let value = results.string(forColumn: "Language"    ) { language = value }
-                    let value = results.bool(forColumn: "Strong") ; strong  = value
+                    info      = results.string(forColumn: "Information" ) ?? ""
+                    info      = results.string(forColumn: "Description" ) ?? info
+                    name      = results.string(forColumn: "Title"       ) ?? info
+                    abbr      = results.string(forColumn: "Abbreviation") ?? ""
+                    copyright = results.string(forColumn: "Copyright"   ) ?? ""
+                    language  = results.string(forColumn: "Language"    ) ?? ""
+                    strong    = results.bool(forColumn: "Strong")
 
                     connected = true
                 }
