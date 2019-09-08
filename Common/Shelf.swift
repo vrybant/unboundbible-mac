@@ -2,7 +2,7 @@
 //  Shelf.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2019 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -35,8 +35,9 @@ class Bible: Module {
         var book = Book()
         let number = decodeID(id)
         book.number = number
+        book.title = String(id)
         book.id = id
-        book.sorting = sortingIndex(number)
+        book.sorting = 99
         books.append(book)
     }
     
@@ -63,8 +64,11 @@ class Bible: Module {
         if books.isEmpty { return }
         let titles = Titles(language: language)
         for i in 0...self.books.count-1 {
-            books[i].title = titles.getTitle(books[i].number)
-            books[i].abbr  = titles.getAbbr (books[i].number)
+            if let t = titles.getTitle(books[i].number) {
+                books[i].title = t.name
+                books[i].abbr  = t.abbr
+                books[i].sorting = t.sorting
+            }
         }
     }
     
@@ -107,14 +111,6 @@ class Bible: Module {
             if book.title == s { return book.number }
         }
         return nil
-    }
-
-    func sortingIndex(_ number: Int) -> Int {
-        if cyrillic(language: language) {
-            return sortArrayRU.firstIndex(of: number) ?? 100
-        } else {
-            return sortArrayEN.firstIndex(of: number) ?? 100
-        }
     }
 
     func getChapter(_ verse : Verse) -> [String]? {
@@ -222,10 +218,6 @@ class Bible: Module {
         } else {
             return false
         }
-    }
-    
-    func isNewTestament(_ n : Int) -> Bool {
-        return (n >= 40) && (n <= 66)
     }
     
     func verseToString(_ verse: Verse, full: Bool) -> String {

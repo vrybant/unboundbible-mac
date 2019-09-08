@@ -2,18 +2,27 @@
 //  titles.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2019 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
 
+struct Title {
+    var name    = ""
+    var abbr    = ""
+    var number  = 0
+    var sorting = 0
+}
+
 class Titles {
     private var database : FMDatabase?
+    private var data = [Title]()
 
     init(language: String) {
         let path = getFileName(language: language)
         database = FMDatabase(path: path)
         database!.open()
+        loadData()
     }
     
     private func getFileName(language: String) -> String {
@@ -29,27 +38,30 @@ class Titles {
         return result
     }
     
-    private func getTitleEx(_ n: Int, abbreviation: Bool) -> String {
-        var name = ""
-        var abbr = ""
+    private func loadData() {
+        var t = Title()
+        var k = 0
         
-        let query = "SELECT * FROM Books WHERE Number=\(n)"
+        let query = "SELECT * FROM Books"
         
         if let results = database!.executeQuery(query) {
-            if results.next() {
-                name = results.string(forColumn: "Name") ?? String(n)
-                abbr = results.string(forColumn: "Abbreviation") ?? name
+            while results.next() {
+                t.name = results.string(forColumn: "Name") ?? ""
+                t.abbr = results.string(forColumn: "Abbreviation") ?? ""
+                t.number = Int(results.int(forColumn: "Number"))
+                if t.abbr.isEmpty { t.abbr = t.name }
+                t.sorting = k
+                data.append(t)
+                k += 1
             }
         }
-        return abbreviation ? abbr : name
     }
     
-    func getTitle(_ n: Int) -> String {
-        return getTitleEx(n, abbreviation: false)
-    }
-    
-    func getAbbr(_ n: Int) -> String {
-        return getTitleEx(n, abbreviation: true)
+    func getTitle(_ n: Int) -> Title? {
+        for t in data {
+            if t.number == n { return t }
+        }
+        return nil
     }
     
 }
