@@ -108,6 +108,15 @@ let bibleHubArray : [String] = ["",
         "colossians","1_thessalonians","2_thessalonians","1_timothy","2_timothy","titus","philemon","hebrews",
         "james","1_peter","2_peter","1_john","2_john","3_john","jude","revelation"]
 
+func unbound2mybible(_ id: Int) -> Int {
+    let range = 1..<myBibleArray.count
+    return range.contains(id) ? myBibleArray[id] : id
+}
+
+func mybible2unbound(_ id: Int) -> Int {
+    return myBibleArray.firstIndex(of: id) ?? id
+}
+
 func isNewTestament(_ n: Int) -> Bool {
     return (n >= 40) && (n < 77)
 }

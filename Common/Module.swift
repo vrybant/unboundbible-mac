@@ -40,14 +40,11 @@ class Module {
     }
     
     func encodeID(_ id: Int) -> Int {
-        if format != .mybible { return id }
-        if id > myBibleArray.count { return 0 }
-        return myBibleArray[id]
+        return format == .mybible ? unbound2mybible(id) : id
     }
     
     func decodeID(_ id: Int) -> Int {
-        if format != .mybible { return id }
-        return myBibleArray.firstIndex(of: id) ?? id
+        return format == .mybible ? mybible2unbound(id) : id
     }
     
     func openDatabase() {
