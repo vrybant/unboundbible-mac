@@ -50,7 +50,7 @@ class Titles {
                 t.abbr = results.string(forColumn: "Abbreviation") ?? ""
                 t.number = Int(results.int(forColumn: "Number"))
                 if t.abbr.isEmpty { t.abbr = t.name }
-                t.sorting = k
+                t.sorting = !isNewTestament(t.number) ? k : k + 100
                 data.append(t)
                 k += 1
             }
