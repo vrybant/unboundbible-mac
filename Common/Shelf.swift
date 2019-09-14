@@ -33,8 +33,7 @@ class Bible: Module {
     
     func appendBook(id: Int) {
         var book = Book()
-        let number = decodeID(id)
-        book.number = number
+        book.number = decodeID(id)
         book.title = String(id)
         book.id = id
         book.sorting = 99
