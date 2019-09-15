@@ -34,9 +34,7 @@ class Bible: Module {
     func appendBook(id: Int) {
         var book = Book()
         book.number = decodeID(id)
-        book.title = String(id)
         book.id = id
-        book.sorting = 99
         books.append(book)
     }
     
@@ -65,8 +63,12 @@ class Bible: Module {
         for i in 0...self.books.count-1 {
             if let t = titles.getTitle(books[i].number) {
                 books[i].title = t.name
-                books[i].abbr  = t.abbr
+                books[i].abbr = t.abbr
                 books[i].sorting = t.sorting
+            } else {
+                books[i].title = "Apocrypha " + String(books[i].id)
+                books[i].abbr = books[i].title
+                books[i].sorting = 99
             }
         }
     }
