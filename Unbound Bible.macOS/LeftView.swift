@@ -90,10 +90,11 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         let tableView = notification.object as! NSTableView
-        
+        if tableView.selectedRow < 0 { return }
+
         if tableView == bookTableView {
             if tableView.tag != programmatically {
-                let name = bookTableViewList[bookTableView.selectedRow]
+                let name = bookTableViewList[tableView.selectedRow]
                 if let book = bible!.bookByName(name) {
                     activeVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
                 }
