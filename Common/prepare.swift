@@ -28,17 +28,18 @@ private func replaceMyswordTags(_ string: inout String) {
     }
 }
 
-private func strongs(_ string: inout String) {
+private func myswordStrongsToUnbound(_ string: String) -> String {
     let list = xmlToList(string: string)
-    string = ""
+    result = ""
     for item in list {
         if item.hasPrefix("<W") {
             let number = item.replace("<W", with: "").replace(">", with: "")
-            string += "<S>" + number + "</S>"
+            result += "<S>" + number + "</S>"
         } else {
-            string += item
+            result += item
         }
     }
+    return result
 }
 
 private func extractFootnoteMarker(_ string: String) -> String {
@@ -77,7 +78,7 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     var string = string
 
     if format == .mysword {
-        if string.contains("<W") { strongs(&string) }
+        if string.contains("<W") { string = myswordStrongsToUnbound(string) }
         replaceMyswordTags(&string)
     }
 
