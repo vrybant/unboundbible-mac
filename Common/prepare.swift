@@ -30,7 +30,7 @@ private func replaceMyswordTags(_ string: inout String) {
 
 private func myswordStrongsToUnbound(_ string: String) -> String {
     let list = xmlToList(string: string)
-    result = ""
+    var result = ""
     for item in list {
         if item.hasPrefix("<W") {
             let number = item.replace("<W", with: "").replace(">", with: "")
