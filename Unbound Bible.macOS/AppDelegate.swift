@@ -111,11 +111,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         activeVerse.number  = defaults.integer(forKey: "verseNumber")
         activeVerse.count   = defaults.integer(forKey: "verseCount")
         
-        if let fontName = defaults.string(forKey: "fontName") {
-            let fontSize = defaults.cgfloat(forKey: "fontSize")
-            defaultFont = NSFont(name: fontName, size: fontSize)!
+        if let name = defaults.string(forKey: "fontName") {
+            let size = defaults.cgfloat(forKey: "fontSize")
+            if let font = NSFont(name: name, size: size) {
+                defaultFont = font
+            }
         }
-        
+
         let value = defaults.integer(forKey: "copyOptions")
         copyOptions = CopyOptions(rawValue: value)
 
