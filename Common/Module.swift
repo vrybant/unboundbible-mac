@@ -22,8 +22,6 @@ class Module {
     var firstVerse   = Verse()
     var language     : String = "en"
     var rightToLeft  : Bool = true
-    var fontName     : String = ""
-    var fontSize     : Int = 0
     
     var connected    : Bool = false
     var loaded       : Bool = false

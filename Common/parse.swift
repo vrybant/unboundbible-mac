@@ -20,6 +20,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
 
     if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
     if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
+    if tags.contains("<v>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
     if tags.contains("<a>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
     if tags.contains("<J>") { s.addAttribute(.foregroundColor, value: NSColor.systemRed   ) }
     if tags.contains("<S>") { s.addAttribute(.foregroundColor, value: NSColor.systemBrown ) }
