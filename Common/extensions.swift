@@ -182,6 +182,13 @@ extension String {
     
 }
 
+extension NSMutableAttributedString {
+    func addAttribute(_ name: NSAttributedString.Key, value: Any) {
+        let range = NSRange(location: 0, length: self.length)
+        self.addAttribute(name, value: value, range: range)
+    }
+}
+
 extension Substring {
 
     var int: Int {
@@ -215,6 +222,21 @@ extension Color {
         return darkAppearance ? Color.darkTeal : Color.teal
     }
 }
+
+#if os(iOS)
+extension Color {
+    static var systemBrown: Color {
+        return Color.brown
+    }
+    static var labelColor: Color {
+        return Color.label
+    }
+    static var secondaryLabelColor: Color {
+        return Color.secondaryLabel
+    }
+}
+#endif
+
 
 extension FMDatabase {
     func executeQuery(_ sql: String) -> FMResultSet? {

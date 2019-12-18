@@ -146,13 +146,6 @@ extension NSAttributedString {
     }
 }
 
-extension NSMutableAttributedString {
-    func addAttribute(_ name: NSAttributedString.Key, value: Any) {
-        let range = NSRange(location: 0, length: self.length)
-        self.addAttribute(name, value: value, range: range)
-    }
-}
-
 extension NSAppearance {
     var isDark: Bool {
         if #available(macOS 10.14, *) {

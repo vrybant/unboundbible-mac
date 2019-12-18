@@ -10,9 +10,11 @@ import Foundation
 #if os(OSX)
     import Cocoa
     typealias Color = NSColor
+    typealias Font = NSFont
 #else
     import UIKit
     typealias Color = UIColor
+    typealias Font = UIFont
 #endif
 
 var darkAppearance: Bool = false
@@ -21,7 +23,7 @@ let slash = "/"
 let resourcePath = Bundle.main.resourcePath!
 let dataPath = NSHomeDirectory() + slash + applicationName
 
-let navyColor = Color(red:0.00, green:0.00, blue:0.50, alpha:1.0)
+//let navyColor = Color(red:0.00, green:0.00, blue:0.50, alpha:1.0)
 
 enum Errors : Error {
     case someError

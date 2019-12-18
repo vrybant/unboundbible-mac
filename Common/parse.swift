@@ -2,40 +2,39 @@
 //  parse.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
-import Cocoa
 
-var defaultFont = NSFont.systemFont(ofSize: 14)
+var defaultFont = Font.systemFont(ofSize: 14)
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
-    return [NSAttributedString.Key.foregroundColor: NSColor.labelColor, NSAttributedString.Key.font: defaultFont]
+    return [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
 }
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
     let s = string.mutable(attributes: defaultAttributes)
-    if small { s.addAttribute(.font, value: NSFont.systemFont(ofSize: 12)) }
+    if small { s.addAttribute(.font, value: Font.systemFont(ofSize: 12)) }
 
-    if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
-    if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
-    if tags.contains("<v>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
-    if tags.contains("<a>") { s.addAttribute(.foregroundColor, value: NSColor.systemGray  ) }
-    if tags.contains("<J>") { s.addAttribute(.foregroundColor, value: NSColor.systemRed   ) }
-    if tags.contains("<S>") { s.addAttribute(.foregroundColor, value: NSColor.systemBrown ) }
-    if tags.contains("<r>") { s.addAttribute(.foregroundColor, value: NSColor.systemRed   ) }
-    if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: NSColor.systemTeal  ) }
-    if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: NSColor.systemNavy  ) }
-    if tags.contains("<b>") { s.addAttribute(.foregroundColor, value: NSColor.systemBrown ) }
+    if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
+    if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
+    if tags.contains("<v>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
+    if tags.contains("<a>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
+    if tags.contains("<J>") { s.addAttribute(.foregroundColor, value: Color.systemRed   ) }
+    if tags.contains("<S>") { s.addAttribute(.foregroundColor, value: Color.systemBrown ) }
+    if tags.contains("<r>") { s.addAttribute(.foregroundColor, value: Color.systemRed   ) }
+    if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: Color.systemTeal  ) }
+    if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: Color.systemNavy  ) }
+    if tags.contains("<b>") { s.addAttribute(.foregroundColor, value: Color.systemBrown ) }
 
     if tags.intersection(["<i>","<em>"]) != [] {
-        s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: small ? 12 : 13)!)
-        s.addAttribute(.foregroundColor, value: NSColor.secondaryLabelColor   )
+        s.addAttribute(.font, value: Font(name:"Verdana-Italic", size: small ? 12 : 13)!)
+        s.addAttribute(.foregroundColor, value: Color.secondaryLabelColor   )
     }
-    if tags.contains("<S>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize:  9)) }
-    if tags.contains("<m>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize:  9)) }
-    if tags.contains("<f>") { s.addAttribute(.font, value: NSFont.systemFont(ofSize: 11)) }
+    if tags.contains("<S>") { s.addAttribute(.font, value: Font.systemFont(ofSize:  9)) }
+    if tags.contains("<m>") { s.addAttribute(.font, value: Font.systemFont(ofSize:  9)) }
+    if tags.contains("<f>") { s.addAttribute(.font, value: Font.systemFont(ofSize: 11)) }
         
     if tags.intersection(["<S>","<m>","<f>"]) != [] {
         s.addAttribute(.baselineOffset, value: 5.0)
@@ -46,16 +45,16 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
 
 private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttributedString {
     let s = string.mutable(attributes: defaultAttributes)
-    s.addAttribute(.font, value: NSFont.systemFont(ofSize: 13))
+    s.addAttribute(.font, value: Font.systemFont(ofSize: 13))
     
     if tags.contains("<a>") {
-        s.addAttribute(.foregroundColor, value: NSColor.systemGray  )
+        s.addAttribute(.foregroundColor, value: Color.systemGray  )
     }
     if tags.intersection(["<b>","<strong>"]) != [] {
-        s.addAttribute(.foregroundColor, value: NSColor.systemBrown )
+        s.addAttribute(.foregroundColor, value: Color.systemBrown )
     }
     if tags.intersection(["<i>","<em>"]) != [] {
-        s.addAttribute(.font, value: NSFont(name:"Verdana-Italic", size: 12)!)
+        s.addAttribute(.font, value: Font(name:"Verdana-Italic", size: 12)!)
     }
     if tags.contains("<sup>") {
         s.addAttribute(.baselineOffset, value: 5.0)

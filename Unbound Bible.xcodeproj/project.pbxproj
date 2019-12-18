@@ -37,6 +37,12 @@
 		E7A0D72A23AAAB4E00C48A54 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */; };
 		E7A0D72B23AAAB5200C48A54 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
 		E7A0D72E23AAAC1300C48A54 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */; };
+		E7A0D72F23AAAEAB00C48A54 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
+		E7A0D73023AAAEE000C48A54 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
+		E7A0D73123AAAEFC00C48A54 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
+		E7A0D73223AAAF2500C48A54 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
+		E7A0D73323AAAF2800C48A54 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
+		E7A0D73423AAAF5A00C48A54 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
@@ -207,7 +213,6 @@
 				E74040F11ED5A40F00F96C48 /* CopyView.swift */,
 				E72C3DF021EF46B1007A143F /* CommentsView.swift */,
 				E7DD51A41DE764A70003D654 /* tools.swift */,
-				E77BCA6C1FF4E44A00F950B5 /* Titles.swift */,
 				E7A8917B20152879008A7695 /* СustomText.swift */,
 				E73BF4631EF8548C0028FB62 /* BibleText.swift */,
 				E7A8917D20152893008A7695 /* CommonText.swift */,
@@ -252,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				E7B7CB6521D66EB600BC292F /* Module.swift */,
+				E77BCA6C1FF4E44A00F950B5 /* Titles.swift */,
 				E7A0D72123AAA28800C48A54 /* extensions.swift */,
 				E7EF67621FF38F3400360C1D /* Shelf.swift */,
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
@@ -442,16 +448,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A0D73223AAAF2500C48A54 /* Commentary.swift in Sources */,
 				E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */,
 				E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */,
 				E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */,
 				E7A0D72723AAAB4400C48A54 /* FMDatabase.m in Sources */,
+				E7A0D73323AAAF2800C48A54 /* Dictionary.swift in Sources */,
 				E7A0D72323AAA28800C48A54 /* extensions.swift in Sources */,
 				E7A0D72A23AAAB4E00C48A54 /* FMDatabaseQueue.m in Sources */,
+				E7A0D72F23AAAEAB00C48A54 /* Shelf.swift in Sources */,
+				E7A0D73123AAAEFC00C48A54 /* prepare.swift in Sources */,
 				E7A0D72B23AAAB5200C48A54 /* FMResultSet.m in Sources */,
 				E7A0D72923AAAB4B00C48A54 /* FMDatabasePool.m in Sources */,
+				E7A0D73023AAAEE000C48A54 /* Titles.swift in Sources */,
 				E70BA7EA224DE54F002B60D7 /* data.swift in Sources */,
 				E7A0D72623AAAAE400C48A54 /* Module.swift in Sources */,
+				E7A0D73423AAAF5A00C48A54 /* parse.swift in Sources */,
 				E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */,
 				E71485BA23AA5EF6009369D4 /* lib.swift in Sources */,
 				E7A0D72823AAAB4700C48A54 /* FMDatabaseAdditions.m in Sources */,
@@ -668,7 +680,7 @@
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -694,7 +706,7 @@
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
