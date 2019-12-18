@@ -30,7 +30,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
 
     if tags.intersection(["<i>","<em>"]) != [] {
         s.addAttribute(.font, value: Font(name:"Verdana-Italic", size: small ? 12 : 13)!)
-        s.addAttribute(.foregroundColor, value: Color.secondaryLabelColor   )
+        s.addAttribute(.foregroundColor, value: Color.secondaryLabelColor)
     }
     if tags.contains("<S>") { s.addAttribute(.font, value: Font.systemFont(ofSize:  9)) }
     if tags.contains("<m>") { s.addAttribute(.font, value: Font.systemFont(ofSize:  9)) }
