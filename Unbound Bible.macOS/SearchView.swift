@@ -7,23 +7,7 @@
 
 import Cocoa
 
-enum RangeOption {
-    case bible, oldTestament, newTestament, gospels, epistles, openedBook
-}
-
-struct SearchRange {
-    var from : Int
-    var to : Int
-}
-
-struct SearchOption: OptionSet {
-    let rawValue: Int
-    static let caseSensitive = SearchOption(rawValue: 1 << 0)
-    static let    wholeWords = SearchOption(rawValue: 1 << 1)
-}
-
 private var rangeOption : RangeOption = RangeOption.bible
-var searchOption : SearchOption = []
 
 func currentSearchRange() -> SearchRange? {
     switch rangeOption {

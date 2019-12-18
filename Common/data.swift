@@ -132,6 +132,27 @@ var defaultBible: String {
 }
 
 func databaseList() -> [String] {
-    let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
+    #if os(OSX)
+        let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
+        return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
+    #else
+        return []
+    #endif
 }
+
+enum RangeOption {
+    case bible, oldTestament, newTestament, gospels, epistles, openedBook
+}
+
+struct SearchRange {
+    var from : Int
+    var to : Int
+}
+
+struct SearchOption: OptionSet {
+    let rawValue: Int
+    static let caseSensitive = SearchOption(rawValue: 1 << 0)
+    static let    wholeWords = SearchOption(rawValue: 1 << 1)
+}
+
+var searchOption : SearchOption = []
