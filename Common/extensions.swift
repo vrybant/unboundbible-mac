@@ -195,3 +195,24 @@ extension Substring {
 
 }
 
+extension Color {
+    static var navy: Color {
+        return Color(red: 0, green: 0, blue: 0.5, alpha: 1)
+    }
+    static var darkNavy: Color {
+        return Color(red: 0, green: 0.6, blue: 1, alpha: 1)
+    }
+    static var systemNavy: Color {
+        return darkAppearance ? Color.darkNavy : Color.navy
+    }
+    static var teal: Color {
+        return Color(red: 0.2, green: 0.4, blue: 0.4, alpha: 1)
+    }
+    static var darkTeal: Color {
+        return Color(red:0.40, green:0.80, blue:0.80, alpha: 1)
+    }
+    static var systemTeal: Color {
+        return darkAppearance ? Color.darkTeal : Color.teal
+    }
+}
+

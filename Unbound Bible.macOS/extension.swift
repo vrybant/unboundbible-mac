@@ -72,27 +72,6 @@ extension Array where Element == URL {
     }
 }
 
-extension NSColor {
-    static var navy: NSColor {
-        return NSColor(red: 0, green: 0, blue: 0.5, alpha: 1)
-    }
-    static var darkNavy: NSColor {
-        return NSColor(red: 0, green: 0.6, blue: 1, alpha: 1)
-    }
-    static var systemNavy: NSColor {
-        return darkAppearance ? NSColor.darkNavy : NSColor.navy
-    }
-    static var teal: NSColor {
-        return NSColor(red: 0.2, green: 0.4, blue: 0.4, alpha: 1)
-    }
-    static var darkTeal: NSColor {
-        return NSColor(red:0.40, green:0.80, blue:0.80, alpha: 1)
-    }
-    static var systemTeal: NSColor {
-        return darkAppearance ? NSColor.darkTeal : NSColor.teal
-    }
-}
-
 extension NSAttributedString {
     func mutable() -> NSMutableAttributedString {
         return self.mutableCopy() as! NSMutableAttributedString
