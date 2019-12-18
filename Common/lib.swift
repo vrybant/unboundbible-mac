@@ -6,14 +6,22 @@
 //
 
 import Foundation
-import Cocoa
+
+#if os(OSX)
+    import Cocoa
+    typealias Color = NSColor
+#else
+    import UIKit
+    typealias Color = UIColor
+#endif
+
+var darkAppearance: Bool = false
 
 let slash = "/"
-
 let resourcePath = Bundle.main.resourcePath!
 let dataPath = NSHomeDirectory() + slash + applicationName
 
-let navyColor = NSColor(red:0.00, green:0.00, blue:0.50, alpha:1.0)
+let navyColor = Color(red:0.00, green:0.00, blue:0.50, alpha:1.0)
 
 enum Errors : Error {
     case someError
@@ -79,10 +87,12 @@ func cyrillic(language: String) -> Bool {
 }
 
 func copyToClipboard(content: String) {
-    let Pasteboard = NSPasteboard.general
-    Pasteboard.clearContents()
-    Pasteboard.writeObjects([content as NSString])
-//  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
+    #if os(OSX)
+        let Pasteboard = NSPasteboard.general
+        Pasteboard.clearContents()
+        Pasteboard.writeObjects([content as NSString])
+    //  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
+    #endif
 }
 
 func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NSMutableAttributedString {

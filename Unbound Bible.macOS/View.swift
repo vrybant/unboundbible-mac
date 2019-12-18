@@ -7,8 +7,6 @@
 
 import Cocoa
 
-var darkAppearance: Bool = false
-
 class View: NSView {
     
     required init(coder: NSCoder) {
