@@ -30,6 +30,13 @@
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72323AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72523AAA36200C48A54 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* extension.swift */; };
+		E7A0D72623AAAAE400C48A54 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
+		E7A0D72723AAAB4400C48A54 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
+		E7A0D72823AAAB4700C48A54 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */; };
+		E7A0D72923AAAB4B00C48A54 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */; };
+		E7A0D72A23AAAB4E00C48A54 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */; };
+		E7A0D72B23AAAB5200C48A54 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
+		E7A0D72E23AAAC1300C48A54 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
@@ -89,6 +96,8 @@
 		E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		E7A0D72123AAA28800C48A54 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E7A0D72423AAA36200C48A54 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		E7A0D72C23AAABE900C48A54 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/libsqlite3.0.tbd; sourceTree = DEVELOPER_DIR; };
+		E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
@@ -145,6 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7A0D72E23AAAC1300C48A54 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,12 +234,15 @@
 				E7BECE431EA9372900CF3386 /* FMResultSet.h */,
 				E7BECE441EA9372900CF3386 /* FMResultSet.m */,
 			);
-			path = fmdb;
-			sourceTree = "<group>";
+			name = fmdb;
+			path = Common/fmdb;
+			sourceTree = SOURCE_ROOT;
 		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */,
+				E7A0D72C23AAABE900C48A54 /* libsqlite3.0.tbd */,
 				E7BECE4B1EA9390400CF3386 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
@@ -432,10 +445,16 @@
 				E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */,
 				E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */,
 				E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */,
+				E7A0D72723AAAB4400C48A54 /* FMDatabase.m in Sources */,
 				E7A0D72323AAA28800C48A54 /* extensions.swift in Sources */,
+				E7A0D72A23AAAB4E00C48A54 /* FMDatabaseQueue.m in Sources */,
+				E7A0D72B23AAAB5200C48A54 /* FMResultSet.m in Sources */,
+				E7A0D72923AAAB4B00C48A54 /* FMDatabasePool.m in Sources */,
 				E70BA7EA224DE54F002B60D7 /* data.swift in Sources */,
+				E7A0D72623AAAAE400C48A54 /* Module.swift in Sources */,
 				E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */,
 				E71485BA23AA5EF6009369D4 /* lib.swift in Sources */,
+				E7A0D72823AAAB4700C48A54 /* FMDatabaseAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,6 +674,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -679,6 +699,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

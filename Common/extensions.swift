@@ -216,3 +216,8 @@ extension Color {
     }
 }
 
+extension FMDatabase {
+    func executeQuery(_ sql: String) -> FMResultSet? {
+        return try? executeQuery(sql, values: nil)
+    }
+}
