@@ -132,12 +132,8 @@ var defaultBible: String {
 }
 
 func databaseList() -> [String] {
-    #if os(OSX)
-        let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-        return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
-    #else
-        return []
-    #endif
+    let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
+    return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
 enum RangeOption {
