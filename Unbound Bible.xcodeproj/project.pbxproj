@@ -12,9 +12,7 @@
 		CE2F17F51D33C31800BA91A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F41D33C31800BA91A6 /* Assets.xcassets */; };
 		CE2F17F81D33C31800BA91A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F61D33C31800BA91A6 /* Main.storyboard */; };
 		E70BA7E9224DE54F002B60D7 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
-		E70BA7EA224DE54F002B60D7 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
 		E71485B923AA5EF6009369D4 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
-		E71485BA23AA5EF6009369D4 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
@@ -28,22 +26,31 @@
 		E77BCA6D1FF4E44A00F950B5 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
 		E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
-		E7A0D72323AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72523AAA36200C48A54 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* extension.swift */; };
-		E7A0D72623AAAAE400C48A54 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
-		E7A0D72723AAAB4400C48A54 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
-		E7A0D72823AAAB4700C48A54 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */; };
-		E7A0D72923AAAB4B00C48A54 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */; };
-		E7A0D72A23AAAB4E00C48A54 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */; };
-		E7A0D72B23AAAB5200C48A54 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
-		E7A0D72E23AAAC1300C48A54 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */; };
-		E7A0D72F23AAAEAB00C48A54 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
-		E7A0D73023AAAEE000C48A54 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
-		E7A0D73123AAAEFC00C48A54 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
-		E7A0D73223AAAF2500C48A54 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
-		E7A0D73323AAAF2800C48A54 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
-		E7A0D73423AAAF5A00C48A54 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
+		E7A6CB3F23AB672C00947139 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6CB3E23AB672C00947139 /* AppDelegate.swift */; };
+		E7A6CB4123AB672C00947139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6CB4023AB672C00947139 /* SceneDelegate.swift */; };
+		E7A6CB4323AB672C00947139 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6CB4223AB672C00947139 /* FirstViewController.swift */; };
+		E7A6CB4523AB672C00947139 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6CB4423AB672C00947139 /* SecondViewController.swift */; };
+		E7A6CB4823AB672C00947139 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A6CB4623AB672C00947139 /* Main.storyboard */; };
+		E7A6CB4A23AB672F00947139 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A6CB4923AB672F00947139 /* Assets.xcassets */; };
+		E7A6CB4D23AB672F00947139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */; };
+		E7A6CB5223AB67D100947139 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
+		E7A6CB5323AB67D300947139 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77BCA6C1FF4E44A00F950B5 /* Titles.swift */; };
+		E7A6CB5423AB67D600947139 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
+		E7A6CB5523AB67D900947139 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
+		E7A6CB5623AB67DC00947139 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
+		E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
+		E7A6CB5823AB67E100947139 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
+		E7A6CB5923AB67E400947139 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
+		E7A6CB5A23AB67E700947139 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
+		E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
+		E7A6CB5C23AB689F00947139 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */; };
+		E7A6CB5D23AB6AA000947139 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
+		E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */; };
+		E7A6CB5F23AB6AAB00947139 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */; };
+		E7A6CB6023AB6AAE00947139 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */; };
+		E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
 		E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */; };
@@ -57,13 +64,6 @@
 		E7C21903201522F300E90AC6 /* NotesText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C21902201522F300E90AC6 /* NotesText.swift */; };
 		E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82390202B07EC00287173 /* InfoPlist.strings */; };
 		E7C82393202B07ED00287173 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82395202B07ED00287173 /* Localizable.strings */; };
-		E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EDF20906EF7004D3097 /* AppDelegate.swift */; };
-		E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EE120906EF7004D3097 /* RootViewController.swift */; };
-		E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EE320906EF7004D3097 /* DataViewController.swift */; };
-		E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D39EE520906EF7004D3097 /* ModelController.swift */; };
-		E7D39EE920906EF7004D3097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D39EE720906EF7004D3097 /* Main.storyboard */; };
-		E7D39EEB20906EF7004D3097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7D39EEA20906EF7004D3097 /* Assets.xcassets */; };
-		E7D39EEE20906EF7004D3097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7D39EEC20906EF7004D3097 /* LaunchScreen.storyboard */; };
 		E7D4637B201A2B520055F1DA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D4637A201A2B520055F1DA /* PreferencesView.swift */; };
 		E7DD51A51DE764A70003D654 /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD51A41DE764A70003D654 /* tools.swift */; };
 		E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA4AF1EE960E400022638 /* SplitView.swift */; };
@@ -105,6 +105,15 @@
 		E7A0D72C23AAABE900C48A54 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/libsqlite3.0.tbd; sourceTree = DEVELOPER_DIR; };
 		E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		E7A6CB3C23AB672C00947139 /* Unbound Bible.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbound Bible.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A6CB3E23AB672C00947139 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E7A6CB4023AB672C00947139 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E7A6CB4223AB672C00947139 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		E7A6CB4423AB672C00947139 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		E7A6CB4723AB672C00947139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E7A6CB4923AB672F00947139 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E7A6CB4C23AB672F00947139 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E7A6CB4E23AB672F00947139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
 		E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
@@ -127,15 +136,6 @@
 		E7C21902201522F300E90AC6 /* NotesText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesText.swift; sourceTree = "<group>"; };
 		E7C8238F202B07EC00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E7C82394202B07ED00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		E7D39EDD20906EF6004D3097 /* Unbound Bible.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbound Bible.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7D39EDF20906EF7004D3097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E7D39EE120906EF7004D3097 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		E7D39EE320906EF7004D3097 /* DataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
-		E7D39EE520906EF7004D3097 /* ModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
-		E7D39EE820906EF7004D3097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E7D39EEA20906EF7004D3097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E7D39EED20906EF7004D3097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E7D39EEF20906EF7004D3097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7D4637A201A2B520055F1DA /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		E7DD51A41DE764A70003D654 /* tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tools.swift; sourceTree = "<group>"; };
 		E7DDA4AF1EE960E400022638 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
@@ -156,11 +156,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7D39EDA20906EF6004D3097 /* Frameworks */ = {
+		E7A6CB3923AB672C00947139 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A0D72E23AAAC1300C48A54 /* libsqlite3.tbd in Frameworks */,
+				E7A6CB5C23AB689F00947139 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,10 +172,11 @@
 			children = (
 				E7522CC8214AAD2900EB8788 /* Unbound Bible.entitlements */,
 				CE2F17EF1D33C31800BA91A6 /* Unbound Bible.macOS */,
-				E7D39EDE20906EF7004D3097 /* Unbound Bible.iOS */,
+				E7A6CB3D23AB672C00947139 /* Unbound Bible.iOS */,
 				E7D39ED820906C4E004D3097 /* Common */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
+				E7BECE391EA9372900CF3386 /* fmdb */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
 				E7BECE4A1EA9390400CF3386 /* Frameworks */,
 			);
@@ -185,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */,
-				E7D39EDD20906EF6004D3097 /* Unbound Bible.iOS.app */,
+				E7A6CB3C23AB672C00947139 /* Unbound Bible.iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -224,6 +225,21 @@
 			path = "Unbound Bible.macOS";
 			sourceTree = "<group>";
 		};
+		E7A6CB3D23AB672C00947139 /* Unbound Bible.iOS */ = {
+			isa = PBXGroup;
+			children = (
+				E7A6CB3E23AB672C00947139 /* AppDelegate.swift */,
+				E7A6CB4023AB672C00947139 /* SceneDelegate.swift */,
+				E7A6CB4223AB672C00947139 /* FirstViewController.swift */,
+				E7A6CB4423AB672C00947139 /* SecondViewController.swift */,
+				E7A6CB4623AB672C00947139 /* Main.storyboard */,
+				E7A6CB4923AB672F00947139 /* Assets.xcassets */,
+				E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */,
+				E7A6CB4E23AB672F00947139 /* Info.plist */,
+			);
+			path = "Unbound Bible.iOS";
+			sourceTree = "<group>";
+		};
 		E7BECE391EA9372900CF3386 /* fmdb */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,8 +255,7 @@
 				E7BECE431EA9372900CF3386 /* FMResultSet.h */,
 				E7BECE441EA9372900CF3386 /* FMResultSet.m */,
 			);
-			name = fmdb;
-			path = Common/fmdb;
+			path = fmdb;
 			sourceTree = SOURCE_ROOT;
 		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {
@@ -267,24 +282,8 @@
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
-				E7BECE391EA9372900CF3386 /* fmdb */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		E7D39EDE20906EF7004D3097 /* Unbound Bible.iOS */ = {
-			isa = PBXGroup;
-			children = (
-				E7D39EDF20906EF7004D3097 /* AppDelegate.swift */,
-				E7D39EE120906EF7004D3097 /* RootViewController.swift */,
-				E7D39EE320906EF7004D3097 /* DataViewController.swift */,
-				E7D39EE520906EF7004D3097 /* ModelController.swift */,
-				E7D39EE720906EF7004D3097 /* Main.storyboard */,
-				E7D39EEA20906EF7004D3097 /* Assets.xcassets */,
-				E7D39EEC20906EF7004D3097 /* LaunchScreen.storyboard */,
-				E7D39EEF20906EF7004D3097 /* Info.plist */,
-			);
-			path = "Unbound Bible.iOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,13 +306,13 @@
 			productReference = CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E7D39EDC20906EF6004D3097 /* Unbound Bible.iOS */ = {
+		E7A6CB3B23AB672C00947139 /* Unbound Bible.iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E7D39EF220906EF7004D3097 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */;
+			buildConfigurationList = E7A6CB4F23AB672F00947139 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */;
 			buildPhases = (
-				E7D39ED920906EF6004D3097 /* Sources */,
-				E7D39EDA20906EF6004D3097 /* Frameworks */,
-				E7D39EDB20906EF6004D3097 /* Resources */,
+				E7A6CB3823AB672C00947139 /* Sources */,
+				E7A6CB3923AB672C00947139 /* Frameworks */,
+				E7A6CB3A23AB672C00947139 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -321,7 +320,7 @@
 			);
 			name = "Unbound Bible.iOS";
 			productName = "Unbound Bible.iOS";
-			productReference = E7D39EDD20906EF6004D3097 /* Unbound Bible.iOS.app */;
+			productReference = E7A6CB3C23AB672C00947139 /* Unbound Bible.iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -330,7 +329,7 @@
 		CE2F17E51D33C31800BA91A6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0930;
+				LastSwiftUpdateCheck = 1120;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Vladimir Rybant";
 				TargetAttributes = {
@@ -345,10 +344,9 @@
 							};
 						};
 					};
-					E7D39EDC20906EF6004D3097 = {
-						CreatedOnToolsVersion = 9.3;
+					E7A6CB3B23AB672C00947139 = {
+						CreatedOnToolsVersion = 11.2.1;
 						DevelopmentTeam = ZK5Z2R2KTA;
-						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -369,7 +367,7 @@
 			projectRoot = "";
 			targets = (
 				CE2F17EC1D33C31800BA91A6 /* Unbound Bible */,
-				E7D39EDC20906EF6004D3097 /* Unbound Bible.iOS */,
+				E7A6CB3B23AB672C00947139 /* Unbound Bible.iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -389,13 +387,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7D39EDB20906EF6004D3097 /* Resources */ = {
+		E7A6CB3A23AB672C00947139 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7D39EEE20906EF7004D3097 /* LaunchScreen.storyboard in Resources */,
-				E7D39EEB20906EF7004D3097 /* Assets.xcassets in Resources */,
-				E7D39EE920906EF7004D3097 /* Main.storyboard in Resources */,
+				E7A6CB4D23AB672F00947139 /* LaunchScreen.storyboard in Resources */,
+				E7A6CB4A23AB672F00947139 /* Assets.xcassets in Resources */,
+				E7A6CB4823AB672C00947139 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,29 +442,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7D39ED920906EF6004D3097 /* Sources */ = {
+		E7A6CB3823AB672C00947139 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A0D73223AAAF2500C48A54 /* Commentary.swift in Sources */,
-				E7D39EE220906EF7004D3097 /* RootViewController.swift in Sources */,
-				E7D39EE620906EF7004D3097 /* ModelController.swift in Sources */,
-				E7D39EE420906EF7004D3097 /* DataViewController.swift in Sources */,
-				E7A0D72723AAAB4400C48A54 /* FMDatabase.m in Sources */,
-				E7A0D73323AAAF2800C48A54 /* Dictionary.swift in Sources */,
-				E7A0D72323AAA28800C48A54 /* extensions.swift in Sources */,
-				E7A0D72A23AAAB4E00C48A54 /* FMDatabaseQueue.m in Sources */,
-				E7A0D72F23AAAEAB00C48A54 /* Shelf.swift in Sources */,
-				E7A0D73123AAAEFC00C48A54 /* prepare.swift in Sources */,
-				E7A0D72B23AAAB5200C48A54 /* FMResultSet.m in Sources */,
-				E7A0D72923AAAB4B00C48A54 /* FMDatabasePool.m in Sources */,
-				E7A0D73023AAAEE000C48A54 /* Titles.swift in Sources */,
-				E70BA7EA224DE54F002B60D7 /* data.swift in Sources */,
-				E7A0D72623AAAAE400C48A54 /* Module.swift in Sources */,
-				E7A0D73423AAAF5A00C48A54 /* parse.swift in Sources */,
-				E7D39EE020906EF7004D3097 /* AppDelegate.swift in Sources */,
-				E71485BA23AA5EF6009369D4 /* lib.swift in Sources */,
-				E7A0D72823AAAB4700C48A54 /* FMDatabaseAdditions.m in Sources */,
+				E7A6CB5523AB67D900947139 /* Shelf.swift in Sources */,
+				E7A6CB5A23AB67E700947139 /* lib.swift in Sources */,
+				E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */,
+				E7A6CB5D23AB6AA000947139 /* FMDatabase.m in Sources */,
+				E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */,
+				E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */,
+				E7A6CB5323AB67D300947139 /* Titles.swift in Sources */,
+				E7A6CB5823AB67E100947139 /* data.swift in Sources */,
+				E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */,
+				E7A6CB4523AB672C00947139 /* SecondViewController.swift in Sources */,
+				E7A6CB5923AB67E400947139 /* parse.swift in Sources */,
+				E7A6CB4323AB672C00947139 /* FirstViewController.swift in Sources */,
+				E7A6CB5423AB67D600947139 /* extensions.swift in Sources */,
+				E7A6CB5623AB67DC00947139 /* Commentary.swift in Sources */,
+				E7A6CB3F23AB672C00947139 /* AppDelegate.swift in Sources */,
+				E7A6CB5223AB67D100947139 /* Module.swift in Sources */,
+				E7A6CB4123AB672C00947139 /* SceneDelegate.swift in Sources */,
+				E7A6CB5F23AB6AAB00947139 /* FMDatabasePool.m in Sources */,
+				E7A6CB6023AB6AAE00947139 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +479,22 @@
 				E7B8B601204EFF6300493978 /* uk */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E7A6CB4623AB672C00947139 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7A6CB4723AB672C00947139 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7A6CB4C23AB672F00947139 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		E7C82390202B07EC00287173 /* InfoPlist.strings */ = {
@@ -499,22 +513,6 @@
 				E7B8B602204EFF6300493978 /* uk */,
 			);
 			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-		E7D39EE720906EF7004D3097 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7D39EE820906EF7004D3097 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E7D39EEC20906EF7004D3097 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E7D39EED20906EF7004D3097 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -666,7 +664,7 @@
 			};
 			name = Release;
 		};
-		E7D39EF020906EF7004D3097 /* Debug */ = {
+		E7A6CB5023AB672F00947139 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -675,14 +673,15 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -692,7 +691,7 @@
 			};
 			name = Debug;
 		};
-		E7D39EF120906EF7004D3097 /* Release */ = {
+		E7A6CB5123AB672F00947139 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -701,14 +700,14 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "vladimirrybant.Unbound-Bible-iOS";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
@@ -739,11 +738,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E7D39EF220906EF7004D3097 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */ = {
+		E7A6CB4F23AB672F00947139 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E7D39EF020906EF7004D3097 /* Debug */,
-				E7D39EF120906EF7004D3097 /* Release */,
+				E7A6CB5023AB672F00947139 /* Debug */,
+				E7A6CB5123AB672F00947139 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
