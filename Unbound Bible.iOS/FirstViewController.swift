@@ -8,11 +8,15 @@
 
 import UIKit
 
+var firstView = UIViewController()
+
 class FirstViewController: UIViewController {
 
+    @IBOutlet weak var bibleText: BibleTextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        bibleText.loadChapter()
     }
 
 

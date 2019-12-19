@@ -11,13 +11,30 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        initialization()
         return true
     }
 
+    func initialization() {
+        readDefaults()
+        copyDefaultsFiles()
+        if shelf.isEmpty { return }
+        shelf.setCurrent(defaultCurrent!)
+        
+        print(defaultCurrent!)
+        
+//      leftView.bibleMenuInit()
+//      mainView.updateStatus(bible!.info)
+//      leftView.makeBookList()
+//      goToVerse(activeVerse, select: (activeVerse.number > 1))
+        
+        readPrivates()
+        
+//      createRecentMenu()
+//      localization()
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
