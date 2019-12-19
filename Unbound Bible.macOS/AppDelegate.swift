@@ -24,8 +24,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var defaultDirection: NSMenuItem!
     @IBOutlet weak var commentariesItem: NSMenuItem!
     
-    var defaultCurrent : String?
-    
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
         initialization()
@@ -96,62 +94,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         saveDefaults()
         savePrivates()
     }
-    
-    func readDefaults() {
-        let defaults = UserDefaults.standard
-//      let domain = Bundle.main.bundleIdentifier!
-//      defaults.removePersistentDomain(forName: domain) // debug
-        defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
-
-        applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
-        defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
-
-        activeVerse.book    = defaults.integer(forKey: "verseBook")
-        activeVerse.chapter = defaults.integer(forKey: "verseChapter")
-        activeVerse.number  = defaults.integer(forKey: "verseNumber")
-        activeVerse.count   = defaults.integer(forKey: "verseCount")
         
-        if let name = defaults.string(forKey: "fontName") {
-            let size = defaults.cgfloat(forKey: "fontSize")
-            if let font = NSFont(name: name, size: size) {
-                defaultFont = font
-            }
-        }
-
-        let value = defaults.integer(forKey: "copyOptions")
-        copyOptions = CopyOptions(rawValue: value)
-
-        if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
-            recentList.append(bookmarks: bookmarks)
-        }
-    }
-    
-    func saveDefaults() {
-        if shelf.isEmpty { return }
-        let defaults = UserDefaults.standard
-        defaults.set(applicationVersion,    forKey: "applicationVersion")
-        defaults.set(bible!.fileName,       forKey: "current")
-        defaults.set(activeVerse.book,      forKey: "verseBook")
-        defaults.set(activeVerse.chapter,   forKey: "verseChapter")
-        defaults.set(activeVerse.number,    forKey: "verseNumber")
-        defaults.set(activeVerse.count,     forKey: "verseCount")
-        defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
-        defaults.set(defaultFont.fontName , forKey: "fontName")
-        defaults.set(defaultFont.pointSize, forKey: "fontSize")
-        defaults.set(recentList.bookmarks,  forKey: "bookmarks")
-    }
-    
-    func readPrivates() {
-        for item in shelf.bibles {
-            item.compare = !UserDefaults.standard.bool(forKey: item.fileName)
-        }
-    }
-    
-    func savePrivates() {
-        for item in shelf.bibles {
-            UserDefaults.standard.set(!item.compare, forKey: item.fileName)
-        }
-    }
-    
 }
 

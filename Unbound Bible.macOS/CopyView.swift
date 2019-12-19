@@ -7,17 +7,6 @@
 
 import Cocoa
 
-struct CopyOptions : OptionSet {
-    let rawValue: Int
-    static let  abbreviate = CopyOptions(rawValue: 1 << 0)
-    static let   enumerate = CopyOptions(rawValue: 1 << 1)
-    static let  guillemets = CopyOptions(rawValue: 1 << 2)
-    static let parentheses = CopyOptions(rawValue: 1 << 3)
-    static let  endinglink = CopyOptions(rawValue: 1 << 4)
-}
-
-var copyOptions: CopyOptions = []
-
 var copyView = CopyView()
 
 class CopyView: NSViewController {
