@@ -18,6 +18,9 @@
 		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
 		E72C3DF121EF46B1007A143F /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72C3DF021EF46B1007A143F /* CommentsView.swift */; };
 		E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DF9E11DE8651C00A46DA1 /* LeftView.swift */; };
+		E736414E23AB82BF0077293D /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
+		E736414F23AB82C90077293D /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
+		E736415023AB835E0077293D /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7382CBA21CC006400DF8772 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
 		E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74040F11ED5A40F00F96C48 /* CopyView.swift */; };
@@ -391,6 +394,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E736415023AB835E0077293D /* icns.icns in Resources */,
+				E736414F23AB82C90077293D /* titles in Resources */,
+				E736414E23AB82BF0077293D /* bibles in Resources */,
 				E7A6CB4D23AB672F00947139 /* LaunchScreen.storyboard in Resources */,
 				E7A6CB4A23AB672F00947139 /* Assets.xcassets in Resources */,
 				E7A6CB4823AB672C00947139 /* Main.storyboard in Resources */,
@@ -667,7 +673,6 @@
 		E7A6CB5023AB672F00947139 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -694,7 +699,6 @@
 		E7A6CB5123AB672F00947139 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_ENABLE_OBJC_WEAK = YES;
