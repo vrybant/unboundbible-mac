@@ -10,9 +10,13 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let attrString = loadCompare_() 
+        textView.textStorage.setAttributedString(attrString)
     }
 
 

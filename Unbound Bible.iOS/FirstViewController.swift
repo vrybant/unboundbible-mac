@@ -16,7 +16,9 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bibleText.loadChapter()
+        
+        let attrString = loadChapter_()
+        bibleText.textStorage.setAttributedString(attrString)
     }
 
 

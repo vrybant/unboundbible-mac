@@ -31,7 +31,6 @@
 		E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72523AAA36200C48A54 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* extension.swift */; };
-		E7A3383A23ABC41D0017A5C6 /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A3383923ABC41D0017A5C6 /* tools.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
 		E7A6CB3F23AB672C00947139 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6CB3E23AB672C00947139 /* AppDelegate.swift */; };
 		E7A6CB4123AB672C00947139 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6CB4023AB672C00947139 /* SceneDelegate.swift */; };
@@ -58,6 +57,8 @@
 		E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
+		E7AD04B423ACE59F00443A49 /* kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD04B323ACE59F00443A49 /* kit.swift */; };
+		E7AD04B523ACE59F00443A49 /* kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD04B323ACE59F00443A49 /* kit.swift */; };
 		E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */; };
 		E7B7CB6621D66EB600BC292F /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
 		E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
@@ -110,7 +111,6 @@
 		E7A0D72423AAA36200C48A54 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E7A0D72C23AAABE900C48A54 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/libsqlite3.0.tbd; sourceTree = DEVELOPER_DIR; };
 		E7A0D72D23AAAC0400C48A54 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS13.2.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
-		E7A3383923ABC41D0017A5C6 /* tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tools.swift; sourceTree = "<group>"; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E7A6CB3C23AB672C00947139 /* Unbound Bible.iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbound Bible.iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A6CB3E23AB672C00947139 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +123,7 @@
 		E7A6CB4E23AB672F00947139 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
+		E7AD04B323ACE59F00443A49 /* kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kit.swift; sourceTree = "<group>"; };
 		E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		E7B7CB6521D66EB600BC292F /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
@@ -236,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				E7A6CB3E23AB672C00947139 /* AppDelegate.swift */,
-				E7A3383923ABC41D0017A5C6 /* tools.swift */,
 				E736415123ABA7E10077293D /* BibleText.swift */,
 				E7A6CB4023AB672C00947139 /* SceneDelegate.swift */,
 				E7A6CB4223AB672C00947139 /* FirstViewController.swift */,
@@ -282,6 +282,7 @@
 			children = (
 				E7B7CB6521D66EB600BC292F /* Module.swift */,
 				E77BCA6C1FF4E44A00F950B5 /* Titles.swift */,
+				E7AD04B323ACE59F00443A49 /* kit.swift */,
 				E7A0D72123AAA28800C48A54 /* extensions.swift */,
 				E7EF67621FF38F3400360C1D /* Shelf.swift */,
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
@@ -420,6 +421,7 @@
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
 				E72C3DF121EF46B1007A143F /* CommentsView.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* extension.swift in Sources */,
+				E7AD04B423ACE59F00443A49 /* kit.swift in Sources */,
 				E7DD51A51DE764A70003D654 /* tools.swift in Sources */,
 				E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */,
 				E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */,
@@ -458,7 +460,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7A3383A23ABC41D0017A5C6 /* tools.swift in Sources */,
+				E7AD04B523ACE59F00443A49 /* kit.swift in Sources */,
 				E7A6CB5523AB67D900947139 /* Shelf.swift in Sources */,
 				E7A6CB5A23AB67E700947139 /* lib.swift in Sources */,
 				E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */,
