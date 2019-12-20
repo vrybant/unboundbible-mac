@@ -141,7 +141,7 @@ extension String {
         return string
     }
     
-    func mutable(attributes: [NSAttributedString.Key: Any]) -> NSMutableAttributedString {
+    func mutable(attributes: [NSAttributedString.Key: Any] = [:]) -> NSMutableAttributedString {
         return NSMutableAttributedString(string: self, attributes: attributes)
     }
     
