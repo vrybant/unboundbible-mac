@@ -12,10 +12,16 @@ var firstView = UIViewController()
 
 class FirstViewController: UIViewController {
 
+    @IBAction func bookAction(_ sender: UIButton) {
+        print("ok")
+    }
+    
     @IBOutlet weak var bibleText: BibleTextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemRed
         
         let attrString = loadChapter_()
         bibleText.textStorage.setAttributedString(attrString)
