@@ -59,6 +59,7 @@
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
 		E7AD04B423ACE59F00443A49 /* kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD04B323ACE59F00443A49 /* kit.swift */; };
 		E7AD04B523ACE59F00443A49 /* kit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AD04B323ACE59F00443A49 /* kit.swift */; };
+		E7AE96B223BF85BF00DD314D /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE96B123BF85BF00DD314D /* PopupView.swift */; };
 		E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */; };
 		E7B7CB6621D66EB600BC292F /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
 		E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
@@ -124,6 +125,7 @@
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
 		E7AD04B323ACE59F00443A49 /* kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kit.swift; sourceTree = "<group>"; };
+		E7AE96B123BF85BF00DD314D /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		E7B7CB6521D66EB600BC292F /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				E7A6CB4023AB672C00947139 /* SceneDelegate.swift */,
 				E7A6CB4223AB672C00947139 /* FirstViewController.swift */,
 				E7A6CB4423AB672C00947139 /* SecondViewController.swift */,
+				E7AE96B123BF85BF00DD314D /* PopupView.swift */,
 				E7A6CB4623AB672C00947139 /* Main.storyboard */,
 				E7A6CB4923AB672F00947139 /* Assets.xcassets */,
 				E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */,
@@ -471,6 +474,7 @@
 				E7A6CB5823AB67E100947139 /* data.swift in Sources */,
 				E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */,
 				E7A6CB4523AB672C00947139 /* SecondViewController.swift in Sources */,
+				E7AE96B223BF85BF00DD314D /* PopupView.swift in Sources */,
 				E7A6CB5923AB67E400947139 /* parse.swift in Sources */,
 				E7A6CB4323AB672C00947139 /* FirstViewController.swift in Sources */,
 				E7A6CB5423AB67D600947139 /* extensions.swift in Sources */,

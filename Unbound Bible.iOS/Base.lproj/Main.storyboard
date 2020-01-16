@@ -15,42 +15,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="First View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                <rect key="frame" x="131.5" y="44" width="151" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-td-Tbu">
-                                <rect key="frame" x="131" y="115" width="171" height="34"/>
-                                <size key="titleShadowOffset" width="1" height="1"/>
-                                <state key="normal" title="Book">
-                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="bookAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="jUf-JJ-u04"/>
-                                </connections>
-                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="61Y-xc-tLC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem title="Title" id="ri0-rz-zPP"/>
+                                </items>
+                            </navigationBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-Ll-YLp" customClass="BibleTextView" customModule="Unbound_Bible_iOS" customModuleProvider="target">
-                                <rect key="frame" x="42" y="187" width="344" height="573"/>
+                                <rect key="frame" x="42" y="213" width="344" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSY-td-Tbu">
+                                <rect key="frame" x="122" y="145" width="170" height="38"/>
+                                <size key="titleShadowOffset" width="1" height="1"/>
+                                <state key="normal" title="Book" backgroundImage="whiteButton">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="bookAction:" destination="9pv-A4-QxB" eventType="touchUpInside" id="jUf-JJ-u04"/>
+                                    <segue destination="8UW-iq-8mg" kind="presentation" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Dro-DN-GGA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="6BV-lF-sBN"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="top" secondItem="oSY-td-Tbu" secondAttribute="bottom" constant="38" id="Aac-69-gSK"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" constant="7" id="CGR-Rb-2qg"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="nt3-Ll-YLp" secondAttribute="bottom" constant="53" id="Pho-7t-xM4"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="25.5" id="Xvk-Ti-eKn"/>
-                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" constant="382.5" id="exm-UA-ej4"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="oSY-td-Tbu" secondAttribute="trailing" constant="112" id="fwQ-oT-oEP"/>
+                            <constraint firstItem="oSY-td-Tbu" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="122" id="57C-Yd-jof"/>
+                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="top" secondItem="oSY-td-Tbu" secondAttribute="bottom" constant="30" id="Aac-69-gSK"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="nt3-Ll-YLp" secondAttribute="bottom" constant="-25" id="Pho-7t-xM4"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="nt3-Ll-YLp" secondAttribute="trailing" constant="28" id="Upi-eu-9TJ"/>
+                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" constant="77.5" id="Xvk-Ti-eKn"/>
+                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="centerX" secondItem="oSY-td-Tbu" secondAttribute="centerX" constant="7" id="aGn-FP-lvw"/>
                             <constraint firstItem="nt3-Ll-YLp" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="42" id="lag-b9-CVo"/>
-                            <constraint firstItem="oSY-td-Tbu" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="131" id="xCQ-J4-qhO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
@@ -62,6 +63,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="749.27536231884062" y="-320.08928571428572"/>
+        </scene>
+        <!--Popup View Controller-->
+        <scene sceneID="YOV-oG-ZUb">
+            <objects>
+                <viewController id="8UW-iq-8mg" customClass="PopupViewController" customModule="Unbound_Bible_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3jY-6Q-tC9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-K9-f9B">
+                                <rect key="frame" x="160" y="202" width="94" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2j-lF-i7W">
+                                <rect key="frame" x="106" y="386" width="202" height="124"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="closeButton:" destination="8UW-iq-8mg" eventType="touchUpInside" id="JSO-Ll-eiK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="R2j-lF-i7W" firstAttribute="centerX" secondItem="dRg-K9-f9B" secondAttribute="centerX" id="5lj-32-rsG"/>
+                            <constraint firstItem="R2j-lF-i7W" firstAttribute="centerY" secondItem="3jY-6Q-tC9" secondAttribute="centerY" id="IV6-x4-VvK"/>
+                            <constraint firstItem="dRg-K9-f9B" firstAttribute="centerY" secondItem="3jY-6Q-tC9" secondAttribute="centerY" constant="-222" id="ONJ-jd-iZq"/>
+                            <constraint firstItem="R2j-lF-i7W" firstAttribute="leading" secondItem="aqD-Um-Hib" secondAttribute="leading" constant="106" id="RNm-gk-q7k"/>
+                            <constraint firstItem="aqD-Um-Hib" firstAttribute="bottom" secondItem="R2j-lF-i7W" secondAttribute="bottom" constant="352" id="U7B-Vq-6hX"/>
+                            <constraint firstItem="dRg-K9-f9B" firstAttribute="centerX" secondItem="3jY-6Q-tC9" secondAttribute="centerX" id="fpr-Ws-XOd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aqD-Um-Hib"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="9Pe-e9-zmT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3oL-yz-6KV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1509" y="-320"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -151,5 +192,6 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
+        <image name="whiteButton" width="29" height="38"/>
     </resources>
 </document>
