@@ -16,6 +16,10 @@ private let dictionary = [
     "<Fo>":"</t>",
     "<TS>": "<h>", // title
     "<Ts>":"</h>",
+    "<E>" : "<n>", // english translation
+    "<e>" :"</n>",
+    "<T>" : "<n>", // translation
+    "<t>" :"</n>",
     "<RF>": "<f>", // footnote
     "<RF ": "<f ",
     "<Rf>":"</f>"]
