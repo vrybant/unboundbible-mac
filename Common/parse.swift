@@ -7,7 +7,7 @@
 
 import Foundation
 
-var defaultFont = Font.systemFont(ofSize: 14)
+var defaultFont = Font.init(name: "Helvetica", size: 14) ?? Font.systemFont(ofSize: 14)
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
     return [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
