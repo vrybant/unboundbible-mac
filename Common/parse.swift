@@ -7,15 +7,22 @@
 
 import Foundation
 
-var defaultFont = Font.init(name: "Helvetica", size: 14) ?? Font.systemFont(ofSize: 14)
+var defaultFont = Font.init(name: "HelveticaNeue", size: 14) ?? Font.systemFont(ofSize: 14)
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
     return [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
 }
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
+    let discount : CGFloat = small ? 2 : 1
+    
+    let     smallFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 2)!
+    let    italicFont = Font(name:"HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
+    let subscriptFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 5)!
+    let  footnoteFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 3)!
+
     let s = string.mutable(attributes: defaultAttributes)
-    if small { s.addAttribute(.font, value: Font.systemFont(ofSize: 12)) }
+    if small { s.addAttribute(.font, value: smallFont) }
 
     if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
     if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
@@ -29,12 +36,12 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     if tags.contains("<b>") { s.addAttribute(.foregroundColor, value: Color.systemBrown ) }
 
     if tags.intersection(["<i>","<em>"]) != [] {
-        s.addAttribute(.font, value: Font(name:"Verdana-Italic", size: small ? 12 : 13)!)
+        s.addAttribute(.font, value: italicFont )
         s.addAttribute(.foregroundColor, value: Color.secondaryLabelColor)
     }
-    if tags.contains("<S>") { s.addAttribute(.font, value: Font.systemFont(ofSize:  9)) }
-    if tags.contains("<m>") { s.addAttribute(.font, value: Font.systemFont(ofSize:  9)) }
-    if tags.contains("<f>") { s.addAttribute(.font, value: Font.systemFont(ofSize: 11)) }
+    if tags.contains("<S>") { s.addAttribute(.font, value: subscriptFont) }
+    if tags.contains("<m>") { s.addAttribute(.font, value: subscriptFont) }
+    if tags.contains("<f>") { s.addAttribute(.font, value: footnoteFont ) }
         
     if tags.intersection(["<S>","<m>","<f>"]) != [] {
         s.addAttribute(.baselineOffset, value: 5.0)
@@ -44,8 +51,11 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
 }
 
 private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttributedString {
+    let font = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 1)!
+    let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - 2) ?? font
+    
     let s = string.mutable(attributes: defaultAttributes)
-    s.addAttribute(.font, value: Font.systemFont(ofSize: 13))
+    s.addAttribute(.font, value: font)
     
     if tags.contains("<a>") {
         s.addAttribute(.foregroundColor, value: Color.systemGray  )
@@ -54,7 +64,7 @@ private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttrib
         s.addAttribute(.foregroundColor, value: Color.systemBrown )
     }
     if tags.intersection(["<i>","<em>"]) != [] {
-        s.addAttribute(.font, value: Font(name:"Verdana-Italic", size: 12)!)
+        s.addAttribute(.font, value: italicFont)
     }
     if tags.contains("<sup>") {
         s.addAttribute(.baselineOffset, value: 5.0)
