@@ -26,7 +26,10 @@ struct StringAlias {
     var chapter = "Chapter"
     var verse = "Verse"
     var text = "Scripture"
-    var details = "Details"
+    var titles = "Titles"
+    var number = "Number"
+    var name = "Name"
+    var abbr = "Abbr"
 }
 
 var mybibleStringAlias = StringAlias(
@@ -35,8 +38,18 @@ var mybibleStringAlias = StringAlias(
     chapter : "chapter",
     verse : "verse",
     text : "text",
-    details : "info"
+    titles : "titles",
+    number : "number",
+    name : "name",
+    abbr : "abbr"
 )
+
+struct Title {
+    var name    = ""
+    var abbr    = ""
+    var number  = 0
+    var sorting = 0
+}
 
 struct CommentaryAlias {
     var commentary = "commentary"

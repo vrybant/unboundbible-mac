@@ -7,22 +7,13 @@
 
 import Foundation
 
-struct Title {
-    var name    = ""
-    var abbr    = ""
-    var number  = 0
-    var sorting = 0
-}
-
-class Titles {
+class ExternalTitles {
     private var database : FMDatabase?
-    private var data = [Title]()
 
     init(language: String) {
         let path = getFileName(language: language)
         database = FMDatabase(path: path)
         database!.open()
-        loadData()
     }
     
     private func getFileName(language: String) -> String {
@@ -38,31 +29,31 @@ class Titles {
         return result
     }
     
-    private func loadData() {
-        var t = Title()
+    func getData() -> [Title] {
+        var data = [Title]()
         var k = 0
         
         let query = "SELECT * FROM Books"
         
         if let results = database!.executeQuery(query) {
             while results.next() {
+                var t = Title()
                 t.name = results.string(forColumn: "Name") ?? ""
                 t.abbr = results.string(forColumn: "Abbreviation") ?? ""
                 t.number = Int(results.int(forColumn: "Number"))
+                
                 if t.abbr.isEmpty { t.abbr = t.name }
                 t.sorting = !isNewTestament(t.number) ? k : k + 100
+                
                 data.append(t)
                 k += 1
             }
         }
+        return data
     }
-    
-    func getTitle(_ n: Int) -> Title? {
-        for t in data {
-            if t.number == n { return t }
-        }
-        return nil
-    }
-    
 }
 
+func getExternalTitles(language: String) -> [Title] {
+    let externalTitles = ExternalTitles(language: language)
+    return externalTitles.getData()
+}

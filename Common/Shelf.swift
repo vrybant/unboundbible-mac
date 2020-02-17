@@ -20,6 +20,7 @@ class Bible: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = mybibleStringAlias }
+        embtitles = database!.tableExists(z.titles)
         if connected && !database!.tableExists(z.bible) { return nil }
     }
     
@@ -56,19 +57,29 @@ class Bible: Module {
             loaded = true
         }
     }
+
+    func getEmbeddedTitles() -> [Title] {
+        return getExternalTitles(language: language) // temp
+    }
     
     func setTitles() {
         if books.isEmpty { return }
-        let titles = Titles(language: language)
+        let titles = embtitles ? getEmbeddedTitles() : getExternalTitles(language: language)
+
         for i in 0...self.books.count-1 {
-            if let t = titles.getTitle(books[i].number) {
-                books[i].title = t.name
-                books[i].abbr = t.abbr
-                books[i].sorting = t.sorting
-            } else {
-                books[i].title = "Apocrypha " + String(books[i].id)
-                books[i].abbr = books[i].title
-                books[i].sorting = 99
+            books[i].title = "Unknown " + String(books[i].id)
+            books[i].abbr = ""
+            books[i].sorting = 999
+            
+            var n = books[i].id
+            if format == .mybible { n = decodeID(n) }
+            
+            for title in titles {
+                if title.number == n {
+                    books[i].title = title.name
+                    books[i].abbr = title.abbr
+                    books[i].sorting = title.sorting
+                }
             }
         }
     }
