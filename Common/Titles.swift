@@ -52,8 +52,3 @@ class ExternalTitles {
         return data
     }
 }
-
-func getExternalTitles(language: String) -> [Title] {
-    let externalTitles = ExternalTitles(language: language)
-    return externalTitles.getData()
-}

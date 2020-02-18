@@ -59,12 +59,17 @@ class Bible: Module {
     }
 
     func getEmbeddedTitles() -> [Title] {
-        return getExternalTitles(language: language) // temp
+        return getExternalTitles() // temp
+    }
+    
+    func getExternalTitles() -> [Title] {
+        let externalTitles = ExternalTitles(language: language)
+        return externalTitles.getData()
     }
     
     func setTitles() {
         if books.isEmpty { return }
-        let titles = embtitles ? getEmbeddedTitles() : getExternalTitles(language: language)
+        let titles = embtitles ? getEmbeddedTitles() : getExternalTitles()
 
         for i in 0...self.books.count-1 {
             books[i].title = "Unknown " + String(books[i].id)
