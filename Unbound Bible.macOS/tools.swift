@@ -119,15 +119,17 @@ func copyVerses(options: CopyOptions) -> NSAttributedString {
     
     let full = !options.contains(.abbreviate)
     var link = "<l>" + bible!.verseToString(activeVerse, full: full) + "</l>"
-    var n = activeVerse.number
+    var number = activeVerse.number
     var l = false
     
     for line in list {
-        let s = l ? " (\(n))" : ""
+        var n = String(number)
+        if options.contains(.parentheses) { n = "(" + n + ")" }
+        let s = l ? " " + n : ""
         if options.contains(.enumerate) { out += s }
         if l { out += " " }
         out += line
-        n += 1
+        number += 1
         l = true
     }
     
