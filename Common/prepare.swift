@@ -97,6 +97,7 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     string = string.cut(from: "<h>", to: "</h>")
     if  purge { string = string.cut(from: "<f", to:"</f>") }
     if !purge { string = string.replace("</f><f>", with: "</f> <f>") }
+    if !purge { string = string.replace("</S><m>", with: "</S> <m>") }
     string = string.replace("</S><S>", with: "</S> <S>")
     
     return string

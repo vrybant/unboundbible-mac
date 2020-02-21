@@ -24,7 +24,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     let s = string.mutable(attributes: defaultAttributes)
     if small { s.addAttribute(.font, value: smallFont) }
 
-    if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
+    if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.systemTeal  ) }
     if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
     if tags.contains("<v>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
     if tags.contains("<a>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
