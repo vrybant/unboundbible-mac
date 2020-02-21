@@ -115,7 +115,7 @@ func goToVerse(_ verse: Verse, select: Bool) {
 func copyVerses(options: CopyOptions) -> NSAttributedString {
     if shelf.isEmpty { return NSAttributedString() }
     guard let list = bible!.getRange(activeVerse) else { return NSAttributedString() }
-    var out = ""
+    var quote = ""
     
     let full = !options.contains(.abbreviate)
     var link = "<l>" + bible!.verseToString(activeVerse, full: full) + "</l>"
@@ -126,22 +126,17 @@ func copyVerses(options: CopyOptions) -> NSAttributedString {
         var n = String(number)
         if options.contains(.parentheses) { n = "(" + n + ")" }
         let s = l ? " " + n : ""
-        if options.contains(.enumerate) { out += s }
-        if l { out += " " }
-        out += line
+        if options.contains(.enumerate) { quote += s }
+        if l { quote += " " }
+        quote += line
         number += 1
         l = true
     }
     
-    if options.contains(.guillemets ) { out  = "«" + out  + "»" }
+    if options.contains(.guillemets ) { quote  = "«" + quote  + "»" }
     if options.contains(.parentheses) { link = "(" + link + ")" }
+    quote = options.contains(.endinglink) ? quote + " " + link : link + " " + quote
+    quote += "\n"
     
-    if options.contains(.endinglink) {
-        out += " " + link
-    } else {
-        out = link + " " + out
-    }
-    out += "\n"
-    
-    return parse(out)
+    return parse(quote)
 }
