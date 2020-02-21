@@ -59,12 +59,30 @@ class Bible: Module {
     }
 
     func getEmbeddedTitles() -> [Title] {
-        return getExternalTitles() // temp
+        var result = [Title]()
+        var k = 0
+        
+        let query = "SELECT * FROM " + z.titles
+        
+        if let results = database!.executeQuery(query) {
+            while results.next() {
+                var t = Title()
+                t.name = results.string(forColumn: z.name) ?? ""
+                t.abbr = results.string(forColumn: z.abbr) ?? ""
+                t.number = Int(results.int(forColumn: z.number))
+                
+                t.sorting = k
+                if format == .unbound && !isNewTestament(t.number) { t.sorting = k + 100 }
+                
+                result.append(t)
+                k += 1
+            }
+        }
+        return result
     }
     
     func getExternalTitles() -> [Title] {
-        let externalTitles = ExternalTitles(language: language)
-        return externalTitles.getData()
+        return ExternalTitles(language: language).getData()
     }
     
     func setTitles() {
@@ -77,7 +95,7 @@ class Bible: Module {
             books[i].sorting = 999
             
             var n = books[i].id
-            if format == .mybible { n = decodeID(n) }
+            if format == .mybible && !embtitles { n = decodeID(n) }
             
             for title in titles {
                 if title.number == n {

@@ -38,10 +38,10 @@ var mybibleStringAlias = StringAlias(
     chapter : "chapter",
     verse : "verse",
     text : "text",
-    titles : "titles",
-    number : "number",
-    name : "name",
-    abbr : "abbr"
+    titles : "books_all",
+    number : "book_number",
+    name : "long_name",
+    abbr : "short_name"
 )
 
 struct Title {
