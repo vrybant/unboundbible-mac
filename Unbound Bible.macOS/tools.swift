@@ -123,16 +123,20 @@ func copyVerses(options: CopyOptions) -> NSAttributedString {
     var l = false
     
     for line in list {
-        var n = String(number)
-        if options.contains(.parentheses) { n = "(" + n + ")" }
-        let s = l ? " " + n : ""
-        if options.contains(.enumerate) { quote += s }
-        if l { quote += " " }
-        quote += line
+        if options.contains(.enumerate) && list.count > 1 {
+            if l || (!l && options.contains(.endinglink)) {
+                var n = String(number)
+                if options.contains(.parentheses) { n = "(" + n + ")" }
+                quote += n + " "
+            }
+        }
+
+        quote += line + " "
         number += 1
         l = true
     }
     
+    quote = quote.trimmed
     if options.contains(.guillemets ) { quote  = "«" + quote  + "»" }
     if options.contains(.parentheses) { link = "(" + link + ")" }
     quote = options.contains(.endinglink) ? quote + " " + link : link + " " + quote
