@@ -125,7 +125,7 @@ extension String {
     
     func replace(_ string: String, with: String) -> String
     {
-        return self.replacingOccurrences(of: string, with: with, options: NSString.CompareOptions.literal, range: nil)
+        return self.replacingOccurrences(of: string, with: with, options: .literal, range: nil)
     }
 
     func cut(from: String, to: String) -> String {
@@ -151,7 +151,7 @@ extension String {
         
         if !options.contains(.wholeWords) { return selfString.contains(otherString) }
         
-        let сharacterSet = NSCharacterSet.punctuationCharacters.union(NSCharacterSet.whitespaces)
+        let сharacterSet = NSCharacterSet.punctuationCharacters.union(.whitespaces)
         let words = selfString.components(separatedBy: сharacterSet)
         
         for word in words {

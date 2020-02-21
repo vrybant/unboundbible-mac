@@ -113,6 +113,8 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
             }
         } else {
             if !jtag { tags.remove("<J>") }
+            var s = s
+            if s.hasPrefix(" ") && result.string.hasSuffix(" ") { s = s.removeLeadingChar }
             let attrString = attrStringFromTags(s, tags: tags, small: small)
             result.append(attrString)
         }
