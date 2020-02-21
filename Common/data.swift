@@ -92,6 +92,8 @@ struct Verse {
     var count   = 0
 }
 
+var activeVerse = Verse()
+
 struct Book {
     var title   = ""
     var abbr    = ""
@@ -242,4 +244,3 @@ func savePrivates() {
         UserDefaults.standard.set(!item.compare, forKey: item.fileName)
     }
 }
-
