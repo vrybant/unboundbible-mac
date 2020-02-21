@@ -17,7 +17,12 @@ class Bible: Module {
 
     override init?(atPath: String) {
         super.init(atPath: atPath)
-        if format == .mybible { z = mybibleStringAlias }
+        
+        if format == .mybible {
+            z = mybibleStringAlias
+            if !database!.tableExists(z.titles) { z.titles = "books" }
+        }
+        
         embtitles = database!.tableExists(z.titles)
         if connected && !database!.tableExists(z.bible) { return nil }
     }
