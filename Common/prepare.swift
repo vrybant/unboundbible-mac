@@ -35,11 +35,14 @@ private func replaceMyswordTags(_ string: inout String) {
 private func myswordStrongsToUnbound(_ string: String) -> String {
     let list = xmlToList(string: string)
     var result = ""
-    // WT ?
+
     for item in list {
         if item.hasPrefix("<WH") || item.hasPrefix("<WG") {
             let number = item.replace("<W", with: "").replace(">", with: "")
             result += "<S>" + number + "</S>"
+        } else if item.hasPrefix("<WT") {
+            let code = item.replace("<WT", with: "").replace(">", with: "")
+            result += "<m>" + code + "</m>"
         } else {
             result += item
         }
@@ -90,12 +93,12 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     }
 
     if format == .unbound || format == .mysword {
-        if !purge && string.contains("<f>") { footnotes(&string) }
-        if !purge && string.contains("<f ") { footnotesEx(&string) }
+        if string.contains("<f>") { footnotes(&string) }
+        if string.contains("<f ") { footnotesEx(&string) }
     }
     
     string = string.cut(from: "<h>", to: "</h>")
-    if purge { string = string.cut(from: "<f", to:"</f>") }
+    if purge { string = string.cut(from: "<f>", to:"</f>") }
     string = string.replace("><", with: "> <")
 
     return string
