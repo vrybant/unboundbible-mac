@@ -70,14 +70,6 @@ extension String {
         return list
     }
     
-//    var componentsSeparatedByWhitespaces: [String] {
-//        return self.components(separatedBy: CharacterSet.newlines)
-//   }
-    
-//    var componentsSeparatedByNewlines: [String] {
-//        return self.components(separatedBy: CharacterSet.newlines)
-//    }
-    
     var removeTags: String {
         var s = ""
         var l = true
@@ -112,9 +104,9 @@ extension String {
     }
     
     var removeDoubleSpace: String {
-        return replace("  ", with: " ")
+        let components = self.components(separatedBy: .whitespacesAndNewlines).filter { !$0.isEmpty }
+        return components.joined(separator: " ")
     }
-    
     
     var lastPathComponent: String {
         return URL(fileURLWithPath: self).lastPathComponent
