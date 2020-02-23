@@ -10,6 +10,10 @@ import Foundation
 private let dictionary = [
     "<FR>": "<J>",
     "<Fr>":"</J>",
+    "<-1>": "<S>", // strong
+    "<-2>":"</S>",
+    "<-3>": "<m>", // morphology
+    "<-4>":"</m>",
     "<FI>": "<i>", // italic
     "<Fi>":"</i>",
     "<FO>": "<t>", // quote
@@ -20,6 +24,8 @@ private let dictionary = [
     "<e>" :"</n>",
     "<T>" : "<n>", // translation
     "<t>" :"</n>",
+    "<x>" :"</x>", // transliteration
+    "<X>" : "<x>",
     "<RF>": "<f>", // footnote
     "<RF ": "<f ",
     "<Rf>":"</f>"]
@@ -30,6 +36,24 @@ private func replaceMyswordTags(_ string: inout String) {
             string = string.replace(item.key, with: item.value)
         }
     }
+}
+
+private func enabledTag(_ tag: String) -> Bool {
+    for item in dictionary {
+        if tag == item.value { return true }
+    }
+    return false
+}
+
+private func cleanUnabledTags(_ string: inout String) {
+    let list = xmlToList(string: string)
+    string = ""
+
+    for item in list {
+        if item.hasPrefix("<") && !enabledTag(item) { continue }
+        string += item
+    }
+    string = string.removeDoubleSpace.trimmed
 }
 
 private func myswordStrongsToUnbound(_ string: String) -> String {
@@ -86,7 +110,6 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     var string = string
 
     if format == .mysword {
-        string = string.cut(from: "<X>", to:"<x>") // transliteration
         if string.contains("<W") { string = myswordStrongsToUnbound(string) }
         replaceMyswordTags(&string)
         string = string.replace("¶", with: "")
@@ -98,8 +121,12 @@ func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String 
     }
     
     string = string.cut(from: "<h>", to: "</h>")
+    string = string.cut(from: "<x>", to: "</x>")
+    
     if purge { string = string.cut(from: "<f>", to:"</f>") }
+    cleanUnabledTags(&string)
+    
     string = string.replace("><", with: "> <")
-
+    
     return string
 }

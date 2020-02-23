@@ -111,6 +111,11 @@ extension String {
         return result.joined(separator: " ")
     }
     
+    var removeDoubleSpace: String {
+        return replace("  ", with: " ")
+    }
+    
+    
     var lastPathComponent: String {
         return URL(fileURLWithPath: self).lastPathComponent
     }
