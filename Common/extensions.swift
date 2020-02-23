@@ -2,8 +2,7 @@
 //  extensions.swift
 //  Unbound Bible
 //
-//  Created by Vladimir Rybant on 18.12.2019.
-//  Copyright © 2019 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -55,7 +54,7 @@ extension String {
     }
     
     var trimmed: String {
-        return self.trimmingCharacters(in: CharacterSet.whitespaces)
+        return self.trimmingCharacters(in: .whitespaces)
     }
     
     var components: [String] {
