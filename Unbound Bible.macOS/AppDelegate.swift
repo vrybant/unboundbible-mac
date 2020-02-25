@@ -35,7 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if shelf.isEmpty { return }
         shelf.setCurrent(defaultCurrent!)
         leftView.bibleMenuInit()
-        mainView.updateStatus(bible!.info)
+        mainView.updateStatus(bible!.fileName + " | " + bible!.info)
         leftView.makeBookList()
         goToVerse(activeVerse, select: (activeVerse.number > 1))
         readPrivates()
