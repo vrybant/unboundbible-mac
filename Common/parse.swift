@@ -7,6 +7,10 @@
 
 import Foundation
 
+#if os(iOS)
+    import UIKit
+#endif
+
 var defaultFont = Font.init(name: "HelveticaNeue", size: 14) ?? Font.systemFont(ofSize: 14)
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
