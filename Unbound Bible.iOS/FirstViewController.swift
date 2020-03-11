@@ -24,6 +24,7 @@ class FirstViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        if shelf.isEmpty { return }
         let attrString = loadChapter_()
         bibleText.textStorage.setAttributedString(attrString)
     }

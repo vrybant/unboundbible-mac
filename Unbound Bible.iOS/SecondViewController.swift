@@ -32,9 +32,11 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func makeBookList() {
-        bookTableViewList = bible!.getTitles()
+        if let bible = bible {
+          bookTableViewList = bible.getTitles()
 //        bookTableView.reloadData()
 //        writingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
