@@ -2,7 +2,7 @@
 //  lib.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -18,10 +18,15 @@ import Foundation
 #endif
 
 var darkAppearance: Bool = false
+let resourceUrl = Bundle.main.resourceURL!
 
-let slash = "/"
-let resourcePath = Bundle.main.resourcePath!
-let dataPath = NSHomeDirectory() + slash + applicationName
+#if os(OSX)
+    let homeUrl = URL(fileURLWithPath: NSHomeDirectory())
+    let dataUrl = homeUrl.appendingPathComponent(applicationName)
+#else
+    let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let dataUrl = documentPath.appendingPathComponent(applicationName)
+#endif
 
 //let navyColor = Color(red:0.00, green:0.00, blue:0.50, alpha:1.0)
 
@@ -67,12 +72,13 @@ func xmlToList(string: String) -> [String] {
     return result
 }
 
-func contentsOfDirectory(atPath: String) -> [String]? {
-    if !FileManager.default.fileExists(atPath: atPath) { return nil }
+func contentsOfDirectory(url: URL) -> [String]? {
+    if !FileManager.default.fileExists(atPath: url.path) { return nil }
     var result = [String]()
-    if let files = try? FileManager.default.contentsOfDirectory(atPath: atPath) {
+    if let files = try? FileManager.default.contentsOfDirectory(atPath: url.path) {
         for file in files {
-            result.append(atPath + slash + file)
+            let path = url.appendingPathComponent(file).path
+            result.append(path)
         }
     }
     return !result.isEmpty ? result : nil
@@ -109,17 +115,20 @@ func getRightToLeft(language: String) -> Bool {
 }
 
 func copyDefaultsFiles() {
-    if !FileManager.default.fileExists(atPath: dataPath)  {
-        try? FileManager.default.createDirectory(atPath: dataPath, withIntermediateDirectories: false, attributes: nil)
+    if !FileManager.default.fileExists(atPath: dataUrl.path)  {
+        try? FileManager.default.createDirectory(at: dataUrl, withIntermediateDirectories: false, attributes: nil)
     }
+
     if !applicationUpdate && !databaseList().isEmpty { return }
-    
-    let atDirectory = resourcePath + slash + bibleDirectory
-    if let items = try? FileManager.default.contentsOfDirectory(atPath: atDirectory) {
+
+    let atDirectory = resourceUrl.appendingPathComponent(bibleDirectory)
+    if let items = try? FileManager.default.contentsOfDirectory(atPath: atDirectory.path) {
         for item in items {
-            let atPath = atDirectory + slash + item
-            let toPath = dataPath + slash + item
-            try? FileManager.default.removeItem(at: URL(fileURLWithPath: toPath))
+            let atPath = atDirectory.appendingPathComponent(item).path
+            let toUrl = dataUrl.appendingPathComponent(item)
+            let toPath = dataUrl.appendingPathComponent(item).path
+            
+            try? FileManager.default.removeItem(at: toUrl)
             try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
         }
     }

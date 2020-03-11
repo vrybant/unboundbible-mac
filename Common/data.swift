@@ -148,7 +148,7 @@ var defaultBible: String {
 
 func databaseList() -> [String] {
     let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return contentsOfDirectory(atPath: dataPath)?.filter { $0.hasSuffix(extensions) } ?? []
+    return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
 //********** RangeOption **********

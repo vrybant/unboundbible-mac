@@ -17,11 +17,11 @@ class ExternalTitles {
     }
     
     private func getFileName(language: String) -> String {
-        let path = resourcePath + slash + titleDirectory
-        var result = path + slash + "en.sqlite"
+        let url = resourceUrl.appendingPathComponent(titleDirectory)
+        var result = url.appendingPathComponent("en.sqlite").path
         if language.isEmpty { return result }
 
-        if let list = contentsOfDirectory(atPath: path) {
+        if let list = contentsOfDirectory(url: url) {
             for item in list {
                 if item.lastPathComponent.hasPrefix(language) { result = item }
             }
