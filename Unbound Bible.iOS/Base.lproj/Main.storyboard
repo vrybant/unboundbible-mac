@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Unbound_Bible_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                     <navigationItem title="Title" id="ri0-rz-zPP"/>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-Ll-YLp" customClass="BibleTextView" customModule="Unbound_Bible_iOS" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-Ll-YLp" customClass="BibleTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                 <rect key="frame" x="42" y="213" width="344" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
@@ -67,7 +67,7 @@
         <!--Popup View Controller-->
         <scene sceneID="YOV-oG-ZUb">
             <objects>
-                <viewController id="8UW-iq-8mg" customClass="PopupViewController" customModule="Unbound_Bible_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8UW-iq-8mg" customClass="PopupViewController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3jY-6Q-tC9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -79,7 +79,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2j-lF-i7W">
-                                <rect key="frame" x="106" y="386" width="202" height="124"/>
+                                <rect key="frame" x="148.5" y="417.5" width="117" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -89,12 +89,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="R2j-lF-i7W" firstAttribute="centerX" secondItem="dRg-K9-f9B" secondAttribute="centerX" id="5lj-32-rsG"/>
-                            <constraint firstItem="R2j-lF-i7W" firstAttribute="centerY" secondItem="3jY-6Q-tC9" secondAttribute="centerY" id="IV6-x4-VvK"/>
+                            <constraint firstItem="R2j-lF-i7W" firstAttribute="centerY" secondItem="3jY-6Q-tC9" secondAttribute="centerY" id="BLV-Om-hQd"/>
                             <constraint firstItem="dRg-K9-f9B" firstAttribute="centerY" secondItem="3jY-6Q-tC9" secondAttribute="centerY" constant="-222" id="ONJ-jd-iZq"/>
-                            <constraint firstItem="R2j-lF-i7W" firstAttribute="leading" secondItem="aqD-Um-Hib" secondAttribute="leading" constant="106" id="RNm-gk-q7k"/>
-                            <constraint firstItem="aqD-Um-Hib" firstAttribute="bottom" secondItem="R2j-lF-i7W" secondAttribute="bottom" constant="352" id="U7B-Vq-6hX"/>
                             <constraint firstItem="dRg-K9-f9B" firstAttribute="centerX" secondItem="3jY-6Q-tC9" secondAttribute="centerX" id="fpr-Ws-XOd"/>
+                            <constraint firstItem="R2j-lF-i7W" firstAttribute="centerX" secondItem="3jY-6Q-tC9" secondAttribute="centerX" id="tVt-sA-6Bu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aqD-Um-Hib"/>
                     </view>
@@ -107,7 +105,7 @@
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Unbound_Bible_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
