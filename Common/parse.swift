@@ -11,7 +11,14 @@ import Foundation
     import UIKit
 #endif
 
-var defaultFont = Font.init(name: "HelveticaNeue", size: 14) ?? Font.systemFont(ofSize: 14)
+#if os(OSX)
+    let defaultFontSize = CGFloat(14)
+#else
+    let defaultFontSize = CGFloat(16)
+#endif
+
+var defaultFontName = "HelveticaNeue"
+var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
     return [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
