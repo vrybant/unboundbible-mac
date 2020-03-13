@@ -20,7 +20,7 @@ class FirstViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemRed
+//      view.backgroundColor = .systemRed
     }
 
     override func viewWillAppear(_ animated: Bool) {
