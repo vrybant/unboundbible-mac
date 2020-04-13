@@ -106,7 +106,7 @@ private func footnotesEx(_ string: inout String) {
     string = string.cut(from: "[~", to: "~]")
 }
 
-func prepare(_ string: String, format: FileFormat, purge: Bool = true)-> String {
+func preparation(_ string: String, format: FileFormat, purge: Bool = true)-> String {
     var string = string
 
     if format == .mysword {

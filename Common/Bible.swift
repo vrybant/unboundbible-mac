@@ -159,7 +159,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = prepare(line, format: format, purge: false)
+                let text = preparation(line, format: format, purge: false)
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -167,7 +167,7 @@ class Bible: Module {
         return nil
     }
     
-    func getRange(_ verse: Verse, preparation: Bool = true, purge: Bool = true) -> [String]? {
+    func getRange(_ verse: Verse, prepare: Bool = true, purge: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
         let toVerse = verse.number + verse.count
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
@@ -177,7 +177,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = preparation ? prepare(line, format: format, purge: purge) : line
+                let text = prepare ? preparation(line, format: format, purge: purge) : line
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -203,7 +203,7 @@ class Bible: Module {
     }
      
     func getFootnote(_ verse : Verse, marker: String) -> String? {
-        guard let range = getRange(verse, preparation: false) else { return nil }
+        guard let range = getRange(verse, prepare: false) else { return nil }
         return extractFootnotes(range[0], marker)
     }
     
@@ -238,7 +238,7 @@ class Bible: Module {
                 guard let line = results.string(forColumn: z.text) else { break }
                 
                 let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
-                var text = prepare(line, format: format)
+                var text = preparation(line, format: format)
                 let content = Content(verse: verse, text: text)
                 text = text.replace("<S>", with: " ").removeTags
                 if text.containsEvery(list, options: options) { lines.append(content) }
