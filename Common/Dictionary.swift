@@ -54,10 +54,8 @@ class Dictionaries {
         var number = number
         let filename = language.hasPrefix("ru") ? "strongru.dct.unbound" : "strong.dct.unbound"
         
-        if !number.hasPrefix("H") && !number.hasPrefix("G") {
-            let letter = isNewTestament(verse.book) ? "G" : "H"
-            number =  letter + number
-        }
+        let letter = isNewTestament(verse.book) ? "G" : "H"
+        if !number.hasPrefix(letter) { number =  letter + number }
 
         for item in items {
             if !item.strong { continue }

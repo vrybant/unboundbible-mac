@@ -2,32 +2,22 @@
 //  prepare.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
 
 private let dictionary = [
-    "<FR>": "<J>",
-    "<Fr>":"</J>",
-    "<-1>": "<S>", // strong
-    "<-2>":"</S>",
-    "<-3>": "<m>", // morphology
-    "<-4>":"</m>",
-    "<FI>": "<i>", // italic
-    "<Fi>":"</i>",
-    "<FO>": "<t>", // quote
-    "<Fo>":"</t>",
-    "<TS>": "<h>", // title
-    "<Ts>":"</h>",
-    "<E>" : "<n>", // english translation
-    "<e>" :"</n>",
-    "<T>" : "<n>", // translation
-    "<t>" :"</n>",
-    "<x>" :"</x>", // transliteration
-    "<X>" : "<x>",
-    "<RF>": "<f>", // footnote
-    "<RF ": "<f ",
+    "<FR>": "<J>", "<Fr>":"</J>",
+    "<-1>": "<S>", "<-2>":"</S>", // strong
+    "<-3>": "<m>", "<-4>":"</m>", // morphology
+    "<FI>": "<i>", "<Fi>":"</i>", // italic
+    "<FO>": "<t>", "<Fo>":"</t>", // quote
+    "<TS>": "<h>", "<Ts>":"</h>", // title
+    "<E>" : "<n>", "<e>" :"</n>", // english translation
+    "<T>" : "<n>", "<t>" :"</n>", // translation
+    "<x>" :"</x>", "<X>" : "<x>", // transliteration
+    "<RF>": "<f>", "<RF ": "<f ", // footnote
     "<Rf>":"</f>"]
 
 private func replaceMyswordTags(_ string: inout String) {
@@ -36,6 +26,14 @@ private func replaceMyswordTags(_ string: inout String) {
             string = string.replace(item.key, with: item.value)
         }
     }
+    string = string.replace("¶", with: "")
+}
+
+private func replaceMybibleTags(_ string: inout String) {
+    string = string.replace(  "<t>", with: "  ")
+    string = string.replace( "</t>", with: "  ")
+    string = string.replace("<pb/>", with: "  ")
+    string = string.replace("<br/>", with: "  ")
 }
 
 private func enabledTag(_ tag: String) -> Bool {
@@ -54,6 +52,12 @@ private func cleanUnabledTags(_ string: inout String) {
         string += item
     }
     string = string.removeDoubleSpace.trimmed
+}
+
+private func mybibleStrongsToMysword(_ string: String, nt: Bool) -> String {
+    let symbol = nt ? "G" : "H"
+    let text = "<S>" + symbol
+    return string.replace(  "<S>", with: text)
 }
 
 private func myswordStrongsToUnbound(_ string: String) -> String {
@@ -106,26 +110,38 @@ private func footnotesEx(_ string: inout String) {
     string = string.cut(from: "[~", to: "~]")
 }
 
-func preparation(_ string: String, format: FileFormat, purge: Bool = true)-> String {
+func coercion(_ string: String, format: FileFormat, nt: Bool) -> String {
     var string = string
 
     if format == .mysword {
         if string.contains("<W") { string = myswordStrongsToUnbound(string) }
         replaceMyswordTags(&string)
-        string = string.replace("¶", with: "")
     }
 
+    if format == .mybible {
+        replaceMybibleTags(&string)
+    }
+
+    cleanUnabledTags(&string)
+    string = string.removeDoubleSpace
+    
+    return string
+}
+
+func preparation(_ string: String, format: FileFormat, nt: Bool, purge: Bool = true)-> String {
+    var string = string
+
+    if format != .unbound { string = coercion(string, format: format, nt: nt) }
+    
+    string = string.cut(from: "<h>", to: "</h>")
+    string = string.cut(from: "<x>", to: "</x>")
+    
     if format == .unbound || format == .mysword {
         if string.contains("<f>") { footnotes(&string) }
         if string.contains("<f ") { footnotesEx(&string) }
     }
     
-    string = string.cut(from: "<h>", to: "</h>")
-    string = string.cut(from: "<x>", to: "</x>")
-    
     if purge { string = string.cut(from: "<f>", to:"</f>") }
-    cleanUnabledTags(&string)
-    
     string = string.replace("><", with: "> <")
     
     return string

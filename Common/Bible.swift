@@ -153,13 +153,14 @@ class Bible: Module {
 
     func getChapter(_ verse : Verse) -> [String]? {
         let id = encodeID(verse.book)
+        let nt = isNewTestament(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
 
         if let results = database!.executeQuery(query) {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = preparation(line, format: format, purge: false)
+                let text = preparation(line, format: format, nt: nt, purge: false)
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -169,6 +170,7 @@ class Bible: Module {
     
     func getRange(_ verse: Verse, prepare: Bool = true, purge: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
+        let nt = isNewTestament(verse.book)
         let toVerse = verse.number + verse.count
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
@@ -177,7 +179,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = prepare ? preparation(line, format: format, purge: purge) : line
+                let text = prepare ? preparation(line, format: format, nt: nt, purge: purge) : line
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -238,7 +240,8 @@ class Bible: Module {
                 guard let line = results.string(forColumn: z.text) else { break }
                 
                 let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
-                var text = preparation(line, format: format)
+                let nt = isNewTestament(verse.book)
+                var text = preparation(line, format: format, nt: nt)
                 let content = Content(verse: verse, text: text)
                 text = text.replace("<S>", with: " ").removeTags
                 if text.containsEvery(list, options: options) { lines.append(content) }
