@@ -116,7 +116,6 @@ private func footnotesEx(_ string: inout String) {
 
 func coercion(_ string: String, format: FileFormat, nt: Bool) -> String {
     var string = string
-    string = string.cut(from: "<h>", to: "</h>")
 
     if format == .mysword {
         myswordStrongsToUnbound(&string)
@@ -142,6 +141,7 @@ func preparation(_ string: String, format: FileFormat, nt: Bool, purge: Bool = t
     }
 
     if purge { string = string.cut(from: "<f>", to:"</f>") }
+    string = string.cut(from: "<h>", to: "</h>")
     string = string.replace("><", with: "> <")
     
     return string
