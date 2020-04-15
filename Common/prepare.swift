@@ -16,7 +16,7 @@ private let dictionary = [
     "<TS>": "<h>", "<Ts>":"</h>", // title
     "<E>" : "<n>", "<e>" :"</n>", // english translation
     "<T>" : "<n>", "<t>" :"</n>", // translation
-    "<x>" :"</x>", "<X>" : "<x>", // transliteration
+    "<X>" : "<m>", "<x>" :"</m>", // transliteration
     "<RF>": "<f>", "<RF ": "<f ", // footnote
     "<Rf>":"</f>"]
 
@@ -38,7 +38,7 @@ private func replaceMybibleTags(_ string: inout String) {
 
 private func enabledTag(_ tag: String) -> Bool {
     for item in dictionary {
-        if tag == item.value { return true }
+        if tag.hasPrefix(item.value) { return true }
     }
     return false
 }
@@ -60,22 +60,26 @@ private func mybibleStrongsToMysword(_ string: String, nt: Bool) -> String {
     return string.replace(  "<S>", with: text)
 }
 
-private func myswordStrongsToUnbound(_ string: String) -> String {
+private func myswordStrongsToUnbound(_ string: inout String) {
+    if !string.contains("<W") { return }
+    
     let list = xmlToList(string: string)
-    var result = ""
-
+    string = ""
+    
     for item in list {
-        if item.hasPrefix("<WH") || item.hasPrefix("<WG") {
+        if item.hasPrefix("<WH") {
             let number = item.replace("<W", with: "").replace(">", with: "")
-            result += "<S>" + number + "</S>"
+            string += "<S>" + number + "</S>"
+        } else if item.hasPrefix("<WG") {
+            let number = item.replace("<W", with: "").replace(">", with: "")
+            string += "<S>" + number + "</S>"
         } else if item.hasPrefix("<WT") {
             let code = item.replace("<WT", with: "").replace(">", with: "")
-            result += "<m>" + code + "</m>"
+            string += "<m>" + code + "</m>"
         } else {
-            result += item
+            string += item
         }
     }
-    return result
 }
 
 private func extractFootnoteMarker(_ string: String) -> String {
@@ -112,35 +116,31 @@ private func footnotesEx(_ string: inout String) {
 
 func coercion(_ string: String, format: FileFormat, nt: Bool) -> String {
     var string = string
+    string = string.cut(from: "<h>", to: "</h>")
 
     if format == .mysword {
-        if string.contains("<W") { string = myswordStrongsToUnbound(string) }
+        myswordStrongsToUnbound(&string)
         replaceMyswordTags(&string)
     }
-
     if format == .mybible {
         replaceMybibleTags(&string)
     }
-
-    cleanUnabledTags(&string)
-    string = string.removeDoubleSpace
     
-    return string
+   cleanUnabledTags(&string)
+   return string
 }
 
-func preparation(_ string: String, format: FileFormat, nt: Bool, purge: Bool = true)-> String {
+func preparation(_ string: String, format: FileFormat, nt: Bool, purge: Bool = true) -> String {
     var string = string
-
-    if format != .unbound { string = coercion(string, format: format, nt: nt) }
     
-    string = string.cut(from: "<h>", to: "</h>")
-    string = string.cut(from: "<x>", to: "</x>")
-    
+    if format != .unbound {
+        string = coercion(string, format: format, nt: nt)
+    }
     if format == .unbound || format == .mysword {
         if string.contains("<f>") { footnotes(&string) }
         if string.contains("<f ") { footnotesEx(&string) }
     }
-    
+
     if purge { string = string.cut(from: "<f>", to:"</f>") }
     string = string.replace("><", with: "> <")
     
