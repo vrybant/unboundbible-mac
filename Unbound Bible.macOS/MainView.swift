@@ -13,7 +13,7 @@ class MainView: NSViewController, NSWindowDelegate {
 
     var popover = NSPopover()
     var noteURL : URL?
-    private var statuses : [String] = ["","","",""]
+    private var statuses : [String] = ["","","","","",""]
     
     @IBOutlet weak var statusBar: NSTextFieldCell!
     
@@ -57,10 +57,12 @@ class MainView: NSViewController, NSWindowDelegate {
     func refreshStatus() {
         let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
         switch identifier {
-        case "bible"   : statusBar.title = statuses[0]
-        case "search"  : statusBar.title = statuses[1]
-        case "compare" : statusBar.title = statuses[2]
-        case "notes"   : statusBar.title = statuses[3]
+        case "bible"      : statusBar.title = statuses[0]
+        case "search"     : statusBar.title = statuses[1]
+        case "compare"    : statusBar.title = statuses[2]
+        case "cimmentary" : statusBar.title = statuses[3]
+        case "dictionary" : statusBar.title = statuses[4]
+        case "notes"      : statusBar.title = statuses[5]
         default : break
         }
     }
@@ -68,10 +70,12 @@ class MainView: NSViewController, NSWindowDelegate {
     func updateStatus(_ status: String) {
         let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
         switch identifier {
-        case "bible"   : statuses[0] = status
-        case "search"  : statuses[1] = status
-        case "compare" : statuses[2] = status
-        case "notes"   : statuses[3] = status
+        case "bible"      : statuses[0] = status
+        case "search"     : statuses[1] = status
+        case "compare"    : statuses[2] = status
+        case "cimmentary" : statuses[3] = status
+        case "dictionary" : statuses[4] = status
+        case "notes"      : statuses[5] = status
         default : break
         }
         refreshStatus()
