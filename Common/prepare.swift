@@ -114,9 +114,7 @@ private func footnotesEx(_ string: inout String) {
     string = string.cut(from: "[~", to: "~]")
 }
 
-func coercion(_ string: String, format: FileFormat, nt: Bool) -> String {
-    var string = string
-
+func coercion(_ string: inout String, format: FileFormat, nt: Bool) {
     if format == .mysword {
         myswordStrongsToUnbound(&string)
         replaceMyswordTags(&string)
@@ -126,14 +124,13 @@ func coercion(_ string: String, format: FileFormat, nt: Bool) -> String {
     }
     
    cleanUnabledTags(&string)
-   return string
 }
 
 func preparation(_ string: String, format: FileFormat, nt: Bool, purge: Bool = true) -> String {
     var string = string
     
     if format != .unbound {
-        string = coercion(string, format: format, nt: nt)
+        coercion(&string, format: format, nt: nt)
     }
     if format == .unbound || format == .mysword {
         if string.contains("<f>") { footnotes(&string) }
