@@ -71,4 +71,11 @@ extension NSViewController {
     }
 }
 
-
+extension NSTabView {
+    func selectedTab() -> String? {
+        if let item = self.selectedTabViewItem {
+            return item.identifier as? String
+        }
+        return nil
+    }
+}
