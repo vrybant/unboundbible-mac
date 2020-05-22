@@ -37,12 +37,33 @@ func loadCompare() {
         }
     }
 
-    selectTab(at: .compare)
+    selectTab("compare")
     rigthView.compareTextView.textStorage?.setAttributedString(attrString)
 }
 
-func loadCommentary() -> NSAttributedString {
-    if shelf.isEmpty { return NSAttributedString() }
+func loadCommentary() {
+    if shelf.isEmpty { return }
+    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let attrString = NSMutableAttributedString()
+    attrString.append( parse(link) )
+
+    for item in commentaries.items {
+        if item.footnotes { continue }
+        
+        if let list = item.getData(activeVerse) {
+            let text = list.joined(separator: " ") + "\n"
+            let string = "\n<l>" + item.name + "</l>\n\n"
+            attrString.append( parse(string) )
+            attrString.append( html(text) )
+        }
+    }
+    
+    selectTab("commentary")
+    rigthView.commentaryTextView.textStorage?.setAttributedString(attrString)
+}
+
+func loadDictionary() {
+    if shelf.isEmpty { return }
     let link = bible!.verseToString(activeVerse, full: true) + "\n"
     let attrString = NSMutableAttributedString()
     attrString.append( parse(link) )
@@ -58,7 +79,8 @@ func loadCommentary() -> NSAttributedString {
         }
     }
     
-    return attrString
+    selectTab("dictionary")
+    rigthView.compareTextView.textStorage?.setAttributedString(attrString)
 }
 
 func loadStrong(number: String = "") -> String {
@@ -108,7 +130,7 @@ func goToVerse(_ verse: Verse, select: Bool) {
         if select {
             rigthView.bibleTextView.selectParagraph(number: verse.number)
         }
-        selectTab(at: .bible)
+        selectTab("bible")
     }
 }
 
