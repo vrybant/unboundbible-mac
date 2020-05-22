@@ -116,8 +116,8 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     func load_Chapter() {
         loadChapter()
         makeChapterList(n: bible!.chapterCount(activeVerse))
-        selectTab(at: .bible)
-        if commentsView.isViewVisible { commentsView.showCommentary() }
+        selectTab("bible")
+//      if commentsView.isViewVisible { commentsView.showCommentary() }
     }
 
 }

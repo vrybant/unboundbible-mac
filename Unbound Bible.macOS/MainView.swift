@@ -99,7 +99,7 @@ class MainView: NSViewController, NSWindowDelegate {
         if url == nil { return }
         do {
             try rigthView.notesTextView.loadFromFile(url: url!)
-            selectTab(at: .notes)
+            selectTab("notes")
             noteURL = url
             rebuildRecentList()
             appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
@@ -136,7 +136,7 @@ class MainView: NSViewController, NSWindowDelegate {
         saveDocument(url: noteURL)
         var result = true
         if noteURL == nil && !rigthView.notesTextView.string.isEmpty {
-            selectTab(at: .notes)
+            selectTab("notes")
             let alert = NSAlert()
             alert.messageText = NSLocalizedString("Do you want to save the changes?", comment: "")
             alert.informativeText = NSLocalizedString("Your changes will be lost if you don't save them.", comment: "")
@@ -162,7 +162,7 @@ class MainView: NSViewController, NSWindowDelegate {
     
     @IBAction func newDocument(_ sender: NSMenuItem) {
         if !mainView.closeDocument() { return }
-        selectTab(at: .notes)
+        selectTab("notes")
         appDelegate.saveMenuItem.title = NSLocalizedString("Save…", comment: "")
     }
     
@@ -184,7 +184,7 @@ class MainView: NSViewController, NSWindowDelegate {
     
     @IBAction func saveDocumentAction(_ sender: Any) {
         if noteURL != nil { return }
-        selectTab(at: .notes)
+        selectTab("notes")
 
         let dialog = NSSavePanel()
         dialog.showsResizeIndicator = true
@@ -199,7 +199,7 @@ class MainView: NSViewController, NSWindowDelegate {
     @objc func changeCustomFont(_ sender: Any?) {
         defaultFont = NSFontManager.shared.convert(defaultFont)
         loadChapter()
-        selectTab(at: .bible)
+        selectTab("bible")
     }
     
     @IBAction func showPreferences(_ sender: Any) {
