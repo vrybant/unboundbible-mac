@@ -62,8 +62,8 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
 }
 
 private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttributedString {
-    let font = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 1)!
-    let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - 2) ?? font
+    let font = Font(name: defaultFont.fontName,  size: defaultFont.pointSize)!
+    let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize) ?? font
     
     let s = string.mutable(attributes: defaultAttributes)
     s.addAttribute(.font, value: font)

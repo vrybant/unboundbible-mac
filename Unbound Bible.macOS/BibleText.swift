@@ -34,6 +34,7 @@ class BibleTextView: CustomTextView {
         }
     }
     
+    
     private func paragraphFromSelection(beginning: Bool) -> Int {
         var location = self.selectedRange.location
         if beginning { location += 1 }
@@ -79,10 +80,8 @@ class BibleTextView: CustomTextView {
     
     override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
-
         getParagraphNumber(saveRange: true)
-        if commentsView.isViewVisible { commentsView.showCommentary() }
-
+        
         if selectedRange.length != 0 { return }
         
         if foreground == .footnote {
