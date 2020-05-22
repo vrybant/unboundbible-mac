@@ -330,10 +330,6 @@
                                         <menuItem isSeparatorItem="YES" id="eu3-7i-yIM"/>
                                         <menuItem title="Commentaries" id="2Y6-x3-4Kt">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                            <connections>
-                                                <action selector="commentariesAction:" target="Ady-hI-5gd" id="Okt-UO-YpA"/>
-                                                <segue destination="5kc-JK-Sx1" kind="show" id="Kya-bF-wdg"/>
-                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="7iL-7w-THw"/>
                                         <menuItem title="Bring All to Front" id="LE2-aR-0XJ">
@@ -405,7 +401,7 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
                         <toolbar key="toolbar" implicitIdentifier="DE7679E1-5C22-4BF6-A118-8237A9B03BF8" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="L2m-g2-jxe">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="915EF61D-7D80-4B52-B8A6-1E66A13D0540" label="" paletteLabel="" image="NSBookmarksTemplate" id="27b-dy-bLb">
@@ -748,7 +744,7 @@
                 </viewController>
                 <customObject id="3RQ-3a-6q7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661" y="-97"/>
+            <point key="canvasLocation" x="661" y="-97.5"/>
         </scene>
         <!--Main View-->
         <scene sceneID="AAu-Wg-NAp">
@@ -794,56 +790,6 @@
                 <customObject id="Dee-xY-iaZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="700"/>
-        </scene>
-        <!--Commentaries-->
-        <scene sceneID="alJ-cz-WRe">
-            <objects>
-                <viewController title="Commentaries" id="5kc-JK-Sx1" customClass="CommentsView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="T8a-yh-bc9" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="282" height="350"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncR-Ku-4mt">
-                                <rect key="frame" x="6" y="7" width="270" height="337"/>
-                                <clipView key="contentView" drawsBackground="NO" id="tlB-hz-DU1">
-                                    <rect key="frame" x="1" y="1" width="253" height="335"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="NxI-cS-nmP" customClass="CustomTextView" customModule="Unbound_Bible" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="253" height="335"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="253" height="335"/>
-                                            <size key="maxSize" width="463" height="10000000"/>
-                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                </clipView>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="6Pj-vE-0T5">
-                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2Dg-tm-hnP">
-                                    <rect key="frame" x="254" y="1" width="15" height="335"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="ncR-Ku-4mt" firstAttribute="centerX" secondItem="T8a-yh-bc9" secondAttribute="centerX" id="Qsh-uB-Dvx"/>
-                            <constraint firstAttribute="bottom" secondItem="ncR-Ku-4mt" secondAttribute="bottom" constant="7" id="aVY-mP-3Ft"/>
-                            <constraint firstItem="ncR-Ku-4mt" firstAttribute="top" secondItem="T8a-yh-bc9" secondAttribute="top" constant="6" id="hqi-4U-gXI"/>
-                            <constraint firstItem="ncR-Ku-4mt" firstAttribute="leading" secondItem="T8a-yh-bc9" secondAttribute="leading" constant="6" id="nFF-Tv-Zqh"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="textView" destination="NxI-cS-nmP" id="bpR-In-R5R"/>
-                    </connections>
-                </viewController>
-                <customObject id="FKY-uh-a4l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1686" y="318"/>
         </scene>
         <!--Popover View-->
         <scene sceneID="fpq-kG-Tjb">
@@ -1108,7 +1054,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="291" width="237" height="23"/>
+                                <rect key="frame" x="7" y="277" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1126,13 +1072,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="5" width="175" height="282"/>
+                                <rect key="frame" x="7" y="5" width="175" height="268"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="280"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="266"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="280"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1195,13 +1141,13 @@ Gw
                                 </scroller>
                             </scrollView>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="282"/>
+                                <rect key="frame" x="189" y="5" width="55" height="268"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="280"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="266"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="280"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="266"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1309,7 +1255,7 @@ Gw
                                 <rect key="frame" x="-7" y="-8" width="650" height="438"/>
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
-                                    <tabViewItem label="Bible" identifier="bible" id="eAl-NP-4ch">
+                                    <tabViewItem label="Bible" identifier="bible" id="eAl-NP-4ch" userLabel="Bible">
                                         <view key="view" id="j1J-UA-Xvi">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1326,7 +1272,7 @@ Gw
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <size key="minSize" width="613" height="390"/>
-                                                                <size key="maxSize" width="613" height="10000000"/>
+                                                                <size key="maxSize" width="630" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
                                                         </subviews>
@@ -1353,7 +1299,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Search" identifier="search" id="lPA-7y-syC">
+                                    <tabViewItem label="Search" identifier="search" id="lPA-7y-syC" userLabel="Search">
                                         <view key="view" id="2Gd-J0-mSk">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1362,7 +1308,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="12D-jC-Xh8">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Search" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1370,7 +1316,7 @@ Gw
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <size key="minSize" width="613" height="390"/>
-                                                                <size key="maxSize" width="613" height="10000000"/>
+                                                                <size key="maxSize" width="630" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
                                                         </subviews>
@@ -1393,7 +1339,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Compare" identifier="compare" id="4Ga-O3-59a">
+                                    <tabViewItem label="Compare" identifier="compare" id="4Ga-O3-59a" userLabel="Compare">
                                         <view key="view" id="B2A-TJ-8M8">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1402,7 +1348,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="5Xb-8t-pRR">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Compare" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="eU7-Os-3Pu" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1410,7 +1356,7 @@ Gw
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <size key="minSize" width="613" height="390"/>
-                                                                <size key="maxSize" width="613" height="10000000"/>
+                                                                <size key="maxSize" width="630" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
                                                         </subviews>
@@ -1433,7 +1379,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Комментарий" identifier="commetary" id="gVu-k7-MRC">
+                                    <tabViewItem label="Commentary" identifier="commentary" id="gVu-k7-MRC" userLabel="Commentary">
                                         <view key="view" id="ofB-qX-vkS">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1442,7 +1388,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="HwO-me-vZl">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Commentary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="RwV-PY-zpS" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1450,7 +1396,7 @@ Gw
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <size key="minSize" width="613" height="390"/>
-                                                                <size key="maxSize" width="613" height="10000000"/>
+                                                                <size key="maxSize" width="630" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
                                                         </subviews>
@@ -1473,7 +1419,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Словарь" identifier="dictionary" id="o8N-Op-Goi">
+                                    <tabViewItem label="Dictionary" identifier="dictionary" id="o8N-Op-Goi" userLabel="Dictionary">
                                         <view key="view" id="hZq-wH-kaA">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1482,7 +1428,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="QgM-j1-xHC">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Dictionary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="LRH-fW-4mm" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1490,7 +1436,7 @@ Gw
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <size key="minSize" width="613" height="390"/>
-                                                                <size key="maxSize" width="613" height="10000000"/>
+                                                                <size key="maxSize" width="630" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
                                                         </subviews>
@@ -1513,24 +1459,24 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Notes" identifier="notes" id="gE1-u2-YcJ">
+                                    <tabViewItem label="Notes" identifier="notes" id="gE1-u2-YcJ" userLabel="Notes">
                                         <view key="view" id="VQW-fl-4CS">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <scrollView wantsLayer="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V40-3s-FXJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="444" height="392"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="Hpn-W0-DnX">
-                                                        <rect key="frame" x="1" y="1" width="427" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <rect key="frame" x="1" y="1" width="613" height="390"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Notes" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="NotesTextView" customModule="Unbound_Bible" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="-1" width="427" height="390"/>
+                                                                <rect key="frame" x="0.0" y="-1" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                <size key="minSize" width="427" height="390"/>
-                                                                <size key="maxSize" width="463" height="10000000"/>
+                                                                <size key="minSize" width="613" height="390"/>
+                                                                <size key="maxSize" width="630" height="10000000"/>
                                                                 <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             </textView>
                                                         </subviews>
@@ -1540,7 +1486,7 @@ Gw
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Zcp-DN-7bx">
-                                                        <rect key="frame" x="428" y="1" width="15" height="390"/>
+                                                        <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                 </scrollView>
@@ -1569,10 +1515,15 @@ Gw
                     <connections>
                         <outlet property="bibleTextView" destination="Zuh-Fk-nWM" id="jlW-9V-f9V"/>
                         <outlet property="commentariesItem" destination="DDy-DZ-1dG" id="ors-U5-GoY"/>
+                        <outlet property="commentaryTab" destination="gVu-k7-MRC" id="QSR-eV-iV6"/>
+                        <outlet property="commentaryTextView" destination="RwV-PY-zpS" id="jFp-MI-7uV"/>
                         <outlet property="compareTextView" destination="eU7-Os-3Pu" id="E8V-l1-eix"/>
+                        <outlet property="dictionaryTab" destination="o8N-Op-Goi" id="rYC-vN-3Ic"/>
+                        <outlet property="dictionaryTextView" destination="LRH-fW-4mm" id="GAa-gW-amn"/>
                         <outlet property="interlinearItem" destination="1zZ-nN-0oB" id="pKe-tL-ezU"/>
                         <outlet property="notesTextView" destination="8mZ-f0-zEK" id="MmM-vh-d7S"/>
                         <outlet property="popupMenu" destination="c6C-nW-O0M" id="N9P-yg-bET"/>
+                        <outlet property="searchTab" destination="lPA-7y-syC" id="RjQ-aR-L7Z"/>
                         <outlet property="searchTextView" destination="Imf-Do-olX" id="Aod-OG-k9T"/>
                         <outlet property="tabView" destination="YNI-mW-1xL" id="jzB-d8-oga"/>
                     </connections>
@@ -1602,7 +1553,6 @@ Gw
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="commentariesAction:" target="qmf-oa-nxB" id="ihr-Vc-A0N"/>
-                                <segue destination="5kc-JK-Sx1" kind="show" id="KB0-cb-Ytz"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Interlinear" id="1zZ-nN-0oB">
@@ -1713,9 +1663,6 @@ Gw
             <point key="canvasLocation" x="1210" y="-98"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="KB0-cb-Ytz"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="CopyImage" width="16" height="16"/>
         <image name="NSAddTemplate" width="11" height="11"/>

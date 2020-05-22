@@ -77,7 +77,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         if shelf.isEmpty { return }
         let string = searchField.stringValue.trimmed
         if string.length > 1 {
-            selectTab(at: .search)
+            selectTab("search")
             searchText(string: string)
         }
     }
