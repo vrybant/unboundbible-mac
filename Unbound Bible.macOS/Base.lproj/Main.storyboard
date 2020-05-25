@@ -1567,7 +1567,7 @@ Gw
                         <outlet property="searchTextView" destination="Imf-Do-olX" id="Aod-OG-k9T"/>
                         <outlet property="tabView" destination="YNI-mW-1xL" id="jzB-d8-oga"/>
                         <outlet property="xrefTab" destination="xCn-3K-dhb" id="4yk-3o-wdB"/>
-                        <outlet property="xrefTextView" destination="Qm2-UT-a79" id="XeF-uo-mHo"/>
+                        <outlet property="xrefTextView" destination="Qm2-UT-a79" id="kf9-Xq-LVl"/>
                     </connections>
                 </viewController>
                 <customObject id="qmf-oa-nxB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1577,6 +1577,12 @@ Gw
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="actionSearch:" target="aEP-du-uoE" id="p8C-Zq-is4"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="X-Refs" id="D1D-pY-dKd">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="actionXref:" target="aEP-du-uoE" id="SA6-Oj-6xT"/>
                             </connections>
                         </menuItem>
                         <menuItem title="Commentary" id="DDy-DZ-1dG">

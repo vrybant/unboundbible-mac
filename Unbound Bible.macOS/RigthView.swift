@@ -39,6 +39,10 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         selectTab("search")
     }
     
+    @IBAction func actionXref(_ sender: NSMenuItem) {
+        selectTab("xref")
+    }
+    
     @IBAction func actionCommentary(_ sender: NSMenuItem) {
         selectTab("commentary")
     }
