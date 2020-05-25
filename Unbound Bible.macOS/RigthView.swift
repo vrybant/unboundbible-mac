@@ -8,7 +8,7 @@
 import Cocoa
 
 func selectTab(_ tab: String) {
-    rigthView.selectTab(tab: tab)
+    rigthView.selectTab(tab)
 }
 
 var rigthView = RigthView() 
@@ -31,6 +31,18 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var popupMenu: NSMenu!
     @IBOutlet weak var interlinearItem: NSMenuItem!
     @IBOutlet weak var commentariesItem: NSMenuItem!
+
+    @IBAction func actionSearch(_ sender: NSMenuItem) {
+        selectTab("search")
+    }
+    
+    @IBAction func actionCommentary(_ sender: NSMenuItem) {
+        selectTab("commentary")
+    }
+    
+    @IBAction func actionDictionary(_ sender: NSMenuItem) {
+        selectTab("dictionary")
+    }
     
     var tabs: [String] = []
     
@@ -69,7 +81,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         tabView.insertTabViewItem(tabFromIdentifier(tab)!, at: n)
     }
     
-    func selectTab(tab: String) {
+    func selectTab(_ tab: String) {
         if tabView.indexOfTabViewItem(withIdentifier: tab) == NSNotFound { showTab(tab: tab) }
         tabView.selectTabViewItem(withIdentifier: tab)
     }

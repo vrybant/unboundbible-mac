@@ -65,10 +65,6 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 //      }
 //  }
     
-    @IBAction func commentariesAction(_ sender: NSMenuItem) {
-        print("commentaries Action")
-    }
-    
     @IBAction func copyAction(_ sender: NSButton) {
         copyVerses(options: copyOptions).copyToPasteboard()
     }

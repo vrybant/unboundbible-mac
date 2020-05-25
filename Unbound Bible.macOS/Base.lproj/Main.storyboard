@@ -1054,7 +1054,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="277" width="237" height="23"/>
+                                <rect key="frame" x="7" y="271" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1072,13 +1072,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="5" width="175" height="268"/>
+                                <rect key="frame" x="7" y="5" width="175" height="262"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="266"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="260"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="260"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1141,13 +1141,13 @@ Gw
                                 </scroller>
                             </scrollView>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="268"/>
+                                <rect key="frame" x="189" y="5" width="55" height="262"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="266"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="260"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="266"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="260"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1531,6 +1531,25 @@ Gw
                 <customObject id="qmf-oa-nxB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <menu id="c6C-nW-O0M">
                     <items>
+                        <menuItem title="Search" id="i7P-8G-rsZ">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="actionSearch:" target="aEP-du-uoE" id="p8C-Zq-is4"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Commentary" id="DDy-DZ-1dG">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="actionCommentary:" target="aEP-du-uoE" id="CsK-mk-TbQ"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Dictionary" id="7tD-Ov-l08">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="actionDictionary:" target="aEP-du-uoE" id="H1F-dj-fLi"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem isSeparatorItem="YES" id="Stx-qP-9Gz"/>
                         <menuItem title="Copy" keyEquivalent="c" id="ob3-yH-iAn">
                             <connections>
                                 <action selector="copy:" target="qmf-oa-nxB" id="Jlw-hn-aW5"/>
@@ -1549,12 +1568,6 @@ Gw
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="4hY-vp-gss"/>
-                        <menuItem title="Commentaries" id="DDy-DZ-1dG">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="commentariesAction:" target="qmf-oa-nxB" id="ihr-Vc-A0N"/>
-                            </connections>
-                        </menuItem>
                         <menuItem title="Interlinear" id="1zZ-nN-0oB">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
