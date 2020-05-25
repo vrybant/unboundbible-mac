@@ -85,6 +85,18 @@ var mybibleDictionaryAlias = DictionaryAlias(
     data : "definition"
 )
 
+struct XrefAlias {
+    var dictionary = "Dictionary"
+    var word = "Word"
+    var data = "Data"
+}
+
+var mybibleXrefAlias = XrefAlias(
+    dictionary : "dictionary",
+    word : "topic",
+    data : "definition"
+)
+
 struct Verse {
     var book    = 0
     var chapter = 0

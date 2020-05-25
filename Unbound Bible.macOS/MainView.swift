@@ -13,7 +13,7 @@ class MainView: NSViewController, NSWindowDelegate {
 
     var popover = NSPopover()
     var noteURL : URL?
-    private var statuses : [String] = ["","","","","",""]
+    private var statuses : [String] = ["","","","","","",""]
     
     @IBOutlet weak var statusBar: NSTextFieldCell!
     
@@ -60,9 +60,10 @@ class MainView: NSViewController, NSWindowDelegate {
         case "bible"      : statusBar.title = statuses[0]
         case "search"     : statusBar.title = statuses[1]
         case "compare"    : statusBar.title = statuses[2]
-        case "cimmentary" : statusBar.title = statuses[3]
-        case "dictionary" : statusBar.title = statuses[4]
-        case "notes"      : statusBar.title = statuses[5]
+        case "xref"       : statusBar.title = statuses[3]
+        case "cimmentary" : statusBar.title = statuses[4]
+        case "dictionary" : statusBar.title = statuses[5]
+        case "notes"      : statusBar.title = statuses[6]
         default : break
         }
     }
@@ -73,9 +74,10 @@ class MainView: NSViewController, NSWindowDelegate {
         case "bible"      : statuses[0] = status
         case "search"     : statuses[1] = status
         case "compare"    : statuses[2] = status
-        case "cimmentary" : statuses[3] = status
-        case "dictionary" : statuses[4] = status
-        case "notes"      : statuses[5] = status
+        case "xref"       : statuses[3] = status
+        case "commentary" : statuses[4] = status
+        case "dictionary" : statuses[5] = status
+        case "notes"      : statuses[6] = status
         default : break
         }
         refreshStatus()

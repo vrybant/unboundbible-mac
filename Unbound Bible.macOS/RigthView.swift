@@ -18,12 +18,15 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var tabView: NSTabView!
     
     @IBOutlet var searchTab: NSTabViewItem!
+    
+    @IBOutlet var xrefTab: NSTabViewItem!
     @IBOutlet var commentaryTab: NSTabViewItem!
     @IBOutlet var dictionaryTab: NSTabViewItem!
     
     @IBOutlet weak var bibleTextView: BibleTextView!
     @IBOutlet weak var searchTextView: СommonTextView!
     @IBOutlet weak var compareTextView: СommonTextView!
+    @IBOutlet weak var xrefTextView: СommonTextView!
     @IBOutlet weak var commentaryTextView: СommonTextView!
     @IBOutlet weak var dictionaryTextView: СommonTextView!
     @IBOutlet weak var notesTextView: NotesTextView!
@@ -56,6 +59,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         }
         
         tabView.removeTabViewItem(searchTab)
+        tabView.removeTabViewItem(xrefTab)
         tabView.removeTabViewItem(commentaryTab)
         tabView.removeTabViewItem(dictionaryTab)
     }
@@ -63,6 +67,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     func tabFromIdentifier(_ identifier: String) -> NSTabViewItem? {
         switch identifier {
             case "search"     : return searchTab
+            case "xref"       : return xrefTab
             case "commentary" : return commentaryTab
             case "dictionary" : return dictionaryTab
             default           : return nil
@@ -97,6 +102,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         print(identifier)
         switch identifier {
             case "compare"    : loadCompare()
+//          case "xref"       : loadXref()
             case "commentary" : loadCommentary()
             case "dictionary" : loadDictionary()
             default : break
