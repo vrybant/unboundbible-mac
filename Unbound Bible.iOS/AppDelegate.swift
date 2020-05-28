@@ -22,8 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if shelf.isEmpty { return }
         shelf.setCurrent(defaultCurrent!)
         
-        print(defaultCurrent!)
-        
 //      leftView.bibleMenuInit()
 //      mainView.updateStatus(bible!.info)
 //      leftView.makeBookList()

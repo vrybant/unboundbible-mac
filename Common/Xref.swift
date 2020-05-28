@@ -20,7 +20,7 @@ class TXref: Module {
         var xchapter   = "xchapter"
         var xfromverse = "xfromverse"
         var xtoverse   = "xtoverse"
-        var votes       = "votes"
+        var votes      = "votes"
     }
 
     private let mybibleAlias = Alias(
@@ -40,8 +40,7 @@ class TXref: Module {
     
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-// //////////        if format == .mybible { z = mybibleAlias }
-        z = mybibleAlias
+        if format == .mybible { z = mybibleAlias }
         if connected && !database!.tableExists(z.xrefs) { return nil }
     }
     
@@ -64,8 +63,7 @@ class TXref: Module {
                 let number = results.int(forColumn: z.xfromverse).int
                 let votes = results.int(forColumn: z.votes).int
 
-                if votes == 1 { continue }
-                if votes > 2 { continue }
+                if votes < 3 { continue }
                 
                 let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: 1)
                 result.append(item)
@@ -87,11 +85,12 @@ class Xrefs {
     }
     
     private func load() {
+        //let files = databaseList().filter { $0.containsAny([".xrefs."]) }
         let files = databaseList().filter { $0.containsAny([".xrefs.",".crossreferences."]) }
         for file in files {
-// //             if !file.hasSuffix(".unbound") { continue }
             if let item = TXref(atPath: file) {
                 items.append(item)
+                print(item.fileName)
             }
         }
     }

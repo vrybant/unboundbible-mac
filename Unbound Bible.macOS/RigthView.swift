@@ -103,7 +103,6 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         mainView.refreshStatus()
         let identifier = tabView.selectedTabViewItem?.identifier as! String
-        print(identifier)
         switch identifier {
             case "compare"    : loadCompare()
             case "xref"       : loadXref()
