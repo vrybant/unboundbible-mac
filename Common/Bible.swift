@@ -72,7 +72,7 @@ class Bible: Module {
                 var t = Title()
                 t.name = results.string(forColumn: z.name) ?? ""
                 t.abbr = results.string(forColumn: z.abbr) ?? ""
-                t.number = Int(results.int(forColumn: z.number))
+                t.number = results.int(forColumn: z.number).int
                 
                 t.sorting = k
                 if format == .unbound && !isNewTestament(t.number) { t.sorting = k + 100 }
@@ -129,7 +129,7 @@ class Bible: Module {
 
         if let results = database!.executeQuery(query) {
             if results.next() {
-                return Int( results.int(forColumn: "count") )
+                return results.int(forColumn: "count").int
             }
         }
         return 0

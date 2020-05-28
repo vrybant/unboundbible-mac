@@ -40,7 +40,7 @@ class ExternalTitles {
                 var t = Title()
                 t.name = results.string(forColumn: "Name") ?? ""
                 t.abbr = results.string(forColumn: "Abbreviation") ?? ""
-                t.number = Int(results.int(forColumn: "Number"))
+                t.number = results.int(forColumn: "Number").int
                 
                 if t.abbr.isEmpty { t.abbr = t.name }
                 t.sorting = !isNewTestament(t.number) ? k : k + 100
