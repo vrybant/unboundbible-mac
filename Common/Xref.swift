@@ -14,20 +14,37 @@ class TXref: Module {
     
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-        if format == .mybible { z = mybibleXrefAlias }
-        if connected && !database!.tableExists(z.dictionary) { return nil }
+// //////////        if format == .mybible { z = mybibleXrefAlias }
+        z = mybibleXrefAlias
+        if connected && !database!.tableExists(z.xrefs) { return nil }
     }
     
-    func getData(number: String) -> String? {
-        let query = "select * from \(z.dictionary) where \(z.word) = \"\(number)\" "
+    func getData(_ verse : Verse) -> [Verse]? {
+        let id = encodeID(verse.book)
+        let v_from = verse.number
+        let v_to   = verse.number + verse.count - 1
+        
+        let query = "select * from \(z.xrefs) " +
+                    "where \(z.book) = \(id) " +
+                    "and \(z.chapter) = \(verse.chapter) " +
+                    "and (( \(v_from) between \(z.fromverse) and \(z.toverse) ) " +
+                    "or ( \(z.fromverse) between \(v_from) and \(v_to) )) "
+        
+        var result = [Verse]()
         if let results = database!.executeQuery(query) {
-            if results.next() {
-                return results.string(forColumn: z.data)
+            while results.next() {
+                guard let book = results.string(forColumn: z.xbook) else { continue }
+                guard let chapter = results.string(forColumn: z.xchapter) else { continue }
+                guard let number = results.string(forColumn: z.xfromverse) else { continue }
+//              guard let line = results.string(forColumn: z.xtoverse) else { continue }
+                
+                let item = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
+                result.append(item)
             }
         }
-        return nil
+        return result.isEmpty ? nil : result
     }
-    
+
 }
 
 var xrefs = Xrefs()
@@ -38,32 +55,16 @@ class Xrefs {
     
     init() {
         load()
-        items.sort(by: {$0.name < $1.name} )
     }
     
     private func load() {
-        let files = databaseList().filter { $0.containsAny([".dct.",".dictionary."]) }
+        let files = databaseList().filter { $0.containsAny([".xrefs.",".crossreferences."]) }
         for file in files {
-            if !file.hasSuffix(".unbound") { continue }
+// //             if !file.hasSuffix(".unbound") { continue }
             if let item = TXref(atPath: file) {
                 items.append(item)
             }
         }
     }
-    
-    func getStrong(_ verse: Verse, language: String, number: String) -> String? {
-        var number = number
-        let filename = language.hasPrefix("ru") ? "strongru.dct.unbound" : "strong.dct.unbound"
         
-        let letter = isNewTestament(verse.book) ? "G" : "H"
-        if !number.hasPrefix(letter) { number =  letter + number }
-
-        for item in items {
-            if !item.strong { continue }
-            if item.fileName != filename { continue }
-            return item.getData(number: number)
-        }
-        return nil
-    }
-    
 }

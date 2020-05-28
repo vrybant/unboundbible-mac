@@ -2,7 +2,7 @@
 //  tools.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -41,6 +41,37 @@ func loadCompare() {
     rigthView.compareTextView.textStorage?.setAttributedString(attrString)
 }
 
+func loadXref() {
+    if shelf.isEmpty { return }
+    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let attrString = NSMutableAttributedString()
+    attrString.append( parse(link) )
+
+    for xref in xrefs.items {
+        if let list = xref.getData(activeVerse) {
+            
+            let string = "\n<l>" + xref.name + "</l>\n\n"
+            attrString.append( parse(string) )
+            
+            for item in list {
+                let link = bible!.verseToString(item, full: true)
+                let out = "<l>\(link)</l> "
+                attrString.append( parse(out) )
+
+                if let lines = bible!.getRange(item, purge: true) {
+                    let text = lines.joined(separator: " ") + "\n\n"
+                    attrString.append( parse(text) )
+                }
+
+                
+            }
+        }
+    }
+    
+    selectTab("xref")
+    rigthView.xrefTextView.textStorage?.setAttributedString(attrString)
+}
+
 func loadCommentary() {
     if shelf.isEmpty { return }
     let link = bible!.verseToString(activeVerse, full: true) + "\n"
@@ -68,15 +99,15 @@ func loadDictionary() {
     let attrString = NSMutableAttributedString()
     attrString.append( parse(link) )
     
-    for item in commentaries.items {
+    for item in dictionaries.items {
         if item.footnotes { continue }
         
-        if let list = item.getData(activeVerse) {
-            let text = list.joined(separator: " ") + "\n"
-            let string = "\n<l>" + item.name + "</l>\n\n"
-            attrString.append( parse(string) )
-            attrString.append( html(text) )
-        }
+//        if let list = item.getData(activeVerse) {
+//            let text = list.joined(separator: " ") + "\n"
+//            let string = "\n<l>" + item.name + "</l>\n\n"
+//            attrString.append( parse(string) )
+//            attrString.append( html(text) )
+//        }
     }
     
     selectTab("dictionary")

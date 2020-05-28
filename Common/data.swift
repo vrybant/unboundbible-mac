@@ -86,15 +86,27 @@ var mybibleDictionaryAlias = DictionaryAlias(
 )
 
 struct XrefAlias {
-    var dictionary = "Dictionary"
-    var word = "Word"
-    var data = "Data"
+    var xrefs      = "xrefs"
+    var book       = "book"
+    var chapter    = "chapter"
+    var fromverse  = "fromverse"
+    var toverse    = "toverse"
+    var xbook      = "xbook"
+    var xchapter   = "xchapter"
+    var xfromverse = "xfromverse"
+    var xtoverse   = "xtoverse"
 }
 
 var mybibleXrefAlias = XrefAlias(
-    dictionary : "dictionary",
-    word : "topic",
-    data : "definition"
+    xrefs      : "cross_references",
+    book       : "book",
+    chapter    : "chapter",
+    fromverse  : "verse",
+    toverse    : "verse_end",
+    xbook      : "book_to",
+    xchapter   : "chapter_to",
+    xfromverse : "verse_to_start",
+    xtoverse   : "verse_to_end"
 )
 
 struct Verse {
