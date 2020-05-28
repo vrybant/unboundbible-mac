@@ -50,7 +50,7 @@ func loadXref() {
     for xref in xrefs.items {
         if let list = xref.getData(activeVerse) {
             
-            let string = "\n<l>" + xref.name + "</l>\n\n"
+            let string = "\n</l>" + xref.name + "</l>\n\n"
             attrString.append( parse(string) )
             
             for item in list {

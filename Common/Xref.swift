@@ -10,6 +10,32 @@ import Foundation
 
 class TXref: Module {
     
+    private struct XrefAlias {
+        var xrefs      = "xrefs"
+        var book       = "book"
+        var chapter    = "chapter"
+        var fromverse  = "fromverse"
+        var toverse    = "toverse"
+        var xbook      = "xbook"
+        var xchapter   = "xchapter"
+        var xfromverse = "xfromverse"
+        var xtoverse   = "xtoverse"
+        var votes       = "votes"
+    }
+
+    private var mybibleXrefAlias = XrefAlias(
+        xrefs      : "cross_references",
+        book       : "book",
+        chapter    : "chapter",
+        fromverse  : "verse",
+        toverse    : "verse_end",
+        xbook      : "book_to",
+        xchapter   : "chapter_to",
+        xfromverse : "verse_to_start",
+        xtoverse   : "verse_to_end",
+        votes      : "votes"
+    )
+
     private var z = XrefAlias()
     
     override init?(atPath: String) {
@@ -33,12 +59,15 @@ class TXref: Module {
         var result = [Verse]()
         if let results = database!.executeQuery(query) {
             while results.next() {
-                guard let book = results.string(forColumn: z.xbook) else { continue }
-                guard let chapter = results.string(forColumn: z.xchapter) else { continue }
-                guard let number = results.string(forColumn: z.xfromverse) else { continue }
-//              guard let line = results.string(forColumn: z.xtoverse) else { continue }
+                let book = results.int(forColumn: z.xbook).int
+                let chapter = results.int(forColumn: z.xchapter).int
+                let number = results.int(forColumn: z.xfromverse).int
+                let votes = results.int(forColumn: z.votes).int
+
+                if votes == 1 { continue }
+                if votes > 2 { continue }
                 
-                let item = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
+                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: 1)
                 result.append(item)
             }
         }
