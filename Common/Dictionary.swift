@@ -9,11 +9,23 @@ import Foundation
 
 class TDictionary: Module {
     
-    private var z = DictionaryAlias()
+    private struct Alias {
+        var dictionary = "Dictionary"
+        var word = "Word"
+        var data = "Data"
+    }
+
+    private let mybibleAlias = Alias(
+        dictionary : "dictionary",
+        word : "topic",
+        data : "definition"
+    )
+
+    private var z = Alias()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-        if format == .mybible { z = mybibleDictionaryAlias }
+        if format == .mybible { z = mybibleAlias }
         if connected && !database!.tableExists(z.dictionary) { return nil }
     }
     

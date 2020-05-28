@@ -10,7 +10,7 @@ import Foundation
 
 class TXref: Module {
     
-    private struct XrefAlias {
+    private struct Alias {
         var xrefs      = "xrefs"
         var book       = "book"
         var chapter    = "chapter"
@@ -23,7 +23,7 @@ class TXref: Module {
         var votes       = "votes"
     }
 
-    private var mybibleXrefAlias = XrefAlias(
+    private let mybibleAlias = Alias(
         xrefs      : "cross_references",
         book       : "book",
         chapter    : "chapter",
@@ -36,12 +36,12 @@ class TXref: Module {
         votes      : "votes"
     )
 
-    private var z = XrefAlias()
+    private var z = Alias()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-// //////////        if format == .mybible { z = mybibleXrefAlias }
-        z = mybibleXrefAlias
+// //////////        if format == .mybible { z = mybibleAlias }
+        z = mybibleAlias
         if connected && !database!.tableExists(z.xrefs) { return nil }
     }
     

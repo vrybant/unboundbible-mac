@@ -8,10 +8,34 @@
 import Foundation
 
 class Bible: Module {
+    
+    private struct Alias {
+        var bible = "Bible"
+        var book = "Book"
+        var chapter = "Chapter"
+        var verse = "Verse"
+        var text = "Scripture"
+        var titles = "Titles"
+        var number = "Number"
+        var name = "Name"
+        var abbr = "Abbr"
+    }
+
+    private let mybibleAlias = Alias(
+        bible : "verses",
+        book : "book_number",
+        chapter : "chapter",
+        verse : "verse",
+        text : "text",
+        titles : "books_all",
+        number : "book_number",
+        name : "long_name",
+        abbr : "short_name"
+    )
 
     private var books  : [Book] = []
     private var titles : [String] = []
-    private var z = StringAlias()
+    private var z = Alias()
     
     var compare : Bool = true
 
@@ -19,7 +43,7 @@ class Bible: Module {
         super.init(atPath: atPath)
         
         if format == .mybible {
-            z = mybibleStringAlias
+            z = mybibleAlias
             if !database!.tableExists(z.titles) { z.titles = "books" }
         }
         

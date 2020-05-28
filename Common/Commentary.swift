@@ -9,11 +9,33 @@ import Foundation
 
 class Commentary: Module {
     
-    private var z = CommentaryAlias()
+    private struct Alias {
+        var commentary = "commentary"
+        var id = "id"
+        var book = "book"
+        var chapter = "chapter"
+        var fromverse = "fromverse"
+        var toverse = "toverse"
+        var data = "data"
+    }
+
+    private let mybibleAlias = Alias(
+        commentary: "commentaries",
+        id: "id",
+        book: "book_number",
+        chapter: "chapter_number_from",
+        fromverse: "verse_number_from",
+        //  chapter: "chapter_number_to"
+        toverse: "verse_number_to",
+        //  marker : "marker"
+        data: "text"
+    )
+
+    private var z = Alias()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)
-        if format == .mybible { z = mybibleCommentaryAlias }
+        if format == .mybible { z = mybibleAlias }
         if connected && !database!.tableExists(z.commentary) { return nil }
     }
 

@@ -20,70 +20,12 @@ enum FileFormat {
     case unbound, mysword, mybible
 }
 
-struct StringAlias {
-    var bible = "Bible"
-    var book = "Book"
-    var chapter = "Chapter"
-    var verse = "Verse"
-    var text = "Scripture"
-    var titles = "Titles"
-    var number = "Number"
-    var name = "Name"
-    var abbr = "Abbr"
-}
-
-var mybibleStringAlias = StringAlias(
-    bible : "verses",
-    book : "book_number",
-    chapter : "chapter",
-    verse : "verse",
-    text : "text",
-    titles : "books_all",
-    number : "book_number",
-    name : "long_name",
-    abbr : "short_name"
-)
-
 struct Title {
     var name    = ""
     var abbr    = ""
     var number  = 0
     var sorting = 0
 }
-
-struct CommentaryAlias {
-    var commentary = "commentary"
-    var id = "id"
-    var book = "book"
-    var chapter = "chapter"
-    var fromverse = "fromverse"
-    var toverse = "toverse"
-    var data = "data"
-}
-
-var mybibleCommentaryAlias = CommentaryAlias(
-    commentary: "commentaries",
-    id: "id",
-    book: "book_number",
-    chapter: "chapter_number_from",
-    fromverse: "verse_number_from",
-    //  chapter: "chapter_number_to"
-    toverse: "verse_number_to",
-    //  marker : "marker"
-    data: "text"
-)
-
-struct DictionaryAlias {
-    var dictionary = "Dictionary"
-    var word = "Word"
-    var data = "Data"
-}
-
-var mybibleDictionaryAlias = DictionaryAlias(
-    dictionary : "dictionary",
-    word : "topic",
-    data : "definition"
-)
 
 struct Verse {
     var book    = 0
