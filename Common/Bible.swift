@@ -295,7 +295,7 @@ class Bible: Module {
             }
             return result
         }
-        return "error"
+        return ""
     }
     
     func stringToVerse(link: String) -> Verse? {

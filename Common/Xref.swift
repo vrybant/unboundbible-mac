@@ -89,7 +89,6 @@ class Xrefs {
         for file in files {
             if let item = TXref(atPath: file) {
                 items.append(item)
-                print(item.fileName)
             }
         }
     }

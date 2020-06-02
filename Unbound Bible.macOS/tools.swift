@@ -43,25 +43,29 @@ func loadCompare() {
 
 func loadXref() {
     if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) + "\n\n"
-    let attrString = NSMutableAttributedString()
-    attrString.append( parse(link) )
+    var out = ""
 
     if let list = xrefs.getData(activeVerse, language: bible!.language) {
-        
         for item in list {
             let link = bible!.verseToString(item, full: true)
-            var out = "<l>\(link)</l> "
-
+            if link.isEmpty { continue }
             if let lines = bible!.getRange(item, purge: true) {
+                out += "<l>\(link)</l> "
                 out += lines.joined(separator: " ") + "\n\n"
             }
-            attrString.append( parse(out) )
         }
     }
     
+    if out.isEmpty {
+        let message = NSLocalizedString("Сross-references not found.", comment: "")
+        out = "<i>" + message + "</i>"
+    }
+    
+    let activeLink = bible!.verseToString(activeVerse, full: true) + "\n\n"
+    out = activeLink + out;
+    
     selectTab("xref")
-    rigthView.xrefTextView.textStorage?.setAttributedString(attrString)
+    rigthView.xrefTextView.textStorage?.setAttributedString(parse(out))
 }
 
 func loadCommentary() {
