@@ -23,9 +23,9 @@ func loadChapter() {
 
 func loadCompare() {
     if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let link = bible!.verseToString(activeVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
-    attrString.append( parse(link) )
+    attrString.append( parse("\(link)\n") )
     
     for item in shelf.bibles {
         if !item.compare { continue }
@@ -47,11 +47,11 @@ func loadXref() {
 
     if let list = xrefs.getData(activeVerse, language: bible!.language) {
         for item in list {
-            let link = bible!.verseToString(item, full: true)
-            if link.isEmpty { continue }
-            if let lines = bible!.getRange(item, purge: true) {
-                out += "<l>\(link)</l> "
-                out += lines.joined(separator: " ") + "\n\n"
+            if let link = bible!.verseToString(item, full: true) {
+                if let lines = bible!.getRange(item, purge: true) {
+                    out += "<l>\(link)</l> "
+                    out += lines.joined(separator: " ") + "\n\n"
+                }
             }
         }
     }
@@ -60,19 +60,19 @@ func loadXref() {
         let message = NSLocalizedString("Сross-references not found.", comment: "")
         out = "<i>" + message + "</i>"
     }
-    
-    let activeLink = bible!.verseToString(activeVerse, full: true) + "\n\n"
-    out = activeLink + out;
-    
+
+    let activeLink = bible!.verseToString(activeVerse, full: true) ?? ""
+    out = activeLink + "\n\n" + out
+
     selectTab("xref")
     rigthView.xrefTextView.textStorage?.setAttributedString(parse(out))
 }
 
 func loadCommentary() {
     if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let link = bible!.verseToString(activeVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
-    attrString.append( parse(link) )
+    attrString.append( parse("\(link)\n") )
 
     for item in commentaries.items {
         if item.footnotes { continue }
@@ -91,9 +91,9 @@ func loadCommentary() {
 
 func loadDictionary() {
     if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let link = bible!.verseToString(activeVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
-    attrString.append( parse(link) )
+    attrString.append( parse("\(link)\n") )
     
     for item in dictionaries.items {
         if item.footnotes { continue }
@@ -131,10 +131,11 @@ func searchText(string: String) {
     
     if let searchResult = bible!.search(string: target, options: searchOption, range: range) {
         for content in searchResult {
-            let link = bible!.verseToString(content.verse, full: true)
-            let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
-            let out = "<l>\(link)</l> \(text)\n\n"
-            attributedString.append(parse(out))
+            if let link = bible!.verseToString(content.verse, full: true) {
+                let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
+                let out = "<l>\(link)</l> \(text)\n\n"
+                attributedString.append(parse(out))
+            }
         }
         let message = NSLocalizedString("verses was found", comment: "")
         mainView.updateStatus("\(searchResult.count) \(message)")
@@ -167,7 +168,8 @@ func copyVerses(options: CopyOptions) -> NSAttributedString {
     var quote = ""
     
     let full = !options.contains(.abbreviate)
-    var link = "<l>" + bible!.verseToString(activeVerse, full: full) + "</l>"
+    guard var link = bible!.verseToString(activeVerse, full: full) else { return NSAttributedString() }
+    link = "<l>" + link + "</l>"
     var number = activeVerse.number
     var l = false
     

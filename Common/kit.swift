@@ -23,9 +23,9 @@ func loadChapter_() -> NSAttributedString {
 
 func loadCompare_() -> NSAttributedString {
     if shelf.isEmpty { return "".mutable() }
-    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let link = bible!.verseToString(activeVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
-    attrString.append( parse(link) )
+    attrString.append( parse("\(link)\n") )
     
     for item in shelf.bibles {
         if !item.compare { continue }

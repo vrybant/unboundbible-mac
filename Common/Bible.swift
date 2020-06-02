@@ -285,7 +285,7 @@ class Bible: Module {
         }
     }
     
-    func verseToString(_ verse: Verse, full: Bool) -> String {
+    func verseToString(_ verse: Verse, full: Bool) -> String? {
         if let n = idxByNum(verse.book) {
             var name = full ? books[n].title : books[n].abbr
             if !name.contains(".") { name += " " }
@@ -295,7 +295,7 @@ class Bible: Module {
             }
             return result
         }
-        return ""
+        return nil
     }
     
     func stringToVerse(link: String) -> Verse? {
