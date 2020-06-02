@@ -43,28 +43,20 @@ func loadCompare() {
 
 func loadXref() {
     if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) + "\n"
+    let link = bible!.verseToString(activeVerse, full: true) + "\n\n"
     let attrString = NSMutableAttributedString()
     attrString.append( parse(link) )
 
-    for xref in xrefs.items {
-        if let list = xref.getData(activeVerse) {
-            
-            let string = "\n</l>" + xref.name + "</l>\n\n"
-            attrString.append( parse(string) )
-            
-            for item in list {
-                let link = bible!.verseToString(item, full: true)
-                let out = "<l>\(link)</l> "
-                attrString.append( parse(out) )
+    if let list = xrefs.getData(activeVerse, language: bible!.language) {
+        
+        for item in list {
+            let link = bible!.verseToString(item, full: true)
+            var out = "<l>\(link)</l> "
 
-                if let lines = bible!.getRange(item, purge: true) {
-                    let text = lines.joined(separator: " ") + "\n\n"
-                    attrString.append( parse(text) )
-                }
-
-                
+            if let lines = bible!.getRange(item, purge: true) {
+                out += lines.joined(separator: " ") + "\n\n"
             }
+            attrString.append( parse(out) )
         }
     }
     

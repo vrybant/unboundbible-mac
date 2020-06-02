@@ -12,23 +12,22 @@ class TXref: Module {
     
     private struct Alias {
         var xrefs      = "xrefs"
-        var book       = "book"
-        var chapter    = "chapter"
-        var fromverse  = "fromverse"
-        var toverse    = "toverse"
+        var book       = "Book"
+        var chapter    = "Chapter"
+        var verse      = "Verse"
         var xbook      = "xbook"
         var xchapter   = "xchapter"
         var xfromverse = "xfromverse"
         var xtoverse   = "xtoverse"
-        var votes      = "votes"
+        var votes      = "Votes"
     }
 
     private let mybibleAlias = Alias(
         xrefs      : "cross_references",
         book       : "book",
         chapter    : "chapter",
-        fromverse  : "verse",
-        toverse    : "verse_end",
+        verse      : "verse",
+//      toverse    : "verse_end",
         xbook      : "book_to",
         xchapter   : "chapter_to",
         xfromverse : "verse_to_start",
@@ -52,8 +51,7 @@ class TXref: Module {
         let query = "select * from \(z.xrefs) " +
                     "where \(z.book) = \(id) " +
                     "and \(z.chapter) = \(verse.chapter) " +
-                    "and (( \(v_from) between \(z.fromverse) and \(z.toverse) ) " +
-                    "or ( \(z.fromverse) between \(v_from) and \(v_to) )) "
+                    "and (\(z.verse) between \(v_from) and \(v_to)) "
         
         var result = [Verse]()
         if let results = database!.executeQuery(query) {
@@ -61,11 +59,13 @@ class TXref: Module {
                 let book = results.int(forColumn: z.xbook).int
                 let chapter = results.int(forColumn: z.xchapter).int
                 let number = results.int(forColumn: z.xfromverse).int
+                let toverse = results.int(forColumn: z.xtoverse).int
                 let votes = results.int(forColumn: z.votes).int
 
-                if votes < 3 { continue }
+                if votes <= 1 { continue }
+                let count = toverse == 0 ? 1 : toverse - number + 1
                 
-                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: 1)
+                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: count)
                 result.append(item)
             }
         }
@@ -85,8 +85,7 @@ class Xrefs {
     }
     
     private func load() {
-        //let files = databaseList().filter { $0.containsAny([".xrefs."]) }
-        let files = databaseList().filter { $0.containsAny([".xrefs.",".crossreferences."]) }
+        let files = databaseList().filter { $0.containsAny([".xrefs."]) } // .crossreferences.
         for file in files {
             if let item = TXref(atPath: file) {
                 items.append(item)
@@ -94,5 +93,15 @@ class Xrefs {
             }
         }
     }
+
+    func getData(_ verse: Verse, language: String) -> [Verse]? {
+        let filename = language.hasPrefix("ru") ? "obru.xrefs.unbound" : "ob.xrefs.unbound"
         
+        for item in items {
+            if item.fileName != filename { continue }
+            return item.getData(verse)
+        }
+        return nil
+    }
+
 }
