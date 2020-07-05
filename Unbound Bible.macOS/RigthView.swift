@@ -35,22 +35,6 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var interlinearItem: NSMenuItem!
     @IBOutlet weak var commentariesItem: NSMenuItem!
 
-    @IBAction func actionSearch(_ sender: NSMenuItem) {
-        selectTab("search")
-    }
-    
-    @IBAction func actionXref(_ sender: NSMenuItem) {
-        selectTab("xref")
-    }
-    
-    @IBAction func actionCommentary(_ sender: NSMenuItem) {
-        selectTab("commentary")
-    }
-    
-    @IBAction func actionDictionary(_ sender: NSMenuItem) {
-        selectTab("dictionary")
-    }
-    
     var tabs: [String] = []
     
     override func viewDidLoad() {

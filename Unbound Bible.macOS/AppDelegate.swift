@@ -65,6 +65,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         createRecentMenu()
     }
     
+    @IBAction func cmdCompare(_ sender: Any?) {
+        selectTab("compare")
+    }
+    
+    @IBAction func cmdXref(_ sender: Any?) {
+        selectTab("xref")
+    }
+    
+    @IBAction func cmdCommentary(_ sender: Any?) {
+        selectTab("commentary")
+    }
+    
+    @IBAction func cmdDictionary(_ sender: Any?) {
+        selectTab("dictionary")
+    }
+    
     func createRecentMenu() {
         let submenu = NSMenu()
         
