@@ -117,19 +117,6 @@ func get_Footnote(marker: String = "") -> String {
     }
 }
 
-func goToVerse(_ verse: Verse, select: Bool) {
-    if !bible!.goodLink(verse) { return }
-    if let index = bible!.idxByNum(verse.book) {
-        activeVerse = verse
-        leftView.bookTableView.selectRow(index: index)
-        leftView.chapterTableView.selectRow(index: verse.chapter - 1)
-        if select {
-            rigthView.bibleTextView.selectParagraph(number: verse.number)
-        }
-        selectTab("bible")
-    }
-}
-
 func get_Verses(options: CopyOptions) -> NSAttributedString {
     if shelf.isEmpty { return NSAttributedString() }
     guard let list = bible!.getRange(activeVerse) else { return NSAttributedString() }
@@ -162,4 +149,17 @@ func get_Verses(options: CopyOptions) -> NSAttributedString {
     quote += "\n"
     
     return parse(quote)
+}
+
+func goToVerse(_ verse: Verse, select: Bool) {
+    if !bible!.goodLink(verse) { return }
+    if let index = bible!.idxByNum(verse.book) {
+        activeVerse = verse
+        leftView.bookTableView.selectRow(index: index)
+        leftView.chapterTableView.selectRow(index: verse.chapter - 1)
+        if select {
+            rigthView.bibleTextView.selectParagraph(number: verse.number)
+        }
+        selectTab("bible")
+    }
 }
