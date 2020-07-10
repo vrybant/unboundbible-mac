@@ -111,7 +111,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
 
         if value.count == 0 {
             let message = LocalizedString("You search for % produced no results.")
-            let string = "<i>\n \(message.replace("%", with: string.quoted)) </i>"
+            let string = "\(message.replace("%", with: string.quoted))"
             attrString = parse(string)
         }
 
@@ -129,6 +129,21 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         attrString.append(get_Compare())
         compareTextView.textStorage?.setAttributedString(attrString)
         selectTab("compare")
+    }
+
+    func loadXref() {
+        let link = bible!.verseToString(activeVerse, full: true) ?? ""
+        let attrString = parse(link + "\n\n")
+        let data = get_Xref()
+        attrString.append(data)
+
+        if data.string.isEmpty {
+            let string = LocalizedString("Сross-references not found.")
+            attrString.append(parse(string))
+        }
+
+        xrefTextView.textStorage?.setAttributedString(attrString)
+        selectTab("xref")
     }
 
 }

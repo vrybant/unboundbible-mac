@@ -21,7 +21,7 @@ func get_Chapter() -> NSAttributedString {
 }
 
 func get_Search(string: String) -> (attrString: NSAttributedString, count: Int) {
-    let result = NSMutableAttributedString()
+    var result = ""
     var count = 0
     let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
     let searchList = target.components(separatedBy: " ")
@@ -31,56 +31,44 @@ func get_Search(string: String) -> (attrString: NSAttributedString, count: Int) 
         for content in searchResult {
             if let link = bible!.verseToString(content.verse, full: true) {
                 let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
-                let out = "<l>\(link)</l> \(text)\n\n"
-                result.append(parse(out))
+                result += "<l>\(link)</l> \(text)\n\n"
             }
         }
         count = searchResult.count
     }
         
-    return (result, count)
+    return (parse(result), count)
 }
 
 func get_Compare() -> NSAttributedString {
-    let result = NSMutableAttributedString()
-    if shelf.isEmpty { return result }
+    if shelf.isEmpty { return "".mutable() }
+    var result = ""
     
     for item in shelf.bibles {
         if !item.compare { continue }
         if let list = item.getRange(activeVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n"
-            let string = "\n<l>" + item.name + "</l>\n" + text
-            result.append( parse(string) )
+            result += "\n<l>" + item.name + "</l>\n" + text
         }
     }
-    return result
+    return parse(result)
 }
 
-func loadXref() {
-    if shelf.isEmpty { return }
-    var out = ""
-
+func get_Xref() -> NSAttributedString {
+    var result = ""
+    
     if let list = xrefs.getData(activeVerse, language: bible!.language) {
         for item in list {
             if let link = bible!.verseToString(item, full: true) {
                 if let lines = bible!.getRange(item, purge: true) {
-                    out += "<l>\(link)</l> "
-                    out += lines.joined(separator: " ") + "\n\n"
+                    result += "<l>\(link)</l> "
+                    result += lines.joined(separator: " ") + "\n\n"
                 }
             }
         }
     }
     
-    if out.isEmpty {
-        let message = NSLocalizedString("Сross-references not found.", comment: "")
-        out = "<i>" + message + "</i>"
-    }
-
-    let activeLink = bible!.verseToString(activeVerse, full: true) ?? ""
-    out = activeLink + "\n\n" + out
-
-    selectTab("xref")
-    rigthView.xrefTextView.textStorage?.setAttributedString(parse(out))
+    return parse(result)
 }
 
 func loadCommentary() {
