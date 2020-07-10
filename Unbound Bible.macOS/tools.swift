@@ -87,38 +87,21 @@ func get_Commentary() -> NSAttributedString {
     return result
 }
 
-func loadDictionary(string: String) {
-    if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) ?? ""
-    let attrString = NSMutableAttributedString()
-    attrString.append( parse("\(link)\n") )
+func get_Dictionary(string: String) -> NSAttributedString {
+    let result = NSMutableAttributedString()
+    if shelf.isEmpty { return result }
     
-    var l = false
     for item in dictionaries.items {
         if item.footnotes { continue }
-//        if let list = item.getData(number: string) {
-//            let text = list.joined(separator: " ") + "\n"
-//            let string = "\n<l>" + item.name + "</l>\n\n"
-//            attrString.append( parse(string) )
-//            attrString.append( html(text) )
-              l = !true
-//      }
+        if let list = item.getData(number: string) {
+            let string = "\n<l>" + item.name + "</l>\n\n"
+            let text = list //  .joined(separator: " "  + "\n"
+            result.append( parse(string) )
+            result.append( html(text) )
+        }
     }
     
-    if !l {
-        let message = NSLocalizedString("You search for % produced no results.", comment: "")
-        let out = "</i>\n\(message.replace("%", with: string.quoted))</i>\n"
-        attrString.append(parse(out))
-    }
-
-    if dictionaries.items.isEmpty {
-        let msg = "\n" + NSLocalizedString("You don't have any dictionary modules.", comment: "") + " " +
-                         NSLocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».", comment: "")
-        attrString.append(parse(msg))
-    }
-            
-    selectTab("dictionary")
-    rigthView.dictionaryTextView.textStorage?.setAttributedString(attrString)
+    return result
 }
 
 func get_Strong(number: String = "") -> String {
@@ -147,7 +130,7 @@ func goToVerse(_ verse: Verse, select: Bool) {
     }
 }
 
-func copyVerses(options: CopyOptions) -> NSAttributedString {
+func get_Verses(options: CopyOptions) -> NSAttributedString {
     if shelf.isEmpty { return NSAttributedString() }
     guard let list = bible!.getRange(activeVerse) else { return NSAttributedString() }
     var quote = ""

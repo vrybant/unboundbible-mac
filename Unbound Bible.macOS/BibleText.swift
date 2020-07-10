@@ -100,7 +100,7 @@ class BibleTextView: CustomTextView {
     }
     
     @IBAction func copyVersesAction(_ sender: NSMenuItem) {
-        copyVerses(options: copyOptions).copyToPasteboard()
+        get_Verses(options: copyOptions).copyToPasteboard()
     }
     
     @IBAction func copyDialogAction(_ sender: NSMenuItem) {

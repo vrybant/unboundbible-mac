@@ -91,7 +91,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             case "compare"    : loadCompare()
             case "xref"       : loadXref()
             case "commentary" : loadCommentary()
-            case "dictionary" : loadDictionary(string: "Lord")
+            case "dictionary" : loadDictionary()
             default : break
         }
         
@@ -150,14 +150,34 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         }
         
         if commentaries.items.isEmpty {
-            let message = NSLocalizedString("You don't have any commentary modules.", comment: "") + " " +
-                          NSLocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».", comment: "")
+            let message = LocalizedString("You don't have any commentary modules.") + " " +
+                          LocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».")
             attrString.append(parse(message))
         }
                 
         commentaryTextView.textStorage?.setAttributedString(attrString)
         selectTab("commentary")
     }
- 
+    
+    func loadDictionary() {
+        let link = (bible!.verseToString(activeVerse, full: true) ?? "") + "\n\n"
+        let attrString = parse(link)
+        let data = get_Dictionary(string: "Господь") // temp
+        attrString.append(data)
+        
+        if data.string.isEmpty {
+//            let message = LocalizedString("You search for % produced no results.")
+//            string = "\(message.replace("%", with: text.quoted))"
+        }
+        
+        if dictionaries.items.isEmpty {
+            let message = LocalizedString("You don't have any dictionary modules.") + " " +
+                          LocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».")
+            attrString.append(parse(message))
+        }
+                
+        dictionaryTextView.textStorage?.setAttributedString(attrString)
+        selectTab("dictionary")
+    }
     
 }

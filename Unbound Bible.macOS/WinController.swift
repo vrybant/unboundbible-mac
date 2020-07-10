@@ -66,7 +66,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 //  }
     
     @IBAction func copyAction(_ sender: NSButton) {
-        copyVerses(options: copyOptions).copyToPasteboard()
+        get_Verses(options: copyOptions).copyToPasteboard()
     }
 
     @IBAction func searchFieldAction(_ sender: NSSearchField) {
