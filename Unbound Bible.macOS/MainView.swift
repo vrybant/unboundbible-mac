@@ -200,8 +200,7 @@ class MainView: NSViewController, NSWindowDelegate {
  
     @objc func changeCustomFont(_ sender: Any?) {
         defaultFont = NSFontManager.shared.convert(defaultFont)
-        loadChapter()
-        selectTab("bible")
+        rigthView.loadChapter()
     }
     
     @IBAction func showPreferences(_ sender: Any) {

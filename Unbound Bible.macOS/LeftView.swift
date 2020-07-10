@@ -46,7 +46,8 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         writingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
     }
     
-    func makeChapterList(n: Int) {
+    func makeChapterList() {
+        let n = bible!.chapterCount(activeVerse)
         if n != chapterTableViewCount {
             chapterTableViewCount = n
             chapterTableView.reloadData()
@@ -110,14 +111,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
             }
         }
         
-        load_Chapter()
+        rigthView.loadChapter() 
     }
     
-    func load_Chapter() {
-        loadChapter()
-        makeChapterList(n: bible!.chapterCount(activeVerse))
-        selectTab("bible")
-//      if commentsView.isViewVisible { commentsView.showCommentary() }
-    }
-
 }

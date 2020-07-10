@@ -96,5 +96,16 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         }
         
     }
+
+    func loadChapter() {
+        let attrString = get_Chapter()
+        
+        bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
+        bibleTextView.textStorage?.setAttributedString(attrString)
+        
+        leftView.makeChapterList()
+        selectTab("bible")
+    }
+
     
 }

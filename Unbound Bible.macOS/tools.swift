@@ -7,18 +7,17 @@
 
 import Cocoa
 
-func loadChapter() {
-    let attributedString = NSMutableAttributedString()
+func get_Chapter() -> NSAttributedString {
+    let result = NSMutableAttributedString()
     if let text = bible!.getChapter(activeVerse) {
         if !text.isEmpty {
             for i in 0...text.count-1 {
                 let string = " <l>" + String(i+1) + "</l> " + text[i] + "\n"
-                attributedString.append( parse(string, jtag: true) )
+                result.append( parse(string, jtag: true) )
             }
         }
     }
-    rigthView.bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
-    rigthView.bibleTextView.textStorage?.setAttributedString(attributedString)
+    return result
 }
 
 func loadCompare() {
@@ -111,13 +110,13 @@ func loadDictionary(string: String) {
     var l = false
     for item in dictionaries.items {
         if item.footnotes { continue }
-        if let list = item.getData(number: string) {
+//        if let list = item.getData(number: string) {
 //            let text = list.joined(separator: " ") + "\n"
 //            let string = "\n<l>" + item.name + "</l>\n\n"
 //            attrString.append( parse(string) )
 //            attrString.append( html(text) )
               l = !true
-        }
+//      }
     }
     
     if !l {
