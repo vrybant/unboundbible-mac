@@ -99,13 +99,28 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
 
     func loadChapter() {
         let attrString = get_Chapter()
-        
         bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
         bibleTextView.textStorage?.setAttributedString(attrString)
-        
         leftView.makeChapterList()
         selectTab("bible")
     }
+    
+    func loadSearch(string: String) {
+        let value = get_Search(string: string)
+        var attrString = value.attrString
 
+        if value.count == 0 {
+            let message = LocalizedString("You search for % produced no results.")
+            let string = "<i>\n \(message.replace("%", with: string.quoted)) </i>"
+            attrString = parse(string)
+        }
+
+        searchTextView.textStorage?.setAttributedString(attrString)
+        leftView.makeChapterList()
+        selectTab("search")
+        
+        let status = LocalizedString("verses was found")
+        mainView.updateStatus("\(value.count) \(status)")
+    }
     
 }

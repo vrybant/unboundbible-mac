@@ -44,6 +44,10 @@ var languageCode: String {
     return NSLocale.autoupdatingCurrent.languageCode ?? "en"
 }
 
+func LocalizedString(_ key: String) -> String {
+    return NSLocalizedString(key, comment: "")
+}
+
 func listToXml(list: [String]) -> String {
     var result = ""
     for item in list { result += item }

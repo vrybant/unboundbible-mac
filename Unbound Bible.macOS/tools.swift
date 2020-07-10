@@ -20,6 +20,27 @@ func get_Chapter() -> NSAttributedString {
     return result
 }
 
+func get_Search(string: String) -> (attrString: NSAttributedString, count: Int) {
+    let result = NSMutableAttributedString()
+    var count = 0
+    let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
+    let searchList = target.components(separatedBy: " ")
+    let range = currentSearchRange()
+    
+    if let searchResult = bible!.search(string: target, options: searchOption, range: range) {
+        for content in searchResult {
+            if let link = bible!.verseToString(content.verse, full: true) {
+                let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
+                let out = "<l>\(link)</l> \(text)\n\n"
+                result.append(parse(out))
+            }
+        }
+        count = searchResult.count
+    }
+        
+    return (result, count)
+}
+
 func loadCompare() {
     if shelf.isEmpty { return }
     let link = bible!.verseToString(activeVerse, full: true) ?? ""
@@ -146,32 +167,6 @@ func loadFootnote(marker: String = "") -> String {
     } else {
         return bible!.getFootnote(activeVerse, marker: marker) ?? ""
     }
-}
-
-func searchText(string: String) {
-    let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
-    let searchList = target.components(separatedBy: " ")
-    let attributedString = NSMutableAttributedString()
-    let range = currentSearchRange()
-    
-    if let searchResult = bible!.search(string: target, options: searchOption, range: range) {
-        for content in searchResult {
-            if let link = bible!.verseToString(content.verse, full: true) {
-                let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
-                let out = "<l>\(link)</l> \(text)\n\n"
-                attributedString.append(parse(out))
-            }
-        }
-        let message = NSLocalizedString("verses was found", comment: "")
-        mainView.updateStatus("\(searchResult.count) \(message)")
-    } else {
-        let message = NSLocalizedString("You search for % produced no results.", comment: "")
-        let out = "<i>\n \(message.replace("%", with: string.quoted)) </i>"
-        attributedString.append(parse(out))
-        mainView.updateStatus("")
-    }
-    
-    rigthView.searchTextView.textStorage?.setAttributedString(attributedString)
 }
 
 func goToVerse(_ verse: Verse, select: Bool) {

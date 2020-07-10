@@ -73,8 +73,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         if shelf.isEmpty { return }
         let string = searchField.stringValue.trimmed
         if string.length > 1 {
-            selectTab("search")
-            searchText(string: string)
+            rigthView.loadSearch(string: string)
         }
     }
     
