@@ -98,52 +98,44 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
 
     func loadChapter() {
-        let attrString = get_Chapter()
+        let attrString = parse(get_Chapter(), jtag: true)
         bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
         bibleTextView.textStorage?.setAttributedString(attrString)
         leftView.makeChapterList()
         selectTab("bible")
     }
     
-    func loadSearch(string: String) {
-        let value = get_Search(string: string)
-        var attrString = value.attrString
+    func loadSearch(text: String) {
+        let data = get_Search(string: text)
+        var string = data.string
 
-        if value.count == 0 {
+        if data.count == 0 {
             let message = LocalizedString("You search for % produced no results.")
-            let string = "\(message.replace("%", with: string.quoted))"
-            attrString = parse(string)
+            string = "\(message.replace("%", with: text.quoted))"
         }
 
-        searchTextView.textStorage?.setAttributedString(attrString)
+        searchTextView.textStorage?.setAttributedString(parse(string))
         leftView.makeChapterList()
         selectTab("search")
         
         let status = LocalizedString("verses was found")
-        mainView.updateStatus("\(value.count) \(status)")
+        mainView.updateStatus("\(data.count) \(status)")
     }
  
     func loadCompare() {
         let link = bible!.verseToString(activeVerse, full: true) ?? ""
-        let attrString = parse(link + "\n")
-        attrString.append(get_Compare())
-        compareTextView.textStorage?.setAttributedString(attrString)
+        let string = link + "\n\n" + get_Compare()
+        compareTextView.textStorage?.setAttributedString(parse(string))
         selectTab("compare")
     }
 
     func loadXref() {
         let link = bible!.verseToString(activeVerse, full: true) ?? ""
-        let attrString = parse(link + "\n\n")
         let data = get_Xref()
-        attrString.append(data)
-
-        if data.string.isEmpty {
-            let string = LocalizedString("Сross-references not found.")
-            attrString.append(parse(string))
-        }
-
-        xrefTextView.textStorage?.setAttributedString(attrString)
+        var string = link + "\n\n" + data
+        if data.isEmpty { string += LocalizedString("Сross-references not found.") }
+        xrefTextView.textStorage?.setAttributedString(parse(string))
         selectTab("xref")
     }
-
+        
 }

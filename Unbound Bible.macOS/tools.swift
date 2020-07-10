@@ -7,20 +7,19 @@
 
 import Cocoa
 
-func get_Chapter() -> NSAttributedString {
-    let result = NSMutableAttributedString()
+func get_Chapter() -> String {
+    var result = ""
     if let text = bible!.getChapter(activeVerse) {
         if !text.isEmpty {
             for i in 0...text.count-1 {
-                let string = " <l>" + String(i+1) + "</l> " + text[i] + "\n"
-                result.append( parse(string, jtag: true) )
+                result += " <l>" + String(i+1) + "</l> " + text[i] + "\n"
             }
         }
     }
     return result
 }
 
-func get_Search(string: String) -> (attrString: NSAttributedString, count: Int) {
+func get_Search(string: String) -> (string: String, count: Int) {
     var result = ""
     var count = 0
     let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
@@ -37,24 +36,24 @@ func get_Search(string: String) -> (attrString: NSAttributedString, count: Int) 
         count = searchResult.count
     }
         
-    return (parse(result), count)
+    return (result, count)
 }
 
-func get_Compare() -> NSAttributedString {
-    if shelf.isEmpty { return "".mutable() }
+func get_Compare() -> String {
+    if shelf.isEmpty { return "" }
     var result = ""
     
     for item in shelf.bibles {
         if !item.compare { continue }
         if let list = item.getRange(activeVerse, purge: true) {
-            let text = list.joined(separator: " ") + "\n"
-            result += "\n<l>" + item.name + "</l>\n" + text
+            let text = list.joined(separator: " ") + "\n\n"
+            result += "<l>" + item.name + "</l>\n" + text
         }
     }
-    return parse(result)
+    return result
 }
 
-func get_Xref() -> NSAttributedString {
+func get_Xref() -> String {
     var result = ""
     
     if let list = xrefs.getData(activeVerse, language: bible!.language) {
@@ -68,7 +67,7 @@ func get_Xref() -> NSAttributedString {
         }
     }
     
-    return parse(result)
+    return result
 }
 
 func loadCommentary() {
