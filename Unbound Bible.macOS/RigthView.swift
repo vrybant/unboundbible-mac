@@ -122,5 +122,13 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         let status = LocalizedString("verses was found")
         mainView.updateStatus("\(value.count) \(status)")
     }
-    
+ 
+    func loadCompare() {
+        let link = bible!.verseToString(activeVerse, full: true) ?? ""
+        let attrString = parse(link + "\n")
+        attrString.append(get_Compare())
+        compareTextView.textStorage?.setAttributedString(attrString)
+        selectTab("compare")
+    }
+
 }

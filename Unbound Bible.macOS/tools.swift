@@ -41,24 +41,19 @@ func get_Search(string: String) -> (attrString: NSAttributedString, count: Int) 
     return (result, count)
 }
 
-func loadCompare() {
-    if shelf.isEmpty { return }
-    let link = bible!.verseToString(activeVerse, full: true) ?? ""
-    let attrString = NSMutableAttributedString()
-    attrString.append( parse("\(link)\n") )
+func get_Compare() -> NSAttributedString {
+    let result = NSMutableAttributedString()
+    if shelf.isEmpty { return result }
     
     for item in shelf.bibles {
         if !item.compare { continue }
-        
         if let list = item.getRange(activeVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n" + text
-            attrString.append( parse(string) )
+            result.append( parse(string) )
         }
     }
-
-    selectTab("compare")
-    rigthView.compareTextView.textStorage?.setAttributedString(attrString)
+    return result
 }
 
 func loadXref() {
