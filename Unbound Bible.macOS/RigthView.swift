@@ -137,5 +137,27 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         xrefTextView.textStorage?.setAttributedString(parse(string))
         selectTab("xref")
     }
+    
+    func loadCommentary() {
+        let link = (bible!.verseToString(activeVerse, full: true) ?? "") + "\n\n"
+        let attrString = parse(link)
+        let data = get_Commentary()
+        attrString.append(data)
         
+        if data.string.isEmpty {
+            let message = LocalizedString("Commentaries not found.") + "\n\n"
+            attrString.append(parse(message))
+        }
+        
+        if commentaries.items.isEmpty {
+            let message = NSLocalizedString("You don't have any commentary modules.", comment: "") + " " +
+                          NSLocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».", comment: "")
+            attrString.append(parse(message))
+        }
+                
+        commentaryTextView.textStorage?.setAttributedString(attrString)
+        selectTab("commentary")
+    }
+ 
+    
 }

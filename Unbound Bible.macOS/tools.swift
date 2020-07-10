@@ -70,38 +70,21 @@ func get_Xref() -> String {
     return result
 }
 
-func loadCommentary() {
-    if shelf.isEmpty { return }
-    
-    let link = bible!.verseToString(activeVerse, full: true) ?? ""
-    let attrString = NSMutableAttributedString()
-    attrString.append( parse("\(link)\n") )
+func get_Commentary() -> NSAttributedString {
+    let result = NSMutableAttributedString()
+    if shelf.isEmpty { return result }
 
-    var l = false
     for item in commentaries.items {
         if item.footnotes { continue }
         if let list = item.getData(activeVerse) {
-            let text = list.joined(separator: " ") + "\n"
-            let string = "\n<l>" + item.name + "</l>\n\n"
-            attrString.append( parse(string) )
-            attrString.append( html(text) )
-            l = true
+            let string = "<l>" + item.name + "</l>\n\n"
+            let text = list.joined(separator: " ") + "\n\n"
+            result.append( parse(string) )
+            result.append( html(text) )
         }
     }
     
-    if !l {
-        let message = "\n" + NSLocalizedString("Commentaries not found.", comment: "") + "\n"
-        attrString.append( parse(message))
-    }
-
-    if commentaries.items.isEmpty {
-        let msg = "\n" + NSLocalizedString("You don't have any commentary modules.", comment: "") + " " +
-                         NSLocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».", comment: "")
-        attrString.append(parse(msg))
-    }
-            
-    selectTab("commentary")
-    rigthView.commentaryTextView.textStorage?.setAttributedString(attrString)
+    return result
 }
 
 func loadDictionary(string: String) {
@@ -138,12 +121,12 @@ func loadDictionary(string: String) {
     rigthView.dictionaryTextView.textStorage?.setAttributedString(attrString)
 }
 
-func loadStrong(number: String = "") -> String {
+func get_Strong(number: String = "") -> String {
     if let text = dictionaries.getStrong(activeVerse, language: bible!.language, number: number) { return text }
     return ""
 }
 
-func loadFootnote(marker: String = "") -> String {
+func get_Footnote(marker: String = "") -> String {
     if bible!.format == .mybible {
         return commentaries.getFootnote(module: bible!.fileName, verse: activeVerse, marker: marker) ?? ""
     } else {
