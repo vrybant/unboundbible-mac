@@ -70,44 +70,70 @@ func loadXref() {
 
 func loadCommentary() {
     if shelf.isEmpty { return }
+    
     let link = bible!.verseToString(activeVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
     attrString.append( parse("\(link)\n") )
 
+    var l = false
     for item in commentaries.items {
         if item.footnotes { continue }
-        
         if let list = item.getData(activeVerse) {
             let text = list.joined(separator: " ") + "\n"
             let string = "\n<l>" + item.name + "</l>\n\n"
             attrString.append( parse(string) )
             attrString.append( html(text) )
+            l = true
         }
     }
     
+    if !l {
+        let message = "\n" + NSLocalizedString("Commentaries not found.", comment: "") + "\n"
+        attrString.append( parse(message))
+    }
+
+    if commentaries.items.isEmpty {
+        let msg = "\n" + NSLocalizedString("You don't have any commentary modules.", comment: "") + " " +
+                         NSLocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».", comment: "")
+        attrString.append(parse(msg))
+    }
+            
     selectTab("commentary")
     rigthView.commentaryTextView.textStorage?.setAttributedString(attrString)
 }
 
-func loadDictionary() {
+func loadDictionary(string: String) {
     if shelf.isEmpty { return }
     let link = bible!.verseToString(activeVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
     attrString.append( parse("\(link)\n") )
     
+    var l = false
     for item in dictionaries.items {
         if item.footnotes { continue }
-        
-//        if let list = item.getData(activeVerse) {
+        if let list = item.getData(number: string) {
 //            let text = list.joined(separator: " ") + "\n"
 //            let string = "\n<l>" + item.name + "</l>\n\n"
 //            attrString.append( parse(string) )
 //            attrString.append( html(text) )
-//        }
+              l = !true
+        }
     }
     
+    if !l {
+        let message = NSLocalizedString("You search for % produced no results.", comment: "")
+        let out = "</i>\n\(message.replace("%", with: string.quoted))</i>\n"
+        attrString.append(parse(out))
+    }
+
+    if dictionaries.items.isEmpty {
+        let msg = "\n" + NSLocalizedString("You don't have any dictionary modules.", comment: "") + " " +
+                         NSLocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».", comment: "")
+        attrString.append(parse(msg))
+    }
+            
     selectTab("dictionary")
-    rigthView.compareTextView.textStorage?.setAttributedString(attrString)
+    rigthView.dictionaryTextView.textStorage?.setAttributedString(attrString)
 }
 
 func loadStrong(number: String = "") -> String {

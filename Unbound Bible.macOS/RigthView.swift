@@ -91,7 +91,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             case "compare"    : loadCompare()
             case "xref"       : loadXref()
             case "commentary" : loadCommentary()
-            case "dictionary" : loadDictionary()
+            case "dictionary" : loadDictionary(string: "Lord")
             default : break
         }
         
