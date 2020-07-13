@@ -25,9 +25,9 @@ extension Collection where Iterator.Element == String {
 }
 
 extension NSTabView {
-    func selectedTab() -> Int? {
-        if let tab = self.selectedTabViewItem {
-            return self.indexOfTabViewItem(tab)
+    var selectedTab: String? {
+        if let item = selectedTabViewItem {
+            return item.identifier as? String
         }
         return nil
     }
@@ -68,14 +68,5 @@ extension NSViewController {
     var isViewVisible: Bool {
         if !isViewLoaded { return false }
         return view.window != nil
-    }
-}
-
-extension NSTabView {
-    func selectedTab() -> String? {
-        if let item = self.selectedTabViewItem {
-            return item.identifier as? String
-        }
-        return nil
     }
 }

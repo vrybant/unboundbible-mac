@@ -65,6 +65,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         createRecentMenu()
     }
     
+    @IBAction func cmdSearch(_ sender: Any?) {
+        let text = rigthView.bibleTextView.selectedString
+        winController.searchField.stringValue = text
+        rigthView.loadSearch(text: text)
+    }
+    
     @IBAction func cmdCompare(_ sender: Any?) {
         selectTab("compare")
     }
@@ -78,7 +84,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdDictionary(_ sender: Any?) {
-        selectTab("dictionary")
+        let text = rigthView.bibleTextView.selectedString
+        winController.searchField.stringValue = text
+        rigthView.loadDictionary(key: text)
     }
     
     func createRecentMenu() {

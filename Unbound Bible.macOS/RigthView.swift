@@ -86,12 +86,10 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     
     func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         mainView.refreshStatus()
-        let identifier = tabView.selectedTabViewItem?.identifier as! String
-        switch identifier {
+        switch rigthView.tabView.selectedTab! {
             case "compare"    : loadCompare()
             case "xref"       : loadXref()
             case "commentary" : loadCommentary()
-            case "dictionary" : loadDictionary(key: "Господь")
             default : break
         }
         

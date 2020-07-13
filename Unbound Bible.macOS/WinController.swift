@@ -2,10 +2,12 @@
 //  WinController.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
+
+var winController = WinController()
 
 class WinController: NSWindowController, NSSearchFieldDelegate {
     
@@ -17,6 +19,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         self.windowFrameAutosaveName = "AutosaveWindows"
         if !launchedBefore() { setDefaultFrame() }
 //      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { alertUpdate() }
+        winController = self
     }
     
     func launchedBefore() -> Bool {
@@ -71,8 +74,13 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 
     @IBAction func searchFieldAction(_ sender: NSSearchField) {
         if shelf.isEmpty { return }
+        
         let string = searchField.stringValue.trimmed
-        if string.length > 1 {
+        if string.length < 2 { return }
+        
+        if rigthView.tabView.selectedTab == "dictionary" {
+            rigthView.loadDictionary(key: string)
+        } else {
             rigthView.loadSearch(text: string)
         }
     }
@@ -102,4 +110,3 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
     
 }
-

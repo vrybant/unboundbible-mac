@@ -55,8 +55,7 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     func refreshStatus() {
-        let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
-        switch identifier {
+        switch rigthView.tabView.selectedTab {
         case "bible"      : statusBar.title = statuses[0]
         case "search"     : statusBar.title = statuses[1]
         case "compare"    : statusBar.title = statuses[2]
@@ -69,8 +68,7 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     func updateStatus(_ status: String) {
-        let identifier = rigthView.tabView.selectedTabViewItem?.identifier as! String
-        switch identifier {
+        switch rigthView.tabView.selectedTab {
         case "bible"      : statuses[0] = status
         case "search"     : statuses[1] = status
         case "compare"    : statuses[2] = status

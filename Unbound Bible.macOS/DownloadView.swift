@@ -89,7 +89,7 @@ class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate
 
     @IBAction func closeButtonAction(_ sender: NSButton) {
         dismiss(self)
-        if rigthView.tabView.selectedTab() == "compare" { rigthView.loadCompare() }
+        if rigthView.tabView.selectedTab == "compare" { rigthView.loadCompare() }
     }
     
 }

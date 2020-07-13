@@ -33,6 +33,12 @@ class CustomTextView: NSTextView {
         return identifier?.rawValue ?? ""
     }
 
+    var selectedString: String {
+        let range = selectedRange
+        let string = attributedString().attributedSubstring(from: range).string
+        return string
+    }
+    
     private func getForegroundColor(_ x: Int) -> NSColor {
         if x < self.attributedString().length {
             let range = NSRange(location: x, length: 1)
@@ -41,15 +47,15 @@ class CustomTextView: NSTextView {
                 return color as! NSColor
             }
         }
-        return NSColor.black
+        return .black
     }
     
     func getForeground(_ x: Int) -> Foreground {
         switch getForegroundColor(x) {
-        case NSColor.systemNavy  : return .link
-        case NSColor.systemBrown : return .strong
-        case NSColor.systemTeal  : return .footnote
-        default                  : return .text
+        case .systemNavy  : return .link
+        case .systemBrown : return .strong
+        case .systemTeal  : return .footnote
+        default           : return .text
         }
     }
     
@@ -74,7 +80,7 @@ class CustomTextView: NSTextView {
         let style = striked(selectedRange.location) ? 0 : 1
         self.textStorage?.addAttribute(.strikethroughStyle, value: style, range: selectedRange)
     }
-    
+
     private func getLink() -> String {
         if selectedRange.length > 0 { return "" }
         if foreground == .text { return "" }
