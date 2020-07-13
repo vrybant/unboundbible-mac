@@ -119,6 +119,10 @@ extension String {
         return URL(fileURLWithPath: self).pathExtension
     }
     
+    var mutable: NSMutableAttributedString {
+        return NSMutableAttributedString(string: self, attributes: defaultAttributes)
+    }
+    
     func replace(_ string: String, with: String) -> String
     {
         return self.replacingOccurrences(of: string, with: with, options: .literal, range: nil)
@@ -135,10 +139,6 @@ extension String {
             string = String(prefix + suffix)
         }
         return string
-    }
-    
-    func mutable(attributes: [NSAttributedString.Key: Any] = [:]) -> NSMutableAttributedString {
-        return NSMutableAttributedString(string: self, attributes: attributes)
     }
     
     func contains(other: String, options: SearchOption) -> Bool {
