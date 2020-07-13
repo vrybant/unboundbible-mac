@@ -163,8 +163,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         attrString.append(data)
         
         if data.string.isEmpty {
-//            let message = LocalizedString("You search for % produced no results.")
-//            string = "\(message.replace("%", with: text.quoted))"
+            var message = LocalizedString("You search for % produced no results.") + "\n\n"
+            message = "\(message.replace("%", with: key.quoted))"
+            attrString.append(parse(message))
         }
         
         if dictionaries.items.isEmpty {
