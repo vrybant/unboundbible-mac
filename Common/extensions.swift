@@ -119,7 +119,7 @@ extension String {
         return URL(fileURLWithPath: self).pathExtension
     }
     
-    var mutable: NSMutableAttributedString {
+    var attributed: NSMutableAttributedString {
         return NSMutableAttributedString(string: self, attributes: defaultAttributes)
     }
     

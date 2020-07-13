@@ -160,7 +160,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadDictionary(key: String) {
-        let attrString = "".mutable
+        let attrString = "".attributed
         let data = get_Dictionary(key: key)
         attrString.append(data)
         
