@@ -91,7 +91,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             case "compare"    : loadCompare()
             case "xref"       : loadXref()
             case "commentary" : loadCommentary()
-            case "dictionary" : loadDictionary()
+            case "dictionary" : loadDictionary(key: "Господь")
             default : break
         }
         
@@ -159,10 +159,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         selectTab("commentary")
     }
     
-    func loadDictionary() {
-        let link = (bible!.verseToString(activeVerse, full: true) ?? "") + "\n\n"
-        let attrString = parse(link)
-        let data = get_Dictionary(string: "Господь") // temp
+    func loadDictionary(key: String) {
+        let attrString = "".mutable
+        let data = get_Dictionary(key: key)
         attrString.append(data)
         
         if data.string.isEmpty {

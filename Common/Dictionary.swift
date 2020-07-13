@@ -2,7 +2,7 @@
 //  Dictionary.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -29,7 +29,7 @@ class TDictionary: Module {
         if connected && !database!.tableExists(z.dictionary) { return nil }
     }
     
-    func getData(number: String) -> String? {
+    func getStrongData(number: String) -> String? {
         let query = "select * from \(z.dictionary) where \(z.word) = \"\(number)\" "
         if let results = database!.executeQuery(query) {
             if results.next() {
@@ -37,6 +37,20 @@ class TDictionary: Module {
             }
         }
         return nil
+    }
+    
+    func getData(key: String) -> [String]? {
+        let query = "select * from \(z.dictionary) where \(z.word) = \"\(key)\" "
+        
+        var result = [String]()
+        if let results = database!.executeQuery(query) {
+            while results.next() {
+                if let line = results.string(forColumn: z.data) {
+                    if !line.isEmpty { result.append(line) }
+                }
+            }
+        }
+        return result.isEmpty ? nil : result
     }
     
 }
@@ -55,7 +69,6 @@ class Dictionaries {
     private func load() {
         let files = databaseList().filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
-            if !file.hasSuffix(".unbound") { continue }
             if let item = TDictionary(atPath: file) {
                 items.append(item)
             }
@@ -72,7 +85,7 @@ class Dictionaries {
         for item in items {
             if !item.strong { continue }
             if item.fileName != filename { continue }
-            return item.getData(number: number)
+            return item.getStrongData(number: number)
         }
         return nil
     }

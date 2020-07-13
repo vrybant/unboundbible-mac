@@ -87,15 +87,15 @@ func get_Commentary() -> NSAttributedString {
     return result
 }
 
-func get_Dictionary(string: String) -> NSAttributedString {
+func get_Dictionary(key: String) -> NSAttributedString {
     let result = NSMutableAttributedString()
     if shelf.isEmpty { return result }
     
     for item in dictionaries.items {
         if item.footnotes { continue }
-        if let list = item.getData(number: string) {
-            let string = "\n<l>" + item.name + "</l>\n\n"
-            let text = list //  .joined(separator: " "  + "\n"
+        if let list = item.getData(key: key) {
+            let string = "<l>" + item.name + "</l>\n\n"
+            let text = list.joined(separator: " ") + "\n\n"
             result.append( parse(string) )
             result.append( html(text) )
         }

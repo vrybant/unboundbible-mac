@@ -25,9 +25,9 @@ class Commentary: Module {
         book: "book_number",
         chapter: "chapter_number_from",
         fromverse: "verse_number_from",
-        //  chapter: "chapter_number_to"
+    //  chapter: "chapter_number_to"
         toverse: "verse_number_to",
-        //  marker : "marker"
+    //  marker : "marker"
         data: "text"
     )
 
