@@ -104,6 +104,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadSearch(text: String) {
+        if text.length < 2 { return }
         let data = get_Search(string: text)
         var string = data.string
 

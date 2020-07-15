@@ -24,6 +24,7 @@
 		E7382CBA21CC006400DF8772 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
 		E73A0E9223FFE26B00EE62A8 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A0E9123FFE26B00EE62A8 /* Bible.swift */; };
 		E73A0E9323FFE26B00EE62A8 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A0E9123FFE26B00EE62A8 /* Bible.swift */; };
+		E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */; };
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
 		E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74040F11ED5A40F00F96C48 /* CopyView.swift */; };
 		E75525952051334A00BDD425 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
@@ -102,6 +103,7 @@
 		E736415123ABA7E10077293D /* BibleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
 		E7382CB921CC006400DF8772 /* prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prepare.swift; sourceTree = "<group>"; };
 		E73A0E9123FFE26B00EE62A8 /* Bible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bible.swift; sourceTree = "<group>"; };
+		E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
 		E7522CC8214AAD2900EB8788 /* Unbound Bible.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Unbound Bible.entitlements"; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
 				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
 				E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */,
+				E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */,
 				E71B29CE1E0C218200173E77 /* WinController.swift */,
 				E725BA1D2193196000247627 /* View.swift */,
 				CE2F17F21D33C31800BA91A6 /* MainView.swift */,
@@ -426,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */,
+				E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */,
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* extension.swift in Sources */,
 				E7AD04B423ACE59F00443A49 /* kit.swift in Sources */,

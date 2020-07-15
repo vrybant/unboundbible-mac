@@ -22,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var recentMenuItem: NSMenuItem!
     @IBOutlet weak var defaultBaseline: NSMenuItem!
     @IBOutlet weak var defaultDirection: NSMenuItem!
-    @IBOutlet weak var commentariesItem: NSMenuItem!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
@@ -66,7 +65,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdSearch(_ sender: Any?) {
-        let text = rigthView.bibleTextView.selectedString
+        let text = rigthView.bibleTextView.selectedString.trimmed
+        if text.isEmpty { return }
         winController.searchField.stringValue = text
         rigthView.loadSearch(text: text)
     }
@@ -83,10 +83,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         selectTab("commentary")
     }
     
-    @IBAction func cmdDictionary(_ sender: Any?) {
-        let text = rigthView.bibleTextView.selectedString
+    @IBAction func cmdLookUp(_ sender: Any?) {
+        let text = rigthView.bibleTextView.selectedString.trimmed
+        if text.isEmpty { return }
         winController.searchField.stringValue = text
         rigthView.loadDictionary(key: text)
+    }
+    
+    @IBAction func cmdDictionary(_ sender: Any?) {
+        selectTab("dictionary")
     }
     
     func createRecentMenu() {
