@@ -1084,7 +1084,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="313" width="237" height="23"/>
+                                <rect key="frame" x="7" y="305" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1102,13 +1102,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="304"/>
+                                <rect key="frame" x="189" y="5" width="55" height="296"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="302"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="294"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="302"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="294"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1338,7 +1338,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="12D-jC-Xh8">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView identifier="Search" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1409,7 +1409,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="X-Refs" identifier="xref" id="xCn-3K-dhb" userLabel="X-Refs">
+                                    <tabViewItem label="Cross-References" identifier="xref" id="xCn-3K-dhb" userLabel="Cross-References">
                                         <view key="view" id="xGZ-Db-WB0">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1449,7 +1449,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Commentary" identifier="commentary" id="gVu-k7-MRC" userLabel="Commentary">
+                                    <tabViewItem label="Commentaries" identifier="commentary" id="gVu-k7-MRC" userLabel="Commentary">
                                         <view key="view" id="ofB-qX-vkS">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1489,7 +1489,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Dictionary" identifier="dictionary" id="o8N-Op-Goi" userLabel="Dictionary">
+                                    <tabViewItem label="Dictionaries" identifier="dictionary" id="o8N-Op-Goi" userLabel="Dictionary">
                                         <view key="view" id="hZq-wH-kaA">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1634,19 +1634,19 @@ Gw
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="4hY-vp-gss"/>
-                        <menuItem title="Cross Reference" id="5PA-fT-5yq">
+                        <menuItem title="Cross-References" id="5PA-fT-5yq">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="cmdXref:" target="qmf-oa-nxB" id="deF-1j-6zm"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Commentary" id="DDy-DZ-1dG">
+                        <menuItem title="Commentaries" id="DDy-DZ-1dG">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="cmdCommentary:" target="qmf-oa-nxB" id="yYi-2k-nYB"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Dictionary" id="gSF-Yh-cWW">
+                        <menuItem title="Dictionaries" id="gSF-Yh-cWW">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
                                 <action selector="cmdDictionary:" target="qmf-oa-nxB" id="man-GG-pow"/>
@@ -1662,8 +1662,10 @@ Gw
                     <connections>
                         <outlet property="copyMenuItem" destination="ob3-yH-iAn" id="6Zh-p5-zmd"/>
                         <outlet property="delegate" destination="aEP-du-uoE" id="sKw-pY-hqb"/>
+                        <outlet property="interlinearMenuItem" destination="1zZ-nN-0oB" id="zlr-9h-yJf"/>
                         <outlet property="lookupMenuItem" destination="7tD-Ov-l08" id="Sif-ia-g4A"/>
                         <outlet property="searchMenuItem" destination="D1D-pY-dKd" id="K9O-GM-LNV"/>
+                        <outlet property="separatorMenuItem" destination="Stx-qP-9Gz" id="37Y-dF-e2r"/>
                     </connections>
                 </menu>
             </objects>
