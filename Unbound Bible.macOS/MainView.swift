@@ -59,7 +59,7 @@ class MainView: NSViewController, NSWindowDelegate {
         case "bible"      : statusBar.title = statuses[0]
         case "search"     : statusBar.title = statuses[1]
         case "compare"    : statusBar.title = statuses[2]
-        case "xref"       : statusBar.title = statuses[3]
+        case "references" : statusBar.title = statuses[3]
         case "cimmentary" : statusBar.title = statuses[4]
         case "dictionary" : statusBar.title = statuses[5]
         case "notes"      : statusBar.title = statuses[6]
@@ -72,7 +72,7 @@ class MainView: NSViewController, NSWindowDelegate {
         case "bible"      : statuses[0] = status
         case "search"     : statuses[1] = status
         case "compare"    : statuses[2] = status
-        case "xref"       : statuses[3] = status
+        case "references" : statuses[3] = status
         case "commentary" : statuses[4] = status
         case "dictionary" : statuses[5] = status
         case "notes"      : statuses[6] = status

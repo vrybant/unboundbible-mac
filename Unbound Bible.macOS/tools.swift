@@ -56,7 +56,7 @@ func get_Compare() -> String {
 func get_Xref() -> String {
     var result = ""
     
-    if let list = xrefs.getData(activeVerse, language: bible!.language) {
+    if let list = references.getData(activeVerse, language: bible!.language) {
         for item in list {
             if let link = bible!.verseToString(item, full: true) {
                 if let lines = bible!.getRange(item, purge: true) {

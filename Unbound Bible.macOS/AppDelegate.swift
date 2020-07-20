@@ -76,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdXref(_ sender: Any?) {
-        selectTab("xref")
+        selectTab("references")
     }
     
     @IBAction func cmdCommentary(_ sender: Any?) {

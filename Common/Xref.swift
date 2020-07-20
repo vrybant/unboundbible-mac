@@ -8,31 +8,31 @@
 
 import Foundation
 
-class TXref: Module {
+class Reference: Module {
     
     private struct Alias {
-        var xrefs      = "xrefs"
-        var book       = "Book"
-        var chapter    = "Chapter"
-        var verse      = "Verse"
-        var xbook      = "xbook"
-        var xchapter   = "xchapter"
-        var xfromverse = "xfromverse"
-        var xtoverse   = "xtoverse"
-        var votes      = "Votes"
+        var xreferences = "xreferences"
+        var book        = "book"
+        var chapter     = "chapter"
+        var verse       = "verse"
+        var xbook       = "xbook"
+        var xchapter    = "xchapter"
+        var xfromverse  = "xfromverse"
+        var xtoverse    = "xtoverse"
+        var votes       = "votes"
     }
 
     private let mybibleAlias = Alias(
-        xrefs      : "cross_references",
-        book       : "book",
-        chapter    : "chapter",
-        verse      : "verse",
-//      toverse    : "verse_end",
-        xbook      : "book_to",
-        xchapter   : "chapter_to",
-        xfromverse : "verse_to_start",
-        xtoverse   : "verse_to_end",
-        votes      : "votes"
+        xreferences : "cross_references",
+        book        : "book",
+        chapter     : "chapter",
+        verse       : "verse",
+//      toverse     : "verse_end",
+        xbook       : "book_to",
+        xchapter    : "chapter_to",
+        xfromverse  : "verse_to_start",
+        xtoverse    : "verse_to_end",
+        votes       : "votes"
     )
 
     private var z = Alias()
@@ -40,7 +40,7 @@ class TXref: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)!
         if format == .mybible { z = mybibleAlias }
-        if connected && !database!.tableExists(z.xrefs) { return nil }
+        if connected && !database!.tableExists(z.xreferences) { return nil }
     }
     
     func getData(_ verse : Verse) -> [Verse]? {
@@ -48,7 +48,7 @@ class TXref: Module {
         let v_from = verse.number
         let v_to   = verse.number + verse.count - 1
         
-        let query = "select * from \(z.xrefs) " +
+        let query = "select * from \(z.xreferences) " +
                     "where \(z.book) = \(id) " +
                     "and \(z.chapter) = \(verse.chapter) " +
                     "and (\(z.verse) between \(v_from) and \(v_to)) "
@@ -74,11 +74,11 @@ class TXref: Module {
 
 }
 
-var xrefs = Xrefs()
+var references = References()
 
-class Xrefs {
+class References {
     
-    var items = [TXref]()
+    var items = [Reference]()
     
     init() {
         load()
@@ -87,7 +87,7 @@ class Xrefs {
     private func load() {
         let files = databaseList().filter { $0.containsAny([".xrefs."]) } // .crossreferences.
         for file in files {
-            if let item = TXref(atPath: file) {
+            if let item = Reference(atPath: file) {
                 items.append(item)
             }
         }
