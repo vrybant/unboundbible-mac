@@ -18,17 +18,16 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var tabView: NSTabView!
     
     @IBOutlet var searchTab: NSTabViewItem!
-    
     @IBOutlet var referencesTab: NSTabViewItem!
-    @IBOutlet var commentaryTab: NSTabViewItem!
-    @IBOutlet var dictionaryTab: NSTabViewItem!
+    @IBOutlet var commentariesTab: NSTabViewItem!
+    @IBOutlet var dictionariesTab: NSTabViewItem!
     
     @IBOutlet weak var bibleTextView: BibleTextView!
     @IBOutlet weak var searchTextView: СommonTextView!
     @IBOutlet weak var compareTextView: СommonTextView!
     @IBOutlet weak var referencesTextView: СommonTextView!
-    @IBOutlet weak var commentaryTextView: СommonTextView!
-    @IBOutlet weak var dictionaryTextView: СommonTextView!
+    @IBOutlet weak var commentariesTextView: СommonTextView!
+    @IBOutlet weak var dictionariesTextView: СommonTextView!
     @IBOutlet weak var notesTextView: NotesTextView!
     
     @IBOutlet weak var popupMenu: NSMenu!
@@ -48,17 +47,17 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         
         tabView.removeTabViewItem(searchTab)
         tabView.removeTabViewItem(referencesTab)
-        tabView.removeTabViewItem(commentaryTab)
-        tabView.removeTabViewItem(dictionaryTab)
+        tabView.removeTabViewItem(commentariesTab)
+        tabView.removeTabViewItem(dictionariesTab)
     }
     
     func tabFromIdentifier(_ identifier: String) -> NSTabViewItem? {
         switch identifier {
-            case "search"     : return searchTab
-            case "references" : return referencesTab
-            case "commentary" : return commentaryTab
-            case "dictionary" : return dictionaryTab
-            default           : return nil
+            case "search"       : return searchTab
+            case "references"   : return referencesTab
+            case "commentaries" : return commentariesTab
+            case "dictionaries" : return dictionariesTab
+            default             : return nil
         }
     }
     
@@ -87,9 +86,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         mainView.refreshStatus()
         switch rigthView.tabView.selectedTab! {
-            case "compare"    : loadCompare()
-            case "references" : loadReferences()
-            case "commentary" : loadCommentary()
+            case "compare"      : loadCompare()
+            case "references"   : loadReferences()
+            case "commentaries" : loadCommentary()
             default : break
         }
         
@@ -154,8 +153,8 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             attrString.append(parse(message))
         }
                 
-        commentaryTextView.textStorage?.setAttributedString(attrString)
-        selectTab("commentary")
+        commentariesTextView.textStorage?.setAttributedString(attrString)
+        selectTab("commentaries")
     }
     
     func loadDictionary(key: String) {
@@ -175,8 +174,8 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             attrString.append(parse(message))
         }
                 
-        dictionaryTextView.textStorage?.setAttributedString(attrString)
-        selectTab("dictionary")
+        dictionariesTextView.textStorage?.setAttributedString(attrString)
+        selectTab("dictionaries")
     }
     
 }

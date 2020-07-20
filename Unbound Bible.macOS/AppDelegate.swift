@@ -80,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdCommentary(_ sender: Any?) {
-        selectTab("commentary")
+        selectTab("commentaries")
     }
     
     @IBAction func cmdLookUp(_ sender: Any?) {
@@ -91,7 +91,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdDictionary(_ sender: Any?) {
-        selectTab("dictionary")
+        selectTab("dictionaries")
     }
     
     func createRecentMenu() {

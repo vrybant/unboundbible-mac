@@ -1084,7 +1084,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="303" width="237" height="23"/>
+                                <rect key="frame" x="7" y="301" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1102,13 +1102,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="294"/>
+                                <rect key="frame" x="189" y="5" width="55" height="292"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="292"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="290"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="292"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="290"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1179,11 +1179,11 @@ Gw
                             </scrollView>
                             <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
                                 <rect key="frame" x="7" y="4" width="175" height="310"/>
-                                <clipView key="contentView" id="tuV-5u-eRZ">
+                                <clipView key="contentView" ambiguous="YES" id="tuV-5u-eRZ">
                                     <rect key="frame" x="1" y="1" width="173" height="308"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
+                                        <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
                                             <rect key="frame" x="0.0" y="0.0" width="173" height="308"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1338,7 +1338,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="12D-jC-Xh8">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView identifier="Search" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1449,7 +1449,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Commentaries" identifier="commentary" id="gVu-k7-MRC" userLabel="Commentary">
+                                    <tabViewItem label="Commentaries" identifier="commentaries" id="gVu-k7-MRC" userLabel="Commentary">
                                         <view key="view" id="ofB-qX-vkS">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1458,7 +1458,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="HwO-me-vZl">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView identifier="Commentary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="RwV-PY-zpS" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1489,7 +1489,7 @@ Gw
                                             </constraints>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Dictionaries" identifier="dictionary" id="o8N-Op-Goi" userLabel="Dictionary">
+                                    <tabViewItem label="Dictionaries" identifier="dictionaries" id="o8N-Op-Goi" userLabel="Dictionary">
                                         <view key="view" id="hZq-wH-kaA">
                                             <rect key="frame" x="10" y="33" width="630" height="392"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1498,7 +1498,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="QgM-j1-xHC">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView identifier="Dictionary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="LRH-fW-4mm" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1538,7 +1538,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="Hpn-W0-DnX">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
                                                             <textView identifier="Notes" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="NotesTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="-1" width="613" height="390"/>
@@ -1585,11 +1585,11 @@ Gw
                     <connections>
                         <outlet property="bibleTextView" destination="Zuh-Fk-nWM" id="jlW-9V-f9V"/>
                         <outlet property="commentariesItem" destination="DDy-DZ-1dG" id="ors-U5-GoY"/>
-                        <outlet property="commentaryTab" destination="gVu-k7-MRC" id="QSR-eV-iV6"/>
-                        <outlet property="commentaryTextView" destination="RwV-PY-zpS" id="jFp-MI-7uV"/>
+                        <outlet property="commentariesTab" destination="gVu-k7-MRC" id="agW-W4-ziY"/>
+                        <outlet property="commentariesTextView" destination="RwV-PY-zpS" id="oHJ-VH-TuX"/>
                         <outlet property="compareTextView" destination="eU7-Os-3Pu" id="E8V-l1-eix"/>
-                        <outlet property="dictionaryTab" destination="o8N-Op-Goi" id="rYC-vN-3Ic"/>
-                        <outlet property="dictionaryTextView" destination="LRH-fW-4mm" id="GAa-gW-amn"/>
+                        <outlet property="dictionariesTab" destination="o8N-Op-Goi" id="d6n-LJ-xXl"/>
+                        <outlet property="dictionariesTextView" destination="LRH-fW-4mm" id="usc-wb-L6a"/>
                         <outlet property="interlinearItem" destination="1zZ-nN-0oB" id="pKe-tL-ezU"/>
                         <outlet property="notesTextView" destination="8mZ-f0-zEK" id="MmM-vh-d7S"/>
                         <outlet property="popupMenu" destination="c6C-nW-O0M" id="N9P-yg-bET"/>
