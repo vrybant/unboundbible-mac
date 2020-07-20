@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TDictionary: Module {
+class Dictionary: Module {
     
     private struct Alias {
         var dictionary = "Dictionary"
@@ -59,7 +59,7 @@ var dictionaries = Dictionaries()
 
 class Dictionaries {
     
-    var items = [TDictionary]()
+    var items = [Dictionary]()
     
     init() {
         load()
@@ -69,7 +69,7 @@ class Dictionaries {
     private func load() {
         let files = databaseList().filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
-            if let item = TDictionary(atPath: file) {
+            if let item = Dictionary(atPath: file) {
                 items.append(item)
             }
         }
