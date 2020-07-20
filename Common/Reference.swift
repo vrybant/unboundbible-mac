@@ -1,5 +1,5 @@
 //
-//  Xref.swift
+//  Reference.swift
 //  Unbound Bible
 //
 //  Created by Vladimir Rybant on 25.05.2020.

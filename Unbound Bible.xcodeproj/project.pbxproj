@@ -74,11 +74,11 @@
 		E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82390202B07EC00287173 /* InfoPlist.strings */; };
 		E7C82393202B07ED00287173 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82395202B07ED00287173 /* Localizable.strings */; };
 		E7D4637B201A2B520055F1DA /* PreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D4637A201A2B520055F1DA /* PreferencesView.swift */; };
-		E7D8C270247C08E100ADD7CF /* Xref.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D8C26F247C08E100ADD7CF /* Xref.swift */; };
-		E7D8C271247C08E100ADD7CF /* Xref.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D8C26F247C08E100ADD7CF /* Xref.swift */; };
 		E7DD51A51DE764A70003D654 /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD51A41DE764A70003D654 /* tools.swift */; };
 		E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA4AF1EE960E400022638 /* SplitView.swift */; };
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
+		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
+		E7E7A84F24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
 		E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F771351DE865FE004AF6C0 /* RigthView.swift */; };
@@ -152,10 +152,10 @@
 		E7C8238F202B07EC00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E7C82394202B07ED00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E7D4637A201A2B520055F1DA /* PreferencesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
-		E7D8C26F247C08E100ADD7CF /* Xref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xref.swift; sourceTree = "<group>"; };
 		E7DD51A41DE764A70003D654 /* tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tools.swift; sourceTree = "<group>"; };
 		E7DDA4AF1EE960E400022638 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		E7E3D4F71E12B1C400912F37 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		E7E7A84D24C5C285001F85C8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
 		E7EF67621FF38F3400360C1D /* Shelf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
 		E7F5071A20509AEB0019F546 /* icns.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icns.icns; sourceTree = "<group>"; };
 		E7F771351DE865FE004AF6C0 /* RigthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RigthView.swift; sourceTree = "<group>"; };
@@ -297,7 +297,7 @@
 				E73A0E9123FFE26B00EE62A8 /* Bible.swift */,
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
 				E7FABB9C21D938F7006B6267 /* Dictionary.swift */,
-				E7D8C26F247C08E100ADD7CF /* Xref.swift */,
+				E7E7A84D24C5C285001F85C8 /* Reference.swift */,
 				E70BA7E8224DE54F002B60D7 /* data.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E71485B823AA5EF6009369D4 /* lib.swift */,
@@ -429,6 +429,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */,
+				E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */,
 				E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */,
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* extension.swift in Sources */,
@@ -450,7 +451,6 @@
 				E725BA1E2193196000247627 /* View.swift in Sources */,
 				E7C21903201522F300E90AC6 /* NotesText.swift in Sources */,
 				E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */,
-				E7D8C270247C08E100ADD7CF /* Xref.swift in Sources */,
 				E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */,
 				E7BECE471EA9372900CF3386 /* FMDatabasePool.m in Sources */,
 				E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */,
@@ -482,6 +482,7 @@
 				E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */,
 				E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */,
 				E7A6CB5323AB67D300947139 /* Titles.swift in Sources */,
+				E7E7A84F24C5C285001F85C8 /* Reference.swift in Sources */,
 				E7A6CB5823AB67E100947139 /* data.swift in Sources */,
 				E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */,
 				E7A6CB4523AB672C00947139 /* SecondViewController.swift in Sources */,
@@ -491,7 +492,6 @@
 				E7A6CB5423AB67D600947139 /* extensions.swift in Sources */,
 				E7A6CB5623AB67DC00947139 /* Commentary.swift in Sources */,
 				E7A6CB3F23AB672C00947139 /* AppDelegate.swift in Sources */,
-				E7D8C271247C08E100ADD7CF /* Xref.swift in Sources */,
 				E7A6CB5223AB67D100947139 /* Module.swift in Sources */,
 				E7A6CB4123AB672C00947139 /* SceneDelegate.swift in Sources */,
 				E736415223ABA7E10077293D /* BibleText.swift in Sources */,
