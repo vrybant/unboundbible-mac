@@ -70,19 +70,19 @@
                                                 <action selector="cmdCompare:" target="Ady-hI-5gd" id="Jks-A7-L2c"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Cross References" id="19z-Q4-ARI">
+                                        <menuItem title="Cross-References" id="19z-Q4-ARI">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="cmdXref:" target="Ady-hI-5gd" id="biR-zd-axc"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Commentary" id="zQF-dJ-kmX">
+                                        <menuItem title="Commentaries" id="zQF-dJ-kmX">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="cmdCommentary:" target="Ady-hI-5gd" id="RN0-PG-Y2W"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Dictionary" id="aTp-pA-I2t">
+                                        <menuItem title="Dictionaries" id="aTp-pA-I2t">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="cmdDictionary:" target="Ady-hI-5gd" id="udY-wj-3rs"/>
@@ -92,7 +92,7 @@
                                         <menuItem title="Modules" id="gvo-gb-7Om">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="Interlinear" id="lgt-XF-3td">
+                                        <menuItem title="Interlinear (biblehub.com)" id="lgt-XF-3td">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="interlinear:" target="Ady-hI-5gd" id="ntx-5X-zBT"/>
@@ -1091,7 +1091,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="289" width="237" height="23"/>
+                                <rect key="frame" x="7" y="287" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1109,13 +1109,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="280"/>
+                                <rect key="frame" x="189" y="5" width="55" height="278"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="278"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="276"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="278"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="276"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

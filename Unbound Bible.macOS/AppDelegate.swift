@@ -48,7 +48,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defaultBaseline.title = "Стандартна"
             defaultDirection.title = "Стандартний"
         }
-        interlinearMenuItem.title = NSLocalizedString("Interlinear", comment: "") + " (biblehub.com)"
     }
     
     @IBAction func menuItemSelected(_ sender : NSMenuItem) {
