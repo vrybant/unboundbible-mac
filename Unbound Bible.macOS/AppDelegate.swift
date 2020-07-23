@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var recentMenuItem: NSMenuItem!
     @IBOutlet weak var defaultBaseline: NSMenuItem!
     @IBOutlet weak var defaultDirection: NSMenuItem!
+    @IBOutlet weak var interlinearMenuItem: NSMenuItem!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
         appDelegate = self
@@ -47,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             defaultBaseline.title = "Стандартна"
             defaultDirection.title = "Стандартний"
         }
+        interlinearMenuItem.title = NSLocalizedString("Interlinear", comment: "") + " (biblehub.com)"
     }
     
     @IBAction func menuItemSelected(_ sender : NSMenuItem) {
@@ -92,6 +94,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func cmdDictionary(_ sender: Any?) {
         selectTab("dictionaries")
+    }
+    
+    @IBAction func interlinear(_ sender: NSMenuItem) {
+        let range = 1...66
+        if !range.contains(activeVerse.book) { return }
+        let book = bibleHubArray[activeVerse.book]
+        let tail = book + "/" + String(activeVerse.chapter) + "-" + String(activeVerse.number) + ".htm"
+        let url = "http://biblehub.com/interlinear/" + tail
+        NSWorkspace.shared.open(URL(string: url)!)
     }
     
     func createRecentMenu() {

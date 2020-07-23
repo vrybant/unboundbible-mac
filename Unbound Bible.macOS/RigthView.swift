@@ -2,7 +2,7 @@
 //  RigthViewController.swift
 //  Unbound Bible
 //
-//  Copyright © 2018 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -31,7 +31,6 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet weak var notesTextView: NotesTextView!
     
     @IBOutlet weak var popupMenu: NSMenu!
-    @IBOutlet weak var interlinearItem: NSMenuItem!
     @IBOutlet weak var commentariesItem: NSMenuItem!
 
     var tabs: [String] = []
@@ -39,7 +38,6 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         rigthView = self
-        interlinearItem.title = NSLocalizedString("Interlinear", comment: "") + " (biblehub.com)"
         
         for item in tabView.tabViewItems {
             tabs.append(item.identifier as! String)
@@ -49,6 +47,35 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         tabView.removeTabViewItem(referencesTab)
         tabView.removeTabViewItem(commentariesTab)
         tabView.removeTabViewItem(dictionariesTab)
+        
+        bibleTextView.delegate = self
+        searchTextView.delegate = self
+        compareTextView.delegate = self
+        referencesTextView.delegate = self
+        commentariesTextView.delegate = self
+        dictionariesTextView.delegate = self
+        notesTextView.delegate = self
+        
+        bibleTextView.menu = popupMenu
+        searchTextView.menu = popupMenu
+        compareTextView.menu = popupMenu
+        referencesTextView.menu = popupMenu
+        commentariesTextView.menu = popupMenu
+        dictionariesTextView.menu = popupMenu
+//      notesTextView.menu = popupMenu
+    }
+    
+    var selectedString: String {
+        switch rigthView.tabView.selectedTab! {
+            case "bible"        : return bibleTextView.selectedString
+            case "search"       : return searchTextView.selectedString
+            case "compare"      : return compareTextView.selectedString
+            case "references"   : return referencesTextView.selectedString
+            case "commentaries" : return commentariesTextView.selectedString
+            case "dictionaries" : return dictionariesTextView.selectedString
+            case "notes"        : return notesTextView.selectedString
+            default             : return ""
+        }
     }
     
     func tabFromIdentifier(_ identifier: String) -> NSTabViewItem? {
@@ -78,22 +105,21 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         tabView.selectTabViewItem(withIdentifier: tab)
     }
     
-    override func viewDidLayout() {
-        bibleTextView.delegate = self
-        bibleTextView.menu = popupMenu
-    }
-    
     func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         mainView.refreshStatus()
-        switch rigthView.tabView.selectedTab! {
+        switch tabView.selectedTab! {
             case "compare"      : loadCompare()
             case "references"   : loadReferences()
             case "commentaries" : loadCommentary()
             default : break
         }
-        
     }
 
+    func textView(_ view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu? {
+//      popupMenu.allowsContextMenuPlugIns = false        
+        return popupMenu
+    }
+    
     func loadChapter() {
         let attrString = parse(get_Chapter(), jtag: true)
         bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight

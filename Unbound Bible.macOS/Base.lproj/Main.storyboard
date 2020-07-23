@@ -92,6 +92,12 @@
                                         <menuItem title="Modules" id="gvo-gb-7Om">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
+                                        <menuItem title="Interlinear" id="lgt-XF-3td">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="interlinear:" target="Ady-hI-5gd" id="ntx-5X-zBT"/>
+                                            </connections>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -414,6 +420,7 @@
                     <connections>
                         <outlet property="defaultBaseline" destination="eLn-5R-Lbk" id="Uys-2r-y2z"/>
                         <outlet property="defaultDirection" destination="c6b-1l-Y1E" id="oaE-NE-G6J"/>
+                        <outlet property="interlinearMenuItem" destination="lgt-XF-3td" id="AT0-fq-OID"/>
                         <outlet property="recentMenuItem" destination="tXI-mr-wws" id="ClC-4d-cNF"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
                     </connections>
@@ -1084,7 +1091,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="301" width="237" height="23"/>
+                                <rect key="frame" x="7" y="289" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1102,13 +1109,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="292"/>
+                                <rect key="frame" x="189" y="5" width="55" height="280"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="290"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="278"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="290"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="278"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1338,7 +1345,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="12D-jC-Xh8">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Search" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1378,7 +1385,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="5Xb-8t-pRR">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Compare" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="eU7-Os-3Pu" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1418,7 +1425,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="Lku-zW-uFl">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="references" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="Qm2-UT-a79" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1458,7 +1465,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="HwO-me-vZl">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Commentary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="RwV-PY-zpS" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1498,7 +1505,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="QgM-j1-xHC">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Dictionary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="LRH-fW-4mm" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
@@ -1538,7 +1545,7 @@ Gw
                                                     <rect key="frame" x="0.0" y="0.0" width="630" height="392"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="Hpn-W0-DnX">
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView identifier="Notes" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="NotesTextView" customModule="Unbound_Bible" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="-1" width="613" height="390"/>
@@ -1590,7 +1597,6 @@ Gw
                         <outlet property="compareTextView" destination="eU7-Os-3Pu" id="E8V-l1-eix"/>
                         <outlet property="dictionariesTab" destination="o8N-Op-Goi" id="d6n-LJ-xXl"/>
                         <outlet property="dictionariesTextView" destination="LRH-fW-4mm" id="usc-wb-L6a"/>
-                        <outlet property="interlinearItem" destination="1zZ-nN-0oB" id="pKe-tL-ezU"/>
                         <outlet property="notesTextView" destination="8mZ-f0-zEK" id="MmM-vh-d7S"/>
                         <outlet property="popupMenu" destination="c6C-nW-O0M" id="N9P-yg-bET"/>
                         <outlet property="referencesTab" destination="xCn-3K-dhb" id="Rvd-6U-VJM"/>
@@ -1601,7 +1607,7 @@ Gw
                     </connections>
                 </viewController>
                 <customObject id="qmf-oa-nxB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu id="c6C-nW-O0M" customClass="PopupMenu" customModule="Unbound_Bible" customModuleProvider="target">
+                <menu autoenablesItems="NO" id="c6C-nW-O0M" customClass="PopupMenu" customModule="Unbound_Bible" customModuleProvider="target">
                     <items>
                         <menuItem title="Search" id="D1D-pY-dKd">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1616,6 +1622,11 @@ Gw
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="Stx-qP-9Gz"/>
+                        <menuItem title="Cut" keyEquivalent="x" id="0ck-NZ-pyc">
+                            <connections>
+                                <action selector="cut:" target="qmf-oa-nxB" id="Vm1-0S-hNV"/>
+                            </connections>
+                        </menuItem>
                         <menuItem title="Copy" keyEquivalent="c" id="ob3-yH-iAn">
                             <connections>
                                 <action selector="copy:" target="qmf-oa-nxB" id="Jlw-hn-aW5"/>
@@ -1631,6 +1642,11 @@ Gw
                             <connections>
                                 <action selector="copyVersesAction:" target="aEP-du-uoE" id="Cms-mZ-naH"/>
                                 <segue destination="03V-8r-HtA" kind="modal" id="8l2-W6-DIp"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Paste" keyEquivalent="v" id="CaQ-OS-huD">
+                            <connections>
+                                <action selector="paste:" target="qmf-oa-nxB" id="vfI-mh-siF"/>
                             </connections>
                         </menuItem>
                         <menuItem isSeparatorItem="YES" id="4hY-vp-gss"/>
@@ -1652,18 +1668,15 @@ Gw
                                 <action selector="cmdDictionary:" target="qmf-oa-nxB" id="man-GG-pow"/>
                             </connections>
                         </menuItem>
-                        <menuItem title="Interlinear" id="1zZ-nN-0oB">
-                            <modifierMask key="keyEquivalentModifierMask"/>
-                            <connections>
-                                <action selector="interlinear:" target="qmf-oa-nxB" id="kkU-2s-HUF"/>
-                            </connections>
-                        </menuItem>
                     </items>
                     <connections>
+                        <outlet property="copyAsMenuItem" destination="cf8-0C-v73" id="goA-xS-ncN"/>
                         <outlet property="copyMenuItem" destination="ob3-yH-iAn" id="6Zh-p5-zmd"/>
+                        <outlet property="copyVersesMenuItem" destination="Tb2-Vk-PEr" id="ba7-g3-4fG"/>
+                        <outlet property="cutMenuItem" destination="0ck-NZ-pyc" id="pDO-IK-vcT"/>
                         <outlet property="delegate" destination="aEP-du-uoE" id="sKw-pY-hqb"/>
-                        <outlet property="interlinearMenuItem" destination="1zZ-nN-0oB" id="zlr-9h-yJf"/>
                         <outlet property="lookupMenuItem" destination="7tD-Ov-l08" id="Sif-ia-g4A"/>
+                        <outlet property="pasteMenuItem" destination="CaQ-OS-huD" id="hV0-d7-Ndr"/>
                         <outlet property="searchMenuItem" destination="D1D-pY-dKd" id="K9O-GM-LNV"/>
                         <outlet property="separatorMenuItem" destination="Stx-qP-9Gz" id="37Y-dF-e2r"/>
                     </connections>
