@@ -2,7 +2,7 @@
 //  PopoverView.swift
 //  Unbound Bible
 //
-//  Copyright © 2019 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa

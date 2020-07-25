@@ -2,8 +2,7 @@
 //  kit.swift
 //  Unbound Bible
 //
-//  Created by Vladimir Rybant on 20.12.2019.
-//  Copyright © 2019 Vladimir Rybant. All rights reserved.
+//  Copyright © 2020 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
