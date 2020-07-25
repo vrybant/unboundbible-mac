@@ -536,6 +536,7 @@
                     </window>
                     <connections>
                         <outlet property="searchField" destination="n2B-PU-L83" id="xZX-Rd-S7W"/>
+                        <outlet property="searchOptionsButton" destination="XOO-wQ-JkF" id="vXK-KJ-4Fs"/>
                         <outlet property="windowOutlet" destination="IQv-IB-iLA" id="ojZ-Qr-gTz"/>
                         <segue destination="81U-iW-K9k" kind="relationship" relationship="window.shadowedContentViewController" id="eOp-iv-lDw"/>
                     </connections>
@@ -1091,7 +1092,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="287" width="237" height="23"/>
+                                <rect key="frame" x="7" y="285" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1109,13 +1110,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="278"/>
+                                <rect key="frame" x="189" y="5" width="55" height="276"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="276"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="274"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="276"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="274"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

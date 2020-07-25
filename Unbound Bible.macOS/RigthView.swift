@@ -62,7 +62,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         referencesTextView.menu = popupMenu
         commentariesTextView.menu = popupMenu
         dictionariesTextView.menu = popupMenu
-//      notesTextView.menu = popupMenu
+        notesTextView.menu = popupMenu
     }
     
     var selectedString: String {
@@ -107,16 +107,17 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     
     func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
         mainView.refreshStatus()
-        switch tabView.selectedTab! {
+        let tab = tabView.selectedTab!
+        switch tab {
             case "compare"      : loadCompare()
             case "references"   : loadReferences()
             case "commentaries" : loadCommentary()
             default : break
         }
+        winController.searchOptionsButton.isEnabled = tab != "dictionaries"
     }
 
     func textView(_ view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu? {
-//      popupMenu.allowsContextMenuPlugIns = false        
         return popupMenu
     }
     
