@@ -66,7 +66,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdSearch(_ sender: Any?) {
-        let text = rigthView.bibleTextView.selectedString.trimmed
+        let text = rigthView.selectedString.trimmed
         if text.isEmpty { return }
         winController.searchField.stringValue = text
         rigthView.loadSearch(text: text)
@@ -85,7 +85,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func cmdLookUp(_ sender: Any?) {
-        let text = rigthView.bibleTextView.selectedString.trimmed
+        let text = rigthView.selectedString.trimmed
         if text.isEmpty { return }
         winController.searchField.stringValue = text
         rigthView.loadDictionary(key: text)
