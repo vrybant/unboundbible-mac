@@ -77,23 +77,18 @@ class Dictionaries {
     
     var isEmpty: Bool {
         for item in items {
-            if item.embedded { continue }
-            return false
+            if !item.embedded { return true }
         }
-        return true
+        return false
     }
     
     private func strongByLanguage(_ language: String) -> Int? {
-        var result : Int? = nil
-        var e : Int? = nil
-        
         for i in 0...items.count-1 {
             if !items[i].strong { continue }
             if !items[i].embedded { continue }
-            if items[i].language == language { result = i }
-            if items[i].language == "en" { e = i }
+            if items[i].language == language { return i }
         }
-        return result ?? e
+        return nil
     }
     
     func getStrong(_ verse: Verse, language: String, number: String) -> String? {
@@ -102,10 +97,8 @@ class Dictionaries {
         let symbol = isNewTestament(verse.book) ? "G" : "H"
         if !number.hasPrefix(symbol) { number =  symbol + number }
 
-        if let x = strongByLanguage(language) {
-            return items[x].getStrongData(number: number)
-        }
-        return nil
+        let x = strongByLanguage(language) ?? strongByLanguage("en")
+        return x == nil ? nil : items[x!].getStrongData(number: number)
     }
     
 }
