@@ -97,8 +97,10 @@ class Dictionaries {
         let symbol = isNewTestament(verse.book) ? "G" : "H"
         if !number.hasPrefix(symbol) { number =  symbol + number }
 
-        let x = strongByLanguage(language) ?? strongByLanguage("en")
-        return x == nil ? nil : items[x!].getStrongData(number: number)
+        if let index = strongByLanguage(language) ?? strongByLanguage("en") {
+            return items[index].getStrongData(number: number)
+        }
+        return nil
     }
     
 }
