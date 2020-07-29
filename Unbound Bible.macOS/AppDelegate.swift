@@ -84,7 +84,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         selectTab("commentaries")
     }
     
-    @IBAction func cmdLookUp(_ sender: Any?) {
+    @IBAction func cmdLookUp(_ sender: NSMenuItem) {
         let text = rigthView.selectedString.trimmed
         if text.isEmpty { return }
         winController.searchField.stringValue = text
