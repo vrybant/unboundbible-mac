@@ -91,7 +91,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         rigthView.loadDictionary(key: text)
     }
     
-    @IBAction func cmdDictionary(_ sender: Any?) {
+    @IBAction func cmdDictionary(_ sender: NSMenuItem) {
+        if rigthView.dictionariesTextView.string.isEmpty {
+            let message = LocalizedString("Please enter your query in the search bar.")
+            let attrString = parse(message)
+            rigthView.dictionariesTextView.textStorage?.setAttributedString(attrString)
+        }
         selectTab("dictionaries")
     }
     
