@@ -116,12 +116,12 @@ class CustomTextView: NSTextView {
         if id == "Notes" { return }
         
         if foreground == .strong {
-            let f = get_Strong(number: hyperlink)
-            let attrs = parse(f, small: true).mutable()
-            mainView.showPopover(self)
-            popoverView!.textView.textStorage?.setAttributedString(attrs)
+            if let string = get_Strong(number: hyperlink) {
+                let attrString = parse(string, small: true).mutable()
+                mainView.showPopover(self)
+                popoverView!.textView.textStorage?.setAttributedString(attrString)
+            }
         }
-        
     }
     
     override func didChangeText() {

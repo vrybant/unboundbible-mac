@@ -104,9 +104,8 @@ func get_Dictionary(key: String) -> NSAttributedString {
     return result
 }
 
-func get_Strong(number: String = "") -> String {
-    if let text = dictionaries.getStrong(activeVerse, language: bible!.language, number: number) { return text }
-    return ""
+func get_Strong(number: String = "") -> String? {
+    return dictionaries.getStrong(activeVerse, language: bible!.language, number: number)
 }
 
 func get_Footnote(marker: String = "") -> String {

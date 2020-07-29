@@ -75,17 +75,35 @@ class Dictionaries {
         }
     }
     
+    var isEmpty: Bool {
+        for item in items {
+            if item.embedded { continue }
+            return false
+        }
+        return true
+    }
+    
+    private func strongByLanguage(_ language: String) -> Int? {
+        var result : Int? = nil
+        var e : Int? = nil
+        
+        for i in 0...items.count-1 {
+            if !items[i].strong { continue }
+            if !items[i].embedded { continue }
+            if items[i].language == language { result = i }
+            if items[i].language == "en" { e = i }
+        }
+        return result ?? e
+    }
+    
     func getStrong(_ verse: Verse, language: String, number: String) -> String? {
         var number = number
-        let filename = language.hasPrefix("ru") ? "strongru.dct.unbound" : "strong.dct.unbound"
         
-        let letter = isNewTestament(verse.book) ? "G" : "H"
-        if !number.hasPrefix(letter) { number =  letter + number }
+        let symbol = isNewTestament(verse.book) ? "G" : "H"
+        if !number.hasPrefix(symbol) { number =  symbol + number }
 
-        for item in items {
-            if !item.strong { continue }
-            if item.fileName != filename { continue }
-            return item.getStrongData(number: number)
+        if let x = strongByLanguage(language) {
+            return items[x].getStrongData(number: number)
         }
         return nil
     }

@@ -195,7 +195,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             attrString.append(parse(message))
         }
         
-        if dictionaries.items.isEmpty {
+        if dictionaries.isEmpty {
             let message = LocalizedString("You don't have any dictionary modules.") + " " +
                           LocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».")
             attrString.append(parse(message))
