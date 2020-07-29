@@ -92,7 +92,7 @@ func get_Dictionary(key: String) -> NSAttributedString {
     if shelf.isEmpty { return result }
     
     for item in dictionaries.items {
-        if item.footnotes { continue }
+        if item.embedded { continue }
         if let list = item.getData(key: key) {
             let string = "<l>" + item.name + "</l>\n\n"
             let text = list.joined(separator: " ") + "\n\n"

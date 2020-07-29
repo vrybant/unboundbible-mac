@@ -26,6 +26,7 @@ class Module {
     var connected    : Bool = false
     var loaded       : Bool = false
     var strong       : Bool = false
+    var embedded     : Bool = false
     var footnotes    : Bool = false
     var interlinear  : Bool = false
     var embtitles    : Bool = false
@@ -62,8 +63,9 @@ class Module {
                     abbr      = results.string(forColumn: "Abbreviation") ?? ""
                     copyright = results.string(forColumn: "Copyright"   ) ?? ""
                     language  = results.string(forColumn: "Language"    ) ?? ""
-                    strong    = results.bool(forColumn: "Strong")
-
+                    strong    = results.bool  (forColumn: "Strong"      )
+                    embedded  = results.bool  (forColumn: "Embedded"    )
+                    
                     connected = true
                 }
             }
