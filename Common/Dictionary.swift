@@ -77,9 +77,9 @@ class Dictionaries {
     
     var isEmpty: Bool {
         for item in items {
-            if !item.embedded { return true }
+            if !item.embedded { return false }
         }
-        return false
+        return true
     }
     
     private func strongByLanguage(_ language: String) -> Int? {
