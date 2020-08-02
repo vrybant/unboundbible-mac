@@ -54,7 +54,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 //      let month = calendar.component(.month, from: date)
 //      let year  = calendar.component(.year,  from: date)
 //
-//      if year != 2018 || month != 9 { return }
+//      if year != 2020 || month != 9 { return }
 //
 //      let alert = NSAlert()
 //      alert.messageText = applicationName
