@@ -84,9 +84,9 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         if shelf.isEmpty { return }
         shelf.setCurrent(sender.indexOfSelectedItem)
-        mainView.updateStatus(bible!.fileName + " | " + bible!.info)
         makeBookList()
         goToVerse(activeVerse, select: activeVerse.number > 1)
+        mainView.updateStatus(bible!.fileName + " | " + bible!.info)
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {

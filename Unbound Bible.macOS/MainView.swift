@@ -13,8 +13,8 @@ class MainView: NSViewController, NSWindowDelegate {
 
     var popover = NSPopover()
     var noteURL : URL?
-    private var statuses : [String] = ["","","","","","",""]
-    
+    private var statuses = [String: String]()
+
     @IBOutlet weak var statusBar: NSTextFieldCell!
     
     override func viewDidLoad() {
@@ -55,29 +55,13 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
     func refreshStatus() {
-        switch rigthView.tabView.selectedTab {
-        case "bible"        : statusBar.title = statuses[0]
-        case "search"       : statusBar.title = statuses[1]
-        case "compare"      : statusBar.title = statuses[2]
-        case "references"   : statusBar.title = statuses[3]
-        case "cimmentaries" : statusBar.title = statuses[4]
-        case "dictionaries" : statusBar.title = statuses[5]
-        case "notes"        : statusBar.title = statuses[6]
-        default : break
-        }
+        let tab = rigthView.tabView.selectedTab!
+        statusBar.title = statuses[tab] ?? ""
     }
     
     func updateStatus(_ status: String) {
-        switch rigthView.tabView.selectedTab {
-        case "bible"        : statuses[0] = status
-        case "search"       : statuses[1] = status
-        case "compare"      : statuses[2] = status
-        case "references"   : statuses[3] = status
-        case "commentaries" : statuses[4] = status
-        case "dictionaries" : statuses[5] = status
-        case "notes"        : statuses[6] = status
-        default : break
-        }
+        let tab = rigthView.tabView.selectedTab!
+        statuses.updateValue(status, forKey: tab)
         refreshStatus()
     }
     
