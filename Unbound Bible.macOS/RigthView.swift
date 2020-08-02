@@ -156,11 +156,12 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
 
     func loadReferences() {
         let link = bible!.verseToString(activeVerse, full: true) ?? ""
-        let data = get_Xref()
-        var string = link + "\n\n" + data
-        if data.isEmpty { string += LocalizedString("Сross-references not found.") }
+        let values = get_References()
+        var string = link + "\n\n" + values.string
+        if values.string.isEmpty { string += LocalizedString("Сross-references not found.") }
         referencesTextView.textStorage?.setAttributedString(parse(string))
         selectTab("references")
+        mainView.updateStatus(values.info)
     }
     
     func loadCommentary() {

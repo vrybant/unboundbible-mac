@@ -93,12 +93,14 @@ class References {
         }
     }
 
-    func getData(_ verse: Verse, language: String) -> [Verse]? {
+    func getData(_ verse: Verse, language: String) -> (data: [Verse], info: String)? {
         let filename = language.hasPrefix("ru") ? "obru.xrefs.unbound" : "ob.xrefs.unbound"
         
         for item in items {
             if item.fileName != filename { continue }
-            return item.getData(verse)
+            if let data = item.getData(verse) {
+                return (data, item.info)
+            }
         }
         return nil
     }

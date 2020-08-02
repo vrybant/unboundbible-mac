@@ -53,11 +53,13 @@ func get_Compare() -> String {
     return result
 }
 
-func get_Xref() -> String {
+func get_References() -> (string: String, info: String) {
     var result = ""
+    var info = ""
     
-    if let list = references.getData(activeVerse, language: bible!.language) {
-        for item in list {
+    if let values = references.getData(activeVerse, language: bible!.language) {
+        info = values.info
+        for item in values.data {
             if let link = bible!.verseToString(item, full: true) {
                 if let lines = bible!.getRange(item, purge: true) {
                     result += "<l>\(link)</l> "
@@ -67,7 +69,7 @@ func get_Xref() -> String {
         }
     }
     
-    return result
+    return (result, info)
 }
 
 func get_Commentary() -> NSAttributedString {
