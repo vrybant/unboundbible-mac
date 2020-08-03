@@ -177,7 +177,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         
         if commentaries.items.isEmpty {
             let message = LocalizedString("You don't have any commentary modules.") + " " +
-                          LocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».")
+                          LocalizedString("For more information, choose Menu ➝ Help, then click «Modules Downloads».")
             attrString.append(parse(message))
         }
                 
@@ -198,7 +198,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         
         if dictionaries.isEmpty {
             let message = LocalizedString("You don't have any dictionary modules.") + " " +
-                          LocalizedString("For more information, choose Menu ➝ Help, then click «Unbound Bible Help».")
+                          LocalizedString("For more information, choose Menu ➝ Help, then click «Modules Downloads».")
             attrString.append(parse(message))
         }
                 

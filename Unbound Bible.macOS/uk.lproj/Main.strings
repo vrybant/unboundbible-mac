@@ -238,6 +238,9 @@
 /* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
 "OY7-WF-poV.title" = "Згорнути";
 
+/* Class = "NSMenuItem"; title = "Modules Downloads"; ObjectID = "Fph-IJ-O97"; */
+"Fph-IJ-O97.title" = "Скачать модули";
+
 /* Class = "NSMenuItem"; title = "Modules"; ObjectID = "gvo-gb-7Om"; */
 "gvo-gb-7Om.title" = "Модулі";
 
