@@ -1,77 +1,25 @@
-/* No comment provided by engineer. */
 "Application ID functions require SQLite 3.7.17" = "Application ID functions require SQLite 3.7.17";
-
-/* No comment provided by engineer. */
 "Cancel" = "Скасувати";
-
-/* No comment provided by engineer. */
 "Change Font" = "Змінити шрифт";
-
-/* No comment provided by engineer. */
 "Clear Menu" = "Очистити меню";
-
-/* No comment provided by engineer. */
 "Do you want to save the changes?" = "Ви хочете зберегти зміни?";
-
-/* No comment provided by engineer. */
 "Document Name" = "Ім'я документа";
-
-/* No comment provided by engineer. */
 "Don't Save" = "Не зберігати";
-
-/* No comment provided by engineer. */
 "Failed to save document." = "Неможливо зберегти документ.";
-
-/* No comment provided by engineer. */
 "Font" = "Шрифт";
-
-/* No comment provided by engineer. */
-"Interlinear" = "Підрядковий";
-
-/* No comment provided by engineer. */
-"Later" = "Пізніше";
-
-/* No comment provided by engineer. */
-"OK" = "OK";
-
-/* No comment provided by engineer. */
-"Permission denied." = "Доступ заборонено.";
-
-/* No comment provided by engineer. */
-"Preferences" = "Параметри";
-
-/* No comment provided by engineer. */
-"Save" = "Зберегти";
-
-/* No comment provided by engineer. */
-"Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
-
-/* No comment provided by engineer. */
-"Save…" = "Зберегти…";
-
-/* No comment provided by engineer. */
-"The beta version has expired." = "Термін дії BETA версії закінчився.";
-
-/* No comment provided by engineer. */
-"The document % could not be opened." = "Неможливо відкрити документ %.";
-
-/* No comment provided by engineer. */
-"Update" = "Оновити";
-
-/* No comment provided by engineer. */
-"Update to the stable version." = "Обновіть програму до стабільної версії.";
-
-/* No comment provided by engineer. */
-"You search for % produced no results." = "За запитом % нічого не знайдено.";
-
-/* No comment provided by engineer. */
-"Your changes will be lost if you don't save them." = "Ваші зміни будуть втрачені, якщо ви не збережете їх.";
-
-/* No comment provided by engineer. */
-"verses was found" = "знайдено віршів";
-
-/* No comment provided by engineer. */
-"You don't have any commentary modules." = "У вас не встановлено жодного модуля коментарів.";
-
-/* No comment provided by engineer. */
 "For more information, choose Menu ➝ Help, then click «Unbound Bible Help»." = "Для додаткової інформації виберіть у рядку меню «Довідка» ➝ «Довiдка Unbound Bible».";
+"Later" = "Пізніше";
+"OK" = "OK";
+"Permission denied." = "Доступ заборонено.";
+"Preferences" = "Параметри";
+"Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
+"Save…" = "Зберегти…";
+"Save" = "Зберегти";
+"The beta version has expired." = "Термін дії BETA версії закінчився.";
+"The document % could not be opened." = "Неможливо відкрити документ %.";
+"Update to the stable version." = "Обновіть програму до стабільної версії.";
+"Update" = "Оновити";
+"verses was found" = "знайдено віршів";
+"You don't have any commentary modules." = "У вас не встановлено жодного модуля коментарів.";
+"You search for % produced no results." = "За запитом % нічого не знайдено.";
+"Your changes will be lost if you don't save them." = "Ваші зміни будуть втрачені, якщо ви не збережете їх.";

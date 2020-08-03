@@ -1,89 +1,30 @@
-/* No comment provided by engineer. */
-"Application ID functions require SQLite 3.7.17" = "Application ID functions require SQLite 3.7.17";
-
-/* No comment provided by engineer. */
-"Cancel" = "Отменить";
-
-/* No comment provided by engineer. */
-"Change Font" = "Изменить шрифт";
-
-/* No comment provided by engineer. */
-"Clear Menu" = "Очистить меню";
-
-/* No comment provided by engineer. */
-"Do you want to save the changes?" = "Вы хотите сохранить изменения?";
-
-/* No comment provided by engineer. */
-"Document Name" = "Имя документа";
-
-/* No comment provided by engineer. */
-"Don't Save" = "Не сохранять";
-
-/* No comment provided by engineer. */
-"Failed to save document." = "Не удалось сохранить документ.";
-
-/* No comment provided by engineer. */
-"Font" = "Шрифт";
-
-/* No comment provided by engineer. */
-"Later" = "Позже";
-
-/* No comment provided by engineer. */
-"OK" = "OK";
-
-/* No comment provided by engineer. */
-"Permission denied." = "Доступ запрещен.";
-
-/* No comment provided by engineer. */
-"Preferences" = "Настройки";
-
-/* No comment provided by engineer. */
-"Save" = "Сохранить";
-
-/* No comment provided by engineer. */
-"Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
-
-/* No comment provided by engineer. */
-"Save…" = "Сохранить…";
-
-/* No comment provided by engineer. */
-"The beta version has expired." = "Срок действия BETA версии закончился.";
-
-/* No comment provided by engineer. */
-"The document % could not be opened." = "Не удается открыть документ %.";
-
-/* No comment provided by engineer. */
-"Update" = "Обновить";
-
-/* No comment provided by engineer. */
-"Update to the stable version." = "Обновите программу до стабильной версии.";
-
-/* No comment provided by engineer. */
-"You search for % produced no results." = "По запросу % ничего не найдено.";
-
-/* No comment provided by engineer. */
-"Your changes will be lost if you don't save them." = "Ваши изменения будут потеряны, если вы не сохраните их.";
-
-/* No comment provided by engineer. */
-"verses was found" = "найдено стихов";
-
-/* No comment provided by engineer. */
-"You don't have any commentary modules." = "У вас не установлено ни одного модуля комментариев.";
-
-/* No comment provided by engineer. */
-"For more information, choose Menu ➝ Help, then click «Unbound Bible Help»." = "Для дополнительной информации выберите в меню «Справка» ➝ «Справка Unbound Bible».";
-
-/* No comment provided by engineer. */
-"You don't have any dictionary modules." = "У вас не установлено ни одного словаря.";
-
-/* No comment provided by engineer. */
 "Сross-references not found." = "Параллельные места не найдены.";
-
-/* No comment provided by engineer. */
-"Search for %" = "Искать % в Библии";
-
-/* No comment provided by engineer. */
+"Application ID functions require SQLite 3.7.17" = "Application ID functions require SQLite 3.7.17";
+"Cancel" = "Отменить";
+"Change Font" = "Изменить шрифт";
+"Clear Menu" = "Очистить меню";
+"Do you want to save the changes?" = "Вы хотите сохранить изменения?";
+"Document Name" = "Имя документа";
+"Don't Save" = "Не сохранять";
+"Failed to save document." = "Не удалось сохранить документ.";
+"Font" = "Шрифт";
+"For more information, choose Menu ➝ Help, then click «Unbound Bible Help»." = "Для дополнительной информации выберите в меню «Справка» ➝ «Справка Unbound Bible».";
+"Later" = "Позже";
 "Look Up %" = "Искать % в словарях";
-
-/* No comment provided by engineer. */
+"OK" = "OK";
+"Permission denied." = "Доступ запрещен.";
 "Please enter your query in the search bar." = "Введите запрос в поле поиска.";
+"Preferences" = "Настройки";
+"Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
+"Save…" = "Сохранить…";
+"Save" = "Сохранить";
+"Search for %" = "Искать % в Библии";
+"The beta version has expired." = "Срок действия BETA версии закончился.";
+"The document % could not be opened." = "Не удается открыть документ %.";
+"Update to the stable version." = "Обновите программу до стабильной версии.";
+"Update" = "Обновить";
+"verses was found" = "найдено стихов";
+"You don't have any commentary modules." = "У вас не установлено ни одного модуля комментариев.";
+"You don't have any dictionary modules." = "У вас не установлено ни одного словаря.";
+"You search for % produced no results." = "По запросу % ничего не найдено.";
+"Your changes will be lost if you don't save them." = "Ваши изменения будут потеряны, если вы не сохраните их.";
