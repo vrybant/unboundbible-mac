@@ -1,4 +1,4 @@
-"Application ID functions require SQLite 3.7.17" = "Application ID functions require SQLite 3.7.17";
+"Cross-references not found." = "Паралельні місця не знайдені.";
 "Cancel" = "Скасувати";
 "Change Font" = "Змінити шрифт";
 "Clear Menu" = "Очистити меню";
@@ -9,17 +9,20 @@
 "Font" = "Шрифт";
 "For more information, choose Menu ➝ Help, then click «Unbound Bible Help»." = "Для додаткової інформації виберіть у рядку меню «Довідка» ➝ «Довiдка Unbound Bible».";
 "Later" = "Пізніше";
+"Look Up %" = "Шукати % у словниках";
 "OK" = "OK";
 "Permission denied." = "Доступ заборонено.";
+"Please enter your query in the search bar." = "Введіть запит в поле пошуку.";
 "Preferences" = "Параметри";
-"Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
 "Save…" = "Зберегти…";
 "Save" = "Зберегти";
+"Search for %" = "Шукати % у Біблії";
 "The beta version has expired." = "Термін дії BETA версії закінчився.";
 "The document % could not be opened." = "Неможливо відкрити документ %.";
 "Update to the stable version." = "Обновіть програму до стабільної версії.";
 "Update" = "Оновити";
 "verses was found" = "знайдено віршів";
 "You don't have any commentary modules." = "У вас не встановлено жодного модуля коментарів.";
+"You don't have any dictionary modules." = "У вас не встановлено жодного словника.";
 "You search for % produced no results." = "За запитом % нічого не знайдено.";
 "Your changes will be lost if you don't save them." = "Ваші зміни будуть втрачені, якщо ви не збережете їх.";

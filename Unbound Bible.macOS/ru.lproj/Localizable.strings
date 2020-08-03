@@ -1,5 +1,4 @@
 "Сross-references not found." = "Параллельные места не найдены.";
-"Application ID functions require SQLite 3.7.17" = "Application ID functions require SQLite 3.7.17";
 "Cancel" = "Отменить";
 "Change Font" = "Изменить шрифт";
 "Clear Menu" = "Очистить меню";
@@ -15,7 +14,6 @@
 "Permission denied." = "Доступ запрещен.";
 "Please enter your query in the search bar." = "Введите запрос в поле поиска.";
 "Preferences" = "Настройки";
-"Save point functions require SQLite 3.7" = "Save point functions require SQLite 3.7";
 "Save…" = "Сохранить…";
 "Save" = "Сохранить";
 "Search for %" = "Искать % в Библии";
