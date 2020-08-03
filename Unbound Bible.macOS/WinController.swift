@@ -97,6 +97,12 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         NSWorkspace.shared.open(URL(string: url)!)
     }
 
+    @IBAction func downloadsPage(_ sender: NSMenuItem) {
+        let tail = languageCode == "ru" ? "ubhelpru.php" : "ubhelp.php"
+        let url = "http://vladimirrybant.org/goto/" + tail
+        NSWorkspace.shared.open(URL(string: url)!)
+    }
+
     @IBAction func bibleFolder(_ sender: NSMenuItem) {
         NSWorkspace.shared.openFile(dataUrl.path)
     }

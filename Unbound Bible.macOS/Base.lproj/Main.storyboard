@@ -382,11 +382,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Unbound Bible Help" hidden="YES" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
+                                        <menuItem title="Unbound Bible Help" hidden="YES" keyEquivalent="?" id="FKE-Sm-Kum"/>
                                         <menuItem isSeparatorItem="YES" id="Uab-6I-dqj"/>
                                         <menuItem title="Home Page" id="7z3-5j-CqM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -404,7 +400,7 @@
                                         <menuItem title="Modules Downloads" id="Fph-IJ-O97">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="bibleFolder:" target="Ady-hI-5gd" id="dkg-w1-VZY"/>
+                                                <action selector="downloadsPage:" target="Ady-hI-5gd" id="IZj-Yh-I0V"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Bible Folder" id="Kp2-Of-jbZ">
@@ -566,7 +562,7 @@
                                 <rect key="frame" x="17" y="172" width="126" height="18"/>
                                 <buttonCell key="cell" type="check" title="Whole Words" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="iSQ-oH-JzE">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="checkButtonAction:" target="Ut9-5s-h3e" id="iOm-0y-pKF"/>
@@ -579,7 +575,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="check" title="Case Sensitive" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="s7i-b7-2cd">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="checkButtonAction:" target="Ut9-5s-h3e" id="uWE-ua-LeL"/>
@@ -589,7 +585,7 @@
                                 <rect key="frame" x="18" y="109" width="124" height="18"/>
                                 <buttonCell key="cell" type="radio" title="Bible" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="2js-1q-k61">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="0bQ-HR-AQD"/>
@@ -602,7 +598,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="radio" title="Old Testament" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="wzu-h9-69s">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="PyS-oa-sKp"/>
@@ -612,7 +608,7 @@
                                 <rect key="frame" x="18" y="73" width="124" height="18"/>
                                 <buttonCell key="cell" type="radio" title="New Testament" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="cB7-aj-bfZ">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="aGU-hd-In2"/>
@@ -622,7 +618,7 @@
                                 <rect key="frame" x="18" y="56" width="124" height="18"/>
                                 <buttonCell key="cell" type="radio" title="Gospels" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="kMt-0j-CoT">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="q5A-8D-0L0"/>
@@ -635,7 +631,7 @@
                                 </constraints>
                                 <buttonCell key="cell" type="radio" title="Epistles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="dv8-RR-eIp">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="2fS-Gp-VmN"/>
@@ -645,7 +641,7 @@
                                 <rect key="frame" x="18" y="20" width="124" height="18"/>
                                 <buttonCell key="cell" type="radio" title="Opened Book" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="YXJ-jc-chq">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="674-dA-aOS"/>
@@ -807,7 +803,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sSq-Hi-Axe">
                                 <rect key="frame" x="8" y="0.0" width="4" height="17"/>
                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="UZk-1v-GWE">
-                                    <font key="font" metaFont="message" size="11"/>
+                                    <font key="font" metaFont="menu" size="11"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -927,7 +923,7 @@
                                             </constraints>
                                             <buttonCell key="cell" type="check" title="Abbreviation" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="gCS-F5-sao">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="message" size="11"/>
+                                                <font key="font" metaFont="menu" size="11"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="checkButtonAction:" target="03V-8r-HtA" id="yDQ-a8-Jyk"/>
@@ -937,7 +933,7 @@
                                             <rect key="frame" x="17" y="55" width="238" height="18"/>
                                             <buttonCell key="cell" type="check" title="Enumerated" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="xQD-7b-MDh">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="message" size="11"/>
+                                                <font key="font" metaFont="menu" size="11"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="checkButtonAction:" target="03V-8r-HtA" id="m0V-fY-4In"/>
@@ -950,7 +946,7 @@
                                             </constraints>
                                             <buttonCell key="cell" type="check" title="Guillemets" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="VfQ-ag-RSK">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="message" size="11"/>
+                                                <font key="font" metaFont="menu" size="11"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="checkButtonAction:" target="03V-8r-HtA" id="pK5-U3-Wye"/>
@@ -960,7 +956,7 @@
                                             <rect key="frame" x="17" y="9" width="238" height="18"/>
                                             <buttonCell key="cell" type="check" title="Link in the end" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="p6g-fZ-Ky2">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="message" size="11"/>
+                                                <font key="font" metaFont="menu" size="11"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="checkButtonAction:" target="03V-8r-HtA" id="Lay-ji-gDB"/>
@@ -973,7 +969,7 @@
                                             </constraints>
                                             <buttonCell key="cell" type="check" title="Parentheses" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Uo6-JW-Cwo">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="message" size="11"/>
+                                                <font key="font" metaFont="menu" size="11"/>
                                             </buttonCell>
                                             <connections>
                                                 <action selector="checkButtonAction:" target="k4K-DK-EHW" id="JG9-mw-5z6"/>
@@ -1098,7 +1094,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="283" width="237" height="23"/>
+                                <rect key="frame" x="7" y="281" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1116,13 +1112,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="274"/>
+                                <rect key="frame" x="189" y="5" width="55" height="272"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="272"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="270"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="272"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="270"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
