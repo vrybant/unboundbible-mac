@@ -7,9 +7,6 @@
 /* Class = "NSMenu"; title = "Alignment"; ObjectID = "1lY-6G-oEC"; */
 "1lY-6G-oEC.title" = "Выравнивание";
 
-/* Class = "NSMenuItem"; title = "Interlinear"; ObjectID = "1zZ-nN-0oB"; */
-"1zZ-nN-0oB.title" = "Подстрочник";
-
 /* Class = "NSButtonCell"; title = "Bible"; ObjectID = "2js-1q-k61"; */
 "2js-1q-k61.title" = "Библия";
 
@@ -316,12 +313,51 @@
 /* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "yPb-lB-VA8"; */
 "yPb-lB-VA8.title" = "По правому краю";
 
-/* Class = "NSMenuItem"; title = "Commentaries"; ObjectID = "2Y6-x3-4Kt"; */
-"2Y6-x3-4Kt.title" = "Комментарии";
+/* Class = "NSMenuItem"; title = "Tools"; ObjectID = "Pum-M6-Fom"; */
+"Pum-M6-Fom.title" = "Инструменты";
+
+/* Class = "NSMenuItem"; title = "Compare"; ObjectID = "z1k-3H-1fP"; */
+"z1k-3H-1fP.title" = "Сравнение";
+
+/* Class = "NSTabViewItem"; label = "Cross-Reference"; ObjectID = "xCn-3K-dhb"; */
+"xCn-3K-dhb.label" = "Параллельные места";
+
+/* Class = "NSMenuItem"; title = "Cross-References"; ObjectID = "5PA-fT-5yq"; */
+"5PA-fT-5yq.title" = "Параллельные места";
+
+/* Class = "NSMenuItem"; title = "Cross-References"; ObjectID = "19z-Q4-ARI"; */
+"19z-Q4-ARI.title" = "Параллельные места";
 
 /* Class = "NSMenuItem"; title = "Commentaries"; ObjectID = "DDy-DZ-1dG"; */
 "DDy-DZ-1dG.title" = "Комментарии";
 
 /* Class = "NSViewController"; title = "Commentaries"; ObjectID = "5kc-JK-Sx1"; */
 "5kc-JK-Sx1.title" = "Комментарии";
+
+/* Class = "NSTabViewItem"; label = "Commentaries"; ObjectID = "gVu-k7-MRC"; */
+"gVu-k7-MRC.label" = "Комментарии";
+
+/* Class = "NSMenuItem"; title = "Commentaries"; ObjectID = "zQF-dJ-kmX"; */
+"zQF-dJ-kmX.title" = "Комментарии";
+
+/* Class = "NSTabViewItem"; label = "Dictionaries"; ObjectID = "o8N-Op-Goi"; */
+"o8N-Op-Goi.label" = "Словари";
+
+/* Class = "NSMenuItem"; title = "Dictionaries"; ObjectID = "gSF-Yh-cWW"; */
+"gSF-Yh-cWW.title" = "Словари";
+
+/* Class = "NSMenuItem"; title = "Dictionaries"; ObjectID = "aTp-pA-I2t"; */
+"aTp-pA-I2t.title" = "Словари";
+
+/* Class = "NSMenuItem"; title = "Interlinear"; ObjectID = "1zZ-nN-0oB"; */
+"lgt-XF-3td.title" = "Подстрочник (biblehub.com)";
+
+/* Class = "NSMenuItem"; title = "Modules"; ObjectID = "gvo-gb-7Om"; */
+"gvo-gb-7Om.title" = "Модули";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "0ck-NZ-pyc"; */
+"0ck-NZ-pyc.title" = "Вырезать";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "CaQ-OS-huD"; */
+"CaQ-OS-huD.title" = "Вставить";
 

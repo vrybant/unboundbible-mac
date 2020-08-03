@@ -26,9 +26,6 @@
 "Font" = "Шрифт";
 
 /* No comment provided by engineer. */
-"Interlinear" = "Подстрочник";
-
-/* No comment provided by engineer. */
 "Later" = "Позже";
 
 /* No comment provided by engineer. */
@@ -76,3 +73,17 @@
 /* No comment provided by engineer. */
 "For more information, choose Menu ➝ Help, then click «Unbound Bible Help»." = "Для дополнительной информации выберите в меню «Справка» ➝ «Справка Unbound Bible».";
 
+/* No comment provided by engineer. */
+"You don't have any dictionary modules." = "У вас не установлено ни одного словаря.";
+
+/* No comment provided by engineer. */
+"Сross-references not found." = "Параллельные места не найдены.";
+
+/* No comment provided by engineer. */
+"Search for %" = "Искать % в Библии";
+
+/* No comment provided by engineer. */
+"Look Up %" = "Искать % в словарях";
+
+/* No comment provided by engineer. */
+"Please enter your query in the search bar." = "Введите запрос в поле поиска.";
