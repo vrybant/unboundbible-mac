@@ -161,7 +161,7 @@ func readDefaults() {
     }
     
     patreonVisited = defaults.bool(forKey: "patreonVisited")
-    if applicationUpdate { patreonVisited = false }
+//  if applicationUpdate { patreonVisited = false }
 }
 
 func saveDefaults() {
