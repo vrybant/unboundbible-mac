@@ -140,7 +140,6 @@ func readDefaults() {
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
     defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
-    patreonVisited = defaults.bool(forKey: "patreonVisited")
 
     activeVerse.book    = defaults.integer(forKey: "verseBook")
     activeVerse.chapter = defaults.integer(forKey: "verseChapter")
@@ -160,6 +159,9 @@ func readDefaults() {
     if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
         recentList.append(bookmarks: bookmarks)
     }
+    
+    patreonVisited = defaults.bool(forKey: "patreonVisited")
+    if applicationUpdate { patreonVisited = false }
 }
 
 func saveDefaults() {
