@@ -118,6 +118,9 @@
 /* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "rTh-d2-1br"; */
 "rTh-d2-1br.title" = "Базова лiнiя";
 
+/* Class = "NSMenuItem"; title = "Become a Patron"; ObjectID = "0l1-Da-iy5"; */
+"0l1-Da-iy5.title" = "Стати патроном";
+
 /* Class = "NSMenuItem"; title = "Bible Folder"; ObjectID = "Kp2-Of-jbZ"; */
 "Kp2-Of-jbZ.title" = "Біблійна папка";
 
@@ -198,9 +201,6 @@
 
 /* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
 "5QF-Oa-p0T.title" = "Правка";
-
-/* Class = "NSMenuItem"; title = "Facebook Page"; ObjectID = "0l1-Da-iy5"; */
-"0l1-Da-iy5.title" = "Сторінка у Фейсбуку";
 
 /* Class = "NSMenuItem"; title = "Fonts…"; ObjectID = "EK0-GI-FIr"; */
 "EK0-GI-FIr.title" = "Шрифти…";

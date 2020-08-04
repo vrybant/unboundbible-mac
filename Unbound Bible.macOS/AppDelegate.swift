@@ -41,6 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         readPrivates()
         createRecentMenu()
         localization()
+        winController.patreonButton.isHidden = patreonVisited
     }
     
     func localization() {

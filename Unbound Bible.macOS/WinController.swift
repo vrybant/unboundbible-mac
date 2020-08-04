@@ -12,6 +12,7 @@ var winController = WinController()
 class WinController: NSWindowController, NSSearchFieldDelegate {
     
     @IBOutlet weak var windowOutlet: NSWindow!
+    @IBOutlet weak var patreonButton: NSButton!
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchOptionsButton: NSButton!
     
@@ -86,14 +87,15 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         }
     }
     
-    @IBAction func facebookPage(_ sender: NSMenuItem) {
-        let url = "https://www.facebook.com/unbound.bible/"
+    @IBAction func patreonPage(_ sender: NSMenuItem) {
+        let url = "https://www.patreon.com/vrybant"
         NSWorkspace.shared.open(URL(string: url)!)
+        patreonVisited = true
     }
     
     @IBAction func homePage(_ sender: NSMenuItem) {
         let tail = languageCode == "ru" ? "ru" : ""
-        let url = "http://vladimirrybant.org/" + tail
+        let url = "http://vladimirrybant.org" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
 

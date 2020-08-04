@@ -390,10 +390,10 @@
                                                 <action selector="homePage:" target="Ady-hI-5gd" id="uYm-ll-hTR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Facebook Page" id="0l1-Da-iy5">
+                                        <menuItem title="Become a Patron" id="0l1-Da-iy5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="facebookPage:" target="Ady-hI-5gd" id="KPV-Sl-KHP"/>
+                                                <action selector="patreonPage:" target="Ady-hI-5gd" id="d3Y-9o-9sW"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="8a7-HD-AgK"/>
@@ -459,14 +459,14 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="1D509AE2-E468-4037-A32B-C017EA1B7CCE" label="" paletteLabel="" image="CopyImage" id="X5F-hi-XtT">
+                                <toolbarItem implicitItemIdentifier="1D509AE2-E468-4037-A32B-C017EA1B7CCE" label="" paletteLabel="" image="copy" id="X5F-hi-XtT">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="42" height="32"/>
                                     <size key="maxSize" width="42" height="32"/>
                                     <button key="view" toolTip="Copy Verses" verticalHuggingPriority="750" allowsExpansionToolTips="YES" id="hQ5-QW-Kxg">
                                         <rect key="frame" x="0.0" y="14" width="42" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="CopyImage" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymh-vF-lXr">
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="copy" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymh-vF-lXr">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -475,18 +475,21 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
-                                <toolbarItem implicitItemIdentifier="38FB23B7-7997-4B14-916B-4D1FEFEC968A" label="" paletteLabel="" image="NSAddTemplate" id="HU9-qb-1eZ">
+                                <toolbarItem implicitItemIdentifier="38FB23B7-7997-4B14-916B-4D1FEFEC968A" label="" paletteLabel="" image="patreon" id="HU9-qb-1eZ">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="40" height="32"/>
-                                    <size key="maxSize" width="42" height="32"/>
+                                    <size key="maxSize" width="42" height="34"/>
                                     <button key="view" verticalHuggingPriority="750" id="RUI-Ia-9EO">
                                         <rect key="frame" x="0.0" y="14" width="40" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSAddTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j63-Bv-4BT">
+                                        <buttonCell key="cell" type="push" bezelStyle="rounded" image="patreon" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="j63-Bv-4BT">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <action selector="patreonPage:" target="Oky-zY-oP4" id="diz-9M-0n9"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0Ju-Qv-L82"/>
                                 <toolbarItem implicitItemIdentifier="2EF40667-F92F-4E05-8465-EA736615DABF" label="" paletteLabel="" id="ioW-Ze-zCi">
@@ -526,6 +529,7 @@
                             <defaultToolbarItems>
                                 <toolbarItem reference="27b-dy-bLb"/>
                                 <toolbarItem reference="X5F-hi-XtT"/>
+                                <toolbarItem reference="HU9-qb-1eZ"/>
                                 <toolbarItem reference="0Ju-Qv-L82"/>
                                 <toolbarItem reference="ioW-Ze-zCi"/>
                                 <toolbarItem reference="4wT-ad-omF"/>
@@ -537,6 +541,7 @@
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="patreonButton" destination="RUI-Ia-9EO" id="Vse-Y5-Fdp"/>
                         <outlet property="searchField" destination="n2B-PU-L83" id="xZX-Rd-S7W"/>
                         <outlet property="searchOptionsButton" destination="XOO-wQ-JkF" id="vXK-KJ-4Fs"/>
                         <outlet property="windowOutlet" destination="IQv-IB-iLA" id="ojZ-Qr-gTz"/>
@@ -1094,7 +1099,7 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="279" width="237" height="23"/>
+                                <rect key="frame" x="7" y="268" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1112,13 +1117,13 @@ Gw
                                 </connections>
                             </popUpButton>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="5" width="55" height="270"/>
+                                <rect key="frame" x="189" y="5" width="55" height="259"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="268"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="257"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="268"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="257"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1782,11 +1787,11 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="CopyImage" width="16" height="16"/>
-        <image name="NSAddTemplate" width="11" height="11"/>
         <image name="NSBookmarksTemplate" width="17" height="18"/>
         <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
+        <image name="copy" width="16" height="16"/>
+        <image name="patreon" width="400" height="400"/>
     </resources>
 </document>
