@@ -87,6 +87,12 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         }
     }
     
+    @IBAction func contactPage(_ sender: NSMenuItem) {
+        let tail = languageCode == "ru" ? "contactru.php" : "contact.php"
+        let url = "http://vladimirrybant.org/goto/" + tail
+        NSWorkspace.shared.open(URL(string: url)!)
+    }
+    
     @IBAction func patreonPage(_ sender: NSMenuItem) {
         let url = "https://www.patreon.com/vrybant"
         NSWorkspace.shared.open(URL(string: url)!)

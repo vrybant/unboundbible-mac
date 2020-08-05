@@ -382,7 +382,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="Unbound Bible Help" hidden="YES" keyEquivalent="?" id="FKE-Sm-Kum"/>
+                                        <menuItem title="Report an Issue" id="FKE-Sm-Kum">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="contactPage:" target="Ady-hI-5gd" id="47i-ja-49r"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="Uab-6I-dqj"/>
                                         <menuItem title="Home Page" id="7z3-5j-CqM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1094,18 +1099,18 @@ Gw
         <scene sceneID="v9Q-6T-5b8">
             <objects>
                 <viewController id="veV-6G-nPF" customClass="LeftView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="asP-6E-CbQ">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="341"/>
+                    <view key="view" misplaced="YES" id="asP-6E-CbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="340"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="4" width="55" height="304"/>
+                                <rect key="frame" x="189" y="4" width="55" height="302"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="302"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="302"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="300"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1175,13 +1180,13 @@ Gw
                                 </scroller>
                             </scrollView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="4" width="175" height="304"/>
+                                <rect key="frame" x="7" y="4" width="175" height="302"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="302"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="300"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="302"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="300"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1244,7 +1249,7 @@ Gw
                                 </scroller>
                             </scrollView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="313" width="237" height="23"/>
+                                <rect key="frame" x="7" y="311" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>

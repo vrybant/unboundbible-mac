@@ -313,8 +313,8 @@
 /* Class = "NSMenuItem"; title = "Tools"; ObjectID = "Pum-M6-Fom"; */
 "Pum-M6-Fom.title" = "Инструменты";
 
-/* Class = "NSMenuItem"; title = "Unbound Bible Help"; ObjectID = "FKE-Sm-Kum"; */
-"FKE-Sm-Kum.title" = "Справка Unbound Bible";
+/* Class = "NSMenuItem"; title = "Report an Issue"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Сообщить о проблеме";
 
 /* Class = "NSMenuItem"; title = "Unbound Bible"; ObjectID = "1Xt-HY-uBw"; */
 "1Xt-HY-uBw.title" = "Unbound Bible";
