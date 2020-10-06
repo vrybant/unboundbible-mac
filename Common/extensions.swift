@@ -12,7 +12,6 @@ import Foundation
 #endif
 
 extension Int32 {
-    
     var int: Int {
         return Int(self)
     }
@@ -43,10 +42,6 @@ extension String {
     
     var quoted: String {
         return "\"" + self + "\""
-    }
-    
-    var int: Int {
-        return Int(self) ?? 0
     }
     
     var trimmed: String {

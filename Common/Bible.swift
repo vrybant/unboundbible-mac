@@ -73,8 +73,11 @@ class Bible: Module {
         if let results = database!.executeQuery(query) {
             while results.next() {
                 guard let stbook = results.string(forColumn: z.book) else { break }
-                let id = stbook.int
-                if id > 0 { appendBook(id: id) }
+                if let id = Int(stbook)  {
+                    if id > 0 {
+                        appendBook(id: id)
+                    }
+                }
             }
             
             setTitles()
@@ -263,7 +266,7 @@ class Bible: Module {
                 guard let number = results.string(forColumn: z.verse) else { break }
                 guard let line = results.string(forColumn: z.text) else { break }
                 
-                let verse = Verse(book: decodeID(book.int), chapter: chapter.int, number: number.int, count: 1)
+                let verse = Verse(book: decodeID(Int(book) ?? 0), chapter: Int(chapter) ?? 0, number: Int(number) ?? 0, count: 1)
                 let nt = isNewTestament(verse.book)
                 var text = preparation(line, format: format, nt: nt)
                 let content = Content(verse: verse, text: text)
