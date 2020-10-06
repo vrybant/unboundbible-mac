@@ -27,7 +27,7 @@ class PopupMenu: NSMenu {
         
         let b = tab == "bible"
         let n = tab == "notes"
-        let s = selection.length > (b ? 1 : 0)
+        let s = selection.count > (b ? 1 : 0)
         let m = selection.contains("\n") // multiline
         
         searchMenuItem.isHidden = !s || m

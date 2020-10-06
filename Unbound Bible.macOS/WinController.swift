@@ -78,7 +78,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         if shelf.isEmpty { return }
         
         let string = searchField.stringValue.trimmed
-        if string.length < 2 { return }
+        if string.count < 2 { return }
         
         if rigthView.tabView.selectedTab == "dictionaries" {
             rigthView.loadDictionary(key: string)

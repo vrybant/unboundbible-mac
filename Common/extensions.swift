@@ -41,10 +41,6 @@ extension Array where Element == URL {
 
 extension String {
     
-    var length: Int {
-        return self.count
-    }
-    
     var quoted: String {
         return "\"" + self + "\""
     }
