@@ -9,7 +9,7 @@ import Foundation
 
 class Bible: Module {
     
-    private struct Alias {
+    private struct unboundAlias {
         var bible = "Bible"
         var book = "Book"
         var chapter = "Chapter"
@@ -21,7 +21,7 @@ class Bible: Module {
         var abbr = "Abbr"
     }
 
-    private let mybibleAlias = Alias(
+    private let mybibleAlias = unboundAlias(
         bible : "verses",
         book : "book_number",
         chapter : "chapter",
@@ -35,7 +35,7 @@ class Bible: Module {
 
     private var books  : [Book] = []
     private var titles : [String] = []
-    private var z = Alias()
+    private var z = unboundAlias()
     
     var compare : Bool = true
 
