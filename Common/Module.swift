@@ -79,11 +79,12 @@ class Module {
                     guard let value = results.string(forColumn: "value") else { break }
                     
                     switch key {
-                    case "description"   : name = value
-                    case "detailed_info" : info = value
-                    case "language"      : language = value
-                    case "is_strong"     : strong = value == "true"
-                    case "is_footnotes"  : footnotes = value == "true"
+                    case "description"    : name = value
+                    case "detailed_info"  : info = value
+                    case "language"       : language = value
+                    case "strong_numbers" : strong = value == "true"
+                    case "is_strong"      : strong = value == "true"
+                    case "is_footnotes"   : footnotes = value == "true"
                     default : continue
                     }
                     connected = true
