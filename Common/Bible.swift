@@ -59,24 +59,19 @@ class Bible: Module {
         return min
     }
     
-    func appendBook(id: Int) {
-        var book = Book()
-        book.number = decodeID(id)
-        book.id = id
-        books.append(book)
-    }
-    
     func loadDatabase() {
         if loaded { return }
         let query = "select distinct \(z.book) from \(z.bible)"
         
         if let results = database!.executeQuery(query) {
             while results.next() {
-                guard let stbook = results.string(forColumn: z.book) else { break }
-                if let id = Int(stbook)  {
-                    if id > 0 {
-                        appendBook(id: id)
-                    }
+                guard let value = results.string(forColumn: z.book) else { break }
+                guard let id = Int(value) else { break }
+                if id > 0 {
+                    var book = Book()
+                    book.number = decodeID(id)
+                    book.id = id
+                    books.append(book)
                 }
             }
             
