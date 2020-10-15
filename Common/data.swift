@@ -91,9 +91,9 @@ func isNewTestament(_ n: Int) -> Bool {
 var defaultBible: String {
     var result = ""
     switch languageCode {
-    case "ru" : result = "rstw.unbound"
-    case "uk" : result = "ubio.unbound"
-    default   : result = "kjv.unbound"
+    case "ru" : result = "rstw.bbl.unbound"
+    case "uk" : result = "ubio.bbl.unbound"
+    default   : result = "kjv.bbl.unbound"
     }
     return result
 }
