@@ -15,7 +15,7 @@ class Bible: Module {
         var chapter = "Chapter"
         var verse = "Verse"
         var text = "Scripture"
-        var titles = "Titles"
+        var books = "Books"
         var number = "Number"
         var name = "Name"
         var abbr = "Abbr"
@@ -27,7 +27,7 @@ class Bible: Module {
         chapter : "chapter",
         verse : "verse",
         text : "text",
-        titles : "books_all",
+        books : "books",
         number : "book_number",
         name : "long_name",
         abbr : "short_name"
@@ -41,13 +41,7 @@ class Bible: Module {
 
     override init?(atPath: String) {
         super.init(atPath: atPath)
-        
-        if format == .mybible {
-            z = mybibleAlias
-            if !database!.tableExists(z.titles) { z.titles = "books" }
-        }
-        
-        embtitles = database!.tableExists(z.titles)
+        if format == .mybible { z = mybibleAlias }
         if connected && !database!.tableExists(z.bible) { return nil }
     }
     
@@ -87,7 +81,7 @@ class Bible: Module {
         var result = [Title]()
         var k = 0
         
-        let query = "SELECT * FROM " + z.titles
+        let query = "SELECT * FROM " + z.books
         
         if let results = database!.executeQuery(query) {
             while results.next() {
@@ -106,21 +100,16 @@ class Bible: Module {
         return result
     }
     
-    func getExternalTitles() -> [Title] {
-        return ExternalTitles(language: language).getData()
-    }
-    
     func setTitles() {
         if books.isEmpty { return }
-        let titles = embtitles ? getEmbeddedTitles() : getExternalTitles()
+        let titles = getEmbeddedTitles()
 
         for i in 0...self.books.count-1 {
             books[i].title = "Unknown " + String(books[i].id)
             books[i].abbr = ""
             books[i].sorting = 999
             
-            var n = books[i].id
-            if format == .mybible && !embtitles { n = decodeID(n) }
+            let n = books[i].id
             
             for title in titles {
                 if title.number == n {

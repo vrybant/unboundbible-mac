@@ -29,7 +29,6 @@ class Module {
     var embedded     : Bool = false
     var footnotes    : Bool = false
     var interlinear  : Bool = false
-    var embtitles    : Bool = false
     
     init?(atPath: String) {
         filePath = atPath
