@@ -79,11 +79,13 @@ class Bible: Module {
         if let results = database!.executeQuery(query) {
             while results.next() {
                 guard let value = results.string(forColumn: z.book) else { break }
-                guard let id = Int(value) else { break }
-                if id > 0 {
+                guard let number = Int(value) else { break }
+                if number > 0 && number <= 66 {
                     var book = Book()
-                    book.number = decodeID(id)
-                    book.id = id
+                    book.number = number
+                    book.id = number
+                    book.title = titlesArray[number]
+                    book.abbr = abbrevArray[number]
                     books.append(book)
                     loaded = true
                 }
