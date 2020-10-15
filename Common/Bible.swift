@@ -34,7 +34,6 @@ class Bible: Module {
     )
 
     private var books  : [Book] = []
-    private var titles : [String] = []
     private var z = unboundAlias()
     
     var compare : Bool = true
@@ -53,10 +52,30 @@ class Bible: Module {
         return min
     }
     
-    func loadDatabase() {
-        if loaded { return }
+    func loadUnboundDatabase() {
+        let query = "SELECT * FROM " + z.books
+        if let results = database!.executeQuery(query) {
+            while results.next() {
+                let id = results.int(forColumn: z.number).int
+                let name = results.string(forColumn: z.name) ?? ""
+                let abbr = results.string(forColumn: z.abbr) ?? ""
+
+                if id > 0 {
+                    var book = Book()
+                    book.number = decodeID(id)
+                    book.id = id
+                    book.sorting = id
+                    book.title = name
+                    book.abbr = abbr
+                    books.append(book)
+                    loaded = true
+                }
+            }
+        }
+    }
+    
+    func loadMyswordDatabase() {
         let query = "select distinct \(z.book) from \(z.bible)"
-        
         if let results = database!.executeQuery(query) {
             while results.next() {
                 guard let value = results.string(forColumn: z.book) else { break }
@@ -66,59 +85,17 @@ class Bible: Module {
                     book.number = decodeID(id)
                     book.id = id
                     books.append(book)
-                }
-            }
-            
-            setTitles()
-            titles = getTitles()
-            firstVerse = Verse(book: minBook, chapter: 1, number: 1, count: 1)
-            books.sort(by: {$0.sorting < $1.sorting} )
-            loaded = true
-        }
-    }
-
-    func getEmbeddedTitles() -> [Title] {
-        var result = [Title]()
-        var k = 0
-        
-        let query = "SELECT * FROM " + z.books
-        
-        if let results = database!.executeQuery(query) {
-            while results.next() {
-                var t = Title()
-                t.name = results.string(forColumn: z.name) ?? ""
-                t.abbr = results.string(forColumn: z.abbr) ?? ""
-                t.number = results.int(forColumn: z.number).int
-                
-                t.sorting = k
-                if format == .unbound && !isNewTestament(t.number) { t.sorting = k + 100 }
-                
-                result.append(t)
-                k += 1
-            }
-        }
-        return result
-    }
-    
-    func setTitles() {
-        if books.isEmpty { return }
-        let titles = getEmbeddedTitles()
-
-        for i in 0...self.books.count-1 {
-            books[i].title = "Unknown " + String(books[i].id)
-            books[i].abbr = ""
-            books[i].sorting = 999
-            
-            let n = books[i].id
-            
-            for title in titles {
-                if title.number == n {
-                    books[i].title = title.name
-                    books[i].abbr = title.abbr
-                    books[i].sorting = title.sorting
+                    loaded = true
                 }
             }
         }
+    }
+
+    func loadDatabase() {
+        if loaded { return }
+        if format == .mysword { loadMyswordDatabase() } else { loadUnboundDatabase() }
+        if !loaded { return }
+        firstVerse = Verse(book: minBook, chapter: 1, number: 1, count: 1)
     }
     
     func getTitles() -> [String] {

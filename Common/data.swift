@@ -11,21 +11,12 @@ let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 var applicationUpdate = false
 var patreonVisited = false
-
 let bibleDirectory = "bibles"
-let titleDirectory = "titles"
 
 var recentList : [URL] = []
 
 enum FileFormat {
     case unbound, mysword, mybible
-}
-
-struct Title {
-    var name    = ""
-    var abbr    = ""
-    var number  = 0
-    var sorting = 0
 }
 
 struct Verse {
