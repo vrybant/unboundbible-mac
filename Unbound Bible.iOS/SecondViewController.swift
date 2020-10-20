@@ -52,7 +52,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.deselectRow(at: indexPath, animated: true)
         let name = bookTableViewList[indexPath.row]
         if let book = bible!.bookByName(name) {
-            activeVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
+            currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
         }
         print( name )
 

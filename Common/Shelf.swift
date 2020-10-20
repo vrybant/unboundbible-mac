@@ -9,7 +9,7 @@ import Foundation
 
 var shelf = Shelf()
 
-var bible: Bible? {
+var currBible: Bible? {
     return !shelf.isEmpty ? shelf.bibles[shelf.current] : nil
 }
 
@@ -51,8 +51,8 @@ class Shelf {
         if index >= self.bibles.count { return }
         current = index
         bibles[current].loadDatabase()
-        if !bibles[current].goodLink(activeVerse) {
-            activeVerse = bibles[current].firstVerse
+        if !bibles[current].goodLink(currVerse) {
+            currVerse = bibles[current].firstVerse
         }
     }
     

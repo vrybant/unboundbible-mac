@@ -9,7 +9,7 @@ import Cocoa
 
 func get_Chapter() -> String {
     var result = ""
-    if let text = bible!.getChapter(activeVerse) {
+    if let text = currBible!.getChapter(currVerse) {
         if !text.isEmpty {
             for i in 0...text.count-1 {
                 result += " <l>" + String(i+1) + "</l> " + text[i] + "\n"
@@ -26,9 +26,9 @@ func get_Search(string: String) -> (string: String, count: Int) {
     let searchList = target.components(separatedBy: " ")
     let range = currentSearchRange()
     
-    if let searchResult = bible!.search(string: target, options: searchOption, range: range) {
+    if let searchResult = currBible!.search(string: target, options: searchOption, range: range) {
         for content in searchResult {
-            if let link = bible!.verseToString(content.verse, full: true) {
+            if let link = currBible!.verseToString(content.verse, full: true) {
                 let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
                 result += "<l>\(link)</l> \(text)\n\n"
             }
@@ -45,7 +45,7 @@ func get_Compare() -> String {
     
     for item in shelf.bibles {
         if !item.compare { continue }
-        if let list = item.getRange(activeVerse, purge: true) {
+        if let list = item.getRange(currVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n\n"
             result += "<l>" + item.name + "</l>\n" + text
         }
@@ -57,11 +57,11 @@ func get_References() -> (string: String, info: String) {
     var result = ""
     var info = ""
     
-    if let values = references.getData(activeVerse, language: bible!.language) {
+    if let values = references.getData(currVerse, language: currBible!.language) {
         info = values.info
         for item in values.data {
-            if let link = bible!.verseToString(item, full: true) {
-                if let lines = bible!.getRange(item, purge: true) {
+            if let link = currBible!.verseToString(item, full: true) {
+                if let lines = currBible!.getRange(item, purge: true) {
                     result += "<l>\(link)</l> "
                     result += lines.joined(separator: " ") + "\n\n"
                 }
@@ -78,7 +78,7 @@ func get_Commentary() -> NSAttributedString {
 
     for item in commentaries.items {
         if item.footnotes { continue }
-        if let list = item.getData(activeVerse) {
+        if let list = item.getData(currVerse) {
             let string = "<l>" + item.name + "</l>\n\n"
             let text = list.joined(separator: " ") + "\n\n"
             result.append( parse(string) )
@@ -107,26 +107,26 @@ func get_Dictionary(key: String) -> NSAttributedString {
 }
 
 func get_Strong(number: String = "") -> String? {
-    return dictionaries.getStrong(activeVerse, language: bible!.language, number: number)
+    return dictionaries.getStrong(currVerse, language: currBible!.language, number: number)
 }
 
 func get_Footnote(marker: String = "") -> String {
-    if bible!.format == .mybible {
-        return commentaries.getFootnote(module: bible!.fileName, verse: activeVerse, marker: marker) ?? ""
+    if currBible!.format == .mybible {
+        return commentaries.getFootnote(module: currBible!.fileName, verse: currVerse, marker: marker) ?? ""
     } else {
-        return bible!.getFootnote(activeVerse, marker: marker) ?? ""
+        return currBible!.getFootnote(currVerse, marker: marker) ?? ""
     }
 }
 
 func get_Verses(options: CopyOptions) -> NSAttributedString {
     if shelf.isEmpty { return NSAttributedString() }
-    guard let list = bible!.getRange(activeVerse) else { return NSAttributedString() }
+    guard let list = currBible!.getRange(currVerse) else { return NSAttributedString() }
     var quote = ""
     
     let full = !options.contains(.abbreviate)
-    guard var link = bible!.verseToString(activeVerse, full: full) else { return NSAttributedString() }
+    guard var link = currBible!.verseToString(currVerse, full: full) else { return NSAttributedString() }
     link = "<l>" + link + "</l>"
-    var number = activeVerse.number
+    var number = currVerse.number
     var l = false
     
     for line in list {
@@ -153,9 +153,9 @@ func get_Verses(options: CopyOptions) -> NSAttributedString {
 }
 
 func goToVerse(_ verse: Verse, select: Bool) {
-    if !bible!.goodLink(verse) { return }
-    if let index = bible!.idxByNum(verse.book) {
-        activeVerse = verse
+    if !currBible!.goodLink(verse) { return }
+    if let index = currBible!.idxByNum(verse.book) {
+        currVerse = verse
         leftView.bookTableView.selectRow(index: index)
         leftView.chapterTableView.selectRow(index: verse.chapter - 1)
         if select {

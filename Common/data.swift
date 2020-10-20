@@ -26,7 +26,7 @@ struct Verse {
     var count   = 0
 }
 
-var activeVerse = Verse()
+var currVerse = Verse()
 
 struct Book {
     var title   = ""
@@ -150,10 +150,10 @@ func readDefaults() {
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
     defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
 
-    activeVerse.book    = defaults.integer(forKey: "verseBook")
-    activeVerse.chapter = defaults.integer(forKey: "verseChapter")
-    activeVerse.number  = defaults.integer(forKey: "verseNumber")
-    activeVerse.count   = defaults.integer(forKey: "verseCount")
+    currVerse.book    = defaults.integer(forKey: "verseBook")
+    currVerse.chapter = defaults.integer(forKey: "verseChapter")
+    currVerse.number  = defaults.integer(forKey: "verseNumber")
+    currVerse.count   = defaults.integer(forKey: "verseCount")
 
     if let name = defaults.string(forKey: "fontName") {
         let size = defaults.cgfloat(forKey: "fontSize")
@@ -177,11 +177,11 @@ func saveDefaults() {
     if shelf.isEmpty { return }
     let defaults = UserDefaults.standard
     defaults.set(applicationVersion,    forKey: "applicationVersion")
-    defaults.set(bible!.fileName,       forKey: "current")
-    defaults.set(activeVerse.book,      forKey: "verseBook")
-    defaults.set(activeVerse.chapter,   forKey: "verseChapter")
-    defaults.set(activeVerse.number,    forKey: "verseNumber")
-    defaults.set(activeVerse.count,     forKey: "verseCount")
+    defaults.set(currBible!.fileName,   forKey: "current")
+    defaults.set(currVerse.book,        forKey: "verseBook")
+    defaults.set(currVerse.chapter,     forKey: "verseChapter")
+    defaults.set(currVerse.number,      forKey: "verseNumber")
+    defaults.set(currVerse.count,       forKey: "verseCount")
     defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
     defaults.set(defaultFont.fontName , forKey: "fontName")
     defaults.set(defaultFont.pointSize, forKey: "fontSize")

@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //      leftView.bibleMenuInit()
 //      mainView.updateStatus(bible!.info)
 //      leftView.makeBookList()
-//      goToVerse(activeVerse, select: (activeVerse.number > 1))
+//      goToVerse(currVerse, select: (currVerse.number > 1))
         
         readPrivates()
         

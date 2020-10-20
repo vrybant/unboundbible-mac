@@ -35,9 +35,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if shelf.isEmpty { return }
         shelf.setCurrent(defaultCurrent!)
         leftView.bibleMenuInit()
-        mainView.updateStatus(bible!.fileName + " | " + bible!.info)
+        mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
         leftView.makeBookList()
-        goToVerse(activeVerse, select: (activeVerse.number > 1))
+        goToVerse(currVerse, select: (currVerse.number > 1))
         readPrivates()
         createRecentMenu()
         localization()
@@ -103,9 +103,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @IBAction func interlinear(_ sender: NSMenuItem) {
         let range = 1...66
-        if !range.contains(activeVerse.book) { return }
-        let book = bibleHubArray[activeVerse.book]
-        let tail = book + "/" + String(activeVerse.chapter) + "-" + String(activeVerse.number) + ".htm"
+        if !range.contains(currVerse.book) { return }
+        let book = bibleHubArray[currVerse.book]
+        let tail = book + "/" + String(currVerse.chapter) + "-" + String(currVerse.number) + ".htm"
         let url = "http://biblehub.com/interlinear/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }

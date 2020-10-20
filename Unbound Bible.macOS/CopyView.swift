@@ -48,7 +48,7 @@ class CopyView: NSViewController {
         
         if shelf.isEmpty { return }
         
-        textView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
+        textView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
         textView.textStorage?.setAttributedString(get_Verses(options: options))
     }
     

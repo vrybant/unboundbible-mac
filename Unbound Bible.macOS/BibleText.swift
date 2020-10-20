@@ -61,16 +61,16 @@ class BibleTextView: CustomTextView {
     private func getParagraphNumber(saveRange: Bool = false) {
         if selectedRange.length == 0 {
             let range = selectedRange()
-            activeVerse.number = paragraphFromSelection(beginning: true)
-            activeVerse.count = 1
+            currVerse.number = paragraphFromSelection(beginning: true)
+            currVerse.count = 1
             if saveRange { setSelectedRange(range) }
         }
     }
     
     private func getParagraphRange() {
         if self.selectedRange.length > 1 {
-            activeVerse.number = paragraphFromSelection(beginning: true )
-            activeVerse.count  = paragraphFromSelection(beginning: false) - activeVerse.number + 1
+            currVerse.number = paragraphFromSelection(beginning: true )
+            currVerse.count  = paragraphFromSelection(beginning: false) - currVerse.number + 1
         }
     }
     

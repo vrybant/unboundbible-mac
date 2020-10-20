@@ -16,7 +16,7 @@ func currentSearchRange() -> SearchRange? {
         case .newTestament : return SearchRange(from: 40, to: 66)
         case .gospels      : return SearchRange(from: 40, to: 43)
         case .epistles     : return SearchRange(from: 45, to: 65)
-        case .openedBook   : return SearchRange(from:  activeVerse.book, to:  activeVerse.book)
+        case .openedBook   : return SearchRange(from:  currVerse.book, to:  currVerse.book)
     }
 }
 

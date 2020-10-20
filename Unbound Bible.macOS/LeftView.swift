@@ -41,13 +41,13 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func makeBookList() {
-        bookTableViewList = bible!.getTitles()
+        bookTableViewList = currBible!.getTitles()
         bookTableView.reloadData()
-        writingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
+        writingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
     }
     
     func makeChapterList() {
-        let n = bible!.chapterCount(activeVerse)
+        let n = currBible!.chapterCount(currVerse)
         if n != chapterTableViewCount {
             chapterTableViewCount = n
             chapterTableView.reloadData()
@@ -85,8 +85,8 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if shelf.isEmpty { return }
         shelf.setCurrent(sender.indexOfSelectedItem)
         makeBookList()
-        goToVerse(activeVerse, select: activeVerse.number > 1)
-        mainView.updateStatus(bible!.fileName + " | " + bible!.info)
+        goToVerse(currVerse, select: currVerse.number > 1)
+        mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
@@ -96,8 +96,8 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if tableView == bookTableView {
             if tableView.tag != programmatically {
                 let name = bookTableViewList[tableView.selectedRow]
-                if let book = bible!.bookByName(name) {
-                    activeVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
+                if let book = currBible!.bookByName(name) {
+                    currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
                 }
             }
         }
@@ -106,7 +106,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
             if tableView.tag != programmatically {
                 if tableView.selectedRow >= 0 {
                     let chapter = tableView.selectedRow + 1
-                    activeVerse = Verse(book: activeVerse.book, chapter: chapter, number: 1, count: 1)
+                    currVerse = Verse(book: currVerse.book, chapter: chapter, number: 1, count: 1)
                 }
             }
         }

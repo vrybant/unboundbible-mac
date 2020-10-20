@@ -12,7 +12,7 @@ class BibleTextView: UITextView {
 
     func loadChapter() {
         let attributedString = NSMutableAttributedString()
-        if let text = bible!.getChapter(activeVerse) {
+        if let text = bible!.getChapter(currVerse) {
             if !text.isEmpty {
                 for i in 0...text.count-1 {
                     let string = " <l>" + String(i+1) + "</l> " + text[i] + "\n"

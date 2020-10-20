@@ -123,7 +123,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     
     func loadChapter() {
         let attrString = parse(get_Chapter(), jtag: true)
-        bibleTextView.baseWritingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
+        bibleTextView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
         bibleTextView.textStorage?.setAttributedString(attrString)
         leftView.makeChapterList()
         selectTab("bible")
@@ -148,14 +148,14 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
  
     func loadCompare() {
-        let link = bible!.verseToString(activeVerse, full: true) ?? ""
+        let link = currBible!.verseToString(currVerse, full: true) ?? ""
         let string = link + "\n\n" + get_Compare()
         compareTextView.textStorage?.setAttributedString(parse(string))
         selectTab("compare")
     }
 
     func loadReferences() {
-        let link = bible!.verseToString(activeVerse, full: true) ?? ""
+        let link = currBible!.verseToString(currVerse, full: true) ?? ""
         let values = get_References()
         var string = link + "\n\n" + values.string
         if values.string.isEmpty { string += LocalizedString("Сross-references not found.") }
@@ -165,7 +165,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadCommentary() {
-        let link = (bible!.verseToString(activeVerse, full: true) ?? "") + "\n\n"
+        let link = (currBible!.verseToString(currVerse, full: true) ?? "") + "\n\n"
         let attrString = parse(link)
         let data = get_Commentary()
         attrString.append(data)
