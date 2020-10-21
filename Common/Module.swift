@@ -19,7 +19,6 @@ class Module {
     var info         : String = ""
     var filetype     : String = ""
     
-    var firstVerse   = Verse()
     var language     : String = "en"
     var rightToLeft  : Bool = true
     

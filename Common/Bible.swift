@@ -33,9 +33,10 @@ class Bible: Module {
         abbr : "short_name"
     )
 
-    private var books  : [Book] = []
+    private var books : [Book] = []
     private var z = unboundAlias()
     
+    var firstVerse = Verse()
     var compare : Bool = true
 
     override init?(atPath: String) {
