@@ -20,10 +20,10 @@ enum FileFormat {
 }
 
 struct Verse {
-    var book    = 0
-    var chapter = 0
-    var number  = 0
-    var count   = 0
+    var book    = 1
+    var chapter = 1
+    var number  = 1
+    var count   = 1
 }
 
 var currVerse = Verse()

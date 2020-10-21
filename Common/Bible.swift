@@ -35,22 +35,12 @@ class Bible: Module {
 
     private var books : [Book] = []
     private var z = unboundAlias()
-    
-    var firstVerse = Verse()
     var compare : Bool = true
 
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = mybibleAlias }
         if connected && !database!.tableExists(z.bible) { return nil }
-    }
-    
-    var minBook : Int {
-        var min = 0
-        for book in books {
-            if (book.number < min) || (min == 0) { min = book.number }
-        }
-        return min
     }
     
     func loadUnboundDatabase() {
@@ -98,7 +88,10 @@ class Bible: Module {
         if loaded { return }
         if format == .mysword { loadMyswordDatabase() } else { loadUnboundDatabase() }
         if !loaded { return }
-        firstVerse = Verse(book: minBook, chapter: 1, number: 1, count: 1)
+    }
+    
+    var firstVerse : Verse {
+        return books.isEmpty ? Verse() : Verse(book: books[0].number, chapter: 1, number: 1, count: 1)
     }
     
     func getTitles() -> [String] {
