@@ -31,7 +31,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func makeBookList() {
-        if let bible = bible {
+        if let bible = currBible {
           bookTableViewList = bible.getTitles()
 //        bookTableView.reloadData()
 //        writingDirection = bible!.rightToLeft ? .rightToLeft : .leftToRight
@@ -51,7 +51,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let name = bookTableViewList[indexPath.row]
-        if let book = bible!.bookByName(name) {
+        if let book = currBible!.bookByName(name) {
             currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
         }
         print( name )
