@@ -9,8 +9,8 @@ import Foundation
 
 class Module {
     var database     : FMDatabase?
-    var filePath     : String
-    var fileName     : String
+    let filePath     : String
+    let fileName     : String
     var format       = FileFormat.unbound
     
     var name         : String = ""
