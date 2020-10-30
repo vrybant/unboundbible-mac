@@ -247,9 +247,9 @@ class Bible: Module {
     
     func verseToString(_ verse: Verse, full: Bool) -> String? {
         if let n = idxByNum(verse.book) {
-            var name = full ? books[n].title : books[n].abbr
-            if !name.contains(".") { name += " " }
-            var result = name + String(verse.chapter) + ":" + String(verse.number)
+            let title = full ? books[n].title : books[n].abbr
+            let space = title.contains(".") ? "" : " "
+            var result = title + space + String(verse.chapter) + ":" + String(verse.number)
             if verse.number != 0 && verse.count > 1 {
                 result += "-" + String(verse.number + verse.count - 1)
             }
