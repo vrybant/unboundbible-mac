@@ -18,7 +18,7 @@ class Bible: Module {
         var books = "Books"
         var number = "Number"
         var name = "Name"
-        var abbr = "Abbr"
+        var abbr = "Abbreviation"
     }
 
     private let mybibleAlias = unboundAlias(
