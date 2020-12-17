@@ -661,6 +661,7 @@
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -684,6 +685,7 @@
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 5.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
