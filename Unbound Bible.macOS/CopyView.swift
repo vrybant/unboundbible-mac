@@ -11,7 +11,7 @@ var copyView = CopyView()
 
 class CopyView: NSViewController {
 
-    @IBOutlet weak var textView: NSTextView!
+    @IBOutlet var textView: NSTextView!
     
     @IBOutlet weak var abbreviateButton: NSButton!
     @IBOutlet weak var enumeratedButton: NSButton!

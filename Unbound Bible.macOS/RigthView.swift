@@ -22,13 +22,13 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     @IBOutlet var commentariesTab: NSTabViewItem!
     @IBOutlet var dictionariesTab: NSTabViewItem!
     
-    @IBOutlet weak var bibleTextView: BibleTextView!
-    @IBOutlet weak var searchTextView: СommonTextView!
-    @IBOutlet weak var compareTextView: СommonTextView!
-    @IBOutlet weak var referencesTextView: СommonTextView!
-    @IBOutlet weak var commentariesTextView: СommonTextView!
-    @IBOutlet weak var dictionariesTextView: СommonTextView!
-    @IBOutlet weak var notesTextView: NotesTextView!
+    @IBOutlet var bibleTextView: BibleTextView!
+    @IBOutlet var searchTextView: СommonTextView!
+    @IBOutlet var compareTextView: СommonTextView!
+    @IBOutlet var referencesTextView: СommonTextView!
+    @IBOutlet var commentariesTextView: СommonTextView!
+    @IBOutlet var dictionariesTextView: СommonTextView!
+    @IBOutlet var notesTextView: NotesTextView!
     
     @IBOutlet weak var popupMenu: NSMenu!
     @IBOutlet weak var commentariesItem: NSMenuItem!
