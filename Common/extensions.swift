@@ -233,6 +233,13 @@ extension Color {
     static var systemTeal: Color {
         return darkAppearance ? Color.darkTeal : Color.teal
     }
+    static var systemAccent: Color {
+        if #available(OSX 10.14, *) {
+            return controlAccentColor
+        } else {
+            return systemNavy
+        }
+    }
 }
 
 #if os(iOS)
