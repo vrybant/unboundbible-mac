@@ -28,7 +28,8 @@ class Module {
     var embedded     : Bool = false
     var footnotes    : Bool = false
     var interlinear  : Bool = false
-    
+    var accented     : Bool = false
+
     init?(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
@@ -94,6 +95,7 @@ class Module {
             if name.isEmpty { name = fileName }
             rightToLeft = getRightToLeft(language: language)
             info = info.removeTags
+            accented = language == "ru"
         }
     }
     
