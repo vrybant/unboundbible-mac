@@ -27,10 +27,10 @@ var defaultAttributes: [NSAttributedString.Key : Any] {
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
     let discount : CGFloat = small ? 2 : 1
     
-    let     smallFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 2)!
-    let    italicFont = Font(name:"HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
-    let subscriptFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 5)!
-    let  footnoteFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 3)!
+    let     smallFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 2)!
+    let    italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
+    let subscriptFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 5)!
+    let  footnoteFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 3)!
 
     let s = string.attributed
     if small { s.addAttribute(.font, value: smallFont) }
@@ -44,7 +44,6 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     if tags.contains("<r>") { s.addAttribute(.foregroundColor, value: Color.systemRed   ) }
     if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: Color.systemTeal  ) }
     if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: Color.systemNavy  ) }
-    if tags.contains("<b>") { s.addAttribute(.foregroundColor, value: Color.systemBrown ) }
 
     if tags.intersection(["<i>","<em>"]) != [] {
         s.addAttribute(.font, value: italicFont )
@@ -61,15 +60,21 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     return s
 }
 
-private func attrStringFromHtml(_ string: String, tags: Set<String>) -> NSAttributedString {
-    let font = Font(name: defaultFont.fontName,  size: defaultFont.pointSize)!
-    let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize) ?? font
+private func attrStringFromHtml(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
+    let discount : CGFloat = small ? 2 : 1
+    
+    let  smallFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 2)!
+    let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
+    let   boldFont = Font(name: "HelveticaNeue-Bold", size: defaultFont.pointSize - discount) ?? defaultFont
     
     let s = string.attributed
-    s.addAttribute(.font, value: font)
-    
+    if small { s.addAttribute(.font, value: smallFont) }
+
     if tags.contains("<a>") {
         s.addAttribute(.foregroundColor, value: Color.systemGray  )
+    }
+    if tags.contains("<h>") {
+        s.addAttribute(.font, value: boldFont)
     }
     if tags.intersection(["<b>","<strong>"]) != [] {
         s.addAttribute(.foregroundColor, value: Color.systemBrown )
@@ -91,17 +96,16 @@ private func htmlReplacement(_ string: String) -> String {
         .replace("&rquot;", with:  "»")
         
         .replace( "<p/>", with: "<p>" )
-        .replace("<br/>", with: "\n\t")
+        .replace("<br/>", with: "<br>")
         .replace( "<td>", with: "\n\t")
         .replace( "<tr>", with: "\n\t")
         .replace("</td>", with: "\n\t")
         .replace("</tr>", with: "\n\t")
 
         .replace("<p>", with: string.contains("</p>") ? "" : "\n\t")
-
-        .replace("<br>", with: "\n\t")
-        .replace("</p>", with: "\n\t")
-        .replace(  "  ", with:    " ")
+        .replace("</p>", with: "\n")
+        .replace("<br>", with: "\n")
+        .replace(  "  ", with:  " ")
 }
 
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
@@ -133,7 +137,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
     return result
 }
 
-func html(_ string: String) -> NSMutableAttributedString {
+func html(_ string: String, small: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
     let string = htmlReplacement(string)
     
@@ -150,7 +154,7 @@ func html(_ string: String) -> NSMutableAttributedString {
                 tags.insert(s)
             }
         } else {
-            let attrString = attrStringFromHtml(s, tags: tags)
+            let attrString = attrStringFromHtml(s, tags: tags, small: small)
             result.append(attrString)
         }
     }

@@ -117,7 +117,7 @@ class CustomTextView: NSTextView {
         
         if foreground == .strong {
             if let string = get_Strong(number: hyperlink) {
-                let attrString = parse(string, small: true).mutable()
+                let attrString = html(string, small: true).mutable()
                 mainView.showPopover(self)
                 popoverView!.textView.textStorage?.setAttributedString(attrString)
             }
