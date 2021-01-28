@@ -114,4 +114,11 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         rigthView.loadChapter() 
     }
     
+    func selectBible(name: String) -> Bool {
+        if !popUpButton.itemTitles.contains(name) { return false }
+        popUpButton.selectItem(withTitle: name)
+        popUpButtonAction(popUpButton)
+        return true
+    }
+    
 }
