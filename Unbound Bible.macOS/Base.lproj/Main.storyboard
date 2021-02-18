@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -395,10 +395,10 @@
                                                 <action selector="homePage:" target="Ady-hI-5gd" id="uYm-ll-hTR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Become a Patron" id="0l1-Da-iy5">
+                                        <menuItem title="Donate" id="0l1-Da-iy5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="patreonPage:" target="Ady-hI-5gd" id="d3Y-9o-9sW"/>
+                                                <action selector="donatePage:" target="Ady-hI-5gd" id="CKy-bu-Hyk"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="8a7-HD-AgK"/>
@@ -493,7 +493,7 @@
                                         </buttonCell>
                                     </button>
                                     <connections>
-                                        <action selector="patreonPage:" target="Oky-zY-oP4" id="diz-9M-0n9"/>
+                                        <action selector="donatePage:" target="Oky-zY-oP4" id="J0w-r9-gH4"/>
                                     </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="0Ju-Qv-L82"/>
@@ -546,7 +546,7 @@
                         </connections>
                     </window>
                     <connections>
-                        <outlet property="patreonButton" destination="RUI-Ia-9EO" id="Vse-Y5-Fdp"/>
+                        <outlet property="donateButton" destination="RUI-Ia-9EO" id="OX3-1T-ChA"/>
                         <outlet property="searchField" destination="n2B-PU-L83" id="xZX-Rd-S7W"/>
                         <outlet property="searchOptionsButton" destination="XOO-wQ-JkF" id="vXK-KJ-4Fs"/>
                         <outlet property="windowOutlet" destination="IQv-IB-iLA" id="ojZ-Qr-gTz"/>
@@ -1104,13 +1104,13 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="4" width="55" height="300"/>
+                                <rect key="frame" x="189" y="4" width="55" height="296"/>
                                 <clipView key="contentView" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="294"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="119" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="119" height="294"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1180,13 +1180,13 @@ Gw
                                 </scroller>
                             </scrollView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="4" width="175" height="300"/>
+                                <rect key="frame" x="7" y="4" width="175" height="296"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="298"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="294"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="294"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1249,7 +1249,7 @@ Gw
                                 </scroller>
                             </scrollView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="7" y="309" width="237" height="23"/>
+                                <rect key="frame" x="7" y="305" width="237" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>

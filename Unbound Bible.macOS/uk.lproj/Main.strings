@@ -118,8 +118,8 @@
 /* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "rTh-d2-1br"; */
 "rTh-d2-1br.title" = "Базова лiнiя";
 
-/* Class = "NSMenuItem"; title = "Become a Patron"; ObjectID = "0l1-Da-iy5"; */
-"0l1-Da-iy5.title" = "Стати патроном";
+/* Class = "NSMenuItem"; title = "Donate"; ObjectID = "0l1-Da-iy5"; */
+"0l1-Da-iy5.title" = "Донат";
 
 /* Class = "NSMenuItem"; title = "Bible Folder"; ObjectID = "Kp2-Of-jbZ"; */
 "Kp2-Of-jbZ.title" = "Біблійна папка";

@@ -10,7 +10,7 @@ import Foundation
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 var applicationUpdate = false
-var patreonVisited = false
+//var donateVisited = false
 let bibleDirectory = "bibles"
 
 var recentList : [URL] = []
@@ -169,8 +169,8 @@ func readDefaults() {
         recentList.append(bookmarks: bookmarks)
     }
     
-    patreonVisited = defaults.bool(forKey: "patreonVisited")
-//  if applicationUpdate { patreonVisited = false }
+//  donateVisited = defaults.bool(forKey: "donateVisited")
+//  if applicationUpdate { donateVisited = false }
 }
 
 func saveDefaults() {
@@ -186,7 +186,7 @@ func saveDefaults() {
     defaults.set(defaultFont.fontName , forKey: "fontName")
     defaults.set(defaultFont.pointSize, forKey: "fontSize")
     defaults.set(recentList.bookmarks,  forKey: "bookmarks")
-    defaults.set(patreonVisited,        forKey: "patreonVisited")
+//  defaults.set(donateVisited,         forKey: "donateVisited")
 }
 
 func readPrivates() {

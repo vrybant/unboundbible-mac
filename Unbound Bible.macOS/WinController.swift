@@ -12,7 +12,7 @@ var winController = WinController()
 class WinController: NSWindowController, NSSearchFieldDelegate {
     
     @IBOutlet weak var windowOutlet: NSWindow!
-    @IBOutlet weak var patreonButton: NSButton!
+    @IBOutlet weak var donateButton: NSButton!
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchOptionsButton: NSButton!
     
@@ -93,10 +93,11 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         NSWorkspace.shared.open(URL(string: url)!)
     }
     
-    @IBAction func patreonPage(_ sender: NSMenuItem) {
-        let url = "https://www.patreon.com/vrybant"
+    @IBAction func donatePage(_ sender: NSMenuItem) {
+        let tail = languageCode == "ru" ? "donateru.php" : "donate.php"
+        let url = "http://vladimirrybant.org/goto/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
-        patreonVisited = true
+//      donateVisited = true
     }
     
     @IBAction func homePage(_ sender: NSMenuItem) {
