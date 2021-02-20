@@ -87,6 +87,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         }
     }
     
+    
     @IBAction func contactPage(_ sender: NSMenuItem) {
         let tail = languageCode == "ru" ? "contactru.php" : "contact.php"
         let url = "http://vladimirrybant.org/goto/" + tail
@@ -102,7 +103,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     @IBAction func homePage(_ sender: NSMenuItem) {
         let tail = languageCode == "ru" ? "ru" : ""
-        let url = "http://vladimirrybant.org" + tail
+        let url = "http://vladimirrybant.org/" + tail
         NSWorkspace.shared.open(URL(string: url)!)
     }
 
