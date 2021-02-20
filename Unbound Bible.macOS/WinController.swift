@@ -43,12 +43,6 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
         windowOutlet.setFrameTopLeftPoint(point)
     }
     
-    func showUpdate() {
-        let tail = languageCode == "ru" ? "ubupdateru.php" : "ubupdate.php"
-        let url = "http://vladimirrybant.org/goto/" + tail
-        NSWorkspace.shared.open(URL(string: url)!)
-    }
-    
 //  func alertUpdate() {
 //      let date = Date()
 //      let calendar = Calendar.current
@@ -86,30 +80,29 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
             rigthView.loadSearch(text: string)
         }
     }
-    
+
+    private var ru: String {
+        return languageCode == "ru" ? "ru" : ""
+    }
     
     @IBAction func contactPage(_ sender: NSMenuItem) {
-        let tail = languageCode == "ru" ? "contactru.php" : "contact.php"
-        let url = "http://vladimirrybant.org/goto/" + tail
+        let url = "http://vladimirrybant.org/goto/contact\(ru).php"
         NSWorkspace.shared.open(URL(string: url)!)
     }
     
     @IBAction func donatePage(_ sender: NSMenuItem) {
-        let tail = languageCode == "ru" ? "donateru.php" : "donate.php"
-        let url = "http://vladimirrybant.org/goto/" + tail
+        let url = "http://vladimirrybant.org/goto/donate\(ru).php"
         NSWorkspace.shared.open(URL(string: url)!)
 //      donateVisited = true
     }
     
     @IBAction func homePage(_ sender: NSMenuItem) {
-        let tail = languageCode == "ru" ? "ru" : ""
-        let url = "http://vladimirrybant.org/" + tail
+        let url = "http://vladimirrybant.org/\(ru)"
         NSWorkspace.shared.open(URL(string: url)!)
     }
 
     @IBAction func downloadsPage(_ sender: NSMenuItem) {
-        let tail = languageCode == "ru" ? "ubhelpru.php" : "ubhelp.php"
-        let url = "http://vladimirrybant.org/goto/" + tail
+        let url = "http://vladimirrybant.org/goto/ubhelp\(ru).php"
         NSWorkspace.shared.open(URL(string: url)!)
     }
 
