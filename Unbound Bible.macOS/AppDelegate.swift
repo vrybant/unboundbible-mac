@@ -41,7 +41,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         readPrivates()
         createRecentMenu()
         localization()
-        winController.donateButton.isHidden = true // donateVisited
+//      winController.donateButton.isHidden = donateVisited
     }
     
     func localization() {

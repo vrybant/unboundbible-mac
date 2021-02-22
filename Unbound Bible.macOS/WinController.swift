@@ -12,7 +12,6 @@ var winController = WinController()
 class WinController: NSWindowController, NSSearchFieldDelegate {
     
     @IBOutlet weak var windowOutlet: NSWindow!
-    @IBOutlet weak var donateButton: NSButton!
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchOptionsButton: NSButton!
     
