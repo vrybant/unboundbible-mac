@@ -133,8 +133,6 @@ func copyDefaultsFiles() {
             let toUrl = dataUrl.appendingPathComponent(item)
             let toPath = dataUrl.appendingPathComponent(item).path
             
-            if !emptyFolder && !item.containsAny([".dct.",".xrefs."]) { continue }
-            
             try? FileManager.default.removeItem(at: toUrl)
             try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
         }
