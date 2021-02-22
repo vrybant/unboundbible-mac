@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  Unbound Bible.iOS
 //
-//  Copyright © 2020 Vladimir Rybant. All rights reserved.
+//  Copyright © 2021 Vladimir Rybant. All rights reserved.
 //
 
 import UIKit

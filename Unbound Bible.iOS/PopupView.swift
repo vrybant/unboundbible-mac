@@ -2,8 +2,7 @@
 //  PopupView.swift
 //  Unbound Bible.iOS
 //
-//  Created by Vladimir Rybant on 03.01.2020.
-//  Copyright © 2020 Vladimir Rybant. All rights reserved.
+//  Copyright © 2021 Vladimir Rybant. All rights reserved.
 //
 
 import UIKit

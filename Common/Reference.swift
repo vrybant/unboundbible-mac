@@ -2,8 +2,7 @@
 //  Reference.swift
 //  Unbound Bible
 //
-//  Created by Vladimir Rybant on 25.05.2020.
-//  Copyright © 2020 Vladimir Rybant. All rights reserved.
+//  Copyright © 2021 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation

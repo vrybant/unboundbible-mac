@@ -2,7 +2,7 @@
 //  WinController.swift
 //  Unbound Bible
 //
-//  Copyright © 2020 Vladimir Rybant. All rights reserved.
+//  Copyright © 2021 Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -48,7 +48,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 //      let month = calendar.component(.month, from: date)
 //      let year  = calendar.component(.year,  from: date)
 //
-//      if year != 2020 || month != 9 { return }
+//      if year != 2021 || month != 9 { return }
 //
 //      let alert = NSAlert()
 //      alert.messageText = applicationName
