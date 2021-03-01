@@ -44,6 +44,18 @@ var languageCode: String {
     return NSLocale.autoupdatingCurrent.languageCode ?? "en"
 }
 
+func printlocal() {
+    if #available(OSX 10.12, *) {
+        let locale = NSLocale.autoupdatingCurrent
+        let code = locale.languageCode
+        let enlocale = NSLocale(localeIdentifier: "en_US")
+        let identifier = locale.identifier
+        let name = enlocale.displayName(forKey: NSLocale.Key.identifier, value: identifier)
+        let language = enlocale.localizedString(forLanguageCode: code!)
+        print(code!, language!, identifier, name!)
+    }
+}
+
 func LocalizedString(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
