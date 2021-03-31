@@ -67,4 +67,15 @@ class Shelf {
         setCurrent(0)
     }
     
+    var getDefaultBible: String {
+        var result = ""
+        for bible in bibles {
+            if bible.default_ {
+                if bible.language == languageCode { return bible.name }
+                if bible.language == "en" { result = bible.name }
+            }
+        }
+        return result
+    }
+    
 }
