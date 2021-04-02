@@ -100,16 +100,6 @@ func contentsOfDirectory(url: URL) -> [String]? {
     return !result.isEmpty ? result : nil
 }
 
-func cyrillic(language: String) -> Bool {
-    let list = ["ru","uk","bg"]
-    for item in list {
-        if language.hasPrefix(item) {
-            return true
-        }
-    }
-    return false
-}
-
 func copyToClipboard(content: String) {
     #if os(OSX)
         let Pasteboard = NSPasteboard.general
