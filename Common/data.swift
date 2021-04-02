@@ -88,16 +88,6 @@ func isNewTestament(_ n: Int) -> Bool {
     return (n >= 40) && (n < 77)
 }
 
-var defaultBible: String {
-    var result = ""
-    switch languageCode {
-    case "ru" : result = "rstw.bbl.unbound"
-    case "uk" : result = "ubio.bbl.unbound"
-    default   : result = "kjv.bbl.unbound"
-    }
-    return result
-}
-
 func databaseList() -> [String] {
     let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
     return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(extensions) } ?? []
@@ -148,7 +138,7 @@ func readDefaults() {
     defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
-    defaultCurrent = defaults.string(forKey: "current") ?? defaultBible
+    defaultCurrent = defaults.string(forKey: "currentBible") ?? shelf.getDefaultBible
 
     currVerse.book    = defaults.integer(forKey: "verseBook")
     currVerse.chapter = defaults.integer(forKey: "verseChapter")
@@ -177,7 +167,7 @@ func saveDefaults() {
     if shelf.isEmpty { return }
     let defaults = UserDefaults.standard
     defaults.set(applicationVersion,    forKey: "applicationVersion")
-    defaults.set(currBible!.fileName,   forKey: "current")
+    defaults.set(currBible!.name,       forKey: "currentBible")
     defaults.set(currVerse.book,        forKey: "verseBook")
     defaults.set(currVerse.chapter,     forKey: "verseChapter")
     defaults.set(currVerse.number,      forKey: "verseNumber")
