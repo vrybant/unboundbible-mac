@@ -8,14 +8,10 @@
 import Foundation
 
 var shelf = Shelf()
-
-var currBible: Bible? {
-    return shelf.currBible
-}
+var currBible : Bible? = nil
 
 class Shelf {
     var bibles : [Bible] = []
-    var currBible : Bible? = nil
 
     init() {
         load()
