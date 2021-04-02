@@ -28,6 +28,7 @@ class Module {
     var embedded     : Bool = false
     var footnotes    : Bool = false
     var interlinear  : Bool = false
+    var default_     : Bool = false
     var accented     : Bool = false
 
     init?(atPath: String) {
@@ -64,6 +65,9 @@ class Module {
                     language  = results.string(forColumn: "Language"    ) ?? ""
                     strong    = results.bool  (forColumn: "Strong"      )
                     embedded  = results.bool  (forColumn: "Embedded"    )
+                    default_  = results.bool  (forColumn: "Default"     )
+                    
+                    if default_ { print(fileName, name, language) }
                     
                     connected = true
                 }
