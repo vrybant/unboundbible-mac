@@ -99,6 +99,13 @@ class Commentaries {
         }
     }
     
+    var footnotesOnly: Bool {
+        for item in items {
+            if !item.footnotes { return false }
+        }
+        return true
+    }
+    
     func getFootnote(module: String, verse: Verse, marker: String) -> String? {
         let name = module.lastPathComponentWithoutExtension
         

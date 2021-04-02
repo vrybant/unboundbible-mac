@@ -75,7 +75,7 @@ class Dictionaries {
         }
     }
     
-    var isEmpty: Bool {
+    var embeddedOnly: Bool {
         for item in items {
             if !item.embedded { return false }
         }
