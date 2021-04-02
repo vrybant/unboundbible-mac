@@ -32,12 +32,18 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         constraint.constant = width - 13
     }
         
-    func bibleMenuInit() {
+    func loadBibleMenu() { 
         popUpButton.removeAllItems()
-        for item in shelf.bibles {
-            popUpButton.addItem(withTitle: item.name)
+        var index = 0
+        for bible in shelf.bibles {
+            if bible.favorite {
+                popUpButton.addItem(withTitle: bible.name)
+                if bible.name == currBible!.name {
+                    popUpButton.selectItem(at: index)
+                }
+            }
+            index += 1
         }
-        popUpButton.selectItem(at: shelf.current)
     }
     
     func makeBookList() {
@@ -83,7 +89,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         if shelf.isEmpty { return }
-        shelf.setCurrent(sender.indexOfSelectedItem)
+        shelf.setCurrent(popUpButton.selectedItem!.title)
         makeBookList()
         goToVerse(currVerse, select: currVerse.number > 1)
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
@@ -111,7 +117,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
             }
         }
         
-        rigthView.loadChapter() 
+        rigthView.loadChapter()
     }
     
     func selectBible(name: String) -> Bool {

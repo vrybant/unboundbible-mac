@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         copyDefaultsFiles()
         if shelf.isEmpty { return }
         shelf.setCurrent(defaultCurrent!)
-        leftView.bibleMenuInit()
+        leftView.loadBibleMenu()
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
         leftView.makeBookList()
         goToVerse(currVerse, select: (currVerse.number > 1))
