@@ -35,7 +35,6 @@ class Bible: Module {
 
     private var books : [Book] = []
     private var z = unboundAlias()
-    var compare : Bool = true
 
     override init?(atPath: String) {
         super.init(atPath: atPath)

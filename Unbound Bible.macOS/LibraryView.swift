@@ -24,7 +24,7 @@ class LibraryView: NSViewController, NSTableViewDataSource, NSTableViewDelegate 
         if tableColumn == tableView.tableColumns[0] {
             let cell = tableView.tableColumns[0].dataCell as? NSButtonCell
             cell?.title = ""
-            cell?.state = NSControl.StateValue(rawValue: shelf.bibles[row].compare ? 1 : 0)
+            cell?.state = NSControl.StateValue(rawValue: shelf.bibles[row].favorite ? 1 : 0)
             return cell
         }
 
@@ -37,7 +37,7 @@ class LibraryView: NSViewController, NSTableViewDataSource, NSTableViewDelegate 
     
     func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int)
     {
-        shelf.bibles[row].compare = !shelf.bibles[row].compare
+        shelf.bibles[row].favorite = !shelf.bibles[row].favorite
     }
     
     @IBAction func closeButtonAction(_ sender: NSButton) {

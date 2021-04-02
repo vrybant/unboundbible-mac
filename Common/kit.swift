@@ -27,7 +27,7 @@ func loadCompare_() -> NSAttributedString {
     attrString.append( parse("\(link)\n") )
     
     for item in shelf.bibles {
-        if !item.compare { continue }
+        if !item.favorite { continue }
         
         if let list = item.getRange(currVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n"

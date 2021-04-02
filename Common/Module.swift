@@ -30,6 +30,7 @@ class Module {
     var interlinear  : Bool = false
     var default_     : Bool = false
     var accented     : Bool = false
+    var favorite     : Bool = true
 
     init?(atPath: String) {
         filePath = atPath
@@ -66,8 +67,6 @@ class Module {
                     strong    = results.bool  (forColumn: "Strong"      )
                     embedded  = results.bool  (forColumn: "Embedded"    )
                     default_  = results.bool  (forColumn: "Default"     )
-                    
-                    if default_ { print(fileName, name, language) }
                     
                     connected = true
                 }
