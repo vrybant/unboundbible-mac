@@ -10,12 +10,12 @@ import Foundation
 var shelf = Shelf()
 
 var currBible: Bible? {
-    return !shelf.isEmpty ? shelf.bibles[shelf.current] : nil
+    return shelf.currBible
 }
 
 class Shelf {
     var bibles : [Bible] = []
-    var current : Int = -1
+    var currBible : Bible? = nil
 
     init() {
         load()
@@ -47,24 +47,17 @@ class Shelf {
         }
     }
     
-    func setCurrent(_ index: Int) {
-        if index >= self.bibles.count { return }
-        current = index
-        bibles[current].loadDatabase()
-        if !bibles[current].goodLink(currVerse) {
-            currVerse = bibles[current].firstVerse
-        }
-    }
-    
-    func setCurrent(_ fileName: String) {
-        if bibles.isEmpty { return }
-        for i in 0...bibles.count-1 {
-            if bibles[i].fileName == fileName {
-                setCurrent(i)
-                return
+    func setCurrent(_ name: String) {
+        for bible in bibles {
+            if bible.name == name {
+                currBible = bible
+                break
             }
         }
-        setCurrent(0)
+        currBible!.loadDatabase()
+        if currBible!.goodLink(currVerse) {
+            currVerse = currBible!.firstVerse
+        }
     }
     
     var getDefaultBible: String {
