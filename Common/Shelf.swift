@@ -44,14 +44,20 @@ class Shelf {
     }
     
     func setCurrent(_ name: String) {
+        if self.isEmpty { return }
+        currBible = bibles[0]
+        
         for bible in bibles {
             if bible.name == name {
-                bible.loadDatabase()
-                if !bible.goodLink(currVerse) {
-                    currVerse = bible.firstVerse
-                }
                 currBible = bible
                 break
+            }
+        }
+        
+        if let bible = currBible {
+            bible.loadDatabase()
+            if !bible.goodLink(currVerse) {
+                currVerse = bible.firstVerse
             }
         }
     }
