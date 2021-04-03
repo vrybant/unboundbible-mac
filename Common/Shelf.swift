@@ -54,11 +54,9 @@ class Shelf {
             }
         }
         
-        if let bible = currBible {
-            bible.loadDatabase()
-            if !bible.goodLink(currVerse) {
-                currVerse = bible.firstVerse
-            }
+        currBible!.loadDatabase()
+        if !currBible!.goodLink(currVerse) {
+            currVerse = currBible!.firstVerse
         }
     }
     
