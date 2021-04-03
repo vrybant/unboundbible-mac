@@ -26,12 +26,12 @@ func loadCompare_() -> NSAttributedString {
     let attrString = NSMutableAttributedString()
     attrString.append( parse("\(link)\n") )
     
-    for item in shelf.bibles {
-        if !item.favorite { continue }
+    for bible in shelf.bibles {
+        if !bible.favorite { continue }
         
-        if let list = item.getRange(currVerse, purge: true) {
+        if let list = bible.getRange(currVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n"
-            let string = "\n<l>" + item.name + "</l>\n" + text
+            let string = "\n<l>" + bible.name + "</l>\n" + text
             attrString.append( parse(string) )
         }
     }

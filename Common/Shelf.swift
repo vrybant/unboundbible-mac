@@ -24,10 +24,10 @@ class Shelf {
     }
     
     private func checkDoubleNames() {
-        for item in bibles {
-            for i in bibles {
-                if i.fileName == item.fileName { continue }
-                if i.name == item.name { i.name += "*" }
+        for bible in bibles {
+            for item in bibles {
+                if item.fileName == bible.fileName { continue }
+                if item.name == bible.name { item.name += "*" }
             }
         }
     }

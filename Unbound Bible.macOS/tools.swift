@@ -76,10 +76,10 @@ func get_Commentary() -> NSAttributedString {
     let result = NSMutableAttributedString()
     if shelf.isEmpty { return result }
 
-    for item in commentaries.items {
-        if item.footnotes { continue }
-        if let list = item.getData(currVerse) {
-            var string = "<h>" + item.name + "</h>\n\n"
+    for commentary in commentaries.items {
+        if commentary.footnotes { continue }
+        if let list = commentary.getData(currVerse) {
+            var string = "<h>" + commentary.name + "</h>\n\n"
             string += list.joined(separator: " ") + "\n\n"
             result.append(html(string))
         }
@@ -92,10 +92,10 @@ func get_Dictionary(key: String) -> NSAttributedString {
     let result = NSMutableAttributedString()
     if shelf.isEmpty { return result }
     
-    for item in dictionaries.items {
-        if item.embedded { continue }
-        if let list = item.getData(key: key) {
-            var string = "<h>" + item.name + "</h>\n\n"
+    for dictionary in dictionaries.items {
+        if dictionary.embedded { continue }
+        if let list = dictionary.getData(key: key) {
+            var string = "<h>" + dictionary.name + "</h>\n\n"
             string += list.joined(separator: " ") + "\n\n"
             result.append(html(string))
         }
