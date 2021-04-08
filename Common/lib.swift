@@ -125,7 +125,7 @@ func copyDefaultsFiles() {
         try? FileManager.default.createDirectory(at: dataUrl, withIntermediateDirectories: false, attributes: nil)
     }
 
-    let emptyFolder = databaseList().isEmpty
+    let emptyFolder = databaseList.isEmpty
     if !applicationUpdate && !emptyFolder { return }
 
     let atDirectory = resourceUrl.appendingPathComponent(bibleDirectory)
@@ -134,6 +134,8 @@ func copyDefaultsFiles() {
             let atPath = atDirectory.appendingPathComponent(item).path
             let toUrl = dataUrl.appendingPathComponent(item)
             let toPath = dataUrl.appendingPathComponent(item).path
+            
+            if !emptyFolder && !FileManager.default.fileExists(atPath: toPath)  { continue }
             
             try? FileManager.default.removeItem(at: toUrl)
             try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
