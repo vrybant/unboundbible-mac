@@ -33,7 +33,7 @@ class Shelf {
     }
     
     private func load() {
-        let files = databaseList()
+        let files = databaseList
         for file in files {
             if file.contains(other: ".bbl.", options: []) || file.hasSuffix(".SQLite3") {
                 if let item = Bible(atPath: file) {

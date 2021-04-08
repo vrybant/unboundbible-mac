@@ -88,7 +88,7 @@ func isNewTestament(_ n: Int) -> Bool {
     return (n >= 40) && (n < 77)
 }
 
-func databaseList() -> [String] {
+var databaseList : [String] {
     let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
     return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(extensions) } ?? []
 }

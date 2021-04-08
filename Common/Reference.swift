@@ -84,7 +84,7 @@ class References {
     }
     
     private func load() {
-        let files = databaseList().filter { $0.containsAny([".xrefs."]) } // .crossreferences.
+        let files = databaseList.filter { $0.containsAny([".xrefs."]) } // .crossreferences.
         for file in files {
             if let item = Reference(atPath: file) {
                 items.append(item)

@@ -67,7 +67,7 @@ class Dictionaries {
     }
     
     private func load() {
-        let files = databaseList().filter { $0.containsAny([".dct.",".dictionary."]) }
+        let files = databaseList.filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
             if let item = Dictionary(atPath: file) {
                 items.append(item)
