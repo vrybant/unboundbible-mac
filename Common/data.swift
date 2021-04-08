@@ -93,6 +93,10 @@ var databaseList : [String] {
     return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(extensions) } ?? []
 }
 
+var unboundBiblesList : [String] {
+    return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(".bbl.unbound") } ?? []
+}
+
 //********** RangeOption **********
 
 enum RangeOption {
