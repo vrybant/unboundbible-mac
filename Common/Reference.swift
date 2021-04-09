@@ -92,13 +92,17 @@ class References {
         }
     }
 
+    private func referenceByLanguage(_ language: String) -> Reference? {
+        for reference in items {
+            if reference.language == language { return reference }
+        }
+        return nil
+    }
+    
     func getData(_ verse: Verse, language: String) -> (data: [Verse], info: String)? {
-        let filename = language.hasPrefix("ru") ? "obru.xrefs.unbound" : "ob.xrefs.unbound"
-        
-        for item in items {
-            if item.fileName != filename { continue }
-            if let data = item.getData(verse) {
-                return (data, item.info)
+        if let reference = referenceByLanguage(language) ?? referenceByLanguage("en") {
+            if let data = reference.getData(verse) {
+                return (data, reference.info)
             }
         }
         return nil
