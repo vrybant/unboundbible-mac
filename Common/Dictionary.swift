@@ -82,11 +82,11 @@ class Dictionaries {
         return true
     }
     
-    private func strongByLanguage(_ language: String) -> Int? {
-        for i in 0...items.count-1 {
-            if !items[i].strong { continue }
-            if !items[i].embedded { continue }
-            if items[i].language == language { return i }
+    private func strongByLanguage(_ language: String) -> Dictionary? {
+        for dictionary in items {
+            if !dictionary.strong { continue }
+            if !dictionary.embedded { continue }
+            if dictionary.language == language { return dictionary }
         }
         return nil
     }
@@ -97,8 +97,8 @@ class Dictionaries {
         let symbol = isNewTestament(verse.book) ? "G" : "H"
         if !number.hasPrefix(symbol) { number =  symbol + number }
 
-        if let index = strongByLanguage(language) ?? strongByLanguage("en") {
-            return items[index].getStrongData(number: number)
+        if let dictionary = strongByLanguage(language) ?? strongByLanguage("en") {
+            return dictionary.getStrongData(number: number)
         }
         return nil
     }
