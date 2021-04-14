@@ -42,7 +42,6 @@
 		E7A6CB4D23AB672F00947139 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */; };
 		E7A6CB5223AB67D100947139 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
 		E7A6CB5423AB67D600947139 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
-		E7A6CB5523AB67D900947139 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
 		E7A6CB5623AB67DC00947139 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
 		E7A6CB5823AB67E100947139 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
@@ -76,7 +75,6 @@
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
 		E7E7A84F24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
-		E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7EF67621FF38F3400360C1D /* Shelf.swift */; };
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F771351DE865FE004AF6C0 /* RigthView.swift */; };
 		E7FABB9B21D938D3006B6267 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
@@ -150,7 +148,6 @@
 		E7DDA4AF1EE960E400022638 /* SplitView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitView.swift; sourceTree = "<group>"; };
 		E7E3D4F71E12B1C400912F37 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E7E7A84D24C5C285001F85C8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
-		E7EF67621FF38F3400360C1D /* Shelf.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
 		E7F5071A20509AEB0019F546 /* icns.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icns.icns; sourceTree = "<group>"; };
 		E7F771351DE865FE004AF6C0 /* RigthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RigthView.swift; sourceTree = "<group>"; };
 		E7FABB9A21D938D3006B6267 /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
@@ -283,7 +280,6 @@
 				E7B7CB6521D66EB600BC292F /* Module.swift */,
 				E7AD04B323ACE59F00443A49 /* kit.swift */,
 				E7A0D72123AAA28800C48A54 /* extensions.swift */,
-				E7EF67621FF38F3400360C1D /* Shelf.swift */,
 				E73A0E9123FFE26B00EE62A8 /* Bible.swift */,
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
 				E7FABB9C21D938F7006B6267 /* Dictionary.swift */,
@@ -418,7 +414,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7EF67631FF38F3400360C1D /* Shelf.swift in Sources */,
 				E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */,
 				E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */,
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
@@ -463,7 +458,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7AD04B523ACE59F00443A49 /* kit.swift in Sources */,
-				E7A6CB5523AB67D900947139 /* Shelf.swift in Sources */,
 				E7A6CB5A23AB67E700947139 /* lib.swift in Sources */,
 				E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */,
 				E7A6CB5D23AB6AA000947139 /* FMDatabase.m in Sources */,
