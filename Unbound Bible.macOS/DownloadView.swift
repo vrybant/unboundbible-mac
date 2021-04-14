@@ -71,7 +71,7 @@ class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate
 //        if tableColumn == tableView.tableColumns[0] {
 //            let cell = tableView.tableColumns[0].dataCell as? NSButtonCell
 //            cell?.title = ""
-//            cell?.state = shelf.bibles[row].compare ? 1 : 0
+//            cell?.state = bibles.bibles[row].compare ? 1 : 0
 //            return cell
 //        }
         
@@ -84,7 +84,7 @@ class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate
 
     func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int)
     {
-//        shelf.bibles[row].compare = !shelf.bibles[row].compare
+//        bibles.bibles[row].compare = !bibles.bibles[row].compare
     }
 
     @IBAction func closeButtonAction(_ sender: NSButton) {

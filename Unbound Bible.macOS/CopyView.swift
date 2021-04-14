@@ -46,7 +46,7 @@ class CopyView: NSViewController {
         parenthesesButton.state = NSControl.StateValue(rawValue: options.contains(.parentheses) ? 1 : 0)
              endingButton.state = NSControl.StateValue(rawValue: options.contains(.endinglink ) ? 1 : 0)
         
-        if shelf.isEmpty { return }
+        if bibles.isEmpty { return }
         
         textView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
         textView.textStorage?.setAttributedString(get_Verses(options: options))

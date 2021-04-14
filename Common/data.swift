@@ -142,7 +142,7 @@ func readDefaults() {
     defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
-    defaultCurrent = defaults.string(forKey: "currentBible") ?? shelf.getDefaultBible
+    defaultCurrent = defaults.string(forKey: "currentBible") ?? bibles.getDefaultBible
 
     currVerse.book    = defaults.integer(forKey: "verseBook")
     currVerse.chapter = defaults.integer(forKey: "verseChapter")
@@ -168,7 +168,7 @@ func readDefaults() {
 }
 
 func saveDefaults() {
-    if shelf.isEmpty { return }
+    if bibles.isEmpty { return }
     let defaults = UserDefaults.standard
     defaults.set(applicationVersion,    forKey: "applicationVersion")
     defaults.set(currBible!.name,       forKey: "currentBible")
@@ -184,13 +184,13 @@ func saveDefaults() {
 }
 
 func readPrivates() {
-    for bible in shelf.bibles {
+    for bible in bibles.items {
         bible.favorite = !UserDefaults.standard.bool(forKey: bible.fileName)
     }
 }
 
 func savePrivates() {
-    for bible in shelf.bibles {
+    for bible in bibles.items {
         UserDefaults.standard.set(!bible.favorite, forKey: bible.fileName)
     }
 }

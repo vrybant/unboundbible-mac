@@ -7,25 +7,25 @@
 
 import Foundation
 
-var shelf = Shelf()
+var bibles = Bibles()
 var currBible : Bible? = nil
 
-class Shelf {
-    var bibles : [Bible] = []
+class Bibles {
+    var items : [Bible] = []
 
     init() {
         load()
         checkDoubleNames() // popUpButton can't has same names
-        bibles.sort(by: {$0.name < $1.name} )
+        items.sort(by: {$0.name < $1.name} )
     }
     
     var isEmpty: Bool {
-        return self.bibles.isEmpty
+        return items.isEmpty
     }
     
     private func checkDoubleNames() {
-        for bible in bibles {
-            for item in bibles {
+        for bible in items {
+            for item in items {
                 if item.fileName == bible.fileName { continue }
                 if item.name == bible.name { item.name += "*" }
             }
@@ -37,7 +37,7 @@ class Shelf {
         for file in files {
             if file.contains(other: ".bbl.", options: []) || file.hasSuffix(".SQLite3") {
                 if let item = Bible(atPath: file) {
-                    bibles.append(item)
+                    items.append(item)
                 }
             }
         }
@@ -45,9 +45,9 @@ class Shelf {
     
     func setCurrent(_ name: String) {
         if self.isEmpty { return }
-        currBible = bibles[0]
+        currBible = items[0]
         
-        for bible in bibles {
+        for bible in items {
             if bible.name == name {
                 currBible = bible
                 break
@@ -62,7 +62,7 @@ class Shelf {
     
     var getDefaultBible: String {
         var result = ""
-        for bible in bibles {
+        for bible in items {
             if bible.default_ {
                 if bible.language == languageCode { return bible.name }
                 if bible.language == "en" { result = bible.name }

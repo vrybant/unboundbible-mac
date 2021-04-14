@@ -35,7 +35,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     func loadBibleMenu() { 
         popUpButton.removeAllItems()
         var index = 0
-        for bible in shelf.bibles {
+        for bible in bibles.items {
             if bible.favorite {
                 popUpButton.addItem(withTitle: bible.name)
                 if bible.name == currBible!.name {
@@ -88,8 +88,8 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
-        if shelf.isEmpty { return }
-        shelf.setCurrent(popUpButton.selectedItem!.title)
+        if bibles.isEmpty { return }
+        bibles.setCurrent(popUpButton.selectedItem!.title)
         makeBookList()
         goToVerse(currVerse, select: currVerse.number > 1)
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)

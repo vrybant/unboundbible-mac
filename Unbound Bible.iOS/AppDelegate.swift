@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func initialization() {
         readDefaults()
         copyDefaultsFiles()
-        if shelf.isEmpty { return }
-        shelf.setCurrent(defaultCurrent!)
+        if bibles.isEmpty { return }
+        bibles.setCurrent(defaultCurrent!)
         
 //      leftView.bibleMenuInit()
 //      mainView.updateStatus(bible!.info)

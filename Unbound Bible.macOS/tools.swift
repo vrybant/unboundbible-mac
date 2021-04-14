@@ -40,10 +40,10 @@ func get_Search(string: String) -> (string: String, count: Int) {
 }
 
 func get_Compare() -> String {
-    if shelf.isEmpty { return "" }
+    if bibles.isEmpty { return "" }
     var result = ""
     
-    for bible in shelf.bibles {
+    for bible in bibles.items {
         if !bible.favorite { continue }
         if let list = bible.getRange(currVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n\n"
@@ -74,7 +74,7 @@ func get_References() -> (string: String, info: String) {
 
 func get_Commentary() -> NSAttributedString {
     let result = NSMutableAttributedString()
-    if shelf.isEmpty { return result }
+    if bibles.isEmpty { return result }
 
     for commentary in commentaries.items {
         if commentary.footnotes { continue }
@@ -90,7 +90,7 @@ func get_Commentary() -> NSAttributedString {
 
 func get_Dictionary(key: String) -> NSAttributedString {
     let result = NSMutableAttributedString()
-    if shelf.isEmpty { return result }
+    if bibles.isEmpty { return result }
     
     for dictionary in dictionaries.items {
         if dictionary.embedded { continue }
@@ -117,7 +117,7 @@ func get_Footnote(marker: String = "") -> String {
 }
 
 func get_Verses(options: CopyOptions) -> NSAttributedString {
-    if shelf.isEmpty { return NSAttributedString() }
+    if bibles.isEmpty { return NSAttributedString() }
     guard let list = currBible!.getRange(currVerse) else { return NSAttributedString() }
     var quote = ""
     
