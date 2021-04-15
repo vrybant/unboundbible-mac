@@ -74,32 +74,31 @@ class Commentary: Module {
     
 }
 
-var commentaries = Commentaries()
+var commentaries = [Commentary](true)
 
-class Commentaries {
+fileprivate func mysort(_ name: String,_ language: String) -> String {
+    return language == languageCode ? " " + name : name
+}
+
+extension Array where Element == Commentary {
     
-    var items = [Commentary]()
-    
-    private func sort(_ s: String,_ language: String) -> String {
-        return language == languageCode ? " " + s : s
-    }
-    
-    init() {
+    init(_: Bool) {
+        self.init()
         load()
-        items.sort(by: { sort($0.name, $0.language) < sort($1.name, $1.language) } )
+        self.sort(by: { mysort($0.name, $0.language) < mysort($1.name, $1.language) } )
     }
-    
-    private func load() {
+
+    private mutating func load() {
         let files = databaseList.filter { $0.containsAny([".cmt.",".commentaries."]) }
         for file in files {
             if let item = Commentary(atPath: file) {
-                items.append(item)
+                self.append(item)
             }
         }
     }
     
     var footnotesOnly: Bool {
-        for item in items {
+        for item in self {
             if !item.footnotes { return false }
         }
         return true
@@ -108,7 +107,7 @@ class Commentaries {
     func getFootnote(module: String, verse: Verse, marker: String) -> String? {
         let name = module.lastPathComponentWithoutExtension
         
-        for item in items {
+        for item in self {
             if !item.footnotes { continue }
             if !item.fileName.hasPrefix(name) { continue }
             return item.getFootnote(verse, marker: marker)

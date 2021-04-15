@@ -76,7 +76,7 @@ func get_Commentary() -> NSAttributedString {
     let result = NSMutableAttributedString()
     if bibles.isEmpty { return result }
 
-    for commentary in commentaries.items {
+    for commentary in commentaries {
         if commentary.footnotes { continue }
         if let list = commentary.getData(currVerse) {
             var string = "<h>" + commentary.name + "</h>\n\n"
