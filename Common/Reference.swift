@@ -73,27 +73,26 @@ class Reference: Module {
 
 }
 
-var references = References()
+var references = [Reference](true)
 
-class References {
+extension Array where Element == Reference {
     
-    var items = [Reference]()
-    
-    init() {
+    init(_: Bool) {
+        self.init()
         load()
     }
     
-    private func load() {
+    private mutating func load() {
         let files = databaseList.filter { $0.containsAny([".xrefs."]) } // .crossreferences.
         for file in files {
             if let item = Reference(atPath: file) {
-                items.append(item)
+                self.append(item)
             }
         }
     }
 
     private func referenceByLanguage(_ language: String) -> Reference? {
-        for reference in items {
+        for reference in self {
             if reference.language == language { return reference }
         }
         return nil
