@@ -26,7 +26,7 @@ func loadCompare_() -> NSAttributedString {
     let attrString = NSMutableAttributedString()
     attrString.append( parse("\(link)\n") )
     
-    for bible in bibles.items {
+    for bible in bibles {
         if !bible.favorite { continue }
         
         if let list = bible.getRange(currVerse, purge: true) {

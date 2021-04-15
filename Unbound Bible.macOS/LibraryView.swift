@@ -16,7 +16,7 @@ class LibraryView: NSViewController, NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return bibles.items.count
+        return bibles.count
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any?
@@ -24,12 +24,12 @@ class LibraryView: NSViewController, NSTableViewDataSource, NSTableViewDelegate 
         if tableColumn == tableView.tableColumns[0] {
             let cell = tableView.tableColumns[0].dataCell as? NSButtonCell
             cell?.title = ""
-            cell?.state = NSControl.StateValue(rawValue: bibles.items[row].favorite ? 1 : 0)
+            cell?.state = NSControl.StateValue(rawValue: bibles[row].favorite ? 1 : 0)
             return cell
         }
 
         if tableColumn == tableView.tableColumns[1] {
-            return bibles.items[row].name
+            return bibles[row].name
         }
         
         return nil
@@ -37,7 +37,7 @@ class LibraryView: NSViewController, NSTableViewDataSource, NSTableViewDelegate 
     
     func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int)
     {
-        bibles.items[row].favorite = !bibles.items[row].favorite
+        bibles[row].favorite = !bibles[row].favorite
     }
     
     @IBAction func closeButtonAction(_ sender: NSButton) {

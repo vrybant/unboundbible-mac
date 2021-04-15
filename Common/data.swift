@@ -184,13 +184,13 @@ func saveDefaults() {
 }
 
 func readPrivates() {
-    for bible in bibles.items {
+    for bible in bibles {
         bible.favorite = !UserDefaults.standard.bool(forKey: bible.fileName)
     }
 }
 
 func savePrivates() {
-    for bible in bibles.items {
+    for bible in bibles {
         UserDefaults.standard.set(!bible.favorite, forKey: bible.fileName)
     }
 }

@@ -308,37 +308,33 @@ class Bible: Module {
     
 }
 
-var bibles = Bibles()
+var bibles = [Bible](true)
 var currBible : Bible? = nil
 
-class Bibles {
-    var items : [Bible] = []
-
-    init() {
+extension Array where Element == Bible {
+    
+    init(_: Bool) {
+        self.init()
         load()
         checkDoubleNames() // popUpButton can't has same names
-        items.sort(by: {$0.name < $1.name} )
+        self.sort(by: {$0.name < $1.name} )
     }
-    
-    var isEmpty: Bool {
-        return items.isEmpty
-    }
-    
+
     private func checkDoubleNames() {
-        for bible in items {
-            for item in items {
+        for bible in self {
+            for item in self {
                 if item.fileName == bible.fileName { continue }
                 if item.name == bible.name { item.name += "*" }
             }
         }
     }
     
-    private func load() {
+    private mutating func load() {
         let files = databaseList
         for file in files {
             if file.contains(other: ".bbl.", options: []) || file.hasSuffix(".SQLite3") {
                 if let item = Bible(atPath: file) {
-                    items.append(item)
+                    self.append(item)
                 }
             }
         }
@@ -346,9 +342,9 @@ class Bibles {
     
     func setCurrent(_ name: String) {
         if self.isEmpty { return }
-        currBible = items[0]
+        currBible = self[0]
         
-        for bible in items {
+        for bible in self {
             if bible.name == name {
                 currBible = bible
                 break
@@ -363,7 +359,7 @@ class Bibles {
     
     var getDefaultBible: String {
         var result = ""
-        for bible in items {
+        for bible in self {
             if bible.default_ {
                 if bible.language == languageCode { return bible.name }
                 if bible.language == "en" { result = bible.name }

@@ -43,7 +43,7 @@ func get_Compare() -> String {
     if bibles.isEmpty { return "" }
     var result = ""
     
-    for bible in bibles.items {
+    for bible in bibles {
         if !bible.favorite { continue }
         if let list = bible.getRange(currVerse, purge: true) {
             let text = list.joined(separator: " ") + "\n\n"

@@ -35,7 +35,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     func loadBibleMenu() { 
         popUpButton.removeAllItems()
         var index = 0
-        for bible in bibles.items {
+        for bible in bibles {
             if bible.favorite {
                 popUpButton.addItem(withTitle: bible.name)
                 if bible.name == currBible!.name {
