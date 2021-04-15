@@ -92,7 +92,7 @@ func get_Dictionary(key: String) -> NSAttributedString {
     let result = NSMutableAttributedString()
     if bibles.isEmpty { return result }
     
-    for dictionary in dictionaries.items {
+    for dictionary in dictionaries {
         if dictionary.embedded { continue }
         if let list = dictionary.getData(key: key) {
             var string = "<h>" + dictionary.name + "</h>\n\n"

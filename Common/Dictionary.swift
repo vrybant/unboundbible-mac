@@ -55,35 +55,34 @@ class Dictionary: Module {
     
 }
 
-var dictionaries = Dictionaries()
+var dictionaries = [Dictionary](true)
 
-class Dictionaries {
+extension Array where Element == Dictionary {
     
-    var items = [Dictionary]()
-    
-    init() {
+    init(_: Bool) {
+        self.init()
         load()
-        items.sort(by: {$0.name < $1.name} )
+        self.sort(by: {$0.name < $1.name} )
     }
     
-    private func load() {
+    private mutating func load() {
         let files = databaseList.filter { $0.containsAny([".dct.",".dictionary."]) }
         for file in files {
             if let item = Dictionary(atPath: file) {
-                items.append(item)
+                self.append(item)
             }
         }
     }
     
     var embeddedOnly: Bool {
-        for item in items {
+        for item in self {
             if !item.embedded { return false }
         }
         return true
     }
     
     private func strongByLanguage(_ language: String) -> Dictionary? {
-        for dictionary in items {
+        for dictionary in self {
             if !dictionary.strong { continue }
             if !dictionary.embedded { continue }
             if dictionary.language == language { return dictionary }
