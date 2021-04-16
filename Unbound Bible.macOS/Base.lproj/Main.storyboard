@@ -89,8 +89,12 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" enabled="YES" id="zjg-0n-zSm"/>
-                                        <menuItem title="Modules" hidden="YES" id="gvo-gb-7Om">
+                                        <menuItem title="Modules" id="gvo-gb-7Om">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="cmdModules:" target="Voe-Tx-rLC" id="IAK-hw-yxC"/>
+                                                <segue destination="kdA-QI-qWe" kind="modal" id="fyO-kv-nVP"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="Interlinear (biblehub.com)" id="lgt-XF-3td">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -428,6 +432,7 @@
                         <outlet property="defaultBaseline" destination="eLn-5R-Lbk" id="Uys-2r-y2z"/>
                         <outlet property="defaultDirection" destination="c6b-1l-Y1E" id="oaE-NE-G6J"/>
                         <outlet property="interlinearMenuItem" destination="lgt-XF-3td" id="AT0-fq-OID"/>
+                        <outlet property="modulesMenuItem" destination="gvo-gb-7Om" id="3ed-Sn-y2E"/>
                         <outlet property="recentMenuItem" destination="tXI-mr-wws" id="ClC-4d-cNF"/>
                         <outlet property="saveMenuItem" destination="pxx-59-PXV" id="0tj-Pw-PP2"/>
                     </connections>
@@ -435,7 +440,7 @@
                 <customObject id="3aF-m0-QvB" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="68" y="-82"/>
+            <point key="canvasLocation" x="66" y="-88"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -451,8 +456,8 @@
                                 <toolbarItem implicitItemIdentifier="915EF61D-7D80-4B52-B8A6-1E66A13D0540" label="" paletteLabel="" image="NSBookmarksTemplate" sizingBehavior="auto" id="27b-dy-bLb">
                                     <nil key="toolTip"/>
                                     <button key="view" toolTip="Modules" verticalHuggingPriority="750" allowsExpansionToolTips="YES" id="7BN-JD-2QK">
-                                        <rect key="frame" x="0.0" y="14" width="40" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="49" height="32"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSBookmarksTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mRc-hz-f0P">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -465,8 +470,8 @@
                                 <toolbarItem implicitItemIdentifier="1D509AE2-E468-4037-A32B-C017EA1B7CCE" label="" paletteLabel="" image="copy" sizingBehavior="auto" id="X5F-hi-XtT">
                                     <nil key="toolTip"/>
                                     <button key="view" toolTip="Copy Verses" verticalHuggingPriority="750" allowsExpansionToolTips="YES" id="hQ5-QW-Kxg">
-                                        <rect key="frame" x="0.0" y="14" width="42" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="46" height="32"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="copy" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ymh-vF-lXr">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -497,8 +502,8 @@
                                 <toolbarItem implicitItemIdentifier="36E72AEC-EF08-4C8B-B890-DCE8062DD771" label="" paletteLabel="" image="NSSmartBadgeTemplate" sizingBehavior="auto" id="4wT-ad-omF">
                                     <nil key="toolTip"/>
                                     <button key="view" toolTip="Search Options" verticalHuggingPriority="750" allowsExpansionToolTips="YES" id="XOO-wQ-JkF">
-                                        <rect key="frame" x="0.0" y="14" width="42" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="44" height="32"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="push" bezelStyle="rounded" image="NSSmartBadgeTemplate" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mJu-V0-yQp">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -1080,13 +1085,13 @@ Gw
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="4" width="55" height="288"/>
+                                <rect key="frame" x="189" y="4" width="55" height="286"/>
                                 <clipView key="contentView" ambiguous="YES" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="286"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="284"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="286"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="284"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1156,13 +1161,13 @@ Gw
                                 </scroller>
                             </scrollView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="4" width="175" height="288"/>
+                                <rect key="frame" x="7" y="4" width="175" height="286"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="286"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="284"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="286"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="284"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1225,7 +1230,7 @@ Gw
                                 </scroller>
                             </scrollView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="4" y="294" width="244" height="25"/>
+                                <rect key="frame" x="4" y="292" width="244" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="237" id="3Iy-bN-Knb"/>
                                 </constraints>
@@ -1764,7 +1769,7 @@ Gw
                 </viewController>
                 <customObject id="Rsz-oe-trO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="-98"/>
+            <point key="canvasLocation" x="-567" y="261"/>
         </scene>
     </scenes>
     <resources>

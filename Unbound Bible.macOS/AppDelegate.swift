@@ -22,6 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var recentMenuItem: NSMenuItem!
     @IBOutlet weak var defaultBaseline: NSMenuItem!
     @IBOutlet weak var defaultDirection: NSMenuItem!
+    @IBOutlet weak var modulesMenuItem: NSMenuItem!
     @IBOutlet weak var interlinearMenuItem: NSMenuItem!
     
     func applicationWillFinishLaunching(_ notification: Notification) {
@@ -99,6 +100,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             rigthView.dictionariesTextView.textStorage?.setAttributedString(attrString)
         }
         selectTab("dictionaries")
+    }
+    
+    @IBAction func cmdModules(_ sender: NSMenuItem) {
+        print("modules click")
     }
     
     @IBAction func interlinear(_ sender: NSMenuItem) {
