@@ -9,59 +9,23 @@ import Cocoa
 
 class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    let dict = [
-        "Albanian Bible",
-        "Arabic Van Dyck Bible", "Bulgarian Bible",
-        "Chinese Union Version (Simplified)",
-        "Chinese Union Version (Traditional)",
-        "Czech Bible",
-        "Danish Bible",
-        "Dutch Staten Vertaling",
-            "American Standart Version",
-            "Bible in Basic English",
-            "Bishops' Bible",  // with apocrypha
-            "Darby Bible",
-            "Geneva Bible",    // with apocrypha
-            "King James Version",
-            "King James Version with Apocrypha",
-            "World English Bible",
-        "Finish Pyhä Raamattu", // Suomi
-        "French Darby Bible",
-        "French Louis Segond Bible",
-        "German Elberfelder Bible 1905",
-        "German Luther Bible 1912 ",
-        "Greek (Modern) Vamvas Bible 1850",
-        "Greek New Testament 1904",
-        "Greek New Testament (Textus Receptus)",
-        "Greek Old Testament (Septuagint)",
-        "Hebrew New Testament",
-        "Hebrew New Testament",
-        "Hebrew Old Testament (Tanach)",
-        "Hungarian Károli Bible ",
-        "Italian Riveduta Luzzi 1925",
-        "Japanese Kougo-yaku 1954/1955",
-        "Japanese Shinkaiyaku Seisho 1954/1955",
-        "Latin Vulgate",
-        "Norwegian Bible",
-        "Polish Bible Gdanska",
-        "Portuguese João Ferreira de Almeida Atualizada",
-        "Portuguese João Ferreira de Almeida Corrigida",
-        "Romanian Dumitru Cornilescu Translation",
-        "Romanian Orthodox Bible",
-        "Russian Synodal Bible",
-        "Serbian Daničić Karadžić (Latin script)",
-        "Spanish Reina Valera 1909",
-        "Swedish Bible 1917",
-        "Ukrainian Bible 1930",
-        "Vietnamese Bible 1934"
-    ]
+    var dict : [String] = []
     
     @IBOutlet weak var tableView: NSTableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title = "Книжная полка"
+        load()
     }
 
+    func load() {
+        for bible      in bibles       { dict.append(bible.name     ) }
+        for commentary in commentaries { dict.append(commentary.name) }
+        for dictionary in dictionaries { dict.append(dictionary.name) }
+        for reference  in references   { dict.append(reference.name ) }
+    }
+    
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dict.count
     }
