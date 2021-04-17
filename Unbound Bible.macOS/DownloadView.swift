@@ -9,8 +9,8 @@ import Cocoa
 
 class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
-    var dict : [String] = []
-    
+    private var modules : [Module] = []
+
     @IBOutlet weak var tableView: NSTableView!
 
     override func viewDidLoad() {
@@ -19,30 +19,22 @@ class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate
         load()
     }
 
-    func load() {
-        for bible      in bibles       { dict.append(bible.name     ) }
-        for commentary in commentaries { dict.append(commentary.name) }
-        for dictionary in dictionaries { dict.append(dictionary.name) }
-        for reference  in references   { dict.append(reference.name ) }
+    private func load() {
+        for bible      in bibles       { modules.append(bible)      }
+        for commentary in commentaries { modules.append(commentary) }
+        for dictionary in dictionaries { modules.append(dictionary) }
+        for reference  in references   { modules.append(reference ) }
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return dict.count
+        return modules.count
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any?
     {
-//        if tableColumn == tableView.tableColumns[0] {
-//            let cell = tableView.tableColumns[0].dataCell as? NSButtonCell
-//            cell?.title = ""
-//            cell?.state = bibles.bibles[row].compare ? 1 : 0
-//            return cell
-//        }
-        
-        if tableColumn == tableView.tableColumns[1] {
-            return dict[row]
+        if tableColumn == tableView.tableColumns[0] {
+            return modules[row].name
         }
-        
         return nil
     }
 
