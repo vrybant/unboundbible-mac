@@ -7,16 +7,20 @@
 
 import Cocoa
 
-class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class DownloadView: NSViewController {
     
     private var modules : [Module] = []
 
     @IBOutlet weak var tableView: NSTableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = "Книжная полка"
+        
         load()
+        
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     private func load() {
@@ -26,26 +30,40 @@ class DownloadView: NSViewController, NSTableViewDataSource, NSTableViewDelegate
         for reference  in references   { modules.append(reference ) }
     }
     
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return modules.count
-    }
-
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any?
-    {
-        if tableColumn == tableView.tableColumns[0] {
-            return modules[row].name
-        }
-        return nil
-    }
-
-    func tableView(_ tableView: NSTableView, setObjectValue object: Any?, for tableColumn: NSTableColumn?, row: Int)
-    {
-//        bibles.bibles[row].compare = !bibles.bibles[row].compare
-    }
-
     @IBAction func closeButtonAction(_ sender: NSButton) {
         dismiss(self)
         if rigthView.tabView.selectedTab == "compare" { rigthView.loadCompare() }
     }
     
+}
+
+extension DownloadView: NSTableViewDataSource {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return modules.count
+    }
+
+}
+
+extension DownloadView: NSTableViewDelegate {
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+
+        if tableColumn?.identifier.rawValue == "NameColumn" {
+            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "NameCell")
+            guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
+            cellView.textField?.stringValue = modules[row].name
+            return cellView
+        }
+        
+        if tableColumn?.identifier.rawValue == "LangColumn" {
+            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "LangCell")
+            guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
+            cellView.textField?.stringValue = modules[row].language
+            return cellView
+        }
+
+        return nil
+    }
+
 }
