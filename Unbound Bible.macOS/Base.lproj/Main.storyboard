@@ -1110,7 +1110,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="cellchapter" id="YGh-ky-xH5">
-                                                            <rect key="frame" x="1" y="1" width="125" height="17"/>
+                                                            <rect key="frame" x="11" y="1" width="125" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-fY-9Sp">
@@ -1186,7 +1186,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="cellbook" id="nCa-HY-7oc">
-                                                            <rect key="frame" x="1" y="1" width="141" height="17"/>
+                                                            <rect key="frame" x="11" y="1" width="141" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
@@ -1686,11 +1686,11 @@ Gw
             <objects>
                 <viewController storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y49-Vi-QQe">
-                        <rect key="frame" x="0.0" y="0.0" width="553" height="328"/>
+                        <rect key="frame" x="0.0" y="0.0" width="553" height="359"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-36-7bI">
-                                <rect key="frame" x="20" y="87" width="513" height="221"/>
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-36-7bI">
+                                <rect key="frame" x="20" y="118" width="513" height="221"/>
                                 <clipView key="contentView" id="gcj-Si-oC3">
                                     <rect key="frame" x="1" y="1" width="511" height="219"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1716,7 +1716,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="NameCell" id="wi7-nn-vP6">
-                                                            <rect key="frame" x="8" y="0.0" width="298" height="24"/>
+                                                            <rect key="frame" x="18" y="0.0" width="298" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VQX-Ad-jI3">
@@ -1752,7 +1752,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="LangCell" id="Zgu-T5-Ppg">
-                                                            <rect key="frame" x="323" y="0.0" width="47" height="24"/>
+                                                            <rect key="frame" x="333" y="0.0" width="47" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="v39-I8-ktx">
@@ -1779,6 +1779,9 @@ Gw
                                         </tableView>
                                     </subviews>
                                 </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="221" id="tCh-OL-e9z"/>
+                                </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="M79-GI-pyj">
                                     <rect key="frame" x="1" y="184" width="426" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1792,11 +1795,21 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IEs-MH-xd3">
+                                <rect key="frame" x="239" y="13" width="76" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="byY-UI-662">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Q96-36-7bI" secondAttribute="trailing" constant="20" symbolic="YES" id="0o0-Fk-E4G"/>
-                            <constraint firstItem="Q96-36-7bI" firstAttribute="top" secondItem="y49-Vi-QQe" secondAttribute="top" constant="20" symbolic="YES" id="Gk2-tA-DiW"/>
-                            <constraint firstItem="Q96-36-7bI" firstAttribute="leading" secondItem="y49-Vi-QQe" secondAttribute="leading" constant="20" symbolic="YES" id="ycl-bW-hh9"/>
+                            <constraint firstAttribute="bottom" secondItem="IEs-MH-xd3" secondAttribute="bottom" constant="20" symbolic="YES" id="8Ao-Ld-3fM"/>
+                            <constraint firstAttribute="trailing" secondItem="Q96-36-7bI" secondAttribute="trailing" constant="20" symbolic="YES" id="Coh-Eu-H8Q"/>
+                            <constraint firstItem="Q96-36-7bI" firstAttribute="top" secondItem="y49-Vi-QQe" secondAttribute="top" constant="20" symbolic="YES" id="DTx-NU-s8V"/>
+                            <constraint firstItem="Q96-36-7bI" firstAttribute="leading" secondItem="y49-Vi-QQe" secondAttribute="leading" constant="20" symbolic="YES" id="T0A-vn-D5Y"/>
+                            <constraint firstItem="IEs-MH-xd3" firstAttribute="centerX" secondItem="y49-Vi-QQe" secondAttribute="centerX" id="ncH-go-Zt0"/>
+                            <constraint firstAttribute="bottom" secondItem="Q96-36-7bI" secondAttribute="bottom" constant="118" id="rzy-cc-IJk"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1805,7 +1818,7 @@ Gw
                 </viewController>
                 <customObject id="Rsz-oe-trO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542.5" y="334"/>
+            <point key="canvasLocation" x="-552.5" y="302.5"/>
         </scene>
     </scenes>
     <resources>
