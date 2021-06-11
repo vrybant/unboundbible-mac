@@ -13,6 +13,7 @@ class DownloadView: NSViewController {
 
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var filenameLabel: NSTextField!
+    @IBOutlet weak var infoLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,9 @@ class DownloadView: NSViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        filenameLabel.stringValue = ""
+        infoLabel.stringValue = ""
     }
 
     private func load() {
@@ -34,6 +38,20 @@ class DownloadView: NSViewController {
     @IBAction func closeButtonAction(_ sender: NSButton) {
         dismiss(self)
         if rigthView.tabView.selectedTab == "compare" { rigthView.loadCompare() }
+    }
+
+    func updateLabels() {
+        let row = tableView.selectedRow
+        filenameLabel.stringValue = modules[row].fileName
+        infoLabel.stringValue = modules[row].info
+    }
+    
+    func tableViewSelectionIsChanging(_ notification: Notification) {
+        updateLabels()
+    }
+    
+    func tableViewSelectionDidChange(_ notification: Notification) {
+        updateLabels()
     }
     
 }
@@ -54,7 +72,6 @@ extension DownloadView: NSTableViewDelegate {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "NameCell")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
             cellView.textField?.stringValue = modules[row].name
-//          filenameLabel.stringValue = modules[row].name
             return cellView
         }
         
