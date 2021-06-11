@@ -12,6 +12,7 @@ class DownloadView: NSViewController {
     private var modules : [Module] = []
 
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var filenameLabel: NSTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +54,7 @@ extension DownloadView: NSTableViewDelegate {
             let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "NameCell")
             guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
             cellView.textField?.stringValue = modules[row].name
+//          filenameLabel.stringValue = modules[row].name
             return cellView
         }
         
