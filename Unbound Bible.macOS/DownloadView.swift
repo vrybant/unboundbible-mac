@@ -26,6 +26,9 @@ class DownloadView: NSViewController {
         
         filenameLabel.stringValue = ""
         infoLabel.stringValue = ""
+        
+        tableView.selectRow(index: 0)
+        updateLabels()
     }
 
     private func load() {
@@ -42,7 +45,8 @@ class DownloadView: NSViewController {
 
     func updateLabels() {
         let row = tableView.selectedRow
-        filenameLabel.stringValue = modules[row].fileName
+        let label = LocalizedString("File Name") + " : "
+        filenameLabel.stringValue = label + modules[row].fileName
         infoLabel.stringValue = modules[row].info
     }
     
