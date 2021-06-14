@@ -38,11 +38,6 @@ class DownloadView: NSViewController {
         for reference  in references   { modules.append(reference ) }
     }
     
-    @IBAction func closeButtonAction(_ sender: NSButton) {
-        dismiss(self)
-        if rigthView.tabView.selectedTab == "compare" { rigthView.loadCompare() }
-    }
-
     func updateLabels() {
         let row = tableView.selectedRow
         let label = LocalizedString("File Name") + " : "
