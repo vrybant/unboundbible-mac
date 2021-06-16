@@ -1681,58 +1681,14 @@ Gw
             </objects>
             <point key="canvasLocation" x="1210" y="804"/>
         </scene>
-        <!--Download View-->
+        <!--Modules-->
         <scene sceneID="wyC-6X-bhL">
             <objects>
-                <viewController storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Modules" storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y49-Vi-QQe">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box borderType="bezel" translatesAutoresizingMaskIntoConstraints="NO" id="L8D-oS-ywk">
-                                <rect key="frame" x="17" y="14" width="606" height="145"/>
-                                <view key="contentView" id="3ue-NO-Sxl">
-                                    <rect key="frame" x="3" y="3" width="600" height="127"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0cB-vQ-pO4">
-                                            <rect key="frame" x="18" y="98" width="214" height="15"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="0Jc-Sa-Xwd"/>
-                                            </constraints>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="File Name" id="1Dj-HZ-ejr">
-                                                <font key="font" metaFont="system" size="12"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MO2-D6-nCb">
-                                            <rect key="frame" x="18" y="4" width="564" height="86"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="86" id="NPx-8c-efC"/>
-                                            </constraints>
-                                            <textFieldCell key="cell" selectable="YES" title="Info" id="yJd-0A-iEF">
-                                                <font key="font" metaFont="system" size="12"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="MO2-D6-nCb" firstAttribute="top" secondItem="0cB-vQ-pO4" secondAttribute="bottom" constant="8" id="Fen-A3-iJX"/>
-                                        <constraint firstItem="MO2-D6-nCb" firstAttribute="leading" secondItem="0cB-vQ-pO4" secondAttribute="leading" id="Raa-pS-NR7"/>
-                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0cB-vQ-pO4" secondAttribute="trailing" constant="20" symbolic="YES" id="eAk-ve-qMq"/>
-                                        <constraint firstItem="0cB-vQ-pO4" firstAttribute="top" secondItem="3ue-NO-Sxl" secondAttribute="top" constant="14" id="o8C-4q-uLd"/>
-                                        <constraint firstItem="0cB-vQ-pO4" firstAttribute="leading" secondItem="3ue-NO-Sxl" secondAttribute="leading" constant="20" symbolic="YES" id="vKd-ee-I47"/>
-                                        <constraint firstAttribute="trailing" secondItem="MO2-D6-nCb" secondAttribute="trailing" constant="20" id="yDq-ip-raB"/>
-                                    </constraints>
-                                </view>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="141" id="ByJ-BV-bdb"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1000" id="b7p-8Z-FDj"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="qtV-Oj-8IB"/>
-                                </constraints>
-                            </box>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-36-7bI">
                                 <rect key="frame" x="20" y="162" width="600" height="252"/>
                                 <clipView key="contentView" id="gcj-Si-oC3">
@@ -1828,7 +1784,7 @@ Gw
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="252" id="tCh-OL-e9z"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="M79-GI-pyj">
-                                    <rect key="frame" x="1" y="229" width="493" height="15"/>
+                                    <rect key="frame" x="1" y="236" width="598" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Kg6-8Z-zSD">
@@ -1840,6 +1796,50 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <box borderType="bezel" translatesAutoresizingMaskIntoConstraints="NO" id="L8D-oS-ywk">
+                                <rect key="frame" x="17" y="14" width="606" height="145"/>
+                                <view key="contentView" id="3ue-NO-Sxl">
+                                    <rect key="frame" x="3" y="3" width="600" height="127"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0cB-vQ-pO4">
+                                            <rect key="frame" x="18" y="98" width="214" height="15"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="0Jc-Sa-Xwd"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="File Name" id="1Dj-HZ-ejr">
+                                                <font key="font" metaFont="cellTitle"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MO2-D6-nCb">
+                                            <rect key="frame" x="18" y="4" width="564" height="86"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="86" id="NPx-8c-efC"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" selectable="YES" title="Info" id="yJd-0A-iEF">
+                                                <font key="font" metaFont="cellTitle"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="MO2-D6-nCb" firstAttribute="top" secondItem="0cB-vQ-pO4" secondAttribute="bottom" constant="8" id="Fen-A3-iJX"/>
+                                        <constraint firstItem="MO2-D6-nCb" firstAttribute="leading" secondItem="0cB-vQ-pO4" secondAttribute="leading" id="Raa-pS-NR7"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0cB-vQ-pO4" secondAttribute="trailing" constant="20" symbolic="YES" id="eAk-ve-qMq"/>
+                                        <constraint firstItem="0cB-vQ-pO4" firstAttribute="top" secondItem="3ue-NO-Sxl" secondAttribute="top" constant="14" id="o8C-4q-uLd"/>
+                                        <constraint firstItem="0cB-vQ-pO4" firstAttribute="leading" secondItem="3ue-NO-Sxl" secondAttribute="leading" constant="20" symbolic="YES" id="vKd-ee-I47"/>
+                                        <constraint firstAttribute="trailing" secondItem="MO2-D6-nCb" secondAttribute="trailing" constant="20" id="yDq-ip-raB"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="141" id="ByJ-BV-bdb"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1000" id="b7p-8Z-FDj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="qtV-Oj-8IB"/>
+                                </constraints>
+                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="L8D-oS-ywk" firstAttribute="top" secondItem="Q96-36-7bI" secondAttribute="bottom" constant="3" id="0zg-S8-M6S"/>
