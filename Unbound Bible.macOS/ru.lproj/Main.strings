@@ -334,6 +334,12 @@
 /* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
 "R4o-n2-Eq4.title" = "Масштаб";
 
+/* Class = "NSTableColumn"; headerCell.title = "Title"; ObjectID = "VMU-HS-kTZ"; */
+"VMU-HS-kTZ.headerCell.title" = "Название";
+
+/* Class = "NSTableColumn"; headerCell.title = "Language"; ObjectID = "VMU-HS-kTZ"; */
+"ljt-6A-BAZ.headerCell.title" = "Язык";
+
 /* Class = "NSTabViewItem"; label = "Bible"; ObjectID = "eAl-NP-4ch"; */
 "eAl-NP-4ch.label" = "Библия";
 

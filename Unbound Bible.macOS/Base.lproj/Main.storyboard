@@ -1740,7 +1740,7 @@ Gw
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                                 <tableColumn identifier="LangColumn" width="59" minWidth="40" maxWidth="1000" id="ljt-6A-BAZ">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="🌐">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Language">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1854,8 +1854,6 @@ Gw
                     <connections>
                         <outlet property="filenameLabel" destination="0cB-vQ-pO4" id="nad-f8-c4m"/>
                         <outlet property="infoLabel" destination="MO2-D6-nCb" id="RAP-R4-dfo"/>
-                        <outlet property="languageColumn" destination="ljt-6A-BAZ" id="eu0-R2-Sf9"/>
-                        <outlet property="nameColumn" destination="VMU-HS-kTZ" id="kJb-Fz-1Qk"/>
                         <outlet property="tableView" destination="nIF-Ft-2qy" id="A7c-7h-Yq5"/>
                     </connections>
                 </viewController>

@@ -12,8 +12,6 @@ class DownloadView: NSViewController {
     private var modules : [Module] = []
 
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var nameColumn: NSTableColumn!
-    @IBOutlet weak var languageColumn: NSTableColumn!    
     @IBOutlet weak var filenameLabel: NSTextField!
     @IBOutlet weak var infoLabel: NSTextField!
     
@@ -24,12 +22,6 @@ class DownloadView: NSViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
-        
-        nameColumn.title = LocalizedString("Document Name")
-        languageColumn.title = LocalizedString("Language")
-
-        filenameLabel.stringValue = ""
-        infoLabel.stringValue = ""
         
         tableView.selectRow(index: 0)
         updateLabels()

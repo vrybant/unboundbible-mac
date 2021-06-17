@@ -7,6 +7,7 @@
 "Document Name" = "Имя документа";
 "Don't Save" = "Не сохранять";
 "Failed to save document." = "Не удалось сохранить документ.";
+"File Name" = "Имя файла";
 "Font" = "Шрифт";
 "For more information, choose Menu ➝ Help, then click «Modules Downloads»." = "Для дополнительной информации выберите в меню «Справка» ➝ «Скачать модули».";
 "Language" = "Язык";
