@@ -28,8 +28,8 @@
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
 		E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74040F11ED5A40F00F96C48 /* CopyView.swift */; };
 		E75525952051334A00BDD425 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
+		E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756E0F7267BC22A005494A6 /* ShelfView.swift */; };
 		E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
-		E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72523AAA36200C48A54 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* extension.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
@@ -103,10 +103,10 @@
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
 		E7522CC8214AAD2900EB8788 /* Unbound Bible.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Unbound Bible.entitlements"; sourceTree = "<group>"; };
 		E75525942051334A00BDD425 /* bibles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bibles; sourceTree = "<group>"; };
+		E756E0F7267BC22A005494A6 /* ShelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 		E75F12C01FF25D79006EDAC9 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "сonfig.xcconfig"; sourceTree = "<group>"; };
-		E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		E7A0D72123AAA28800C48A54 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E7A0D72423AAA36200C48A54 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -216,7 +216,7 @@
 				E72DF9E11DE8651C00A46DA1 /* LeftView.swift */,
 				E7F771351DE865FE004AF6C0 /* RigthView.swift */,
 				E7A4BA911EDD86C200FC9676 /* LibraryView.swift */,
-				E781C62F1EF15A2B00AA0BCA /* DownloadView.swift */,
+				E756E0F7267BC22A005494A6 /* ShelfView.swift */,
 				E7E3D4F71E12B1C400912F37 /* SearchView.swift */,
 				E74040F11ED5A40F00F96C48 /* CopyView.swift */,
 				E7DD51A41DE764A70003D654 /* tools.swift */,
@@ -417,6 +417,7 @@
 				E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */,
 				E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */,
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
+				E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* extension.swift in Sources */,
 				E7AD04B423ACE59F00443A49 /* kit.swift in Sources */,
 				E7DD51A51DE764A70003D654 /* tools.swift in Sources */,
@@ -449,7 +450,6 @@
 				E71B29CF1E0C218200173E77 /* WinController.swift in Sources */,
 				CE2F17F11D33C31800BA91A6 /* AppDelegate.swift in Sources */,
 				E70BA7E9224DE54F002B60D7 /* data.swift in Sources */,
-				E781C6301EF15A2B00AA0BCA /* DownloadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

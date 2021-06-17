@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class DownloadView: NSViewController {
+class ShelfView: NSViewController {
     
     private var modules : [Module] = []
 
@@ -51,7 +51,7 @@ class DownloadView: NSViewController {
     
 }
 
-extension DownloadView: NSTableViewDataSource {
+extension ShelfView: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return modules.count
@@ -59,7 +59,7 @@ extension DownloadView: NSTableViewDataSource {
 
 }
 
-extension DownloadView: NSTableViewDelegate {
+extension ShelfView: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 

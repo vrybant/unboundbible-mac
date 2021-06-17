@@ -1684,7 +1684,7 @@ Gw
         <!--Modules-->
         <scene sceneID="wyC-6X-bhL">
             <objects>
-                <viewController title="Modules" storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="DownloadView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Modules" storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y49-Vi-QQe">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>
