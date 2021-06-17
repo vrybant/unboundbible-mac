@@ -21,6 +21,7 @@
 "Search for %" = "Шукати % у Біблії";
 "The beta version has expired." = "Термін дії BETA версії закінчився.";
 "The document % could not be opened." = "Неможливо відкрити документ %.";
+"Title" = "Назва";
 "Update to the stable version." = "Обновіть програму до стабільної версії.";
 "Update" = "Оновити";
 "verses was found" = "знайдено віршів";

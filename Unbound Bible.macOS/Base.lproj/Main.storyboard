@@ -1704,7 +1704,7 @@ Gw
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn identifier="NameColumn" width="510" minWidth="40" maxWidth="1000" id="VMU-HS-kTZ">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Name">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Title">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1740,7 +1740,7 @@ Gw
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                                 <tableColumn identifier="LangColumn" width="59" minWidth="40" maxWidth="1000" id="ljt-6A-BAZ">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Language">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="🌐">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -1861,7 +1861,7 @@ Gw
                 </viewController>
                 <customObject id="Rsz-oe-trO" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-927" y="353"/>
+            <point key="canvasLocation" x="-931" y="333"/>
         </scene>
     </scenes>
     <resources>
