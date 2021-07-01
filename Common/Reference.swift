@@ -107,4 +107,9 @@ extension Array where Element == Reference {
         return nil
     }
 
+    mutating func deleteItem(_ item: Reference) {
+        item.delete()
+        self.removeAll(where: { $0 === item })
+    }
+    
 }

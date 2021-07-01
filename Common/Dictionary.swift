@@ -102,4 +102,9 @@ extension Array where Element == Dictionary {
         return nil
     }
     
+    mutating func deleteItem(_ item: Dictionary) {
+        item.delete()
+        self.removeAll(where: { $0 === item })
+    }
+    
 }

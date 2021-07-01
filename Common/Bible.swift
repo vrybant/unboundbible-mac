@@ -368,4 +368,9 @@ extension Array where Element == Bible {
         return result
     }
     
+    mutating func deleteItem(_ item: Bible) {
+        item.delete()
+        self.removeAll(where: { $0 === item })
+    }
 }
+

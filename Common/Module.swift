@@ -101,6 +101,11 @@ class Module {
             accented = language == "ru"
         }
     }
+   
+    func delete() {
+        print("module.delete()")
+//      DeleteFile(filePath)
+    }
     
 }
 

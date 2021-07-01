@@ -115,4 +115,9 @@ extension Array where Element == Commentary {
         return nil
     }
     
+    mutating func deleteItem(_ item: Commentary) {
+        item.delete()
+        self.removeAll(where: { $0 === item })
+    }
+    
 }

@@ -49,6 +49,37 @@ class ShelfView: NSViewController {
         updateLabels()
     }
     
+/*  procedure TShelfForm.ToolButtonDeleteClick(Sender: TObject);
+    begin
+      if QuestionDlg(' ' + T('Confirmation'),
+        T('Do you wish to delete this module?') + LineBreaker + LineBreaker +
+          Modules[StringGrid.Row].name + LineBreaker, mtWarning, [mrYes, T('Delete'), mrCancel, T('Cancel'), 'IsDefault'], 0) = idYes then
+              begin
+                DeleteModule(Modules[StringGrid.Row]);
+                Modules.Delete(StringGrid.Row);
+                StringGrid.DeleteRow(StringGrid.Row);
+                StringGridSelection(Sender, StringGrid.Col, StringGrid.Row);
+              end;
+    end; */
+    
+    func deleteModule(module: Module) {
+    
+        print(modules.count)
+        modules.removeAll(where: { $0 === module })
+        print(modules.count)
+
+        if module is Bible      {        bibles.deleteItem(module as! Bible      ) }
+        if module is Commentary {  commentaries.deleteItem(module as! Commentary ) }
+        if module is Dictionary {  dictionaries.deleteItem(module as! Dictionary ) }
+        if module is Reference  {    references.deleteItem(module as! Reference  ) }
+    }
+    
+    @IBAction func deleteButton(_ sender: NSButtonCell) {
+        let row = tableView.selectedRow
+        print(modules[row].name)
+        deleteModule(module: modules[row])
+    }
+    
 }
 
 extension ShelfView: NSTableViewDataSource {

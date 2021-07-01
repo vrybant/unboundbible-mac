@@ -1797,9 +1797,9 @@ Gw
                                 </tableHeaderView>
                             </scrollView>
                             <box borderType="bezel" translatesAutoresizingMaskIntoConstraints="NO" id="L8D-oS-ywk">
-                                <rect key="frame" x="17" y="14" width="606" height="145"/>
+                                <rect key="frame" x="17" y="14" width="553" height="145"/>
                                 <view key="contentView" id="3ue-NO-Sxl">
-                                    <rect key="frame" x="3" y="3" width="600" height="127"/>
+                                    <rect key="frame" x="3" y="3" width="547" height="127"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0cB-vQ-pO4">
@@ -1814,7 +1814,7 @@ Gw
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MO2-D6-nCb">
-                                            <rect key="frame" x="18" y="4" width="564" height="86"/>
+                                            <rect key="frame" x="18" y="4" width="511" height="86"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="86" id="NPx-8c-efC"/>
                                             </constraints>
@@ -1837,17 +1837,31 @@ Gw
                                 <constraints>
                                     <constraint firstAttribute="height" constant="141" id="ByJ-BV-bdb"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="1000" id="b7p-8Z-FDj"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="600" id="qtV-Oj-8IB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="526" id="qtV-Oj-8IB"/>
                                 </constraints>
                             </box>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Dz1-zu-3lr">
+                                <rect key="frame" x="585" y="70" width="38" height="37"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="trash" catalog="system" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SRX-2M-YK4">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <connections>
+                                        <action selector="deleteButton:" target="kdA-QI-qWe" id="e4V-Q7-98p"/>
+                                    </connections>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="L8D-oS-ywk" firstAttribute="top" secondItem="Q96-36-7bI" secondAttribute="bottom" constant="3" id="0zg-S8-M6S"/>
                             <constraint firstAttribute="trailing" secondItem="Q96-36-7bI" secondAttribute="trailing" constant="20" symbolic="YES" id="Coh-Eu-H8Q"/>
                             <constraint firstItem="Q96-36-7bI" firstAttribute="top" secondItem="y49-Vi-QQe" secondAttribute="top" constant="20" symbolic="YES" id="DTx-NU-s8V"/>
+                            <constraint firstItem="Dz1-zu-3lr" firstAttribute="top" secondItem="Q96-36-7bI" secondAttribute="bottom" constant="58" id="FXG-YT-oxC"/>
+                            <constraint firstAttribute="trailing" secondItem="Dz1-zu-3lr" secondAttribute="trailing" constant="20" id="Q2m-g6-X4z"/>
                             <constraint firstItem="Q96-36-7bI" firstAttribute="leading" secondItem="y49-Vi-QQe" secondAttribute="leading" constant="20" symbolic="YES" id="T0A-vn-D5Y"/>
+                            <constraint firstAttribute="bottom" secondItem="Dz1-zu-3lr" secondAttribute="bottom" constant="74" id="pec-op-p5U"/>
                             <constraint firstAttribute="bottom" secondItem="Q96-36-7bI" secondAttribute="bottom" constant="162" id="pfA-OR-trA"/>
-                            <constraint firstAttribute="trailing" secondItem="L8D-oS-ywk" secondAttribute="trailing" constant="20" id="sVN-ut-q2i"/>
+                            <constraint firstAttribute="trailing" secondItem="L8D-oS-ywk" secondAttribute="trailing" constant="73" id="sVN-ut-q2i"/>
+                            <constraint firstItem="Dz1-zu-3lr" firstAttribute="leading" secondItem="L8D-oS-ywk" secondAttribute="trailing" constant="21" id="tMv-d8-wqi"/>
                             <constraint firstItem="L8D-oS-ywk" firstAttribute="leading" secondItem="y49-Vi-QQe" secondAttribute="leading" constant="20" symbolic="YES" id="xGz-HJ-ypC"/>
                         </constraints>
                     </view>
@@ -1868,5 +1882,6 @@ Gw
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
         <image name="copy" width="16" height="16"/>
+        <image name="trash" catalog="system" width="15" height="17"/>
     </resources>
 </document>
