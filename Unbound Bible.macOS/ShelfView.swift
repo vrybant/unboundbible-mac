@@ -63,21 +63,24 @@ class ShelfView: NSViewController {
     end; */
     
     func deleteModule(module: Module) {
-    
-        print(modules.count)
-        modules.removeAll(where: { $0 === module })
         print(modules.count)
 
         if module is Bible      {        bibles.deleteItem(module as! Bible      ) }
         if module is Commentary {  commentaries.deleteItem(module as! Commentary ) }
         if module is Dictionary {  dictionaries.deleteItem(module as! Dictionary ) }
         if module is Reference  {    references.deleteItem(module as! Reference  ) }
+        
+        modules.removeAll(where: { $0 === module })
+        print(modules.count)
+        
+        tableView.reloadData()
     }
     
     @IBAction func deleteButton(_ sender: NSButtonCell) {
-        let row = tableView.selectedRow
-        print(modules[row].name)
+        var row = tableView.selectedRow
         deleteModule(module: modules[row])
+        if row == modules.count { row -= 1 }
+        tableView.selectRow(index: row)
     }
     
 }
