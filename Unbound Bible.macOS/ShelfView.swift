@@ -14,6 +14,7 @@ class ShelfView: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var filenameLabel: NSTextField!
     @IBOutlet weak var infoLabel: NSTextField!
+    @IBOutlet weak var deleteButton: NSButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +47,8 @@ class ShelfView: NSViewController {
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
+        let row = tableView.selectedRow
+        deleteButton.isEnabled = currBible?.name != modules[row].name
         updateLabels()
     }
     

@@ -1866,6 +1866,7 @@ Gw
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="Dz1-zu-3lr" id="phT-N9-Xcq"/>
                         <outlet property="filenameLabel" destination="0cB-vQ-pO4" id="nad-f8-c4m"/>
                         <outlet property="infoLabel" destination="MO2-D6-nCb" id="RAP-R4-dfo"/>
                         <outlet property="tableView" destination="nIF-Ft-2qy" id="A7c-7h-Yq5"/>
