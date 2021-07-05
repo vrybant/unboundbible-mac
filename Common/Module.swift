@@ -102,9 +102,14 @@ class Module {
         }
     }
    
+    func closeDatabase() {
+        database!.close()
+    }
+        
     func delete() {
-        print("module.delete()")
-//      DeleteFile(filePath)
+        closeDatabase()
+        let url = dataUrl.appendingPathComponent(fileName)
+        try? FileManager.default.removeItem(at: url)
     }
     
 }
