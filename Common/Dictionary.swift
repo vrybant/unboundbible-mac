@@ -26,12 +26,12 @@ class Dictionary: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)!
         if format == .mybible { z = mybibleAlias }
-        if connected && !database!.tableExists(z.dictionary) { return nil }
+        if connected && !database.tableExists(z.dictionary) { return nil }
     }
     
     func getStrongData(number: String) -> String? {
         let query = "select * from \(z.dictionary) where \(z.word) = \"\(number)\" "
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             if results.next() {
                 return results.string(forColumn: z.data)
             }
@@ -43,7 +43,7 @@ class Dictionary: Module {
         let query = "select * from \(z.dictionary) where \(z.word) = \"\(key)\" "
         
         var result = [String]()
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             while results.next() {
                 if let line = results.string(forColumn: z.data) {
                     if !line.isEmpty { result.append(line) }

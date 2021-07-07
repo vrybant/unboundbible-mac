@@ -39,7 +39,7 @@ class Reference: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)!
         if format == .mybible { z = mybibleAlias }
-        if connected && !database!.tableExists(z.xreferences) { return nil }
+        if connected && !database.tableExists(z.xreferences) { return nil }
     }
     
     func getData(_ verse : Verse) -> [Verse]? {
@@ -53,7 +53,7 @@ class Reference: Module {
                     "and (\(z.verse) between \(v_from) and \(v_to)) "
         
         var result = [Verse]()
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             while results.next() {
                 let book = results.int(forColumn: z.xbook).int
                 let chapter = results.int(forColumn: z.xchapter).int

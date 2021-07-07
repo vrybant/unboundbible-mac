@@ -39,12 +39,12 @@ class Bible: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = mybibleAlias }
-        if connected && !database!.tableExists(z.bible) { return nil }
+        if connected && !database.tableExists(z.bible) { return nil }
     }
     
     func loadUnboundDatabase() {
         let query = "SELECT * FROM " + z.books
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             while results.next() {
                 let id = results.int(forColumn: z.number).int
                 let name = results.string(forColumn: z.name) ?? ""
@@ -66,7 +66,7 @@ class Bible: Module {
     
     func loadMyswordDatabase() {
         let query = "select distinct \(z.book) from \(z.bible)"
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             while results.next() {
                 guard let value = results.string(forColumn: z.book) else { break }
                 guard let number = Int(value) else { break }
@@ -101,8 +101,9 @@ class Bible: Module {
     
     func setCaseSensitiveLike(_ value: Bool) {
         do {
-            try database?.executeUpdate("PRAGMA case_sensitive_like = \(value ? 1 : 0)", values: nil)
+            try database.executeUpdate("PRAGMA case_sensitive_like = \(value ? 1 : 0)", values: nil)
         } catch {
+            //
         }
     }
     
@@ -110,7 +111,7 @@ class Bible: Module {
         let id = encodeID(verse.book)
         let query = "select max(\(z.chapter)) as count from \(z.bible) where \(z.book) = \(id)"
 
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             if results.next() {
                 return results.int(forColumn: "count").int
             }
@@ -139,7 +140,7 @@ class Bible: Module {
         let nt = isNewTestament(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
 
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
@@ -158,7 +159,7 @@ class Bible: Module {
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
         
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
@@ -214,7 +215,7 @@ class Bible: Module {
         
         setCaseSensitiveLike(options.contains(.caseSensitive))
         
-        if let results = database!.executeQuery(query) {
+        if let results = database.executeQuery(query) {
             var lines = [Content]()
             while results.next() {
                 guard let book = results.string(forColumn: z.book) else { break }

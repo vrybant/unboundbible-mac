@@ -8,7 +8,7 @@
 import Foundation
 
 class Module {
-    var database     : FMDatabase?
+    var database     : FMDatabase
     let filePath     : String
     let fileName     : String
     var format       = FileFormat.unbound
@@ -37,6 +37,7 @@ class Module {
         fileName = atPath.lastPathComponent
         let ext = filePath.pathExtension 
         if ext == "mybible" || ext == "bbli" { format = .mysword }
+        database = FMDatabase(path: filePath)
         openDatabase()
         if !connected { return nil }
     }
@@ -50,13 +51,12 @@ class Module {
     }
     
     func openDatabase() {
-        database = FMDatabase(path: filePath)
-        if !database!.open() { return }
-        if database!.tableExists("info") { format = .mybible }
+        if !database.open() { return }
+        if database.tableExists("info") { format = .mybible }
         
         if format == .unbound || format == .mysword {
             let query = "select * from Details"
-            if let results = database!.executeQuery(query) {
+            if let results = database.executeQuery(query) {
                 if results.next() {
                     info      = results.string(forColumn: "Information" ) ?? ""
                     info      = results.string(forColumn: "Description" ) ?? info
@@ -75,7 +75,7 @@ class Module {
 
         if format == .mybible {
             let query = "select * from info"
-            if let results = database!.executeQuery(query) {
+            if let results = database.executeQuery(query) {
                 while results.next() {
                     guard let key = results.string(forColumn: "name") else { break }
                     guard let value = results.string(forColumn: "value") else { break }
@@ -103,7 +103,7 @@ class Module {
     }
    
     func closeDatabase() {
-        database!.close()
+        database.close()
     }
         
     func delete() {
