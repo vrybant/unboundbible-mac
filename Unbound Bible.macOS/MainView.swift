@@ -86,15 +86,15 @@ class MainView: NSViewController, NSWindowDelegate {
             selectTab("notes")
             noteURL = url
             rebuildRecentList()
-            appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
+            appDelegate.saveMenuItem.title = LocalizedString("Save")
             
-            let s = NSLocalizedString("Document Name", comment: "")
+            let s = LocalizedString("Document Name")
             let status = s + ": " + noteURL!.lastPathComponent
             updateStatus(status)
         } catch {
             let alert = NSAlert()
             alert.alertStyle = .critical
-            let message = NSLocalizedString("The document % could not be opened.", comment: "")
+            let message = LocalizedString("The document % could not be opened.")
             alert.messageText = message.replace("%", with: url!.lastPathComponent.quoted)
             alert.runModal()
         }
@@ -106,12 +106,12 @@ class MainView: NSViewController, NSWindowDelegate {
             try rigthView.notesTextView.saveToFile(url: url!)
             noteURL = url
             rebuildRecentList()
-            appDelegate.saveMenuItem.title = NSLocalizedString("Save", comment: "")
+            appDelegate.saveMenuItem.title = LocalizedString("Save")
         } catch {
             let alert = NSAlert()
             alert.alertStyle = NSAlert.Style.critical
-            alert.messageText = NSLocalizedString("Failed to save document.", comment: "")
-            alert.informativeText = NSLocalizedString("Permission denied.", comment: "")
+            alert.messageText = LocalizedString("Failed to save document.")
+            alert.informativeText = LocalizedString("Permission denied.")
             alert.runModal()
         }
     }
@@ -122,11 +122,11 @@ class MainView: NSViewController, NSWindowDelegate {
         if noteURL == nil && !rigthView.notesTextView.string.isEmpty {
             selectTab("notes")
             let alert = NSAlert()
-            alert.messageText = NSLocalizedString("Do you want to save the changes?", comment: "")
-            alert.informativeText = NSLocalizedString("Your changes will be lost if you don't save them.", comment: "")
-            alert.addButton(withTitle: NSLocalizedString("Save", comment: ""))
-            alert.addButton(withTitle: NSLocalizedString("Cancel", comment: ""))
-            alert.addButton(withTitle: NSLocalizedString("Don't Save", comment: ""))
+            alert.messageText = LocalizedString("Do you want to save the changes?")
+            alert.informativeText = LocalizedString("Your changes will be lost if you don't save them.")
+            alert.addButton(withTitle: LocalizedString("Save"))
+            alert.addButton(withTitle: LocalizedString("Cancel"))
+            alert.addButton(withTitle: LocalizedString("Don't Save"))
             let choice = alert.runModal()
             switch choice {
             case .alertFirstButtonReturn: // Save
@@ -147,7 +147,7 @@ class MainView: NSViewController, NSWindowDelegate {
     @IBAction func newDocument(_ sender: NSMenuItem) {
         if !mainView.closeDocument() { return }
         selectTab("notes")
-        appDelegate.saveMenuItem.title = NSLocalizedString("Save…", comment: "")
+        appDelegate.saveMenuItem.title = LocalizedString("Save…")
     }
     
     @IBAction func openDocumentAction(_ sender: NSMenuItem) {
@@ -187,11 +187,11 @@ class MainView: NSViewController, NSWindowDelegate {
     
     @IBAction func showPreferences(_ sender: Any) {
         let alert = NSAlert()
-        alert.messageText = NSLocalizedString("Preferences", comment: "")
+        alert.messageText = LocalizedString("Preferences")
         let displayFont = defaultFont.displayName! + " " + String(describing: defaultFont.pointSize)
-        alert.informativeText = NSLocalizedString("Font", comment: "") + ": " + displayFont
-        alert.addButton(withTitle: NSLocalizedString("OK", comment: ""))
-        alert.addButton(withTitle: NSLocalizedString("Change Font", comment: ""))
+        alert.informativeText = LocalizedString("Font") + ": " + displayFont
+        alert.addButton(withTitle: LocalizedString("OK"))
+        alert.addButton(withTitle: LocalizedString("Change Font"))
         let choice = alert.runModal()
         if choice == .alertFirstButtonReturn { return } // OK
     

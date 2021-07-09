@@ -130,7 +130,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         
         submenu.addItem(NSMenuItem.separator())
-        let title = NSLocalizedString("Clear Menu", comment: "")
+        let title = LocalizedString("Clear Menu")
         let action =  recentList.isEmpty ? nil : #selector(clearRecentMenu(_:))
         submenu.addItem(withTitle: title, action: action, keyEquivalent: "")
         NSApplication.shared.menu!.setSubmenu(submenu, for: recentMenuItem)

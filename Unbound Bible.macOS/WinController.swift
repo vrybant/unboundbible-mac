@@ -52,10 +52,10 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 //
 //      let alert = NSAlert()
 //      alert.messageText = applicationName
-//      alert.informativeText = NSLocalizedString("The beta version has expired.", comment: "") + " " +
-//                                NSLocalizedString("Update to the stable version.", comment: "")
-//      alert.addButton(withTitle: NSLocalizedString("Update", comment: ""))
-//      alert.addButton(withTitle: NSLocalizedString("Later", comment: ""))
+//      alert.informativeText = LocalizedString("The beta version has expired.") + " " +
+//                                LocalizedString("Update to the stable version.")
+//      alert.addButton(withTitle: LocalizedString("Update"))
+//      alert.addButton(withTitle: LocalizedString("Later"))
 //      let choice = alert.runModal()
 //      if choice == .alertFirstButtonReturn {
 //          showUpdate()
