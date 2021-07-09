@@ -37,6 +37,7 @@ class Module {
         fileName = atPath.lastPathComponent
         let ext = filePath.pathExtension 
         if ext == "mybible" || ext == "bbli" { format = .mysword }
+        if ext == "SQLite3" { format = .mybible }
         database = FMDatabase(path: filePath)
         openDatabase()
         if !connected { return nil }
@@ -52,7 +53,6 @@ class Module {
     
     func openDatabase() {
         if !database.open() { return }
-        if database.tableExists("info") { format = .mybible }
         
         if format == .unbound || format == .mysword {
             let query = "select * from Details"
