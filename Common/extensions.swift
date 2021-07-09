@@ -66,7 +66,7 @@ extension String {
         
         for c in self {
             if c == "<" { l = false }
-            if l { s.append(c) }
+            if l { s += String(c) } 
             if c == ">" { l = true  }
         }
         return s
