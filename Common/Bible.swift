@@ -39,7 +39,8 @@ class Bible: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = mybibleAlias }
-        if connected && !database.tableExists(z.bible) { return nil }
+        if connected && !database.tableExists(z.bible) { connected = false }
+        if !connected { return nil }
     }
     
     func loadUnboundDatabase() {
