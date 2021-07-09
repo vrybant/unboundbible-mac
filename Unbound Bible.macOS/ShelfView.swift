@@ -52,19 +52,6 @@ class ShelfView: NSViewController {
         updateLabels()
     }
     
-/*  procedure TShelfForm.ToolButtonDeleteClick(Sender: TObject);
-    begin
-      if QuestionDlg(' ' + T('Confirmation'),
-        T('Do you wish to delete this module?') + LineBreaker + LineBreaker +
-          Modules[StringGrid.Row].name + LineBreaker, mtWarning, [mrYes, T('Delete'), mrCancel, T('Cancel'), 'IsDefault'], 0) = idYes then
-              begin
-                DeleteModule(Modules[StringGrid.Row]);
-                Modules.Delete(StringGrid.Row);
-                StringGrid.DeleteRow(StringGrid.Row);
-                StringGridSelection(Sender, StringGrid.Col, StringGrid.Row);
-              end;
-    end; */
-    
     func deleteModule(module: Module) {
         if module is Bible      {        bibles.deleteItem(module as! Bible      ) }
         if module is Commentary {  commentaries.deleteItem(module as! Commentary ) }
@@ -77,6 +64,12 @@ class ShelfView: NSViewController {
     
     @IBAction func deleteButton(_ sender: NSButtonCell) {
         var row = tableView.selectedRow
+        let alert = NSAlert()
+        alert.messageText = LocalizedString("Do you wish to delete this module?")
+        alert.informativeText = modules[row].name
+        alert.addButton(withTitle: LocalizedString("Cancel"))
+        alert.addButton(withTitle: LocalizedString("Delete"))
+        if alert.runModal() == .alertFirstButtonReturn { return } // Cancel
         deleteModule(module: modules[row])
         if row == modules.count { row -= 1 }
         tableView.selectRow(index: row)
