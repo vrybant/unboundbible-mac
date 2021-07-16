@@ -73,6 +73,7 @@ class ShelfView: NSViewController {
         deleteModule(module: modules[row])
         if row == modules.count { row -= 1 }
         tableView.selectRow(index: row)
+        leftView.loadBibleMenu()
     }
     
 }
