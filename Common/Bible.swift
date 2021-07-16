@@ -87,7 +87,6 @@ class Bible: Module {
     func loadDatabase() {
         if loaded { return }
         if format == .mysword { loadMyswordDatabase() } else { loadUnboundDatabase() }
-        if !loaded { return }
     }
     
     var firstVerse : Verse {
