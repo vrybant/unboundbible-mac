@@ -150,15 +150,14 @@ func get_Verses(options: CopyOptions) -> NSAttributedString {
     return parse(quote)
 }
 
-func goToVerse(_ verse: Verse, select: Bool) {
-    if !currBible!.goodLink(verse) { return }
-    if let index = currBible!.idxByNum(verse.book) {
-        currVerse = verse
+func showCurrVerse(select: Bool) {
+    if let index = currBible!.idxByNum(currVerse.book) {
         leftView.bookTableView.selectRow(index: index)
-        leftView.chapterTableView.selectRow(index: verse.chapter - 1)
+        leftView.chapterTableView.selectRow(index: currVerse.chapter - 1)
         if select {
-            rigthView.bibleTextView.selectParagraph(number: verse.number)
+            rigthView.bibleTextView.selectParagraph(number: currVerse.number)
         }
         selectTab("bible")
     }
+
 }

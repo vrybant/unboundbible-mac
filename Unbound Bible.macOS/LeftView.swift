@@ -53,7 +53,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func makeChapterList() {
-        let n = currBible!.chapterCount(currVerse)
+        let n = currBible!.chaptersCount(currVerse)
         if n != chapterTableViewCount {
             chapterTableViewCount = n
             chapterTableView.reloadData()
@@ -89,9 +89,9 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         if bibles.isEmpty { return }
-        bibles.setCurrent(popUpButton.selectedItem!.title)
+        bibles.setCurrBible(popUpButton.selectedItem!.title)
         makeBookList()
-        goToVerse(currVerse, select: currVerse.number > 1)
+        showCurrVerse(select: currVerse.number > 1)
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
     }
     

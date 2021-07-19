@@ -133,7 +133,7 @@ var copyOptions: CopyOptions = []
 
 //********** Defaults **********
 
-var defaultCurrent : String?
+var defaultCurrBible : String?
 
 func readDefaults() {
     let defaults = UserDefaults.standard
@@ -142,7 +142,7 @@ func readDefaults() {
     defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
-    defaultCurrent = defaults.string(forKey: "currentBible") ?? bibles.getDefaultBible
+    defaultCurrBible  = defaults.string(forKey: "currentBible") ?? bibles.getDefaultBible
 
     currVerse.book    = defaults.integer(forKey: "verseBook")
     currVerse.chapter = defaults.integer(forKey: "verseChapter")

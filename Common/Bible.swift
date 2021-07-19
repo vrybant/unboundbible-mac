@@ -107,7 +107,7 @@ class Bible: Module {
         }
     }
     
-    func chapterCount(_ verse : Verse) -> Int {
+    func chaptersCount(_ verse : Verse) -> Int {
         let id = encodeID(verse.book)
         let query = "select max(\(z.chapter)) as count from \(z.bible) where \(z.book) = \(id)"
 
@@ -341,7 +341,7 @@ extension Array where Element == Bible {
         }
     }
     
-    func setCurrent(_ name: String) {
+    func setCurrBible(_ name: String) {
         if self.isEmpty { return }
         currBible = self[0]
         

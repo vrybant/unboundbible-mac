@@ -34,11 +34,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         readDefaults()
         copyDefaultsFiles()
         if bibles.isEmpty { return }
-        bibles.setCurrent(defaultCurrent!)
+        bibles.setCurrBible(defaultCurrBible!)
         leftView.loadBibleMenu()
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
         leftView.makeBookList()
-        goToVerse(currVerse, select: (currVerse.number > 1))
+        showCurrVerse(select: (currVerse.number > 1))
         readPrivates()
         createRecentMenu()
         localization()

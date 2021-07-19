@@ -110,10 +110,13 @@ class CustomTextView: NSTextView {
         if foreground == .link {
             if leftView.selectBible(name: hyperlink) { return }
         }
-        
+
         if foreground == .link {
             if let verse = currBible!.stringToVerse(link: hyperlink) {
-                goToVerse(verse, select: true)
+                if currBible!.goodLink(verse) {
+                    currVerse = verse
+                    showCurrVerse(select: true)
+                }
             }
         }
 
