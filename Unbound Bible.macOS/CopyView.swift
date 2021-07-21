@@ -49,7 +49,7 @@ class CopyView: NSViewController {
         if bibles.isEmpty { return }
         
         textView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
-        textView.textStorage?.setAttributedString(get_Verses(options: options))
+        textView.textStorage?.setAttributedString(tools.get_Verses(options: options))
     }
     
     @IBAction func checkButtonAction(_ sender: NSButton) {
@@ -61,11 +61,11 @@ class CopyView: NSViewController {
         if parenthesesButton.state.rawValue == 1 { options.insert(.parentheses) }
         if      endingButton.state.rawValue == 1 { options.insert(.endinglink ) }
         
-        textView.textStorage?.setAttributedString(get_Verses(options: options))
+        textView.textStorage?.setAttributedString(tools.get_Verses(options: options))
     }
     
     @IBAction func copyButtonAction(_ sender: NSButton) {
-        get_Verses(options: options).copyToPasteboard()
+        tools.get_Verses(options: options).copyToPasteboard()
         if defaultButton.state.rawValue == 1 { copyOptions = options }
         self.dismiss(self)
     }

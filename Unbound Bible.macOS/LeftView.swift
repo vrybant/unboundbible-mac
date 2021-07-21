@@ -127,4 +127,16 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         return true
     }
     
+    func showCurrVerse(select: Bool) {
+        if let index = currBible!.idxByNum(currVerse.book) {
+            bookTableView.selectRow(index: index)
+            chapterTableView.selectRow(index: currVerse.chapter - 1)
+            if select {
+                rigthView.bibleTextView.selectParagraph(number: currVerse.number)
+            }
+            selectTab("bible")
+        }
+
+    }
+    
 }

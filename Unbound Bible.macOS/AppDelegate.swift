@@ -38,7 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         leftView.loadBibleMenu()
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
         leftView.makeBookList()
-        showCurrVerse(select: (currVerse.number > 1))
+        leftView.showCurrVerse(select: (currVerse.number > 1))
         readPrivates()
         createRecentMenu()
         localization()

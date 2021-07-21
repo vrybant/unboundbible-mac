@@ -122,7 +122,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadChapter() {
-        let attrString = parse(get_Chapter(), jtag: true)
+        let attrString = parse(tools.get_Chapter(), jtag: true)
         bibleTextView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
         bibleTextView.textStorage?.setAttributedString(attrString)
         leftView.makeChapterList()
@@ -131,7 +131,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     
     func loadSearch(text: String) {
         if text.count < 2 { return }
-        let data = get_Search(string: text)
+        let data = tools.get_Search(string: text)
         var string = data.string
 
         if data.count == 0 {
@@ -149,14 +149,14 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
  
     func loadCompare() {
         let link = currBible!.verseToString(currVerse, full: true) ?? ""
-        let string = link + "\n\n" + get_Compare()
+        let string = link + "\n\n" + tools.get_Compare()
         compareTextView.textStorage?.setAttributedString(parse(string))
         selectTab("compare")
     }
 
     func loadReferences() {
         let link = currBible!.verseToString(currVerse, full: true) ?? ""
-        let values = get_References()
+        let values = tools.get_References()
         var string = link + "\n\n" + values.string
         if values.string.isEmpty { string += LocalizedString("Сross-references not found.") }
         referencesTextView.textStorage?.setAttributedString(parse(string))
@@ -167,7 +167,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     func loadCommentary() {
         let link = (currBible!.verseToString(currVerse, full: true) ?? "") + "\n\n"
         let attrString = parse(link)
-        let data = get_Commentary()
+        let data = tools.get_Commentary()
         attrString.append(data)
         
         if data.string.isEmpty {
@@ -187,7 +187,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     
     func loadDictionary(key: String) {
         let attrString = "".attributed
-        let data = get_Dictionary(key: key)
+        let data = tools.get_Dictionary(key: key)
         attrString.append(data)
         
         if data.string.isEmpty {

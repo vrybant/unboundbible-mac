@@ -115,7 +115,7 @@ class CustomTextView: NSTextView {
             if let verse = currBible!.stringToVerse(link: hyperlink) {
                 if currBible!.goodLink(verse) {
                     currVerse = verse
-                    showCurrVerse(select: true)
+                    leftView.showCurrVerse(select: true)
                 }
             }
         }
@@ -123,7 +123,7 @@ class CustomTextView: NSTextView {
         if id == "Notes" { return }
         
         if foreground == .strong {
-            if let string = get_Strong(number: hyperlink) {
+            if let string = tools.get_Strong(number: hyperlink) {
                 let attrString = html(string, small: true).mutable()
                 mainView.showPopover(self)
                 popoverView!.textView.textStorage?.setAttributedString(attrString)

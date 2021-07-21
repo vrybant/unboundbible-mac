@@ -85,7 +85,7 @@ class BibleTextView: CustomTextView {
         if selectedRange.length != 0 { return }
         
         if foreground == .footnote {
-            let f = get_Footnote(marker: hyperlink)
+            let f = tools.get_Footnote(marker: hyperlink)
             let attrs = parse(f, small: true).mutable()
             mainView.showPopover(self)
             popoverView!.textView.textStorage?.setAttributedString(attrs)
@@ -100,7 +100,7 @@ class BibleTextView: CustomTextView {
     }
     
     @IBAction func copyVersesAction(_ sender: NSMenuItem) {
-        get_Verses(options: copyOptions).copyToPasteboard()
+        tools.get_Verses(options: copyOptions).copyToPasteboard()
     }
     
     @IBAction func copyDialogAction(_ sender: NSMenuItem) {
