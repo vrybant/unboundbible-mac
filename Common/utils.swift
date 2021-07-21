@@ -1,5 +1,5 @@
 //
-//  data.swift
+//  utils.swift
 //  Unbound Bible
 //
 //  Copyright © 2021 Vladimir Rybant. All rights reserved.

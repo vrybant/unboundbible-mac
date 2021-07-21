@@ -11,7 +11,6 @@
 		CE2F17F31D33C31800BA91A6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F17F21D33C31800BA91A6 /* MainView.swift */; };
 		CE2F17F51D33C31800BA91A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F41D33C31800BA91A6 /* Assets.xcassets */; };
 		CE2F17F81D33C31800BA91A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2F17F61D33C31800BA91A6 /* Main.storyboard */; };
-		E70BA7E9224DE54F002B60D7 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
 		E71485B923AA5EF6009369D4 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
@@ -30,6 +29,8 @@
 		E75525952051334A00BDD425 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
 		E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756E0F7267BC22A005494A6 /* ShelfView.swift */; };
 		E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
+		E7A031C726A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
+		E7A031C826A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72523AAA36200C48A54 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* extension.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
@@ -44,7 +45,6 @@
 		E7A6CB5423AB67D600947139 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A6CB5623AB67DC00947139 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
-		E7A6CB5823AB67E100947139 /* data.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BA7E8224DE54F002B60D7 /* data.swift */; };
 		E7A6CB5923AB67E400947139 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E7A6CB5A23AB67E700947139 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
 		E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
@@ -88,7 +88,6 @@
 		CE2F17F41D33C31800BA91A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2F17F71D33C31800BA91A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE2F17F91D33C31800BA91A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E70BA7E8224DE54F002B60D7 /* data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = data.swift; sourceTree = "<group>"; };
 		E71485B823AA5EF6009369D4 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		E71B29CE1E0C218200173E77 /* WinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinController.swift; sourceTree = "<group>"; };
 		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		E75F12C01FF25D79006EDAC9 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "сonfig.xcconfig"; sourceTree = "<group>"; };
+		E7A031C626A80A2400AE1D13 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		E7A0D72123AAA28800C48A54 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E7A0D72423AAA36200C48A54 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
@@ -284,11 +284,11 @@
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
 				E7FABB9C21D938F7006B6267 /* Dictionary.swift */,
 				E7E7A84D24C5C285001F85C8 /* Reference.swift */,
-				E70BA7E8224DE54F002B60D7 /* data.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
+				E7A031C626A80A2400AE1D13 /* utils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -418,6 +418,7 @@
 				E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */,
 				E7A8917E20152893008A7695 /* CommonText.swift in Sources */,
 				E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */,
+				E7A031C726A80A2400AE1D13 /* utils.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* extension.swift in Sources */,
 				E7AD04B423ACE59F00443A49 /* kit.swift in Sources */,
 				E7DD51A51DE764A70003D654 /* tools.swift in Sources */,
@@ -449,7 +450,6 @@
 				CE2F17F31D33C31800BA91A6 /* MainView.swift in Sources */,
 				E71B29CF1E0C218200173E77 /* WinController.swift in Sources */,
 				CE2F17F11D33C31800BA91A6 /* AppDelegate.swift in Sources */,
-				E70BA7E9224DE54F002B60D7 /* data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,7 +465,6 @@
 				E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */,
 				E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */,
 				E7E7A84F24C5C285001F85C8 /* Reference.swift in Sources */,
-				E7A6CB5823AB67E100947139 /* data.swift in Sources */,
 				E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */,
 				E7A6CB4523AB672C00947139 /* SecondViewController.swift in Sources */,
 				E7AE96B223BF85BF00DD314D /* PopupView.swift in Sources */,
@@ -476,6 +475,7 @@
 				E7A6CB3F23AB672C00947139 /* AppDelegate.swift in Sources */,
 				E7A6CB5223AB67D100947139 /* Module.swift in Sources */,
 				E7A6CB4123AB672C00947139 /* SceneDelegate.swift in Sources */,
+				E7A031C826A80A2400AE1D13 /* utils.swift in Sources */,
 				E736415223ABA7E10077293D /* BibleText.swift in Sources */,
 				E7A6CB5F23AB6AAB00947139 /* FMDatabasePool.m in Sources */,
 				E7A6CB6023AB6AAE00947139 /* FMDatabaseQueue.m in Sources */,
