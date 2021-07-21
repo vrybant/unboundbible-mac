@@ -74,8 +74,6 @@ class Commentary: Module {
     
 }
 
-var commentaries = [Commentary](true)
-
 fileprivate func mysort(_ name: String,_ language: String) -> String {
     return language == languageCode ? " " + name : name
 }

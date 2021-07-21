@@ -175,7 +175,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             attrString.append(parse(message))
         }
         
-        if commentaries.footnotesOnly {
+        if tools.commentaries.footnotesOnly {
             let message = LocalizedString("You don't have any commentary modules.") + " " +
                           LocalizedString("For more information, choose Menu ➝ Help, then click «Modules Downloads».")
             attrString.append(parse(message))
@@ -196,7 +196,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
             attrString.append(parse(message))
         }
         
-        if dictionaries.embeddedOnly {
+        if tools.dictionaries.embeddedOnly {
             let message = LocalizedString("You don't have any dictionary modules.") + " " +
                           LocalizedString("For more information, choose Menu ➝ Help, then click «Modules Downloads».")
             attrString.append(parse(message))

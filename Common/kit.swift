@@ -21,12 +21,12 @@ func loadChapter_() -> NSAttributedString {
 }
 
 func loadCompare_() -> NSAttributedString {
-    if bibles.isEmpty { return "".attributed }
+    if tools.bibles.isEmpty { return "".attributed }
     let link = currBible!.verseToString(currVerse, full: true) ?? ""
     let attrString = NSMutableAttributedString()
     attrString.append( parse("\(link)\n") )
     
-    for bible in bibles {
+    for bible in tools.bibles {
         if !bible.favorite { continue }
         
         if let list = bible.getRange(currVerse, purge: true) {

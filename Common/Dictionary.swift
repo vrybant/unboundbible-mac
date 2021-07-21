@@ -55,8 +55,6 @@ class Dictionary: Module {
     
 }
 
-var dictionaries = [Dictionary](true)
-
 extension Array where Element == Dictionary {
     
     init(_: Bool) {

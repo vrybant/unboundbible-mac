@@ -73,8 +73,6 @@ class Reference: Module {
 
 }
 
-var references = [Reference](true)
-
 extension Array where Element == Reference {
     
     init(_: Bool) {

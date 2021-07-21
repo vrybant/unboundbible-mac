@@ -29,10 +29,10 @@ class ShelfView: NSViewController {
     }
 
     private func load() {
-        for bible      in bibles       { modules.append(bible)      }
-        for commentary in commentaries { modules.append(commentary) }
-        for dictionary in dictionaries { modules.append(dictionary) }
-        for reference  in references   { modules.append(reference ) }
+        for bible      in tools.bibles       { modules.append(bible)      }
+        for commentary in tools.commentaries { modules.append(commentary) }
+        for dictionary in tools.dictionaries { modules.append(dictionary) }
+        for reference  in tools.references   { modules.append(reference ) }
     }
     
     func updateLabels() {
@@ -53,10 +53,10 @@ class ShelfView: NSViewController {
     }
     
     func deleteModule(module: Module) {
-        if module is Bible      {        bibles.deleteItem(module as! Bible      ) }
-        if module is Commentary {  commentaries.deleteItem(module as! Commentary ) }
-        if module is Dictionary {  dictionaries.deleteItem(module as! Dictionary ) }
-        if module is Reference  {    references.deleteItem(module as! Reference  ) }
+        if module is Bible      { tools.bibles      .deleteItem(module as! Bible      ) }
+        if module is Commentary { tools.commentaries.deleteItem(module as! Commentary ) }
+        if module is Dictionary { tools.dictionaries.deleteItem(module as! Dictionary ) }
+        if module is Reference  { tools.references  .deleteItem(module as! Reference  ) }
         
         modules.removeAll(where: { $0 === module })
         tableView.reloadData()

@@ -8,8 +8,14 @@
 import Cocoa
 
 var tools = Tools()
+var currBible : Bible? = nil
 
 class Tools {
+    
+    var bibles = [Bible](true)
+    var commentaries = [Commentary](true)
+    var dictionaries = [Dictionary](true)
+    var references = [Reference](true)
 
     func get_Chapter() -> String {
         var result = ""
@@ -154,5 +160,22 @@ class Tools {
         return parse(quote)
     }
 
+    func setCurrBible(_ name: String) {
+        if bibles.isEmpty { return }
+        currBible = bibles[0]
+        
+        for bible in bibles {
+            if bible.name == name {
+                currBible = bible
+                break
+            }
+        }
+        
+        currBible!.loadDatabase()
+        if !currBible!.goodLink(currVerse) {
+            currVerse = currBible!.firstVerse
+        }
+    }
+    
 }
 

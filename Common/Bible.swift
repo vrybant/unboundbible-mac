@@ -349,9 +349,6 @@ class Bible: Module {
     
 }
 
-var bibles = [Bible](true)
-var currBible : Bible? = nil
-
 extension Array where Element == Bible {
     
     init(_: Bool) {
@@ -378,23 +375,6 @@ extension Array where Element == Bible {
                     self.append(item)
                 }
             }
-        }
-    }
-    
-    func setCurrBible(_ name: String) {
-        if self.isEmpty { return }
-        currBible = self[0]
-        
-        for bible in self {
-            if bible.name == name {
-                currBible = bible
-                break
-            }
-        }
-        
-        currBible!.loadDatabase()
-        if !currBible!.goodLink(currVerse) {
-            currVerse = currBible!.firstVerse
         }
     }
     

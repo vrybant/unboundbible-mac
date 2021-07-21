@@ -68,7 +68,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
 
     @IBAction func searchFieldAction(_ sender: NSSearchField) {
-        if bibles.isEmpty { return }
+        if tools.bibles.isEmpty { return }
         
         let string = searchField.stringValue.trimmed
         if string.count < 2 { return }
