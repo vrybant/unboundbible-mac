@@ -50,7 +50,6 @@ class Tools {
     }
 
     func get_Compare() -> String {
-        if bibles.isEmpty { return "" }
         var result = ""
         
         for bible in bibles {
@@ -84,7 +83,6 @@ class Tools {
 
     func get_Commentary() -> NSAttributedString {
         let result = NSMutableAttributedString()
-        if bibles.isEmpty { return result }
 
         for commentary in commentaries {
             if commentary.footnotes { continue }
@@ -100,8 +98,6 @@ class Tools {
 
     func get_Dictionary(key: String) -> NSAttributedString {
         let result = NSMutableAttributedString()
-        if bibles.isEmpty { return result }
-        
         for dictionary in dictionaries {
             if dictionary.embedded { continue }
             if let list = dictionary.getData(key: key) {
@@ -127,7 +123,6 @@ class Tools {
     }
 
     func get_Verses(options: CopyOptions) -> NSAttributedString {
-        if bibles.isEmpty { return NSAttributedString() }
         guard let list = currBible!.getRange(currVerse) else { return NSAttributedString() }
         var quote = ""
         
@@ -161,7 +156,6 @@ class Tools {
     }
 
     func setCurrBible(_ name: String) {
-        if bibles.isEmpty { return }
         currBible = bibles[0]
         
         for bible in bibles {
