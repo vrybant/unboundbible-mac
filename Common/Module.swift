@@ -7,6 +7,10 @@
 
 import Foundation
 
+enum FileFormat {
+    case unbound, mysword, mybible
+}
+
 class Module {
     var database     : FMDatabase
     let filePath     : String
@@ -32,6 +36,14 @@ class Module {
     var accented     : Bool = false
     var favorite     : Bool = true
 
+    
+    private let myBibleArray : [Int] = [0,
+            010,020,030,040,050,060,070,080,090,100,110,120,130,140,150,160,190,220,230,240,
+            250,260,290,300,310,330,340,350,360,370,380,390,400,410,420,430,440,450,460,470,
+            480,490,500,510,520,530,540,550,560,570,580,590,600,610,620,630,640,650,660,670,
+            680,690,700,710,720,730,000,000,000,000,000,000,000,000,000,000,165,468,170,180,
+            462,464,466,467,270,280,315,320]
+    
     init?(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
@@ -42,7 +54,16 @@ class Module {
         openDatabase()
         if !connected { return nil }
     }
-    
+
+    private func unbound2mybible(_ id: Int) -> Int {
+        let range = 1..<myBibleArray.count
+        return range.contains(id) ? myBibleArray[id] : id
+    }
+
+    private func mybible2unbound(_ id: Int) -> Int {
+        return myBibleArray.firstIndex(of: id) ?? id
+    }
+
     func encodeID(_ id: Int) -> Int {
         return format == .mybible ? unbound2mybible(id) : id
     }
@@ -51,6 +72,10 @@ class Module {
         return format == .mybible ? mybible2unbound(id) : id
     }
     
+    static func isNewTestament(_ n: Int) -> Bool {
+        return (n >= 40) && (n < 77)
+    }
+
     func openDatabase() {
         if !database.open() { return }
         

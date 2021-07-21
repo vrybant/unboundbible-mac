@@ -279,6 +279,7 @@
 			children = (
 				E7B7CB6521D66EB600BC292F /* Module.swift */,
 				E7AD04B323ACE59F00443A49 /* kit.swift */,
+				E7A031C626A80A2400AE1D13 /* utils.swift */,
 				E7A0D72123AAA28800C48A54 /* extensions.swift */,
 				E73A0E9123FFE26B00EE62A8 /* Bible.swift */,
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
@@ -288,7 +289,6 @@
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
-				E7A031C626A80A2400AE1D13 /* utils.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";

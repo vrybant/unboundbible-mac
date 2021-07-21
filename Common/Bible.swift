@@ -7,6 +7,28 @@
 
 import Foundation
 
+struct Verse {
+    var book    = 1
+    var chapter = 1
+    var number  = 1
+    var count   = 1
+}
+
+var currVerse = Verse()
+
+struct Book {
+    var title   = ""
+    var abbr    = ""
+    var number  = 0
+    var id      = 0
+    var sorting = 0
+}
+
+struct Content {
+    var verse = Verse()
+    var text: String = ""
+}
+
 class Bible: Module {
     
     private struct unboundAlias {
@@ -35,6 +57,24 @@ class Bible: Module {
 
     private var books : [Book] = []
     private var z = unboundAlias()
+
+    private let titlesArray : [String] = ["",
+      "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel",
+      "1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra","Nehemiah","Esther","Job","Psalms","Proverbs",
+      "Ecclesiastes","Song of Songs","Isaiah","Jeremiah","Lamentations","Ezekiel","Daniel","Hosea","Joel",
+      "Amos","Obadiah","Jonah","Micah","Nahum","Habakkuk","Zephaniah","Haggai","Zechariah","Malachi","Matthew",
+      "Mark","Luke","John","Acts","Romans","1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians",
+      "Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy","Titus","Philemon","Hebrews",
+      "James","1 Peter","2 Peter","1 John","2 John","3 John","Jude","Revelation"
+      ]
+
+    private let abbrevArray : [String] = ["",
+      "Gen.","Ex.","Lev.","Num.","Deut.","Josh.","Judg.","Ruth","1 Sam.","2 Sam.","1 Kin.","2 Kin.","1 Chr.",
+      "2 Chr.","Ezra","Neh.","Esth.","Job","Ps.","Prov.","Eccl.","Song","Is.","Jer.","Lam.","Ezek.","Dan.",
+      "Hos.","Joel","Amos","Obad.","Jon.","Mic.","Nah.","Hab.","Zeph.","Hag.","Zech.","Mal.","Matt.","Mark",
+      "Luke","John","Acts","Rom.","1 Cor.","2 Cor.","Gal.","Eph.","Phil.","Col.","1 Thess.","2 Thess.","1 Tim.",
+      "2 Tim.","Titus","Philem.","Heb.","James","1 Pet.","2 Pet.","1 John","2 John","3 John","Jude","Rev."
+      ]
 
     override init?(atPath: String) {
         super.init(atPath: atPath)
@@ -137,7 +177,7 @@ class Bible: Module {
 
     func getChapter(_ verse : Verse) -> [String]? {
         let id = encodeID(verse.book)
-        let nt = isNewTestament(verse.book)
+        let nt = Module.isNewTestament(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
 
         if let results = database.executeQuery(query) {
@@ -154,7 +194,7 @@ class Bible: Module {
     
     func getRange(_ verse: Verse, prepare: Bool = true, purge: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
-        let nt = isNewTestament(verse.book)
+        let nt = Module.isNewTestament(verse.book)
         let toVerse = verse.number + verse.count
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
@@ -224,7 +264,7 @@ class Bible: Module {
                 guard let line = results.string(forColumn: z.text) else { break }
                 
                 let verse = Verse(book: decodeID(Int(book) ?? 0), chapter: Int(chapter) ?? 0, number: Int(number) ?? 0, count: 1)
-                let nt = isNewTestament(verse.book)
+                let nt = Module.isNewTestament(verse.book)
                 var text = preparation(line, format: format, nt: nt)
                 let content = Content(verse: verse, text: text)
                 text = text.replace("<S>", with: " ").removeTags

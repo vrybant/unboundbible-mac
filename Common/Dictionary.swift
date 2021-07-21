@@ -93,7 +93,7 @@ extension Array where Element == Dictionary {
     func getStrong(_ verse: Verse, language: String, number: String) -> String? {
         var number = number
         
-        let symbol = isNewTestament(verse.book) ? "G" : "H"
+        let symbol = Module.isNewTestament(verse.book) ? "G" : "H"
         if !number.hasPrefix(symbol) { number =  symbol + number }
 
         if let dictionary = strongByLanguage(language) ?? strongByLanguage("en") {
