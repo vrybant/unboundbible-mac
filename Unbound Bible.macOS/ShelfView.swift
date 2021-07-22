@@ -52,16 +52,6 @@ class ShelfView: NSViewController {
         updateLabels()
     }
     
-    func deleteModule(module: Module) {
-        if module is Bible      { tools.bibles      .deleteItem(module as! Bible      ) }
-        if module is Commentary { tools.commentaries.deleteItem(module as! Commentary ) }
-        if module is Dictionary { tools.dictionaries.deleteItem(module as! Dictionary ) }
-        if module is Reference  { tools.references  .deleteItem(module as! Reference  ) }
-        
-        modules.removeAll(where: { $0 === module })
-        tableView.reloadData()
-    }
-    
     @IBAction func deleteButton(_ sender: NSButtonCell) {
         var row = tableView.selectedRow
         let alert = NSAlert()
@@ -69,11 +59,16 @@ class ShelfView: NSViewController {
         alert.informativeText = modules[row].name
         alert.addButton(withTitle: LocalizedString("Cancel"))
         alert.addButton(withTitle: LocalizedString("Delete"))
-        if alert.runModal() == .alertFirstButtonReturn { return } // Cancel
-        deleteModule(module: modules[row])
-        if row == modules.count { row -= 1 }
-        tableView.selectRow(index: row)
-        leftView.loadBibleMenu()
+        
+        if alert.runModal() == .alertSecondButtonReturn {
+            let module = modules[row]
+            tools.deleteModule(module: module)
+            modules.removeAll(where: { $0 === module })
+            if row == modules.count { row -= 1 }
+            tableView.reloadData()
+            tableView.selectRow(index: row)
+            leftView.loadBibleMenu()
+        }
     }
     
 }

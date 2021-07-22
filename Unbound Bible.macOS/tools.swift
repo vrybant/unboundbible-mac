@@ -171,5 +171,12 @@ class Tools {
         }
     }
     
+    func deleteModule(module: Module) {
+        if module is Bible      { bibles      .deleteItem(module as! Bible      ) }
+        if module is Commentary { commentaries.deleteItem(module as! Commentary ) }
+        if module is Dictionary { dictionaries.deleteItem(module as! Dictionary ) }
+        if module is Reference  { references  .deleteItem(module as! Reference  ) }
+    }
+    
 }
 
