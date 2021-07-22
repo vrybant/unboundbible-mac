@@ -378,7 +378,7 @@ extension Array where Element == Bible {
         }
     }
     
-    var getNames: [String] {
+    func getNames() -> [String] {
         var result = [String]()
         for bible in self { result.append(bible.name) }
         return result

@@ -155,10 +155,6 @@ class Tools {
         return parse(quote)
     }
     
-    var get_BiblesNames: [String] {
-        return bibles.getNames
-    }
-    
     func setCurrBible(_ name: String) {
         currBible = bibles[0]
         
