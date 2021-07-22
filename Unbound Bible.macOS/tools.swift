@@ -171,6 +171,15 @@ class Tools {
         }
     }
     
+    func get_Modules() -> [Module] {
+        var result : [Module] = []
+        for bible      in bibles       { result.append(bible)      }
+        for commentary in commentaries { result.append(commentary) }
+        for dictionary in dictionaries { result.append(dictionary) }
+        for reference  in references   { result.append(reference ) }
+        return result
+    }
+
     func deleteModule(module: Module) {
         if module is Bible      { bibles      .deleteItem(module as! Bible      ) }
         if module is Commentary { commentaries.deleteItem(module as! Commentary ) }

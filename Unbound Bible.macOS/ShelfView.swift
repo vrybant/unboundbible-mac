@@ -18,8 +18,7 @@ class ShelfView: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        load()
+        modules = tools.get_Modules()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -28,13 +27,6 @@ class ShelfView: NSViewController {
         updateLabels()
     }
 
-    private func load() {
-        for bible      in tools.bibles       { modules.append(bible)      }
-        for commentary in tools.commentaries { modules.append(commentary) }
-        for dictionary in tools.dictionaries { modules.append(dictionary) }
-        for reference  in tools.references   { modules.append(reference ) }
-    }
-    
     func updateLabels() {
         let row = tableView.selectedRow
         let label = LocalizedString("File Name") + " : "
