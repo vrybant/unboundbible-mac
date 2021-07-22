@@ -378,6 +378,12 @@ extension Array where Element == Bible {
         }
     }
     
+    var getNames: [String] {
+        var result = [String]()
+        for bible in self { result.append(bible.name) }
+        return result
+    }
+
     var getDefaultBible: String {
         var result = ""
         for bible in self {

@@ -35,13 +35,10 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     func loadBibleMenu() { 
         popUpButton.removeAllItems()
         var index = 0
-        for bible in tools.bibles {
-            if bible.favorite {
-                popUpButton.addItem(withTitle: bible.name)
-                if bible.name == currBible!.name {
-                    popUpButton.selectItem(at: index)
-                }
-            }
+        let names = tools.get_BiblesNames
+        for name in names {
+            popUpButton.addItem(withTitle: name)
+            if name == currBible!.name { popUpButton.selectItem(at: index) }
             index += 1
         }
     }
@@ -88,7 +85,6 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
-        if tools.bibles.isEmpty { return }
         tools.setCurrBible(popUpButton.selectedItem!.title)
         makeBookList()
         showCurrVerse(select: currVerse.number > 1)
