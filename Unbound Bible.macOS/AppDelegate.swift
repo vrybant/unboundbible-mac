@@ -30,6 +30,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initialization()
     }
     
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        mainView.welcome()
+    }
+    
     func initialization() {
         readDefaults()
         copyDefaultsFiles()
@@ -144,6 +148,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         saveDefaults()
         savePrivates()
     }
-        
+
 }
 

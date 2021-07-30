@@ -23,12 +23,12 @@ class MainView: NSViewController, NSWindowDelegate {
         createPopover()
     }
     
-    override func viewDidAppear() {
+    override func viewWillAppear() {
+        super.viewWillAppear()
         self.view.window?.delegate = self
     }
     
-    override func viewWillAppear() {
-        super.viewWillAppear()
+    override func viewDidAppear() {
         self.view.window?.delegate = self
     }
     
@@ -201,6 +201,12 @@ class MainView: NSViewController, NSWindowDelegate {
         let fontPanel: NSFontPanel? = fontManager.fontPanel(true)
         fontPanel?.setPanelFont(defaultFont, isMultiple: false)
         fontPanel?.makeKeyAndOrderFront(sender)
+    }
+
+    func welcome() {
+        if let welcomeView = storyboard?.instantiateController(withIdentifier: "WelcomeView") as? WelcomeView {
+            presentAsModalWindow(welcomeView)
+        }
     }
     
 }

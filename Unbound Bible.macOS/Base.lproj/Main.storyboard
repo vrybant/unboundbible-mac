@@ -1,11 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Welcome View-->
+        <scene sceneID="clP-jK-l8v">
+            <objects>
+                <viewController storyboardIdentifier="WelcomeView" id="7Ga-gG-T3d" customClass="WelcomeView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="6G1-6q-VNC">
+                        <rect key="frame" x="0.0" y="0.0" width="670" height="439"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjS-o2-0ls">
+                                <rect key="frame" x="172" y="102" width="326" height="277"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Добро пожаловать!" allowsEditingTextAttributes="YES" id="0xM-hP-dpC">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plU-WK-B60">
+                                <rect key="frame" x="297" y="40" width="76" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zOI-TI-9Za">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closeAction:" target="7Ga-gG-T3d" id="Czo-nu-KXz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="t1H-b8-Jlf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-332" y="-406.5"/>
+        </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
             <objects>
@@ -1049,7 +1084,7 @@ Gw
                 </viewController>
                 <customObject id="k4K-DK-EHW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210" y="1377"/>
+            <point key="canvasLocation" x="1345" y="1259"/>
         </scene>
         <!--Split View-->
         <scene sceneID="pBL-To-aD2">
@@ -1679,7 +1714,7 @@ Gw
                     </connections>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="1210" y="804"/>
+            <point key="canvasLocation" x="1345" y="701"/>
         </scene>
         <!--Modules-->
         <scene sceneID="wyC-6X-bhL">
