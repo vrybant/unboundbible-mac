@@ -44,6 +44,10 @@ var languageCode: String {
     return NSLocale.autoupdatingCurrent.languageCode ?? "en"
 }
 
+var russianSpeaking: Bool {
+    return ["ru","uk"].contains(languageCode)
+}
+
 func printlocal() {
     if #available(OSX 10.12, *) {
         let locale = NSLocale.autoupdatingCurrent

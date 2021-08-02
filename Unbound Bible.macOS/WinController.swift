@@ -81,27 +81,27 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
 
     private var ru: String {
-        return languageCode == "ru" ? "ru" : ""
+        return !russianSpeaking ? "ru" : ""
     }
     
     @IBAction func contactPage(_ sender: NSMenuItem) {
-        let url = "http://vladimirrybant.org/goto/contact\(ru).php"
+        let url = "https://unboundbible.net/goto/contact\(ru).php"
         NSWorkspace.shared.open(URL(string: url)!)
     }
     
     @IBAction func donatePage(_ sender: NSMenuItem) {
-        let url = "http://vladimirrybant.org/goto/donate\(ru).php"
+        let url = "https://unboundbible.net/goto/donate\(ru).php"
         NSWorkspace.shared.open(URL(string: url)!)
 //      donateVisited = true
     }
     
     @IBAction func homePage(_ sender: NSMenuItem) {
-        let url = "http://vladimirrybant.org/\(ru)"
+        let url = "https://unboundbible.net/\(ru)"
         NSWorkspace.shared.open(URL(string: url)!)
     }
 
     @IBAction func downloadsPage(_ sender: NSMenuItem) {
-        let url = "http://vladimirrybant.org/goto/ubhelp\(ru).php"
+        let url = "https://unboundbible.net/goto/ubhelp\(ru).php"
         NSWorkspace.shared.open(URL(string: url)!)
     }
 
