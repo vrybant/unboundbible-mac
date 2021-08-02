@@ -6,27 +6,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome View-->
+        <!--Unbound Bible (Библия без переплета)-->
         <scene sceneID="clP-jK-l8v">
             <objects>
-                <viewController storyboardIdentifier="WelcomeView" id="7Ga-gG-T3d" customClass="WelcomeView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Unbound Bible (Библия без переплета)" storyboardIdentifier="WelcomeView" id="7Ga-gG-T3d" customClass="WelcomeView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="6G1-6q-VNC">
-                        <rect key="frame" x="0.0" y="0.0" width="670" height="439"/>
+                        <rect key="frame" x="0.0" y="0.0" width="591" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZjS-o2-0ls">
-                                <rect key="frame" x="172" y="102" width="326" height="277"/>
+                                <rect key="frame" x="152" y="47" width="414" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="center" title="Добро пожаловать!" allowsEditingTextAttributes="YES" id="0xM-hP-dpC">
+                                <textFieldCell key="cell" selectable="YES" alignment="justified" allowsEditingTextAttributes="YES" id="0xM-hP-dpC">
                                     <font key="font" usesAppearanceFont="YES"/>
+                                    <mutableString key="title">Меня зовут Владимир Рыбант и я являюсь разработчиком программы Unbound Bible. Вы видите это сообщение, потому что ваша программа обновилась до версии 5.3 
+Я постоянно работаю над улучшением Unbound Bible, добавляю новые функции, стараюсь сделать 'ne программу более удобной для работы.
+
+В этой версии я добавил менеджер модулей, которые вы можете открыть через Меню -&gt; Инструменты -&gt; Модули.
+
+Благодарю вас за использование моей программы Unbound Bible. </mutableString>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fWQ-aF-VoI">
+                                <rect key="frame" x="20" y="183" width="114" height="113"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="vladimir" id="VsC-La-BWe"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hty-jB-pXB">
+                                <rect key="frame" x="282" y="314" width="92" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Добрый день!" id="2GR-mX-vcE">
+                                    <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plU-WK-B60">
-                                <rect key="frame" x="297" y="40" width="76" height="32"/>
+                                <rect key="frame" x="251" y="31" width="88" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zOI-TI-9Za">
+                                <buttonCell key="cell" type="push" title="Закрыть" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zOI-TI-9Za">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -39,7 +59,7 @@
                 </viewController>
                 <customObject id="t1H-b8-Jlf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-332" y="-406.5"/>
+            <point key="canvasLocation" x="-371.5" y="-451"/>
         </scene>
         <!--Application-->
         <scene sceneID="JPo-4y-FX3">
@@ -124,7 +144,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" enabled="YES" id="zjg-0n-zSm"/>
-                                        <menuItem title="Modules" id="gvo-gb-7Om">
+                                        <menuItem title="Module Manager" id="gvo-gb-7Om">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="cmdModules:" target="Voe-Tx-rLC" id="IAK-hw-yxC"/>
@@ -1716,10 +1736,10 @@ Gw
             </objects>
             <point key="canvasLocation" x="1345" y="701"/>
         </scene>
-        <!--Modules-->
+        <!--Module Manager-->
         <scene sceneID="wyC-6X-bhL">
             <objects>
-                <viewController title="Modules" storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Module Manager" storyboardIdentifier="DownloadView" id="kdA-QI-qWe" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="y49-Vi-QQe">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1919,5 +1939,6 @@ Gw
         <image name="NSStatusNone" width="16" height="16"/>
         <image name="copy" width="16" height="16"/>
         <image name="trash" catalog="system" width="15" height="17"/>
+        <image name="vladimir" width="300" height="354"/>
     </resources>
 </document>

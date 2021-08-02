@@ -10,8 +10,8 @@
 /* Class = "NSButton"; ibShadowedToolTip = "Copy Verses"; ObjectID = "hQ5-QW-Kxg"; */
 "hQ5-QW-Kxg.ibShadowedToolTip" = "Копировать стихи";
 
-/* Class = "NSButton"; ibShadowedToolTip = "Modules"; ObjectID = "7BN-JD-2QK"; */
-"7BN-JD-2QK.ibShadowedToolTip" = "Модули";
+/* Class = "NSButton"; ibShadowedToolTip = "Module Manager"; ObjectID = "7BN-JD-2QK"; */
+"7BN-JD-2QK.ibShadowedToolTip" = "Менеджер модулей";
 
 /* Class = "NSButton"; ibShadowedToolTip = "Search Options"; ObjectID = "XOO-wQ-JkF"; */
 "XOO-wQ-JkF.ibShadowedToolTip" = "Настройки поиска";
@@ -367,8 +367,8 @@
 /* Class = "NSViewController"; title = "Copy Verses"; ObjectID = "03V-8r-HtA"; */
 "03V-8r-HtA.title" = "Копировать стихи";
 
-/* Class = "NSViewController"; title = "Modules"; ObjectID = "kdA-QI-qWe"; */
-"kdA-QI-qWe.title" = "Модули";
+/* Class = "NSViewController"; title = "Module Manager"; ObjectID = "kdA-QI-qWe"; */
+"kdA-QI-qWe.title" = "Менеджер модулей";
 
 /* Class = "NSWindow"; title = "Unbound Bible"; ObjectID = "IQv-IB-iLA"; */
 "IQv-IB-iLA.title" = "Unbound Bible";
