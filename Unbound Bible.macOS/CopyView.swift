@@ -27,12 +27,10 @@ class CopyView: NSViewController {
         copyView = self
     }
     
-    override func viewDidAppear() {
-        super.viewWillAppear()
-
-        self.view.window!.styleMask.remove(NSWindow.StyleMask.fullScreen)
-        self.view.window!.styleMask.remove(NSWindow.StyleMask.resizable )
-        self.view.window!.styleMask.remove(NSWindow.StyleMask.closable  )
+    override func viewWillAppear() { 
+        view.window?.styleMask.remove(NSWindow.StyleMask.fullScreen)
+        view.window?.styleMask.remove(NSWindow.StyleMask.resizable )
+        view.window?.styleMask.remove(NSWindow.StyleMask.closable  )
         
         view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
         view.window?.standardWindowButton(.zoomButton       )?.isHidden = true
