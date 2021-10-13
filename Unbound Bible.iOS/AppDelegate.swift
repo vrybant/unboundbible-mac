@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func initialization() {
         readDefaults()
         copyDefaultsFiles()
-        if bibles.isEmpty { return }
-        bibles.setCurrent(defaultCurrent!)
+        if tools.bibles.isEmpty { return }
+        tools.setCurrBible(defaultCurrBible!)
         
 //      leftView.bibleMenuInit()
 //      mainView.updateStatus(bible!.info)

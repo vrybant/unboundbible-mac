@@ -5,7 +5,11 @@
 //  Copyright © 2021 Vladimir Rybant. All rights reserved.
 //
 
-import Cocoa
+#if os(OSX)
+    import Cocoa
+#else
+    import UIKit
+#endif
 
 var tools = Tools()
 var currBible : Bible? = nil
@@ -34,8 +38,13 @@ class Tools {
         var count = 0
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
-        let range = currentSearchRange()
         
+        #if os(OSX)
+            let range = currentSearchRange()
+        #else
+            let range : SearchRange? = nil
+        #endif
+
         if let searchResult = currBible!.search(string: target, options: searchOption, range: range) {
             for content in searchResult {
                 if let link = currBible!.verseToString(content.verse, full: true) {
@@ -45,7 +54,7 @@ class Tools {
             }
             count = searchResult.count
         }
-            
+        
         return (result, count)
     }
 

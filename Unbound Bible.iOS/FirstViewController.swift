@@ -23,7 +23,7 @@ class FirstViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        if bibles.isEmpty { return }
+        if tools.bibles.isEmpty { return }
         let attrString = loadChapter_()
         bibleText.textStorage.setAttributedString(attrString)
     }

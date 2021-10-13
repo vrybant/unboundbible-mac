@@ -235,7 +235,11 @@ extension Color {
     }
     static var systemAccent: Color {
         if #available(OSX 10.14, *) {
-            return controlAccentColor
+            #if os(OSX)
+                return controlAccentColor
+            #else
+                return systemNavy // ???
+            #endif
         } else {
             return systemNavy
         }
