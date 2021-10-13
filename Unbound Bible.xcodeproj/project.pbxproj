@@ -15,6 +15,7 @@
 		E71B29CF1E0C218200173E77 /* WinController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71B29CE1E0C218200173E77 /* WinController.swift */; };
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
+		E726E93A271721C500EC3958 /* tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DD51A41DE764A70003D654 /* tools.swift */; };
 		E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DF9E11DE8651C00A46DA1 /* LeftView.swift */; };
 		E736414E23AB82BF0077293D /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
 		E736414F23AB82C90077293D /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
@@ -340,14 +341,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Vladimir Rybant";
 				TargetAttributes = {
 					CE2F17EC1D33C31800BA91A6 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = ZK5Z2R2KTA;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -356,8 +356,7 @@
 					};
 					E7A6CB3B23AB672C00947139 = {
 						CreatedOnToolsVersion = 11.2.1;
-						DevelopmentTeam = ZK5Z2R2KTA;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -465,6 +464,7 @@
 				E7A6CB5A23AB67E700947139 /* lib.swift in Sources */,
 				E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */,
 				E7A6CB5D23AB6AA000947139 /* FMDatabase.m in Sources */,
+				E726E93A271721C500EC3958 /* tools.swift in Sources */,
 				E73A0E9323FFE26B00EE62A8 /* Bible.swift in Sources */,
 				E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */,
 				E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */,
@@ -649,7 +649,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Unbound Bible.entitlements";
 				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
@@ -672,11 +672,12 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Unbound Bible.entitlements";
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -684,7 +685,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
-				PROVISIONING_PROFILE_SPECIFIER = "App Store Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_VERSION = 5.0;
 			};
@@ -698,9 +699,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -709,7 +710,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "Unbound Bible";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
@@ -726,9 +727,9 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
@@ -736,7 +737,7 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "Unbound Bible";
-				PROVISIONING_PROFILE_SPECIFIER = "iOS Provisioning Profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
 				SWIFT_VERSION = 5.0;
