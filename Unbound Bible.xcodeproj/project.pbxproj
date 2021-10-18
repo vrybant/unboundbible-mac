@@ -111,7 +111,6 @@
 		E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "сonfig.xcconfig"; sourceTree = "<group>"; };
 		E77AE72A2718CB450065F35F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Additional.storyboard; sourceTree = "<group>"; };
 		E77AE72E2718CB970065F35F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Additional.strings; sourceTree = "<group>"; };
-		E77AE7302718CBA00065F35F /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Additional.strings; sourceTree = "<group>"; };
 		E7A031C626A80A2400AE1D13 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		E7A0D72123AAA28800C48A54 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		E7A0D72423AAA36200C48A54 /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
@@ -129,6 +128,7 @@
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
 		E7AD04B323ACE59F00443A49 /* kit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kit.swift; sourceTree = "<group>"; };
 		E7AE96B123BF85BF00DD314D /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		E7AF60FB271DDAF400E33E8E /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Additional.strings; sourceTree = "<group>"; };
 		E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		E7B7CB6521D66EB600BC292F /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
 		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
@@ -510,7 +510,7 @@
 			children = (
 				E77AE72A2718CB450065F35F /* Base */,
 				E77AE72E2718CB970065F35F /* ru */,
-				E77AE7302718CBA00065F35F /* uk */,
+				E7AF60FB271DDAF400E33E8E /* uk */,
 			);
 			name = Additional.storyboard;
 			sourceTree = "<group>";

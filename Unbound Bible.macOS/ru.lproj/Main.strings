@@ -367,8 +367,5 @@
 /* Class = "NSViewController"; title = "Copy Verses"; ObjectID = "03V-8r-HtA"; */
 "03V-8r-HtA.title" = "Копировать стихи";
 
-/* Class = "NSViewController"; title = "Module Manager"; ObjectID = "kdA-QI-qWe"; */
-"kdA-QI-qWe.title" = "Менеджер модулей";
-
 /* Class = "NSWindow"; title = "Unbound Bible"; ObjectID = "IQv-IB-iLA"; */
 "IQv-IB-iLA.title" = "Unbound Bible";

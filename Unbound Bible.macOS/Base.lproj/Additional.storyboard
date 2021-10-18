@@ -15,7 +15,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Bf-No1">
-                                <rect key="frame" x="152" y="47" width="414" height="249"/>
+                                <rect key="frame" x="152" y="66" width="414" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="justified" allowsEditingTextAttributes="YES" id="FZN-wh-QIw">
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -44,7 +44,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8a-8r-HbR">
-                                <rect key="frame" x="251" y="31" width="88" height="32"/>
+                                <rect key="frame" x="315" y="31" width="88" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Закрыть" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6dF-2c-byo">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -59,7 +59,7 @@
                 </viewController>
                 <customObject id="lxu-Ui-SMZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-371.5" y="-451"/>
+            <point key="canvasLocation" x="-359.5" y="-451"/>
         </scene>
         <!--Module Manager-->
         <scene sceneID="sOU-eR-H7l">
@@ -69,13 +69,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-OK-C8q">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="52" horizontalPageScroll="10" verticalLineScroll="52" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-OK-C8q">
                                 <rect key="frame" x="20" y="162" width="600" height="252"/>
                                 <clipView key="contentView" id="fCd-re-lN0">
                                     <rect key="frame" x="1" y="1" width="598" height="250"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="QKJ-in-AHl" viewBased="YES" id="2hD-J9-M8X">
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="firstColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="52" rowSizeStyle="automatic" headerView="QKJ-in-AHl" viewBased="YES" id="2hD-J9-M8X">
                                             <rect key="frame" x="0.0" y="0.0" width="598" height="222"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
@@ -254,7 +254,7 @@
                 </viewController>
                 <customObject id="P7t-Yr-ylK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-931" y="333"/>
+            <point key="canvasLocation" x="-1090" y="-409"/>
         </scene>
     </scenes>
     <resources>
