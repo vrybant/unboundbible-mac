@@ -1,5 +1,5 @@
 //
-//  Tools.swift
+//  ToolsExt.swift
 //  Unbound Bible
 //
 //  Copyright © 2021 Vladimir Rybant. All rights reserved.
@@ -167,4 +167,3 @@ extension Tools {
     }
     
 }
-
