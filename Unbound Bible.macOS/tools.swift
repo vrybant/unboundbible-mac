@@ -1,26 +1,12 @@
 //
-//  tools.swift
+//  Tools.swift
 //  Unbound Bible
 //
 //  Copyright © 2021 Vladimir Rybant. All rights reserved.
 //
 
-#if os(OSX)
-    import Cocoa
-#else
-    import UIKit
-#endif
-
-var tools = Tools()
-var currBible : Bible? = nil
-
-class Tools {
+extension Tools {
     
-    var bibles = [Bible](true)
-    var commentaries = [Commentary](true)
-    var dictionaries = [Dictionary](true)
-    var references = [Reference](true)
-
     func get_Chapter() -> String {
         var result = ""
         if let text = currBible!.getChapter(currVerse) {
@@ -162,22 +148,6 @@ class Tools {
         quote += "\n"
         
         return parse(quote)
-    }
-    
-    func setCurrBible(_ name: String) {
-        currBible = bibles[0]
-        
-        for bible in bibles {
-            if bible.name == name {
-                currBible = bible
-                break
-            }
-        }
-        
-        currBible!.loadDatabase()
-        if !currBible!.goodLink(currVerse) {
-            currVerse = currBible!.firstVerse
-        }
     }
     
     func get_Modules() -> [Module] {
