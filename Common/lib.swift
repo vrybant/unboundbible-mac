@@ -25,7 +25,8 @@ let resourceUrl = Bundle.main.resourceURL!
     let dataUrl = homeUrl.appendingPathComponent(applicationName)
 #else
     let documentPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    let dataUrl = documentPath.appendingPathComponent(applicationName)
+//  let dataUrl = documentPath.appendingPathComponent(applicationName)
+    let dataUrl = resourceUrl.appendingPathComponent(bibleDirectory)
 #endif
 
 //let navyColor = Color(red:0.00, green:0.00, blue:0.50, alpha:1.0)
@@ -125,6 +126,8 @@ func getRightToLeft(language: String) -> Bool {
 }
 
 func copyDefaultsFiles() {
+    #if os(OSX)
+    
     if !FileManager.default.fileExists(atPath: dataUrl.path)  {
         try? FileManager.default.createDirectory(at: dataUrl, withIntermediateDirectories: false, attributes: nil)
     }
@@ -145,4 +148,6 @@ func copyDefaultsFiles() {
             try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
         }
     }
+    
+    #endif
 }

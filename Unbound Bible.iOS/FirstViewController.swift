@@ -21,11 +21,17 @@ class FirstViewController: UIViewController {
         super.viewDidLoad()
 //      view.backgroundColor = .systemRed
     }
-
+    
+    func loadChapter() {
+        let text = tools.get_Chapter()
+        let attrString = parse(text, jtag: true)
+//      bibleText.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
+        bibleText.textStorage.setAttributedString(attrString)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         if tools.bibles.isEmpty { return }
-        let attrString = loadChapter_()
-        bibleText.textStorage.setAttributedString(attrString)
+        loadChapter()
     }
     
 }

@@ -14,10 +14,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var bookTableViewList: [String] = []
 
-    override func awakeFromNib() {
-        print("awake")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("load")
