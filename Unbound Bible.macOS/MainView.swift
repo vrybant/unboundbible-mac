@@ -208,7 +208,7 @@ class MainView: NSViewController, NSWindowDelegate {
         if !russianSpeaking { return }
         let storyboard = NSStoryboard(name: "Additional", bundle: Bundle.main)
         if let welcomeView = storyboard.instantiateController(withIdentifier: "WelcomeView") as? WelcomeView {
-            presentAsModalWindow(welcomeView)
+//          presentAsModalWindow(welcomeView)
       }
     }
     

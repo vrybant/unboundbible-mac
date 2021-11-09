@@ -13,10 +13,13 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView: UITableView!
     
     var bookTableViewList: [String] = []
+    var completion: ((String) -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("load")
+        
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableView.automaticDimension
 
         view.backgroundColor = .systemBlue
         
@@ -43,16 +46,14 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookTableViewList.count
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let name = bookTableViewList[indexPath.row]
         if let book = currBible!.bookByName(name) {
             currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
         }
-        print( name )
-
+        dismiss(animated: true, completion: { self.completion?(name) } )
     }
     
 }
-

@@ -244,6 +244,7 @@
 		E7A6CB3D23AB672C00947139 /* Unbound Bible.iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E7A6CB4623AB672C00947139 /* Main.storyboard */,
 				E7A6CB3E23AB672C00947139 /* AppDelegate.swift */,
 				E736415123ABA7E10077293D /* BibleText.swift */,
 				E7A6CB4023AB672C00947139 /* SceneDelegate.swift */,
@@ -251,7 +252,6 @@
 				E7A6CB4423AB672C00947139 /* SecondViewController.swift */,
 				E7AE96B123BF85BF00DD314D /* PopupView.swift */,
 				E77373BC271EBE3800FFA254 /* ToolsExt.swift */,
-				E7A6CB4623AB672C00947139 /* Main.storyboard */,
 				E7A6CB4923AB672F00947139 /* Assets.xcassets */,
 				E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */,
 				E7A6CB4E23AB672F00947139 /* Info.plist */,

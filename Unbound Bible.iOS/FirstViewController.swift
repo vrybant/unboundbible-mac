@@ -7,15 +7,30 @@
 
 import UIKit
 
-var firstView = UIViewController()
+//var firstView = UIViewController()
 
 class FirstViewController: UIViewController {
 
     @IBAction func bookAction(_ sender: UIButton) {
-        print("ok")
+        self.performSegue(withIdentifier: "SegueID", sender: nil)
     }
     
     @IBOutlet weak var bibleText: BibleTextView!
+    
+    var testtext : String?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "SegueID" else { return }
+        
+        if let secondVC = segue.destination as? SecondViewController {
+            secondVC.completion = { [weak self] text in
+                guard let self = self else { return }
+                self.testtext = text
+                print("name = \(text)")
+            }
+        }
+
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +48,5 @@ class FirstViewController: UIViewController {
         if tools.bibles.isEmpty { return }
         loadChapter()
     }
-    
+ 
 }
-
