@@ -12,7 +12,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
-    var bookTableViewList: [String] = []
+    private var bookTableViewList: [String] = []
     var completion: ((String) -> ())?
 
     override func viewDidLoad() {
@@ -46,7 +46,8 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let name = bookTableViewList[indexPath.row]
-        dismiss(animated: true, completion: { self.completion?(name) } )
+        completion?(name)
+        dismiss(animated: true, completion: nil )
     }
     
 }
