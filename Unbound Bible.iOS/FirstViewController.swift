@@ -17,19 +17,19 @@ class FirstViewController: UIViewController {
     
     @IBOutlet weak var bibleText: BibleTextView!
     
-    var testtext : String?
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "SegueID" else { return }
         
         if let secondVC = segue.destination as? SecondViewController {
-            secondVC.completion = { [weak self] text in
+            secondVC.completion = { [weak self] name in
                 guard let self = self else { return }
-                self.testtext = text
-                print("name = \(text)")
+                if let book = currBible!.bookByName(name) {
+                    currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
+                    self.loadChapter()
+                    print("name = \(name)")
+                }
             }
         }
-
     }
     
     override func viewDidLoad() {

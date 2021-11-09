@@ -20,11 +20,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableView.automaticDimension
-
         view.backgroundColor = .systemBlue
-        
-//        let attrString = loadCompare_()
-//        textView.textStorage.setAttributedString(attrString)
         
         makeBookList() // temp
     }
@@ -50,9 +46,6 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let name = bookTableViewList[indexPath.row]
-        if let book = currBible!.bookByName(name) {
-            currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
-        }
         dismiss(animated: true, completion: { self.completion?(name) } )
     }
     
