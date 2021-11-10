@@ -344,9 +344,7 @@ extension FMDatabase {
 extension FMResultSet {
     
     func columnExist(_ name: String) -> Bool {
-        let name = name.lowercased()
-        let map = self.columnNameToIndexMap
-        return map[name] != nil
+        return columnNameToIndexMap[name.lowercased()] != nil
     }
     
     func asString(forColumn name: String) -> String? {
