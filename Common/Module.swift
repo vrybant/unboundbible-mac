@@ -83,15 +83,15 @@ class Module {
             let query = "select * from Details"
             if let results = database.executeQuery(query) {
                 if results.next() {
-                    info      = results.string(forColumn: "Information" ) ?? ""
-                    info      = results.string(forColumn: "Description" ) ?? info
-                    name      = results.string(forColumn: "Title"       ) ?? info
-                    abbr      = results.string(forColumn: "Abbreviation") ?? ""
-                    copyright = results.string(forColumn: "Copyright"   ) ?? ""
-                    language  = results.string(forColumn: "Language"    ) ?? ""
-                    strong    = results.bool  (forColumn: "Strong"      )
-                    embedded  = results.bool  (forColumn: "Embedded"    )
-                    default_  = results.bool  (forColumn: "Default"     )
+                    info      = results.asString(forColumn: "Information" ) ?? ""
+                    info      = results.asString(forColumn: "Description" ) ?? info
+                    name      = results.asString(forColumn: "Title"       ) ?? info
+                    abbr      = results.asString(forColumn: "Abbreviation") ?? ""
+                    copyright = results.asString(forColumn: "Copyright"   ) ?? ""
+                    language  = results.asString(forColumn: "Language"    ) ?? ""
+                    strong    = results.asBool  (forColumn: "Strong"      )
+                    embedded  = results.asBool  (forColumn: "Embedded"    )
+                    default_  = results.asBool  (forColumn: "Default"     )
                     
                     connected = true
                 }
@@ -102,8 +102,8 @@ class Module {
             let query = "select * from info"
             if let results = database.executeQuery(query) {
                 while results.next() {
-                    guard let key = results.string(forColumn: "name") else { break }
-                    guard let value = results.string(forColumn: "value") else { break }
+                    guard let key = results.asString(forColumn: "name") else { break }
+                    guard let value = results.asString(forColumn: "value") else { break }
                     
                     switch key {
                     case "description"    : name = value

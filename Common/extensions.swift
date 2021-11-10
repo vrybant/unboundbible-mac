@@ -340,3 +340,23 @@ extension FMDatabase {
         return try? executeQuery(sql, values: nil)
     }
 }
+
+extension FMResultSet {
+    
+    func columnExist(_ name: String) -> Bool {
+        let name = name.lowercased()
+        let map = self.columnNameToIndexMap
+        return map[name] != nil
+    }
+    
+    func asString(forColumn name: String) -> String? {
+        if !columnExist(name) { return nil }
+        return self.string(forColumn: name)
+    }
+    
+    func asBool(forColumn name: String) -> Bool {
+        if !columnExist(name) { return false }
+        return self.bool(forColumn: name)
+    }
+
+}
