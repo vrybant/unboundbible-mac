@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,6 +35,8 @@
 		E77373BF271EBE6D00FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
 		E77373C0271EBE6D00FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
 		E77AE7272718CB3C0065F35F /* Additional.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77AE7292718CB3C0065F35F /* Additional.storyboard */; };
+		E7874A40273BE4B200464436 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = E7874A3F273BE4B200464436 /* FMDB */; };
+		E7874A42273BE5D500464436 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = E7874A41273BE5D500464436 /* FMDB */; };
 		E7A031C726A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
 		E7A031C826A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
@@ -53,21 +55,11 @@
 		E7A6CB5923AB67E400947139 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E7A6CB5A23AB67E700947139 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
 		E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
-		E7A6CB5D23AB6AA000947139 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
-		E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */; };
-		E7A6CB5F23AB6AAB00947139 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */; };
-		E7A6CB6023AB6AAE00947139 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */; };
-		E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
 		E7AE96B223BF85BF00DD314D /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7AE96B123BF85BF00DD314D /* PopupView.swift */; };
 		E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */; };
 		E7B7CB6621D66EB600BC292F /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
-		E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3B1EA9372900CF3386 /* FMDatabase.m */; };
-		E7BECE461EA9372900CF3386 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */; };
-		E7BECE471EA9372900CF3386 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */; };
-		E7BECE481EA9372900CF3386 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */; };
-		E7BECE491EA9372900CF3386 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E7BECE441EA9372900CF3386 /* FMResultSet.m */; };
 		E7BECE4C1EA9390400CF3386 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E7BECE4B1EA9390400CF3386 /* libsqlite3.tbd */; settings = {ATTRIBUTES = (Required, ); }; };
 		E7C21903201522F300E90AC6 /* NotesText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C21902201522F300E90AC6 /* NotesText.swift */; };
 		E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82390202B07EC00287173 /* InfoPlist.strings */; };
@@ -136,17 +128,6 @@
 		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		E7B8B602204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E7B8B603204EFF6400493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		E7BECE3A1EA9372900CF3386 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		E7BECE3B1EA9372900CF3386 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		E7BECE3C1EA9372900CF3386 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		E7BECE3E1EA9372900CF3386 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		E7BECE401EA9372900CF3386 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		E7BECE421EA9372900CF3386 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
-		E7BECE431EA9372900CF3386 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		E7BECE441EA9372900CF3386 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		E7BECE4B1EA9390400CF3386 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		E7C21902201522F300E90AC6 /* NotesText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesText.swift; sourceTree = "<group>"; };
 		E7C8238F202B07EC00287173 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -168,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7BECE4C1EA9390400CF3386 /* libsqlite3.tbd in Frameworks */,
+				E7874A42273BE5D500464436 /* FMDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7874A40273BE4B200464436 /* FMDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,7 +173,6 @@
 				E7D39ED820906C4E004D3097 /* Common */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
-				E7BECE391EA9372900CF3386 /* fmdb */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
 				E7BECE4A1EA9390400CF3386 /* Frameworks */,
 			);
@@ -259,24 +241,6 @@
 			path = "Unbound Bible.iOS";
 			sourceTree = "<group>";
 		};
-		E7BECE391EA9372900CF3386 /* fmdb */ = {
-			isa = PBXGroup;
-			children = (
-				E7BECE3A1EA9372900CF3386 /* FMDatabase.h */,
-				E7BECE3B1EA9372900CF3386 /* FMDatabase.m */,
-				E7BECE3C1EA9372900CF3386 /* FMDatabaseAdditions.h */,
-				E7BECE3D1EA9372900CF3386 /* FMDatabaseAdditions.m */,
-				E7BECE3E1EA9372900CF3386 /* FMDatabasePool.h */,
-				E7BECE3F1EA9372900CF3386 /* FMDatabasePool.m */,
-				E7BECE401EA9372900CF3386 /* FMDatabaseQueue.h */,
-				E7BECE411EA9372900CF3386 /* FMDatabaseQueue.m */,
-				E7BECE421EA9372900CF3386 /* FMDB.h */,
-				E7BECE431EA9372900CF3386 /* FMResultSet.h */,
-				E7BECE441EA9372900CF3386 /* FMResultSet.m */,
-			);
-			path = fmdb;
-			sourceTree = SOURCE_ROOT;
-		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +284,9 @@
 			dependencies = (
 			);
 			name = "Unbound Bible";
+			packageProductDependencies = (
+				E7874A41273BE5D500464436 /* FMDB */,
+			);
 			productName = "Unbound-Bible-OSX";
 			productReference = CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +304,9 @@
 			dependencies = (
 			);
 			name = "Unbound Bible.iOS";
+			packageProductDependencies = (
+				E7874A3F273BE4B200464436 /* FMDB */,
+			);
 			productName = "Unbound Bible.iOS";
 			productReference = E7A6CB3C23AB672C00947139 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
@@ -378,6 +348,9 @@
 				ru,
 			);
 			mainGroup = CE2F17E41D33C31800BA91A6;
+			packageReferences = (
+				E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */,
+			);
 			productRefGroup = CE2F17EE1D33C31800BA91A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -433,14 +406,12 @@
 				E7A031C726A80A2400AE1D13 /* utils.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* extension.swift in Sources */,
 				E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */,
-				E7BECE451EA9372900CF3386 /* FMDatabase.m in Sources */,
 				E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */,
 				E7A8917C20152879008A7695 /* СustomText.swift in Sources */,
 				E71485B923AA5EF6009369D4 /* lib.swift in Sources */,
 				E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */,
 				E73A0E9223FFE26B00EE62A8 /* Bible.swift in Sources */,
 				E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */,
-				E7BECE461EA9372900CF3386 /* FMDatabaseAdditions.m in Sources */,
 				E7FABB9B21D938D3006B6267 /* Commentary.swift in Sources */,
 				E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */,
 				E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */,
@@ -449,12 +420,9 @@
 				E7C21903201522F300E90AC6 /* NotesText.swift in Sources */,
 				E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */,
 				E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */,
-				E7BECE471EA9372900CF3386 /* FMDatabasePool.m in Sources */,
 				E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */,
-				E7BECE481EA9372900CF3386 /* FMDatabaseQueue.m in Sources */,
 				E7B7CB6621D66EB600BC292F /* Module.swift in Sources */,
 				E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */,
-				E7BECE491EA9372900CF3386 /* FMResultSet.m in Sources */,
 				E7FABB9D21D938F7006B6267 /* Dictionary.swift in Sources */,
 				E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */,
 				E7D4637B201A2B520055F1DA /* PreferencesView.swift in Sources */,
@@ -470,13 +438,10 @@
 			files = (
 				E7A6CB5A23AB67E700947139 /* lib.swift in Sources */,
 				E7A6CB5723AB67DF00947139 /* Dictionary.swift in Sources */,
-				E7A6CB5D23AB6AA000947139 /* FMDatabase.m in Sources */,
 				E73A0E9323FFE26B00EE62A8 /* Bible.swift in Sources */,
 				E7A6CB5B23AB67EA00947139 /* prepare.swift in Sources */,
 				E77373BD271EBE3800FFA254 /* ToolsExt.swift in Sources */,
-				E7A6CB6123AB6AB100947139 /* FMResultSet.m in Sources */,
 				E7E7A84F24C5C285001F85C8 /* Reference.swift in Sources */,
-				E7A6CB5E23AB6AA800947139 /* FMDatabaseAdditions.m in Sources */,
 				E7A6CB4523AB672C00947139 /* SecondViewController.swift in Sources */,
 				E7AE96B223BF85BF00DD314D /* PopupView.swift in Sources */,
 				E7A6CB5923AB67E400947139 /* parse.swift in Sources */,
@@ -489,8 +454,6 @@
 				E7A031C826A80A2400AE1D13 /* utils.swift in Sources */,
 				E736415223ABA7E10077293D /* BibleText.swift in Sources */,
 				E7671A5427213A7F007E0D45 /* extensions.swift in Sources */,
-				E7A6CB5F23AB6AAB00947139 /* FMDatabasePool.m in Sources */,
-				E7A6CB6023AB6AAE00947139 /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -657,7 +620,8 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -672,7 +636,10 @@
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 5.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
@@ -697,7 +664,10 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MARKETING_VERSION = 5.2.1;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
@@ -723,7 +693,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
@@ -751,7 +724,10 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
 				PRODUCT_NAME = "Unbound Bible";
@@ -795,6 +771,30 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ccgus/fmdb";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.7;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E7874A3F273BE4B200464436 /* FMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */;
+			productName = FMDB;
+		};
+		E7874A41273BE5D500464436 /* FMDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */;
+			productName = FMDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE2F17E51D33C31800BA91A6 /* Project object */;
 }
