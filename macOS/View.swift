@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class View: NSView {
+class View: NSView { 
     
     required init(coder: NSCoder) {
         super.init(coder: coder)!

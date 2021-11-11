@@ -76,7 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbound Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2F17ED1D33C31800BA91A6 /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2F17F21D33C31800BA91A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CE2F17F41D33C31800BA91A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -166,8 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				E7522CC8214AAD2900EB8788 /* Unbound Bible.entitlements */,
-				CE2F17EF1D33C31800BA91A6 /* Unbound Bible.macOS */,
-				E7A6CB3D23AB672C00947139 /* Unbound Bible.iOS */,
+				CE2F17EF1D33C31800BA91A6 /* macOS */,
+				E7A6CB3D23AB672C00947139 /* iOS */,
 				E7D39ED820906C4E004D3097 /* Common */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
@@ -179,13 +179,13 @@
 		CE2F17EE1D33C31800BA91A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */,
+				CE2F17ED1D33C31800BA91A6 /* macOS.app */,
 				E7A6CB3C23AB672C00947139 /* Unbound Bible.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE2F17EF1D33C31800BA91A6 /* Unbound Bible.macOS */ = {
+		CE2F17EF1D33C31800BA91A6 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
 				E7C82395202B07ED00287173 /* Localizable.strings */,
@@ -218,12 +218,13 @@
 				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
 				E7F5071A20509AEB0019F546 /* icns.icns */,
 			);
-			path = "Unbound Bible.macOS";
+			path = macOS;
 			sourceTree = "<group>";
 		};
-		E7A6CB3D23AB672C00947139 /* Unbound Bible.iOS */ = {
+		E7A6CB3D23AB672C00947139 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				E7A6CB4E23AB672F00947139 /* Info.plist */,
 				E7A6CB4623AB672C00947139 /* Main.storyboard */,
 				E7A6CB3E23AB672C00947139 /* AppDelegate.swift */,
 				E736415123ABA7E10077293D /* BibleText.swift */,
@@ -234,9 +235,8 @@
 				E77373BC271EBE3800FFA254 /* ToolsExt.swift */,
 				E7A6CB4923AB672F00947139 /* Assets.xcassets */,
 				E7A6CB4B23AB672F00947139 /* LaunchScreen.storyboard */,
-				E7A6CB4E23AB672F00947139 /* Info.plist */,
 			);
-			path = "Unbound Bible.iOS";
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {
@@ -269,9 +269,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE2F17EC1D33C31800BA91A6 /* Unbound Bible */ = {
+		CE2F17EC1D33C31800BA91A6 /* macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE2F17FC1D33C31800BA91A6 /* Build configuration list for PBXNativeTarget "Unbound Bible" */;
+			buildConfigurationList = CE2F17FC1D33C31800BA91A6 /* Build configuration list for PBXNativeTarget "macOS" */;
 			buildPhases = (
 				CE2F17E91D33C31800BA91A6 /* Sources */,
 				CE2F17EA1D33C31800BA91A6 /* Frameworks */,
@@ -281,17 +281,17 @@
 			);
 			dependencies = (
 			);
-			name = "Unbound Bible";
+			name = macOS;
 			packageProductDependencies = (
 				E7874A41273BE5D500464436 /* FMDB */,
 			);
 			productName = "Unbound-Bible-OSX";
-			productReference = CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */;
+			productReference = CE2F17ED1D33C31800BA91A6 /* macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E7A6CB3B23AB672C00947139 /* Unbound Bible.iOS */ = {
+		E7A6CB3B23AB672C00947139 /* iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E7A6CB4F23AB672F00947139 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */;
+			buildConfigurationList = E7A6CB4F23AB672F00947139 /* Build configuration list for PBXNativeTarget "iOS" */;
 			buildPhases = (
 				E7A6CB3823AB672C00947139 /* Sources */,
 				E7A6CB3923AB672C00947139 /* Frameworks */,
@@ -301,7 +301,7 @@
 			);
 			dependencies = (
 			);
-			name = "Unbound Bible.iOS";
+			name = iOS;
 			packageProductDependencies = (
 				E7874A3F273BE4B200464436 /* FMDB */,
 			);
@@ -353,8 +353,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE2F17EC1D33C31800BA91A6 /* Unbound Bible */,
-				E7A6CB3B23AB672C00947139 /* Unbound Bible.iOS */,
+				CE2F17EC1D33C31800BA91A6 /* macOS */,
+				E7A6CB3B23AB672C00947139 /* iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -633,7 +633,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -661,7 +661,7 @@
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = "Unbound Bible.macOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -689,7 +689,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -720,7 +720,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = "Unbound Bible.iOS/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -750,7 +750,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		CE2F17FC1D33C31800BA91A6 /* Build configuration list for PBXNativeTarget "Unbound Bible" */ = {
+		CE2F17FC1D33C31800BA91A6 /* Build configuration list for PBXNativeTarget "macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE2F17FD1D33C31800BA91A6 /* Debug */,
@@ -759,7 +759,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E7A6CB4F23AB672F00947139 /* Build configuration list for PBXNativeTarget "Unbound Bible.iOS" */ = {
+		E7A6CB4F23AB672F00947139 /* Build configuration list for PBXNativeTarget "iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E7A6CB5023AB672F00947139 /* Debug */,

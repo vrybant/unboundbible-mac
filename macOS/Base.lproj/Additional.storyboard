@@ -9,7 +9,7 @@
         <!--Unbound Bible (Библия без переплета)-->
         <scene sceneID="uAV-B3-YjQ">
             <objects>
-                <viewController title="Unbound Bible (Библия без переплета)" storyboardIdentifier="WelcomeView" id="BeF-WZ-RbJ" customClass="WelcomeView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Unbound Bible (Библия без переплета)" storyboardIdentifier="WelcomeView" id="BeF-WZ-RbJ" customClass="WelcomeView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JP7-VU-z1H">
                         <rect key="frame" x="0.0" y="0.0" width="591" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -64,7 +64,7 @@
         <!--Module Manager-->
         <scene sceneID="sOU-eR-H7l">
             <objects>
-                <viewController title="Module Manager" storyboardIdentifier="ModuleVC" id="3j7-bx-LTS" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Module Manager" storyboardIdentifier="ModuleVC" id="3j7-bx-LTS" customClass="ShelfView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Fqw-A6-YES">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>
