@@ -342,19 +342,15 @@ extension FMDatabase {
 }
 
 extension FMResultSet {
-    
-    func columnExist(_ name: String) -> Bool {
+    func columnExists(_ name: String) -> Bool {
         return columnNameToIndexMap[name.lowercased()] != nil
     }
-    
-    func asString(forColumn name: String) -> String? {
-        if !columnExist(name) { return nil }
+    func string(_ name: String) -> String? {
+        if !columnExists(name) { return nil }
         return self.string(forColumn: name)
     }
-    
-    func asBool(forColumn name: String) -> Bool {
-        if !columnExist(name) { return false }
+    func bool(_ name: String) -> Bool {
+        if !columnExists(name) { return false }
         return self.bool(forColumn: name)
     }
-
 }

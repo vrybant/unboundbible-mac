@@ -83,15 +83,15 @@ class Module {
             let query = "select * from Details"
             if let results = database.executeQuery(query) {
                 if results.next() {
-                    info      = results.asString(forColumn: "Information" ) ?? ""
-                    info      = results.asString(forColumn: "Description" ) ?? info
-                    name      = results.asString(forColumn: "Title"       ) ?? info
-                    abbr      = results.asString(forColumn: "Abbreviation") ?? ""
-                    copyright = results.asString(forColumn: "Copyright"   ) ?? ""
-                    language  = results.asString(forColumn: "Language"    ) ?? ""
-                    strong    = results.asBool  (forColumn: "Strong"      )
-                    embedded  = results.asBool  (forColumn: "Embedded"    )
-                    default_  = results.asBool  (forColumn: "Default"     )
+                    info      = results.string("Information" ) ?? ""
+                    info      = results.string("Description" ) ?? info
+                    name      = results.string("Title"       ) ?? info
+                    abbr      = results.string("Abbreviation") ?? ""
+                    copyright = results.string("Copyright"   ) ?? ""
+                    language  = results.string("Language"    ) ?? ""
+                    strong    = results.bool  ("Strong"      )
+                    embedded  = results.bool  ("Embedded"    )
+                    default_  = results.bool  ("Default"     )
                     
                     connected = true
                 }
@@ -102,8 +102,8 @@ class Module {
             let query = "select * from info"
             if let results = database.executeQuery(query) {
                 while results.next() {
-                    guard let key = results.asString(forColumn: "name") else { break }
-                    guard let value = results.asString(forColumn: "value") else { break }
+                    guard let key = results.string("name") else { break }
+                    guard let value = results.string("value") else { break }
                     
                     switch key {
                     case "description"    : name = value
@@ -127,12 +127,8 @@ class Module {
         }
     }
    
-    func closeDatabase() {
-        database.close()
-    }
-        
     func delete() {
-        closeDatabase()
+        database.close()
         let url = dataUrl.appendingPathComponent(fileName)
         try? FileManager.default.removeItem(at: url)
     }
