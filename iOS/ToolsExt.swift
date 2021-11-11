@@ -7,12 +7,13 @@
 
 extension Tools {
     
-    func get_Chapter() -> String {
-        var result = ""
+    func get_Chapter() -> [String] {
+        var result = [String]()
         if let text = currBible!.getChapter(currVerse) {
             if !text.isEmpty {
                 for i in 0...text.count-1 {
-                    result += " <l>" + String(i+1) + "</l> " + text[i] + "\n"
+                    let line = String(i+1) + " " + text[i]
+                    result.append(line)
                 }
             }
         }

@@ -34,30 +34,49 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nt3-Ll-YLp" customClass="BibleTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="W4q-yg-4aT">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell-ID" textLabel="RcB-yN-xi5" style="IBUITableViewCellStyleDefault" id="gFb-8S-hYg">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gFb-8S-hYg" id="APS-rR-kWQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RcB-yN-xi5">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="BIZ-L5-x9x"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="ib4-iT-zM0"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="61Y-xc-tLC" firstAttribute="trailing" secondItem="nt3-Ll-YLp" secondAttribute="trailing" id="9wC-fu-i8l"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="top" secondItem="61Y-xc-tLC" secondAttribute="bottom" symbolic="YES" id="Gv7-2s-bGS"/>
+                            <constraint firstAttribute="trailing" secondItem="61Y-xc-tLC" secondAttribute="trailing" id="E2W-UV-1Rc"/>
+                            <constraint firstItem="61Y-xc-tLC" firstAttribute="leading" secondItem="W4q-yg-4aT" secondAttribute="leading" id="Esm-nZ-ncp"/>
+                            <constraint firstItem="61Y-xc-tLC" firstAttribute="bottom" secondItem="W4q-yg-4aT" secondAttribute="top" id="KGA-et-4Ux"/>
+                            <constraint firstItem="61Y-xc-tLC" firstAttribute="trailing" secondItem="W4q-yg-4aT" secondAttribute="trailing" id="Mj2-kF-lU8"/>
                             <constraint firstItem="61Y-xc-tLC" firstAttribute="top" secondItem="PQr-Ze-W5v" secondAttribute="top" id="SiP-Jj-JCm"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="XaF-xj-8Ma"/>
-                            <constraint firstItem="61Y-xc-tLC" firstAttribute="leading" secondItem="nt3-Ll-YLp" secondAttribute="leading" id="jhq-ds-ELW"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="uMN-Zo-fLB"/>
-                            <constraint firstItem="nt3-Ll-YLp" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="ycp-Y4-fF1"/>
+                            <constraint firstItem="61Y-xc-tLC" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="WEA-A4-fWC"/>
+                            <constraint firstItem="W4q-yg-4aT" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="hob-h7-5wh"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
-                        <outlet property="bibleText" destination="nt3-Ll-YLp" id="ZWo-Oe-lrx"/>
+                        <outlet property="tableView" destination="W4q-yg-4aT" id="TTc-yQ-oRd"/>
                         <segue destination="8rJ-Kc-sve" kind="showDetail" identifier="SegueID" id="igy-Pr-63k"/>
                         <segue destination="8UW-iq-8mg" kind="show" identifier="SegueID2" id="08W-7M-ahG"/>
                     </connections>
@@ -170,9 +189,6 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" id="O0g-nv-88X"/>
-                    <connections>
-                        <outlet property="tableView" destination="hgI-fA-N5A" id="7wn-z9-kDv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,9 +215,6 @@
     <resources>
         <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
