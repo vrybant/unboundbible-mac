@@ -32,6 +32,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                     print("name = \(name)")
                 }
             }
+            secondVC.modalPresentationStyle = .fullScreen
         }
     }
     
