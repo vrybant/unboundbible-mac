@@ -77,8 +77,7 @@
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="tableView" destination="W4q-yg-4aT" id="TTc-yQ-oRd"/>
-                        <segue destination="8rJ-Kc-sve" kind="showDetail" identifier="SegueID" id="igy-Pr-63k"/>
-                        <segue destination="8UW-iq-8mg" kind="show" identifier="SegueID2" id="08W-7M-ahG"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="SegueID" id="igy-Pr-63k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -90,17 +89,17 @@
             <objects>
                 <viewController id="8UW-iq-8mg" customClass="PopupViewController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3jY-6Q-tC9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-K9-f9B">
-                                <rect key="frame" x="160" y="175" width="94" height="48"/>
+                                <rect key="frame" x="160" y="202" width="94" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R2j-lF-i7W">
-                                <rect key="frame" x="148.5" y="390.5" width="117" height="61"/>
+                                <rect key="frame" x="148.5" y="417.5" width="117" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="41"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -127,7 +126,7 @@
             </objects>
             <point key="canvasLocation" x="2228" y="402"/>
         </scene>
-        <!--Second-->
+        <!--Second View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController storyboardIdentifier="SecondSceneID" id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
@@ -135,17 +134,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <rect key="frame" x="106" y="421.5" width="202" height="43"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <rect key="frame" x="99.5" y="472.5" width="215" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hgI-fA-N5A">
                                 <rect key="frame" x="20" y="32" width="374" height="753"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -177,17 +165,12 @@
                         <viewLayoutGuide key="safeArea" id="O1u-W8-tvY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="NDk-cv-Gan" secondAttribute="bottom" constant="318.5" id="ExM-Xo-28w"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Pw4-xM-op4"/>
                             <constraint firstItem="hgI-fA-N5A" firstAttribute="top" secondItem="O1u-W8-tvY" secondAttribute="top" constant="32" id="WMV-k7-aFw"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="Yfw-eq-CFO"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="bottom" secondItem="hgI-fA-N5A" secondAttribute="bottom" constant="23" id="dDz-VQ-qhX"/>
                             <constraint firstItem="hgI-fA-N5A" firstAttribute="leading" secondItem="O1u-W8-tvY" secondAttribute="leading" constant="20" id="iPI-dK-otP"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="hgI-fA-N5A" secondAttribute="centerX" id="juo-D0-dRw"/>
                             <constraint firstItem="O1u-W8-tvY" firstAttribute="trailing" secondItem="hgI-fA-N5A" secondAttribute="trailing" constant="20" id="pvE-Fx-hry"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
                     <navigationItem key="navigationItem" id="O0g-nv-88X"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -214,7 +197,6 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
