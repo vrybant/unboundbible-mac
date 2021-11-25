@@ -93,7 +93,7 @@
 		E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
-		E7522CC8214AAD2900EB8788 /* Unbound Bible.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Unbound Bible.entitlements"; sourceTree = "<group>"; };
+		E7522CC8214AAD2900EB8788 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
 		E75525942051334A00BDD425 /* bibles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bibles; sourceTree = "<group>"; };
 		E756E0F7267BC22A005494A6 /* ShelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 		E75F12C01FF25D79006EDAC9 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
@@ -154,10 +154,9 @@
 		CE2F17E41D33C31800BA91A6 = {
 			isa = PBXGroup;
 			children = (
-				E7522CC8214AAD2900EB8788 /* Unbound Bible.entitlements */,
+				E7D39ED820906C4E004D3097 /* Shared */,
 				CE2F17EF1D33C31800BA91A6 /* macOS */,
 				E70E9A20274C13680056C3CC /* iOS */,
-				E7D39ED820906C4E004D3097 /* Common */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
@@ -239,7 +238,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E7D39ED820906C4E004D3097 /* Common */ = {
+		E7D39ED820906C4E004D3097 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
 				E7B7CB6521D66EB600BC292F /* Module.swift */,
@@ -254,8 +253,9 @@
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
+				E7522CC8214AAD2900EB8788 /* app.entitlements */,
 			);
-			path = Common;
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -613,7 +613,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/Header.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -641,7 +641,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/Header.h;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -672,7 +672,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -702,7 +702,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.vladimirrybant.iOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				SWIFT_OBJC_BRIDGING_HEADER = Common/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = Shared/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
