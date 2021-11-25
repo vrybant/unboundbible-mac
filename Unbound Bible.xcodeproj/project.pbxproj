@@ -93,7 +93,7 @@
 		E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
-		E7522CC8214AAD2900EB8788 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
+		E7522CC8214AAD2900EB8788 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E75525942051334A00BDD425 /* bibles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bibles; sourceTree = "<group>"; };
 		E756E0F7267BC22A005494A6 /* ShelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 		E75F12C01FF25D79006EDAC9 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
@@ -205,6 +205,7 @@
 				E7A0D72423AAA36200C48A54 /* extension.swift */,
 				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
 				E7F5071A20509AEB0019F546 /* icns.icns */,
+				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -253,7 +254,6 @@
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
-				E7522CC8214AAD2900EB8788 /* app.entitlements */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
