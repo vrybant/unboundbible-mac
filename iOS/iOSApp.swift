@@ -10,6 +10,24 @@ import SwiftUI
 
 @main
 struct iOSApp: App {
+    init() {
+        readDefaults()
+        copyDefaultsFiles()
+        if tools.bibles.isEmpty { return }
+        tools.setCurrBible(defaultCurrBible!)
+        
+    //      leftView.bibleMenuInit()
+    //      mainView.updateStatus(bible!.info)
+    //      leftView.makeBookList()
+    //      goToVerse(currVerse, select: (currVerse.number > 1))
+        
+        readPrivates()
+        
+    //      createRecentMenu()
+    //      localization()
+        print("initializated")
+    }
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

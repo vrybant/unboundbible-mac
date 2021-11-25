@@ -10,8 +10,36 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
+        
+        TabView {
+            
+            List(0..<tools.get_Chapter().count) { item in
+                Text(tools.get_Chapter()[item])
+                    .padding()
+            }
+            .tabItem {
+                Text("Bible")
+                Image(systemName: "tv.fill")
+             }
+
+/*
+            Text(tools.get_Chapter().joined(separator: "\n"))
+             .padding()
+             .tabItem {
+                Image(systemName: "tv.fill")
+                Text("Bible")
+ */
+              
+           Text("Search Tab")
+             .tabItem {
+                Image(systemName: "phone.fill")
+                Text("Search")
+              }
+        }
+        /*
+        Text(tools.get_Chapter().joined(separator: "\n"))
             .padding()
+        */
     }
 }
 
