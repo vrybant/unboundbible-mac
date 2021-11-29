@@ -17,16 +17,16 @@ struct Verse {
 var currVerse = Verse()
 
 struct Book {
-    var title   = ""
-    var abbr    = ""
-    var number  = 0
-    var id      = 0
-    var sorting = 0
+    var title   : String
+    var abbr    : String
+    var number  : Int
+    var id      : Int
+//  var sorting : Int
 }
 
 struct Content {
-    var verse = Verse()
-    var text: String = ""
+    var verse : Verse
+    var text : String
 }
 
 class Bible: Module {
@@ -90,14 +90,9 @@ class Bible: Module {
                 let id = results.int(forColumn: z.number).int
                 let name = results.string(forColumn: z.name) ?? ""
                 let abbr = results.string(forColumn: z.abbr) ?? ""
-
                 if id > 0 {
-                    var book = Book()
-                    book.number = decodeID(id)
-                    book.id = id
-                    book.sorting = id
-                    book.title = name
-                    book.abbr = abbr
+                    let number = decodeID(id)
+                    let book = Book(title: name, abbr: abbr, number: number, id: id /* ,sorting: id */)
                     books.append(book)
                     loaded = true
                 }
@@ -112,11 +107,9 @@ class Bible: Module {
                 guard let value = results.string(forColumn: z.book) else { break }
                 guard let number = Int(value) else { break }
                 if number > 0 && number <= 66 {
-                    var book = Book()
-                    book.number = number
-                    book.id = number
-                    book.title = titlesArray[number]
-                    book.abbr = abbrevArray[number]
+                    let title = titlesArray[number]
+                    let abbr = abbrevArray[number]
+                    let book = Book(title: title, abbr: abbr, number: number, id: number)
                     books.append(book)
                     loaded = true
                 }
