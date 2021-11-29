@@ -13,20 +13,19 @@ private protocol DictionaryAlias {
     var data : String { get }
 }
 
+private struct UnboundAlias : DictionaryAlias {
+    var dictionary = "Dictionary"
+    var word = "Word"
+    var data = "Data"
+}
+
+private struct MybibleAlias : DictionaryAlias {
+    var dictionary = "dictionary"
+    var word = "topic"
+    var data = "definition"
+}
+
 class Dictionary: Module {
-    
-    private struct UnboundAlias : DictionaryAlias {
-        var dictionary = "Dictionary"
-        var word = "Word"
-        var data = "Data"
-    }
-
-    private struct MybibleAlias : DictionaryAlias {
-        var dictionary = "dictionary"
-        var word = "topic"
-        var data = "definition"
-    }
-
     private var z : DictionaryAlias = UnboundAlias()
 
     override init?(atPath: String) {

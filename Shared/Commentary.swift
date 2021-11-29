@@ -17,30 +17,29 @@ private protocol CommentaryAlias {
     var data       : String { get }
 }
 
-class Commentary: Module {
-    
-    private struct UnboundAlias : CommentaryAlias {
-        var commentary = "commentary"
-        var id         = "id"
-        var book       = "book"
-        var chapter    = "chapter"
-        var fromverse  = "fromverse"
-        var toverse    = "toverse"
-        var data       = "data"
-    }
+private struct UnboundAlias : CommentaryAlias {
+    var commentary = "commentary"
+    var id         = "id"
+    var book       = "book"
+    var chapter    = "chapter"
+    var fromverse  = "fromverse"
+    var toverse    = "toverse"
+    var data       = "data"
+}
 
-    private struct MybibleAlias : CommentaryAlias {
-        var commentary = "commentaries"
-        var id         = "id"
-        var book       = "book_number"
-        var chapter    = "chapter_number_from"
-        var fromverse  = "verse_number_from"
-    //  var chapter    = "chapter_number_to"
-        var toverse    = "verse_number_to"
-    //  var marker     = "marker"
-        var data       = "text"
-    }
+private struct MybibleAlias : CommentaryAlias {
+    var commentary = "commentaries"
+    var id         = "id"
+    var book       = "book_number"
+    var chapter    = "chapter_number_from"
+    var fromverse  = "verse_number_from"
+//  var chapter    = "chapter_number_to"
+    var toverse    = "verse_number_to"
+//  var marker     = "marker"
+    var data       = "text"
+}
 
+class Commentary: Module {    
     private var z : CommentaryAlias = UnboundAlias()
     
     override init?(atPath: String) {

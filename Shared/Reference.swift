@@ -19,33 +19,32 @@ private protocol ReferenceAlias {
     var votes       : String { get }
 }
 
+private struct UnboundAlias : ReferenceAlias {
+    var xreferences = "xreferences"
+    var book        = "book"
+    var chapter     = "chapter"
+    var verse       = "verse"
+    var xbook       = "xbook"
+    var xchapter    = "xchapter"
+    var xfromverse  = "xfromverse"
+    var xtoverse    = "xtoverse"
+    var votes       = "votes"
+}
+
+private struct MybibleAlias : ReferenceAlias {
+    var xreferences = "cross_references"
+    var book        = "book"
+    var chapter     = "chapter"
+    var verse       = "verse"
+//  var toverse     = "verse_end"
+    var xbook       = "book_to"
+    var xchapter    = "chapter_to"
+    var xfromverse  = "verse_to_start"
+    var xtoverse    = "verse_to_end"
+    var votes       = "votes"
+}
+
 class Reference: Module {
-    
-    private struct UnboundAlias : ReferenceAlias {
-        var xreferences = "xreferences"
-        var book        = "book"
-        var chapter     = "chapter"
-        var verse       = "verse"
-        var xbook       = "xbook"
-        var xchapter    = "xchapter"
-        var xfromverse  = "xfromverse"
-        var xtoverse    = "xtoverse"
-        var votes       = "votes"
-    }
-
-    private struct MybibleAlias : ReferenceAlias {
-        var xreferences = "cross_references"
-        var book        = "book"
-        var chapter     = "chapter"
-        var verse       = "verse"
-//      var toverse     = "verse_end"
-        var xbook       = "book_to"
-        var xchapter    = "chapter_to"
-        var xfromverse  = "verse_to_start"
-        var xtoverse    = "verse_to_end"
-        var votes       = "votes"
-    }
-
     private var z : ReferenceAlias = UnboundAlias()
     
     override init?(atPath: String) {
