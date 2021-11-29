@@ -61,19 +61,19 @@ class Module {
     }
 
     private func mybible2unbound(_ id: Int) -> Int {
-        return myBibleArray.firstIndex(of: id) ?? id
+        myBibleArray.firstIndex(of: id) ?? id
     }
 
     func encodeID(_ id: Int) -> Int {
-        return format == .mybible ? unbound2mybible(id) : id
+        format == .mybible ? unbound2mybible(id) : id
     }
     
     func decodeID(_ id: Int) -> Int {
-        return format == .mybible ? mybible2unbound(id) : id
+        format == .mybible ? mybible2unbound(id) : id
     }
     
     static func isNewTestament(_ n: Int) -> Bool {
-        return (n >= 40) && (n < 77)
+        (n >= 40) && (n < 77)
     }
 
     func openDatabase() {

@@ -30,7 +30,7 @@ var databaseList : [String] {
 }
 
 var unboundBiblesList : [String] {
-    return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(".bbl.unbound") } ?? []
+    contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(".bbl.unbound") } ?? []
 }
 
 enum RangeOption {

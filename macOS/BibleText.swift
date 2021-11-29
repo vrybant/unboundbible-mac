@@ -10,7 +10,7 @@ import Cocoa
 class BibleTextView: CustomTextView {
     
     private func colored(_ x: Int) -> Bool {
-        return getForeground(x) == .link
+        getForeground(x) == .link
     }
 
     func selectParagraph(number: Int) {
@@ -75,7 +75,7 @@ class BibleTextView: CustomTextView {
     }
     
     override func menu(for event: NSEvent) -> NSMenu? {
-        return self.menu
+        menu
     }
     
     override func mouseDown(with event: NSEvent) {

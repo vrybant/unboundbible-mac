@@ -42,11 +42,11 @@ enum Errors : Error {
 //  }
 
 var languageCode: String {
-    return NSLocale.autoupdatingCurrent.languageCode ?? "en"
+    NSLocale.autoupdatingCurrent.languageCode ?? "en"
 }
 
 var russianSpeaking: Bool {
-    return ["ru","uk"].contains(languageCode)
+    ["ru","uk"].contains(languageCode)
 }
 
 func printlocal() {
@@ -62,7 +62,7 @@ func printlocal() {
 }
 
 func LocalizedString(_ key: String) -> String {
-    return NSLocalizedString(key, comment: "")
+    NSLocalizedString(key, comment: "")
 }
 
 func listToXml(list: [String]) -> String {
@@ -122,7 +122,7 @@ func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NS
 }
 
 func getRightToLeft(language: String) -> Bool {
-    return language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
+    language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }
 
 func copyDefaultsFiles() {

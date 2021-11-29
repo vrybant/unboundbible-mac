@@ -30,7 +30,7 @@ class CustomTextView: NSTextView {
     }
     
     private var id : String {
-        return identifier?.rawValue ?? ""
+        identifier?.rawValue ?? ""
     }
 
     var selectedString: String {

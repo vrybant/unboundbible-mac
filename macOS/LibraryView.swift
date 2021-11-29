@@ -16,7 +16,7 @@ class LibraryView: NSViewController, NSTableViewDataSource, NSTableViewDelegate 
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return tools.bibles.count
+        tools.bibles.count
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any?

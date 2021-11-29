@@ -136,7 +136,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
-        return mainView.closeDocument() ? .terminateNow : .terminateCancel
+        mainView.closeDocument() ? .terminateNow : .terminateCancel
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {

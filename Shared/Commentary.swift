@@ -84,7 +84,7 @@ class Commentary: Module {
 }
 
 fileprivate func mysort(_ name: String,_ language: String) -> String {
-    return language == languageCode ? " " + name : name
+    language == languageCode ? " " + name : name
 }
 
 extension Array where Element == Commentary {

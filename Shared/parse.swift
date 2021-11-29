@@ -21,7 +21,7 @@ var defaultFontName = "HelveticaNeue"
 var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
-    return [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
+    [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
 }
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {

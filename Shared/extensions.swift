@@ -13,7 +13,7 @@ import Foundation
 
 extension Int32 {
     var int: Int {
-        return Int(self)
+        Int(self)
     }
 }
 
@@ -41,11 +41,11 @@ extension Array where Element == URL {
 extension String {
     
     var quoted: String {
-        return "\"" + self + "\""
+        "\"" + self + "\""
     }
     
     var trimmed: String {
-        return self.trimmingCharacters(in: .whitespaces)
+        trimmingCharacters(in: .whitespaces)
     }
     
     var components: [String] {
@@ -99,24 +99,23 @@ extension String {
     }
     
     var lastPathComponent: String {
-        return URL(fileURLWithPath: self).lastPathComponent
+        URL(fileURLWithPath: self).lastPathComponent
     }
     
     var lastPathComponentWithoutExtension: String {
-        return URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
+        URL(fileURLWithPath: self).deletingPathExtension().lastPathComponent
     }
 
     var pathExtension: String {
-        return URL(fileURLWithPath: self).pathExtension
+        URL(fileURLWithPath: self).pathExtension
     }
     
     var attributed: NSMutableAttributedString {
-        return NSMutableAttributedString(string: self, attributes: defaultAttributes)
+        NSMutableAttributedString(string: self, attributes: defaultAttributes)
     }
     
-    func replace(_ string: String, with: String) -> String
-    {
-        return self.replacingOccurrences(of: string, with: with, options: .literal, range: nil)
+    func replace(_ string: String, with: String) -> String {
+        replacingOccurrences(of: string, with: with, options: .literal, range: nil)
     }
 
     func cut(from: String, to: String) -> String {
@@ -153,7 +152,7 @@ extension String {
     }
     
     func containsAny(_ list: [String]) -> Bool {
-        return list.filter { self.contains($0) }.count > 0
+        list.filter { self.contains($0) }.count > 0
     }
     
     func hasSuffix(_ suffix: [String]) -> Bool {
@@ -189,7 +188,7 @@ extension String {
     }
 
     var htmlToString: String {
-        return htmlToAttributedString?.string ?? ""
+        htmlToAttributedString?.string ?? ""
     }
     
 }
@@ -204,7 +203,7 @@ extension NSMutableAttributedString {
 extension Substring {
 
     var int: Int {
-        return Int(self) ?? 0
+        Int(self) ?? 0
     }
     
     var trimmed: Substring {
@@ -216,22 +215,22 @@ extension Substring {
 
 extension Color {
     static var navy: Color {
-        return Color(red: 0, green: 0, blue: 0.5, alpha: 1)
+        Color(red: 0, green: 0, blue: 0.5, alpha: 1)
     }
     static var darkNavy: Color {
-        return Color(red: 0, green: 0.6, blue: 1, alpha: 1)
+        Color(red: 0, green: 0.6, blue: 1, alpha: 1)
     }
     static var systemNavy: Color {
-        return darkAppearance ? Color.darkNavy : Color.navy
+        darkAppearance ? Color.darkNavy : Color.navy
     }
     static var teal: Color {
-        return Color(red: 0.2, green: 0.4, blue: 0.4, alpha: 1)
+        Color(red: 0.2, green: 0.4, blue: 0.4, alpha: 1)
     }
     static var darkTeal: Color {
-        return Color(red:0.40, green:0.80, blue:0.80, alpha: 1)
+        Color(red:0.40, green:0.80, blue:0.80, alpha: 1)
     }
     static var systemTeal: Color {
-        return darkAppearance ? Color.darkTeal : Color.teal
+        darkAppearance ? Color.darkTeal : Color.teal
     }
     static var systemAccent: Color {
         if #available(OSX 10.14, *) {
@@ -249,20 +248,20 @@ extension Color {
 #if os(iOS)
 extension Color {
     static var systemBrown: Color {
-        return Color.brown
+        Color.brown
     }
     static var labelColor: Color {
-        return Color.label
+        Color.label
     }
     static var secondaryLabelColor: Color {
-        return Color.secondaryLabel
+        Color.secondaryLabel
     }
 }
 #endif
 
 extension NSAttributedString {
     func mutable() -> NSMutableAttributedString {
-        return self.mutableCopy() as! NSMutableAttributedString
+        mutableCopy() as! NSMutableAttributedString
     }
 
     func withSystemColors() -> NSMutableAttributedString {
@@ -331,19 +330,19 @@ extension NSAttributedString {
 
 extension UserDefaults {
     func cgfloat(forKey defaultName: String) -> CGFloat {
-        return CGFloat(self.float(forKey: defaultName))
+        CGFloat(self.float(forKey: defaultName))
     }
 }
 
 extension FMDatabase {
     func executeQuery(_ sql: String) -> FMResultSet? {
-        return try? executeQuery(sql, values: nil)
+        try? executeQuery(sql, values: nil)
     }
 }
 
 extension FMResultSet {
     func columnExists(_ name: String) -> Bool {
-        return columnNameToIndexMap[name.lowercased()] != nil
+        columnNameToIndexMap[name.lowercased()] != nil
     }
     func string(_ name: String) -> String? {
         if !columnExists(name) { return nil }

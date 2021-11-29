@@ -68,7 +68,7 @@ class ShelfView: NSViewController {
 extension ShelfView: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return modules.count
+        modules.count
     }
 
 }

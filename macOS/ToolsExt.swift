@@ -106,7 +106,7 @@ extension Tools {
     }
 
     func get_Strong(number: String = "") -> String? {
-        return dictionaries.getStrong(currVerse, language: currBible!.language, number: number)
+        dictionaries.getStrong(currVerse, language: currBible!.language, number: number)
     }
 
     func get_Footnote(marker: String = "") -> String {

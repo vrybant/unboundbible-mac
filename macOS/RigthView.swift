@@ -118,7 +118,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
 
     func textView(_ view: NSTextView, menu: NSMenu, for event: NSEvent, at charIndex: Int) -> NSMenu? {
-        return popupMenu
+        popupMenu
     }
     
     func loadChapter() {
