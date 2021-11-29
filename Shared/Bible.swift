@@ -29,7 +29,7 @@ struct Content {
     var text : String
 }
 
-private protocol Aliases {
+private protocol BibleAliases {
     var bible   : String { get }
     var book    : String { get }
     var chapter : String { get }
@@ -43,7 +43,7 @@ private protocol Aliases {
 
 class Bible: Module {
     
-    private struct UnboundAliases : Aliases {
+    private struct UnboundAliases : BibleAliases {
         var bible   = "Bible"
         var book    = "Book"
         var chapter = "Chapter"
@@ -55,7 +55,7 @@ class Bible: Module {
         var abbr    = "Abbreviation"
     }
 
-    private struct MybibleAliases : Aliases {
+    private struct MybibleAliases : BibleAliases {
         var bible   = "verses"
         var book    = "book_number"
         var chapter = "chapter"
@@ -68,7 +68,7 @@ class Bible: Module {
     }
 
     private var books : [Book] = []
-    private var z : Aliases = UnboundAliases()
+    private var z : BibleAliases = UnboundAliases()
 
     private let titlesArray : [String] = ["",
       "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel",

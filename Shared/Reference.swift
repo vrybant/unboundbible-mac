@@ -7,9 +7,21 @@
 
 import Foundation
 
+private protocol ReferenceAliases {
+    var xreferences : String { get }
+    var book        : String { get }
+    var chapter     : String { get }
+    var verse       : String { get }
+    var xbook       : String { get }
+    var xchapter    : String { get }
+    var xfromverse  : String { get }
+    var xtoverse    : String { get }
+    var votes       : String { get }
+}
+
 class Reference: Module {
     
-    private struct Alias {
+    private struct UnboundAliases : ReferenceAliases {
         var xreferences = "xreferences"
         var book        = "book"
         var chapter     = "chapter"
@@ -21,24 +33,24 @@ class Reference: Module {
         var votes       = "votes"
     }
 
-    private let mybibleAlias = Alias(
-        xreferences : "cross_references",
-        book        : "book",
-        chapter     : "chapter",
-        verse       : "verse",
-//      toverse     : "verse_end",
-        xbook       : "book_to",
-        xchapter    : "chapter_to",
-        xfromverse  : "verse_to_start",
-        xtoverse    : "verse_to_end",
-        votes       : "votes"
-    )
+    private struct MybibleAliases : ReferenceAliases {
+        var xreferences = "cross_references"
+        var book        = "book"
+        var chapter     = "chapter"
+        var verse       = "verse"
+//      var toverse     = "verse_end"
+        var xbook       = "book_to"
+        var xchapter    = "chapter_to"
+        var xfromverse  = "verse_to_start"
+        var xtoverse    = "verse_to_end"
+        var votes       = "votes"
+    }
 
-    private var z = Alias()
+    private var z : ReferenceAliases = UnboundAliases()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-        if format == .mybible { z = mybibleAlias }
+        if format == .mybible { z = MybibleAliases() }
         if connected && !database.tableExists(z.xreferences) { return nil }
     }
     
