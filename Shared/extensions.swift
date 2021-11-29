@@ -345,11 +345,9 @@ extension FMResultSet {
         columnNameToIndexMap[name.lowercased()] != nil
     }
     func string(_ name: String) -> String? {
-        if !columnExists(name) { return nil }
-        return self.string(forColumn: name)
+        columnExists(name) ? string(forColumn: name) : nil
     }
     func bool(_ name: String) -> Bool {
-        if !columnExists(name) { return false }
-        return self.bool(forColumn: name)
+        columnExists(name) ? self.bool(forColumn: name) : false
     }
 }
