@@ -29,34 +29,46 @@ struct Content {
     var text : String
 }
 
+private protocol Aliases {
+    var bible   : String { get }
+    var book    : String { get }
+    var chapter : String { get }
+    var verse   : String { get }
+    var text    : String { get }
+    var books   : String { get }
+    var number  : String { get }
+    var name    : String { get }
+    var abbr    : String { get }
+}
+
 class Bible: Module {
     
-    private struct unboundAlias {
-        var bible = "Bible"
-        var book = "Book"
+    private struct UnboundAliases : Aliases {
+        var bible   = "Bible"
+        var book    = "Book"
         var chapter = "Chapter"
-        var verse = "Verse"
-        var text = "Scripture"
-        var books = "Books"
-        var number = "Number"
-        var name = "Name"
-        var abbr = "Abbreviation"
+        var verse   = "Verse"
+        var text    = "Scripture"
+        var books   = "Books"
+        var number  = "Number"
+        var name    = "Name"
+        var abbr    = "Abbreviation"
     }
 
-    private let mybibleAlias = unboundAlias(
-        bible : "verses",
-        book : "book_number",
-        chapter : "chapter",
-        verse : "verse",
-        text : "text",
-        books : "books",
-        number : "book_number",
-        name : "long_name",
-        abbr : "short_name"
-    )
+    private struct MybibleAliases : Aliases {
+        var bible   = "verses"
+        var book    = "book_number"
+        var chapter = "chapter"
+        var verse   = "verse"
+        var text    = "text"
+        var books   = "books"
+        var number  = "book_number"
+        var name    = "long_name"
+        var abbr    = "short_name"
+    }
 
     private var books : [Book] = []
-    private var z = unboundAlias()
+    private var z : Aliases = UnboundAliases()
 
     private let titlesArray : [String] = ["",
       "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel",
@@ -78,7 +90,7 @@ class Bible: Module {
 
     override init?(atPath: String) {
         super.init(atPath: atPath)
-        if format == .mybible { z = mybibleAlias }
+        if format == .mybible { z = MybibleAliases()  }
         if connected && !database.tableExists(z.bible) { connected = false }
         if !connected { return nil }
     }

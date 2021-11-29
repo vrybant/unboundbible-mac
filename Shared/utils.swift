@@ -33,13 +33,9 @@ var unboundBiblesList : [String] {
     return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(".bbl.unbound") } ?? []
 }
 
-//********** RangeOption **********
-
 enum RangeOption {
     case bible, oldTestament, newTestament, gospels, epistles, openedBook
 }
-
-//********** SearchOption **********
 
 struct SearchRange {
     var from : Int
@@ -54,8 +50,6 @@ struct SearchOption: OptionSet {
 
 var searchOption : SearchOption = []
 
-//********** CopyOptions **********
-
 struct CopyOptions : OptionSet {
     let rawValue: Int
     static let  abbreviate = CopyOptions(rawValue: 1 << 0)
@@ -66,8 +60,6 @@ struct CopyOptions : OptionSet {
 }
 
 var copyOptions: CopyOptions = []
-
-//********** Defaults **********
 
 var defaultCurrBible : String?
 
