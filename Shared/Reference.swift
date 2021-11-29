@@ -7,7 +7,7 @@
 
 import Foundation
 
-private protocol ReferenceAliases {
+private protocol ReferenceAlias {
     var xreferences : String { get }
     var book        : String { get }
     var chapter     : String { get }
@@ -21,7 +21,7 @@ private protocol ReferenceAliases {
 
 class Reference: Module {
     
-    private struct UnboundAliases : ReferenceAliases {
+    private struct UnboundAlias : ReferenceAlias {
         var xreferences = "xreferences"
         var book        = "book"
         var chapter     = "chapter"
@@ -33,7 +33,7 @@ class Reference: Module {
         var votes       = "votes"
     }
 
-    private struct MybibleAliases : ReferenceAliases {
+    private struct MybibleAlias : ReferenceAlias {
         var xreferences = "cross_references"
         var book        = "book"
         var chapter     = "chapter"
@@ -46,11 +46,11 @@ class Reference: Module {
         var votes       = "votes"
     }
 
-    private var z : ReferenceAliases = UnboundAliases()
+    private var z : ReferenceAlias = UnboundAlias()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-        if format == .mybible { z = MybibleAliases() }
+        if format == .mybible { z = MybibleAlias() }
         if connected && !database.tableExists(z.xreferences) { return nil }
     }
     

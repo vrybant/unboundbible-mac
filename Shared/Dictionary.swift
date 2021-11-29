@@ -7,7 +7,7 @@
 
 import Foundation
 
-private protocol DictionaryAliases {
+private protocol DictionaryAlias {
     var dictionary : String { get }
     var word : String { get }
     var data : String { get }
@@ -15,23 +15,23 @@ private protocol DictionaryAliases {
 
 class Dictionary: Module {
     
-    private struct UnboundAliases : DictionaryAliases {
+    private struct UnboundAlias : DictionaryAlias {
         var dictionary = "Dictionary"
         var word = "Word"
         var data = "Data"
     }
 
-    private struct MybibleAliases : DictionaryAliases {
+    private struct MybibleAlias : DictionaryAlias {
         var dictionary = "dictionary"
         var word = "topic"
         var data = "definition"
     }
 
-    private var z : DictionaryAliases = UnboundAliases()
+    private var z : DictionaryAlias = UnboundAlias()
 
     override init?(atPath: String) {
         super.init(atPath: atPath)!
-        if format == .mybible { z = MybibleAliases() }
+        if format == .mybible { z = MybibleAlias() }
         if connected && !database.tableExists(z.dictionary) { return nil }
     }
     

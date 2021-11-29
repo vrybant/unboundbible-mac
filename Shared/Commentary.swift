@@ -7,7 +7,7 @@
 
 import Foundation
 
-private protocol CommentaryAliases {
+private protocol CommentaryAlias {
     var commentary : String { get }
     var id         : String { get }
     var book       : String { get }
@@ -19,7 +19,7 @@ private protocol CommentaryAliases {
 
 class Commentary: Module {
     
-    private struct UnboundAliases : CommentaryAliases {
+    private struct UnboundAlias : CommentaryAlias {
         var commentary = "commentary"
         var id         = "id"
         var book       = "book"
@@ -29,7 +29,7 @@ class Commentary: Module {
         var data       = "data"
     }
 
-    private struct MybibleAliases : CommentaryAliases {
+    private struct MybibleAlias : CommentaryAlias {
         var commentary = "commentaries"
         var id         = "id"
         var book       = "book_number"
@@ -41,11 +41,11 @@ class Commentary: Module {
         var data       = "text"
     }
 
-    private var z : CommentaryAliases = UnboundAliases()
+    private var z : CommentaryAlias = UnboundAlias()
     
     override init?(atPath: String) {
         super.init(atPath: atPath)
-        if format == .mybible { z = MybibleAliases() }
+        if format == .mybible { z = MybibleAlias() }
         if connected && !database.tableExists(z.commentary) { return nil }
     }
 

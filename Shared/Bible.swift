@@ -29,7 +29,7 @@ struct Content {
     var text : String
 }
 
-private protocol BibleAliases {
+private protocol BibleAlias {
     var bible   : String { get }
     var book    : String { get }
     var chapter : String { get }
@@ -43,7 +43,7 @@ private protocol BibleAliases {
 
 class Bible: Module {
     
-    private struct UnboundAliases : BibleAliases {
+    private struct UnboundAlias : BibleAlias {
         var bible   = "Bible"
         var book    = "Book"
         var chapter = "Chapter"
@@ -55,7 +55,7 @@ class Bible: Module {
         var abbr    = "Abbreviation"
     }
 
-    private struct MybibleAliases : BibleAliases {
+    private struct MybibleAlias : BibleAlias {
         var bible   = "verses"
         var book    = "book_number"
         var chapter = "chapter"
@@ -68,7 +68,7 @@ class Bible: Module {
     }
 
     private var books : [Book] = []
-    private var z : BibleAliases = UnboundAliases()
+    private var z : BibleAlias = UnboundAlias()
 
     private let titlesArray : [String] = ["",
       "Genesis","Exodus","Leviticus","Numbers","Deuteronomy","Joshua","Judges","Ruth","1 Samuel","2 Samuel",
@@ -90,7 +90,7 @@ class Bible: Module {
 
     override init?(atPath: String) {
         super.init(atPath: atPath)
-        if format == .mybible { z = MybibleAliases()  }
+        if format == .mybible { z = MybibleAlias()  }
         if connected && !database.tableExists(z.bible) { connected = false }
         if !connected { return nil }
     }
