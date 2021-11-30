@@ -81,7 +81,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
 
     private var ru: String {
-        !russianSpeaking ? "ru" : ""
+        russianSpeaking ? "ru" : ""
     }
     
     @IBAction func contactPage(_ sender: NSMenuItem) {
