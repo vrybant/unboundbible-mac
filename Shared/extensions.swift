@@ -93,7 +93,7 @@ extension String {
         return result.joined(separator: " ")
     }
     
-    var removeDoubleSpace: String {
+    var removeDoubleSpaces: String {
         let components = self.components(separatedBy: .whitespacesAndNewlines).filter { !$0.isEmpty }
         return components.joined(separator: " ")
     }

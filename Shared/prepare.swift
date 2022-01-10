@@ -41,6 +41,39 @@ private func myswordStrongsToUnbound(_ string: inout String) {
         }
     }
 }
+
+//private func extractFootnoteMarker(_ string: String) -> String {
+//    var result = ""
+//    if let range = string.range(of: "=") {
+//        result = String(string[range.lowerBound..<string.endIndex])
+//    }
+//    return result.replace(">", with: "")
+//}
+
+private func extractMarkers(_ string: inout String) {
+    let list = xmlToList(string: string)
+    string = ""
+    for item in list {
+        if item.hasPrefix("<q=") {
+            let marker = item.replace("<q=", with: "").replace(">", with: "")
+            string += marker + " [~"
+        } else {
+            string += item
+        }
+    }
+}
+
+private func cutFootnotes(_ string: inout String) {
+    string = string.replace("<f>", with: "<f>✻[~").replace("</f>", with: "~]</f>")
+    string = string.cut(from: "[~", to: "~]")
+}
+
+private func cutFootnotesEx(_ string: inout String) {
+    string = string.replace("<f ", with: "<f><").replace("</f>", with: "~]</f>")
+    extractMarkers(&string)
+    string = string.cut(from: "[~", to: "~]")
+}
+
 private func replaceMyswordTags(_ string: inout String) {
     myswordStrongsToUnbound(&string)
 	
@@ -49,6 +82,9 @@ private func replaceMyswordTags(_ string: inout String) {
             string = string.replace(item.key, with: item.value)
         }
     }
+    if string.contains("<f>") { cutFootnotes(&string) }
+    if string.contains("<f ") { cutFootnotesEx(&string) }
+    
     string = string.replace("¶", with: "")
 }
 
@@ -76,50 +112,18 @@ private func cleanUnabledTags(_ string: inout String) {
     }
 }
 
-private func mybibleStrongsToMysword(_ string: String, nt: Bool) -> String {
-    let symbol = nt ? "G" : "H"
-    let text = "<S>" + symbol
-    return string.replace(  "<S>", with: text)
-}
-
-private func extractFootnoteMarker(_ string: String) -> String {
-    var result = ""
-    if let range = string.range(of: "=") {
-        result = String(string[range.lowerBound..<string.endIndex])
-    }
-    return result.replace(">", with: "")
-}
-
-private func extractMarkers(_ string: inout String) {
-    let list = xmlToList(string: string)
-    string = ""
-    for item in list {
-        if item.hasPrefix("<q=") {
-            let marker = item.replace("<q=", with: "").replace(">", with: "")
-            string += marker + " [~"
-        } else {
-            string += item
-        }
-    }
-}
-
-private func cutFootnotes(_ string: inout String) {
-    string = string.replace("<f>", with: "<f>✻[~").replace("</f>", with: "~]</f>")
-    string = string.cut(from: "[~", to: "~]")
-}
-
-private func cutFootnotesEx(_ string: inout String) {
-    string = string.replace("<f ", with: "<f><").replace("</f>", with: "~]</f>")
-    extractMarkers(&string)
-    string = string.cut(from: "[~", to: "~]")
-}
+//private func mybibleStrongsToMysword(_ string: String, nt: Bool) -> String {
+//    let symbol = nt ? "G" : "H"
+//    let text = "<S>" + symbol
+//    return string.replace(  "<S>", with: text)
+//}
 
 func convertTags(_ string: inout String, format: FileFormat, nt: Bool) {
     if format == .mysword { replaceMyswordTags(&string) }
     if format == .mybible { replaceMybibleTags(&string) }
     
    cleanUnabledTags(&string)
-   string = string.removeDoubleSpace.trimmed
+   string = string.removeDoubleSpaces.trimmed
 }
 
 func prepare(_ string: String, format: FileFormat, nt: Bool, purge: Bool = true) -> String {
@@ -127,11 +131,6 @@ func prepare(_ string: String, format: FileFormat, nt: Bool, purge: Bool = true)
     
     if format != .unbound { convertTags(&string, format: format, nt: nt) }
     
-    if format == .unbound || format == .mysword {
-        if string.contains("<f>") { cutFootnotes(&string) }
-        if string.contains("<f ") { cutFootnotesEx(&string) }
-    }
-
     if purge { string = string.cut(from: "<f>", to:"</f>") }
     string = string.cut(from: "<h>", to: "</h>")
     string = string.replace("><", with: "> <")
