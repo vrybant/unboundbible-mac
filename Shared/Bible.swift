@@ -112,7 +112,7 @@ class Bible: Module {
     }
     
     func loadMyswordDatabase() {
-        let query = "select distinct \(z.book) from \(z.bible)"
+        let query = "SELECT DISTINCT \(z.book) FROM \(z.bible)"
         if let results = database.executeQuery(query) {
             while results.next() {
                 guard let value = results.string(forColumn: z.book) else { break }
@@ -188,7 +188,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = preparation(line, format: format, nt: nt, purge: false)
+                let text = prepare(line, format: format, nt: nt, purge: false)
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -196,7 +196,7 @@ class Bible: Module {
         return nil
     }
     
-    func getRange(_ verse: Verse, prepare: Bool = true, purge: Bool = true) -> [String]? {
+    func getRange(_ verse: Verse, preparation: Bool = true, purge: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
         let nt = Module.isNewTestament(verse.book)
         let toVerse = verse.number + verse.count
@@ -207,7 +207,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = prepare ? preparation(line, format: format, nt: nt, purge: purge) : line
+                let text = preparation ? prepare(line, format: format, nt: nt, purge: purge) : line
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -233,7 +233,7 @@ class Bible: Module {
     }
      
     func getFootnote(_ verse : Verse, marker: String) -> String? {
-        guard let range = getRange(verse, prepare: false) else { return nil }
+        guard let range = getRange(verse, preparation: false) else { return nil }
         return extractFootnotes(range[0], marker)
     }
     
@@ -269,7 +269,7 @@ class Bible: Module {
                 
                 let verse = Verse(book: decodeID(Int(book) ?? 0), chapter: Int(chapter) ?? 0, number: Int(number) ?? 0, count: 1)
                 let nt = Module.isNewTestament(verse.book)
-                var text = preparation(line, format: format, nt: nt)
+                var text = prepare(line, format: format, nt: nt)
                 let content = Content(verse: verse, text: text)
                 text = text.replace("<S>", with: " ").removeTags
                 if text.containsEvery(list, options: options) { lines.append(content) }

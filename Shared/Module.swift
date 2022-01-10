@@ -55,27 +55,6 @@ class Module {
         if !connected { return nil }
     }
 
-    private func unbound2mybible(_ id: Int) -> Int {
-        let range = 1..<myBibleArray.count
-        return range.contains(id) ? myBibleArray[id] : id
-    }
-
-    private func mybible2unbound(_ id: Int) -> Int {
-        myBibleArray.firstIndex(of: id) ?? id
-    }
-
-    func encodeID(_ id: Int) -> Int {
-        format == .mybible ? unbound2mybible(id) : id
-    }
-    
-    func decodeID(_ id: Int) -> Int {
-        format == .mybible ? mybible2unbound(id) : id
-    }
-    
-    static func isNewTestament(_ n: Int) -> Bool {
-        (n >= 40) && (n < 77)
-    }
-
     func openDatabase() {
         if !database.open() { return }
         
@@ -127,11 +106,32 @@ class Module {
         }
     }
    
+    private func unbound2mybible(_ id: Int) -> Int {
+        let range = 1..<myBibleArray.count
+        return range.contains(id) ? myBibleArray[id] : id
+    }
+
+    private func mybible2unbound(_ id: Int) -> Int {
+        myBibleArray.firstIndex(of: id) ?? id
+    }
+
+    func encodeID(_ id: Int) -> Int {
+        format == .mybible ? unbound2mybible(id) : id
+    }
+    
+    func decodeID(_ id: Int) -> Int {
+        format == .mybible ? mybible2unbound(id) : id
+    }
+    
+    static func isNewTestament(_ n: Int) -> Bool {
+        (n >= 40) && (n < 77)
+    }
+
     func delete() {
         database.close()
         let url = dataUrl.appendingPathComponent(fileName)
         try? FileManager.default.removeItem(at: url)
     }
-    
+	
 }
 
