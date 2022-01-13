@@ -113,7 +113,7 @@ extension Tools {
         if currBible!.format == .mybible {
             return commentaries.getFootnote(module: currBible!.fileName, verse: currVerse, marker: marker) ?? ""
         } else {
-            return currBible!.getFootnote(currVerse, marker: marker) ?? ""
+            return currBible!.getMyswordFootnote(currVerse, marker: marker) ?? ""
         }
     }
 

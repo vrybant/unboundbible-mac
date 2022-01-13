@@ -196,7 +196,7 @@ class Bible: Module {
         return nil
     }
     
-    func getRange(_ verse: Verse, preparation: Bool = true, purge: Bool = true) -> [String]? {
+    func getRange(_ verse: Verse, raw: Bool = false, purge: Bool = true) -> [String]? {
         let id = encodeID(verse.book)
         let nt = Module.isNewTestament(verse.book)
         let toVerse = verse.number + verse.count
@@ -207,7 +207,7 @@ class Bible: Module {
             var result = [String]()
             while results.next() {
                 guard let line = results.string(forColumn: z.text) else { break }
-                let text = preparation ? prepare(line, format: format, nt: nt, purge: purge) : line
+                let text = raw ? line : prepare(line, format: format, nt: nt, purge: purge)
                 result.append(text)
             }
             if !result.isEmpty { return result }
@@ -215,26 +215,19 @@ class Bible: Module {
         return nil
     }
     
-    private func extractFootnotes(_ string: String,_ marker: String) -> String {
-        var string = string
-        if format == .mysword {
-            string = string.replace("<RF", with: "<f").replace("<Rf>", with: "</f>")
-        }
-        let list = xmlToList(string: string)
-        var result = ""
-        let tag = marker.hasPrefix("✻") ? "<f>" : "<f q=" + marker + ">"
+    func getMyswordFootnote(_ verse : Verse, marker: String) -> String? {
+        guard let range = getRange(verse, raw: true) else { return nil }
+        let xml = xmlToList(string: range[0])
+        let tag = marker.hasPrefix("✻") ? "<RF>" : "<RF q=" + marker + ">"
+        var list: [String] = []
+        var r = ""
         var l = false
-        for item in list {
-            if item == "</f>" { l = false; result += "\n" }
-            if l { result += item }
+        for item in xml {
+            if item == "<Rf>" { l = false; list.append(r.trimmed); r = "";  }
+            if l { r += item }
             if item == tag { l = true }
         }
-        return result
-    }
-     
-    func getFootnote(_ verse : Verse, marker: String) -> String? {
-        guard let range = getRange(verse, preparation: false) else { return nil }
-        return extractFootnotes(range[0], marker)
+        return list.joined(separator: "\n")
     }
     
     func rankContents(contents: [Content]) -> [Content] {
