@@ -2,7 +2,7 @@
 //  Bible.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © 2022 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -22,11 +22,6 @@ struct Book {
     var number  : Int
     var id      : Int
 //  var sorting : Int
-}
-
-struct Content {
-    var verse : Verse
-    var text : String
 }
 
 private protocol BibleAlias {
@@ -96,11 +91,11 @@ class Bible: Module {
     
     func loadUnboundDatabase() {
         let query = "SELECT * FROM " + z.books
-        if let results = database.executeQuery(query) {
-            while results.next() {
-                let id = results.int(forColumn: z.number).int
-                let name = results.string(forColumn: z.name) ?? ""
-                let abbr = results.string(forColumn: z.abbr) ?? ""
+        if let set = database.executeQuery(query) {
+            while set.next() {
+                let id = set.int(forColumn: z.number).int
+                let name = set.string(forColumn: z.name) ?? ""
+                let abbr = set.string(forColumn: z.abbr) ?? ""
                 if id > 0 {
                     let number = decodeID(id)
                     let book = Book(title: name, abbr: abbr, number: number, id: id /* ,sorting: id */)
@@ -113,9 +108,9 @@ class Bible: Module {
     
     func loadMyswordDatabase() {
         let query = "SELECT DISTINCT \(z.book) FROM \(z.bible)"
-        if let results = database.executeQuery(query) {
-            while results.next() {
-                guard let value = results.string(forColumn: z.book) else { break }
+        if let set = database.executeQuery(query) {
+            while set.next() {
+                guard let value = set.string(forColumn: z.book) else { break }
                 guard let number = Int(value) else { break }
                 if number > 0 && number <= 66 {
                     let title = titlesArray[number]
@@ -155,9 +150,9 @@ class Bible: Module {
         let id = encodeID(verse.book)
         let query = "select max(\(z.chapter)) as count from \(z.bible) where \(z.book) = \(id)"
 
-        if let results = database.executeQuery(query) {
-            if results.next() {
-                return results.int(forColumn: "count").int
+        if let set = database.executeQuery(query) {
+            if set.next() {
+                return set.int(forColumn: "count").int
             }
         }
         return 0
@@ -184,10 +179,10 @@ class Bible: Module {
         let nt = Module.isNewTestament(verse.book)
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
 
-        if let results = database.executeQuery(query) {
+        if let set = database.executeQuery(query) {
             var result = [String]()
-            while results.next() {
-                guard let line = results.string(forColumn: z.text) else { break }
+            while set.next() {
+                guard let line = set.string(forColumn: z.text) else { break }
                 let text = prepare(line, format: format, nt: nt, purge: false)
                 result.append(text)
             }
@@ -203,10 +198,10 @@ class Bible: Module {
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
         
-        if let results = database.executeQuery(query) {
+        if let set = database.executeQuery(query) {
             var result = [String]()
-            while results.next() {
-                guard let line = results.string(forColumn: z.text) else { break }
+            while set.next() {
+                guard let line = set.string(forColumn: z.text) else { break }
                 let text = raw ? line : prepare(line, format: format, nt: nt, purge: purge)
                 result.append(text)
             }
@@ -230,19 +225,20 @@ class Bible: Module {
         return list.joined(separator: "\n")
     }
     
-    func rankContents(contents: [Content]) -> [Content] {
-        var result = [Content]()
+    func sortContent(_ list: [String]) -> [String] {
+        var result = [String]()
         for book in books {
-            for line in contents {
-                if line.verse.book == book.number {
-                    result.append(line)
+            let prefix = String(book.number) + "\0"
+            for s in list {
+                if s.hasPrefix(prefix) {
+                    result.append(s)
                 }
             }
         }
         return result
     }
     
-    func search(string: String, options: SearchOption, range: SearchRange?) -> [Content]? {
+    func search(string: String, options: SearchOption, range: SearchRange?) -> [String]? {
         let list = string.components(separatedBy: CharacterSet.whitespaces).filter { !$0.isEmpty }
         var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
         string = string.replace(" ", with: "%")
@@ -252,23 +248,26 @@ class Bible: Module {
         
         setCaseSensitiveLike(options.contains(.caseSensitive))
         
-        if let results = database.executeQuery(query) {
-            var lines = [Content]()
-            while results.next() {
-                guard let book = results.string(forColumn: z.book) else { break }
-                guard let chapter = results.string(forColumn: z.chapter) else { break }
-                guard let number = results.string(forColumn: z.verse) else { break }
-                guard let line = results.string(forColumn: z.text) else { break }
-                
-                let verse = Verse(book: decodeID(Int(book) ?? 0), chapter: Int(chapter) ?? 0, number: Int(number) ?? 0, count: 1)
-                let nt = Module.isNewTestament(verse.book)
-                var text = prepare(line, format: format, nt: nt)
-                let content = Content(verse: verse, text: text)
+        if let set = database.executeQuery(query) {
+            var result = [String]()
+            while set.next() {
+                guard let id      = set.string(forColumn: z.book   ) else { break }
+                guard let chapter = set.string(forColumn: z.chapter) else { break }
+                guard let number  = set.string(forColumn: z.verse  ) else { break }
+                guard let data    = set.string(forColumn: z.text   ) else { break }
+
+                let book = decodeID(Int(id) ?? 0)
+                let nt = Module.isNewTestament(book)
+                var text = prepare(data, format: format, nt: nt)
+                let s = "\(book)\0\(chapter)\0\(number)\0\(text)"
+
                 text = text.replace("<S>", with: " ").removeTags
-                if text.containsEvery(list, options: options) { lines.append(content) }
+                if text.containsEvery(list, options: options) {
+                    result.append(s)
+                }
             }
-            if !lines.isEmpty {
-                return rankContents(contents: lines)
+            if !result.isEmpty {
+                return sortContent(result)
             }
         }
         return nil

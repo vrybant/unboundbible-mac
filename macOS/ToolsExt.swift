@@ -2,7 +2,7 @@
 //  ToolsExt.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © 2022 Vladimir Rybant. All rights reserved.
 //
 
 extension Tools {
@@ -19,6 +19,15 @@ extension Tools {
         return result
     }
     
+    func arrayToVerse(_ array: [String]) -> Verse? {
+        var result = Verse()
+        if array.count < 3 { return nil }
+        result.book    = Int(array[0]) ?? 0
+        result.chapter = Int(array[1]) ?? 0
+        result.number  = Int(array[2]) ?? 0
+        return result
+    }
+    
     func get_Search(string: String) -> (string: String, count: Int) {
         var result = ""
         var count = 0
@@ -32,15 +41,17 @@ extension Tools {
         #endif
 
         if let searchResult = currBible!.search(string: target, options: searchOption, range: range) {
-            for content in searchResult {
-                if let link = currBible!.verseToString(content.verse, full: true) {
-                    let text = content.text.highlight(with: "<r>", target: searchList, options: searchOption)
-                    result += "<l>\(link)</l> \(text)\n\n"
-                }
+            for s in searchResult {
+                let array = s.components(separatedBy: "\0")
+                if array.count < 4 { continue }
+                guard let verse = arrayToVerse(array) else { continue }
+                guard let link = currBible!.verseToString(verse, full: true) else { continue }
+                var text = array[3]
+                text = text.highlight(with: "<r>", target: searchList, options: searchOption)
+                result += "<l>\(link)</l> \(text)\n\n"
             }
             count = searchResult.count
         }
-        
         return (result, count)
     }
 

@@ -2,7 +2,7 @@
 //  prepare.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © 2022 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -50,7 +50,7 @@ private func myswordStrongsToUnbound(_ string: inout String) {
 //    return result.replace(">", with: "")
 //}
 
-private func extractMarkers(_ string: inout String) {
+private func extractMyswordMarkers(_ string: inout String) {
     let list = xmlToList(string: string)
     string = ""
     for item in list {
@@ -70,7 +70,7 @@ private func cutFootnotes(_ string: inout String) {
 
 private func cutFootnotesEx(_ string: inout String) {
     string = string.replace("<f ", with: "<f><").replace("</f>", with: "~]</f>")
-    extractMarkers(&string)
+    extractMyswordMarkers(&string)
     string = string.cut(from: "[~", to: "~]")
 }
 

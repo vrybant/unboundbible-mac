@@ -2,7 +2,7 @@
 //  lib.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © 2022 Vladimir Rybant. All rights reserved.
 //
 
 import Foundation
@@ -59,6 +59,10 @@ func printlocal() {
         let language = enlocale.localizedString(forLanguageCode: code!)
         print(code!, language!, identifier, name!)
     }
+}
+
+func printlist(_ string: String) {
+  print(string.replace("\0", with: " "))
 }
 
 func LocalizedString(_ key: String) -> String {
