@@ -57,58 +57,60 @@ class Module {
         if !connected { return nil }
     }
 
-    func openDatabase() {
+    private func openUnboundDatabase() {
         try? database!.read { db in
+            let query = "select * from Details"
+            let rows = try Row.fetchCursor(db, sql: query)
             
-            if format == .unbound || format == .mysword {
-                let query = "select * from Details"
-                let rows = try Row.fetchCursor(db, sql: query)
-         
-                while let row = try rows.next() {
-                    info      = row["Information" ] ?? info
-                    info      = row["Description" ] ?? info
-                    name      = row["Title"       ] ?? info
-                    abbr      = row["Abbreviation"] ?? ""
-                    copyright = row["Copyright"   ] ?? ""
-                    language  = row["Language"    ] ?? ""
-                    strong    = row["Strong"      ] as Bool? ?? false
-                    embedded  = row["Embedded"    ] as Bool? ?? false
-                    default_  = row["Default"     ] as Bool? ?? false
-                        
-                    connected = true
-                }
-            }
-
-            if format == .mybible {
-                let query = "select * from info"
-                let rows = try Row.fetchCursor(db, sql: query)
-         
-                while let row = try rows.next() {
-                    guard let key   = row["name" ] as String? else { break }
-                    guard let value = row["value"] as String? else { break }
-
-                    switch key {
-                        case "description"    : name = value
-                        case "detailed_info"  : info = value
-                        case "language"       : language = value
-                        case "strong_numbers" : strong = value == "true"
-                        case "is_strong"      : strong = value == "true"
-                        case "is_footnotes"   : footnotes = value == "true"
-                        default : continue
-                    }
-                    connected = true
-                }
+            while let row = try rows.next() {
+                info      = row["Information" ] ?? info
+                info      = row["Description" ] ?? info
+                name      = row["Title"       ] ?? info
+                abbr      = row["Abbreviation"] ?? ""
+                copyright = row["Copyright"   ] ?? ""
+                language  = row["Language"    ] ?? ""
+                strong    = row["Strong"      ] as Bool? ?? false
+                embedded  = row["Embedded"    ] as Bool? ?? false
+                default_  = row["Default"     ] as Bool? ?? false
+                
+                connected = true
             }
         }
-        
-        if connected {
-            if name.isEmpty { name = fileName }
-            rightToLeft = getRightToLeft(language: language)
-            info = info.removeTags
-            accented = language == "ru"
+    }
+    
+    private func openMybibleDatabase() {
+        try? database!.read { db in
+            let query = "select * from info"
+            let rows = try Row.fetchCursor(db, sql: query)
+     
+            while let row = try rows.next() {
+                guard let key   = row["name" ] as String? else { break }
+                guard let value = row["value"] as String? else { break }
+
+                switch key {
+                    case "description"    : name = value
+                    case "detailed_info"  : info = value
+                    case "language"       : language = value
+                    case "strong_numbers" : strong = value == "true"
+                    case "is_strong"      : strong = value == "true"
+                    case "is_footnotes"   : footnotes = value == "true"
+                    default : continue
+                }
+                connected = true
+            }
         }
     }
    
+    private func openDatabase() {
+        if format == .unbound || format == .mysword { openUnboundDatabase() }
+        if format == .mybible { openMybibleDatabase() }
+        if !connected { return }
+        if name.isEmpty { name = fileName }
+        rightToLeft = getRightToLeft(language: language)
+        info = info.removeTags
+        accented = language == "ru"
+    }
+
     private func unbound2mybible(_ id: Int) -> Int {
         let range = 1..<myBibleArray.count
         return range.contains(id) ? myBibleArray[id] : id
@@ -137,4 +139,3 @@ class Module {
     }
 	
 }
-
