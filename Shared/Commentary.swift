@@ -45,7 +45,7 @@ class Commentary: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
-        if connected && !database.tableExists(z.commentary) { return nil }
+//        if connected && !database.tableExists(z.commentary) { return nil }
     }
 
     func getData(_ verse : Verse) -> [String]? {
@@ -60,24 +60,24 @@ class Commentary: Module {
                     "or ( \(z.fromverse) between \(v_from) and \(v_to) )) "
         
         var result = [String]()
-        if let results = database.executeQuery(query) {
-            while results.next() {
-                if let line = results.string(forColumn: z.data) {
-                    if !line.isEmpty { result.append(line) }
-                }
-            }
-        }
+//        if let results = database.executeQuery(query) {
+//            while results.next() {
+//                if let line = results.string(forColumn: z.data) {
+//                    if !line.isEmpty { result.append(line) }
+//                }
+//            }
+//        }
         return result.isEmpty ? nil : result
     }
 
     func getFootnote(_ verse: Verse, marker: String) -> String? {
         let id = encodeID(verse.book)
         let query = "select * from \(z.commentary) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) and marker = \"\(marker)\" "
-        if let results = database.executeQuery(query) {
-            if results.next() {
-                return results.string(forColumn: z.data)
-            }
-        }
+//        if let results = database.executeQuery(query) {
+//            if results.next() {
+//                return results.string(forColumn: z.data)
+//            }
+//        }
         return nil
     }
     

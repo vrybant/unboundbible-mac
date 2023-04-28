@@ -27,6 +27,7 @@
 		E77373BB271EBDE100FFA254 /* ToolsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* ToolsExt.swift */; };
 		E77373BF271EBE6D00FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
 		E77AE7272718CB3C0065F35F /* Additional.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77AE7292718CB3C0065F35F /* Additional.storyboard */; };
+		E77D231029FC25040025C4C1 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = E77D230F29FC25040025C4C1 /* GRDB */; };
 		E7874A42273BE5D500464436 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = E7874A41273BE5D500464436 /* FMDB */; };
 		E7A031C726A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
@@ -43,7 +44,6 @@
 		E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DDA4AF1EE960E400022638 /* SplitView.swift */; };
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */; };
-		E7E762D729FBC5FD008B4F70 /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = E7E762D629FBC5FD008B4F70 /* SQLite */; };
 		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F771351DE865FE004AF6C0 /* RigthView.swift */; };
@@ -111,8 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7E762D729FBC5FD008B4F70 /* SQLite in Frameworks */,
 				E7874A42273BE5D500464436 /* FMDB in Frameworks */,
+				E77D231029FC25040025C4C1 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +221,7 @@
 			name = macOS;
 			packageProductDependencies = (
 				E7874A41273BE5D500464436 /* FMDB */,
-				E7E762D629FBC5FD008B4F70 /* SQLite */,
+				E77D230F29FC25040025C4C1 /* GRDB */,
 			);
 			productName = "Unbound-Bible-OSX";
 			productReference = CE2F17ED1D33C31800BA91A6 /* macOS.app */;
@@ -263,7 +263,7 @@
 			mainGroup = CE2F17E41D33C31800BA91A6;
 			packageReferences = (
 				E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */,
-				E7E762D529FBC5FD008B4F70 /* XCRemoteSwiftPackageReference "SQLite" */,
+				E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */,
 			);
 			productRefGroup = CE2F17EE1D33C31800BA91A6 /* Products */;
 			projectDirPath = "";
@@ -566,6 +566,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ccgus/fmdb";
@@ -574,26 +582,18 @@
 				minimumVersion = 2.7.7;
 			};
 		};
-		E7E762D529FBC5FD008B4F70 /* XCRemoteSwiftPackageReference "SQLite" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.14.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E77D230F29FC25040025C4C1 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
+		};
 		E7874A41273BE5D500464436 /* FMDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */;
 			productName = FMDB;
-		};
-		E7E762D629FBC5FD008B4F70 /* SQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E7E762D529FBC5FD008B4F70 /* XCRemoteSwiftPackageReference "SQLite" */;
-			productName = SQLite;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -6,13 +6,15 @@
 //
 
 import Foundation
+import GRDB
 
 enum FileFormat {
     case unbound, mysword, mybible
 }
 
 class Module {
-    var database     : FMDatabase
+    var database     : DatabaseQueue?
+    
     let filePath     : String
     let fileName     : String
     var format       = FileFormat.unbound
@@ -50,48 +52,49 @@ class Module {
         let ext = filePath.pathExtension 
         if ext == "mybible" || ext == "bbli" { format = .mysword }
         if ext == "SQLite3" { format = .mybible }
-        database = FMDatabase(path: filePath)
-        openDatabase()
+        database = try? DatabaseQueue(path: filePath)
+        if database != nil { openDatabase() }
         if !connected { return nil }
     }
 
     func openDatabase() {
-        if !database.open() { return }
-        
-        if format == .unbound || format == .mysword {
-            let query = "select * from Details"
-            if let results = database.executeQuery(query) {
-                if results.next() {
-                    info      = results.string("Information" ) ?? ""
-                    info      = results.string("Description" ) ?? info
-                    name      = results.string("Title"       ) ?? info
-                    abbr      = results.string("Abbreviation") ?? ""
-                    copyright = results.string("Copyright"   ) ?? ""
-                    language  = results.string("Language"    ) ?? ""
-                    strong    = results.bool  ("Strong"      )
-                    embedded  = results.bool  ("Embedded"    )
-                    default_  = results.bool  ("Default"     )
-                    
+        try? database!.read { db in
+            
+            if format == .unbound || format == .mysword {
+                let query = "select * from Details"
+                let rows = try Row.fetchCursor(db, sql: query)
+         
+                while let row = try rows.next() {
+                    info      = row["Information" ] ?? info
+                    info      = row["Description" ] ?? info
+                    name      = row["Title"       ] ?? info
+                    abbr      = row["Abbreviation"] ?? ""
+                    copyright = row["Copyright"   ] ?? ""
+                    language  = row["Language"    ] ?? ""
+                    strong    = row["Strong"      ] as Bool? ?? false
+                    embedded  = row["Embedded"    ] as Bool? ?? false
+                    default_  = row["Default"     ] as Bool? ?? false
+                        
                     connected = true
                 }
             }
-        }
 
-        if format == .mybible {
-            let query = "select * from info"
-            if let results = database.executeQuery(query) {
-                while results.next() {
-                    guard let key = results.string("name") else { break }
-                    guard let value = results.string("value") else { break }
-                    
+            if format == .mybible {
+                let query = "select * from info"
+                let rows = try Row.fetchCursor(db, sql: query)
+         
+                while let row = try rows.next() {
+                    guard let key   = row["name" ] as String? else { break }
+                    guard let value = row["value"] as String? else { break }
+
                     switch key {
-                    case "description"    : name = value
-                    case "detailed_info"  : info = value
-                    case "language"       : language = value
-                    case "strong_numbers" : strong = value == "true"
-                    case "is_strong"      : strong = value == "true"
-                    case "is_footnotes"   : footnotes = value == "true"
-                    default : continue
+                        case "description"    : name = value
+                        case "detailed_info"  : info = value
+                        case "language"       : language = value
+                        case "strong_numbers" : strong = value == "true"
+                        case "is_strong"      : strong = value == "true"
+                        case "is_footnotes"   : footnotes = value == "true"
+                        default : continue
                     }
                     connected = true
                 }
@@ -128,7 +131,7 @@ class Module {
     }
 
     func delete() {
-        database.close()
+        try? database!.close()
         let url = dataUrl.appendingPathComponent(fileName)
         try? FileManager.default.removeItem(at: url)
     }

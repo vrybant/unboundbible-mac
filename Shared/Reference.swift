@@ -48,9 +48,9 @@ class Reference: Module {
     private var z : ReferenceAlias = UnboundAlias()
     
     override init?(atPath: String) {
-        super.init(atPath: atPath)!
+        super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
-        if connected && !database.tableExists(z.xreferences) { return nil }
+//        if connected && !database.tableExists(z.xreferences) { return nil }
     }
     
     func getData(_ verse : Verse) -> [Verse]? {
@@ -64,21 +64,21 @@ class Reference: Module {
                     "and (\(z.verse) between \(v_from) and \(v_to)) "
         
         var result = [Verse]()
-        if let results = database.executeQuery(query) {
-            while results.next() {
-                let book = results.int(forColumn: z.xbook).int
-                let chapter = results.int(forColumn: z.xchapter).int
-                let number = results.int(forColumn: z.xfromverse).int
-                let toverse = results.int(forColumn: z.xtoverse).int
-                let votes = results.int(forColumn: z.votes).int
-
-                if votes <= 1 { continue }
-                let count = toverse == 0 ? 1 : toverse - number + 1
-                
-                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: count)
-                result.append(item)
-            }
-        }
+//        if let results = database.executeQuery(query) {
+//            while results.next() {
+//                let book = results.int(forColumn: z.xbook).int
+//                let chapter = results.int(forColumn: z.xchapter).int
+//                let number = results.int(forColumn: z.xfromverse).int
+//                let toverse = results.int(forColumn: z.xtoverse).int
+//                let votes = results.int(forColumn: z.votes).int
+//
+//                if votes <= 1 { continue }
+//                let count = toverse == 0 ? 1 : toverse - number + 1
+//                
+//                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: count)
+//                result.append(item)
+//            }
+//        }
         return result.isEmpty ? nil : result
     }
 

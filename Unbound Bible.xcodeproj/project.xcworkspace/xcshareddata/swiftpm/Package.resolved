@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "sqlite.swift",
+      "identity" : "grdb.swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/stephencelis/SQLite.swift",
+      "location" : "https://github.com/groue/GRDB.swift",
       "state" : {
-        "revision" : "7a2e3cd27de56f6d396e84f63beefd0267b55ccb",
-        "version" : "0.14.1"
+        "branch" : "master",
+        "revision" : "5aa385094b0d6b862bd1f8b671369044a6457ad0"
       }
     }
   ],
