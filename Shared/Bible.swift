@@ -86,7 +86,7 @@ class Bible: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias()  }
-//        if connected && !database.tableExists(z.bible) { connected = false }
+        if connected && !tableExists(z.bible) { connected = false }
         if !connected { return nil }
     }
     

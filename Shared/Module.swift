@@ -111,6 +111,14 @@ class Module {
         accented = language == "ru"
     }
 
+    func tableExists(_ name: String) -> Bool {
+        var result = false
+        try? database!.read { db in
+            result = try db.tableExists(name)
+        }
+        return result
+    }
+    
     private func unbound2mybible(_ id: Int) -> Int {
         let range = 1..<myBibleArray.count
         return range.contains(id) ? myBibleArray[id] : id

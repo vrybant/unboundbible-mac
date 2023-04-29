@@ -45,7 +45,7 @@ class Commentary: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
-//        if connected && !database.tableExists(z.commentary) { return nil }
+        if connected && !tableExists(z.commentary) { return nil }
     }
 
     func getData(_ verse : Verse) -> [String]? {

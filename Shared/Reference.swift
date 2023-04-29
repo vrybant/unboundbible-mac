@@ -50,7 +50,7 @@ class Reference: Module {
     override init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
-//        if connected && !database.tableExists(z.xreferences) { return nil }
+//        if connected && !tableExists(z.xreferences) { return nil }
     }
     
     func getData(_ verse : Verse) -> [Verse]? {
