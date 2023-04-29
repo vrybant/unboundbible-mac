@@ -333,21 +333,3 @@ extension UserDefaults {
         CGFloat(self.float(forKey: defaultName))
     }
 }
-
-extension FMDatabase {
-    func executeQuery(_ sql: String) -> FMResultSet? {
-        try? executeQuery(sql, values: nil)
-    }
-}
-
-extension FMResultSet {
-    func columnExists(_ name: String) -> Bool {
-        columnNameToIndexMap[name.lowercased()] != nil
-    }
-    func string(_ name: String) -> String? {
-        columnExists(name) ? string(forColumn: name) : nil
-    }
-    func bool(_ name: String) -> Bool {
-        columnExists(name) ? self.bool(forColumn: name) : false
-    }
-}

@@ -28,7 +28,6 @@
 		E77373BF271EBE6D00FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
 		E77AE7272718CB3C0065F35F /* Additional.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77AE7292718CB3C0065F35F /* Additional.storyboard */; };
 		E77D231029FC25040025C4C1 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = E77D230F29FC25040025C4C1 /* GRDB */; };
-		E7874A42273BE5D500464436 /* FMDB in Frameworks */ = {isa = PBXBuildFile; productRef = E7874A41273BE5D500464436 /* FMDB */; };
 		E7A031C726A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
 		E7A0D72223AAA28800C48A54 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72123AAA28800C48A54 /* extensions.swift */; };
 		E7A0D72523AAA36200C48A54 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* extension.swift */; };
@@ -111,7 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7874A42273BE5D500464436 /* FMDB in Frameworks */,
 				E77D231029FC25040025C4C1 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,7 +218,6 @@
 			);
 			name = macOS;
 			packageProductDependencies = (
-				E7874A41273BE5D500464436 /* FMDB */,
 				E77D230F29FC25040025C4C1 /* GRDB */,
 			);
 			productName = "Unbound-Bible-OSX";
@@ -262,7 +259,6 @@
 			);
 			mainGroup = CE2F17E41D33C31800BA91A6;
 			packageReferences = (
-				E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */,
 				E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */,
 			);
 			productRefGroup = CE2F17EE1D33C31800BA91A6 /* Products */;
@@ -508,7 +504,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = Shared/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -537,7 +533,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = Shared/Header.h;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -574,14 +570,6 @@
 				kind = branch;
 			};
 		};
-		E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ccgus/fmdb";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.7;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -589,11 +577,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */;
 			productName = GRDB;
-		};
-		E7874A41273BE5D500464436 /* FMDB */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E7874A3E273BE4B200464436 /* XCRemoteSwiftPackageReference "fmdb" */;
-			productName = FMDB;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

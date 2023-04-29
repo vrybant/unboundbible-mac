@@ -4,6 +4,7 @@
 //
 //  Copyright © 2022 Vladimir Rybant. All rights reserved.
 //
+import Foundation
 
 extension Tools {
     
