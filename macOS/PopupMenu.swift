@@ -2,7 +2,7 @@
 //  PopupMenu.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
