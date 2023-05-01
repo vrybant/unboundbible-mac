@@ -91,16 +91,16 @@ class Bible: Module {
     }
     
     func loadUnboundDatabase() {
-        let query = "SELECT * FROM " + z.books
         try? database!.read { db in
+            let query = "SELECT * FROM " + z.books
             let rows = try Row.fetchCursor(db, sql: query)
 
             while let row = try rows.next() {
-                let id   = row[z.number] as Int?
+                let id   = row[z.number] as Int?    ?? 0
                 let name = row[z.name  ] as String? ?? ""
                 let abbr = row[z.abbr  ] as String? ?? ""
                 
-                if let id {
+                if id > 0 {
                     let number = decodeID(id)
                     let book = Book(title: name, abbr: abbr, number: number, id: id /* ,sorting: id */)
                     books.append(book)
@@ -111,20 +111,21 @@ class Bible: Module {
     }
     
     func loadMyswordDatabase() {
-        let query = "SELECT DISTINCT \(z.book) FROM \(z.bible)"
-//        if let set = database.executeQuery(query) {
-//            while set.next() {
-//                guard let value = set.string(forColumn: z.book) else { break }
-//                guard let number = Int(value) else { break }
-//                if number > 0 && number <= 66 {
-//                    let title = titlesArray[number]
-//                    let abbr = abbrevArray[number]
-//                    let book = Book(title: title, abbr: abbr, number: number, id: number)
-//                    books.append(book)
-//                    loaded = true
-//                }
-//            }
-//        }
+        try? database!.read { db in
+            let query = "SELECT DISTINCT \(z.book) FROM \(z.bible)"
+            let rows = try Row.fetchCursor(db, sql: query)
+
+            while let row = try rows.next() {
+                let number = row[z.book] as Int? ?? 0
+                if number > 0 && number <= 66 {
+                    let title = titlesArray[number]
+                    let abbr = abbrevArray[number]
+                    let book = Book(title: title, abbr: abbr, number: number, id: number)
+                    books.append(book)
+                    loaded = true
+                }
+            }
+        }
     }
 
     func loadDatabase() {
@@ -143,17 +144,15 @@ class Bible: Module {
     }
     
     func setCaseSensitiveLike(_ value: Bool) {
-//        do {
-//            try database.executeUpdate("PRAGMA case_sensitive_like = \(value ? 1 : 0)", values: nil)
-//        } catch {
-//            //
-//        }
+        try? database!.write() { db in
+            try db.execute(sql: "PRAGMA case_sensitive_like = \(value ? 1 : 0)")
+        }
     }
     
     func chaptersCount(_ verse : Verse) -> Int {
         var result = 0
         let id = encodeID(verse.book)
-        let query = "select max(\(z.chapter)) as count from \(z.bible) where \(z.book) = \(id)"
+        let query = "SELECT MAX(\(z.chapter)) AS count FROM \(z.bible) WHERE \(z.book) = \(id)"
 
         try? database!.read { db in
             if let row = try Row.fetchOne(db, sql: query) {
@@ -183,7 +182,7 @@ class Bible: Module {
         var result = [String]()
         let id = encodeID(verse.book)
         let nt = Module.isNewTestament(verse.book)
-        let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter)"
+        let query = "SELECT * FROM \(z.bible) WHERE \(z.book) = \(id) AND \(z.chapter) = \(verse.chapter)"
         
         try? database!.read { db in
             let rows = try Row.fetchCursor(db, sql: query)
@@ -198,24 +197,22 @@ class Bible: Module {
     }
     
     func getRange(_ verse: Verse, raw: Bool = false, purge: Bool = true) -> [String]? {
+        var result = [String]()
         let id = encodeID(verse.book)
         let nt = Module.isNewTestament(verse.book)
         let toVerse = verse.number + verse.count
-        let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
-            + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
+        let query = "SELECT * FROM \(z.bible) WHERE \(z.book) = \(id) AND \(z.chapter) = \(verse.chapter) "
+            + "AND \(z.verse) >= \(verse.number) AND \(z.verse) < \(toVerse)"
         
-        
-        
-//        if let set = database.executeQuery(query) {
-//            var result = [String]()
-//            while set.next() {
-//                guard let line = set.string(forColumn: z.text) else { break }
-//                let text = raw ? line : prepare(line, format: format, nt: nt, purge: purge)
-//                result.append(text)
-//            }
-//            if !result.isEmpty { return result }
-//        }
-        return nil
+        try? database!.read { db in
+            let rows = try Row.fetchCursor(db, sql: query)
+            while let row = try rows.next() {
+                guard let line = row[z.text] as String? else { break }
+                let text = raw ? line : prepare(line, format: format, nt: nt, purge: purge)
+                result.append(text)
+            }
+        }
+        return !result.isEmpty ? result : nil
     }
     
     func getMyswordFootnote(_ verse : Verse, marker: String) -> String? {
@@ -251,8 +248,8 @@ class Bible: Module {
         var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
         string = string.replace(" ", with: "%")
         
-        let queryRange = range == nil ? "" : " and \(z.book) >= \(encodeID(range!.from)) and \(z.book) <= \(encodeID(range!.to))"
-        let query = "select * from \(z.bible) where \(z.text) like \'%\(string)%\'" + queryRange
+        let queryRange = range == nil ? "" : " AND \(z.book) >= \(encodeID(range!.from)) AND \(z.book) <= \(encodeID(range!.to))"
+        let query = "SELECT * FROM \(z.bible) WHERE \(z.text) LIKE \'%\(string)%\'" + queryRange
 
         setCaseSensitiveLike(options.contains(.caseSensitive))
         var result = [String]()
