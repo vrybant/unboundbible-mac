@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GRDB
 
 private protocol CommentaryAlias {
     var commentary : String { get }
@@ -53,32 +54,38 @@ class Commentary: Module {
         let v_from = verse.number
         let v_to   = verse.number + verse.count - 1
         
-        let query = "select * from \(z.commentary) " +
-                    "where \(z.book) = \(id) " +
-                    "and \(z.chapter) = \(verse.chapter) " +
-                    "and (( \(v_from) between \(z.fromverse) and \(z.toverse) ) " +
-                    "or ( \(z.fromverse) between \(v_from) and \(v_to) )) "
+        let query = "SELECT * FROM \(z.commentary) WHERE \(z.book) = \(id) " +
+                    "AND \(z.chapter) = \(verse.chapter) " +
+                    "AND (( \(v_from) BETWEEN \(z.fromverse) AND \(z.toverse) ) " +
+                    "OR ( \(z.fromverse) BETWEEN \(v_from) AND \(v_to) )) "
         
         var result = [String]()
-//        if let results = database.executeQuery(query) {
-//            while results.next() {
-//                if let line = results.string(forColumn: z.data) {
-//                    if !line.isEmpty { result.append(line) }
-//                }
-//            }
-//        }
+        try? database!.read { db in
+            let rows = try Row.fetchCursor(db, sql: query)
+            while let row = try rows.next() {
+                let line = row[z.data] as String? ?? ""
+                if !line.isEmpty { result.append(line) }
+            }
+        }
         return result.isEmpty ? nil : result
     }
 
     func getFootnote(_ verse: Verse, marker: String) -> String? {
         let id = encodeID(verse.book)
-        let query = "select * from \(z.commentary) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) and marker = \"\(marker)\" "
-//        if let results = database.executeQuery(query) {
-//            if results.next() {
-//                return results.string(forColumn: z.data)
-//            }
-//        }
-        return nil
+        let query = "SELECT * FROM \(z.commentary) WHERE \(z.book) = \(id) " +
+                    "AND \(z.chapter) = \(verse.chapter) AND marker = '\(marker)' "
+
+        var result: String? = nil
+        try? database!.read { db in
+            if let row = try Row.fetchOne(db, sql: query) {
+                result = row[z.data] as String?
+            }
+        }
+        
+        print("Footnote")
+        print(result ?? "nil")
+        
+        return result
     }
     
 }

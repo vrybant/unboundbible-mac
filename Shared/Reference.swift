@@ -64,7 +64,6 @@ class Reference: Module {
                     "AND (\(z.verse) BETWEEN \(v_from) AND \(v_to)) "
         
         var result = [Verse]()
-        
         try? database!.read { db in
             let rows = try Row.fetchCursor(db, sql: query)
             while let row = try rows.next() {

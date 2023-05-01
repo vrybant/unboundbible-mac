@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GRDB
 
 private protocol DictionaryAlias {
     var dictionary : String { get }
@@ -35,26 +36,26 @@ class Dictionary: Module {
     }
     
     func getStrongData(number: String) -> String? {
-        let query = "select * from \(z.dictionary) where \(z.word) = \"\(number)\" "
-//        if let results = database.executeQuery(query) {
-//            if results.next() {
-//                return results.string(forColumn: z.data)
-//            }
-//        }
-        return nil
+        var result : String?
+        let query = "SELECT * FROM \(z.dictionary) WHERE \(z.word) = '\(number)' "
+        try? database!.read { db in
+            if let row = try Row.fetchOne(db, sql: query) {
+                result = row[z.data] as String?
+            }
+        }
+        return result
     }
     
     func getData(key: String) -> [String]? {
-        let query = "select * from \(z.dictionary) where \(z.word) = \"\(key)\" "
-        
         var result = [String]()
-//        if let results = database.executeQuery(query) {
-//            while results.next() {
-//                if let line = results.string(forColumn: z.data) {
-//                    if !line.isEmpty { result.append(line) }
-//                }
-//            }
-//        }
+        let query = "SELECT * FROM \(z.dictionary) WHERE \(z.word) = '\(key)' "
+        try? database!.read { db in
+            let rows = try Row.fetchCursor(db, sql: query)
+            while let row = try rows.next() {
+                let line = row[z.data] as String? ?? ""
+                if !line.isEmpty { result.append(line) }
+            }
+        }
         return result.isEmpty ? nil : result
     }
     
