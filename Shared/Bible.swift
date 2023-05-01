@@ -204,6 +204,8 @@ class Bible: Module {
         let query = "select * from \(z.bible) where \(z.book) = \(id) and \(z.chapter) = \(verse.chapter) "
             + "and \(z.verse) >= \(verse.number) and \(z.verse) < \(toVerse)"
         
+        
+        
 //        if let set = database.executeQuery(query) {
 //            var result = [String]()
 //            while set.next() {
@@ -250,35 +252,31 @@ class Bible: Module {
         string = string.replace(" ", with: "%")
         
         let queryRange = range == nil ? "" : " and \(z.book) >= \(encodeID(range!.from)) and \(z.book) <= \(encodeID(range!.to))"
-        let query = "select * from \(z.bible) where \(z.text) like \"%\(string)%\"" + queryRange
-        
+        let query = "select * from \(z.bible) where \(z.text) like \'%\(string)%\'" + queryRange
+
         setCaseSensitiveLike(options.contains(.caseSensitive))
+        var result = [String]()
         
-//        if let set = database.executeQuery(query) {
-//            var result = [String]()
-//            while set.next() {
-//                guard let id      = set.string(forColumn: z.book   ) else { break }
-//                guard let chapter = set.string(forColumn: z.chapter) else { break }
-//                guard let number  = set.string(forColumn: z.verse  ) else { break }
-//                guard let data    = set.string(forColumn: z.text   ) else { break }
-//
-//                let book = decodeID(Int(id) ?? 0)
-//                let nt = Module.isNewTestament(book)
-//                var text = prepare(data, format: format, nt: nt)
-//                let s = "\(book)\0\(chapter)\0\(number)\0\(text)"
-//
-//                text = text.replace("<S>", with: " ").removeTags
-//                if text.containsEvery(list, options: options) {
-//                    result.append(s)
-//                }
-//            }
-//            if !result.isEmpty {
-//                return sortContent(result)
-//            }
-//        }
-        return nil
+        try? database!.read { db in
+            let rows = try Row.fetchCursor(db, sql: query)
+            while let row = try rows.next() {
+                let id      = row[z.book   ] as Int?    ?? 0
+                let chapter = row[z.chapter] as Int?    ?? 0
+                let number  = row[z.verse  ] as Int?    ?? 0
+                let data    = row[z.text   ] as String? ?? ""
+                
+                let book = decodeID(id)
+                let nt = Module.isNewTestament(book)
+                var text = prepare(data, format: format, nt: nt)
+                let s = "\(book)\0\(chapter)\0\(number)\0\(text)"
+                
+                text = text.replace("<S>", with: " ").removeTags
+                if text.containsEvery(list, options: options) { result.append(s) }
+            }
+        }
+        return !result.isEmpty ? sortContent(result) : nil
     }
-    
+        
     func goodLink(_ verse: Verse) -> Bool {
         if let range = getRange(verse) {
             return !range.isEmpty
