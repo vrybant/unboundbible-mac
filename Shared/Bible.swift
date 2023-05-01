@@ -193,7 +193,7 @@ class Bible: Module {
             }
         }
         
-        return !result.isEmpty ? result : nil
+        return result.isEmpty ? nil : result
     }
     
     func getRange(_ verse: Verse, raw: Bool = false, purge: Bool = true) -> [String]? {
@@ -212,7 +212,7 @@ class Bible: Module {
                 result.append(text)
             }
         }
-        return !result.isEmpty ? result : nil
+        return result.isEmpty ? nil : result
     }
     
     func getMyswordFootnote(_ verse : Verse, marker: String) -> String? {

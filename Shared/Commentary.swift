@@ -50,6 +50,7 @@ class Commentary: Module {
     }
 
     func getData(_ verse : Verse) -> [String]? {
+        var result = [String]()
         let id = encodeID(verse.book)
         let v_from = verse.number
         let v_to   = verse.number + verse.count - 1
@@ -59,7 +60,6 @@ class Commentary: Module {
                     "AND (( \(v_from) BETWEEN \(z.fromverse) AND \(z.toverse) ) " +
                     "OR ( \(z.fromverse) BETWEEN \(v_from) AND \(v_to) )) "
         
-        var result = [String]()
         try? database!.read { db in
             let rows = try Row.fetchCursor(db, sql: query)
             while let row = try rows.next() {
@@ -71,20 +71,17 @@ class Commentary: Module {
     }
 
     func getFootnote(_ verse: Verse, marker: String) -> String? {
+        var result: String?
         let id = encodeID(verse.book)
+
         let query = "SELECT * FROM \(z.commentary) WHERE \(z.book) = \(id) " +
                     "AND \(z.chapter) = \(verse.chapter) AND marker = '\(marker)' "
 
-        var result: String? = nil
         try? database!.read { db in
             if let row = try Row.fetchOne(db, sql: query) {
                 result = row[z.data] as String?
             }
         }
-        
-        print("Footnote")
-        print(result ?? "nil")
-        
         return result
     }
     
@@ -120,7 +117,6 @@ extension Array where Element == Commentary {
     
     func getFootnote(module: String, verse: Verse, marker: String) -> String? {
         let name = module.lastPathComponentWithoutExtension
-        
         for item in self {
             if !item.footnotes { continue }
             if !item.fileName.hasPrefix(name) { continue }
