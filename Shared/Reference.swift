@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GRDB
 
 private protocol ReferenceAlias {
     var xreferences : String { get }
@@ -58,27 +59,28 @@ class Reference: Module {
         let v_from = verse.number
         let v_to   = verse.number + verse.count - 1
         
-        let query = "select * from \(z.xreferences) " +
-                    "where \(z.book) = \(id) " +
-                    "and \(z.chapter) = \(verse.chapter) " +
-                    "and (\(z.verse) between \(v_from) and \(v_to)) "
+        let query = "SELECT * FROM \(z.xreferences) WHERE \(z.book) = \(id) " +
+                    "AND \(z.chapter) = \(verse.chapter) " +
+                    "AND (\(z.verse) BETWEEN \(v_from) AND \(v_to)) "
         
         var result = [Verse]()
-//        if let results = database.executeQuery(query) {
-//            while results.next() {
-//                let book = results.int(forColumn: z.xbook).int
-//                let chapter = results.int(forColumn: z.xchapter).int
-//                let number = results.int(forColumn: z.xfromverse).int
-//                let toverse = results.int(forColumn: z.xtoverse).int
-//                let votes = results.int(forColumn: z.votes).int
-//
-//                if votes <= 1 { continue }
-//                let count = toverse == 0 ? 1 : toverse - number + 1
-//                
-//                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: count)
-//                result.append(item)
-//            }
-//        }
+        
+        try? database!.read { db in
+            let rows = try Row.fetchCursor(db, sql: query)
+            while let row = try rows.next() {
+                let book    = row[z.xbook     ] as Int? ?? 0
+                let chapter = row[z.xchapter  ] as Int? ?? 0
+                let number  = row[z.xfromverse] as Int? ?? 0
+                let toverse = row[z.xtoverse  ] as Int? ?? 0
+                let votes   = row[z.votes     ] as Int? ?? 0
+
+                if votes <= 1 { continue }
+                let count = toverse == 0 ? 1 : toverse - number + 1
+
+                let item = Verse(book: decodeID(book), chapter: chapter, number: number, count: count)
+                result.append(item)
+            }
+        }
         return result.isEmpty ? nil : result
     }
 
