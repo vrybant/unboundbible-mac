@@ -60,7 +60,6 @@
 		E71485B823AA5EF6009369D4 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 		E71B29CE1E0C218200173E77 /* WinController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinController.swift; sourceTree = "<group>"; };
 		E7228FB5205142AE00C78C3C /* titles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = titles; sourceTree = "<group>"; };
-		E7229BDC21D76A4B00B7CEA9 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		E725BA1D2193196000247627 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E72DF9E11DE8651C00A46DA1 /* LeftView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftView.swift; sourceTree = "<group>"; };
 		E7382CB921CC006400DF8772 /* prepare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prepare.swift; sourceTree = "<group>"; };
@@ -140,36 +139,21 @@
 		CE2F17EF1D33C31800BA91A6 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				E7C82395202B07ED00287173 /* Localizable.strings */,
-				E7C82390202B07EC00287173 /* InfoPlist.strings */,
+				E7D005AC29FFA94500F0B19A /* Controllers */,
+				E7D005AD29FFAB3700F0B19A /* Views */,
+				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
+				E7A0D72423AAA36200C48A54 /* extension.swift */,
+				E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */,
+				E77373BA271EBDE100FFA254 /* ToolsExt.swift */,
 				CE2F17F41D33C31800BA91A6 /* Assets.xcassets */,
+				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
+				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
+				E7F5071A20509AEB0019F546 /* icns.icns */,
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
 				E77AE7292718CB3C0065F35F /* Additional.storyboard */,
-				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
-				E725BA1D2193196000247627 /* View.swift */,
-				E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */,
-				E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */,
-				E71B29CE1E0C218200173E77 /* WinController.swift */,
-				CE2F17F21D33C31800BA91A6 /* MainView.swift */,
-				E77373BA271EBDE100FFA254 /* ToolsExt.swift */,
-				E7D4637A201A2B520055F1DA /* PreferencesView.swift */,
-				E7DDA4AF1EE960E400022638 /* SplitView.swift */,
-				E72DF9E11DE8651C00A46DA1 /* LeftView.swift */,
-				E7F771351DE865FE004AF6C0 /* RigthView.swift */,
-				E7A4BA911EDD86C200FC9676 /* LibraryView.swift */,
-				E756E0F7267BC22A005494A6 /* ShelfView.swift */,
-				E7E3D4F71E12B1C400912F37 /* SearchView.swift */,
-				E74040F11ED5A40F00F96C48 /* CopyView.swift */,
-				E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */,
-				E7A8917B20152879008A7695 /* СustomText.swift */,
-				E73BF4631EF8548C0028FB62 /* BibleText.swift */,
-				E7A8917D20152893008A7695 /* CommonText.swift */,
-				E7C21902201522F300E90AC6 /* NotesText.swift */,
-				E7A0D72423AAA36200C48A54 /* extension.swift */,
-				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
-				E7F5071A20509AEB0019F546 /* icns.icns */,
-				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
+				E7C82390202B07EC00287173 /* InfoPlist.strings */,
+				E7C82395202B07ED00287173 /* Localizable.strings */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -180,6 +164,37 @@
 				E7BECE4B1EA9390400CF3386 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7D005AC29FFA94500F0B19A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E74040F11ED5A40F00F96C48 /* CopyView.swift */,
+				E72DF9E11DE8651C00A46DA1 /* LeftView.swift */,
+				CE2F17F21D33C31800BA91A6 /* MainView.swift */,
+				E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */,
+				E7D4637A201A2B520055F1DA /* PreferencesView.swift */,
+				E7F771351DE865FE004AF6C0 /* RigthView.swift */,
+				E7E3D4F71E12B1C400912F37 /* SearchView.swift */,
+				E756E0F7267BC22A005494A6 /* ShelfView.swift */,
+				E7DDA4AF1EE960E400022638 /* SplitView.swift */,
+				E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */,
+				E71B29CE1E0C218200173E77 /* WinController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E7D005AD29FFAB3700F0B19A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E7A8917B20152879008A7695 /* СustomText.swift */,
+				E73BF4631EF8548C0028FB62 /* BibleText.swift */,
+				E7A8917D20152893008A7695 /* CommonText.swift */,
+				E7A4BA911EDD86C200FC9676 /* LibraryView.swift */,
+				E7C21902201522F300E90AC6 /* NotesText.swift */,
+				E725BA1D2193196000247627 /* View.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E7D39ED820906C4E004D3097 /* Shared */ = {
@@ -196,7 +211,6 @@
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
-				E7229BDC21D76A4B00B7CEA9 /* Header.h */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
