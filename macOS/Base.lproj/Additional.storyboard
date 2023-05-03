@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -179,11 +178,11 @@
                             <box borderType="bezel" translatesAutoresizingMaskIntoConstraints="NO" id="JDX-QK-KB0">
                                 <rect key="frame" x="17" y="14" width="553" height="145"/>
                                 <view key="contentView" id="fKU-KY-wcG">
-                                    <rect key="frame" x="3" y="3" width="547" height="127"/>
+                                    <rect key="frame" x="4" y="5" width="545" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z1J-Pn-qyx">
-                                            <rect key="frame" x="18" y="98" width="214" height="15"/>
+                                            <rect key="frame" x="18" y="96" width="214" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="aiL-1x-5Yv"/>
                                             </constraints>
@@ -194,7 +193,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="vLD-V8-XBK">
-                                            <rect key="frame" x="18" y="4" width="511" height="86"/>
+                                            <rect key="frame" x="18" y="2" width="509" height="86"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="86" id="oNn-Az-jLq"/>
                                             </constraints>

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -427,7 +426,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Unbound_Bible" customModuleProvider="target">
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="macOS" customModuleProvider="target">
                     <connections>
                         <outlet property="defaultBaseline" destination="eLn-5R-Lbk" id="Uys-2r-y2z"/>
                         <outlet property="defaultDirection" destination="c6b-1l-Y1E" id="oaE-NE-G6J"/>
@@ -453,7 +452,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WinController" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="WinController" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Unbound Bible" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="AutosaveApp" animationBehavior="default" tabbingMode="disallowed" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -549,7 +548,7 @@
         <!--Search View-->
         <scene sceneID="mOZ-N5-yvt">
             <objects>
-                <viewController storyboardIdentifier="Popover" id="Ut9-5s-h3e" customClass="SearchView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Popover" id="Ut9-5s-h3e" customClass="SearchView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1LL-3m-fbO">
                         <rect key="frame" x="0.0" y="0.0" width="147" height="209"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -695,7 +694,7 @@
         <!--Library View-->
         <scene sceneID="h0q-fG-dNM">
             <objects>
-                <viewController id="Sh0-jQ-Xz7" customClass="LibraryView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Sh0-jQ-Xz7" customClass="LibraryView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rso-cC-phK">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="297"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -788,8 +787,8 @@
         <!--Main View-->
         <scene sceneID="AAu-Wg-NAp">
             <objects>
-                <viewController id="81U-iW-K9k" customClass="MainView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="mJV-td-xAQ" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
+                <viewController id="81U-iW-K9k" customClass="MainView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="mJV-td-xAQ" customClass="View" customModule="macOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="218"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -833,7 +832,7 @@
         <!--Popover View-->
         <scene sceneID="fpq-kG-Tjb">
             <objects>
-                <viewController storyboardIdentifier="PopoverView" id="hvl-k4-LBm" customClass="PopoverView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopoverView" id="hvl-k4-LBm" customClass="PopoverView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jY3-mL-p27">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="190"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -878,8 +877,8 @@
         <!--Copy Verses-->
         <scene sceneID="Boy-6Q-tKa">
             <objects>
-                <viewController title="Copy Verses" id="03V-8r-HtA" customClass="CopyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="z1o-OH-tt9" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
+                <viewController title="Copy Verses" id="03V-8r-HtA" customClass="CopyView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="z1o-OH-tt9" customClass="View" customModule="macOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="342"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -889,7 +888,7 @@
                                     <rect key="frame" x="1" y="1" width="371" height="189"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="od3-rb-CCr" customClass="CustomTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="od3-rb-CCr" customClass="CustomTextView" customModule="macOS" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="371" height="189"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -912,11 +911,11 @@
                             <box title="Options" translatesAutoresizingMaskIntoConstraints="NO" id="jI7-K0-guy">
                                 <rect key="frame" x="4" y="24" width="271" height="113"/>
                                 <view key="contentView" id="snZ-Qo-9as">
-                                    <rect key="frame" x="3" y="3" width="265" height="95"/>
+                                    <rect key="frame" x="4" y="5" width="263" height="93"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="1kN-Z8-To4">
-                                            <rect key="frame" x="19" y="69" width="234" height="16"/>
+                                            <rect key="frame" x="19" y="67" width="232" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="MWC-Jn-ZG0"/>
                                             </constraints>
@@ -929,7 +928,7 @@
                                             </connections>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="AP0-4L-kVL">
-                                            <rect key="frame" x="19" y="53" width="234" height="16"/>
+                                            <rect key="frame" x="19" y="51" width="232" height="16"/>
                                             <buttonCell key="cell" type="check" title="Enumerated" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="xQD-7b-MDh">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="message" size="11"/>
@@ -939,7 +938,7 @@
                                             </connections>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="QLS-nj-LPK">
-                                            <rect key="frame" x="19" y="37" width="234" height="16"/>
+                                            <rect key="frame" x="19" y="35" width="232" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="ldA-aR-Tsw"/>
                                             </constraints>
@@ -952,7 +951,7 @@
                                             </connections>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="ifH-N0-X6T">
-                                            <rect key="frame" x="19" y="5" width="234" height="16"/>
+                                            <rect key="frame" x="19" y="3" width="232" height="16"/>
                                             <buttonCell key="cell" type="check" title="Link in the end" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="p6g-fZ-Ky2">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="message" size="11"/>
@@ -962,7 +961,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qem-dm-bsT">
-                                            <rect key="frame" x="19" y="21" width="234" height="16"/>
+                                            <rect key="frame" x="19" y="19" width="232" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="14" id="BV9-1l-Ipo"/>
                                             </constraints>
@@ -1062,7 +1061,7 @@ Gw
         <!--Split View-->
         <scene sceneID="pBL-To-aD2">
             <objects>
-                <splitViewController id="BCt-5G-3Bm" customClass="SplitView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="BCt-5G-3Bm" customClass="SplitView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="TQB-dG-mk9"/>
                         <splitViewItem id="QJb-uo-9et"/>
@@ -1087,7 +1086,7 @@ Gw
         <!--Left View-->
         <scene sceneID="v9Q-6T-5b8">
             <objects>
-                <viewController id="veV-6G-nPF" customClass="LeftView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="veV-6G-nPF" customClass="LeftView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="asP-6E-CbQ">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="224"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -1118,7 +1117,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="cellchapter" id="YGh-ky-xH5">
-                                                            <rect key="frame" x="11" y="1" width="125" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="125" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-fY-9Sp">
@@ -1194,7 +1193,7 @@ Gw
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="cellbook" id="nCa-HY-7oc">
-                                                            <rect key="frame" x="11" y="1" width="141" height="17"/>
+                                                            <rect key="frame" x="1" y="1" width="141" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
@@ -1288,7 +1287,7 @@ Gw
         <!--Rigth View-->
         <scene sceneID="iCY-Fm-IkA">
             <objects>
-                <viewController id="aEP-du-uoE" customClass="RigthView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="aEP-du-uoE" customClass="RigthView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="yZR-tP-ovo">
                         <rect key="frame" x="0.0" y="0.0" width="636" height="425"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1308,7 +1307,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textView identifier="Bible" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Zuh-Fk-nWM" customClass="BibleTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="Bible" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Zuh-Fk-nWM" customClass="BibleTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1352,7 +1351,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView identifier="Search" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="Search" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="Imf-Do-olX" customClass="СommonTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1392,7 +1391,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView identifier="Compare" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="eU7-Os-3Pu" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="Compare" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" id="eU7-Os-3Pu" customClass="СommonTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1432,7 +1431,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView identifier="references" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="Qm2-UT-a79" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="references" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="Qm2-UT-a79" customClass="СommonTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1472,7 +1471,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView identifier="Commentary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="RwV-PY-zpS" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="Commentary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="RwV-PY-zpS" customClass="СommonTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1512,7 +1511,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView identifier="Dictionary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="LRH-fW-4mm" customClass="СommonTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="Dictionary" editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsCharacterPickerTouchBarItem="NO" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" textCompletion="NO" spellingCorrection="YES" id="LRH-fW-4mm" customClass="СommonTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1552,7 +1551,7 @@ Gw
                                                         <rect key="frame" x="1" y="1" width="613" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <textView identifier="Notes" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="NotesTextView" customModule="Unbound_Bible" customModuleProvider="target">
+                                                            <textView identifier="Notes" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="8mZ-f0-zEK" customClass="NotesTextView" customModule="macOS" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="-1" width="613" height="390"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1612,7 +1611,7 @@ Gw
                     </connections>
                 </viewController>
                 <customObject id="qmf-oa-nxB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <menu autoenablesItems="NO" id="c6C-nW-O0M" customClass="PopupMenu" customModule="Unbound_Bible" customModuleProvider="target">
+                <menu autoenablesItems="NO" id="c6C-nW-O0M" customClass="PopupMenu" customModule="macOS" customModuleProvider="target">
                     <items>
                         <menuItem title="Search" id="D1D-pY-dKd">
                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1691,7 +1690,7 @@ Gw
         </scene>
     </scenes>
     <resources>
-        <image name="NSBookmarksTemplate" width="19" height="15"/>
+        <image name="NSBookmarksTemplate" width="22" height="17"/>
         <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="NSStatusAvailable" width="16" height="16"/>
         <image name="NSStatusNone" width="16" height="16"/>
