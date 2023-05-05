@@ -69,21 +69,23 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         var cellView: NSTableCellView?
         
         if tableView == bookTableView {
-            cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellbook"), owner: self) as? NSTableCellView
+            let id = NSUserInterfaceItemIdentifier(rawValue: "cellbook")
+            cellView = tableView.makeView(withIdentifier: id, owner: self) as? NSTableCellView
             cellView?.textField!.stringValue = bookTableViewList[row]
             cellView?.textField!.baseWritingDirection = writingDirection
-            return cellView
+            let width = tableView.frame.width
+            tableView.tableColumns[0].width = width - 12
         }
 
         if tableView == chapterTableView {
-            cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "cellchapter"), owner: self) as? NSTableCellView
+            let id = NSUserInterfaceItemIdentifier(rawValue: "cellchapter")
+            cellView = tableView.makeView(withIdentifier: id, owner: self) as? NSTableCellView
             cellView?.textField!.stringValue = String(row+1)
-            return cellView
         }
         
         return cellView!
     }
-    
+   
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
         tools.setCurrBible(popUpButton.selectedItem!.title)
         makeBookList()
