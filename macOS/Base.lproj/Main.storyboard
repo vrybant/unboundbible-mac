@@ -391,14 +391,14 @@
                                                 <action selector="contactPage:" target="Ady-hI-5gd" id="47i-ja-49r"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="Uab-6I-dqj"/>
                                         <menuItem title="Home Page" id="7z3-5j-CqM">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="homePage:" target="Ady-hI-5gd" id="uYm-ll-hTR"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Donate" id="0l1-Da-iy5">
+                                        <menuItem isSeparatorItem="YES" hidden="YES" id="Uab-6I-dqj"/>
+                                        <menuItem title="Donate" hidden="YES" id="0l1-Da-iy5">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="donatePage:" target="Ady-hI-5gd" id="CKy-bu-Hyk"/>
@@ -712,7 +712,7 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="22" minWidth="10" maxWidth="3.4028234663852886e+38" hidden="YES" id="Ccb-iT-s6s">
+                                                <tableColumn width="22" minWidth="10" maxWidth="3.4028234663852886e+38" id="Ccb-iT-s6s">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -723,7 +723,7 @@
                                                     </buttonCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn editable="NO" width="377" minWidth="10" maxWidth="3.4028234663852886e+38" id="VVN-FB-g2a">
+                                                <tableColumn editable="NO" width="352" minWidth="10" maxWidth="3.4028234663852886e+38" id="VVN-FB-g2a">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
