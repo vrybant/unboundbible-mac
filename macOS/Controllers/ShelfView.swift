@@ -76,22 +76,21 @@ extension ShelfView: NSTableViewDataSource {
 extension ShelfView: NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-
+        var cellView: NSTableCellView?
+        
         if tableColumn?.identifier.rawValue == "NameColumn" {
-            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "NameCell")
-            guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
-            cellView.textField?.stringValue = modules[row].name
-            return cellView
+            let id = NSUserInterfaceItemIdentifier(rawValue: "NameCell")
+            cellView = tableView.makeView(withIdentifier: id, owner: self) as? NSTableCellView
+            cellView?.textField?.stringValue = modules[row].name
         }
         
         if tableColumn?.identifier.rawValue == "LangColumn" {
-            let cellIdentifier = NSUserInterfaceItemIdentifier(rawValue: "LangCell")
-            guard let cellView = tableView.makeView(withIdentifier: cellIdentifier, owner: self) as? NSTableCellView else { return nil }
-            cellView.textField?.stringValue = modules[row].language
-            return cellView
+            let id = NSUserInterfaceItemIdentifier(rawValue: "LangCell")
+            cellView = tableView.makeView(withIdentifier: id, owner: self) as? NSTableCellView
+            cellView?.textField?.stringValue = modules[row].language
         }
 
-        return nil
+        return cellView
     }
 
 }

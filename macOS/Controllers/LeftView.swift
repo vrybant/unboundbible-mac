@@ -83,7 +83,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
             cellView?.textField!.stringValue = String(row+1)
         }
         
-        return cellView!
+        return cellView
     }
    
     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
