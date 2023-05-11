@@ -157,10 +157,10 @@
 				E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */,
 				E77373BA271EBDE100FFA254 /* ToolsExt.swift */,
 				CE2F17F41D33C31800BA91A6 /* Assets.xcassets */,
+				E7F5071A20509AEB0019F546 /* icns.icns */,
 				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
 				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
-				E7F5071A20509AEB0019F546 /* icns.icns */,
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
 				E77AE7292718CB3C0065F35F /* Additional.storyboard */,
 				E7C82390202B07EC00287173 /* InfoPlist.strings */,
@@ -275,7 +275,6 @@
 					CE2F17EC1D33C31800BA91A6 = {
 						CreatedOnToolsVersion = 7.3.1;
 						LastSwiftMigration = 1020;
-						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -527,6 +526,7 @@
 		CE2F17FD1D33C31800BA91A6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Unbound Bible.entitlements";
 				CODE_SIGN_IDENTITY = "-";
@@ -534,7 +534,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -555,14 +555,17 @@
 		CE2F17FE1D33C31800BA91A6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Unbound Bible.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 18;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=macosx*]" = ZK5Z2R2KTA;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -575,6 +578,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Provisioning Profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 			};
