@@ -14,7 +14,6 @@ class View: NSView {
         darkAppearance = effectiveAppearance.isDark
     }
     
-    @available(macOS 10.14, *)
     override func viewDidChangeEffectiveAppearance() {
         super.viewDidChangeEffectiveAppearance()
         darkAppearance = effectiveAppearance.isDark

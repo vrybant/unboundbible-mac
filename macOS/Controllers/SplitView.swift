@@ -1,8 +1,8 @@
 //
 //  SplitView.swift
-//  Unbound-Bible-macOS
+//  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant Ministries. All rights reserved.
+//  Copyright © 2023 Vladimir Rybant Ministries. All rights reserved.
 //
 
 import Cocoa
