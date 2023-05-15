@@ -56,7 +56,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE2F17ED1D33C31800BA91A6 /* macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = macOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Unbound Bible.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2F17F21D33C31800BA91A6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		CE2F17F41D33C31800BA91A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		CE2F17EE1D33C31800BA91A6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE2F17ED1D33C31800BA91A6 /* macOS.app */,
+				CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 				E77D230F29FC25040025C4C1 /* GRDB */,
 			);
 			productName = "Unbound-Bible-OSX";
-			productReference = CE2F17ED1D33C31800BA91A6 /* macOS.app */;
+			productReference = CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -543,7 +543,7 @@
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 5.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Unbound Bible";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -575,7 +575,7 @@
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				MARKETING_VERSION = 5.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = info.unboundbible;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Unbound Bible";
 				PROVISIONING_PROFILE = "69294aa1-508c-49cc-9a99-7516601ff10f";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "Provisioning Profile";
