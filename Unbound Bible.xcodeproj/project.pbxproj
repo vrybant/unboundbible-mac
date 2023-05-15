@@ -83,7 +83,6 @@
 		E7649A032A0130ED009B6B63 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		E7649A052A0131C2009B6B63 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "сonfig.xcconfig"; sourceTree = "<group>"; };
 		E77373BA271EBDE100FFA254 /* ToolsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsExt.swift; sourceTree = "<group>"; };
 		E77373BE271EBE6D00FFA254 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		E77AE72A2718CB450065F35F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Additional.storyboard; sourceTree = "<group>"; };
@@ -158,7 +157,6 @@
 				E77373BA271EBDE100FFA254 /* ToolsExt.swift */,
 				CE2F17F41D33C31800BA91A6 /* Assets.xcassets */,
 				E7F5071A20509AEB0019F546 /* icns.icns */,
-				E76AEE471EE84E0A00D63C4E /* сonfig.xcconfig */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
 				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
 				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
