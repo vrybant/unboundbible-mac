@@ -9,11 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        NavigationBar()
+    }
+}
+
+struct ContenttttView: View {
+    
+    @State private var show = true
+    
+    var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Toggle(isOn: $show) {
+                Text("Hello, world!")
+            }
+            .padding()
+            
+            if show {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
+                
+            }
         }
         .padding()
     }
