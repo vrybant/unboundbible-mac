@@ -14,10 +14,10 @@ struct DetailView: View {
     let color: String
     var body: some View {
         VStack {
-            Text("Купить \(userBuy.caps) ") //.padding()
+            Text("Count \(userBuy.caps) ") //.padding()
 //              .navigationBarTitle(Text(color), displayMode: .inline)
                 .navigationBarItems(leading:
-                    Button("назад") {
+                    Button("return") {
                         presentation.wrappedValue.dismiss()
                     }
                 , trailing:

@@ -18,17 +18,14 @@ public struct NavigationBar: View {
     
     public var body: some View {
         NavigationView {
-            Text(centerText)
+            Text("\(centerText) \(userBuy.caps)")
                 //.navigationBarTitle("BarTitle")
                 .navigationBarTitleDisplayMode(.inline)
 
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        Button("Left") {
-                            centerText = "Left Button Clicked"
-                            showLeftAlert = true
-                        }.alert(isPresented: $showLeftAlert) {
-                            Alert(title: Text("Left"), message: Text("Button Clicked"), dismissButton: .default(Text("Dismiss")))
+                        NavigationLink(destination: DetailView(color: "color")) {
+                            Text("Left")
                         }
                     }
                     
@@ -52,12 +49,7 @@ public struct NavigationBar: View {
                         }
                     }
                 }
- 
-//            NavigationLink(destination: DetailView(color: "color")) {
-//                Text("Чай = \(userBuy.caps)")
-//            }
-            
-        }
+         }
         .environmentObject(userBuy)
     }
 }
