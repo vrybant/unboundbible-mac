@@ -8,17 +8,20 @@
 import SwiftUI
 
 public struct NavigationBar: View {
+    @EnvironmentObject var userBuy: UserBuy
     
     @State private var centerText = ""
     @State private var showLeftAlert: Bool = false
     @State private var showRightAlert: Bool = false
     
-    public init() {}
+    // public init() {}
     
     public var body: some View {
         NavigationView {
             Text(centerText)
+                //.navigationBarTitle("BarTitle")
                 .navigationBarTitleDisplayMode(.inline)
+
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
                         Button("Left") {
@@ -28,6 +31,7 @@ public struct NavigationBar: View {
                             Alert(title: Text("Left"), message: Text("Button Clicked"), dismissButton: .default(Text("Dismiss")))
                         }
                     }
+                    
                     ToolbarItem(placement: .principal) {
                         Button() {
                             centerText = ""
@@ -37,7 +41,7 @@ public struct NavigationBar: View {
                                 .font(.system(size: 20, weight: .bold))
                         }
                         .buttonStyle(.borderedProminent)
-//                      .controlSize(.small)
+                        //                      .controlSize(.small)
                     }
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Right") {
@@ -48,7 +52,13 @@ public struct NavigationBar: View {
                         }
                     }
                 }
+ 
+//            NavigationLink(destination: DetailView(color: "color")) {
+//                Text("Чай = \(userBuy.caps)")
+//            }
+            
         }
+        .environmentObject(userBuy)
     }
 }
 

@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct iOSApp: App {
+    @StateObject var userBuy = UserBuy()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(userBuy)
         }
     }
 }

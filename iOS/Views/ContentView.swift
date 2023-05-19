@@ -14,7 +14,6 @@ struct ContentView: View {
 }
 
 struct ContenttttView: View {
-    
     @State private var show = true
     
     var body: some View {
