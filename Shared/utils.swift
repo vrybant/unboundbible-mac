@@ -70,7 +70,7 @@ func readDefaults() {
     defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
-    defaultCurrBible  = defaults.string(forKey: "currentBible") ?? tools.bibles.getDefaultBible
+    defaultCurrBible  = defaults.string(forKey: "currentBible")
 
     currVerse.book    = defaults.integer(forKey: "verseBook")
     currVerse.chapter = defaults.integer(forKey: "verseChapter")

@@ -15,7 +15,8 @@ class Tools {
     var dictionaries = [Dictionary](true)
     var references = [Reference](true)
     
-    func setCurrBible(_ name: String) {
+    func setCurrBible(_ name: String?) {
+        let name = name ?? bibles.getDefaultBible
         currBible = bibles[0]
         
         for bible in bibles {
