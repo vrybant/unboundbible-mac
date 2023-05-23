@@ -9,11 +9,15 @@ var tools = Tools()
 var currBible : Bible? = nil
 
 class Tools {
-    
     var bibles = [Bible](true)
     var commentaries = [Commentary](true)
     var dictionaries = [Dictionary](true)
     var references = [Reference](true)
+
+    init() {
+        if bibles.isEmpty { return }
+        setCurrBible(defaultCurrBible)
+    }
     
     func setCurrBible(_ name: String?) {
         let name = name ?? bibles.getDefaultBible

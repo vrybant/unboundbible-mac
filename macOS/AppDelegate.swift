@@ -33,7 +33,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         readDefaults()
         copyDefaultsFiles()
         if tools.bibles.isEmpty { return }
-        tools.setCurrBible(defaultCurrBible)
         leftView.loadBibleMenu()
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
         leftView.makeBookList()
