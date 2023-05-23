@@ -32,7 +32,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func initialization() {
         readDefaults()
         copyDefaultsFiles()
-        if tools.bibles.isEmpty { return }
+        if tools.bibles.isEmpty { return } // tools.init
         leftView.loadBibleMenu()
         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
         leftView.makeBookList()
