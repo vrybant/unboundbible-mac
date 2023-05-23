@@ -43,7 +43,7 @@ private struct MybibleAlias : CommentaryAlias {
 class Commentary: Module {    
     private var z : CommentaryAlias = UnboundAlias()
     
-    override init?(atPath: String) {
+    required init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
         if connected && !tableExists(z.commentary) { return nil }

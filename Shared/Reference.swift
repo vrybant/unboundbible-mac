@@ -48,7 +48,7 @@ private struct MybibleAlias : ReferenceAlias {
 class Reference: Module {
     private var z : ReferenceAlias = UnboundAlias()
     
-    override init?(atPath: String) {
+    required init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
 //        if connected && !tableExists(z.xreferences) { return nil }

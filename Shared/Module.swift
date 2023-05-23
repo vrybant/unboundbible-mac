@@ -46,7 +46,7 @@ class Module {
             680,690,700,710,720,730,000,000,000,000,000,000,000,000,000,000,165,468,170,180,
             462,464,466,467,270,280,315,320]
     
-    init?(atPath: String) {
+    required init?(atPath: String) {
         filePath = atPath
         fileName = atPath.lastPathComponent
         let ext = filePath.pathExtension 

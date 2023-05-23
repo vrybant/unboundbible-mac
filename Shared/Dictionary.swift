@@ -29,7 +29,7 @@ private struct MybibleAlias : DictionaryAlias {
 class Dictionary: Module {
     private var z : DictionaryAlias = UnboundAlias()
 
-    override init?(atPath: String) {
+    required init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias() }
         if connected && !tableExists(z.dictionary) { return nil }

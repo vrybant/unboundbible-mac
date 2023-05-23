@@ -83,7 +83,7 @@ class Bible: Module {
     private var books : [Book] = []
     private var z : BibleAlias = UnboundAlias()
 
-    override init?(atPath: String) {
+    required init?(atPath: String) {
         super.init(atPath: atPath)
         if format == .mybible { z = MybibleAlias()  }
         if connected && !tableExists(z.bible) { connected = false }
