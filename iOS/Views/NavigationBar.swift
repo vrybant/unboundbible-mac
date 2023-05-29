@@ -14,8 +14,6 @@ public struct NavigationBar: View {
     @State private var showLeftAlert: Bool = false
     @State private var showRightAlert: Bool = false
     
-    // public init() {}
-    
     public var body: some View {
         NavigationView {
             Text("\(centerText) \(userBuy.caps)")
@@ -38,8 +36,9 @@ public struct NavigationBar: View {
                                 .font(.system(size: 20, weight: .bold))
                         }
                         .buttonStyle(.borderedProminent)
-                        //                      .controlSize(.small)
+//                      .controlSize(.small)
                     }
+                    
                     ToolbarItem(placement: .navigationBarTrailing) {
                         Button("Right") {
                             centerText = "Right Button Clicked"

@@ -13,27 +13,6 @@ struct ContentView: View {
     }
 }
 
-struct ContenttttView: View {
-    @State private var show = true
-    
-    var body: some View {
-        VStack {
-            Toggle(isOn: $show) {
-                Text("Hello, world!")
-            }
-            .padding()
-            
-            if show {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                
-            }
-        }
-        .padding()
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
