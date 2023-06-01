@@ -26,6 +26,7 @@
 		E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */; };
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
 		E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74040F11ED5A40F00F96C48 /* CopyView.swift */; };
+		E75025CE2A28EB0300B86471 /* Titles.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75025CD2A28EB0300B86471 /* Titles.swift */; };
 		E75525952051334A00BDD425 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
 		E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756E0F7267BC22A005494A6 /* ShelfView.swift */; };
 		E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
@@ -85,6 +86,7 @@
 		E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
+		E75025CD2A28EB0300B86471 /* Titles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Titles.swift; sourceTree = "<group>"; };
 		E7522CC8214AAD2900EB8788 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E75525942051334A00BDD425 /* bibles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bibles; sourceTree = "<group>"; };
 		E756E0F7267BC22A005494A6 /* ShelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				E71E2CB42A12647900136566 /* ContentView.swift */,
 				E7F059912A150380002B6029 /* DetailView.swift */,
 				E7F059932A152550002B6029 /* NavigationBar.swift */,
+				E75025CD2A28EB0300B86471 /* Titles.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E75025CE2A28EB0300B86471 /* Titles.swift in Sources */,
 				E72425D72A179BF600531EA0 /* UserBuy.swift in Sources */,
 				E7F059942A152550002B6029 /* NavigationBar.swift in Sources */,
 				E71E2CB52A12647900136566 /* ContentView.swift in Sources */,

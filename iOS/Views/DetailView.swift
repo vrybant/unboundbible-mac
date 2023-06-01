@@ -11,7 +11,7 @@ struct DetailView: View {
     @Environment(\.presentationMode) var presentation
     @EnvironmentObject var userBuy: UserBuy
     
-    let color: String
+    //let color: String
     var body: some View {
         VStack {
             Text("Count \(userBuy.caps) ") //.padding()
@@ -35,9 +35,9 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    @available(iOS 13.0, *)
-    static var previews: some View {
-        DetailView(color: "Red")
-    }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    @available(iOS 13.0, *)
+//    static var previews: some View {
+//        DetailView(color: "Red")
+//    }
+//}

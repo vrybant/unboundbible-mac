@@ -14,29 +14,36 @@ public struct NavigationBar: View {
     @State private var showLeftAlert: Bool = false
     @State private var showRightAlert: Bool = false
     
+    @State private var showSheet = false
+    @State private var buttonTitle = "Библия"
+    
+    
     public var body: some View {
         NavigationView {
-            Text("\(centerText) \(userBuy.caps)")
-                //.navigationBarTitle("BarTitle")
+            Text("Text")
                 .navigationBarTitleDisplayMode(.inline)
-
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
-                        NavigationLink(destination: DetailView(color: "color")) {
+                        NavigationLink(destination: DetailView()) {
                             Text("Left")
                         }
                     }
-                    
+                                        
                     ToolbarItem(placement: .principal) {
-                        Button() {
-                            centerText = ""
-                            print("Tapped")
+                        Button {
+                            showSheet.toggle()
                         } label: {
+//                          Text(buttonTitle)
                             Text("Библия")
                                 .font(.system(size: 20, weight: .bold))
                         }
                         .buttonStyle(.borderedProminent)
-//                      .controlSize(.small)
+
+                        .sheet(isPresented: $showSheet) {
+                            TitlesView(buttonTitle: buttonTitle) {
+                                self.buttonTitle = $0
+                            }
+                        }
                     }
                     
                     ToolbarItem(placement: .navigationBarTrailing) {
@@ -53,10 +60,10 @@ public struct NavigationBar: View {
     }
 }
 
-struct NavigationBar_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationBar()
-    }
-}
+//struct NavigationBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationBar()
+//    }
+//}
 
 
