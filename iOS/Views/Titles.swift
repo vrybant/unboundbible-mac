@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct TitlesView: View {
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) var presentation
 
-    @State private var buttonTitle: String
-    let callback: (String) -> ()
-
-    init(buttonTitle: String, callback: @escaping (String) -> ()) {
-        _buttonTitle = State(initialValue: buttonTitle)
-        self.callback = callback
+    struct Title: Identifiable {
+        let name: String
+        let id = UUID()
     }
+    
+    private var titles = [
+        Title(name: "Genesis"),
+        Title(name: "Exodus"),
+        Title(name: "Leviticus"),
+        Title(name: "Numbers"),
+        Title(name: "Deuteronomy"),
+        Title(name: "Joshua"),
+        Title(name: "Judges"),
+        Title(name: "Ruth"),
+        Title(name: "1 Samuel"),
+        Title(name: "2 Samuel")
+    ]
 
-    var body: some View {
-        Button("Button B") {
-            buttonTitle = "Button B"
-            presentationMode.wrappedValue.dismiss()
+    public var body: some View {
+        List(titles) {
+            Text($0.name)
         }
-        .onDisappear {
-            callback(buttonTitle)
-        }
+//      .navigationBarBackButtonHidden(true)
     }
 }
