@@ -73,6 +73,8 @@
 		E7EA07A62A3B4F840079BCD8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76499FD2A012EEC009B6B63 /* Colors.swift */; };
 		E7EA07A72A3B4F840079BCD8 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A052A0131C2009B6B63 /* Int.swift */; };
 		E7EA07A82A3B4F840079BCD8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76499FB2A012E7D009B6B63 /* String.swift */; };
+		E7EA07A92A3B79010079BCD8 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
+		E7EA07AA2A3B79070079BCD8 /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E7F059922A150380002B6029 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F059912A150380002B6029 /* DetailView.swift */; };
 		E7F059942A152550002B6029 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F059932A152550002B6029 /* NavigationBar.swift */; };
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
@@ -436,6 +438,8 @@
 			files = (
 				E71E2CBA2A12647A00136566 /* Preview Assets.xcassets in Resources */,
 				E71E2CB72A12647A00136566 /* Assets.xcassets in Resources */,
+				E7EA07A92A3B79010079BCD8 /* bibles in Resources */,
+				E7EA07AA2A3B79070079BCD8 /* titles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

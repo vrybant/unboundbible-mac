@@ -42,13 +42,11 @@ enum Errors : Error {
 //  }
 
 var languageCode: String {
-    let locale = NSLocale.autoupdatingCurrent
 #if os(OSX)
-    let code = locale.languageCode
+    NSLocale.autoupdatingCurrent.languageCode ?? "en"
 #else
-    let code = locale.language.languageCode?.identifier
+    NSLocale.autoupdatingCurrent.language.languageCode?.identifier ?? "en"
 #endif
-    return code ?? "en"
 }
 
 var russianSpeaking: Bool {
@@ -116,12 +114,12 @@ func contentsOfDirectory(url: URL) -> [String]? {
 }
 
 func copyToClipboard(content: String) {
-    #if os(OSX)
-        let Pasteboard = NSPasteboard.general
-        Pasteboard.clearContents()
-        Pasteboard.writeObjects([content as NSString])
-    //  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
-    #endif
+#if os(OSX)
+    let Pasteboard = NSPasteboard.general
+    Pasteboard.clearContents()
+    Pasteboard.writeObjects([content as NSString])
+//  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
+#endif
 }
 
 func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NSMutableAttributedString {
@@ -136,8 +134,7 @@ func getRightToLeft(language: String) -> Bool {
 }
 
 func copyDefaultsFiles() {
-    #if os(OSX)
-    
+#if os(OSX)
     if !FileManager.default.fileExists(atPath: dataUrl.path)  {
         try? FileManager.default.createDirectory(at: dataUrl, withIntermediateDirectories: false, attributes: nil)
     }
@@ -158,6 +155,5 @@ func copyDefaultsFiles() {
             try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
         }
     }
-    
-    #endif
+#endif
 }

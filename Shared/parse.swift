@@ -8,7 +8,7 @@
 import Foundation
 
 #if os(iOS)
-    import UIKit
+    import SwiftUI
 #endif
 
 #if os(OSX)
