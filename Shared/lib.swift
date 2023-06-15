@@ -113,14 +113,14 @@ func contentsOfDirectory(url: URL) -> [String]? {
     return !result.isEmpty ? result : nil
 }
 
-func copyToClipboard(content: String) {
 #if os(OSX)
+func copyToClipboard(content: String) {
     let Pasteboard = NSPasteboard.general
     Pasteboard.clearContents()
     Pasteboard.writeObjects([content as NSString])
 //  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
-#endif
 }
+#endif
 
 func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
@@ -133,8 +133,8 @@ func getRightToLeft(language: String) -> Bool {
     language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }
 
-func copyDefaultsFiles() {
 #if os(OSX)
+func copyDefaultsFiles() {
     if !FileManager.default.fileExists(atPath: dataUrl.path)  {
         try? FileManager.default.createDirectory(at: dataUrl, withIntermediateDirectories: false, attributes: nil)
     }
@@ -155,5 +155,5 @@ func copyDefaultsFiles() {
             try? FileManager.default.copyItem(atPath: atPath, toPath: toPath)
         }
     }
-#endif
 }
+#endif
