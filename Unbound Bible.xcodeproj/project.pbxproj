@@ -56,6 +56,23 @@
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */; };
 		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
+		E7EA07972A3B4EE60079BCD8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
+		E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A0E9123FFE26B00EE62A8 /* Bible.swift */; };
+		E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
+		E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
+		E7EA079B2A3B4EF80079BCD8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
+		E7EA079C2A3B4EFD0079BCD8 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
+		E7EA079D2A3B4F0D0079BCD8 /* prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* prepare.swift */; };
+		E7EA079E2A3B4F100079BCD8 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71485B823AA5EF6009369D4 /* lib.swift */; };
+		E7EA079F2A3B4F140079BCD8 /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
+		E7EA07A02A3B4F170079BCD8 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
+		E7EA07A22A3B4F550079BCD8 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = E7EA07A12A3B4F550079BCD8 /* GRDB */; };
+		E7EA07A32A3B4F840079BCD8 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A032A0130ED009B6B63 /* Defaults.swift */; };
+		E7EA07A42A3B4F840079BCD8 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A012A0130A1009B6B63 /* Array.swift */; };
+		E7EA07A52A3B4F840079BCD8 /* AttrString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76499FF2A012FA5009B6B63 /* AttrString.swift */; };
+		E7EA07A62A3B4F840079BCD8 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76499FD2A012EEC009B6B63 /* Colors.swift */; };
+		E7EA07A72A3B4F840079BCD8 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A052A0131C2009B6B63 /* Int.swift */; };
+		E7EA07A82A3B4F840079BCD8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76499FB2A012E7D009B6B63 /* String.swift */; };
 		E7F059922A150380002B6029 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F059912A150380002B6029 /* DetailView.swift */; };
 		E7F059942A152550002B6029 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F059932A152550002B6029 /* NavigationBar.swift */; };
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
@@ -145,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7EA07A22A3B4F550079BCD8 /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +358,9 @@
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				E7EA07A12A3B4F550079BCD8 /* GRDB */,
+			);
 			productName = iOS;
 			productReference = E71E2CB02A12647900136566 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
@@ -471,11 +492,27 @@
 			files = (
 				E75025CE2A28EB0300B86471 /* Titles.swift in Sources */,
 				E72425D72A179BF600531EA0 /* UserBuy.swift in Sources */,
+				E7EA07A82A3B4F840079BCD8 /* String.swift in Sources */,
+				E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */,
+				E7EA079D2A3B4F0D0079BCD8 /* prepare.swift in Sources */,
 				E7CED8342A323CB100CDB269 /* List.swift in Sources */,
+				E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */,
 				E7F059942A152550002B6029 /* NavigationBar.swift in Sources */,
+				E7EA07A72A3B4F840079BCD8 /* Int.swift in Sources */,
 				E71E2CB52A12647900136566 /* ContentView.swift in Sources */,
+				E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */,
+				E7EA07A42A3B4F840079BCD8 /* Array.swift in Sources */,
+				E7EA07A62A3B4F840079BCD8 /* Colors.swift in Sources */,
+				E7EA07A32A3B4F840079BCD8 /* Defaults.swift in Sources */,
 				E7F059922A150380002B6029 /* DetailView.swift in Sources */,
+				E7EA079B2A3B4EF80079BCD8 /* Reference.swift in Sources */,
+				E7EA079E2A3B4F100079BCD8 /* lib.swift in Sources */,
 				E71E2CB32A12647900136566 /* iOSApp.swift in Sources */,
+				E7EA079F2A3B4F140079BCD8 /* Module.swift in Sources */,
+				E7EA079C2A3B4EFD0079BCD8 /* parse.swift in Sources */,
+				E7EA07A52A3B4F840079BCD8 /* AttrString.swift in Sources */,
+				E7EA07972A3B4EE60079BCD8 /* Tools.swift in Sources */,
+				E7EA07A02A3B4F170079BCD8 /* utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +857,11 @@
 
 /* Begin XCSwiftPackageProductDependency section */
 		E77D230F29FC25040025C4C1 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */;
+			productName = GRDB;
+		};
+		E7EA07A12A3B4F550079BCD8 /* GRDB */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E77D230E29FC25040025C4C1 /* XCRemoteSwiftPackageReference "GRDB" */;
 			productName = GRDB;

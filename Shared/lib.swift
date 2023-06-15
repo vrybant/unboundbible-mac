@@ -12,7 +12,7 @@ import Foundation
     typealias Color = NSColor
     typealias Font = NSFont
 #else
-    import UIKit
+    import SwiftUI
     typealias Color = UIColor
     typealias Font = UIFont
 #endif
@@ -42,7 +42,13 @@ enum Errors : Error {
 //  }
 
 var languageCode: String {
-    NSLocale.autoupdatingCurrent.languageCode ?? "en"
+    let locale = NSLocale.autoupdatingCurrent
+#if os(OSX)
+    let code = locale.languageCode
+#else
+    let code = locale.language.languageCode?.identifier
+#endif
+    return code ?? "en"
 }
 
 var russianSpeaking: Bool {
@@ -50,15 +56,15 @@ var russianSpeaking: Bool {
 }
 
 func printlocal() {
-    if #available(OSX 10.12, *) {
-        let locale = NSLocale.autoupdatingCurrent
-        let code = locale.languageCode
-        let enlocale = NSLocale(localeIdentifier: "en_US")
-        let identifier = locale.identifier
-        let name = enlocale.displayName(forKey: NSLocale.Key.identifier, value: identifier)
-        let language = enlocale.localizedString(forLanguageCode: code!)
-        print(code!, language!, identifier, name!)
-    }
+#if os(OSX)
+    let locale = NSLocale.autoupdatingCurrent
+    let code = locale.languageCode
+    let enlocale = NSLocale(localeIdentifier: "en_US")
+    let identifier = locale.identifier
+    let name = enlocale.displayName(forKey: NSLocale.Key.identifier, value: identifier)
+    let language = enlocale.localizedString(forLanguageCode: code!)
+    print(code!, language!, identifier, name!)
+#endif
 }
 
 func printlist(_ string: String) {
