@@ -4,9 +4,10 @@
 //
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
+
 import Foundation
 
-extension Tools {
+class Tools: CustomTools {
     
     func get_Chapter() -> String {
         var result = ""

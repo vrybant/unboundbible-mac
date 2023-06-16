@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Tools {
+class Tools: CustomTools {
     
     func get_Chapter() -> [String] {
         var result = [String]()

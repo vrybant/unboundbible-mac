@@ -8,7 +8,7 @@
 var tools = Tools()
 var currBible : Bible? = nil
 
-class Tools {
+class CustomTools {
     var bibles = [Bible](true)
     var commentaries = [Commentary](true)
     var dictionaries = [Dictionary](true)

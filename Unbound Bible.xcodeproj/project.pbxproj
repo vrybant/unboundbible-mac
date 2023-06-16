@@ -39,7 +39,7 @@
 		E7649A042A0130ED009B6B63 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A032A0130ED009B6B63 /* Defaults.swift */; };
 		E7649A062A0131C2009B6B63 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A052A0131C2009B6B63 /* Int.swift */; };
 		E77373BB271EBDE100FFA254 /* ToolsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* ToolsExt.swift */; };
-		E77373BF271EBE6D00FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
+		E77373BF271EBE6D00FFA254 /* CustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* CustomTools.swift */; };
 		E77AE7272718CB3C0065F35F /* Additional.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E77AE7292718CB3C0065F35F /* Additional.storyboard */; };
 		E77D231029FC25040025C4C1 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = E77D230F29FC25040025C4C1 /* GRDB */; };
 		E7A031C726A80A2400AE1D13 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* utils.swift */; };
@@ -58,7 +58,7 @@
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */; };
 		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
-		E7EA07972A3B4EE60079BCD8 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* Tools.swift */; };
+		E7EA07972A3B4EE60079BCD8 /* CustomTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BE271EBE6D00FFA254 /* CustomTools.swift */; };
 		E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A0E9123FFE26B00EE62A8 /* Bible.swift */; };
 		E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
@@ -123,7 +123,7 @@
 		E7649A052A0131C2009B6B63 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		E77373BA271EBDE100FFA254 /* ToolsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsExt.swift; sourceTree = "<group>"; };
-		E77373BE271EBE6D00FFA254 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		E77373BE271EBE6D00FFA254 /* CustomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTools.swift; sourceTree = "<group>"; };
 		E77AE72A2718CB450065F35F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Additional.storyboard; sourceTree = "<group>"; };
 		E77AE72E2718CB970065F35F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Additional.strings; sourceTree = "<group>"; };
 		E7A031C626A80A2400AE1D13 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 				E7FABB9A21D938D3006B6267 /* Commentary.swift */,
 				E7FABB9C21D938F7006B6267 /* Dictionary.swift */,
 				E7E7A84D24C5C285001F85C8 /* Reference.swift */,
-				E77373BE271EBE6D00FFA254 /* Tools.swift */,
+				E77373BE271EBE6D00FFA254 /* CustomTools.swift */,
 				E75F12C01FF25D79006EDAC9 /* parse.swift */,
 				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
@@ -456,7 +456,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E77373BF271EBE6D00FFA254 /* Tools.swift in Sources */,
+				E77373BF271EBE6D00FFA254 /* CustomTools.swift in Sources */,
 				E76499FC2A012E7D009B6B63 /* String.swift in Sources */,
 				E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */,
 				E76499FE2A012EEC009B6B63 /* Colors.swift in Sources */,
@@ -523,7 +523,7 @@
 				E71DA9E12A3C8B4400ECBC2F /* ToolsExt.swift in Sources */,
 				E7EA079C2A3B4EFD0079BCD8 /* parse.swift in Sources */,
 				E7EA07A52A3B4F840079BCD8 /* AttrString.swift in Sources */,
-				E7EA07972A3B4EE60079BCD8 /* Tools.swift in Sources */,
+				E7EA07972A3B4EE60079BCD8 /* CustomTools.swift in Sources */,
 				E7EA07A02A3B4F170079BCD8 /* utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
