@@ -1,20 +1,17 @@
 //
-//  List.swift
-//  iOS
+//  ShelfView.swift
+//  Unbound Bible
 //
-//  Created by Vladimir Rybant on 08.06.2023.
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
-// https://developer.apple.com/tutorials/swiftui/building-lists-and-navigation
-
 import SwiftUI
 
-public struct ListView: View {
+public struct ShelfView: View {
 
     public var body: some View {
         
-        let titles = tools.get_Chapter()
+        let titles = tools.get_Shelf()
         
         List(titles, id: \.self) { item in
             Text(item)

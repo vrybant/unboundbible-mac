@@ -20,20 +20,20 @@ public struct NavigationBar: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: DetailView()) {
-                        Text("Left")
+                    NavigationLink(destination: TitlesView()) {
+                        Text("Titles")
                     }
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: TitlesView()) {
+                    NavigationLink(destination: DetailView()) {
                         Text("Bible")
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: DetailView()) {
-                        Text("Right")
+                    NavigationLink(destination: ShelfView()) {
+                        Text("Shelf")
                     }
                 }
             }
