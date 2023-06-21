@@ -1,8 +1,7 @@
 //
 //  List.swift
-//  iOS
+//  Unbound Bible
 //
-//  Created by Vladimir Rybant on 08.06.2023.
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
