@@ -1,5 +1,5 @@
 //
-//  Titles.swift
+//  TitlesView.swift
 //  Unbound Bible
 //
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
