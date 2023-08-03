@@ -15,15 +15,13 @@ func initialization() {
 
 @main
 struct iOSApp: App {
-    @StateObject var userBuy = UserBuy()
-
     init() {
         initialization()
     }
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(userBuy)
+            ContentView()
         }
     }
 }

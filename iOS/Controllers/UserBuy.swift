@@ -5,8 +5,13 @@
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
-import Foundation
+//import Foundation
+import Observation
 
-class UserBuy: ObservableObject {
-    @Published var caps = 0
+// Фреймворк Observation (SwiftUI + iOS 17)
+// https://www.youtube.com/watch?v=Fixbz6wUWWQ
+
+@Observable
+final class UserBuy {
+    var caps = 0
 }

@@ -8,12 +8,23 @@
 import SwiftUI
 
 public struct ShelfView: View {
+    @State private var selection: String?
 
     public var body: some View {
         let titles = tools.get_Shelf()
         
-        List(titles, id: \.self) { item in
-            Text(item)
+        NavigationStack {
+            List(titles, id: \.self, selection: $selection) { item in
+                Text(item)
+                    .onTapGesture {
+                       print(item)
+                    }
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Modules")
+//          .toolbar {
+//              EditButton()
+//          }
         }
     }
 }

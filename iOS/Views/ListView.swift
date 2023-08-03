@@ -17,6 +17,9 @@ public struct ListView: View {
         
         List(titles, id: \.self) { item in
             Text(item)
+                .onTapGesture {
+                    print(item)
+                }
         }
     }
 }

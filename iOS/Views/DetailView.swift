@@ -9,8 +9,9 @@ import SwiftUI
 
 struct DetailView: View {
     @Environment(\.presentationMode) var presentation
-    @EnvironmentObject var userBuy: UserBuy
-    
+//  @EnvironmentObject var userBuy: UserBuy
+    @State var userBuy = UserBuy()
+
     //let color: String
     var body: some View {
         VStack {
