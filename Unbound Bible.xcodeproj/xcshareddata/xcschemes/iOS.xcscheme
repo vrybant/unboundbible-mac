@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E71E2CAF2A12647900136566"
-               BuildableName = "Unbound Bible.app"
+               BlueprintIdentifier = "E705E7D52AD6B28500F8372F"
+               BuildableName = "iOS.app"
                BlueprintName = "iOS"
                ReferencedContainer = "container:Unbound Bible.xcodeproj">
             </BuildableReference>
@@ -43,8 +43,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E71E2CAF2A12647900136566"
-            BuildableName = "Unbound Bible.app"
+            BlueprintIdentifier = "E705E7D52AD6B28500F8372F"
+            BuildableName = "iOS.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Unbound Bible.xcodeproj">
          </BuildableReference>
@@ -60,8 +60,8 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E71E2CAF2A12647900136566"
-            BuildableName = "Unbound Bible.app"
+            BlueprintIdentifier = "E705E7D52AD6B28500F8372F"
+            BuildableName = "iOS.app"
             BlueprintName = "iOS"
             ReferencedContainer = "container:Unbound Bible.xcodeproj">
          </BuildableReference>
