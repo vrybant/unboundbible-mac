@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Unbound Bible (Библия без переплета)-->
         <scene sceneID="uAV-B3-YjQ">
             <objects>
-                <viewController title="Unbound Bible (Библия без переплета)" storyboardIdentifier="WelcomeView" id="BeF-WZ-RbJ" customClass="WelcomeView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Unbound Bible (Библия без переплета)" storyboardIdentifier="WelcomeView" id="BeF-WZ-RbJ" customClass="WelcomeView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="JP7-VU-z1H">
                         <rect key="frame" x="0.0" y="0.0" width="591" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Bf-No1">
+                            <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Bf-No1">
                                 <rect key="frame" x="152" y="66" width="414" height="230"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" selectable="YES" alignment="justified" allowsEditingTextAttributes="YES" id="FZN-wh-QIw">
@@ -33,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="vladimir" id="yN5-Lh-vTs"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MC4-de-vG1">
+                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MC4-de-vG1">
                                 <rect key="frame" x="282" y="314" width="92" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Добрый день!" id="kVx-cu-tH4">
@@ -63,7 +63,7 @@
         <!--Module Manager-->
         <scene sceneID="sOU-eR-H7l">
             <objects>
-                <viewController title="Module Manager" storyboardIdentifier="ModuleVC" id="3j7-bx-LTS" customClass="ShelfView" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Module Manager" storyboardIdentifier="ModuleVC" id="3j7-bx-LTS" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Fqw-A6-YES">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -98,7 +98,7 @@
                                                             <rect key="frame" x="8" y="0.0" width="508" height="52"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-gC-FVS">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="1Sl-gC-FVS">
                                                                     <rect key="frame" x="0.0" y="18" width="508" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="Y6O-SN-cSQ">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -134,7 +134,7 @@
                                                             <rect key="frame" x="533" y="0.0" width="56" height="52"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="SdD-xa-pOZ">
+                                                                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="SdD-xa-pOZ">
                                                                     <rect key="frame" x="0.0" y="18" width="56" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Cell" id="VDC-If-GxQ">
                                                                         <font key="font" usesAppearanceFont="YES"/>
@@ -181,7 +181,7 @@
                                     <rect key="frame" x="4" y="5" width="545" height="125"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z1J-Pn-qyx">
+                                        <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Z1J-Pn-qyx">
                                             <rect key="frame" x="18" y="96" width="214" height="15"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="210" id="aiL-1x-5Yv"/>
@@ -192,7 +192,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="vLD-V8-XBK">
+                                        <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="vLD-V8-XBK">
                                             <rect key="frame" x="18" y="2" width="509" height="86"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="86" id="oNn-Az-jLq"/>

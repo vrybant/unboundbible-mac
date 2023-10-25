@@ -50,6 +50,7 @@
 		E7A121B52AE8FE8A004C3D24 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A121B32AE8FE8A004C3D24 /* Main.storyboard */; };
 		E7A121B72AE8FE8C004C3D24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A121B62AE8FE8C004C3D24 /* Assets.xcassets */; };
 		E7A121BA2AE8FE8C004C3D24 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A121B82AE8FE8C004C3D24 /* LaunchScreen.storyboard */; };
+		E7A121C32AE93438004C3D24 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A121C22AE93438004C3D24 /* TabBarController.swift */; };
 		E7A4BA921EDD86C200FC9676 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A4BA911EDD86C200FC9676 /* LibraryView.swift */; };
 		E7A8917C20152879008A7695 /* СustomText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917B20152879008A7695 /* СustomText.swift */; };
 		E7A8917E20152893008A7695 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A8917D20152893008A7695 /* CommonText.swift */; };
@@ -143,6 +144,7 @@
 		E7A121B62AE8FE8C004C3D24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7A121B92AE8FE8C004C3D24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7A121BB2AE8FE8C004C3D24 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7A121C22AE93438004C3D24 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TabBarController.swift; path = iosApp/Controllers/TabBarController.swift; sourceTree = SOURCE_ROOT; };
 		E7A4BA911EDD86C200FC9676 /* LibraryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
 		E7A8917B20152879008A7695 /* СustomText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "СustomText.swift"; sourceTree = "<group>"; };
 		E7A8917D20152893008A7695 /* CommonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 		E7A121AC2AE8FE8A004C3D24 /* iOSApp */ = {
 			isa = PBXGroup;
 			children = (
+				E7A121BF2AE932D9004C3D24 /* Controllers */,
 				E7A121AD2AE8FE8A004C3D24 /* AppDelegate.swift */,
 				E7A121AF2AE8FE8A004C3D24 /* SceneDelegate.swift */,
 				E7A121B12AE8FE8A004C3D24 /* ViewController.swift */,
@@ -312,6 +315,14 @@
 				E7A121BB2AE8FE8C004C3D24 /* Info.plist */,
 			);
 			path = iOSApp;
+			sourceTree = "<group>";
+		};
+		E7A121BF2AE932D9004C3D24 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E7A121C22AE93438004C3D24 /* TabBarController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E7B185472A42EE2900F8A723 /* Model */ = {
@@ -613,6 +624,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A121B22AE8FE8A004C3D24 /* ViewController.swift in Sources */,
+				E7A121C32AE93438004C3D24 /* TabBarController.swift in Sources */,
 				E7A121AE2AE8FE8A004C3D24 /* AppDelegate.swift in Sources */,
 				E7A121B02AE8FE8A004C3D24 /* SceneDelegate.swift in Sources */,
 			);
