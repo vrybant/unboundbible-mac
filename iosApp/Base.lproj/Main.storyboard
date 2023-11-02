@@ -33,46 +33,36 @@
                             <constraint firstItem="ztK-H6-L8Z" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="353" id="bbJ-qd-wuc"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="" image="book.closed.fill" catalog="system" id="118-jh-tNA"/>
+                    <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="118-jh-tNA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-121" y="604"/>
         </scene>
-        <!--Root-->
+        <!--Bible-->
         <scene sceneID="XVw-xt-ED1">
             <objects>
-                <tableViewController id="2mS-N5-gnc" sceneMemberID="viewController">
+                <tableViewController id="2mS-N5-gnc" customClass="TableViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XDC-0m-B9N">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QN9-hO-FqG">
-                                <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QN9-hO-FqG" id="Lmt-g6-X3E">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="2mS-N5-gnc" id="OMN-ue-9YN"/>
                             <outlet property="delegate" destination="2mS-N5-gnc" id="VXh-Tm-fox"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root" id="tEC-aq-M5p"/>
+                    <navigationItem key="navigationItem" title="Bible" id="tEC-aq-M5p"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hT-9V-3to" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1598" y="-147"/>
         </scene>
-        <!--Navigation-->
+        <!--Bible-->
         <scene sceneID="kh2-ck-Kg7">
             <objects>
                 <navigationController id="cpq-J7-xxY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Navigation" id="sF7-au-ysI"/>
+                    <tabBarItem key="tabBarItem" title="Bible" image="book" catalog="system" id="sF7-au-ysI"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b3L-6N-4SF">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -83,7 +73,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j4Y-gk-Tbx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="726" y="-147"/>
+            <point key="canvasLocation" x="729" y="-147"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Dni-8w-KLd">
@@ -95,8 +85,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TmJ-2j-hc4"/>
                         <segue destination="cpq-J7-xxY" kind="relationship" relationship="viewControllers" id="0CO-2W-z7o"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="TmJ-2j-hc4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIi-gq-TDi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -105,7 +95,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="book.closed.fill" catalog="system" width="115" height="128"/>
+        <image name="book" catalog="system" width="128" height="99"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
