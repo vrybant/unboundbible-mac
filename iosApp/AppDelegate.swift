@@ -11,10 +11,20 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    func initialization() {
+        readDefaults()
+        if tools.bibles.isEmpty {
+            print("isEmpty")
+        }
+        if tools.bibles.isEmpty { return } // tools.init
+        readPrivates()
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //initialization()
+        
         return true
     }
 
