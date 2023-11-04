@@ -7,7 +7,7 @@
 
 import UIKit
 
-var todolist : [String] = ["1","2","3"]
+var list : [String] = tools.get_Chapter()
 
 class TableViewController: UITableViewController {
 
@@ -21,22 +21,16 @@ class TableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    @IBAction func pushAddAction(_ sender: Any) {
-        todolist.append("new")
-        tableView.reloadData()
-    }
-    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return todolist.count
+        list.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        configuration.text = todolist[indexPath.row]
+        configuration.text = list[indexPath.row]
         cell.contentConfiguration = configuration
         return cell
     }
@@ -44,7 +38,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "Rename") {_,_, completion
             in
-            todolist[indexPath.row] = "***"
+            list[indexPath.row] = "***"
             tableView.reloadRows(at: [indexPath], with: .automatic)
             completion(true)
         }
@@ -54,7 +48,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .destructive, title: "Delete") {_,_, completion
             in
-            todolist.remove(at: indexPath.row)
+            list.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             completion(true)
         }
