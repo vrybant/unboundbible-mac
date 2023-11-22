@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-121" y="604"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Scripture Table View-->
         <scene sceneID="XVw-xt-ED1">
             <objects>
-                <tableViewController id="2mS-N5-gnc" customClass="TableViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="2mS-N5-gnc" customClass="ScriptureTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="XDC-0m-B9N">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1598" y="-147"/>
         </scene>
-        <!--Chapters Table View Controller-->
+        <!--Chapters Table View-->
         <scene sceneID="w8W-8b-p9F">
             <objects>
-                <tableViewController id="6lB-G4-XSI" customClass="ChaptersTableViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6lB-G4-XSI" customClass="ChaptersTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aJX-CQ-Zzc">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="729" y="-147"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar-->
         <scene sceneID="Dni-8w-KLd">
             <objects>
-                <tabBarController id="bke-2X-PQ7" customClass="TabBarController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="bke-2X-PQ7" customClass="TabBar" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="jbv-39-DF6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

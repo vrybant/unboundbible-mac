@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChaptersTableViewController: UITableViewController {
+class ChaptersTableView: UITableViewController {
 
     let titles = currBible!.getTitles()
 

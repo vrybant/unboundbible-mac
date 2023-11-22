@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class ScriptureTableView: UITableViewController {
     
     var list : [String] = tools.get_Chapter()
 
