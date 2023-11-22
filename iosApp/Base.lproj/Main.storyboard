@@ -39,7 +39,7 @@
             </objects>
             <point key="canvasLocation" x="-121" y="604"/>
         </scene>
-        <!--Bible-->
+        <!--Table View Controller-->
         <scene sceneID="XVw-xt-ED1">
             <objects>
                 <tableViewController id="2mS-N5-gnc" customClass="TableViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -52,11 +52,41 @@
                             <outlet property="delegate" destination="2mS-N5-gnc" id="VXh-Tm-fox"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bible" id="tEC-aq-M5p"/>
+                    <navigationItem key="navigationItem" id="tEC-aq-M5p">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="gEa-qW-Mny">
+                            <rect key="frame" x="165.66666666666666" y="2" width="62" height="40.333333333333336"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Bible"/>
+                            <connections>
+                                <segue destination="6lB-G4-XSI" kind="show" id="JLu-lB-o9S"/>
+                            </connections>
+                        </button>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hT-9V-3to" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1598" y="-147"/>
+        </scene>
+        <!--Chapters Table View Controller-->
+        <scene sceneID="w8W-8b-p9F">
+            <objects>
+                <tableViewController id="6lB-G4-XSI" customClass="ChaptersTableViewController" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aJX-CQ-Zzc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="6lB-G4-XSI" id="kCV-Oo-KgX"/>
+                            <outlet property="delegate" destination="6lB-G4-XSI" id="9U5-pa-K3r"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="RvM-3C-hSv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CKe-rp-aHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2418" y="-147"/>
         </scene>
         <!--Bible-->
         <scene sceneID="kh2-ck-Kg7">

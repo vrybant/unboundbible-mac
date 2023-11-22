@@ -7,17 +7,14 @@
 
 import UIKit
 
-var list : [String] = tools.get_Chapter()
-
 class TableViewController: UITableViewController {
+    
+    var list : [String] = tools.get_Chapter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
@@ -34,27 +31,6 @@ class TableViewController: UITableViewController {
         cell.contentConfiguration = configuration
         return cell
     }
-
-    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .normal, title: "Rename") {_,_, completion
-            in
-            list[indexPath.row] = "***"
-            tableView.reloadRows(at: [indexPath], with: .automatic)
-            completion(true)
-        }
-        return UISwipeActionsConfiguration(actions: [action])
-    }
-    
-    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "Delete") {_,_, completion
-            in
-            list.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
-        }
-        return UISwipeActionsConfiguration(actions: [action])
-    }
-    
     
     /*
     // Override to support conditional editing of the table view.

@@ -28,6 +28,7 @@
 		E73BA40124BDFF1000F0FA17 /* PopupMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */; };
 		E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73BF4631EF8548C0028FB62 /* BibleText.swift */; };
 		E74040F21ED5A40F00F96C48 /* CopyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74040F11ED5A40F00F96C48 /* CopyView.swift */; };
+		E746BCFF2B0E3392009395F6 /* ChaptersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746BCFE2B0E3391009395F6 /* ChaptersTableViewController.swift */; };
 		E75025CE2A28EB0300B86471 /* TitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75025CD2A28EB0300B86471 /* TitlesView.swift */; };
 		E75525952051334A00BDD425 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
 		E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756E0F7267BC22A005494A6 /* ShelfView.swift */; };
@@ -141,6 +142,7 @@
 		E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
+		E746BCFE2B0E3391009395F6 /* ChaptersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChaptersTableViewController.swift; path = iosApp/Controllers/ChaptersTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		E75025CD2A28EB0300B86471 /* TitlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesView.swift; sourceTree = "<group>"; };
 		E7522CC8214AAD2900EB8788 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E75525942051334A00BDD425 /* bibles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bibles; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			children = (
 				E7A121C22AE93438004C3D24 /* TabBarController.swift */,
 				E75FFA3E2AF43756008E748D /* TableViewController.swift */,
+				E746BCFE2B0E3391009395F6 /* ChaptersTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -658,6 +661,7 @@
 				E7F195E62AF639D10015341B /* Reference.swift in Sources */,
 				E7F195F22AF63B6A0015341B /* Colors.swift in Sources */,
 				E7F195EE2AF63B6A0015341B /* Defaults.swift in Sources */,
+				E746BCFF2B0E3392009395F6 /* ChaptersTableViewController.swift in Sources */,
 				E7F195F12AF63B6A0015341B /* AttrString.swift in Sources */,
 				E7F195DF2AF639D10015341B /* parse.swift in Sources */,
 				E7F195E52AF639D10015341B /* Bible.swift in Sources */,
