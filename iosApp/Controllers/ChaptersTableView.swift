@@ -33,6 +33,7 @@ class ChaptersTableView: UITableViewController {
         var configuration = UIListContentConfiguration.cell()
         configuration.text = titles[indexPath.row]
         cell.contentConfiguration = configuration
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
 

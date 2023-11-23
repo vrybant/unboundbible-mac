@@ -60,7 +60,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Bible"/>
                             <connections>
-                                <segue destination="6lB-G4-XSI" kind="show" id="JLu-lB-o9S"/>
+                                <segue destination="sFZ-se-GuF" kind="show" id="EYT-ax-DVB"/>
                             </connections>
                         </button>
                     </navigationItem>
@@ -70,23 +70,33 @@
             <point key="canvasLocation" x="1598" y="-147"/>
         </scene>
         <!--Chapters Table View-->
-        <scene sceneID="w8W-8b-p9F">
+        <scene sceneID="z11-TH-rSV">
             <objects>
-                <tableViewController id="6lB-G4-XSI" customClass="ChaptersTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="aJX-CQ-Zzc">
+                <tableViewController id="sFZ-se-GuF" customClass="ChaptersTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pRs-G8-VsK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0lq-TJ-DXo">
+                                <rect key="frame" x="0.0" y="50" width="393" height="51.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0lq-TJ-DXo" id="sF6-Ny-P88">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="6lB-G4-XSI" id="kCV-Oo-KgX"/>
-                            <outlet property="delegate" destination="6lB-G4-XSI" id="9U5-pa-K3r"/>
+                            <outlet property="dataSource" destination="sFZ-se-GuF" id="Edd-Wx-osZ"/>
+                            <outlet property="delegate" destination="sFZ-se-GuF" id="4TX-Bp-4g9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RvM-3C-hSv"/>
+                    <navigationItem key="navigationItem" id="1Wk-Li-vq1"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CKe-rp-aHR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aqz-xV-ebu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2418" y="-147"/>
+            <point key="canvasLocation" x="2369" y="-147"/>
         </scene>
         <!--Bible-->
         <scene sceneID="kh2-ck-Kg7">
