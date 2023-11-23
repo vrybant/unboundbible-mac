@@ -31,6 +31,7 @@
 		E746BCFF2B0E3392009395F6 /* ChaptersTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E746BCFE2B0E3391009395F6 /* ChaptersTableView.swift */; };
 		E75025CE2A28EB0300B86471 /* TitlesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75025CD2A28EB0300B86471 /* TitlesView.swift */; };
 		E75525952051334A00BDD425 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
+		E756CC1E2B0F81B8009971D3 /* BooksTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756CC1D2B0F81B8009971D3 /* BooksTableView.swift */; };
 		E756E0F8267BC22A005494A6 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756E0F7267BC22A005494A6 /* ShelfView.swift */; };
 		E75F12C11FF25D79006EDAC9 /* parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75F12C01FF25D79006EDAC9 /* parse.swift */; };
 		E75FFA3F2AF43756008E748D /* ScriptureTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E75FFA3E2AF43756008E748D /* ScriptureTableView.swift */; };
@@ -146,6 +147,7 @@
 		E75025CD2A28EB0300B86471 /* TitlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesView.swift; sourceTree = "<group>"; };
 		E7522CC8214AAD2900EB8788 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		E75525942051334A00BDD425 /* bibles */ = {isa = PBXFileReference; lastKnownFileType = folder; path = bibles; sourceTree = "<group>"; };
+		E756CC1D2B0F81B8009971D3 /* BooksTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BooksTableView.swift; path = iosApp/Controllers/BooksTableView.swift; sourceTree = SOURCE_ROOT; };
 		E756E0F7267BC22A005494A6 /* ShelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 		E75F12C01FF25D79006EDAC9 /* parse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = parse.swift; sourceTree = "<group>"; };
 		E75FFA3E2AF43756008E748D /* ScriptureTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScriptureTableView.swift; path = iosApp/Controllers/ScriptureTableView.swift; sourceTree = SOURCE_ROOT; };
@@ -350,6 +352,7 @@
 			children = (
 				E7A121C22AE93438004C3D24 /* TabBar.swift */,
 				E75FFA3E2AF43756008E748D /* ScriptureTableView.swift */,
+				E756CC1D2B0F81B8009971D3 /* BooksTableView.swift */,
 				E746BCFE2B0E3391009395F6 /* ChaptersTableView.swift */,
 			);
 			path = Controllers;
@@ -674,6 +677,7 @@
 				E7A121AE2AE8FE8A004C3D24 /* AppDelegate.swift in Sources */,
 				E7F195E02AF639D10015341B /* Dictionary.swift in Sources */,
 				E75FFA3F2AF43756008E748D /* ScriptureTableView.swift in Sources */,
+				E756CC1E2B0F81B8009971D3 /* BooksTableView.swift in Sources */,
 				E7F195DD2AF639D10015341B /* CustomTools.swift in Sources */,
 				E7F195E22AF639D10015341B /* lib.swift in Sources */,
 				E7F195EF2AF63B6A0015341B /* String.swift in Sources */,

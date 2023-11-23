@@ -1,16 +1,16 @@
 //
-//  ChaptersTableViewController.swift
+//  BooksTableViewController.swift
 //  iOSApp
 //
-//  Created by Vladimir Rybant on 22.11.2023.
+//  Created by Vladimir Rybant on 23.11.2023.
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
 import UIKit
 
-class ChaptersTableView: UITableViewController {
+class BooksTableView: UITableViewController {
 
-    let chaptersCount = 20
+    let titles = currBible!.getTitles()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,19 +25,26 @@ class ChaptersTableView: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        chaptersCount
+        titles.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        configuration.text = String(indexPath.row + 1)
+        configuration.text = titles[indexPath.row]
         cell.contentConfiguration = configuration
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row + 1)")
-   }
+        self.performSegue(withIdentifier: "GoToChapters", sender: self)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoToChapters" {
+            print("GoToChapters")
+        }
+    }
+
 }

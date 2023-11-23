@@ -69,10 +69,10 @@
             </objects>
             <point key="canvasLocation" x="1598" y="-147"/>
         </scene>
-        <!--Chapters Table View-->
+        <!--Books Table View-->
         <scene sceneID="z11-TH-rSV">
             <objects>
-                <tableViewController id="sFZ-se-GuF" customClass="ChaptersTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="sFZ-se-GuF" customClass="BooksTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="pRs-G8-VsK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -86,7 +86,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gY1-uF-e11" kind="show" identifier="GoToDetails" id="akp-hN-1cD"/>
+                                    <segue destination="gY1-uF-e11" kind="show" identifier="GoToChapters" id="akp-hN-1cD"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,10 +101,10 @@
             </objects>
             <point key="canvasLocation" x="2369" y="-147"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Chapters Table View-->
         <scene sceneID="94C-Aw-2UP">
             <objects>
-                <tableViewController id="gY1-uF-e11" sceneMemberID="viewController">
+                <tableViewController id="gY1-uF-e11" customClass="ChaptersTableView" customModule="iOSApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Y5f-rb-ASw">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
