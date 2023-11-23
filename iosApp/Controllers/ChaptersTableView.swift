@@ -36,5 +36,15 @@ class ChaptersTableView: UITableViewController {
         cell.accessoryType = .disclosureIndicator
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "GoToDetails", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoTo_Details" {
+            print("GoToDetails")
+        }
+    }
 
 }
