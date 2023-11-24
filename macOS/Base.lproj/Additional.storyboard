@@ -5,61 +5,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Unbound Bible (Библия без переплета)-->
-        <scene sceneID="uAV-B3-YjQ">
-            <objects>
-                <viewController title="Unbound Bible (Библия без переплета)" storyboardIdentifier="WelcomeView" id="BeF-WZ-RbJ" customClass="WelcomeView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="JP7-VU-z1H">
-                        <rect key="frame" x="0.0" y="0.0" width="591" height="350"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igt-Bf-No1">
-                                <rect key="frame" x="152" y="66" width="414" height="230"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" selectable="YES" alignment="justified" allowsEditingTextAttributes="YES" id="FZN-wh-QIw">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <string key="title">Меня зовут Владимир Рыбант и я являюсь разработчиком программы Unbound Bible. Вы видите это сообщение, потому что ваша программа обновилась до версии 5.3 
-Я постоянно работаю над улучшением Unbound Bible, добавляю новые функции, стараюсь сделать 'ne программу более удобной для работы.
-
-В этой версии я добавил менеджер модулей, которые вы можете открыть через Меню -&gt; Инструменты -&gt; Модули.
-
-Благодарю вас за использование моей программы Unbound Bible. </string>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="17Z-ab-OEV">
-                                <rect key="frame" x="20" y="183" width="114" height="113"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="vladimir" id="yN5-Lh-vTs"/>
-                            </imageView>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MC4-de-vG1">
-                                <rect key="frame" x="282" y="314" width="92" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Добрый день!" id="kVx-cu-tH4">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8a-8r-HbR">
-                                <rect key="frame" x="315" y="31" width="88" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Закрыть" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6dF-2c-byo">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="closeAction:" target="BeF-WZ-RbJ" id="YNQ-1N-ZQN"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="lxu-Ui-SMZ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-359.5" y="-451"/>
-        </scene>
         <!--Module Manager-->
         <scene sceneID="sOU-eR-H7l">
             <objects>
@@ -253,11 +198,10 @@
                 </viewController>
                 <customObject id="P7t-Yr-ylK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1090" y="-409"/>
+            <point key="canvasLocation" x="-2569" y="-1455"/>
         </scene>
     </scenes>
     <resources>
         <image name="trash" catalog="system" width="15" height="17"/>
-        <image name="vladimir" width="300" height="354"/>
     </resources>
 </document>

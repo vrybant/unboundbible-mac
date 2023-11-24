@@ -259,6 +259,7 @@
 		CE2F17EF1D33C31800BA91A6 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				E7F2F3272B10E19C00EE6EF5 /* Storyboards */,
 				E7D005AC29FFA94500F0B19A /* Controllers */,
 				E7D005AD29FFAB3700F0B19A /* Views */,
 				CE2F17F01D33C31800BA91A6 /* AppDelegate.swift */,
@@ -269,8 +270,6 @@
 				E7F5071A20509AEB0019F546 /* icns.icns */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
 				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
-				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
-				E77AE7292718CB3C0065F35F /* Additional.storyboard */,
 				E7C82390202B07EC00287173 /* InfoPlist.strings */,
 				E7C82395202B07ED00287173 /* Localizable.strings */,
 			);
@@ -420,6 +419,15 @@
 				E7382CB921CC006400DF8772 /* prepare.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		E7F2F3272B10E19C00EE6EF5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CE2F17F61D33C31800BA91A6 /* Main.storyboard */,
+				E77AE7292718CB3C0065F35F /* Additional.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
