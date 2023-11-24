@@ -10,19 +10,12 @@ import UIKit
 
 class ChaptersTableView: UITableViewController {
 
-    let chaptersCount = 20
+    var chaptersCount = 0
+    weak var delegate: UITableViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
-    // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         chaptersCount
@@ -33,11 +26,13 @@ class ChaptersTableView: UITableViewController {
         var configuration = UIListContentConfiguration.cell()
         configuration.text = String(indexPath.row + 1)
         cell.contentConfiguration = configuration
+//      cell.delegate = self
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\(indexPath.row + 1)")
+        self.performSegue(withIdentifier: "unwindSegue", sender: self)
    }
     
 }

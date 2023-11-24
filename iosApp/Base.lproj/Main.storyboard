@@ -60,7 +60,10 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Bible"/>
                             <connections>
-                                <segue destination="sFZ-se-GuF" kind="show" id="EYT-ax-DVB"/>
+                                <segue destination="sFZ-se-GuF" kind="show" id="EYT-ax-DVB">
+                                    <segue key="commit" inheritsFrom="parent" id="wiw-Ao-O8f"/>
+                                    <segue key="preview" inheritsFrom="commit" id="Qmf-pa-fnw"/>
+                                </segue>
                             </connections>
                         </button>
                     </navigationItem>
@@ -86,7 +89,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="gY1-uF-e11" kind="show" identifier="GoToChapters" id="akp-hN-1cD"/>
+                                    <segue destination="gY1-uF-e11" kind="show" identifier="GoToChapters" id="us3-aO-o1r"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -95,9 +98,16 @@
                             <outlet property="delegate" destination="sFZ-se-GuF" id="4TX-Bp-4g9"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="1Wk-Li-vq1"/>
+                    <navigationItem key="navigationItem" id="1Wk-Li-vq1">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="V96-1c-Zzc">
+                            <connections>
+                                <segue destination="NGo-KA-6nk" kind="unwind" unwindAction="cancelWithSegue:" id="ze3-rS-C6K"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aqz-xV-ebu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="NGo-KA-6nk" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2369" y="-147"/>
         </scene>
@@ -124,9 +134,15 @@
                             <outlet property="delegate" destination="gY1-uF-e11" id="0B5-Ox-Whr"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Vr7-Ir-5cO"/>
+                    <navigationItem key="navigationItem" id="Vr7-Ir-5cO">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="rtS-Hc-Qtk"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="H0U-jh-FHD" kind="unwind" identifier="unwindSegue" unwindAction="cancelWithSegue:" id="djC-mH-7qF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yvL-Zv-DR6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="H0U-jh-FHD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3135" y="-147"/>
         </scene>
@@ -166,6 +182,9 @@
             <point key="canvasLocation" x="-120" y="-147"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Qmf-pa-fnw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
