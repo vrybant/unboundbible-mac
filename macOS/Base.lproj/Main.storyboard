@@ -444,7 +444,7 @@
         <!--ShelfViewID-->
         <scene sceneID="LyM-nB-SxN">
             <objects>
-                <controllerPlaceholder storyboardName="Additional" referencedIdentifier="ShelfViewID" id="hz8-8U-b1o" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="ShelfView" referencedIdentifier="ShelfViewID" id="hz8-8U-b1o" sceneMemberID="viewController"/>
                 <customObject id="SPd-6e-3eM" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-300" y="97"/>
@@ -493,7 +493,7 @@
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="100" height="22"/>
                                     <size key="maxSize" width="180" height="32"/>
-                                    <searchField key="view" wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="n2B-PU-L83">
+                                    <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="n2B-PU-L83">
                                         <rect key="frame" x="0.0" y="14" width="180" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" id="CBo-JE-JPt">
@@ -798,7 +798,7 @@
                                     <segue destination="BCt-5G-3Bm" kind="embed" id="kYT-sn-CgX"/>
                                 </connections>
                             </containerView>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sSq-Hi-Axe">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sSq-Hi-Axe">
                                 <rect key="frame" x="8" y="0.0" width="4" height="17"/>
                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="UZk-1v-GWE">
                                     <font key="font" metaFont="message" size="11"/>
@@ -1120,7 +1120,7 @@ Gw
                                                             <rect key="frame" x="1" y="1" width="125" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-fY-9Sp">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-fY-9Sp">
                                                                     <rect key="frame" x="0.0" y="1" width="125" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="hdz-Zc-Ea2">
                                                                         <font key="font" metaFont="system"/>
@@ -1196,7 +1196,7 @@ Gw
                                                             <rect key="frame" x="1" y="1" width="141" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="141" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" baseWritingDirection="leftToRight" id="Drs-Nf-FIx">
