@@ -7,14 +7,15 @@
 
 import Cocoa
 
-var popoverView: PopoverView?
+var popoverView = PopoverView.instance()
 
 class PopoverView: NSViewController {
-
+    
     @IBOutlet var textView: NSTextView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    static func instance() -> PopoverView? {
+          let storyboard = NSStoryboard(name: String(describing: self), bundle: nil)
+          return storyboard.instantiateController(withIdentifier: "PopoverViewID") as? PopoverView
     }
     
 }

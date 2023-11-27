@@ -20,7 +20,8 @@ class MainView: NSViewController, NSWindowDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         mainView = self
-        createPopover()
+        popover.contentViewController = popoverView
+        popover.behavior = .transient
     }
     
     override func viewWillAppear() {
@@ -39,12 +40,6 @@ class MainView: NSViewController, NSWindowDelegate {
         } else {
             return false
         }
-    }
-    
-    func createPopover() {
-        popoverView = storyboard?.instantiateController(withIdentifier: "PopoverView") as? PopoverView
-        popover.contentViewController = popoverView
-        popover.behavior = .transient
     }
     
     func showPopover(_ sender: NSTextView) {
