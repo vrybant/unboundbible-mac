@@ -190,6 +190,8 @@
 		E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E7E7A84D24C5C285001F85C8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
 		E7F04B802B14F1EA00F3AD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShelfView.storyboard; sourceTree = "<group>"; };
+		E7F04B8F2B14F6FC00F3AD4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShelfView.strings; sourceTree = "<group>"; };
+		E7F04B902B14F70400F3AD4D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ShelfView.strings; sourceTree = "<group>"; };
 		E7F059912A150380002B6029 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		E7F059932A152550002B6029 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		E7F5071A20509AEB0019F546 /* icns.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icns.icns; sourceTree = "<group>"; };
@@ -744,6 +746,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7F04B802B14F1EA00F3AD4D /* Base */,
+				E7F04B8F2B14F6FC00F3AD4D /* ru */,
+				E7F04B902B14F70400F3AD4D /* uk */,
 			);
 			name = ShelfView.storyboard;
 			sourceTree = "<group>";

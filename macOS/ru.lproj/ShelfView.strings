@@ -1,0 +1,27 @@
+
+/* Class = "NSTableColumn"; headerCell.title = "Title"; ObjectID = "1Gm-Xv-v0P"; */
+"1Gm-Xv-v0P.headerCell.title" = "Title";
+
+/* Class = "NSViewController"; title = "Module Manager"; ObjectID = "3j7-bx-LTS"; */
+"3j7-bx-LTS.title" = "Менеджер модулей";
+
+/* Class = "NSTextFieldCell"; title = "Info"; ObjectID = "7y2-Yr-BDd"; */
+"7y2-Yr-BDd.title" = "Info";
+
+/* Class = "NSTableColumn"; headerCell.title = "Language"; ObjectID = "NZw-c0-uOk"; */
+"NZw-c0-uOk.headerCell.title" = "Language";
+
+/* Class = "NSTextFieldCell"; title = "Cell"; ObjectID = "VDC-If-GxQ"; */
+"VDC-If-GxQ.title" = "Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "Y6O-SN-cSQ"; */
+"Y6O-SN-cSQ.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; title = "File Name"; ObjectID = "YKG-5L-L6a"; */
+"YKG-5L-L6a.title" = "File Name";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "dKc-dx-222"; */
+"dKc-dx-222.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "yr5-mQ-ZR3"; */
+"yr5-mQ-ZR3.title" = "Text Cell";
