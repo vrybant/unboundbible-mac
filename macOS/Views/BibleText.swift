@@ -86,9 +86,8 @@ class BibleTextView: CustomTextView {
         
         if foreground == .footnote {
             let f = tools.get_Footnote(marker: hyperlink)
-            let attrs = parse(f, small: true).mutable()
-            mainView.showPopover(self)
-            popoverView!.textView.textStorage?.setAttributedString(attrs)
+            let attrStr = parse(f, small: true).mutable()
+            mainView.showPopover(attrStr, sender: self)
         }
 
         getParagraphNumber()

@@ -11,8 +11,9 @@ var mainView = MainView()
 
 class MainView: NSViewController, NSWindowDelegate {
 
-    var popover = NSPopover()
-    var noteURL : URL?
+    private var popoverView = PopoverView.instance()
+    private var popover = NSPopover()
+    private var noteURL : URL?
     private var statuses = [String: String]()
 
     @IBOutlet weak var statusBar: NSTextFieldCell!
@@ -42,11 +43,12 @@ class MainView: NSViewController, NSWindowDelegate {
         }
     }
     
-    func showPopover(_ sender: NSTextView) {
+    func showPopover(_ attrString: NSAttributedString, sender: NSTextView) {
         let firstRect = sender.firstRect(forCharacterRange: sender.selectedRange, actualRange: nil)
         let converted = self.view.window?.convertFromScreen(firstRect)
         let rect = NSRect(x: converted!.minX, y: converted!.minY , width: 1, height: 1)
         popover.show(relativeTo: rect, of: self.view, preferredEdge: .minY)
+        popoverView!.setAttrString(attrString)
     }
     
     func refreshStatus() {
