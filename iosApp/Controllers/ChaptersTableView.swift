@@ -10,28 +10,28 @@ import UIKit
 
 class ChaptersTableView: UITableViewController {
 
-    var chaptersCount = 0
-    weak var delegate: UITableViewController!
+    var verse : Verse?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        chaptersCount
+        currBible!.chaptersCount(verse!)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        configuration.text = String(indexPath.row + 1)
+        configuration.text = "Chapter \(indexPath.row + 1)"
         cell.contentConfiguration = configuration
-//      cell.delegate = self
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("\(indexPath.row + 1)")
+        verse?.chapter = indexPath.row + 1
+        currVerse = Verse(book: verse!.book, chapter: verse!.chapter, number: 1, count: 1)
+        print(currVerse)
         self.performSegue(withIdentifier: "unwindSegue", sender: self)
    }
     

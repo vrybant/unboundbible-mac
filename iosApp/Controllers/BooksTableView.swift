@@ -54,10 +54,8 @@ class BooksTableView: UITableViewController {
         if segue.identifier == "GoToChapters" {
             let book = currRow + 1
             let verse = Verse(book: book, chapter: 1, number: 1, count: 1)
-
             let destinationView = segue.destination as! ChaptersTableView
-            destinationView.chaptersCount = currBible!.chaptersCount(verse)
-            destinationView.delegate = self
+            destinationView.verse = verse
         }
     }
 

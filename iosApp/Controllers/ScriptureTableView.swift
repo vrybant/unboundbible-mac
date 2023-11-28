@@ -12,7 +12,7 @@ class ScriptureTableView: UITableViewController {
     var list : [String] = tools.get_Chapter()
     
     @IBAction func cancel(segue: UIStoryboardSegue) {
-        print("cancelsegue")
+        // print("cancelsegue")
     }
 
     override func viewDidLoad() {
