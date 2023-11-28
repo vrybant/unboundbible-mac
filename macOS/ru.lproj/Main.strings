@@ -4,9 +4,6 @@
 /* Class = "CocoaBindingsConnection"; ibShadowedDisplayPattern = "%{value1}@"; ObjectID = "whQ-9R-kwb"; */
 "whQ-9R-kwb.ibShadowedDisplayPattern" = "%{value1}@";
 
-/* Class = "NSBox"; title = "Options"; ObjectID = "jI7-K0-guy"; */
-"jI7-K0-guy.title" = "Настройки";
-
 /* Class = "NSButton"; ibShadowedToolTip = "Copy Verses"; ObjectID = "hQ5-QW-Kxg"; */
 "hQ5-QW-Kxg.ibShadowedToolTip" = "Копировать стихи";
 
@@ -16,14 +13,8 @@
 /* Class = "NSButton"; ibShadowedToolTip = "Search Options"; ObjectID = "XOO-wQ-JkF"; */
 "XOO-wQ-JkF.ibShadowedToolTip" = "Настройки поиска";
 
-/* Class = "NSButtonCell"; title = "Abbreviation"; ObjectID = "gCS-F5-sao"; */
-"gCS-F5-sao.title" = "Короткая ссылка";
-
 /* Class = "NSButtonCell"; title = "Bible"; ObjectID = "2js-1q-k61"; */
 "2js-1q-k61.title" = "Библия";
-
-/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "WLe-6l-hx8"; */
-"WLe-6l-hx8.title" = "Отменить";
 
 /* Class = "NSButtonCell"; title = "Case Sensitive"; ObjectID = "s7i-b7-2cd"; */
 "s7i-b7-2cd.title" = "Регистр";
@@ -34,23 +25,11 @@
 /* Class = "NSButtonCell"; title = "Close"; ObjectID = "DMf-m0-n8l"; */
 "DMf-m0-n8l.title" = "Закрыть";
 
-/* Class = "NSButtonCell"; title = "Copy"; ObjectID = "7b2-p7-I0H"; */
-"7b2-p7-I0H.title" = "Копировать";
-
-/* Class = "NSButtonCell"; title = "Enumerated"; ObjectID = "xQD-7b-MDh"; */
-"xQD-7b-MDh.title" = "Нумерация стихов";
-
 /* Class = "NSButtonCell"; title = "Epistles"; ObjectID = "dv8-RR-eIp"; */
 "dv8-RR-eIp.title" = "Послания";
 
 /* Class = "NSButtonCell"; title = "Gospels"; ObjectID = "kMt-0j-CoT"; */
 "kMt-0j-CoT.title" = "Евангелия";
-
-/* Class = "NSButtonCell"; title = "Guillemets"; ObjectID = "VfQ-ag-RSK"; */
-"VfQ-ag-RSK.title" = "Кавычки";
-
-/* Class = "NSButtonCell"; title = "Link in the end"; ObjectID = "p6g-fZ-Ky2"; */
-"p6g-fZ-Ky2.title" = "Ссылка в конце";
 
 /* Class = "NSButtonCell"; title = "New Testament"; ObjectID = "cB7-aj-bfZ"; */
 "cB7-aj-bfZ.title" = "Новый Завет";
@@ -60,12 +39,6 @@
 
 /* Class = "NSButtonCell"; title = "Opened Book"; ObjectID = "YXJ-jc-chq"; */
 "YXJ-jc-chq.title" = "Открытая книга";
-
-/* Class = "NSButtonCell"; title = "Parentheses"; ObjectID = "Uo6-JW-Cwo"; */
-"Uo6-JW-Cwo.title" = "Круглые скобки";
-
-/* Class = "NSButtonCell"; title = "Set Default"; ObjectID = "gRb-sU-5BH"; */
-"gRb-sU-5BH.title" = "Запомнить";
 
 /* Class = "NSButtonCell"; title = "Whole Words"; ObjectID = "iSQ-oH-JzE"; */
 "iSQ-oH-JzE.title" = "Слова целиком";
@@ -363,9 +336,6 @@
 
 /* Class = "NSViewController"; title = "Commentaries"; ObjectID = "5kc-JK-Sx1"; */
 "5kc-JK-Sx1.title" = "Комментарии";
-
-/* Class = "NSViewController"; title = "Copy Verses"; ObjectID = "03V-8r-HtA"; */
-"03V-8r-HtA.title" = "Копировать стихи";
 
 /* Class = "NSWindow"; title = "Unbound Bible"; ObjectID = "IQv-IB-iLA"; */
 "IQv-IB-iLA.title" = "Unbound Bible";

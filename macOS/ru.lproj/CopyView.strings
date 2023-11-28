@@ -1,0 +1,30 @@
+
+/* Class = "NSButtonCell"; title = "Set Default"; ObjectID = "7F3-HB-8V5"; */
+"7F3-HB-8V5.title" = "Запомнить";
+
+/* Class = "NSButtonCell"; title = "Link in the end"; ObjectID = "8te-6p-FvW"; */
+"8te-6p-FvW.title" = "Ссылка в конце";
+
+/* Class = "NSButtonCell"; title = "Enumerated"; ObjectID = "9u5-aY-4Uf"; */
+"9u5-aY-4Uf.title" = "Нумерация стихов";
+
+/* Class = "NSButtonCell"; title = "Copy"; ObjectID = "KqZ-gE-4Jf"; */
+"KqZ-gE-4Jf.title" = "Копировать";
+
+/* Class = "NSViewController"; title = "Copy Verses"; ObjectID = "PCc-8o-Uk2"; */
+"PCc-8o-Uk2.title" = "Копировать стихи";
+
+/* Class = "NSButtonCell"; title = "Guillemets"; ObjectID = "QUt-xM-S51"; */
+"QUt-xM-S51.title" = "Кавычки";
+
+/* Class = "NSButtonCell"; title = "Abbreviation"; ObjectID = "SBl-eG-OsH"; */
+"SBl-eG-OsH.title" = "Короткая ссылка";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "cUK-bZ-8qs"; */
+"cUK-bZ-8qs.title" = "Отменить";
+
+/* Class = "NSBox"; title = "Options"; ObjectID = "jdo-Md-VZH"; */
+"jdo-Md-VZH.title" = "Настройки";
+
+/* Class = "NSButtonCell"; title = "Parentheses"; ObjectID = "yG9-Hw-MDN"; */
+"yG9-Hw-MDN.title" = "Круглые скобки";
