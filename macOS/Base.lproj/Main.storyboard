@@ -439,7 +439,7 @@
                 <customObject id="3aF-m0-QvB" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66" y="-88"/>
+            <point key="canvasLocation" x="75" y="-87"/>
         </scene>
         <!--ShelfViewID-->
         <scene sceneID="LyM-nB-SxN">
@@ -629,24 +629,24 @@
                 </splitViewController>
                 <customObject id="STo-83-AXw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="700"/>
+            <point key="canvasLocation" x="75" y="1115"/>
         </scene>
         <!--Left View-->
         <scene sceneID="v9Q-6T-5b8">
             <objects>
                 <viewController id="veV-6G-nPF" customClass="LeftView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="asP-6E-CbQ">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="224"/>
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="425"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="10" width="55" height="179"/>
+                                <rect key="frame" x="189" y="10" width="55" height="380"/>
                                 <clipView key="contentView" ambiguous="YES" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="177"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="378"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="177"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="378"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -716,13 +716,13 @@
                                 </scroller>
                             </scrollView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="10" width="175" height="180"/>
+                                <rect key="frame" x="7" y="10" width="175" height="381"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="178"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="379"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="178"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="379"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -788,7 +788,7 @@
                                 </scroller>
                             </scrollView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="4" y="194" width="244" height="25"/>
+                                <rect key="frame" x="4" y="395" width="244" height="25"/>
                                 <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="lv5-Bx-I53" id="emH-PB-qop">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="menu"/>
@@ -830,7 +830,7 @@
                 <customObject id="hhN-UR-aeh" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="F8a-B8-CSi"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="290"/>
+            <point key="canvasLocation" x="-150" y="1667.5"/>
         </scene>
         <!--CopyViewID-->
         <scene sceneID="BY6-vo-hbA">
@@ -838,7 +838,7 @@
                 <controllerPlaceholder storyboardName="CopyView" referencedIdentifier="CopyViewID" id="a8n-4K-VMH" sceneMemberID="viewController"/>
                 <customObject id="YaZ-Dp-i8h" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821" y="700"/>
+            <point key="canvasLocation" x="835" y="1671"/>
         </scene>
         <!--Rigth View-->
         <scene sceneID="iCY-Fm-IkA">
@@ -1242,7 +1242,7 @@
                     </connections>
                 </menu>
             </objects>
-            <point key="canvasLocation" x="1345" y="701"/>
+            <point key="canvasLocation" x="305" y="1668"/>
         </scene>
     </scenes>
     <resources>

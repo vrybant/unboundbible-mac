@@ -13,35 +13,11 @@
 /* Class = "NSButton"; ibShadowedToolTip = "Search Options"; ObjectID = "XOO-wQ-JkF"; */
 "XOO-wQ-JkF.ibShadowedToolTip" = "Настройки поиска";
 
-/* Class = "NSButtonCell"; title = "Bible"; ObjectID = "2js-1q-k61"; */
-"2js-1q-k61.title" = "Библия";
-
-/* Class = "NSButtonCell"; title = "Case Sensitive"; ObjectID = "s7i-b7-2cd"; */
-"s7i-b7-2cd.title" = "Регистр";
-
 /* Class = "NSButtonCell"; title = "Close"; ObjectID = "8NH-bp-5sR"; */
 "8NH-bp-5sR.title" = "Закрыть";
 
 /* Class = "NSButtonCell"; title = "Close"; ObjectID = "DMf-m0-n8l"; */
 "DMf-m0-n8l.title" = "Закрыть";
-
-/* Class = "NSButtonCell"; title = "Epistles"; ObjectID = "dv8-RR-eIp"; */
-"dv8-RR-eIp.title" = "Послания";
-
-/* Class = "NSButtonCell"; title = "Gospels"; ObjectID = "kMt-0j-CoT"; */
-"kMt-0j-CoT.title" = "Евангелия";
-
-/* Class = "NSButtonCell"; title = "New Testament"; ObjectID = "cB7-aj-bfZ"; */
-"cB7-aj-bfZ.title" = "Новый Завет";
-
-/* Class = "NSButtonCell"; title = "Old Testament"; ObjectID = "wzu-h9-69s"; */
-"wzu-h9-69s.title" = "Ветхий Завет";
-
-/* Class = "NSButtonCell"; title = "Opened Book"; ObjectID = "YXJ-jc-chq"; */
-"YXJ-jc-chq.title" = "Открытая книга";
-
-/* Class = "NSButtonCell"; title = "Whole Words"; ObjectID = "iSQ-oH-JzE"; */
-"iSQ-oH-JzE.title" = "Слова целиком";
 
 /* Class = "NSMenu"; title = "Alignment"; ObjectID = "1lY-6G-oEC"; */
 "1lY-6G-oEC.title" = "Выравнивание";

@@ -169,6 +169,8 @@
 		E77373BA271EBDE100FFA254 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		E77373BE271EBE6D00FFA254 /* CustomTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTools.swift; sourceTree = "<group>"; };
 		E796E4D12B166CE4000016DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchView.storyboard; sourceTree = "<group>"; };
+		E796E4DA2B167096000016DC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchView.strings; sourceTree = "<group>"; };
+		E796E4DC2B167097000016DC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/SearchView.strings; sourceTree = "<group>"; };
 		E7A031C626A80A2400AE1D13 /* utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		E7A0D72423AAA36200C48A54 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		E7A121AB2AE8FE8A004C3D24 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -736,6 +738,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E796E4D12B166CE4000016DC /* Base */,
+				E796E4DA2B167096000016DC /* ru */,
+				E796E4DC2B167097000016DC /* uk */,
 			);
 			name = SearchView.storyboard;
 			sourceTree = "<group>";

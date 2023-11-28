@@ -1,0 +1,24 @@
+
+/* Class = "NSButtonCell"; title = "Bible"; ObjectID = "2SO-EV-3Lb"; */
+"2SO-EV-3Lb.title" = "Библия";
+
+/* Class = "NSButtonCell"; title = "Epistles"; ObjectID = "Jsl-bf-oPL"; */
+"Jsl-bf-oPL.title" = "Послания";
+
+/* Class = "NSButtonCell"; title = "Whole Words"; ObjectID = "LkG-Gf-DKF"; */
+"LkG-Gf-DKF.title" = "Слова целиком";
+
+/* Class = "NSButtonCell"; title = "Case Sensitive"; ObjectID = "Mjh-aU-nKD"; */
+"Mjh-aU-nKD.title" = "Регистр";
+
+/* Class = "NSButtonCell"; title = "Opened Book"; ObjectID = "Oto-h3-oqx"; */
+"Oto-h3-oqx.title" = "Открытая книга";
+
+/* Class = "NSButtonCell"; title = "Gospels"; ObjectID = "Q1p-bp-wGb"; */
+"Q1p-bp-wGb.title" = "Евангелия";
+
+/* Class = "NSButtonCell"; title = "New Testament"; ObjectID = "eHI-5h-gvX"; */
+"eHI-5h-gvX.title" = "Новый Завет";
+
+/* Class = "NSButtonCell"; title = "Old Testament"; ObjectID = "gMq-DU-2HZ"; */
+"gMq-DU-2HZ.title" = "Ветхий Завет";
