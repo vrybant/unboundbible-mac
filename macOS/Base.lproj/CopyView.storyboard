@@ -8,7 +8,7 @@
         <!--Copy Verses-->
         <scene sceneID="I6n-Pp-GfI">
             <objects>
-                <viewController title="Copy Verses" id="PCc-8o-Uk2" customClass="CopyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Copy Verses" showSeguePresentationStyle="single" id="PCc-8o-Uk2" customClass="CopyView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="nkd-9A-Ofg" customClass="View" customModule="Unbound_Bible" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="342"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -8,7 +8,7 @@
         <!--Module Manager-->
         <scene sceneID="sOU-eR-H7l">
             <objects>
-                <viewController title="Module Manager" storyboardIdentifier="ShelfViewID" id="3j7-bx-LTS" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Module Manager" storyboardIdentifier="ShelfViewID" showSeguePresentationStyle="single" id="3j7-bx-LTS" customClass="ShelfView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Fqw-A6-YES">
                         <rect key="frame" x="0.0" y="0.0" width="640" height="434"/>
                         <autoresizingMask key="autoresizingMask"/>

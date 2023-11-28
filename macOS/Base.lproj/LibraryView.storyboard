@@ -8,7 +8,7 @@
         <!--Library View-->
         <scene sceneID="G7K-ZL-1PA">
             <objects>
-                <viewController storyboardIdentifier="LibraryViewID" id="1QS-08-sFg" customClass="LibraryView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LibraryViewID" showSeguePresentationStyle="single" id="1QS-08-sFg" customClass="LibraryView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="NdD-cn-TyU">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="297"/>
                         <autoresizingMask key="autoresizingMask"/>

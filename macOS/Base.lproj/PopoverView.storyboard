@@ -8,7 +8,7 @@
         <!--Popover View-->
         <scene sceneID="29I-Qp-tva">
             <objects>
-                <viewController storyboardIdentifier="PopoverViewID" id="MPJ-ZF-BDP" customClass="PopoverView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PopoverViewID" showSeguePresentationStyle="single" id="MPJ-ZF-BDP" customClass="PopoverView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="DvD-ah-cwZ">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="190"/>
                         <autoresizingMask key="autoresizingMask"/>
