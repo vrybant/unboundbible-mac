@@ -145,6 +145,8 @@
 		E73A0E9123FFE26B00EE62A8 /* Bible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bible.swift; sourceTree = "<group>"; };
 		E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMenu.swift; sourceTree = "<group>"; };
 		E73BF4631EF8548C0028FB62 /* BibleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BibleText.swift; sourceTree = "<group>"; };
+		E73F12812B15EB8B00773B24 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/CopyView.strings; sourceTree = "<group>"; };
+		E73F12832B15EC7B00773B24 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/CopyView.strings; sourceTree = "<group>"; };
 		E74040F11ED5A40F00F96C48 /* CopyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CopyView.swift; sourceTree = "<group>"; };
 		E746BCFE2B0E3391009395F6 /* ChaptersTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChaptersTableView.swift; path = iosApp/Controllers/ChaptersTableView.swift; sourceTree = SOURCE_ROOT; };
 		E75025CD2A28EB0300B86471 /* TitlesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesView.swift; sourceTree = "<group>"; };
@@ -788,6 +790,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				E7F870202B15C71F00E4EEF1 /* Base */,
+				E73F12812B15EB8B00773B24 /* ru */,
+				E73F12832B15EC7B00773B24 /* uk */,
 			);
 			name = CopyView.storyboard;
 			sourceTree = "<group>";
