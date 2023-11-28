@@ -41,21 +41,13 @@ class BooksTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         currRow = indexPath.row
-        print(currRow)
-        
-//        DispatchQueue.main.async {
-//            self.dismiss(animated: true)
-//            }
-        
-        self.performSegue(withIdentifier: "GoToChapters", sender: self)
+        performSegue(withIdentifier: "GoToChapters", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToChapters" {
-            let book = currRow + 1
-            let verse = Verse(book: book, chapter: 1, number: 1, count: 1)
             let destinationView = segue.destination as! ChaptersTableView
-            destinationView.verse = verse
+            destinationView.book = currRow + 1
         }
     }
 
