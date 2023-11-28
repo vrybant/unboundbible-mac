@@ -517,7 +517,7 @@
                                         </buttonCell>
                                     </button>
                                     <connections>
-                                        <segue destination="Ut9-5s-h3e" kind="popover" popoverAnchorView="4wT-ad-omF" popoverBehavior="t" preferredEdge="maxY" id="TNd-Yn-J1v"/>
+                                        <segue destination="NXr-xv-uUI" kind="popover" popoverAnchorView="4wT-ad-omF" popoverBehavior="t" preferredEdge="maxY" id="P8m-Uf-nHa"/>
                                     </connections>
                                 </toolbarItem>
                             </allowedToolbarItems>
@@ -545,151 +545,13 @@
             </objects>
             <point key="canvasLocation" x="75" y="288"/>
         </scene>
-        <!--Search View-->
-        <scene sceneID="mOZ-N5-yvt">
+        <!--SearchViewID-->
+        <scene sceneID="nLh-un-Wpr">
             <objects>
-                <viewController storyboardIdentifier="Popover" id="Ut9-5s-h3e" customClass="SearchView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="1LL-3m-fbO">
-                        <rect key="frame" x="0.0" y="0.0" width="147" height="209"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-u5-EGu">
-                                <rect key="frame" x="20" y="137" width="107" height="5"/>
-                            </box>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="0Oh-1j-u0u">
-                                <rect key="frame" x="19" y="174" width="122" height="16"/>
-                                <buttonCell key="cell" type="check" title="Whole Words" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="iSQ-oH-JzE">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="checkButtonAction:" target="Ut9-5s-h3e" id="iOm-0y-pKF"/>
-                                </connections>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="N0r-sk-IIR">
-                                <rect key="frame" x="19" y="154" width="122" height="16"/>
-                                <buttonCell key="cell" type="check" title="Case Sensitive" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="s7i-b7-2cd">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="14" id="efh-fb-zOU"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="checkButtonAction:" target="Ut9-5s-h3e" id="uWE-ua-LeL"/>
-                                </connections>
-                            </button>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="bYU-nx-wCj">
-                                <rect key="frame" x="19" y="111" width="122" height="15"/>
-                                <buttonCell key="cell" type="radio" title="Bible" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="2js-1q-k61">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="0bQ-HR-AQD"/>
-                                </connections>
-                            </button>
-                            <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="RIO-Cl-Bmk">
-                                <rect key="frame" x="19" y="92" width="122" height="17"/>
-                                <buttonCell key="cell" type="radio" title="Old Testament" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="wzu-h9-69s">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="DPW-zs-Pbu"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="PyS-oa-sKp"/>
-                                </connections>
-                            </button>
-                            <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Nlo-xu-OIu">
-                                <rect key="frame" x="19" y="75" width="122" height="15"/>
-                                <buttonCell key="cell" type="radio" title="New Testament" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="cB7-aj-bfZ">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="aGU-hd-In2"/>
-                                </connections>
-                            </button>
-                            <button tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="fIV-Q3-xps">
-                                <rect key="frame" x="19" y="58" width="122" height="15"/>
-                                <buttonCell key="cell" type="radio" title="Gospels" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="kMt-0j-CoT">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="q5A-8D-0L0"/>
-                                </connections>
-                            </button>
-                            <button tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="7wl-a9-y1o">
-                                <rect key="frame" x="19" y="39" width="122" height="17"/>
-                                <buttonCell key="cell" type="radio" title="Epistles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="dv8-RR-eIp">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="7Vk-Bh-KcP"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="2fS-Gp-VmN"/>
-                                </connections>
-                            </button>
-                            <button tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="XX9-Z6-px3">
-                                <rect key="frame" x="19" y="22" width="122" height="15"/>
-                                <buttonCell key="cell" type="radio" title="Opened Book" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="YXJ-jc-chq">
-                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                    <font key="font" metaFont="message" size="11"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="radioButtonAction:" target="Ut9-5s-h3e" id="674-dA-aOS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="top" secondItem="0Oh-1j-u0u" secondAttribute="bottom" constant="6" symbolic="YES" id="0S4-uK-R3e"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="1LL-3m-fbO" secondAttribute="leading" constant="20" symbolic="YES" id="5w3-pG-SO1"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="Nlo-xu-OIu" secondAttribute="leading" id="6gi-Hh-LR8"/>
-                            <constraint firstItem="Gpg-u5-EGu" firstAttribute="centerX" secondItem="1LL-3m-fbO" secondAttribute="centerX" id="7O6-6e-6Fd"/>
-                            <constraint firstAttribute="trailing" secondItem="N0r-sk-IIR" secondAttribute="trailing" constant="6" id="84h-3I-QxU"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="fIV-Q3-xps" secondAttribute="trailing" id="AYC-2Y-rDi"/>
-                            <constraint firstItem="bYU-nx-wCj" firstAttribute="top" secondItem="Gpg-u5-EGu" secondAttribute="bottom" constant="14" id="IbK-wc-NS9"/>
-                            <constraint firstAttribute="bottom" secondItem="7wl-a9-y1o" secondAttribute="bottom" constant="39" id="Ixs-JF-tgu"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="top" secondItem="1LL-3m-fbO" secondAttribute="top" constant="40" id="J79-iz-pff"/>
-                            <constraint firstItem="RIO-Cl-Bmk" firstAttribute="top" secondItem="bYU-nx-wCj" secondAttribute="bottom" constant="3" id="Jxx-T9-SBv"/>
-                            <constraint firstItem="XX9-Z6-px3" firstAttribute="top" secondItem="7wl-a9-y1o" secondAttribute="bottom" constant="3" id="O7S-im-rf9"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="7wl-a9-y1o" secondAttribute="trailing" id="RDf-ng-A0p"/>
-                            <constraint firstAttribute="trailing" secondItem="Gpg-u5-EGu" secondAttribute="trailing" constant="20" symbolic="YES" id="Rri-sx-Z9h"/>
-                            <constraint firstItem="7wl-a9-y1o" firstAttribute="top" secondItem="fIV-Q3-xps" secondAttribute="bottom" constant="3" id="Tgm-YS-HR5"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="fIV-Q3-xps" secondAttribute="leading" id="UdU-Bo-K8n"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="Nlo-xu-OIu" secondAttribute="trailing" id="Xct-CY-La0"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="bYU-nx-wCj" secondAttribute="leading" id="bfY-y6-TOU"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="RIO-Cl-Bmk" secondAttribute="leading" id="d5O-da-7Ab"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="0Oh-1j-u0u" secondAttribute="trailing" id="f5j-lP-evw"/>
-                            <constraint firstItem="Nlo-xu-OIu" firstAttribute="top" secondItem="RIO-Cl-Bmk" secondAttribute="bottom" constant="3" id="gs2-Hi-gnC"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="XX9-Z6-px3" secondAttribute="leading" id="jOo-bV-Rhk"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="0Oh-1j-u0u" secondAttribute="leading" id="jYQ-EI-h1U"/>
-                            <constraint firstItem="Gpg-u5-EGu" firstAttribute="top" secondItem="N0r-sk-IIR" secondAttribute="bottom" constant="15" id="jnC-9L-uGs"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="RIO-Cl-Bmk" secondAttribute="trailing" id="n4O-iY-5Ud"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="XX9-Z6-px3" secondAttribute="trailing" id="nTu-HJ-9YT"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="leading" secondItem="7wl-a9-y1o" secondAttribute="leading" id="qlw-qp-1BA"/>
-                            <constraint firstItem="N0r-sk-IIR" firstAttribute="trailing" secondItem="bYU-nx-wCj" secondAttribute="trailing" id="tpD-DG-pj7"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="bibleButton" destination="bYU-nx-wCj" id="GhV-RL-Q0p"/>
-                        <outlet property="caseSensitiveButton" destination="N0r-sk-IIR" id="eDa-a9-mxf"/>
-                        <outlet property="epistlesButton" destination="7wl-a9-y1o" id="MWG-If-PSa"/>
-                        <outlet property="gospelsButton" destination="fIV-Q3-xps" id="sND-06-hyl"/>
-                        <outlet property="newTestamentButton" destination="Nlo-xu-OIu" id="iY0-OD-Yf9"/>
-                        <outlet property="oldTestamentButton" destination="RIO-Cl-Bmk" id="8Lo-27-Iyb"/>
-                        <outlet property="openedBookButton" destination="XX9-Z6-px3" id="1z6-Wf-As1"/>
-                        <outlet property="wholeWordsButton" destination="0Oh-1j-u0u" id="x3M-ph-F23"/>
-                    </connections>
-                </viewController>
-                <customObject id="FeA-mR-5sS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <controllerPlaceholder storyboardName="SearchView" referencedIdentifier="SearchViewID" id="NXr-xv-uUI" sceneMemberID="viewController"/>
+                <customObject id="GrO-tP-cR9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="298"/>
+            <point key="canvasLocation" x="521" y="297"/>
         </scene>
         <!--LibraryViewID-->
         <scene sceneID="pX7-r6-XEj">
@@ -697,7 +559,7 @@
                 <controllerPlaceholder storyboardName="LibraryView" referencedIdentifier="LibraryViewID" id="cR5-bA-2Fs" sceneMemberID="viewController"/>
                 <customObject id="hTZ-wa-QSu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="495" y="85"/>
+            <point key="canvasLocation" x="522" y="248"/>
         </scene>
         <!--Main View-->
         <scene sceneID="AAu-Wg-NAp">

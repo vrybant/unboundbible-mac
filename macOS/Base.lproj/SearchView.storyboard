@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View-->
+        <scene sceneID="lF4-qv-6Vf">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewID" id="DWt-ek-SWb" customClass="SearchView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="rFY-lg-jrS">
+                        <rect key="frame" x="0.0" y="0.0" width="147" height="209"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="fZd-g0-IbE">
+                                <rect key="frame" x="20" y="137" width="107" height="5"/>
+                            </box>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="tmz-RW-jUe">
+                                <rect key="frame" x="19" y="174" width="122" height="16"/>
+                                <buttonCell key="cell" type="check" title="Whole Words" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="LkG-Gf-DKF">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="checkButtonAction:" target="DWt-ek-SWb" id="xWk-xY-dFS"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="aqh-9o-eC3">
+                                <rect key="frame" x="19" y="154" width="122" height="16"/>
+                                <buttonCell key="cell" type="check" title="Case Sensitive" bezelStyle="regularSquare" imagePosition="left" controlSize="small" inset="2" id="Mjh-aU-nKD">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="eEe-Ag-f6o"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="checkButtonAction:" target="DWt-ek-SWb" id="Y07-xr-3Ld"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="ybJ-wd-cp6">
+                                <rect key="frame" x="19" y="111" width="122" height="15"/>
+                                <buttonCell key="cell" type="radio" title="Bible" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" state="on" inset="2" id="2SO-EV-3Lb">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonAction:" target="DWt-ek-SWb" id="hz5-kn-H6D"/>
+                                </connections>
+                            </button>
+                            <button tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="BoP-PA-GhE">
+                                <rect key="frame" x="19" y="92" width="122" height="17"/>
+                                <buttonCell key="cell" type="radio" title="Old Testament" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="gMq-DU-2HZ">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="3ba-E1-yJf"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="radioButtonAction:" target="DWt-ek-SWb" id="xXs-Lp-SYu"/>
+                                </connections>
+                            </button>
+                            <button tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="879-h8-VqM">
+                                <rect key="frame" x="19" y="75" width="122" height="15"/>
+                                <buttonCell key="cell" type="radio" title="New Testament" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="eHI-5h-gvX">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonAction:" target="DWt-ek-SWb" id="YZp-q3-l41"/>
+                                </connections>
+                            </button>
+                            <button tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-0X-b8E">
+                                <rect key="frame" x="19" y="58" width="122" height="15"/>
+                                <buttonCell key="cell" type="radio" title="Gospels" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="Q1p-bp-wGb">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonAction:" target="DWt-ek-SWb" id="cw1-5G-7hF"/>
+                                </connections>
+                            </button>
+                            <button tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="pbW-Bi-uRi">
+                                <rect key="frame" x="19" y="39" width="122" height="17"/>
+                                <buttonCell key="cell" type="radio" title="Epistles" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="Jsl-bf-oPL">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="bNQ-eI-SLr"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="radioButtonAction:" target="DWt-ek-SWb" id="oBv-o5-ZU2"/>
+                                </connections>
+                            </button>
+                            <button tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="ocP-Lh-p5v">
+                                <rect key="frame" x="19" y="22" width="122" height="15"/>
+                                <buttonCell key="cell" type="radio" title="Opened Book" bezelStyle="regularSquare" imagePosition="left" alignment="left" controlSize="small" inset="2" id="Oto-h3-oqx">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="message" size="11"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="radioButtonAction:" target="DWt-ek-SWb" id="b4X-5F-kOu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="ybJ-wd-cp6" firstAttribute="top" secondItem="fZd-g0-IbE" secondAttribute="bottom" constant="14" id="0CU-AE-t40"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="ocP-Lh-p5v" secondAttribute="trailing" id="5AM-f2-HZp"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="BoP-PA-GhE" secondAttribute="trailing" id="8PN-Sn-aLq"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="tmz-RW-jUe" secondAttribute="leading" id="8bF-PY-O6O"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="BoP-PA-GhE" secondAttribute="leading" id="9N0-aq-5x5"/>
+                            <constraint firstItem="879-h8-VqM" firstAttribute="top" secondItem="BoP-PA-GhE" secondAttribute="bottom" constant="3" id="Bgl-eC-Jfu"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="tmz-RW-jUe" secondAttribute="trailing" id="FSw-Qg-MsN"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="pbW-Bi-uRi" secondAttribute="trailing" id="HOu-fn-uR4"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="ybJ-wd-cp6" secondAttribute="trailing" id="Jde-PI-Eso"/>
+                            <constraint firstItem="fZd-g0-IbE" firstAttribute="centerX" secondItem="rFY-lg-jrS" secondAttribute="centerX" id="K7L-G7-1r9"/>
+                            <constraint firstAttribute="trailing" secondItem="aqh-9o-eC3" secondAttribute="trailing" constant="6" id="Ood-e3-4Ke"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="pbW-Bi-uRi" secondAttribute="leading" id="VdW-7R-cIQ"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="rFY-lg-jrS" secondAttribute="leading" constant="20" symbolic="YES" id="YuS-bB-LNS"/>
+                            <constraint firstItem="pbW-Bi-uRi" firstAttribute="top" secondItem="LmV-0X-b8E" secondAttribute="bottom" constant="3" id="Yyr-fV-BUc"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="879-h8-VqM" secondAttribute="leading" id="ZIy-yE-J6t"/>
+                            <constraint firstItem="BoP-PA-GhE" firstAttribute="top" secondItem="ybJ-wd-cp6" secondAttribute="bottom" constant="3" id="bAc-AC-2TM"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="top" secondItem="rFY-lg-jrS" secondAttribute="top" constant="40" id="baz-0Z-vFX"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="879-h8-VqM" secondAttribute="trailing" id="bsL-S9-KVE"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="ocP-Lh-p5v" secondAttribute="leading" id="cbn-a1-Zk6"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="trailing" secondItem="LmV-0X-b8E" secondAttribute="trailing" id="edJ-3N-cjb"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="top" secondItem="tmz-RW-jUe" secondAttribute="bottom" constant="6" symbolic="YES" id="kED-XY-9cs"/>
+                            <constraint firstItem="ocP-Lh-p5v" firstAttribute="top" secondItem="pbW-Bi-uRi" secondAttribute="bottom" constant="3" id="qSL-sF-1di"/>
+                            <constraint firstAttribute="trailing" secondItem="fZd-g0-IbE" secondAttribute="trailing" constant="20" symbolic="YES" id="qeP-Lg-8Aj"/>
+                            <constraint firstItem="fZd-g0-IbE" firstAttribute="top" secondItem="aqh-9o-eC3" secondAttribute="bottom" constant="15" id="rm6-mU-hOz"/>
+                            <constraint firstAttribute="bottom" secondItem="pbW-Bi-uRi" secondAttribute="bottom" constant="39" id="skS-C0-sFj"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="ybJ-wd-cp6" secondAttribute="leading" id="xmB-cf-v5G"/>
+                            <constraint firstItem="aqh-9o-eC3" firstAttribute="leading" secondItem="LmV-0X-b8E" secondAttribute="leading" id="xyN-3I-Unb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bibleButton" destination="ybJ-wd-cp6" id="t2u-L0-ODe"/>
+                        <outlet property="caseSensitiveButton" destination="aqh-9o-eC3" id="243-wS-tXB"/>
+                        <outlet property="epistlesButton" destination="pbW-Bi-uRi" id="O1W-wh-5Tr"/>
+                        <outlet property="gospelsButton" destination="LmV-0X-b8E" id="wWh-4b-FLW"/>
+                        <outlet property="newTestamentButton" destination="879-h8-VqM" id="Bw3-eM-XDa"/>
+                        <outlet property="oldTestamentButton" destination="BoP-PA-GhE" id="MAe-qd-rUO"/>
+                        <outlet property="openedBookButton" destination="ocP-Lh-p5v" id="5qS-Ua-sPF"/>
+                        <outlet property="wholeWordsButton" destination="tmz-RW-jUe" id="j69-hh-vKr"/>
+                    </connections>
+                </viewController>
+                <customObject id="lwX-eQ-DSl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-69" y="-141"/>
+        </scene>
+    </scenes>
+</document>
