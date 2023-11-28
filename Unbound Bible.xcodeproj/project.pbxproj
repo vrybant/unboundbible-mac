@@ -116,6 +116,7 @@
 		E7F195F52AF645E50015341B /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F771351DE865FE004AF6C0 /* RigthView.swift */; };
+		E7F870212B15C71F00E4EEF1 /* CopyView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F8701F2B15C71F00E4EEF1 /* CopyView.storyboard */; };
 		E7FABB9B21D938D3006B6267 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7FABB9D21D938F7006B6267 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
 /* End PBXBuildFile section */
@@ -202,6 +203,7 @@
 		E7F059932A152550002B6029 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		E7F5071A20509AEB0019F546 /* icns.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icns.icns; sourceTree = "<group>"; };
 		E7F771351DE865FE004AF6C0 /* RigthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RigthView.swift; sourceTree = "<group>"; };
+		E7F870202B15C71F00E4EEF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CopyView.storyboard; sourceTree = "<group>"; };
 		E7FABB9A21D938D3006B6267 /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		E7FABB9C21D938F7006B6267 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -434,6 +436,7 @@
 				E7F04B7F2B14F1EA00F3AD4D /* ShelfView.storyboard */,
 				E7F04B912B14F8B800F3AD4D /* LibraryView.storyboard */,
 				E7F04B9B2B1534CD00F3AD4D /* PopoverView.storyboard */,
+				E7F8701F2B15C71F00E4EEF1 /* CopyView.storyboard */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7F04B932B14F8B800F3AD4D /* LibraryView.storyboard in Resources */,
+				E7F870212B15C71F00E4EEF1 /* CopyView.storyboard in Resources */,
 				E7F04B9D2B1534CD00F3AD4D /* PopoverView.storyboard in Resources */,
 				E7F5071B20509AEC0019F546 /* icns.icns in Resources */,
 				E7228FB6205142AE00C78C3C /* titles in Resources */,
@@ -778,6 +782,14 @@
 				E7F04B9C2B1534CD00F3AD4D /* Base */,
 			);
 			name = PopoverView.storyboard;
+			sourceTree = "<group>";
+		};
+		E7F8701F2B15C71F00E4EEF1 /* CopyView.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E7F870202B15C71F00E4EEF1 /* Base */,
+			);
+			name = CopyView.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
