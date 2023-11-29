@@ -7,6 +7,8 @@
 
 import UIKit
 
+// https://stackoverflow.com/questions/10054865/trying-to-add-3rd-tab-to-tabbarcontroller
+
 class ModulesTableView: UITableViewController {
     
     var list : [String] = tools.get_Shelf()
@@ -43,7 +45,7 @@ class ModulesTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tools.setCurrBible(list[indexPath.row])
-        print(currBible?.name)
+        print(currBible?.name ?? "")
     }
 
 }

@@ -66,7 +66,15 @@
                                 </segue>
                             </connections>
                         </button>
+                        <barButtonItem key="rightBarButtonItem" image="command.circle" catalog="system" id="8AC-39-wgi">
+                            <connections>
+                                <action selector="reloadButton:" destination="2mS-N5-gnc" id="ouz-Su-mg3"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="q3A-3k-DR6">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hT-9V-3to" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -236,6 +244,7 @@
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>
         <image name="books.vertical" catalog="system" width="128" height="107"/>
+        <image name="command.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
