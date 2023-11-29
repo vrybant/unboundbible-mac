@@ -11,26 +11,27 @@ class ScriptureTableView: UITableViewController {
     
     var list = tools.get_Chapter()
     
+//  static let myNotification = Notification.Name("reload")
+    
     @IBAction func cancel(segue: UIStoryboardSegue) {
-        // print("cancelsegue")
-    }
-
-    @IBAction func reloadButton(_ sender: Any) {
-        list = tools.get_Chapter()
-        self.tableView.reloadData()
+        reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // self.clearsSelectionOnViewWillAppear = false
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let notification = Notification.Name(rawValue: "reload")
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: notification, object: nil)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
+    @objc func reloadData() {
         list = tools.get_Chapter()
         self.tableView.reloadData()
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        list = tools.get_Chapter()
+//        self.tableView.reloadData()
+//    }
     
     // MARK: - Table view data source
 

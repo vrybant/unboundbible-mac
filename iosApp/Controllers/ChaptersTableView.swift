@@ -31,7 +31,6 @@ class ChaptersTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chapter = indexPath.row + 1
         currVerse = Verse(book: book, chapter: chapter, number: 1, count: 1)
-        print(currVerse)
         self.performSegue(withIdentifier: "unwindSegue", sender: self)
    }
     

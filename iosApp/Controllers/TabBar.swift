@@ -18,10 +18,7 @@ class TabBar: UITabBarController {
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        print(item.title!)
-        print(selectedIndex)
         if let index = tabBar.items?.firstIndex(where: {$0 == item}) {
-            print(index)
             UserDefaults.standard.set(index, forKey: "TabBarIndex")
         }
         

@@ -15,9 +15,6 @@ class ModulesTableView: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // self.clearsSelectionOnViewWillAppear = false
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
@@ -45,7 +42,7 @@ class ModulesTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tools.setCurrBible(list[indexPath.row])
-        print(currBible?.name ?? "")
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "reload"), object: nil)
     }
 
 }
