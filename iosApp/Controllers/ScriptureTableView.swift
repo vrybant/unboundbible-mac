@@ -15,6 +15,7 @@ class ScriptureTableView: UITableViewController {
     
     @IBAction func cancel(segue: UIStoryboardSegue) {
         reloadData()
+        saveDefaults()
     }
     
     override func viewDidLoad() {

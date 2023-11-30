@@ -38,6 +38,7 @@ class ModulesTableView: UITableViewController {
         tools.setCurrBible(name)
         tableView.reloadData()
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reload"), object: nil)
+        saveDefaults()
     }
 
 }
