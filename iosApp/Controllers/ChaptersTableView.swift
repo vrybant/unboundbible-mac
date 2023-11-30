@@ -2,7 +2,6 @@
 //  ChaptersTableViewController.swift
 //  iOSApp
 //
-//  Created by Vladimir Rybant on 22.11.2023.
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
@@ -23,7 +22,8 @@ class ChaptersTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        configuration.text = "Chapter \(indexPath.row + 1)"
+        let chapter = "Глава" // "Chapter"
+        configuration.text = "\(chapter) \(indexPath.row + 1)"
         cell.contentConfiguration = configuration
         return cell
     }

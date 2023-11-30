@@ -2,7 +2,6 @@
 //  BooksTableViewController.swift
 //  iOSApp
 //
-//  Created by Vladimir Rybant on 23.11.2023.
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
 //
 
@@ -35,7 +34,7 @@ class BooksTableView: UITableViewController {
         var configuration = UIListContentConfiguration.cell()
         configuration.text = titles[indexPath.row]
         cell.contentConfiguration = configuration
-        //cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     

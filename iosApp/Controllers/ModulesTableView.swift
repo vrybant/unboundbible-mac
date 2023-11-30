@@ -26,22 +26,17 @@ class ModulesTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        configuration.text = list[indexPath.row]
+        let name = list[indexPath.row]
+        configuration.text = name
         cell.contentConfiguration = configuration
+        cell.accessoryType = name == currBible!.name ? .checkmark : .none
         return cell
     }
-
-    /*
-     @IBAction func popUpButtonAction(_ sender: NSPopUpButton) {
-         tools.setCurrBible(popUpButton.selectedItem!.title)
-         makeBookList()
-         showCurrVerse(select: currVerse.number > 1)
-         mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
-     }
-     */
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tools.setCurrBible(list[indexPath.row])
+        let name = list[indexPath.row]
+        tools.setCurrBible(name)
+        tableView.reloadData()
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reload"), object: nil)
     }
 
