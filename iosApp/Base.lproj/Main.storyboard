@@ -60,7 +60,7 @@
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Bible"/>
                             <connections>
-                                <segue destination="sFZ-se-GuF" kind="show" id="EYT-ax-DVB">
+                                <segue destination="sFZ-se-GuF" kind="show" identifier="GoToBooks" id="EYT-ax-DVB">
                                     <segue key="commit" inheritsFrom="parent" id="wiw-Ao-O8f"/>
                                     <segue key="preview" inheritsFrom="commit" id="Qmf-pa-fnw"/>
                                 </segue>
@@ -236,7 +236,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Qmf-pa-fnw"/>
+        <segue reference="EYT-ax-DVB"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="book" catalog="system" width="128" height="99"/>

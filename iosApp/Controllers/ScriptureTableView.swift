@@ -29,11 +29,6 @@ class ScriptureTableView: UITableViewController {
         self.tableView.reloadData()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        list = tools.get_Chapter()
-//        self.tableView.reloadData()
-//    }
-    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,5 +42,5 @@ class ScriptureTableView: UITableViewController {
         cell.contentConfiguration = configuration
         return cell
     }
-    
+       
 }

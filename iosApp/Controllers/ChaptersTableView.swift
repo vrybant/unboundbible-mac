@@ -9,14 +9,14 @@ import UIKit
 
 class ChaptersTableView: UITableViewController {
 
-    var book = 1
+    var verse : Verse?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        currBible!.chaptersCount(Verse(book: book, chapter: 1, number: 1, count: 1))
+        currBible!.chaptersCount(verse!)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,8 +29,8 @@ class ChaptersTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chapter = indexPath.row + 1
-        currVerse = Verse(book: book, chapter: chapter, number: 1, count: 1)
+        verse!.chapter = indexPath.row + 1
+        currVerse = verse!
         self.performSegue(withIdentifier: "unwindSegue", sender: self)
    }
     

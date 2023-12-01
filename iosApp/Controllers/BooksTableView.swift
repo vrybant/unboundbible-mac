@@ -8,31 +8,28 @@
 import UIKit
 
 class BooksTableView: UITableViewController {
-
+    
     let titles = currBible!.getTitles()
-    var currRow = 0
+    var verse = currVerse
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // self.clearsSelectionOnViewWillAppear = false
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
+        self.clearsSelectionOnViewWillAppear = false
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let index = currBible!.idxByNum(currVerse.book) {
+        if let index = currBible!.idxByNum(verse.book) {
             let indexPath = IndexPath(row: index, section: 0)
             tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
         }
     }
-    
-    // MARK: - Table view data source
 
+    
     @IBAction func doneButton(_ sender: Any) {
         print("doneButton")
         self.dismiss(animated: true)
     }
         
+    // MARK: - Table view data source
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         titles.count
     }
@@ -48,14 +45,17 @@ class BooksTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        currRow = indexPath.row
-        performSegue(withIdentifier: "GoToChapters", sender: self)
+        let name = titles[indexPath.row]
+        if let book = currBible!.bookByName(name) {
+            verse = Verse(book: book, chapter: 1, number: 1, count: 1)
+            performSegue(withIdentifier: "GoToChapters", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoToChapters" {
             let destinationView = segue.destination as! ChaptersTableView
-            destinationView.book = currRow + 1
+            destinationView.verse = verse
         }
     }
     
