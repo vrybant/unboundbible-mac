@@ -18,6 +18,14 @@ class BooksTableView: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if let index = currBible!.idxByNum(currVerse.book) {
+            let indexPath = IndexPath(row: index, section: 0)
+            tableView.selectRow(at: indexPath, animated: false, scrollPosition: .top)
+        }
+    }
+    
     // MARK: - Table view data source
 
     @IBAction func doneButton(_ sender: Any) {
@@ -35,6 +43,7 @@ class BooksTableView: UITableViewController {
         configuration.text = titles[indexPath.row]
         cell.contentConfiguration = configuration
         cell.accessoryType = .disclosureIndicator
+        cell.selectionStyle = .default
         return cell
     }
     
@@ -49,5 +58,5 @@ class BooksTableView: UITableViewController {
             destinationView.book = currRow + 1
         }
     }
-
+    
 }
