@@ -9,12 +9,41 @@ import Foundation
 
 class Tools: CustomTools {
     
+    func iosparse(_ string: String, jtag: Bool = false, small: Bool = false) -> String {
+        var result : String = ""
+        //return string.mutable(attributes: defaultAttributes) // show tags
+
+        //let string = string.replace("</p>", with: "\n")
+
+        let list = xmlToList(string: string)
+        var tags = Set<String>()
+        
+        for s in list {
+            if s.hasPrefix("<") {
+                var s = s
+                if s.hasPrefix("<a ") { s = "<a>" }
+                if s.hasPrefix("</") {
+                    tags.remove(s.replace("/", with: ""))
+                } else {
+                    tags.insert(s)
+                }
+            } else {
+                if !jtag { tags.remove("<J>") }
+                var s = s
+                if s.hasPrefix(" ") && result.hasSuffix(" ") { s = s.removeLeadingChar }
+                // let attrString = attrStringFromTags(s, tags: tags, small: small)
+                result.append(s)
+            }
+        }
+        return result
+    }
+    
     func get_Chapter() -> [String] {
         var result = [String]()
         if let text = currBible!.getChapter(currVerse) {
             if !text.isEmpty {
                 for i in 0...text.count-1 {
-                    let element = String(i+1) + " " + text[i]
+                    let element = String(i+1) + " " + iosparse(text[i], jtag: true)
                     result.append(element)
                 }
             }
