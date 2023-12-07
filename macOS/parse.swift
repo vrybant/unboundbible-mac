@@ -7,23 +7,6 @@
 
 import Foundation
 
-#if os(iOS)
-    import SwiftUI
-#endif
-
-#if os(OSX)
-    let defaultFontSize = CGFloat(14)
-#else
-    let defaultFontSize = CGFloat(16)
-#endif
-
-var defaultFontName = "HelveticaNeue"
-var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
-
-var defaultAttributes: [NSAttributedString.Key : Any] {
-    [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
-}
-
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
     let discount : CGFloat = small ? 2 : 1
     
@@ -110,6 +93,13 @@ private func htmlReplacement(_ string: String) -> String {
 
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
+    
+    #if os(OSX)
+    //
+    #else
+    // var result : String = ""
+    #endif
+
     //return string.mutable(attributes: defaultAttributes) // show tags
 
     let string = string.replace("</p>", with: "\n")

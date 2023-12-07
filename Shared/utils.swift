@@ -13,6 +13,19 @@ var applicationUpdate = false
 //var donateVisited = false
 let bibleDirectory = "bibles"
 
+#if os(OSX)
+    let defaultFontSize = CGFloat(14)
+#else
+    let defaultFontSize = CGFloat(16)
+#endif
+
+var defaultFontName = "HelveticaNeue"
+var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
+
+var defaultAttributes: [NSAttributedString.Key : Any] {
+    [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
+}
+
 var recentList : [URL] = []
 
 let bibleHubArray : [String] = ["",
