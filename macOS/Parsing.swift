@@ -93,14 +93,7 @@ private func htmlReplacement(_ string: String) -> String {
 
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutableAttributedString {
     let result = NSMutableAttributedString()
-    
-    #if os(OSX)
-    //
-    #else
-    // var result : String = ""
-    #endif
-
-    //return string.mutable(attributes: defaultAttributes) // show tags
+    // return NSMutableAttributedString(string: string, attributes: defaultAttributes) // show tags
 
     let string = string.replace("</p>", with: "\n")
 
