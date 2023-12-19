@@ -13,24 +13,29 @@ class ScriptureTableView: UITableViewController {
     
     @IBOutlet weak var titleButton: UIButton!
     
-    //  static let myNotification = Notification.Name("reload")
+//  static let myNotification = Notification.Name("reload")
     
     @IBAction func cancel(segue: UIStoryboardSegue) {
         reloadData()
         saveDefaults()
-        let title = currBible!.verseToString(currVerse, cutted: true)
-        titleButton.setTitle(title, for: .normal)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let notification = Notification.Name(rawValue: "reload")
         NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: notification, object: nil)
+        setButton()
     }
 
+    func setButton() {
+        let title = currBible!.verseToString(currVerse, cutted: true)
+        titleButton.setTitle(title, for: .normal)
+    }
+    
     @objc func reloadData() {
         list = tools.get_Chapter()
-        self.tableView.reloadData()
+        tableView.reloadData()
+        setButton()
     }
     
     // MARK: - Table view data source
