@@ -282,13 +282,16 @@ class Bible: Module {
         }
     }
     
-    func verseToString(_ verse: Verse, full: Bool) -> String? {
+    func verseToString(_ verse: Verse, abbr: Bool = false, cutted: Bool = false) -> String? {
         if let n = idxByNum(verse.book) {
-            let title = full ? books[n].title : books[n].abbr
+            let title = abbr ? books[n].abbr : books[n].title
             let space = title.contains(".") ? "" : " "
-            var result = title + space + String(verse.chapter) + ":" + String(verse.number)
-            if verse.number != 0 && verse.count > 1 {
-                result += "-" + String(verse.number + verse.count - 1)
+            var result = title + space + String(verse.chapter)
+            if !cutted {
+                result += ":" + String(verse.number)
+                if verse.number != 0 && verse.count > 1 {
+                    result += "-" + String(verse.number + verse.count - 1)
+                }
             }
             return result
         }

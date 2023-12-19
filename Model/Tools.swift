@@ -48,7 +48,7 @@ class Tools: CustomTools {
                 let array = s.components(separatedBy: "\0")
                 if array.count < 4 { continue }
                 guard let verse = arrayToVerse(array) else { continue }
-                guard let link = currBible!.verseToString(verse, full: true) else { continue }
+                guard let link = currBible!.verseToString(verse) else { continue }
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
                 result += "<l>\(link)</l> \(text)\n\n"
@@ -78,7 +78,7 @@ class Tools: CustomTools {
         if let values = references.getData(currVerse, language: currBible!.language) {
             info = values.info
             for item in values.data {
-                if let link = currBible!.verseToString(item, full: true) {
+                if let link = currBible!.verseToString(item) {
                     if let lines = currBible!.getRange(item, purge: true) {
                         result += "<l>\(link)</l> "
                         result += lines.joined(separator: " ") + "\n\n"
@@ -135,8 +135,8 @@ class Tools: CustomTools {
         guard let list = currBible!.getRange(currVerse) else { return NSAttributedString() }
         var quote = ""
         
-        let full = !options.contains(.abbreviate)
-        guard var link = currBible!.verseToString(currVerse, full: full) else { return NSAttributedString() }
+        let abbr = options.contains(.abbreviate)
+        guard var link = currBible!.verseToString(currVerse, abbr: abbr) else { return NSAttributedString() }
         link = "<l>" + link + "</l>"
         var number = currVerse.number
         var l = false

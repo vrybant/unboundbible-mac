@@ -11,11 +11,15 @@ class ScriptureTableView: UITableViewController {
     
     var list = tools.get_Chapter()
     
-//  static let myNotification = Notification.Name("reload")
+    @IBOutlet weak var titleButton: UIButton!
+    
+    //  static let myNotification = Notification.Name("reload")
     
     @IBAction func cancel(segue: UIStoryboardSegue) {
         reloadData()
         saveDefaults()
+        let title = currBible!.verseToString(currVerse, cutted: true)
+        titleButton.setTitle(title, for: .normal)
     }
     
     override func viewDidLoad() {

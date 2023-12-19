@@ -148,14 +148,14 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
  
     func loadCompare() {
-        let link = currBible!.verseToString(currVerse, full: true) ?? ""
+        let link = currBible!.verseToString(currVerse) ?? ""
         let string = link + "\n\n" + tools.get_Compare()
         compareTextView.textStorage?.setAttributedString(parse(string))
         selectTab("compare")
     }
 
     func loadReferences() {
-        let link = currBible!.verseToString(currVerse, full: true) ?? ""
+        let link = currBible!.verseToString(currVerse) ?? ""
         let values = tools.get_References()
         var string = link + "\n\n" + values.string
         if values.string.isEmpty { string += LocalizedString("Сross-references not found.") }
@@ -165,7 +165,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadCommentary() {
-        let link = (currBible!.verseToString(currVerse, full: true) ?? "") + "\n\n"
+        let link = (currBible!.verseToString(currVerse) ?? "") + "\n\n"
         let attrString = parse(link)
         let data = tools.get_Commentary()
         attrString.append(data)
