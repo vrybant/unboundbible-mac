@@ -24,7 +24,6 @@ class SearchTableView: UITableViewController, UISearchResultsUpdating {
         searchController.searchBar.placeholder = "Search Candies"
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        searchController.hidesNavigationBarDuringPresentation = false
     }
     
     func updateSearchResults(for searchController: UISearchController) {
