@@ -89,6 +89,7 @@
 		E7EA07A82A3B4F840079BCD8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76499FB2A012E7D009B6B63 /* String.swift */; };
 		E7EA07A92A3B79010079BCD8 /* bibles in Resources */ = {isa = PBXBuildFile; fileRef = E75525942051334A00BDD425 /* bibles */; };
 		E7EA07AA2A3B79070079BCD8 /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
+		E7ED65B82B39CF98002734D4 /* SearchTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7ED65B72B39CF98002734D4 /* SearchTableView.swift */; };
 		E7F04B812B14F1EA00F3AD4D /* ShelfView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F04B7F2B14F1EA00F3AD4D /* ShelfView.storyboard */; };
 		E7F04B932B14F8B800F3AD4D /* LibraryView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F04B912B14F8B800F3AD4D /* LibraryView.storyboard */; };
 		E7F04B9D2B1534CD00F3AD4D /* PopoverView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F04B9B2B1534CD00F3AD4D /* PopoverView.storyboard */; };
@@ -201,6 +202,7 @@
 		E7E3D4F71E12B1C400912F37 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E7E7A84D24C5C285001F85C8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		E7ED65B72B39CF98002734D4 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchTableView.swift; path = iosApp/Controllers/SearchTableView.swift; sourceTree = SOURCE_ROOT; };
 		E7F04B802B14F1EA00F3AD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShelfView.storyboard; sourceTree = "<group>"; };
 		E7F04B8F2B14F6FC00F3AD4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShelfView.strings; sourceTree = "<group>"; };
 		E7F04B902B14F70400F3AD4D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ShelfView.strings; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				E756CC1D2B0F81B8009971D3 /* BooksTableView.swift */,
 				E746BCFE2B0E3391009395F6 /* ChaptersTableView.swift */,
 				E73F12842B16451B00773B24 /* ModulesTableView.swift */,
+				E7ED65B72B39CF98002734D4 /* SearchTableView.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				E7A121AE2AE8FE8A004C3D24 /* AppDelegate.swift in Sources */,
 				E7F195E02AF639D10015341B /* Dictionary.swift in Sources */,
 				E75FFA3F2AF43756008E748D /* ScriptureTableView.swift in Sources */,
+				E7ED65B82B39CF98002734D4 /* SearchTableView.swift in Sources */,
 				E756CC1E2B0F81B8009971D3 /* BooksTableView.swift in Sources */,
 				E751E57D2B218AF900AE8C49 /* Parsing.swift in Sources */,
 				E7F195DD2AF639D10015341B /* CustomTools.swift in Sources */,
