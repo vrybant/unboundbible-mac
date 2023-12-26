@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsScopeBar="YES" id="iAc-p7-RGy">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="103"/>
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
                             <scopeButtonTitles>
@@ -202,6 +202,9 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="bo0-Ne-cUg"/>
                     <navigationItem key="navigationItem" title="Search" id="vAh-y2-5Kj"/>
+                    <connections>
+                        <outlet property="searchBar" destination="iAc-p7-RGy" id="Huj-F3-VK4"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apV-nE-xmZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

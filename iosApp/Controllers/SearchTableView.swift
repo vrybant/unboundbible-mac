@@ -7,29 +7,17 @@
 
 import UIKit
 
-class SearchTableView: UITableViewController, UISearchResultsUpdating {
-        
-    let searchController = UISearchController(searchResultsController: nil)
-
+class SearchTableView: UITableViewController {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     var list : [String] = tools.get_Shelf()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initSearchController()
+        searchBar.delegate = self
     }
-
-    func initSearchController() {
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Candies"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        //
-    }
-    
+      
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,6 +40,13 @@ class SearchTableView: UITableViewController, UISearchResultsUpdating {
         tableView.reloadData()
         NotificationCenter.default.post(name: Notification.Name(rawValue: "reload"), object: nil)
         saveDefaults()
+    }
+
+}
+
+extension SearchTableView: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text!)
     }
 
 }
