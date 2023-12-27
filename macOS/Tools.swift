@@ -35,12 +35,7 @@ class Tools: CustomTools {
         var count = 0
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
-        
-        #if os(OSX)
-            let range = currentSearchRange()
-        #else
-            let range : SearchRange? = nil
-        #endif
+        let range = currentSearchRange()
 
         if let searchResult = currBible!.search(string: target, options: searchOption, range: range) {
             for s in searchResult {

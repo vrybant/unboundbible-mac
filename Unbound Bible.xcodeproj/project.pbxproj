@@ -258,7 +258,7 @@
 				CE2F17EF1D33C31800BA91A6 /* macOS */,
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
-				E7B185472A42EE2900F8A723 /* Model */,
+				E7B185472A42EE2900F8A723 /* MobileModel */,
 				E71E2CB12A12647900136566 /* iOS */,
 				E7A121AC2AE8FE8A004C3D24 /* iOSApp */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
@@ -379,13 +379,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		E7B185472A42EE2900F8A723 /* Model */ = {
+		E7B185472A42EE2900F8A723 /* MobileModel */ = {
 			isa = PBXGroup;
 			children = (
 				E71DA9E02A3C8B4400ECBC2F /* Tools.swift */,
 				E751E57B2B218AF900AE8C49 /* Parsing.swift */,
 			);
-			path = Model;
+			path = MobileModel;
 			sourceTree = "<group>";
 		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {

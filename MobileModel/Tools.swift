@@ -31,15 +31,12 @@ class Tools: CustomTools {
         return result
     }
     
-    func get_Search(string: String) -> (string: String, count: Int) {
-        var result = ""
-        var count = 0
+    func get_Search(string: String) -> [String] {
+        var result = [String]()
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
         
-        #if os(OSX)
-            let range = currentSearchRange()
-        #else
+        #if os(iOS)
             let range : SearchRange? = nil
         #endif
 
@@ -51,11 +48,12 @@ class Tools: CustomTools {
                 guard let link = currBible!.verseToString(verse) else { continue }
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
-                result += "<l>\(link)</l> \(text)\n\n"
+                let string = "<l>\(link)</l><br> \(text)"
+                let element = parse(string)
+                result.append(element)
             }
-            count = searchResult.count
         }
-        return (result, count)
+        return result
     }
 
     func get_Compare() -> String {

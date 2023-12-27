@@ -11,7 +11,7 @@ class SearchTableView: UITableViewController {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var list : [String] = tools.get_Shelf()
+    var list : [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +47,26 @@ class SearchTableView: UITableViewController {
 extension SearchTableView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text!)
+        searchBar.resignFirstResponder() // dismiss the keyboard 
+        searchResult(text: searchBar.text!)
+        tableView.reloadData()
+    }
+    
+    func searchResult(text: String) {
+        if text.count < 2 { return }
+        let data = tools.get_Search(string: text)
+        
+        if data.count == 0 {
+            let message = LocalizedString("You search for % produced no results.")
+            let string = "\(message.replace("%", with: text.quoted))"
+            print(string)
+        }
+
+        list = data
+        //searchTextView.textStorage?.setAttributedString(parse(string))
+        
+        let status = LocalizedString("verses was found")
+        print("\(data.count) \(status)")
     }
 
 }
