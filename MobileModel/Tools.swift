@@ -14,7 +14,7 @@ class Tools: CustomTools {
         if let text = currBible!.getChapter(currVerse) {
             if !text.isEmpty {
                 for i in 0...text.count-1 {
-                    let element = String(i+1) + ". " + parse(text[i])
+                    let element = String(i+1) + ". " + text[i]
                     result.append(element)
                 }
             }
@@ -49,7 +49,8 @@ class Tools: CustomTools {
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
                 let string = "<l>\(link)</l><br> \(text)"
-                let element = parse(string)
+                //let element = parse(string)
+                let element = string
                 result.append(element)
             }
         }
@@ -159,7 +160,7 @@ class Tools: CustomTools {
         quote = options.contains(.endinglink) ? quote + " " + link : link + " " + quote
         quote += "\n"
         
-        return parse(quote).attributed
+        return parse(quote) //.attributed
     }
     
     func get_Shelf() -> [String] {
