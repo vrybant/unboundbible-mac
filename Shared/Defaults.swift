@@ -7,23 +7,26 @@
 
 import Foundation
 
+#if os(OSX)
+    import UIKit
+#endif
+
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 var applicationUpdate = false
-//var donateVisited = false
 let bibleDirectory = "bibles"
 
 #if os(OSX)
     let defaultFontSize = CGFloat(14)
+    var defaultFontName = "HelveticaNeue"
+    var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
 #else
-    let defaultFontSize = CGFloat(16)
+    let defaultFontSize = CGFloat(18)
+    let defaultFont = Font.systemFont(ofSize: defaultFontSize)
 #endif
 
-var defaultFontName = "HelveticaNeue"
-var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
-
 var defaultAttributes: [NSAttributedString.Key : Any] {
-    [NSAttributedString.Key.foregroundColor: Color.labelColor, NSAttributedString.Key.font: defaultFont]
+    [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
 }
 
 var recentList : [URL] = []
@@ -90,12 +93,14 @@ func readDefaults() {
     currVerse.number  = defaults.integer(forKey: "verseNumber")
     currVerse.count   = defaults.integer(forKey: "verseCount")
 
+    #if os(OSX)
     if let name = defaults.string(forKey: "fontName") {
         let size = defaults.cgfloat(forKey: "fontSize")
         if let font = Font(name: name, size: size) {
             defaultFont = font
         }
     }
+    #endif
 
     let value = defaults.integer(forKey: "copyOptions")
     copyOptions = CopyOptions(rawValue: value)

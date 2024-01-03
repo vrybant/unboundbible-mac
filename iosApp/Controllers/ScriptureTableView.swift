@@ -47,8 +47,9 @@ class ScriptureTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        let attrString = parse(list[indexPath.row])
-//      configuration.text = list[indexPath.row]
+        let text = list[indexPath.row]
+        let attrString = NSMutableAttributedString(string: text, attributes: defaultAttributes)
+        //configuration.text = text
         configuration.attributedText = attrString
         cell.contentConfiguration = configuration
         return cell
