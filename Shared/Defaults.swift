@@ -17,10 +17,12 @@ var applicationUpdate = false
 let bibleDirectory = "bibles"
 
 #if os(OSX)
+    let macOS = true
     let defaultFontSize = CGFloat(14)
     var defaultFontName = "HelveticaNeue"
     var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
 #else
+    let macOS = false
     let defaultFontSize = CGFloat(18)
     let defaultFont = Font.systemFont(ofSize: defaultFontSize)
 #endif
