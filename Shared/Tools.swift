@@ -9,12 +9,17 @@ import Foundation
 
 class Tools: CustomTools {
     
-    func get_Chapter() -> String {
-        var result = ""
+    func get_Chapter() -> [String] {
+        var result = [String]()
         if let text = currBible!.getChapter(currVerse) {
             if !text.isEmpty {
                 for i in 0...text.count-1 {
-                    result += " <l>" + String(i+1) + "</l> " + text[i] + "\n"
+                    #if os(macOS)
+                        let item = " <l>" + String(i+1) + "</l> " + text[i] + "\n"
+                    #else
+                        let item = "<l>" + String(i+1) + "</l>. " + text[i]
+                    #endif
+                    result.append(item)
                 }
             }
         }
@@ -35,7 +40,12 @@ class Tools: CustomTools {
         var count = 0
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
-        let range = currentSearchRange()
+        
+        #if os(iOS)
+            let range : SearchRange? = nil
+        #else
+            let range = currentSearchRange()
+        #endif
 
         if let searchResult = currBible!.search(string: target, options: searchOption, range: range) {
             for s in searchResult {
@@ -172,6 +182,15 @@ class Tools: CustomTools {
         if module is Commentary { commentaries.deleteItem(module as! Commentary ) }
         if module is Dictionary { dictionaries.deleteItem(module as! Dictionary ) }
         if module is Reference  { references  .deleteItem(module as! Reference  ) }
+    }
+
+    func get_Shelf() -> [String] {
+        var result : [String] = []
+        for bible in bibles {
+            let element = bible.name
+            result.append(element)
+        }
+        return result
     }
     
 }

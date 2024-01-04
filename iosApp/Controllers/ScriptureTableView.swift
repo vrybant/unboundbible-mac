@@ -50,7 +50,7 @@ class ScriptureTableView: UITableViewController {
         let text = list[indexPath.row]
         let attrString = NSMutableAttributedString(string: text, attributes: defaultAttributes)
         //configuration.text = text
-        configuration.attributedText = attrString
+        configuration.attributedText = parse(text, jtag: true)
         cell.contentConfiguration = configuration
         return cell
     }

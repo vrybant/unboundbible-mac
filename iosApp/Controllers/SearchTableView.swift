@@ -54,7 +54,7 @@ extension SearchTableView: UISearchBarDelegate {
     
     func searchResult(text: String) {
         if text.count < 2 { return }
-        let data = tools.get_Search(string: text)
+        let data = tools.get_Search(string: text).string // !
         
         if data.count == 0 {
             let message = LocalizedString("You search for % produced no results.")
@@ -62,7 +62,7 @@ extension SearchTableView: UISearchBarDelegate {
             print(string)
         }
 
-        list = data
+////        list = data
         //searchTextView.textStorage?.setAttributedString(parse(string))
         
         let status = LocalizedString("verses was found")
