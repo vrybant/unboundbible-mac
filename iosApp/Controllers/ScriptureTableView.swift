@@ -9,7 +9,7 @@ import UIKit
 
 class ScriptureTableView: UITableViewController {
     
-    var list = tools.get_Chapter()
+    var data = tools.get_Chapter()
     
     @IBOutlet weak var titleButton: UIButton!
     
@@ -33,7 +33,7 @@ class ScriptureTableView: UITableViewController {
     }
     
     @objc func reloadData() {
-        list = tools.get_Chapter()
+        data = tools.get_Chapter()
         tableView.reloadData()
         setButton()
     }
@@ -41,15 +41,13 @@ class ScriptureTableView: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        list.count
+        data.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         var configuration = UIListContentConfiguration.cell()
-        let text = list[indexPath.row]
-        let attrString = NSMutableAttributedString(string: text, attributes: defaultAttributes)
-        //configuration.text = text
+        let text = data[indexPath.row]
         configuration.attributedText = parse(text, jtag: true)
         cell.contentConfiguration = configuration
         return cell

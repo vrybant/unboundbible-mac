@@ -122,7 +122,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadChapter() {
-        let text = tools.get_Chapter().joined()
+        let text = tools.get_Chapter().joined(separator: "\n") 
         let attrString = parse(text, jtag: true)
         bibleTextView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
         bibleTextView.textStorage?.setAttributedString(attrString)
@@ -133,7 +133,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     func loadSearch(text: String) {
         if text.count < 2 { return }
         let data = tools.get_Search(string: text)
-        var string = data.string
+        var string = data.strings.joined(separator: "\n\n")
 
         if data.count == 0 {
             let message = LocalizedString("You search for % produced no results.")
