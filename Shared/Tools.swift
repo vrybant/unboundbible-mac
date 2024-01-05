@@ -9,14 +9,16 @@ import Foundation
 
 class Tools: CustomTools {
     
+    private let eol = macOS ? "\n" : ""
+
     func get_Chapter() -> [String] {
         var result = [String]()
-        let space = macOS ? " " : ""
-        let dot = macOS ? "" : "."
         if let text = currBible!.getChapter(currVerse) {
             if !text.isEmpty {
+                let space = macOS ? " " : ""
+                let dot = macOS ? "" : "."
                 for i in 0...text.count-1 {
-                    let item = "\(space)<l>\(i+1)\(dot)</l> " + text[i]
+                    let item = "\(space)<l>\(i+1)\(dot)</l> \(text[i])\(eol)"
                     result.append(item)
                 }
             }
@@ -38,7 +40,7 @@ class Tools: CustomTools {
         var count = 0
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
-        
+
         #if os(macOS)
             let range = currentSearchRange()
         #else
@@ -53,7 +55,7 @@ class Tools: CustomTools {
                 guard let link = currBible!.verseToString(verse) else { continue }
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
-                let item = "<l>\(link)</l> \(text)"
+                let item = "<l>\(link)</l> \(text)\(eol)\(eol)"
                 result.append(item)
             }
             count = searchResult.count
