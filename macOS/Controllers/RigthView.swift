@@ -150,7 +150,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
  
     func loadCompare() {
         let link = currBible!.verseToString(currVerse) ?? ""
-        let string = link + "\n\n" + tools.get_Compare()
+        let string = link + "\n\n" + tools.get_Compare().joined()
         compareTextView.textStorage?.setAttributedString(parse(string))
         selectTab("compare")
     }

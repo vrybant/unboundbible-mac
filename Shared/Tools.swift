@@ -61,14 +61,15 @@ class Tools: CustomTools {
         return (result, count)
     }
 
-    func get_Compare() -> String {
-        var result = ""
+    func get_Compare() -> [String] {
+        var result = [String]()
         
         for bible in bibles {
             if !bible.favorite { continue }
             if let list = bible.getRange(currVerse, purge: true) {
                 let text = list.joined(separator: " ") + "\n\n"
-                result += "<l>" + bible.name + "</l>\n" + text
+                let item = "<l>\(bible.name)</l>\n\(text)"
+                result.append(item)
             }
         }
         return result
