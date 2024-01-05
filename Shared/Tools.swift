@@ -2,10 +2,8 @@
 //  ToolsExt.swift
 //  Unbound Bible
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
-
-import Foundation
 
 var tools = Tools()
 var currBible : Bible? = nil
@@ -122,36 +120,30 @@ class Tools {
                 }
             }
         }
-        
         return (result, info)
     }
 
-    func get_Commentary() -> NSAttributedString {
-        let result = NSMutableAttributedString()
-
+    func get_Commentary() -> String {
+        var result = ""
         for commentary in commentaries {
             if commentary.footnotes { continue }
             if let list = commentary.getData(currVerse) {
-                var string = "<h>" + commentary.name + "</h>\n\n"
-                string += list.joined(separator: " ") + "\n\n"
-                result.append(html(string))
+                let name = "<h>" + commentary.name + "</h>\n\n"
+                result += name + list.joined(separator: " ") + "\n\n"
             }
         }
-        
         return result
     }
 
-    func get_Dictionary(key: String) -> NSAttributedString {
-        let result = NSMutableAttributedString()
+    func get_Dictionary(key: String) -> String {
+        var result = ""
         for dictionary in dictionaries {
             if dictionary.embedded { continue }
             if let list = dictionary.getData(key: key) {
-                var string = "<h>" + dictionary.name + "</h>\n\n"
-                string += list.joined(separator: " ") + "\n\n"
-                result.append(html(string))
+                let name = "<h>" + dictionary.name + "</h>\n\n"
+                result += name + list.joined(separator: " ") + "\n\n"
             }
         }
-        
         return result
     }
 
@@ -167,12 +159,12 @@ class Tools {
         }
     }
 
-    func get_Verses(options: CopyOptions) -> NSAttributedString {
-        guard let list = currBible!.getRange(currVerse) else { return NSAttributedString() }
+    func get_Verses(options: CopyOptions) -> String {
+        guard let list = currBible!.getRange(currVerse) else { return "" }
         var quote = ""
         
         let abbr = options.contains(.abbreviate)
-        guard var link = currBible!.verseToString(currVerse, abbr: abbr) else { return NSAttributedString() }
+        guard var link = currBible!.verseToString(currVerse, abbr: abbr) else { return "" }
         link = "<l>" + link + "</l>"
         var number = currVerse.number
         var l = false
@@ -197,7 +189,7 @@ class Tools {
         quote = options.contains(.endinglink) ? quote + " " + link : link + " " + quote
         quote += "\n"
         
-        return parse(quote)
+        return quote
     }
     
     func get_Modules() -> [Module] {

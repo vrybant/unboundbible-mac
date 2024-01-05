@@ -2,7 +2,7 @@
 //  WinController.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -64,7 +64,8 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
 //  }
     
     @IBAction func copyAction(_ sender: NSButton) {
-        tools.get_Verses(options: copyOptions).copyToPasteboard()
+        let verses = tools.get_Verses(options: copyOptions)
+        parse(verses).copyToPasteboard()
     }
 
     @IBAction func searchFieldAction(_ sender: NSSearchField) {

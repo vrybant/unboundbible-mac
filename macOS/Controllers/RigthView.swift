@@ -2,7 +2,7 @@
 //  RigthViewController.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -169,9 +169,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         let link = (currBible!.verseToString(currVerse) ?? "") + "\n\n"
         let attrString = parse(link)
         let data = tools.get_Commentary()
-        attrString.append(data)
+        attrString.append(html(data))
         
-        if data.string.isEmpty {
+        if data.isEmpty {
             let message = LocalizedString("Commentaries not found.") + "\n\n"
             attrString.append(parse(message))
         }
@@ -189,9 +189,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     func loadDictionary(key: String) {
         let attrString = "".attributed
         let data = tools.get_Dictionary(key: key)
-        attrString.append(data)
+        attrString.append(html(data))
         
-        if data.string.isEmpty {
+        if data.isEmpty {
             var message = LocalizedString("You search for % produced no results.") + "\n\n"
             message = "\(message.replace("%", with: key.quoted))"
             attrString.append(parse(message))

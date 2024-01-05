@@ -2,7 +2,7 @@
 //  CopyView.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -44,10 +44,11 @@ class CopyView: NSViewController {
         parenthesesButton.state = NSControl.StateValue(rawValue: options.contains(.parentheses) ? 1 : 0)
              endingButton.state = NSControl.StateValue(rawValue: options.contains(.endinglink ) ? 1 : 0)
         
-        if tools.bibles.isEmpty { return }
-        
-        textView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
-        textView.textStorage?.setAttributedString(tools.get_Verses(options: options))
+        if !tools.bibles.isEmpty {
+            let verses = tools.get_Verses(options: options)
+            textView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
+            textView.textStorage?.setAttributedString(parse(verses))
+        }
     }
     
     @IBAction func checkButtonAction(_ sender: NSButton) {
@@ -59,11 +60,13 @@ class CopyView: NSViewController {
         if parenthesesButton.state.rawValue == 1 { options.insert(.parentheses) }
         if      endingButton.state.rawValue == 1 { options.insert(.endinglink ) }
         
-        textView.textStorage?.setAttributedString(tools.get_Verses(options: options))
+        let verses = tools.get_Verses(options: options)
+        textView.textStorage?.setAttributedString(parse(verses))
     }
     
     @IBAction func copyButtonAction(_ sender: NSButton) {
-        tools.get_Verses(options: options).copyToPasteboard()
+        let verses = tools.get_Verses(options: copyOptions)
+        parse(verses).copyToPasteboard()
         if defaultButton.state.rawValue == 1 { copyOptions = options }
         self.dismiss(self)
     }

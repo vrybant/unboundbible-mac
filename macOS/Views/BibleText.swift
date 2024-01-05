@@ -2,7 +2,7 @@
 //  BibleText.swift
 //  Unbound Bible
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
@@ -99,7 +99,8 @@ class BibleTextView: CustomTextView {
     }
     
     @IBAction func copyVersesAction(_ sender: NSMenuItem) {
-        tools.get_Verses(options: copyOptions).copyToPasteboard()
+        let verses = tools.get_Verses(options: copyOptions)
+        parse(verses).copyToPasteboard()
     }
     
     @IBAction func copyDialogAction(_ sender: NSMenuItem) {
