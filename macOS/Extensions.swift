@@ -45,14 +45,6 @@ extension NSTableView {
     }
 }
 
-extension NSAttributedString {
-    func copyToPasteboard() {
-        let Pasteboard = NSPasteboard.general
-        Pasteboard.clearContents()
-        Pasteboard.writeObjects([self])
-    }
-}
-
 extension NSAppearance {
     var isDark: Bool {
         let appearance: NSAppearance.Name? = self.bestMatch(from: [.aqua, .darkAqua])

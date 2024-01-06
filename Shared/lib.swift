@@ -114,11 +114,10 @@ func contentsOfDirectory(url: URL) -> [String]? {
 }
 
 #if os(OSX)
-func copyToClipboard(content: String) {
+func copyToPasteboard(content: NSMutableAttributedString) {
     let Pasteboard = NSPasteboard.general
     Pasteboard.clearContents()
-    Pasteboard.writeObjects([content as NSString])
-//  Pasteboard.writeObjects([attrString as NSMutableAttributedString])
+    Pasteboard.writeObjects([content])
 }
 #endif
 

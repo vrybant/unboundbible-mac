@@ -66,7 +66,7 @@ class CopyView: NSViewController {
     
     @IBAction func copyButtonAction(_ sender: NSButton) {
         let verses = tools.get_Verses(options: copyOptions)
-        parse(verses).copyToPasteboard()
+        copyToPasteboard(content: parse(verses))
         if defaultButton.state.rawValue == 1 { copyOptions = options }
         self.dismiss(self)
     }
