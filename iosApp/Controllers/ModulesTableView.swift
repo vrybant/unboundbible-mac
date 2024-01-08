@@ -25,10 +25,10 @@ class ModulesTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var configuration = UIListContentConfiguration.cell()
+        var content = UIListContentConfiguration.cell()
         let name = list[indexPath.row]
-        configuration.text = name
-        cell.contentConfiguration = configuration
+        content.text = name
+        cell.contentConfiguration = content
         cell.accessoryType = name == currBible!.name ? .checkmark : .none
         return cell
     }

@@ -21,10 +21,10 @@ class ChaptersTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var configuration = UIListContentConfiguration.cell()
+        var content = UIListContentConfiguration.cell()
         let chapter = "Глава" // "Chapter"
-        configuration.text = "\(chapter) \(indexPath.row + 1)"
-        cell.contentConfiguration = configuration
+        content.text = "\(chapter) \(indexPath.row + 1)"
+        cell.contentConfiguration = content
         return cell
     }
     

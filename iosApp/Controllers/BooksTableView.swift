@@ -36,9 +36,9 @@ class BooksTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var configuration = UIListContentConfiguration.cell()
-        configuration.text = titles[indexPath.row]
-        cell.contentConfiguration = configuration
+        var content = UIListContentConfiguration.cell()
+        content.text = titles[indexPath.row]
+        cell.contentConfiguration = content
         cell.accessoryType = .disclosureIndicator
         cell.selectionStyle = .default
         return cell

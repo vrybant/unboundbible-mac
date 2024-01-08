@@ -185,16 +185,6 @@
                                 <outlet property="delegate" destination="nZT-HZ-fbf" id="Meh-lK-fQY"/>
                             </connections>
                         </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchcellid" id="jnZ-rB-5D0">
-                                <rect key="frame" x="0.0" y="106" width="393" height="51.666667938232422"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jnZ-rB-5D0" id="y67-AZ-VfX">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="51.666667938232422"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="nZT-HZ-fbf" id="COw-cC-9Rb"/>
                             <outlet property="delegate" destination="nZT-HZ-fbf" id="aXw-r0-u75"/>

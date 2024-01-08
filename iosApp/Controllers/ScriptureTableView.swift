@@ -46,10 +46,11 @@ class ScriptureTableView: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        var configuration = UIListContentConfiguration.cell()
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "table", for: indexPath)
+        var content = UIListContentConfiguration.cell()
         let text = data[indexPath.row]
-        configuration.attributedText = parse(text, jtag: true)
-        cell.contentConfiguration = configuration
+        content.attributedText = parse(text, jtag: true)
+        cell.contentConfiguration = content
         return cell
     }
        
