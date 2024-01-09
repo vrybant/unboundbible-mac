@@ -39,19 +39,35 @@ class ScriptureTableView: UITableViewController {
     }
     
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
     }
 
+//    override func numberOfSections(in tableView: UITableView) -> Int {
+//        3
+//    }
+    
+//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        "Section \(section + 1)"
+//    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "table", for: indexPath)
-        var content = UIListContentConfiguration.cell()
+        //let cell = UITableViewCell() as! ScriprureTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ScriptureCellID", for: indexPath) as! ScriprureTableViewCell
         let text = data[indexPath.row]
-        content.attributedText = parse(text, jtag: true)
-        cell.contentConfiguration = content
+        cell.customLabel.numberOfLines = 0
+        cell.customLabel.attributedText = parse(text, jtag: true)
+        
+//        var content = UIListContentConfiguration.cell()
+//        content.attributedText = parse(text, jtag: true)
+//        cell.contentConfiguration = content
+        
         return cell
     }
-       
+ 
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        UITableView.automaticDimension
+//    }
+//    
 }
