@@ -255,8 +255,8 @@
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
 				E7B185472A42EE2900F8A723 /* MobileModel */,
-				E71E2CB12A12647900136566 /* iOS */,
 				E7A121AC2AE8FE8A004C3D24 /* iOSApp */,
+				E71E2CB12A12647900136566 /* SwiftUI */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
 				E7BECE4A1EA9390400CF3386 /* Frameworks */,
 			);
@@ -291,7 +291,7 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
-		E71E2CB12A12647900136566 /* iOS */ = {
+		E71E2CB12A12647900136566 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				E72425D42A179B2C00531EA0 /* Controllers */,
@@ -300,7 +300,7 @@
 				E71E2CB62A12647A00136566 /* Assets.xcassets */,
 				E71E2CB82A12647A00136566 /* Preview Content */,
 			);
-			path = iOS;
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		E71E2CB82A12647A00136566 /* Preview Content */ = {
@@ -473,9 +473,9 @@
 			productReference = CE2F17ED1D33C31800BA91A6 /* Unbound Bible.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E71E2CAF2A12647900136566 /* iOS */ = {
+		E71E2CAF2A12647900136566 /* SwiftUI */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E71E2CBD2A12647A00136566 /* Build configuration list for PBXNativeTarget "iOS" */;
+			buildConfigurationList = E71E2CBD2A12647A00136566 /* Build configuration list for PBXNativeTarget "SwiftUI" */;
 			buildPhases = (
 				E71E2CAC2A12647900136566 /* Sources */,
 				E71E2CAD2A12647900136566 /* Frameworks */,
@@ -485,7 +485,7 @@
 			);
 			dependencies = (
 			);
-			name = iOS;
+			name = SwiftUI;
 			packageProductDependencies = (
 				E7EA07A12A3B4F550079BCD8 /* GRDB */,
 			);
@@ -560,7 +560,7 @@
 			projectRoot = "";
 			targets = (
 				CE2F17EC1D33C31800BA91A6 /* macOS */,
-				E71E2CAF2A12647900136566 /* iOS */,
+				E71E2CAF2A12647900136566 /* SwiftUI */,
 				E7A121AA2AE8FE8A004C3D24 /* iOSApp */,
 			);
 		};
@@ -1003,7 +1003,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iOS/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1048,7 +1048,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"iOS/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = ZK5Z2R2KTA;
 				ENABLE_PREVIEWS = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1185,7 +1185,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		E71E2CBD2A12647A00136566 /* Build configuration list for PBXNativeTarget "iOS" */ = {
+		E71E2CBD2A12647A00136566 /* Build configuration list for PBXNativeTarget "SwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E71E2CBB2A12647A00136566 /* Debug */,
