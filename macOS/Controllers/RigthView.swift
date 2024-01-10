@@ -187,7 +187,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadDictionary(key: String) {
-        let attrString = "".attributed
+        let attrString = NSMutableAttributedString(string: "", attributes: defaultAttributes)
         let data = tools.get_Dictionary(key: key)
         attrString.append(html(data))
         

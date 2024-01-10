@@ -16,7 +16,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     let subscriptFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 5)!
     let  footnoteFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 3)!
 
-    let s = string.attributed
+    let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
     if small { s.addAttribute(.font, value: smallFont) }
 
     if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
@@ -51,7 +51,7 @@ private func attrStringFromHtml(_ string: String, tags: Set<String>, small: Bool
     let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
     let   boldFont = Font(name: "HelveticaNeue-Bold", size: defaultFont.pointSize - discount) ?? defaultFont
     
-    let s = string.attributed
+    let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
     if small { s.addAttribute(.font, value: smallFont) }
 
     if tags.contains("<a>") {

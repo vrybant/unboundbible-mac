@@ -79,10 +79,6 @@ extension String {
         URL(fileURLWithPath: self).pathExtension
     }
     
-    var attributed: NSMutableAttributedString {
-        NSMutableAttributedString(string: self, attributes: defaultAttributes)
-    }
-    
     func replace(_ string: String, with: String) -> String {
         replacingOccurrences(of: string, with: with, options: .literal, range: nil)
     }
