@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1510"
+   LastUpgradeVersion = "1520"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E71E2CAF2A12647900136566"
-               BuildableName = "Unbound Bible.app"
-               BlueprintName = "SwiftUI"
+               BlueprintIdentifier = "E7A121AA2AE8FE8A004C3D24"
+               BuildableName = "iOSApp.app"
+               BlueprintName = "iOSApp"
                ReferencedContainer = "container:Unbound Bible.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,9 +43,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E71E2CAF2A12647900136566"
-            BuildableName = "Unbound Bible.app"
-            BlueprintName = "SwiftUI"
+            BlueprintIdentifier = "E7A121AA2AE8FE8A004C3D24"
+            BuildableName = "iOSApp.app"
+            BlueprintName = "iOSApp"
             ReferencedContainer = "container:Unbound Bible.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -60,9 +60,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E71E2CAF2A12647900136566"
-            BuildableName = "Unbound Bible.app"
-            BlueprintName = "SwiftUI"
+            BlueprintIdentifier = "E7A121AA2AE8FE8A004C3D24"
+            BuildableName = "iOSApp.app"
+            BlueprintName = "iOSApp"
             ReferencedContainer = "container:Unbound Bible.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

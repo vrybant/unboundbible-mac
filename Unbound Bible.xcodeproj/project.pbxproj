@@ -249,12 +249,11 @@
 		CE2F17E41D33C31800BA91A6 = {
 			isa = PBXGroup;
 			children = (
+				E75525942051334A00BDD425 /* bibles */,
+				E7228FB5205142AE00C78C3C /* titles */,
 				E76499F82A012DE0009B6B63 /* Extensions */,
 				E7D39ED820906C4E004D3097 /* Shared */,
 				CE2F17EF1D33C31800BA91A6 /* macOS */,
-				E75525942051334A00BDD425 /* bibles */,
-				E7228FB5205142AE00C78C3C /* titles */,
-				E7B185472A42EE2900F8A723 /* MobileModel */,
 				E7A121AC2AE8FE8A004C3D24 /* iOSApp */,
 				E71E2CB12A12647900136566 /* SwiftUI */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
@@ -372,13 +371,6 @@
 				E7ED65B72B39CF98002734D4 /* SearchTableView.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E7B185472A42EE2900F8A723 /* MobileModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = MobileModel;
 			sourceTree = "<group>";
 		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {
