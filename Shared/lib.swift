@@ -73,18 +73,8 @@ func printlocal() {
 #endif
 }
 
-func printlist(_ string: String) {
-  print(string.replace("\0", with: " "))
-}
-
 func LocalizedString(_ key: String) -> String {
     NSLocalizedString(key, comment: "")
-}
-
-func listToXml(list: [String]) -> String {
-    var result = ""
-    for item in list { result += item }
-    return result
 }
 
 func xmlToList(string: String) -> [String] {
@@ -128,13 +118,6 @@ func copyToPasteboard(content: NSAttributedString) {
     Pasteboard.writeObjects([content])
 }
 #endif
-
-func + (left: NSMutableAttributedString, right: NSMutableAttributedString) -> NSMutableAttributedString {
-    let result = NSMutableAttributedString()
-    result.append(left)
-    result.append(right)
-    return result
-}
 
 func getRightToLeft(language: String) -> Bool {
     language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
