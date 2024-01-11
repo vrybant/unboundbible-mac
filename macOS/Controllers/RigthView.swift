@@ -167,8 +167,10 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     
     func loadCommentary() {
         let link = (currBible!.verseToString(currVerse) ?? "") + "\n\n"
-        let attrString = parse(link)
         let data = tools.get_Commentary()
+
+        let attrString = NSMutableAttributedString()
+        attrString.append(parse(link))
         attrString.append(html(data))
         
         if data.isEmpty {
@@ -187,7 +189,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     }
     
     func loadDictionary(key: String) {
-        let attrString = NSMutableAttributedString(string: "", attributes: defaultAttributes)
+        let attrString = NSMutableAttributedString()
         let data = tools.get_Dictionary(key: key)
         attrString.append(html(data))
         

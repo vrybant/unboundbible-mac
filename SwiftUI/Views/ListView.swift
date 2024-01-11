@@ -16,7 +16,9 @@ public struct ListView: View {
         let titles = tools.get_Chapter()
         
         List(titles, id: \.self) { item in
-            Text(item)
+            let attrString = parse(item)
+            let content = AttributedString(attrString)
+            Text(content)
                 .onTapGesture {
                     print(item)
                 }
