@@ -10,7 +10,7 @@ import SwiftUI
 struct AppView: View {
     var body: some View {
         TabView {
-            NavigationBar()
+            BibleView()
                 .tag("bible")
                 .tabItem {
                     Image(systemName: "book")
@@ -20,7 +20,7 @@ struct AppView: View {
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                 }
-            Text("Modules")
+            ModulesView()
                 .tag("modules")
                 .tabItem {
                     Image(systemName: "books.vertical")

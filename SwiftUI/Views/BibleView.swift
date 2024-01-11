@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct NavigationBar: View {
+public struct BibleView: View {
 //  @EnvironmentObject var userBuy: UserBuy
     
     @State private var centerText = ""
@@ -20,22 +20,17 @@ public struct NavigationBar: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: TitlesView()) {
-                        Text("Titles")
+                    NavigationLink(destination: DetailView()) {
+                        Text("+")
                     }
                 }
                 
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: DetailView()) {
+                    NavigationLink(destination: TitlesView()) {
                         Text("Bible")
                     }
                 }
                 
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ShelfView()) {
-                        Text("Shelf")
-                    }
-                }
             }
         }
     }
