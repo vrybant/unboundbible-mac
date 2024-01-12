@@ -20,7 +20,7 @@ public struct BibleView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: TitlesView()) {
+                    NavigationLink(destination: BooksView()) {
                         Text("Bible")
                     }
                 }

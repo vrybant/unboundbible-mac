@@ -7,25 +7,24 @@
 
 import SwiftUI
 
-struct TitlesView: View {
+struct BooksView: View {
     @Environment(\.presentationMode) var presentation
     
     public var body: some View {
-        
         let titles = currBible?.getTitles() ?? []
                 
         NavigationStack {
             List(titles, id: \.self) { title in
-//              NavigationLink(player, value: player)
-                
                 NavigationLink(destination: ChaptersView(name: title)) {
                     Text(title)
+                        .onTapGesture {
+                            print(title)
+                        }
                 }
                 
             }
 //          .navigationDestination(for: String.self, destination: ChaptersView.init)
             .navigationTitle("Books")
         }
-
     }
 }
