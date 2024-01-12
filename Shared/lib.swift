@@ -54,15 +54,11 @@ var russianSpeaking: Bool {
 }
 
 func printlocal() {
-#if os(OSX)
-    let locale = NSLocale.autoupdatingCurrent
-    let code = locale.languageCode
     let enlocale = NSLocale(localeIdentifier: "en_US")
-    let identifier = locale.identifier
+    let identifier = NSLocale.autoupdatingCurrent.identifier
     let name = enlocale.displayName(forKey: NSLocale.Key.identifier, value: identifier)
-    let language = enlocale.localizedString(forLanguageCode: code!)
-    print(code!, language!, identifier, name!)
-#endif
+    let language = enlocale.localizedString(forLanguageCode: languageCode)
+    print(languageCode, language!, identifier, name!)
 }
 
 func LocalizedString(_ key: String) -> String {
