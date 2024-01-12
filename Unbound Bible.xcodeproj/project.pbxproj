@@ -251,13 +251,12 @@
 		CE2F17E41D33C31800BA91A6 = {
 			isa = PBXGroup;
 			children = (
-				E75525942051334A00BDD425 /* bibles */,
-				E7228FB5205142AE00C78C3C /* titles */,
 				E76499F82A012DE0009B6B63 /* Extensions */,
 				E7D39ED820906C4E004D3097 /* Shared */,
 				CE2F17EF1D33C31800BA91A6 /* macOS */,
 				E7A121AC2AE8FE8A004C3D24 /* iOSApp */,
 				E71E2CB12A12647900136566 /* SwiftUI */,
+				E7E4F91C2B504239000FB62D /* Resources */,
 				CE2F17EE1D33C31800BA91A6 /* Products */,
 				E7BECE4A1EA9390400CF3386 /* Frameworks */,
 			);
@@ -426,10 +425,19 @@
 				E7E7A84D24C5C285001F85C8 /* Reference.swift */,
 				E77373BA271EBDE100FFA254 /* Tools.swift */,
 				E75F12C01FF25D79006EDAC9 /* Parsing.swift */,
-				E71485B823AA5EF6009369D4 /* lib.swift */,
 				E7382CB921CC006400DF8772 /* prepare.swift */,
+				E71485B823AA5EF6009369D4 /* lib.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		E7E4F91C2B504239000FB62D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E75525942051334A00BDD425 /* bibles */,
+				E7228FB5205142AE00C78C3C /* titles */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		E7F2F3272B10E19C00EE6EF5 /* Storyboards */ = {

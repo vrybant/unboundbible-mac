@@ -42,19 +42,11 @@ enum Errors : Error {
 //  }
 
 var languageCode: String {
-    #if os(OSX)
-        if #available(macOS 13, *) {
-            NSLocale.autoupdatingCurrent.language.languageCode?.identifier ?? "en"
-        } else {
-            NSLocale.autoupdatingCurrent.languageCode ?? "en"
-        }
-    #else
-        if #available(iOS 16, *) {
-            NSLocale.autoupdatingCurrent.language.languageCode?.identifier ?? "en"
-        } else {
-            NSLocale.autoupdatingCurrent.languageCode ?? "en"
-        }
-    #endif
+    if #available(macOS 13, iOS 16, *) {
+        NSLocale.autoupdatingCurrent.language.languageCode?.identifier ?? "en"
+    } else {
+        NSLocale.autoupdatingCurrent.languageCode ?? "en"
+    }
 }
 
 var russianSpeaking: Bool {
