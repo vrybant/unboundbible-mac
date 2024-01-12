@@ -16,15 +16,9 @@ public struct BibleView: View {
     
     public var body: some View {
         NavigationStack {
-            ListView()
+            ScriprureView()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    NavigationLink(destination: DetailView()) {
-                        Text("+")
-                    }
-                }
-                
                 ToolbarItem(placement: .principal) {
                     NavigationLink(destination: TitlesView()) {
                         Text("Bible")

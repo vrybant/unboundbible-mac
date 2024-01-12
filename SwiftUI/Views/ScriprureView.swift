@@ -1,5 +1,4 @@
 //
-//  ListView.swift
 //  Unbound Bible
 //
 //  Copyright © 2023 Vladimir Rybant. All rights reserved.
@@ -9,10 +8,10 @@
 
 import SwiftUI
 
-public struct ListView: View {
+public struct ScriprureView: View {
 
+    
     public var body: some View {
-        
         let titles = tools.get_Chapter()
         
         List(titles, id: \.self) { item in

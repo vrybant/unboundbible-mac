@@ -13,11 +13,7 @@ struct TitlesView: View {
     public var body: some View {
         
         let titles = currBible?.getTitles() ?? []
-        
-//        List(titles, id: \.self) { item in
-//            Text(item)
-//        }
-        
+                
         NavigationStack {
             List(titles, id: \.self) { title in
 //              NavigationLink(player, value: player)
