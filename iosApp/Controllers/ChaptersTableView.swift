@@ -1,18 +1,19 @@
 //
-//  ChaptersTableViewController.swift
 //  iOSApp
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import UIKit
 
 class ChaptersTableView: UITableViewController {
-
-    var verse : Verse?
+    
+    private var verse : Verse?
+    var book : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        verse = Verse(book: book!, chapter: 1, number: 1, count: 1)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
