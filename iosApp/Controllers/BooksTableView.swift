@@ -44,10 +44,9 @@ class BooksTableView: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let name = titles[indexPath.row]
-        if let book = currBible!.bookByName(name) {
-            self.book = book
-            performSegue(withIdentifier: "GoToChapters", sender: self)
-        }
+        book = currBible!.bookByName(name)
+        performSegue(withIdentifier: "GoToChapters", sender: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
