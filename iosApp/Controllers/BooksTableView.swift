@@ -9,7 +9,7 @@ import UIKit
 class BooksTableView: UITableViewController {
     
     private let titles = currBible!.getTitles()
-    private var book : String?
+    private var book : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +43,11 @@ class BooksTableView: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        book = titles[indexPath.row]
-        performSegue(withIdentifier: "GoToChapters", sender: self)
+        let name = titles[indexPath.row]
+        if let book = currBible!.bookByName(name) {
+            self.book = book
+            performSegue(withIdentifier: "GoToChapters", sender: self)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

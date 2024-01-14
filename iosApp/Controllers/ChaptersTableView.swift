@@ -9,12 +9,10 @@ import UIKit
 class ChaptersTableView: UITableViewController {
     
     private var verse : Verse?
-    var book : String?
+    var book : Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let book = currBible!.bookByName(book!)
         verse = Verse(book: book!, chapter: 1, number: 1, count: 1)
     }
 
