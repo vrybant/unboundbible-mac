@@ -8,8 +8,10 @@ import SwiftUI
 
 struct ChaptersView: View {
     var verse: Verse?
+    var name: String?
 
     init(name: String) {
+        self.name = name
         if let book = currBible!.bookByName(name) {
             verse = Verse(book: book, chapter: 1, number: 1, count: 1)
         }
@@ -27,6 +29,7 @@ struct ChaptersView: View {
                     print(item)
                 }
         }
+        .navigationTitle(name!)
 
     }
 }
