@@ -15,6 +15,7 @@ func initialization() {
 
 @main
 struct iOSApp: App {
+    
     init() {
         initialization()
     }

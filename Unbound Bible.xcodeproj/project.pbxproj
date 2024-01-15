@@ -117,6 +117,7 @@
 		E7F5071B20509AEC0019F546 /* icns.icns in Resources */ = {isa = PBXBuildFile; fileRef = E7F5071A20509AEB0019F546 /* icns.icns */; };
 		E7F771361DE865FE004AF6C0 /* RigthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F771351DE865FE004AF6C0 /* RigthView.swift */; };
 		E7F870212B15C71F00E4EEF1 /* CopyView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7F8701F2B15C71F00E4EEF1 /* CopyView.storyboard */; };
+		E7F8F0782B556B6B00E4EEB3 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8F0772B556B6B00E4EEB3 /* TabsView.swift */; };
 		E7FABB9B21D938D3006B6267 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7FABB9D21D938F7006B6267 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
 		E7FE84442B46C95F009CD73C /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* Tools.swift */; };
@@ -213,6 +214,7 @@
 		E7F5071A20509AEB0019F546 /* icns.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icns.icns; sourceTree = "<group>"; };
 		E7F771351DE865FE004AF6C0 /* RigthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RigthView.swift; sourceTree = "<group>"; };
 		E7F870202B15C71F00E4EEF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/CopyView.storyboard; sourceTree = "<group>"; };
+		E7F8F0772B556B6B00E4EEB3 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		E7FABB9A21D938D3006B6267 /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		E7FABB9C21D938F7006B6267 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -323,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				E79131322B4ECE5F000E4FBE /* AppView.swift */,
+				E7F8F0772B556B6B00E4EEB3 /* TabsView.swift */,
 				E7F059912A150380002B6029 /* DetailView.swift */,
 				E71DA9E22A3C8D6600ECBC2F /* ShelfView.swift */,
 				E7F059932A152550002B6029 /* BibleView.swift */,
@@ -668,6 +671,7 @@
 				E72425D72A179BF600531EA0 /* UserBuy.swift in Sources */,
 				E7EA07A82A3B4F840079BCD8 /* String.swift in Sources */,
 				E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */,
+				E7F8F0782B556B6B00E4EEB3 /* TabsView.swift in Sources */,
 				E7EA079D2A3B4F0D0079BCD8 /* prepare.swift in Sources */,
 				E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */,
 				E7F059942A152550002B6029 /* BibleView.swift in Sources */,
