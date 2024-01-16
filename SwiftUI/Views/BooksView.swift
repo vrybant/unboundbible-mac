@@ -14,13 +14,18 @@ struct BooksView: View {
         let titles = currBible?.getTitles() ?? []
         
         List(titles, id: \.self) { title in
-            Text(title)
-                .onTapGesture {
-                    print(title)
-                    router.bibleRoutes.append(.chapters(title))
-                }
+            Button(title) {
+                print(title)
+                router.bibleRoutes.append(.chapters(title))
+            }
+            .buttonStyle(.plain)
         }
         .navigationTitle("Books")
     }
     
+}
+
+#Preview {
+    BooksView()
+        .environment(Router())
 }

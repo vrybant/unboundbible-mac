@@ -47,7 +47,7 @@ struct SearchView: View {
                     case .home:
                         Text("Home")
                     case .detail(let name):
-                        SearchDetail(name: "name")
+                        SearchDetail(name: name)
                 }
             }
         }

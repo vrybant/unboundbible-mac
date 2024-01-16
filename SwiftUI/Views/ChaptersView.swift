@@ -31,11 +31,15 @@ struct ChaptersView: View {
                     currVerse = verse!
                     print(item)
                     router.bibleRoutes.removeAll()
-                    router.bibleRoutes.removeLast()
                 }
         }
         .navigationTitle(name!)
 
     }
+}
+
+#Preview {
+    ChaptersView(name: "Genesis")
+        .environment(Router())
 }
 
