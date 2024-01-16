@@ -15,6 +15,9 @@ enum AppTabs: Hashable, Identifiable, CaseIterable {
     case modules
     
     var id: AppTabs { self }
+}
+
+extension AppTabs {
     
     @ViewBuilder
     var label: some View {
@@ -31,9 +34,12 @@ enum AppTabs: Hashable, Identifiable, CaseIterable {
     @ViewBuilder
     var destination: some View {
         switch self {
-        case .bible: BibleView()
-        case .search: Text("Search")
-        case .modules: ModulesView()
+            case .bible: 
+                BibleView()
+            case .search: 
+                SearchView()
+            case .modules: 
+                ModulesView()
         }
     }
 }

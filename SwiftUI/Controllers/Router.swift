@@ -7,9 +7,20 @@
 //
 
 import SwiftUI
+import Observation
+
+enum BibleRoute {
+    case home
+    case detail
+}
+
+enum SearchRoute: Hashable {
+    case home
+    case detail(String)
+}
 
 @Observable
 class Router {
-    //var bibleRoutes: = []
-    //var searchRoutes: = []
+    var bibleRoutes: [BibleRoute] = []
+    var searchRoutes: [SearchRoute] = []
 }

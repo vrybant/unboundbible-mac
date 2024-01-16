@@ -8,7 +8,6 @@
 import SwiftUI
 
 public struct BibleView: View {
-//  @EnvironmentObject var userBuy: UserBuy
     
     @State private var centerText = ""
     @State private var showLeftAlert: Bool = false
