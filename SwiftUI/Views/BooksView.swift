@@ -8,23 +8,19 @@
 import SwiftUI
 
 struct BooksView: View {
-    @Environment(\.presentationMode) var presentation
+    @Environment(Router.self) private var router
     
     public var body: some View {
         let titles = currBible?.getTitles() ?? []
-                
-        NavigationStack {
-            List(titles, id: \.self) { title in
-                NavigationLink(destination: ChaptersView(name: title)) {
-                    Text(title)
-                        .onTapGesture {
-                            print(title)
-                        }
+        
+        List(titles, id: \.self) { title in
+            Text(title)
+                .onTapGesture {
+                    print(title)
+                    router.bibleRoutes.append(.chapters(title))
                 }
-                
-            }
-//          .navigationDestination(for: String.self, destination: ChaptersView.init)
-            .navigationTitle("Books")
         }
+        .navigationTitle("Books")
     }
+    
 }

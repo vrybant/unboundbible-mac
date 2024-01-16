@@ -9,22 +9,35 @@ import SwiftUI
 
 public struct BibleView: View {
     
+    @Environment(Router.self) private var router
+    
     @State private var centerText = ""
     @State private var showLeftAlert: Bool = false
     @State private var showRightAlert: Bool = false
-    
+
     public var body: some View {
-        NavigationStack {
+        
+        @Bindable var router = router
+
+        NavigationStack(path: $router.bibleRoutes) {
             ScriprureView()
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    NavigationLink(destination: BooksView()) {
-                        Text("Bible")
+                    Button("Bible") {
+                        router.bibleRoutes.append(.books)
                     }
                 }
-                
+            }
+            .navigationDestination(for: BibleRoute.self) { route in
+                switch route {
+                    case .books:
+                        BooksView()
+                    case .chapters(let name):
+                        ChaptersView(name: name)
+                }
             }
         }
+        
     }
 }

@@ -6,12 +6,14 @@
 //  Copyright © 2024 Vladimir Rybant. All rights reserved.
 //
 
+// isPresented https://medium.com/@fsamuelsmartins/how-to-use-the-swiftuis-navigationstack-79f32ada7c69
+
 import SwiftUI
 import Observation
 
-enum BibleRoute {
-    case home
-    case detail
+enum BibleRoute: Hashable {
+    case books
+    case chapters(String)
 }
 
 enum SearchRoute: Hashable {

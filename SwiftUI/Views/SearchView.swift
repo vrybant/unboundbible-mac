@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct SearchDetail: View {
-
     @Environment(Router.self) private var router
 
     let name: String
@@ -23,7 +22,6 @@ struct SearchDetail: View {
 }
 
 struct SearchView: View {
-    
     @Environment(Router.self) private var router
     
     var body: some View {
@@ -31,19 +29,29 @@ struct SearchView: View {
         @Bindable var router = router
         
         NavigationStack(path: $router.searchRoutes) {
-            Button("Go to detail") {
-                // async function
-                router.searchRoutes.append(.detail("anystring"))
-            }
-            .navigationDestination(for: SearchRoute.self) { _ in
-//                switch route {
-//                    case .home:
-//                        Text("Home")
-//                    case .detail(let name):
+            Text("***")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Button("Go to detail") {
+                            router.searchRoutes.append(.detail("anystring"))
+                        }
+                    }
+                }
+//            Button("Go to detail") {
+//                // async function
+//                router.searchRoutes.append(.detail("anystring"))
+//            }
+            .navigationDestination(for: SearchRoute.self) { route in
+                switch route {
+                    case .home:
+                        Text("Home")
+                    case .detail(let name):
                         SearchDetail(name: "name")
-//                }
+                }
             }
         }
+        
     }
 }
 
