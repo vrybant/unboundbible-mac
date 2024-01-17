@@ -21,6 +21,19 @@ enum SearchRoute: Hashable {
     case detail(String)
 }
 
+extension BibleRoute {
+    
+    var destination: AnyView {
+        switch self {
+            case .books:
+                AnyView(BooksView())
+            case .chapters(let name):
+                AnyView(ChaptersView(name: name))
+        }
+    }
+    
+}
+
 @Observable
 class Router {
     var bibleRoutes: [BibleRoute] = []

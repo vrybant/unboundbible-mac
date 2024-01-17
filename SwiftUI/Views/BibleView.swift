@@ -14,7 +14,7 @@ public struct BibleView: View {
     @State private var centerText = ""
     @State private var showLeftAlert: Bool = false
     @State private var showRightAlert: Bool = false
-
+    
     public var body: some View {
         
         @Bindable var router = router
@@ -30,12 +30,7 @@ public struct BibleView: View {
                 }
             }
             .navigationDestination(for: BibleRoute.self) { route in
-                switch route {
-                    case .books:
-                        BooksView()
-                    case .chapters(let name):
-                        ChaptersView(name: name)
-                }
+                route.destination
             }
         }
         
