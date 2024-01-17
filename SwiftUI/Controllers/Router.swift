@@ -1,9 +1,7 @@
 //
-//  RouterView.swift
-//  SwiftUI
+//  Unbound Bible
 //
-//  Created by Vladimir Rybant on 15.01.2024.
-//  Copyright © 2024 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 // isPresented https://medium.com/@fsamuelsmartins/how-to-use-the-swiftuis-navigationstack-79f32ada7c69
@@ -26,9 +24,9 @@ extension BibleRoute {
     var destination: AnyView {
         switch self {
             case .books:
-                AnyView(BooksView())
+                AnyView( BooksView() )
             case .chapters(let name):
-                AnyView(ChaptersView(name: name))
+                AnyView( ChaptersView(name: name) )
         }
     }
     
@@ -36,6 +34,8 @@ extension BibleRoute {
 
 @Observable
 class Router {
+    static let shared = Router()
+    
     var bibleRoutes: [BibleRoute] = []
     var searchRoutes: [SearchRoute] = []
 }

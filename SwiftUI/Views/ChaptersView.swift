@@ -1,13 +1,12 @@
 //
 //  Unbound Bible
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import SwiftUI
 
 struct ChaptersView: View {
-    @Environment(Router.self) private var router
 
     var verse: Verse?
     var name: String?
@@ -30,7 +29,7 @@ struct ChaptersView: View {
                     // verse!.chapter = item
                     currVerse = verse!
                     print(item)
-                    router.bibleRoutes.removeAll()
+                    Router.shared.bibleRoutes.removeAll()
                 }
         }
         .navigationTitle(name!)
@@ -40,6 +39,5 @@ struct ChaptersView: View {
 
 #Preview {
     ChaptersView(name: "Genesis")
-        .environment(Router())
 }
 

@@ -1,15 +1,14 @@
 //
-//  NavigationBar.swift
 //  Unbound Bible
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import SwiftUI
 
 public struct BibleView: View {
     
-    @Environment(Router.self) private var router
+    private var router = Router.shared
     
     @State private var centerText = ""
     @State private var showLeftAlert: Bool = false

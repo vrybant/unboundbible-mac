@@ -1,5 +1,4 @@
 //
-//  iOSApp.swift
 //  Unbound Bible
 //
 //  Copyright © Vladimir Rybant. All rights reserved.
@@ -16,8 +15,6 @@ func initialization() {
 @main
 struct iOSApp: App {
     
-    @State private var router = Router()
-    
     init() {
         initialization()
     }
@@ -25,7 +22,6 @@ struct iOSApp: App {
     var body: some Scene {
         WindowGroup {
             AppView()
-                .environment(router)
         }
     }
 }
