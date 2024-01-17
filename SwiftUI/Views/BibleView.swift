@@ -28,9 +28,7 @@ public struct BibleView: View {
                     }
                 }
             }
-            .navigationDestination(for: BibleRoute.self) { route in
-                route.destination
-            }
+            .navigationDestination(for: BibleRoute.self) { $0 }
         }
         
     }

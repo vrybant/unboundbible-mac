@@ -19,14 +19,14 @@ enum SearchRoute: Hashable {
     case detail(String)
 }
 
-extension BibleRoute {
+extension BibleRoute: View {
     
-    var destination: AnyView {
+    var body: some View {
         switch self {
             case .books:
-                AnyView( BooksView() )
+                BooksView()
             case .chapters(let name):
-                AnyView( ChaptersView(name: name) )
+                ChaptersView(name: name)
         }
     }
     
@@ -35,6 +35,8 @@ extension BibleRoute {
 @Observable
 class Router {
     static let shared = Router()
+    
+    init() {}
     
     var bibleRoutes: [BibleRoute] = []
     var searchRoutes: [SearchRoute] = []

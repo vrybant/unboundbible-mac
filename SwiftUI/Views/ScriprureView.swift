@@ -9,7 +9,6 @@
 import SwiftUI
 
 public struct ScriprureView: View {
-
     
     public var body: some View {
         let titles = tools.get_Chapter()
@@ -23,4 +22,5 @@ public struct ScriprureView: View {
                 }
         }
     }
+    
 }
