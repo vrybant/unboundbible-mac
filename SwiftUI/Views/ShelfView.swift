@@ -9,17 +9,18 @@ public struct ShelfView: View {
     @State private var selection: String?
 
     public var body: some View {
-        let titles = tools.get_Shelf()
+        let list = tools.get_Shelf()
         
         NavigationStack {
-            List(titles, id: \.self, selection: $selection) { item in
+            List(list, id: \.self, selection: $selection) { item in
                 HStack {
                     Text(item)
                         .onTapGesture {
                             print($selection)
                         }
                     Spacer()
-                    Image(systemName: "checkmark")
+                    let checked = item == currBible!.name
+                    Image(systemName: checked ? "checkmark" : "")
                 }
 
             }
