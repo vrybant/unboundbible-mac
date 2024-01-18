@@ -1,9 +1,6 @@
 //
-//  TabsView.swift
 //  SwiftUI
-//
-//  Created by Vladimir Rybant on 15.01.2024.
-//  Copyright © 2024 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import SwiftUI
@@ -39,7 +36,7 @@ extension AppTabs {
             case .search: 
                 SearchView()
             case .modules: 
-                ModulesView()
+                ShelfView()
         }
     }
 }

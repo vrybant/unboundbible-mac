@@ -1,8 +1,6 @@
 //
-//  ShelfView.swift
 //  Unbound Bible
-//
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import SwiftUI
@@ -15,10 +13,15 @@ public struct ShelfView: View {
         
         NavigationStack {
             List(titles, id: \.self, selection: $selection) { item in
-                Text(item)
-                    .onTapGesture {
-                       print(item)
-                    }
+                HStack {
+                    Text(item)
+                        .onTapGesture {
+                            print($selection)
+                        }
+                    Spacer()
+                    Image(systemName: "checkmark")
+                }
+
             }
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Modules")
@@ -27,4 +30,8 @@ public struct ShelfView: View {
 //          }
         }
     }
+}
+
+#Preview {
+    ShelfView()
 }

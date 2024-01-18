@@ -1,14 +1,13 @@
 //
-//  ToolsExt.swift
 //  Unbound Bible
-//
 //  Copyright © Vladimir Rybant. All rights reserved.
 //
 
-var tools = Tools()
+var tools = Tools.shared
 var currBible : Bible? = nil
 
 class Tools {
+    static let shared = Tools()
     
     var bibles = [Bible](true)
     var commentaries = [Commentary](true)
@@ -17,7 +16,7 @@ class Tools {
 
     private let eol = macOS ? "\n" : ""
     
-    init() {
+    private init() {
         if bibles.isEmpty { return }
         setCurrBible(defaultCurrBible)
     }
@@ -215,6 +214,12 @@ class Tools {
             result.append(element)
         }
         return result
+    }
+    
+    
+    
+    func get_Info(book: Int, chapter: Int) -> String {
+        "Info \(book) \(chapter)"
     }
     
 }

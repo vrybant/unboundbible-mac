@@ -1,61 +1,57 @@
 //
-//  SearchView.swift
 //  SwiftUI
-//
-//  Created by Vladimir Rybant on 16.01.2024.
 //  Copyright © 2024 Vladimir Rybant. All rights reserved.
 //
 
 import SwiftUI
 
-struct SearchDetail: View {
-    @Environment(Router.self) private var router
+struct Food: Identifiable {
+    var name: String
+    var icon: String
+    var isFavorite: Bool
+    let id = UUID() // Universal Unique Identifier
 
-    let name: String
-    
-    var body: some View {
-        Button("Search Detail \(name)") {
-            //router.searchRoutes.append(.home)
-            router.searchRoutes.removeAll()
-        }
+    static func preview() -> [Food] {
+        return [Food(name: "Apple", icon: "🍎", isFavorite: true),
+                Food(name: "Banana", icon: "🍌", isFavorite: false),
+                Food(name: "Cherry", icon: "🍒", isFavorite: false),
+                Food(name: "Mango", icon: "🥭", isFavorite: true),
+                Food(name: "Kiwi", icon: "🥝", isFavorite: false),
+                Food(name: "Strawberry", icon: "🍓", isFavorite: false),
+                Food(name: "Graps", icon: "🍇", isFavorite: true)
+        ]
     }
 }
 
 struct SearchView: View {
-    @Environment(Router.self) private var router
-    
+    @State private var foods = Food.preview()
+
     var body: some View {
-        
-        @Bindable var router = router
-        
-        NavigationStack(path: $router.searchRoutes) {
-            Text("***")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItem(placement: .principal) {
-                        Button("Go to detail") {
-                            router.searchRoutes.append(.detail("anystring"))
-                        }
-                    }
-                }
-//            Button("Go to detail") {
-//                // async function
-//                router.searchRoutes.append(.detail("anystring"))
-//            }
-            .navigationDestination(for: SearchRoute.self) { route in
-                switch route {
-                    case .home:
-                        Text("Home")
-                    case .detail(let name):
-                        SearchDetail(name: name)
-                }
+        List (foods) { food in
+//          FoodRow(food: food)
+            HStack {
+                Text(food.icon)
+                Text(food.name)
+                Spacer()
+                Image(systemName: food.isFavorite ? "heart.fill" : "heart")
             }
         }
-        
     }
 }
 
+struct FoodRow: View {
+    let food: Food
+
+    var body: some View {
+        HStack {
+            Text(food.icon)
+            Text(food.name)
+            Spacer()
+            Image(systemName: food.isFavorite ? "heart.fill" : "heart")
+        }
+    }
+}
+             
 #Preview {
     SearchView()
-        .environment(Router())
 }
