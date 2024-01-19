@@ -43,7 +43,7 @@ struct SearchView: View {
                 .navigationTitle("Search")
             }
             .searchable(text: $searchText, isPresented: $searchIsActive, prompt: "Search text")
-            .onChange(of: searchText, initial: true) {
+            .onSubmit(of: .search) {
                 print("SearchText is now \(searchText)")
             }
         }
