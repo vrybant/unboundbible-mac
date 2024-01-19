@@ -8,61 +8,36 @@
 
 import SwiftUI
 
-struct Food: Identifiable {
-    var name: String
-    var icon: String
-    var isFavorite: Bool
-    let id = UUID() // Universal Unique Identifier
-
-    static func preview() -> [Food] {
-        return [Food(name: "Apple", icon: "🍎", isFavorite: true),
-                Food(name: "Cherry", icon: "🍒", isFavorite: false),
-                Food(name: "Strawberry", icon: "🍓", isFavorite: false),
-                Food(name: "Graps", icon: "🍇", isFavorite: true)
-        ]
-    }
+func searchResult(text: String) -> [String] {
+    if text.count < 2 { return [] }
+    let data = tools.get_Search(string: text).strings
+    return data
 }
 
 struct SearchView: View {
-    @State private var foods = Food.preview()
+    @State private var results = [String]()
     @State private var searchText = ""
-    @State private var searchIsActive = false
 
     var body: some View {
         VStack {
             NavigationStack {
-                List (foods) { food in
-                    HStack {
-                        Text(food.icon)
-                        Text(food.name)
-                        Spacer()
-                        Image(systemName: food.isFavorite ? "heart.fill" : "heart")
-                    }
+                List (results, id: \.self) { item in
+                    let attrString = parse(item)
+                    let content = AttributedString(attrString)
+                    Text(content)
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Search")
             }
-            .searchable(text: $searchText, isPresented: $searchIsActive, prompt: "Search text")
+            .searchable(text: $searchText, prompt: "Search text")
             .onSubmit(of: .search) {
                 print("SearchText is now \(searchText)")
+                results = searchResult(text: searchText)
             }
         }
     }
 }
 
-struct FoodRow: View {
-    let food: Food
-
-    var body: some View {
-        HStack {
-            Text(food.icon)
-            Text(food.name)
-            Spacer()
-            Image(systemName: food.isFavorite ? "heart.fill" : "heart")
-        }
-    }
-}
-             
 #Preview {
     SearchView()
 }
