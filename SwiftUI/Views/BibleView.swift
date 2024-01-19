@@ -17,13 +17,23 @@ public struct BibleView: View {
     public var body: some View {
         
         @Bindable var router = router
+        
+        let list = tools.get_Chapter()
+        let title = currBible!.verseToString(currVerse, cutted: true)
 
         NavigationStack(path: $router.bibleRoutes) {
-            ScriprureView()
+            List(list, id: \.self) { item in
+                let attrString = parse(item)
+                let content = AttributedString(attrString)
+                Text(content)
+                    .onTapGesture {
+                        // print(item)
+                    }
+            }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Button("Bible") {
+                    Button(title!) {
                         router.bibleRoutes.append(.books)
                     }
                 }
@@ -32,4 +42,8 @@ public struct BibleView: View {
         }
         
     }
+}
+
+#Preview {
+    BibleView()
 }

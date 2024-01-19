@@ -13,7 +13,6 @@ struct BooksView: View {
         
         List(titles, id: \.self) { title in
             Button(title) {
-                print(title)
                 Router.shared.bibleRoutes.append(.chapters(title))
             }
             .buttonStyle(.plain)
