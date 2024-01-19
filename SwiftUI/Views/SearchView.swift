@@ -4,6 +4,7 @@
 //
 
 // https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-search-bar-to-filter-your-data
+// https://www.hackingwithswift.com/quick-start/swiftui/how-to-run-some-code-when-state-changes-using-onchange
 
 import SwiftUI
 
@@ -42,11 +43,8 @@ struct SearchView: View {
                 .navigationTitle("Search")
             }
             .searchable(text: $searchText, isPresented: $searchIsActive, prompt: "Search text")
-            .onChange(of: searchText) {
-                print(searchText)
-            }
-            .onSubmit {
-                print(searchText)
+            .onChange(of: searchText, initial: true) {
+                print("SearchText is now \(searchText)")
             }
         }
     }
