@@ -5,34 +5,41 @@
 
 import SwiftUI
 
+private struct ListItem: Identifiable {
+    var name: String
+    var checked: Bool = false
+    let id = UUID() // Universal Unique Identifier
+}
+
+private func preview() -> [ListItem] {
+    var result = [ListItem]()
+    let list = tools.get_Shelf()
+    for item in list {
+        let checked = item == currBible!.name
+        result.append(ListItem(name: item, checked: checked))
+    }
+    return result
+}
+
 public struct ShelfView: View {
-    @State private var selection: String = currBible!.name
+    @State private var list = preview()
 
     public var body: some View {
-        let list = tools.get_Shelf()
-        
         NavigationStack {
             VStack {
-                Text(selection)
-                List(list, id: \.self /*, selection: $selection */) { item in
+                List(list) { item in
                     HStack {
-                        Text(item)
+                        Text(item.name)
                             .onTapGesture {
-                                selection = item
-                                tools.setCurrBible(item)
-                                print(selection)
+                                tools.setCurrBible(item.name)
+                                list = preview()
                             }
                         Spacer()
-                        let checked = item == currBible!.name
-                        Image(systemName: checked ? "checkmark" : "")
+                        Image(systemName: item.checked ? "checkmark" : "")
                     }
-                    
                 }
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Modules")
-                //          .toolbar {
-                //              EditButton()
-                //          }
             }
         }
     }
