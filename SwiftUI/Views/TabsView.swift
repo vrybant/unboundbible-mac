@@ -5,55 +5,38 @@
 
 import SwiftUI
 
-enum AppTabs: Hashable, Identifiable, CaseIterable {
-    
+enum Tabs: Identifiable {
     case bible
     case search
     case modules
     
-    var id: AppTabs { self }
-}
-
-extension AppTabs {
-    
-    @ViewBuilder
-    var label: some View {
-        switch self {
-        case .bible:
-            Label("Bible", systemImage: "book")
-        case .search:
-            Label("Search", systemImage: "magnifyingglass")
-        case .modules:
-            Label("Modules", systemImage: "books.vertical")
-        }
-    }
-    
-    @ViewBuilder
-    var destination: some View {
-        switch self {
-            case .bible: 
-                BibleView()
-            case .search: 
-                SearchView()
-            case .modules: 
-                ShelfView()
-        }
-    }
+    var id: Tabs { self }
 }
 
 struct TabsView: View {
-    
-    @Binding var selection: AppTabs?
+    @State var selection = Tabs.bible
     
     var body: some View {
         TabView(selection: $selection) {
-            ForEach(AppTabs.allCases) { tab in
-                tab.destination
-                    .tag(tab as AppTabs?)
-                    .tabItem {
-                        tab.label
-                    }
-            }
+            BibleView()
+                .tag(Tabs.bible)
+                .tabItem {
+                    Label("Bible", systemImage: "book")
+                }
+            SearchView()
+                .tag(Tabs.bible)
+                .tabItem {
+                    Label("Search", systemImage: "magnifyingglass")
+                }
+            ShelfView()
+                .tag(Tabs.bible)
+                .tabItem {
+                    Label("Modules", systemImage: "books.vertical")
+                }
         }
     }
+}
+
+#Preview {
+    TabsView()
 }

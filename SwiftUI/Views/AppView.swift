@@ -9,10 +9,8 @@ import SwiftUI
 
 struct AppView: View {
     
-    @State private var selection: AppTabs? = .bible
-    
     var body: some View {
-        TabsView(selection: $selection)
+        TabsView()
     }
 }
 
