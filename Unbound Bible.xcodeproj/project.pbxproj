@@ -298,7 +298,7 @@
 		E71E2CB12A12647900136566 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				E72425D42A179B2C00531EA0 /* Controllers */,
+				E72425D42A179B2C00531EA0 /* Stores */,
 				E72425D52A179B7C00531EA0 /* Views */,
 				E71E2CB22A12647900136566 /* iOSApp.swift */,
 				E71E2CB62A12647A00136566 /* Assets.xcassets */,
@@ -315,14 +315,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		E72425D42A179B2C00531EA0 /* Controllers */ = {
+		E72425D42A179B2C00531EA0 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				E72425D62A179BF600531EA0 /* UserBuy.swift */,
 				E7FE64392B5801C30074F30A /* Main.swift */,
 				E7F8F0792B5594E800E4EEB3 /* Router.swift */,
+				E72425D62A179BF600531EA0 /* UserBuy.swift */,
 			);
-			path = Controllers;
+			path = Stores;
 			sourceTree = "<group>";
 		};
 		E72425D52A179B7C00531EA0 /* Views */ = {

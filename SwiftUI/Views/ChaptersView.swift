@@ -28,7 +28,7 @@ struct ChaptersView: View {
             Text("Глава \(item)")
                 .onTapGesture {
                     verse.chapter = item
-                    currVerse = verse
+                    MainStore.shared.update(newVerse: verse)
                     Router.shared.bibleRoutes.removeAll()
                 }
         }

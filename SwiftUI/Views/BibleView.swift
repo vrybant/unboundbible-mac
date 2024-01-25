@@ -8,18 +8,15 @@ import SwiftUI
 
 public struct BibleView: View {
     
+    private var mainStore = MainStore.shared
     private var router = Router.shared
-    
-    @State private var centerText = ""
-    @State private var showLeftAlert: Bool = false
-    @State private var showRightAlert: Bool = false
     
     public var body: some View {
         
         @Bindable var router = router
         
         let list = tools.get_Chapter()
-        let title = currBible!.verseToString(currVerse, cutted: true)
+        let title = currBible!.verseToString(mainStore.verse, cutted: true)
 
         NavigationStack(path: $router.bibleRoutes) {
             List(list, id: \.self) { item in
