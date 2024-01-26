@@ -9,7 +9,7 @@ import UIKit
 
 // https://stackoverflow.com/questions/10054865/trying-to-add-3rd-tab-to-tabbarcontroller
 
-class ModulesTableView: UITableViewController {
+class ShelfTableView: UITableViewController {
     
     var list : [String] = tools.get_Shelf()
 
