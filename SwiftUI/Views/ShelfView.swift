@@ -22,6 +22,7 @@ private func preview() -> [ListItem] {
 }
 
 public struct ShelfView: View {
+    private var mainStore = MainStore.shared
     @State private var list = preview()
 
     public var body: some View {
@@ -32,6 +33,7 @@ public struct ShelfView: View {
                         Text(item.name)
                             .onTapGesture {
                                 tools.setCurrBible(item.name)
+                                mainStore.refresh()
                                 list = preview()
                             }
                         Spacer()

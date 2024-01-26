@@ -325,11 +325,11 @@
 			children = (
 				E79131322B4ECE5F000E4FBE /* AppView.swift */,
 				E7F8F0772B556B6B00E4EEB3 /* TabsView.swift */,
-				E71DA9E22A3C8D6600ECBC2F /* ShelfView.swift */,
 				E7F059932A152550002B6029 /* BibleView.swift */,
 				E75025CD2A28EB0300B86471 /* BooksView.swift */,
 				E7B185452A42EB3300F8A723 /* ChaptersView.swift */,
 				E756610F2B56CF610079F2F2 /* SearchView.swift */,
+				E71DA9E22A3C8D6600ECBC2F /* ShelfView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

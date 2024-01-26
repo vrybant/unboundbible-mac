@@ -19,6 +19,12 @@ class MainStore {
         currVerse = verse
     }
     
+    func refresh() {
+        let old = verse
+        verse.count = -1
+        verse = old
+    }
+    
     var infoString: String {
         tools.get_Info(book: verse.book, chapter: verse.chapter)
     }
