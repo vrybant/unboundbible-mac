@@ -10,22 +10,18 @@ import Observation
 @Observable
 class MainStore {
     var verse = currVerse
+    var content = tools.get_Chapter()
+
+    func update(verse: Verse) {
+        self.verse = verse
+        currVerse = verse
+        updateContent()
+    }
+
+    func updateContent() {
+        content = tools.get_Chapter()
+    }
     
     static let shared = MainStore()
     private init() {}
-
-    func update(newVerse: Verse) {
-        verse = newVerse
-        currVerse = verse
-    }
-    
-    func refresh() {
-        let old = verse
-        verse.count = -1
-        verse = old
-    }
-    
-    var infoString: String {
-        tools.get_Info(book: verse.book, chapter: verse.chapter)
-    }
 }

@@ -15,7 +15,7 @@ public struct BibleView: View {
         
         @Bindable var router = router
         
-        let list = tools.get_Chapter()
+        let list = mainStore.content
         let title = currBible!.verseToString(mainStore.verse, cutted: true)
 
         NavigationStack(path: $router.bibleRoutes) {
