@@ -69,6 +69,7 @@
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */; };
 		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
+		E7E7BB2A2B651A0800DBBA3D /* ShelfStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7BB292B651A0800DBBA3D /* ShelfStore.swift */; };
 		E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A0E9123FFE26B00EE62A8 /* Bible.swift */; };
 		E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
@@ -118,7 +119,7 @@
 		E7F8F07A2B5594E800E4EEB3 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F8F0792B5594E800E4EEB3 /* Router.swift */; };
 		E7FABB9B21D938D3006B6267 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7FABB9D21D938F7006B6267 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
-		E7FE643A2B5801C30074F30A /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE64392B5801C30074F30A /* Main.swift */; };
+		E7FE643A2B5801C30074F30A /* MainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE64392B5801C30074F30A /* MainStore.swift */; };
 		E7FE84442B46C95F009CD73C /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* Tools.swift */; };
 		E7FE84452B47200C009CD73C /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* Tools.swift */; };
 /* End PBXBuildFile section */
@@ -198,6 +199,7 @@
 		E7E3D4F71E12B1C400912F37 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E7E7A84D24C5C285001F85C8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
+		E7E7BB292B651A0800DBBA3D /* ShelfStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfStore.swift; sourceTree = "<group>"; };
 		E7ED65B72B39CF98002734D4 /* SearchTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchTableView.swift; path = iosApp/Controllers/SearchTableView.swift; sourceTree = SOURCE_ROOT; };
 		E7F04B802B14F1EA00F3AD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShelfView.storyboard; sourceTree = "<group>"; };
 		E7F04B8F2B14F6FC00F3AD4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShelfView.strings; sourceTree = "<group>"; };
@@ -214,7 +216,7 @@
 		E7F8F0792B5594E800E4EEB3 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E7FABB9A21D938D3006B6267 /* Commentary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentary.swift; sourceTree = "<group>"; };
 		E7FABB9C21D938F7006B6267 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		E7FE64392B5801C30074F30A /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		E7FE64392B5801C30074F30A /* MainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,7 +316,8 @@
 		E72425D42A179B2C00531EA0 /* Stores */ = {
 			isa = PBXGroup;
 			children = (
-				E7FE64392B5801C30074F30A /* Main.swift */,
+				E7FE64392B5801C30074F30A /* MainStore.swift */,
+				E7E7BB292B651A0800DBBA3D /* ShelfStore.swift */,
 				E7F8F0792B5594E800E4EEB3 /* Router.swift */,
 			);
 			path = Stores;
@@ -662,7 +665,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7FE643A2B5801C30074F30A /* Main.swift in Sources */,
+				E7FE643A2B5801C30074F30A /* MainStore.swift in Sources */,
 				E79131332B4ECE5F000E4FBE /* AppView.swift in Sources */,
 				E71C30862B4437FC0066851F /* Parsing.swift in Sources */,
 				E75025CE2A28EB0300B86471 /* BooksView.swift in Sources */,
@@ -676,6 +679,7 @@
 				E7EA07A72A3B4F840079BCD8 /* Int.swift in Sources */,
 				E71DA9E32A3C8D6600ECBC2F /* ShelfView.swift in Sources */,
 				E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */,
+				E7E7BB2A2B651A0800DBBA3D /* ShelfStore.swift in Sources */,
 				E7FE84452B47200C009CD73C /* Tools.swift in Sources */,
 				E7EA07A42A3B4F840079BCD8 /* Array.swift in Sources */,
 				E7EA07A62A3B4F840079BCD8 /* Colors.swift in Sources */,

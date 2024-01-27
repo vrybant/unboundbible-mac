@@ -1,6 +1,6 @@
 //
 //  Unbound Bible
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ private struct ListItem: Identifiable {
 
 private func preview() -> [ListItem] {
     var result = [ListItem]()
-    let list = tools.get_Shelf()
+    let list = ShelfStore.shared.content
     for item in list {
         let checked = item == currBible!.name
         result.append(ListItem(name: item, checked: checked))
@@ -31,8 +31,7 @@ public struct ShelfView: View {
                     HStack {
                         Text(item.name)
                             .onTapGesture {
-                                tools.setCurrBible(item.name)
-                                MainStore.shared.updateContent()
+                                ShelfStore.shared.update(bible: item.name)
                                 list = preview()
                             }
                         Spacer()
