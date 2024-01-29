@@ -7,14 +7,10 @@
 import SwiftUI
 
 public struct BibleView: View {
-    
-    private var mainStore = MainStore.shared
-    private var router = Router.shared
+    @ObservedObject var mainStore = MainStore.shared
+    @ObservedObject var router = Router.shared
     
     public var body: some View {
-        
-        @Bindable var router = router
-        
         let list = mainStore.content
         let title = currBible!.verseToString(mainStore.verse, cutted: true)
 

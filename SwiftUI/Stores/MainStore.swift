@@ -4,14 +4,13 @@
 //
 
 import Foundation
-import Observation
+import Combine
 
-@Observable
-class MainStore {
+class MainStore: ObservableObject {
     static let shared = MainStore()
 
-    var verse = currVerse
-    var content = tools.get_Chapter()
+    @Published var verse = currVerse
+    @Published var content = tools.get_Chapter()
 
     private init() {}
 
