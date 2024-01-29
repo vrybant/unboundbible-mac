@@ -8,20 +8,13 @@
 
 import SwiftUI
 
-func searchResult(text: String) -> [String] {
-    if text.count < 2 { return [] }
-    let data = tools.get_Search(string: text).strings
-    return data
-}
-
 struct SearchView: View {
-    @State private var results = [String]()
-    @State private var searchText = ""
+    @ObservedObject var store = SearchStore.shared
 
     var body: some View {
         VStack {
             NavigationStack {
-                List (results, id: \.self) { item in
+                List (store.content, id: \.self) { item in
                     let attrString = parse(item)
                     let content = AttributedString(attrString)
                     Text(content)
@@ -29,10 +22,10 @@ struct SearchView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Search")
             }
-            .searchable(text: $searchText, prompt: "Search text")
+            .searchable(text: $store.searchText, prompt: "Search text")
             .onSubmit(of: .search) {
-                print("SearchText is now \(searchText)")
-                results = searchResult(text: searchText)
+                print("SearchText is now \(store.searchText)")
+                store.update(text: store.searchText)
             }
         }
     }

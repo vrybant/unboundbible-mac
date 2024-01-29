@@ -14,6 +14,10 @@ class MainStore: ObservableObject {
 
     private init() {}
 
+    var title: String {
+        currBible!.verseToString(verse, cutted: true) ?? ""
+    }
+    
     func update(verse: Verse) {
         self.verse = verse
         currVerse = verse

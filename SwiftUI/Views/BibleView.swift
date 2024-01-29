@@ -7,15 +7,12 @@
 import SwiftUI
 
 public struct BibleView: View {
-    @ObservedObject var mainStore = MainStore.shared
+    @ObservedObject var store = MainStore.shared
     @ObservedObject var router = Router.shared
     
     public var body: some View {
-        let list = mainStore.content
-        let title = currBible!.verseToString(mainStore.verse, cutted: true)
-
         NavigationStack(path: $router.bibleRoutes) {
-            List(list, id: \.self) { item in
+            List(store.content, id: \.self) { item in
                 let attrString = parse(item)
                 let content = AttributedString(attrString)
                 Text(content)
@@ -26,7 +23,7 @@ public struct BibleView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Button(title!) {
+                    Button(store.title) {
                         router.bibleRoutes.append(.books)
                     }
                 }

@@ -1,8 +1,10 @@
 //
 //  Unbound Bible
+//  Copyright © Vladimir Rybant.
 //
-//  Copyright © Vladimir Rybant. All rights reserved.
-//
+
+// https://developer.apple.com/support/app-store/
+// 81% of all devices use iOS 16
 
 import Foundation
 import SwiftUI

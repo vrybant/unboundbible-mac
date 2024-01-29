@@ -45,6 +45,7 @@
 		E7649A062A0131C2009B6B63 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A052A0131C2009B6B63 /* Int.swift */; };
 		E77373BB271EBDE100FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* Tools.swift */; };
 		E77D231029FC25040025C4C1 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = E77D230F29FC25040025C4C1 /* GRDB */; };
+		E77FA4B12B67E7FA00C653AD /* SearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FA4B02B67E7FA00C653AD /* SearchStore.swift */; };
 		E79131332B4ECE5F000E4FBE /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79131322B4ECE5F000E4FBE /* AppView.swift */; };
 		E796E4D22B166CE4000016DC /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E796E4D02B166CE4000016DC /* SearchView.storyboard */; };
 		E7A031C726A80A2400AE1D13 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* Defaults.swift */; };
@@ -167,6 +168,7 @@
 		E7649A052A0131C2009B6B63 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		E77373BA271EBDE100FFA254 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		E77FA4B02B67E7FA00C653AD /* SearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStore.swift; sourceTree = "<group>"; };
 		E79131322B4ECE5F000E4FBE /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
 		E796E4D12B166CE4000016DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchView.storyboard; sourceTree = "<group>"; };
 		E796E4DA2B167096000016DC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchView.strings; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 			children = (
 				E7FE64392B5801C30074F30A /* MainStore.swift */,
 				E7E7BB292B651A0800DBBA3D /* ShelfStore.swift */,
+				E77FA4B02B67E7FA00C653AD /* SearchStore.swift */,
 				E7F8F0792B5594E800E4EEB3 /* Router.swift */,
 			);
 			path = Stores;
@@ -692,6 +695,7 @@
 				E7EA079F2A3B4F140079BCD8 /* Module.swift in Sources */,
 				E7EA07A52A3B4F840079BCD8 /* AttrString.swift in Sources */,
 				E7EA07A02A3B4F170079BCD8 /* Defaults.swift in Sources */,
+				E77FA4B12B67E7FA00C653AD /* SearchStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
