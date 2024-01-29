@@ -18,4 +18,8 @@ class ShelfStore: ObservableObject {
         content = tools.get_Shelf()
         MainStore.shared.update()
     }
+    
+    func isCurrent(name: String) -> Bool {
+        name == currBible!.name
+    }
 }

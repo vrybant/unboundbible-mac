@@ -319,8 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				E7FE64392B5801C30074F30A /* MainStore.swift */,
-				E7E7BB292B651A0800DBBA3D /* ShelfStore.swift */,
 				E77FA4B02B67E7FA00C653AD /* SearchStore.swift */,
+				E7E7BB292B651A0800DBBA3D /* ShelfStore.swift */,
 				E7F8F0792B5594E800E4EEB3 /* Router.swift */,
 			);
 			path = Stores;
