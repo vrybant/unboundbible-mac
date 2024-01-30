@@ -17,7 +17,7 @@ class ChaptersTableView: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        currBible!.chaptersCount(verse!)
+        currBible!.chaptersCount(book: verse!.book)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

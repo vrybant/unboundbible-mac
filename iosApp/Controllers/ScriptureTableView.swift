@@ -9,7 +9,7 @@ import UIKit
 
 class ScriptureTableView: UITableViewController {
     
-    var data = tools.get_Chapter()
+    var data = tools.get_Chapter(book: currVerse.book, chapter: currVerse.chapter)
     
     @IBOutlet weak var titleButton: UIButton!
     
@@ -33,7 +33,7 @@ class ScriptureTableView: UITableViewController {
     }
     
     @objc func reloadData() {
-        data = tools.get_Chapter()
+        data = tools.get_Chapter(book: currVerse.book, chapter: currVerse.chapter)
         tableView.reloadData()
         setButton()
     }
