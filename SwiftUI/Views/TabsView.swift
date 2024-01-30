@@ -1,6 +1,6 @@
 //
-//  SwiftUI
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Unbound Bible
+//  Copyright © Vladimir Rybant.
 //
 
 import SwiftUI

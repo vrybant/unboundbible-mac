@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-enum BibleRoute:  View, Hashable {
+enum BibleRoute: Hashable, View {
     case books
     case chapters(String)
     

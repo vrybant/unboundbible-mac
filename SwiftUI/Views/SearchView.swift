@@ -1,6 +1,6 @@
 //
-//  SwiftUI
-//  Copyright © 2024 Vladimir Rybant. All rights reserved.
+//  Unbound Bible
+//  Copyright © Vladimir Rybant.
 //
 
 // https://www.hackingwithswift.com/quick-start/swiftui/how-to-add-a-search-bar-to-filter-your-data
