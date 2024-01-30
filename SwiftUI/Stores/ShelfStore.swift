@@ -16,7 +16,7 @@ class ShelfStore: ObservableObject {
     func update(bible: String) {
         tools.setCurrBible(bible)
         content = tools.get_Shelf()
-        BibleStore.shared.update()
+        BibleStore.shared.refresh()
     }
     
     func isCurrent(name: String) -> Bool {

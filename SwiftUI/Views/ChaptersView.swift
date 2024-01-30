@@ -26,8 +26,7 @@ struct ChaptersView: View {
         List(chapters, id: \.self) { item in
             Text("Глава \(item)")
                 .onTapGesture {
-                    verse.chapter = item
-                    BibleStore.shared.update(verse: verse)
+                    BibleStore.shared.update(book: book!, chapter: item)
                     BibleStore.shared.router.removeAll()
                 }
         }

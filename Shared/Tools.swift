@@ -38,9 +38,9 @@ class Tools {
         }
     }
 
-    func get_Chapter() -> [String] {
+    func get_Chapter(book: Int, chapter: Int) -> [String] {
         var result = [String]()
-        if let text = currBible!.getChapter(currVerse) {
+        if let text = currBible!.getChapter(book: book, chapter: chapter) {
             if !text.isEmpty {
                 let space = macOS ? " " : ""
                 let dot = macOS ? "" : "."

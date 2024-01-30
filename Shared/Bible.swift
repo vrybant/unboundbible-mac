@@ -178,11 +178,11 @@ class Bible: Module {
         return nil
     }
 
-    func getChapter(_ verse : Verse) -> [String]? {
+    func getChapter(book: Int, chapter: Int) -> [String]? {
         var result = [String]()
-        let id = encodeID(verse.book)
-        let nt = Module.isNewTestament(verse.book)
-        let query = "SELECT * FROM \(z.bible) WHERE \(z.book) = \(id) AND \(z.chapter) = \(verse.chapter)"
+        let id = encodeID(book)
+        let nt = Module.isNewTestament(book)
+        let query = "SELECT * FROM \(z.bible) WHERE \(z.book) = \(id) AND \(z.chapter) = \(chapter)"
         
         try? database!.read { db in
             let rows = try Row.fetchCursor(db, sql: query)
