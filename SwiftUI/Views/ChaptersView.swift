@@ -1,7 +1,6 @@
 //
 //  Unbound Bible
-//
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. 
 //
 
 import SwiftUI
@@ -28,8 +27,8 @@ struct ChaptersView: View {
             Text("Глава \(item)")
                 .onTapGesture {
                     verse.chapter = item
-                    MainStore.shared.update(verse: verse)
-                    Router.shared.bibleRoutes.removeAll()
+                    BibleStore.shared.update(verse: verse)
+                    BibleStore.shared.router.removeAll()
                 }
         }
         .navigationTitle(name!)

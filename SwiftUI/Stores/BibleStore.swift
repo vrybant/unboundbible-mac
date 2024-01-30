@@ -6,11 +6,12 @@
 import Foundation
 import Combine
 
-class MainStore: ObservableObject {
-    static let shared = MainStore()
+class BibleStore: ObservableObject {
+    static let shared = BibleStore()
 
     @Published var verse = currVerse
     @Published var content = tools.get_Chapter()
+    @Published var router: [BibleRoute] = []
 
     private init() {}
 

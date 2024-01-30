@@ -1,7 +1,6 @@
 //
 //  Unbound Bible
-//
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. 
 //
 
 import SwiftUI
@@ -13,7 +12,7 @@ struct BooksView: View {
         
         List(titles, id: \.self) { title in
             Button(title) {
-                Router.shared.bibleRoutes.append(.chapters(title))
+                BibleStore.shared.router.append(.chapters(title))
             }
             .buttonStyle(.plain)
         }

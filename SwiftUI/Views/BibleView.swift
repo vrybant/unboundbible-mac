@@ -1,17 +1,15 @@
 //
 //  Unbound Bible
-//
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. 
 //
 
 import SwiftUI
 
 public struct BibleView: View {
-    @ObservedObject var store = MainStore.shared
-    @ObservedObject var router = Router.shared
+    @ObservedObject var store = BibleStore.shared
     
     public var body: some View {
-        NavigationStack(path: $router.bibleRoutes) {
+        NavigationStack(path: $store.router) {
             List(store.content, id: \.self) { item in
                 let attrString = parse(item)
                 let content = AttributedString(attrString)
@@ -24,7 +22,7 @@ public struct BibleView: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Button(store.title) {
-                        router.bibleRoutes.append(.books)
+                        store.router.append(.books)
                     }
                 }
             }
