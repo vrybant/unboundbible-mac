@@ -149,9 +149,9 @@ class Bible: Module {
         }
     }
     
-    func chaptersCount(_ verse : Verse) -> Int {
+    func chaptersCount(book: Int) -> Int {
         var result = 0
-        let id = encodeID(verse.book)
+        let id = encodeID(book)
         let query = "SELECT MAX(\(z.chapter)) AS count FROM \(z.bible) WHERE \(z.book) = \(id)"
 
         try? database!.read { db in

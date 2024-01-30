@@ -50,7 +50,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func makeChapterList() {
-        let n = currBible!.chaptersCount(currVerse)
+        let n = currBible!.chaptersCount(book: currVerse.book)
         if n != chapterTableViewCount {
             chapterTableViewCount = n
             chapterTableView.reloadData()

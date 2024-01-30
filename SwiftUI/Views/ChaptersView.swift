@@ -19,7 +19,7 @@ struct ChaptersView: View {
     }
     
     var body: some View {
-        var verse = Verse(book: book!, chapter: 1, number: 1, count: 1)
+        let verse = Verse(book: book!, chapter: 1, number: 1, count: 1)
         let chaptersCount = currBible!.chaptersCount(verse)
         let chapters = 1...chaptersCount
         
