@@ -9,6 +9,8 @@ enum Tabs: Identifiable {
     case bible
     case search
     case modules
+    case bookmarks
+    case options
     
     var id: Tabs { self }
 }
@@ -32,6 +34,16 @@ struct TabsView: View {
                 .tag(Tabs.bible)
                 .tabItem {
                     Label("Modules", systemImage: "books.vertical")
+                }
+            BookmarksView()
+                .tag(Tabs.bookmarks)
+                .tabItem {
+                    Label("Bookmarks", systemImage: "bookmark")
+                }
+            Text("Options")
+                .tag(Tabs.options)
+                .tabItem {
+                    Label("Options", systemImage: "gear")
                 }
         }
     }
