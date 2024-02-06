@@ -66,8 +66,44 @@ class ScriptureTableView: UITableViewController {
         return cell
     }
  
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Select")
+        currVerse.number = indexPath.row + 1
+        showAlert(sender: tableView)
+    }
+
+
 //    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        UITableView.automaticDimension
 //    }
-//    
+
+    func showAlert(sender: AnyObject) {
+        let title = currBible!.verseToString(currVerse)
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Copy", style: .default , handler: { (UIAlertAction) in
+            print("Copy")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Compare", style: .default , handler: { _ in
+            print("Compare")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Bookmark", style: .destructive , handler: { _ in
+            print("Bookmark")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Dismiss", style: .cancel, handler: { _ in
+            print("Dismiss")
+        }))
+        
+        
+        //uncomment for iPad Support
+        //alert.popoverPresentationController?.sourceView = self.view
+        
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
+    }
+    
 }
