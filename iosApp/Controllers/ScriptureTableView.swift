@@ -69,7 +69,7 @@ class ScriptureTableView: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Select")
         currVerse.number = indexPath.row + 1
-        showAlert(sender: tableView)
+        showAlert()
     }
 
 
@@ -77,7 +77,7 @@ class ScriptureTableView: UITableViewController {
 //        UITableView.automaticDimension
 //    }
 
-    func showAlert(sender: AnyObject) {
+    func showAlert() {
         let title = currBible!.verseToString(currVerse)
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .actionSheet)
         
