@@ -1,47 +1,37 @@
 //
 //  Unbound Bible
-//  Copyright © Vladimir Rybant.
+//  Copyright © Vladimir Rybant
 //
 
 import SwiftUI
 
-enum Tabs: Identifiable {
-    case bible
-    case search
-    case modules
-    case bookmarks
-    case options
-    
-    var id: Tabs { self }
-}
-
 struct TabsView: View {
-    @State var selection = Tabs.bible
+    @ObservedObject var store = TabsStore.shared
     
     var body: some View {
-        TabView(selection: $selection) {
+        TabView(selection: $store.selection) {
             BibleView()
-                .tag(Tabs.bible)
+                .tag(TabsRoute.bible)
                 .tabItem {
                     Label("Bible", systemImage: "book")
                 }
             SearchView()
-                .tag(Tabs.bible)
+                .tag(TabsRoute.search)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
             ShelfView()
-                .tag(Tabs.bible)
+                .tag(TabsRoute.shelf)
                 .tabItem {
                     Label("Modules", systemImage: "books.vertical")
                 }
             BookmarksView()
-                .tag(Tabs.bookmarks)
+                .tag(TabsRoute.bookmarks)
                 .tabItem {
                     Label("Bookmarks", systemImage: "bookmark")
                 }
-            Text("Options")
-                .tag(Tabs.options)
+            OptionsView()
+                .tag(TabsRoute.options)
                 .tabItem {
                     Label("Options", systemImage: "gear")
                 }
