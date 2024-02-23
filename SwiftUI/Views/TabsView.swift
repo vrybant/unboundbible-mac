@@ -10,27 +10,27 @@ struct TabsView: View {
     
     var body: some View {
         TabView(selection: $store.selection) {
-            BibleView()
+            BibleScreen()
                 .tag(TabsRoute.bible)
                 .tabItem {
                     Label("Bible", systemImage: "book")
                 }
-            SearchView()
+            SearchScreen()
                 .tag(TabsRoute.search)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
-            ShelfView()
+            ShelfScreen()
                 .tag(TabsRoute.shelf)
                 .tabItem {
                     Label("Modules", systemImage: "books.vertical")
                 }
-            BookmarksView()
+            BookmarksScreen()
                 .tag(TabsRoute.bookmarks)
                 .tabItem {
                     Label("Bookmarks", systemImage: "bookmark")
                 }
-            OptionsView()
+            OptionsScreen()
                 .tag(TabsRoute.options)
                 .tabItem {
                     Label("Options", systemImage: "gear")

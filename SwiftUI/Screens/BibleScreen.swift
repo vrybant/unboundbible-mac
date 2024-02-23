@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct BibleView: View {
+public struct BibleScreen: View {
     @ObservedObject var store = BibleStore.shared
     @State var showDialog = false
     
@@ -48,5 +48,5 @@ public struct BibleView: View {
 }
 
 #Preview {
-    BibleView()
+    BibleScreen()
 }

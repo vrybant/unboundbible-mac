@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SearchView: View {
+struct SearchScreen: View {
     @ObservedObject var store = SearchStore.shared
 
     var body: some View {
@@ -32,5 +32,5 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView()
+    SearchScreen()
 }

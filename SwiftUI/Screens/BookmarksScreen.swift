@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct BookmarksView: View {
+struct BookmarksScreen: View {
     @ObservedObject var store = BookmarksStore.shared
         
     var body: some View {
@@ -22,5 +22,5 @@ struct BookmarksView: View {
 }
 
 #Preview {
-    BookmarksView()
+    BookmarksScreen()
 }

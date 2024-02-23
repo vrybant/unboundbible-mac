@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-public struct ShelfView: View {
+public struct ShelfScreen: View {
     @ObservedObject var store = ShelfStore.shared
 
     public var body: some View {
@@ -30,5 +30,5 @@ public struct ShelfView: View {
 }
 
 #Preview {
-    ShelfView()
+    ShelfScreen()
 }

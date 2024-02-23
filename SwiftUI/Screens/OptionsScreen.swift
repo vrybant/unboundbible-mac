@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct OptionsView: View {
+struct OptionsScreen: View {
     
     public var body: some View {
              Button("Button") {
@@ -15,5 +15,5 @@ struct OptionsView: View {
 }
 
 #Preview {
-    OptionsView()
+    OptionsScreen()
 }
