@@ -15,7 +15,7 @@ func initialization() {
 }
 
 @main
-struct iOSApp: App {
+struct Application: App {
     
     init() {
         initialization()
@@ -23,7 +23,7 @@ struct iOSApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppView()
+            AppScreen()
         }
     }
 }

@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct TabsView: View {
+struct AppScreen: View {
     @ObservedObject var store = TabsStore.shared
     
     var body: some View {
@@ -40,5 +40,5 @@ struct TabsView: View {
 }
 
 #Preview {
-    TabsView()
+    AppScreen()
 }
