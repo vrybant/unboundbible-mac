@@ -253,6 +253,7 @@
 			children = (
 				E72425D42A179B2C00531EA0 /* Stores */,
 				E76F3CFE2B68D9A700FF1F58 /* Routers */,
+				E785C5192B8893B10046F83F /* Screens */,
 				E72425D52A179B7C00531EA0 /* Views */,
 				E71E2CB22A12647900136566 /* iOSApp.swift */,
 				E71E2CB62A12647A00136566 /* Assets.xcassets */,
@@ -286,13 +287,8 @@
 			children = (
 				E79131322B4ECE5F000E4FBE /* AppView.swift */,
 				E7F8F0772B556B6B00E4EEB3 /* TabsView.swift */,
-				E7F059932A152550002B6029 /* BibleView.swift */,
 				E75025CD2A28EB0300B86471 /* BooksView.swift */,
 				E7B185452A42EB3300F8A723 /* ChaptersView.swift */,
-				E756610F2B56CF610079F2F2 /* SearchView.swift */,
-				E71DA9E22A3C8D6600ECBC2F /* ShelfView.swift */,
-				E77CC5692B6BF7B300DFA7AE /* BookmarksView.swift */,
-				E70F00C42B751A0C002C0EA8 /* OptionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -317,6 +313,18 @@
 				E7F8F0792B5594E800E4EEB3 /* BibleRoute.swift */,
 			);
 			path = Routers;
+			sourceTree = "<group>";
+		};
+		E785C5192B8893B10046F83F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				E7F059932A152550002B6029 /* BibleView.swift */,
+				E756610F2B56CF610079F2F2 /* SearchView.swift */,
+				E71DA9E22A3C8D6600ECBC2F /* ShelfView.swift */,
+				E77CC5692B6BF7B300DFA7AE /* BookmarksView.swift */,
+				E70F00C42B751A0C002C0EA8 /* OptionsView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 		E7BECE4A1EA9390400CF3386 /* Frameworks */ = {
