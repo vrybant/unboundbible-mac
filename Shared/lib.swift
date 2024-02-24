@@ -1,13 +1,11 @@
 //
-//  lib.swift
 //  Unbound Bible
-//
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
 
-#if os(OSX)
+#if COCOA
     import Cocoa
     typealias Color = NSColor
     typealias Font = NSFont
@@ -20,7 +18,7 @@ import Foundation
 var darkAppearance: Bool = false
 let resourceUrl = Bundle.main.resourceURL!
 
-#if os(OSX)
+#if COCOA
     let homeUrl = URL(fileURLWithPath: NSHomeDirectory())
     let dataUrl = homeUrl.appendingPathComponent(applicationName)
 #else
@@ -99,7 +97,7 @@ func contentsOfDirectory(url: URL) -> [String]? {
     return !result.isEmpty ? result : nil
 }
 
-#if os(OSX)
+#if COCOA
 func copyToPasteboard(content: NSAttributedString) {
     let Pasteboard = NSPasteboard.general
     Pasteboard.clearContents()
@@ -111,7 +109,7 @@ func getRightToLeft(language: String) -> Bool {
     language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }
 
-#if os(OSX)
+#if COCOA
 func copyDefaultsFiles() {
     if !FileManager.default.fileExists(atPath: dataUrl.path)  {
         try? FileManager.default.createDirectory(at: dataUrl, withIntermediateDirectories: false, attributes: nil)

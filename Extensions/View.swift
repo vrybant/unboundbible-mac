@@ -1,6 +1,6 @@
 //
 //  Unbound Bible
-//  Copyright © Vladimir Rybant.
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
@@ -26,7 +26,7 @@ extension View {
     @ViewBuilder
     func safeNavigationBarTitleDisplayMode(_ displayMode: SafeTitleDisplayMode) -> some View {
         #if !os(macOS)
-        navigationBarTitleDisplayMode(displayMode.titleDisplayMode)
+            navigationBarTitleDisplayMode(displayMode.titleDisplayMode)
         #else
             self
         #endif

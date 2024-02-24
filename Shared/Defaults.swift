@@ -1,22 +1,16 @@
 //
-//  Defaults.swift
 //  Unbound Bible
-//
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
-
-#if os(iOS)
-    import UIKit
-#endif
 
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 var applicationUpdate = false
 let bibleDirectory = "bibles"
 
-#if os(OSX)
+#if COCOA
     let macOS = true
     let defaultFontSize = CGFloat(14)
     var defaultFontName = "HelveticaNeue"
@@ -108,7 +102,7 @@ func readDefaults() {
     currVerse.number  = defaults.integer(forKey: "verseNumber")
     currVerse.count   = defaults.integer(forKey: "verseCount")
 
-    #if os(OSX)
+    #if COCOA
     if let name = defaults.string(forKey: "fontName") {
         let size = defaults.cgfloat(forKey: "fontSize")
         if let font = Font(name: name, size: size) {

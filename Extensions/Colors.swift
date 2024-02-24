@@ -1,12 +1,9 @@
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Unbound Bible
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
-
-#if os(iOS)
-    import UIKit
-#endif
 
 extension Color {
     static var navy: Color {
@@ -29,7 +26,7 @@ extension Color {
     }
     static var systemAccent: Color {
         if #available(OSX 10.14, *) {
-            #if os(OSX)
+            #if COCOA
                 return controlAccentColor
             #else
                 return systemNavy // ???
@@ -40,7 +37,7 @@ extension Color {
     }
 }
 
-#if os(iOS)
+#if !COCOA
 extension Color {
     static var systemBrown: Color {
         Color.brown

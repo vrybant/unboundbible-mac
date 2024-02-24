@@ -1,5 +1,6 @@
 //
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Unbound Bible
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
