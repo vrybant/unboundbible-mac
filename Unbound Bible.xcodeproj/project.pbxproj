@@ -40,6 +40,7 @@
 		E7649A022A0130A1009B6B63 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A012A0130A1009B6B63 /* Array.swift */; };
 		E7649A042A0130ED009B6B63 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A032A0130ED009B6B63 /* UserDefaults.swift */; };
 		E7649A062A0131C2009B6B63 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A052A0131C2009B6B63 /* Int.swift */; };
+		E76FD32B2B8A132E004E598A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76FD3292B8A132E004E598A /* View.swift */; };
 		E77373BB271EBDE100FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* Tools.swift */; };
 		E77CC56A2B6BF7B300DFA7AE /* BookmarksScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CC5692B6BF7B300DFA7AE /* BookmarksScreen.swift */; };
 		E77CC56C2B6BFCCE00DFA7AE /* BookmarksStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CC56B2B6BFCCE00DFA7AE /* BookmarksStore.swift */; };
@@ -137,6 +138,7 @@
 		E7649A032A0130ED009B6B63 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E7649A052A0131C2009B6B63 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		E76FD3292B8A132E004E598A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E77373BA271EBDE100FFA254 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		E77CC5692B6BF7B300DFA7AE /* BookmarksScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksScreen.swift; sourceTree = "<group>"; };
 		E77CC56B2B6BFCCE00DFA7AE /* BookmarksStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksStore.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				E7649A052A0131C2009B6B63 /* Int.swift */,
 				E76499FB2A012E7D009B6B63 /* String.swift */,
 				E7649A032A0130ED009B6B63 /* UserDefaults.swift */,
+				E76FD3292B8A132E004E598A /* View.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				E7EA07A32A3B4F840079BCD8 /* UserDefaults.swift in Sources */,
 				E7EA079B2A3B4EF80079BCD8 /* Reference.swift in Sources */,
 				E7EA079E2A3B4F100079BCD8 /* lib.swift in Sources */,
+				E76FD32B2B8A132E004E598A /* View.swift in Sources */,
 				E7B185462A42EB3300F8A723 /* ChaptersView.swift in Sources */,
 				E71E2CB32A12647900136566 /* Application.swift in Sources */,
 				E77CC56C2B6BFCCE00DFA7AE /* BookmarksStore.swift in Sources */,
@@ -893,7 +897,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -938,7 +942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
 				MARKETING_VERSION = 1.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = net.unboundbible;

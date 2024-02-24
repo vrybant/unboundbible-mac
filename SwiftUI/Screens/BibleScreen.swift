@@ -41,9 +41,7 @@ public struct BibleScreen: View {
                 }
             }
             .navigationDestination(for: BibleRoute.self) { $0 }
-            #if !os(macOS)
-            .navigationBarTitleDisplayMode(.inline)
-            #endif
+            .safeNavigationBarTitleDisplayMode(.inline)
         }
         
     }

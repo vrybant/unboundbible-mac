@@ -23,9 +23,7 @@ public struct ShelfScreen: View {
                     }
                 }
                 .navigationTitle("Modules")
-                #if !os(macOS)
-                .navigationBarTitleDisplayMode(.inline)
-                #endif
+                .safeNavigationBarTitleDisplayMode(.inline)
             }
         }
     }

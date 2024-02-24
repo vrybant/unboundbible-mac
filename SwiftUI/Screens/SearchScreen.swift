@@ -20,9 +20,7 @@ struct SearchScreen: View {
                     Text(content)
                 }
                 .navigationTitle("Search")
-                #if !os(macOS)
-                .navigationBarTitleDisplayMode(.inline)
-                #endif
+                .safeNavigationBarTitleDisplayMode(.inline)
             }
             .searchable(text: $store.searchText, prompt: "Search text")
             .onSubmit(of: .search) {

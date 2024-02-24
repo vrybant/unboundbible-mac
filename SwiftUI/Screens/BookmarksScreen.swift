@@ -16,9 +16,7 @@ struct BookmarksScreen: View {
                 Text(content)
             }
             .navigationTitle("Bookmarks")
-            #if !os(macOS)
-            .navigationBarTitleDisplayMode(.inline)
-            #endif
+            .safeNavigationBarTitleDisplayMode(.inline)
         }
     }
 }
