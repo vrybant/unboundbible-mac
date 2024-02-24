@@ -55,9 +55,22 @@ enum RangeOption {
     case bible, oldTestament, newTestament, gospels, epistles, openedBook
 }
 
+var rangeOption : RangeOption = RangeOption.bible
+
 struct SearchRange {
     var from : Int
     var to : Int
+}
+
+func currentSearchRange(range: RangeOption) -> SearchRange? {
+    switch range {
+        case .bible        : return nil
+        case .oldTestament : return SearchRange(from:  1, to: 39)
+        case .newTestament : return SearchRange(from: 40, to: 66)
+        case .gospels      : return SearchRange(from: 40, to: 43)
+        case .epistles     : return SearchRange(from: 45, to: 65)
+        case .openedBook   : return SearchRange(from:  currVerse.book, to:  currVerse.book)
+    }
 }
 
 struct SearchOption: OptionSet {
