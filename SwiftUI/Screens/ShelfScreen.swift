@@ -22,8 +22,10 @@ public struct ShelfScreen: View {
                             .opacity(store.isCurrent(name: item) ? 1.0 : 0.0)
                     }
                 }
-                .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Modules")
+                #if !os(macOS)
+                .navigationBarTitleDisplayMode(.inline)
+                #endif
             }
         }
     }

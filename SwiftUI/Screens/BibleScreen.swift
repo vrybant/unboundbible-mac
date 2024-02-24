@@ -33,7 +33,6 @@ public struct BibleScreen: View {
                         Text(store.title) // verse number
                 }
             }
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Button(store.title) {
@@ -42,6 +41,9 @@ public struct BibleScreen: View {
                 }
             }
             .navigationDestination(for: BibleRoute.self) { $0 }
+            #if !os(macOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
         }
         
     }

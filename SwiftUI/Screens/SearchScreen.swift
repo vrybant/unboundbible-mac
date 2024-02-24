@@ -19,8 +19,10 @@ struct SearchScreen: View {
                     let content = AttributedString(attrString)
                     Text(content)
                 }
-                .navigationBarTitleDisplayMode(.inline)
                 .navigationTitle("Search")
+                #if !os(macOS)
+                .navigationBarTitleDisplayMode(.inline)
+                #endif
             }
             .searchable(text: $store.searchText, prompt: "Search text")
             .onSubmit(of: .search) {
