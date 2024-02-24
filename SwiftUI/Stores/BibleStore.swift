@@ -20,7 +20,7 @@ class BibleStore: ObservableObject {
 
     var title: String {
         let verse = Verse(book: book, chapter: chapter, count: 1)
-        return currBible!.verseToString(verse, cutted: true) ?? ""
+        return currBible.verseToString(verse, cutted: true) ?? ""
     }
     
     func update(book: Int, chapter: Int) {

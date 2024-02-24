@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         copyDefaultsFiles()
         if tools.bibles.isEmpty { return } // tools.init
         leftView.loadBibleMenu()
-        mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
+        mainView.updateStatus(currBible.fileName + " | " + currBible.info)
         leftView.makeBookList()
         leftView.showCurrVerse(select: (currVerse.number > 1))
         readPrivates()

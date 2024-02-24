@@ -20,6 +20,6 @@ class ShelfStore: ObservableObject {
     }
     
     func isCurrent(name: String) -> Bool {
-        name == currBible!.name
+        name == currBible.name
     }
 }

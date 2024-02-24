@@ -13,13 +13,13 @@ struct ChaptersView: View {
     init(name: String) {
         self.name = name
         
-        if let book = currBible!.bookByName(name) {
+        if let book = currBible.bookByName(name) {
             self.book = book
         }
     }
     
     var body: some View {
-        let chaptersCount = currBible!.chaptersCount(book: book!)
+        let chaptersCount = currBible.chaptersCount(book: book!)
         let chapters = 1...chaptersCount
         
         List(chapters, id: \.self) { item in

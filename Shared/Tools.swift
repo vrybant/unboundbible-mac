@@ -4,7 +4,7 @@
 //
 
 var tools = Tools.shared
-var currBible : Bible? = nil
+var currBible : Bible!
 
 class Tools {
     static let shared = Tools()
@@ -32,15 +32,15 @@ class Tools {
             }
         }
         
-        currBible!.loadDatabase()
-        if !currBible!.goodLink(currVerse) {
-            currVerse = currBible!.firstVerse
+        currBible.loadDatabase()
+        if !currBible.goodLink(currVerse) {
+            currVerse = currBible.firstVerse
         }
     }
 
     func get_Chapter(book: Int, chapter: Int) -> [String] {
         var result = [String]()
-        if let text = currBible!.getChapter(book: book, chapter: chapter) {
+        if let text = currBible.getChapter(book: book, chapter: chapter) {
             if !text.isEmpty {
                 let space = macOS ? " " : ""
                 let dot = macOS ? "" : "."
@@ -69,12 +69,12 @@ class Tools {
         let searchList = target.components(separatedBy: " ")
         let range = currentSearchRange(range: rangeOption)
         
-        if let searchResult = currBible!.search(string: target, options: searchOption, range: range) {
+        if let searchResult = currBible.search(string: target, options: searchOption, range: range) {
             for s in searchResult {
                 let array = s.components(separatedBy: "\0")
                 if array.count < 4 { continue }
                 guard let verse = arrayToVerse(array) else { continue }
-                guard let link = currBible!.verseToString(verse) else { continue }
+                guard let link = currBible.verseToString(verse) else { continue }
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
                 let item = "<l>\(link)</l> \(text)\(eol)\(eol)"
@@ -103,11 +103,11 @@ class Tools {
         var result = ""
         var info = ""
         
-        if let values = references.getData(currVerse, language: currBible!.language) {
+        if let values = references.getData(currVerse, language: currBible.language) {
             info = values.info
             for item in values.data {
-                if let link = currBible!.verseToString(item) {
-                    if let lines = currBible!.getRange(item, purge: true) {
+                if let link = currBible.verseToString(item) {
+                    if let lines = currBible.getRange(item, purge: true) {
                         result += "<l>\(link)</l> "
                         result += lines.joined(separator: " ") + "\n\n"
                     }
@@ -142,23 +142,23 @@ class Tools {
     }
 
     func get_Strong(number: String = "") -> String? {
-        dictionaries.getStrong(currVerse, language: currBible!.language, number: number)
+        dictionaries.getStrong(currVerse, language: currBible.language, number: number)
     }
 
     func get_Footnote(marker: String = "") -> String {
-        if currBible!.format == .mybible {
-            return commentaries.getFootnote(module: currBible!.fileName, verse: currVerse, marker: marker) ?? ""
+        if currBible.format == .mybible {
+            return commentaries.getFootnote(module: currBible.fileName, verse: currVerse, marker: marker) ?? ""
         } else {
-            return currBible!.getMyswordFootnote(currVerse, marker: marker) ?? ""
+            return currBible.getMyswordFootnote(currVerse, marker: marker) ?? ""
         }
     }
 
     func get_Verses(options: CopyOptions) -> String {
-        guard let list = currBible!.getRange(currVerse) else { return "" }
+        guard let list = currBible.getRange(currVerse) else { return "" }
         var quote = ""
         
         let abbr = options.contains(.abbreviate)
-        guard var link = currBible!.verseToString(currVerse, abbr: abbr) else { return "" }
+        guard var link = currBible.verseToString(currVerse, abbr: abbr) else { return "" }
         link = "<l>" + link + "</l>"
         var number = currVerse.number
         var l = false

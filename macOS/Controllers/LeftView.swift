@@ -38,19 +38,19 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         let names = tools.bibles.getNames()
         for name in names {
             popUpButton.addItem(withTitle: name)
-            if name == currBible!.name { popUpButton.selectItem(at: index) }
+            if name == currBible.name { popUpButton.selectItem(at: index) }
             index += 1
         }
     }
     
     func makeBookList() {
-        bookTableViewList = currBible!.getTitles()
+        bookTableViewList = currBible.getTitles()
         bookTableView.reloadData()
-        writingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
+        writingDirection = currBible.rightToLeft ? .rightToLeft : .leftToRight
     }
     
     func makeChapterList() {
-        let n = currBible!.chaptersCount(book: currVerse.book)
+        let n = currBible.chaptersCount(book: currVerse.book)
         if n != chapterTableViewCount {
             chapterTableViewCount = n
             chapterTableView.reloadData()
@@ -90,7 +90,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         tools.setCurrBible(popUpButton.selectedItem!.title)
         makeBookList()
         showCurrVerse(select: currVerse.number > 1)
-        mainView.updateStatus(currBible!.fileName + " | " + currBible!.info)
+        mainView.updateStatus(currBible.fileName + " | " + currBible.info)
     }
     
     func tableViewSelectionDidChange(_ notification: Notification) {
@@ -100,7 +100,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if tableView == bookTableView {
             if tableView.tag != programmatically {
                 let name = bookTableViewList[tableView.selectedRow]
-                if let book = currBible!.bookByName(name) {
+                if let book = currBible.bookByName(name) {
                     currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
                 }
             }
@@ -126,7 +126,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     }
     
     func showCurrVerse(select: Bool) {
-        if let index = currBible!.idxByNum(currVerse.book) {
+        if let index = currBible.idxByNum(currVerse.book) {
             bookTableView.selectRow(index: index)
             chapterTableView.selectRow(index: currVerse.chapter - 1)
             if select {

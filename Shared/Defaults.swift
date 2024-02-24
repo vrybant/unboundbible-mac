@@ -126,7 +126,7 @@ func saveDefaults() {
     if tools.bibles.isEmpty { return }
     let defaults = UserDefaults.standard
     defaults.set(applicationVersion,    forKey: "applicationVersion")
-    defaults.set(currBible!.name,       forKey: "currentBible")
+    defaults.set(currBible.name,       forKey: "currentBible")
     defaults.set(currVerse.book,        forKey: "verseBook")
     defaults.set(currVerse.chapter,     forKey: "verseChapter")
     defaults.set(currVerse.number,      forKey: "verseNumber")

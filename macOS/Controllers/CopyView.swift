@@ -46,7 +46,7 @@ class CopyView: NSViewController {
         
         if !tools.bibles.isEmpty {
             let verses = tools.get_Verses(options: options)
-            textView.baseWritingDirection = currBible!.rightToLeft ? .rightToLeft : .leftToRight
+            textView.baseWritingDirection = currBible.rightToLeft ? .rightToLeft : .leftToRight
             textView.textStorage?.setAttributedString(parse(verses))
         }
     }
