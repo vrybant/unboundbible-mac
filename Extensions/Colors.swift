@@ -5,6 +5,11 @@
 
 import Foundation
 
+#if !COCOA
+    import SwiftUI
+#endif
+
+#if COCOA
 extension Color {
     static var navy: Color {
         Color(red: 0, green: 0, blue: 0.5, alpha: 1)
@@ -26,27 +31,21 @@ extension Color {
     }
     static var systemAccent: Color {
         if #available(OSX 10.14, *) {
-            #if COCOA
-                return controlAccentColor
-            #else
-                return systemNavy // ???
-            #endif
+            controlAccentColor
         } else {
-            return systemNavy
+            systemNavy
         }
     }
 }
+#endif
 
 #if !COCOA
 extension Color {
-    static var systemBrown: Color {
-        Color.brown
-    }
     static var labelColor: Color {
-        Color.label
+        Color.black
     }
     static var secondaryLabelColor: Color {
-        Color.secondaryLabel
+        Color.black
     }
 }
 #endif

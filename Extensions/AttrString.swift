@@ -5,6 +5,7 @@
 
 import Foundation
 
+#if COCOA
 extension NSAttributedString {
     func mutable() -> NSMutableAttributedString {
         mutableCopy() as! NSMutableAttributedString
@@ -73,6 +74,7 @@ extension NSAttributedString {
     }
     
 }
+#endif
 
 extension NSMutableAttributedString {
     func addAttribute(_ name: NSAttributedString.Key, value: Any) {

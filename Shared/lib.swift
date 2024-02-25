@@ -11,8 +11,6 @@ import Foundation
     typealias Font = NSFont
 #else
     import SwiftUI
-    typealias Color = UIColor
-    typealias Font = UIFont
 #endif
 
 var darkAppearance: Bool = false

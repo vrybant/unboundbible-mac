@@ -1,15 +1,12 @@
 //
-//  parse.swift
 //  Unbound Bible
-//
-//  Copyright © 2023 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
     let discount : CGFloat = small ? 2 : 1
-    let linkColor = macOS ? Color.systemNavy : Color.darkGray
 
     let     smallFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 2)!
     let    italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
@@ -27,7 +24,7 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
     if tags.contains("<S>") { s.addAttribute(.foregroundColor, value: Color.systemBrown ) }
     if tags.contains("<r>") { s.addAttribute(.foregroundColor, value: Color.systemRed   ) }
     if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: Color.systemTeal  ) }
-    if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: linkColor         ) }
+    if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: Color.systemNavy  ) }
 
     if tags.intersection(["<i>","<em>"]) != [] {
         s.addAttribute(.font, value: italicFont )

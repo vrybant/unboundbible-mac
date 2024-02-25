@@ -5,20 +5,24 @@
 
 import Foundation
 
+#if !COCOA
+    import SwiftUI
+#endif
+
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 var applicationUpdate = false
 let bibleDirectory = "bibles"
 
 #if COCOA
-    let macOS = true
+    let cocoaApp = true
     let defaultFontSize = CGFloat(14)
     var defaultFontName = "HelveticaNeue"
     var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
 #else
-    let macOS = false
+    let cocoaApp = false
     let defaultFontSize = CGFloat(18)
-    let defaultFont = Font.systemFont(ofSize: defaultFontSize)
+    let defaultFont = Font.system(size: defaultFontSize)
 #endif
 
 var defaultAttributes: [NSAttributedString.Key : Any] {
@@ -102,6 +106,13 @@ func readDefaults() {
     currVerse.number  = defaults.integer(forKey: "verseNumber")
     currVerse.count   = defaults.integer(forKey: "verseCount")
 
+    let value = defaults.integer(forKey: "copyOptions")
+    copyOptions = CopyOptions(rawValue: value)
+
+    if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
+        recentList.append(bookmarks: bookmarks)
+    }
+    
     #if COCOA
     if let name = defaults.string(forKey: "fontName") {
         let size = defaults.cgfloat(forKey: "fontSize")
@@ -110,32 +121,24 @@ func readDefaults() {
         }
     }
     #endif
-
-    let value = defaults.integer(forKey: "copyOptions")
-    copyOptions = CopyOptions(rawValue: value)
-
-    if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
-        recentList.append(bookmarks: bookmarks)
-    }
-    
-//  donateVisited = defaults.bool(forKey: "donateVisited")
-//  if applicationUpdate { donateVisited = false }
 }
 
 func saveDefaults() {
     if tools.bibles.isEmpty { return }
     let defaults = UserDefaults.standard
     defaults.set(applicationVersion,    forKey: "applicationVersion")
-    defaults.set(currBible.name,       forKey: "currentBible")
+    defaults.set(currBible.name,        forKey: "currentBible")
     defaults.set(currVerse.book,        forKey: "verseBook")
     defaults.set(currVerse.chapter,     forKey: "verseChapter")
     defaults.set(currVerse.number,      forKey: "verseNumber")
     defaults.set(currVerse.count,       forKey: "verseCount")
     defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
-    defaults.set(defaultFont.fontName , forKey: "fontName")
-    defaults.set(defaultFont.pointSize, forKey: "fontSize")
     defaults.set(recentList.bookmarks,  forKey: "bookmarks")
-//  defaults.set(donateVisited,         forKey: "donateVisited")
+
+    #if COCOA
+        defaults.set(defaultFont.fontName , forKey: "fontName")
+        defaults.set(defaultFont.pointSize, forKey: "fontSize")
+    #endif
 }
 
 func readPrivates() {

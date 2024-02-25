@@ -1,6 +1,6 @@
 //
 //  Unbound Bible
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant
 //
 
 var tools = Tools.shared
@@ -14,7 +14,7 @@ class Tools {
     var dictionaries = [Dictionary](true)
     var references = [Reference](true)
 
-    private let eol = macOS ? "\n" : ""
+    private let eol = cocoaApp ? "\n" : ""
     
     private init() {
         if bibles.isEmpty { return }
@@ -42,8 +42,8 @@ class Tools {
         var result = [String]()
         if let text = currBible.getChapter(book: book, chapter: chapter) {
             if !text.isEmpty {
-                let space = macOS ? " " : ""
-                let dot = macOS ? "" : "."
+                let space = cocoaApp ? " " : ""
+                let dot = cocoaApp ? "" : "."
                 for i in 0...text.count-1 {
                     let item = "\(space)<l>\(i+1)\(dot)</l> \(text[i])\(eol)"
                     result.append(item)
