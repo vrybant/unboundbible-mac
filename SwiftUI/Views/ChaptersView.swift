@@ -24,6 +24,8 @@ struct ChaptersView: View {
         
         List(chapters, id: \.self) { item in
             Text("Глава \(item)")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
                 .onTapGesture {
                     BibleStore.shared.update(book: book!, chapter: item)
                     BibleStore.shared.router.removeAll()
