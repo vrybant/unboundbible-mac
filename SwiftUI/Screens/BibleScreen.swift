@@ -6,7 +6,7 @@
 import SwiftUI
 
 public struct BibleScreen: View {
-    @ObservedObject var store = BibleStore.shared
+    @State var store = BibleStore.shared
     @State var showDialog = false
     
     public var body: some View {

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SearchScreen: View {
-    @ObservedObject var store = SearchStore.shared
+    @State var store = SearchStore.shared
 
     var body: some View {
         VStack {

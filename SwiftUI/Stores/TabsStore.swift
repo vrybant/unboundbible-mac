@@ -4,12 +4,11 @@
 //
 
 import Foundation
-import Combine
 
-class TabsStore: ObservableObject {
+@Observable class TabsStore {
     static let shared = TabsStore()
     
-    @Published var selection = TabsRoute.bible
+    var selection = TabsRoute.bible
     
     private init() {}
 }

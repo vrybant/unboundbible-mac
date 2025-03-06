@@ -4,12 +4,11 @@
 //
 
 import Foundation
-import Combine
 
-class ShelfStore: ObservableObject {
+@Observable class ShelfStore {
     static let shared = ShelfStore()
     
-    @Published var content = tools.get_Shelf()
+    var content = tools.get_Shelf()
 
     private init() {}
 

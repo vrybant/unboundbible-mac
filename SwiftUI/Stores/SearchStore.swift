@@ -4,13 +4,12 @@
 //
 
 import Foundation
-import Combine
 
-class SearchStore: ObservableObject {
+@Observable class SearchStore {
     static let shared = SearchStore()
 
-    @Published var searchText = ""
-    @Published var content: [String] = []
+    var searchText = ""
+    var content: [String] = []
 
     private init() {}
 

@@ -4,15 +4,14 @@
 //
 
 import Foundation
-import Combine
 
-class BibleStore: ObservableObject {
+@Observable class BibleStore {
     static let shared = BibleStore()
 
-    @Published var book = 1
-    @Published var chapter = 1
-    @Published var content: [String]
-    @Published var router: [BibleRoute] = []
+    var book = 1
+    var chapter = 1
+    var content: [String]
+    var router: [BibleRoute] = []
 
     private init() {
         content = tools.get_Chapter(book: 1, chapter: 1)

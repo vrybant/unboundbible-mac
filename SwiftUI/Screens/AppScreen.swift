@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct AppScreen: View {
-    @ObservedObject var store = TabsStore.shared
+    @State var store = TabsStore.shared
     
     var body: some View {
         TabView(selection: $store.selection) {

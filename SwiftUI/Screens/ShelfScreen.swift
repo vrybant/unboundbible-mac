@@ -6,7 +6,7 @@
 import SwiftUI
 
 public struct ShelfScreen: View {
-    @ObservedObject var store = ShelfStore.shared
+    var store = ShelfStore.shared
 
     public var body: some View {
         NavigationStack {

@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct BookmarksScreen: View {
-    @ObservedObject var store = BookmarksStore.shared
+    var store = BookmarksStore.shared
         
     var body: some View {
         NavigationStack {

@@ -4,12 +4,11 @@
 //
 
 import Foundation
-import Combine
 
-class BookmarksStore: ObservableObject {
+@Observable class BookmarksStore {
     static let shared = BookmarksStore()
 
-    @Published var content: [String] = ["1","2","3"]
+    var content: [String] = ["1","2","3"]
 
     private init() {}
 
