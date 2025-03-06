@@ -7,13 +7,15 @@ import SwiftUI
 
 public struct ShelfScreen: View {
     var store = ShelfStore.shared
-
+    
     public var body: some View {
         NavigationStack {
             VStack {
                 List(store.content, id: \.self) { item in
                     HStack {
                         Text(item)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .contentShape(Rectangle())
                             .onTapGesture {
                                 store.update(bible: item)
                             }
