@@ -6,6 +6,7 @@
 import SwiftUI
 
 struct ChaptersView: View {
+    @State var selection: Int? = nil
 
     var name: String?
     var book: Int?
@@ -22,14 +23,21 @@ struct ChaptersView: View {
         let chaptersCount = currBible.chaptersCount(book: book!)
         let chapters = 1...chaptersCount
         
-        List(chapters, id: \.self) { item in
+        List(chapters, id: \.self, selection: $selection) { item in
             Text("Глава \(item)")
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
                 .onTapGesture {
+                    selection = item
                     BibleStore.shared.update(book: book!, chapter: item)
                     BibleStore.shared.router.removeAll()
                 }
+                .onLongPressGesture {
+                    selection = item
+                    BibleStore.shared.update(book: book!, chapter: item)
+                    BibleStore.shared.router.removeAll()
+                }
+
         }
         .navigationTitle(name!)
 

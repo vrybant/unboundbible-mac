@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct BooksView: View {
-    @State var selection: String?
+    @State var selection: String? = nil
     
     public var body: some View {
         let titles = currBible?.getTitles() ?? []
@@ -16,8 +16,14 @@ struct BooksView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
                 .onTapGesture {
+                    selection = title
                     BibleStore.shared.router.append(.chapters(title))
                 }
+                .onLongPressGesture {
+                    selection = title
+                    BibleStore.shared.router.append(.chapters(title))
+                }
+            
         }
         .navigationTitle("Books")
         //.listRowBackground(Color.clear)
