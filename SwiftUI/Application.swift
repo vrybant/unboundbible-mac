@@ -23,7 +23,7 @@ struct Application: App {
     
     var body: some Scene {
         WindowGroup {
-            AppScreen()
+            HomeScreen()
         }
     }
 }

@@ -46,7 +46,7 @@
 		E77CC56C2B6BFCCE00DFA7AE /* BookmarksStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77CC56B2B6BFCCE00DFA7AE /* BookmarksStore.swift */; };
 		E77D231029FC25040025C4C1 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = E77D230F29FC25040025C4C1 /* GRDB */; };
 		E77FA4B12B67E7FA00C653AD /* SearchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77FA4B02B67E7FA00C653AD /* SearchStore.swift */; };
-		E79131332B4ECE5F000E4FBE /* AppScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79131322B4ECE5F000E4FBE /* AppScreen.swift */; };
+		E79131332B4ECE5F000E4FBE /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79131322B4ECE5F000E4FBE /* HomeScreen.swift */; };
 		E796E4D22B166CE4000016DC /* SearchView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E796E4D02B166CE4000016DC /* SearchView.storyboard */; };
 		E7A031C726A80A2400AE1D13 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A031C626A80A2400AE1D13 /* Defaults.swift */; };
 		E7A0D72523AAA36200C48A54 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A0D72423AAA36200C48A54 /* Extensions.swift */; };
@@ -144,7 +144,7 @@
 		E77CC5692B6BF7B300DFA7AE /* BookmarksScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksScreen.swift; sourceTree = "<group>"; };
 		E77CC56B2B6BFCCE00DFA7AE /* BookmarksStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksStore.swift; sourceTree = "<group>"; };
 		E77FA4B02B67E7FA00C653AD /* SearchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStore.swift; sourceTree = "<group>"; };
-		E79131322B4ECE5F000E4FBE /* AppScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreen.swift; sourceTree = "<group>"; };
+		E79131322B4ECE5F000E4FBE /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		E796E4D12B166CE4000016DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SearchView.storyboard; sourceTree = "<group>"; };
 		E796E4DA2B167096000016DC /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/SearchView.strings; sourceTree = "<group>"; };
 		E796E4DC2B167097000016DC /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/SearchView.strings; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		E785C5192B8893B10046F83F /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				E79131322B4ECE5F000E4FBE /* AppScreen.swift */,
+				E79131322B4ECE5F000E4FBE /* HomeScreen.swift */,
 				E7F059932A152550002B6029 /* BibleScreen.swift */,
 				E756610F2B56CF610079F2F2 /* SearchScreen.swift */,
 				E71DA9E22A3C8D6600ECBC2F /* ShelfScreen.swift */,
@@ -581,7 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7FE643A2B5801C30074F30A /* BibleStore.swift in Sources */,
-				E79131332B4ECE5F000E4FBE /* AppScreen.swift in Sources */,
+				E79131332B4ECE5F000E4FBE /* HomeScreen.swift in Sources */,
 				E75025CE2A28EB0300B86471 /* BooksView.swift in Sources */,
 				E75661102B56CF620079F2F2 /* SearchScreen.swift in Sources */,
 				E7EA07A82A3B4F840079BCD8 /* String.swift in Sources */,
