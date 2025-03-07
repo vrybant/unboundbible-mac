@@ -1,6 +1,6 @@
 //
 //  Unbound Bible
-//  Copyright © Vladimir Rybant. 
+//  Copyright © Vladimir Rybant.
 //
 
 import SwiftUI
@@ -8,31 +8,44 @@ import SwiftUI
 public struct BibleScreen: View {
     @State var store = BibleStore.shared
     @State var showDialog = false
+    @State var selection: String? = nil
     
     public var body: some View {
         NavigationStack(path: $store.router) {
-            List(store.content, id: \.self) { item in
+            List(store.content, id: \.self, selection: $selection) { item in
                 let attrString = parse(item)
                 let content = AttributedString(attrString)
                 Text(content)
+                    .listRowInsets(.init(top: 5, leading: 15, bottom: 5, trailing: 15))
+                    .listRowSeparator(.hidden)
+                    .font(.title3)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+//                    .background(.red)
                     .onTapGesture {
+                        selection = item
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {
                         Button("Копировать") {
                             print("copy")
+                            selection = nil
                         }
                         Button("Сравнить") {
                             print("compare")
+                            selection = nil
                         }
                         Button("Закладка") {
                             print("bookmark")
+                            selection = nil
                         }
-                        Button("Отмена", role: .cancel) { }
+                        Button("Отмена", role: .cancel) {
+                            selection = nil
+                        }
                     } message: {
                         Text(store.title) // verse number
-                }
+                    }
             }
+            .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Button(store.title) {
