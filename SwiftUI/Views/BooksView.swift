@@ -25,8 +25,8 @@ struct BooksView: View {
                 }
             
         }
+        .padding(.top, -20)
         .navigationTitle("Books")
-        //.listRowBackground(Color.clear)
     }
     
 }

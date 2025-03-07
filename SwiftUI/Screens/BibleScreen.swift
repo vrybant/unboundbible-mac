@@ -9,18 +9,19 @@ public struct BibleScreen: View {
     @State var store = BibleStore.shared
     @State var showDialog = false
     @State var selection: String? = nil
-    
+
     public var body: some View {
         NavigationStack(path: $store.router) {
             List(store.content, id: \.self, selection: $selection) { item in
                 let attrString = parse(item)
                 let content = AttributedString(attrString)
+                let edgeInsets : EdgeInsets = .init(top: 5, leading: 15, bottom: 5, trailing: 15)
                 Text(content)
-                    .listRowInsets(.init(top: 5, leading: 15, bottom: 5, trailing: 15))
+                    .listRowInsets(edgeInsets)
                     .listRowSeparator(.hidden)
                     .font(.title3)
                     .frame(maxWidth: .infinity, alignment: .leading)
-//                    .background(.red)
+//                  .background(.red)
                     .onTapGesture {
                         selection = item
                         showDialog = true

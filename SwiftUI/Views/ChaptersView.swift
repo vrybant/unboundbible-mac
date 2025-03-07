@@ -18,6 +18,12 @@ struct ChaptersView: View {
             self.book = book
         }
     }
+
+    func onTap(_ chapter: Int) {
+        selection = chapter
+        BibleStore.shared.update(book: book!, chapter: chapter)
+        BibleStore.shared.router.removeAll()
+    }
     
     var body: some View {
         let chaptersCount = currBible.chaptersCount(book: book!)
@@ -26,19 +32,15 @@ struct ChaptersView: View {
         List(chapters, id: \.self, selection: $selection) { item in
             Text("Глава \(item)")
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .contentShape(Rectangle())
                 .onTapGesture {
-                    selection = item
-                    BibleStore.shared.update(book: book!, chapter: item)
-                    BibleStore.shared.router.removeAll()
+                    onTap(item)
                 }
                 .onLongPressGesture {
-                    selection = item
-                    BibleStore.shared.update(book: book!, chapter: item)
-                    BibleStore.shared.router.removeAll()
+                    onTap(item)
                 }
 
         }
+        .padding(.top, -20)
         .navigationTitle(name!)
 
     }

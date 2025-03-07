@@ -24,6 +24,7 @@ public struct ShelfScreen: View {
                             .opacity(store.isCurrent(name: item) ? 1.0 : 0.0)
                     }
                 }
+                .padding(.top, -20)
                 .navigationTitle("Modules")
                 .safeNavigationBarTitleDisplayMode(.inline)
             }

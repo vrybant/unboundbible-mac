@@ -15,6 +15,7 @@ struct BookmarksScreen: View {
                 let content = AttributedString(attrString)
                 Text(content)
             }
+            .padding(.top, -20)
             .navigationTitle("Bookmarks")
             .safeNavigationBarTitleDisplayMode(.inline)
         }
