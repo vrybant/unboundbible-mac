@@ -15,11 +15,12 @@ public struct BibleScreen: View {
             List(store.content, id: \.self, selection: $selection) { item in
                 let attrString = parse(item)
                 let content = AttributedString(attrString)
-                let edgeInsets : EdgeInsets = .init(top: 5, leading: 15, bottom: 5, trailing: 15)
+                let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
                 Text(content)
                     .listRowInsets(edgeInsets)
                     .listRowSeparator(.hidden)
-                    .font(.title3)
+                    .font(.body)
+                    .dynamicTypeSize(.xLarge)
                     .frame(maxWidth: .infinity, alignment: .leading)
 //                  .background(.red)
                     .onTapGesture {
@@ -28,15 +29,12 @@ public struct BibleScreen: View {
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {
                         Button("Копировать") {
-                            print("copy")
                             selection = nil
                         }
                         Button("Сравнить") {
-                            print("compare")
                             selection = nil
                         }
                         Button("Закладка") {
-                            print("bookmark")
                             selection = nil
                         }
                         Button("Отмена", role: .cancel) {

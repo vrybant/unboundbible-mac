@@ -7,7 +7,7 @@ import Foundation
 import SwiftUI
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
-    let discount : CGFloat = small ? 2 : 1
+//  let discount : CGFloat = small ? 2 : 1
 
     let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
 

@@ -32,6 +32,7 @@ struct ChaptersView: View {
         List(chapters, id: \.self, selection: $selection) { item in
             Text("Глава \(item)")
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
                 .onTapGesture {
                     onTap(item)
                 }
