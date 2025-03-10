@@ -14,9 +14,8 @@ public struct BibleScreen: View {
         NavigationStack(path: $store.router) {
             List(store.content, id: \.self, selection: $selection) { item in
                 let attrString = parse(item)
-                let content = AttributedString(attrString)
                 let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
-                Text(content)
+                Text(attrString)
                     .listRowInsets(edgeInsets)
                     .listRowSeparator(.hidden)
                     .font(.body)

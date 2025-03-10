@@ -12,8 +12,7 @@ struct BookmarksScreen: View {
         NavigationStack {
             List (store.content, id: \.self) { item in
                 let attrString = parse(item)
-                let content = AttributedString(attrString)
-                Text(content)
+                Text(attrString)
             }
             .padding(.top, -20)
             .navigationTitle("Bookmarks")

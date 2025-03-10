@@ -6,7 +6,7 @@
 import Foundation
 import SwiftUI
 
-private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
+private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> AttributedString {
 //  let discount : CGFloat = small ? 2 : 1
 
     let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
@@ -25,12 +25,12 @@ private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool
         s.addAttribute(.baselineOffset, value: 5.0)
     }
     
-    return s
+    return AttributedString(s)
 }
 
-func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSAttributedString {
-    let result = NSMutableAttributedString()
-    // return NSMutableAttributedString(string: string, attributes: defaultAttributes) // show tags
+func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> AttributedString {
+    var result = AttributedString()
+    // return AttributedString(string) // show tags
 
     let string = string.replace("</p>", with: "\n")
 
@@ -49,7 +49,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSAttri
         } else {
             if !jtag { tags.remove("<J>") }
             var s = s
-            if s.hasPrefix(" ") && result.string.hasSuffix(" ") { s = s.removeLeadingChar }
+            if s.hasPrefix(" ") && result.description.hasSuffix(" ") { s = s.removeLeadingChar }
             let attrString = attrStringFromTags(s, tags: tags, small: small)
             result.append(attrString)
         }

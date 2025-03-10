@@ -5,11 +5,16 @@
 
 import Foundation
 
+struct SearchItem: Identifiable {
+    let link: String
+    let string: String
+    let id = UUID()
+}
+
 @Observable class SearchStore {
     static let shared = SearchStore()
-
     var searchText = ""
-    var content: [String] = []
+    var content: [SearchItem] = []
 
     private init() {}
 
@@ -19,7 +24,13 @@ import Foundation
     }
 
     func update() {
-        content = tools.get_Search(string: searchText).strings
+        content = []
+        let searchResult = tools.get_Search(string: searchText).strings
+        for s in searchResult {
+            let components = s.components(separatedBy: "</l> ")
+            let item = SearchItem(link: components[0], string: components[1])
+            content.append(item)
+        }
     }
     
     func searchResult(text: String) -> [String] {

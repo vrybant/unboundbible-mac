@@ -9,32 +9,35 @@ import SwiftUI
 
 struct SearchScreen: View {
     @State var store = SearchStore.shared
-    @State var selection: String? = nil
+    @State var selection: UUID? = nil
 
-    func onTap(_ item: String) {
-        selection = item
+    func onTap(_ item: SearchItem) {
+//        selection = item
 //      BibleStore.shared.update(book: book!, chapter: chapter)
 //      BibleStore.shared.router.removeAll()
-        HomeStore.shared.selection = .bible
+//        HomeStore.shared.selection = .bible
     }
     
     var body: some View {
         VStack {
             NavigationStack {
-                List(store.content, id: \.self, selection: $selection) { item in
-                    let attrString = parse(item)
-                    let content = AttributedString(attrString)
-                    Text(content)
-                        .onTapGesture {
-                            onTap(item)
-                        }
+                List(store.content, selection: $selection) { item in
+                    let attrString = parse(item.string)
+                    VStack(alignment: .leading) {
+                        Text(attrString)
+                        Text(parse(item.link))
+                    }
+//                  .frame(maxWidth: .infinity, alignment: .leading)
+                    .onTapGesture {
+                        selection = item.id
+                        onTap(item)
+                    }
                 }
                 .navigationTitle("Search")
                 .safeNavigationBarTitleDisplayMode(.inline)
             }
             .searchable(text: $store.searchText, prompt: "Search text")
             .onSubmit(of: .search) {
-                print("SearchText is now \(store.searchText)")
                 store.update(text: store.searchText)
             }
         }
