@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-enum TabsRoute {
+enum HomeRoute {
     case bible
     case search
     case shelf

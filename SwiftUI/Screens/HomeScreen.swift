@@ -6,32 +6,32 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @State var store = TabsStore.shared
+    @State var store = HomeStore.shared
     
     var body: some View {
         TabView(selection: $store.selection) {
             BibleScreen()
-                .tag(TabsRoute.bible)
+                .tag(HomeRoute.bible)
                 .tabItem {
                     Label("Bible", systemImage: "book")
                 }
             SearchScreen()
-                .tag(TabsRoute.search)
+                .tag(HomeRoute.search)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
             ShelfScreen()
-                .tag(TabsRoute.shelf)
+                .tag(HomeRoute.shelf)
                 .tabItem {
                     Label("Modules", systemImage: "books.vertical")
                 }
             BookmarksScreen()
-                .tag(TabsRoute.bookmarks)
+                .tag(HomeRoute.bookmarks)
                 .tabItem {
                     Label("Bookmarks", systemImage: "bookmark")
                 }
             OptionsScreen()
-                .tag(TabsRoute.options)
+                .tag(HomeRoute.options)
                 .tabItem {
                     Label("Options", systemImage: "gear")
                 }

@@ -5,10 +5,10 @@
 
 import Foundation
 
-@Observable class TabsStore {
-    static let shared = TabsStore()
+@Observable class HomeStore {
+    static let shared = HomeStore()
     
-    var selection = TabsRoute.bible
+    var selection = HomeRoute.bible
     
     private init() {}
 }

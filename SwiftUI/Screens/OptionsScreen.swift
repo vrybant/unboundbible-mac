@@ -9,7 +9,7 @@ struct OptionsScreen: View {
     
     public var body: some View {
              Button("Button") {
-                 TabsStore.shared.selection = .bible
+                 HomeStore.shared.selection = .bible
             }
     }
 }

@@ -15,7 +15,7 @@ struct SearchScreen: View {
         selection = item
 //      BibleStore.shared.update(book: book!, chapter: chapter)
 //      BibleStore.shared.router.removeAll()
-        TabsStore.shared.selection = .bible
+        HomeStore.shared.selection = .bible
     }
     
     var body: some View {
