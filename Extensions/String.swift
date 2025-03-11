@@ -166,3 +166,22 @@ extension Substring {
     }
 
 }
+
+
+struct IdentifiableString: Identifiable {
+    var string: String
+    let id = UUID()
+}
+
+extension Array where Element == String {
+    
+    var identifiable: [IdentifiableString] {
+        var result: [IdentifiableString] = []
+        for item in self {
+            let element = IdentifiableString(string: item)
+            result.append(element)
+        }
+        return result
+    }
+    
+}

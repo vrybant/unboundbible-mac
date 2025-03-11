@@ -7,11 +7,12 @@ import SwiftUI
 
 public struct ShelfScreen: View {
     var store = ShelfStore.shared
+    let content = ShelfStore.shared.content
     
     public var body: some View {
         NavigationStack {
             VStack {
-                List(store.content) { item in
+                List(content) { item in
                     HStack {
                         Text(item.string)
                             .frame(maxWidth: .infinity, alignment: .leading)

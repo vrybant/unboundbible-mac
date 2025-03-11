@@ -8,13 +8,13 @@ import Foundation
 @Observable class ShelfStore {
     static let shared = ShelfStore()
     
-    var content = tools.get_Shelf()
+    var content = tools.get_Shelf().identifiable
 
     private init() {}
 
     func update(bible: String) {
         tools.setCurrBible(bible)
-        content = tools.get_Shelf()
+        content = tools.get_Shelf().identifiable
         BibleStore.shared.refresh()
     }
     

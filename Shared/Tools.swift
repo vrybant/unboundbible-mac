@@ -202,14 +202,23 @@ class Tools {
         if module is Reference  { references  .deleteItem(module as! Reference  ) }
     }
 
-    func get_Shelf() -> [IdentifiableString] {
-        var result : [IdentifiableString] = []
+    func get_Shelf() -> [String] {
+        var result : [String] = []
         for bible in bibles {
-            let element = IdentifiableString(string: bible.name)
+            let element = bible.name
             result.append(element)
         }
         return result
     }
+    
+//    func get_Shelf() -> [IdentifiableString] {
+//        var result : [IdentifiableString] = []
+//        for bible in bibles {
+//            let element = IdentifiableString(string: bible.name)
+//            result.append(element)
+//        }
+//        return result
+//    }
     
     func get_Info(book: Int, chapter: Int) -> String {
         "Info \(book) \(chapter)"

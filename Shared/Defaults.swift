@@ -152,8 +152,3 @@ func savePrivates() {
         UserDefaults.standard.set(!bible.favorite, forKey: bible.fileName)
     }
 }
-
-struct IdentifiableString: Identifiable {
-    var string: String
-    let id = UUID()
-}
