@@ -79,6 +79,12 @@ struct SearchOption: OptionSet {
 
 var searchOption : SearchOption = []
 
+struct SearchItem: Identifiable {
+    let link: String
+    let text: String
+    let id = UUID()
+}
+
 struct CopyOptions : OptionSet {
     let rawValue: Int
     static let  abbreviate = CopyOptions(rawValue: 1 << 0)

@@ -13,8 +13,6 @@ class Tools {
     var commentaries = [Commentary](true)
     var dictionaries = [Dictionary](true)
     var references = [Reference](true)
-
-    private let eol = cocoaApp ? "\n" : ""
     
     private init() {
         if bibles.isEmpty { return }
@@ -44,6 +42,7 @@ class Tools {
             if !text.isEmpty {
                 let space = cocoaApp ? " " : ""
                 let dot = cocoaApp ? "" : "."
+                let eol = cocoaApp ? "\n" : ""
                 for i in 0...text.count-1 {
                     let item = "\(space)<l>\(i+1)\(dot)</l> \(text[i])\(eol)"
                     result.append(item)
@@ -62,27 +61,25 @@ class Tools {
         return result
     }
     
-    func get_Search(string: String) -> (strings: [String], count: Int) {
-        var result = [String]()
-        var count = 0
+    func get_Search(string: String) -> [SearchItem] {
+        var result = [SearchItem]()
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
         let range = currentSearchRange(range: rangeOption)
         
         if let searchResult = currBible.search(string: target, options: searchOption, range: range) {
-            for s in searchResult {
-                let array = s.components(separatedBy: "\0")
+            for item in searchResult {
+                let array = item.components(separatedBy: "\0")
                 if array.count < 4 { continue }
                 guard let verse = arrayToVerse(array) else { continue }
                 guard let link = currBible.verseToString(verse) else { continue }
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
-                let item = "<l>\(link)</l> \(text)\(eol)\(eol)"
-                result.append(item)
+                let searchItem = SearchItem(link: link, text: text)
+                result.append(searchItem)
             }
-            count = searchResult.count
         }
-        return (result, count)
+        return result
     }
 
     func get_Compare() -> [String] {
@@ -210,16 +207,7 @@ class Tools {
         }
         return result
     }
-    
-//    func get_Shelf() -> [IdentifiableString] {
-//        var result : [IdentifiableString] = []
-//        for bible in bibles {
-//            let element = IdentifiableString(string: bible.name)
-//            result.append(element)
-//        }
-//        return result
-//    }
-    
+       
     func get_Info(book: Int, chapter: Int) -> String {
         "Info \(book) \(chapter)"
     }

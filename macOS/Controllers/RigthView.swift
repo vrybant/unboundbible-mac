@@ -130,12 +130,24 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         selectTab("bible")
     }
     
+    private func getSearchList(string: String) -> [String] {
+        var result = [String]()
+        let searchList = tools.get_Search(string: string)
+        let eol = "\n"
+        
+        for item in searchList {
+            let string = "<l>\(item.link)</l> \(item.text)\(eol)\(eol)"
+            result.append(string)
+        }
+        return result
+    }
+    
     func loadSearch(text: String) {
         if text.count < 2 { return }
-        let data = tools.get_Search(string: text)
-        var string = data.strings.joined()
+        let list = getSearchList(string: text)
+        var string = list.joined()
 
-        if data.count == 0 {
+        if list.isEmpty {
             let message = LocalizedString("You search for % produced no results.")
             string = "\(message.replace("%", with: text.quoted))"
         }
@@ -145,7 +157,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         selectTab("search")
         
         let status = LocalizedString("verses was found")
-        mainView.updateStatus("\(data.count) \(status)")
+        mainView.updateStatus("\(list.count) \(status)")
     }
  
     func loadCompare() {

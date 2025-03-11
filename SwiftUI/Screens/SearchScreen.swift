@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchScreen: View {
     @State var store = SearchStore.shared
     @State var selection: UUID? = nil
+    let content = SearchStore.shared.content
 
     func onTap(_ item: SearchItem) {
 //        selection = item
@@ -21,8 +22,8 @@ struct SearchScreen: View {
     var body: some View {
         VStack {
             NavigationStack {
-                List(store.content, selection: $selection) { item in
-                    let attrString = parse(item.string)
+                List(content, selection: $selection) { item in
+                    let attrString = parse(item.text)
                     VStack(alignment: .leading) {
                         Text(attrString)
                         Text(parse(item.link))
@@ -33,6 +34,7 @@ struct SearchScreen: View {
                         onTap(item)
                     }
                 }
+                .listStyle(.plain)
                 .navigationTitle("Search")
                 .safeNavigationBarTitleDisplayMode(.inline)
             }
