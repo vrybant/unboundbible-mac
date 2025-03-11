@@ -133,10 +133,9 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
     private func getSearchList(string: String) -> [String] {
         var result = [String]()
         let searchList = tools.get_Search(string: string)
-        let eol = "\n"
         
         for item in searchList {
-            let string = "<l>\(item.link)</l> \(item.text)\(eol)\(eol)"
+            let string = "<l>\(item.link)</l> \(item.text)\n\n"
             result.append(string)
         }
         return result
