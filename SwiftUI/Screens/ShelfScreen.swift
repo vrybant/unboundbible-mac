@@ -11,17 +11,17 @@ public struct ShelfScreen: View {
     public var body: some View {
         NavigationStack {
             VStack {
-                List(store.content, id: \.self) { item in
+                List(store.content) { item in
                     HStack {
-                        Text(item)
+                        Text(item.string)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .contentShape(Rectangle())
                             .onTapGesture {
-                                store.update(bible: item)
+                                store.update(bible: item.string)
                             }
                         Spacer()
                         Image(systemName: "checkmark")
-                            .opacity(store.isCurrent(name: item) ? 1.0 : 0.0)
+                            .opacity(store.isCurrent(name: item.string) ? 1.0 : 0.0)
                     }
                 }
                 .padding(.top, -20)
