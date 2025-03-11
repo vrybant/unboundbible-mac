@@ -107,7 +107,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     }
 
     @IBAction func bibleFolder(_ sender: NSMenuItem) {
-        NSWorkspace.shared.openFile(dataUrl.path)
+        NSWorkspace.shared.open(dataUrl)
     }
 
 }
