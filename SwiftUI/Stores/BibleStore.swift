@@ -10,11 +10,11 @@ import Foundation
 
     var book = 1
     var chapter = 1
-    var content: [String]
+    var content: [IdentifiableString]
     var router: [BibleRoute] = []
 
     private init() {
-        content = tools.get_Chapter(book: 1, chapter: 1)
+        content = tools.get_Chapter(book: 1, chapter: 1).identifiable
     }
 
     var title: String {
@@ -29,6 +29,6 @@ import Foundation
     }
 
     func refresh() {
-        content = tools.get_Chapter(book: book, chapter: chapter)
+        content = tools.get_Chapter(book: book, chapter: chapter).identifiable
     }
 }

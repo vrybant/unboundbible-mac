@@ -6,22 +6,23 @@
 import SwiftUI
 
 struct BooksView: View {
-    @State var selection: String? = nil
+    @State var selection: UUID? = nil
     
     public var body: some View {
         let titles = currBible?.getTitles() ?? []
+        let content = titles.identifiable
         
-        List(titles, id: \.self, selection: $selection) { title in
-            Text(title)
+        List(content, selection: $selection) { item in
+            Text(item.string)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    selection = title
-                    BibleStore.shared.router.append(.chapters(title))
+                    selection = item.id
+                    BibleStore.shared.router.append(.chapters(item.string))
                 }
                 .onLongPressGesture {
-                    selection = title
-                    BibleStore.shared.router.append(.chapters(title))
+                    selection = item.id
+                    BibleStore.shared.router.append(.chapters(item.string))
                 }
             
         }

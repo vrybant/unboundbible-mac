@@ -10,8 +10,8 @@ struct BookmarksScreen: View {
         
     var body: some View {
         NavigationStack {
-            List (store.content, id: \.self) { item in
-                let attrString = parse(item)
+            List(store.content) { item in
+                let attrString = parse(item.string)
                 Text(attrString)
             }
             .padding(.top, -20)

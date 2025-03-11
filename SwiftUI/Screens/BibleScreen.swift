@@ -8,12 +8,12 @@ import SwiftUI
 public struct BibleScreen: View {
     @State var store = BibleStore.shared
     @State var showDialog = false
-    @State var selection: String? = nil
+    @State var selection: UUID? = nil
 
     public var body: some View {
         NavigationStack(path: $store.router) {
-            List(store.content, id: \.self, selection: $selection) { item in
-                let attrString = parse(item)
+            List(store.content, selection: $selection) { item in
+                let attrString = parse(item.string)
                 let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
                 Text(attrString)
                     .listRowInsets(edgeInsets)
@@ -23,7 +23,7 @@ public struct BibleScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
 //                  .background(.red)
                     .onTapGesture {
-                        selection = item
+                        selection = item.id
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {

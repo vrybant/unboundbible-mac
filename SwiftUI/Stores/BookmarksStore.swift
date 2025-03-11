@@ -8,7 +8,7 @@ import Foundation
 @Observable class BookmarksStore {
     static let shared = BookmarksStore()
 
-    var content: [String] = ["1","2","3"]
+    var content = ["1","2","3"].identifiable
 
     private init() {}
 
