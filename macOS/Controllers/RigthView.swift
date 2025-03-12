@@ -129,21 +129,10 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         leftView.makeChapterList()
         selectTab("bible")
     }
-    
-    private func getSearchList(string: String) -> [String] {
-        var result = [String]()
-        let searchList = tools.get_Search(string: string)
         
-        for item in searchList {
-            let string = "<l>\(item.link)</l> \(item.text)\n\n"
-            result.append(string)
-        }
-        return result
-    }
-    
     func loadSearch(text: String) {
         if text.count < 2 { return }
-        let list = getSearchList(string: text)
+        let list = tools.get_SearchList(string: text)
         var string = list.joined()
 
         if list.isEmpty {

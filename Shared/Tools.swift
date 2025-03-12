@@ -72,15 +72,32 @@ class Tools {
                 let array = item.components(separatedBy: "\0")
                 if array.count < 4 { continue }
                 guard let verse = arrayToVerse(array) else { continue }
-                guard let link = currBible.verseToString(verse) else { continue }
+                guard var link = currBible.verseToString(verse) else { continue }
                 var text = array[3]
                 text = text.highlight(with: "<r>", target: searchList, options: searchOption)
+                if cocoaApp {
+                    link = "<l>\(link)</l>"
+                    text = "\(text)\n\n"
+                }
                 let searchItem = SearchItem(link: link, text: text)
                 result.append(searchItem)
             }
         }
         return result
     }
+    
+    #if COCOA
+    func get_SearchList(string: String) -> [String] {
+        var result = [String]()
+        let list = tools.get_Search(string: string)
+        
+        for item in list {
+            let string = item.link + " " + item.text
+            result.append(string)
+        }
+        return result
+    }
+    #endif
 
     func get_Compare() -> [String] {
         var result = [String]()
