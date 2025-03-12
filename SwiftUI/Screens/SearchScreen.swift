@@ -13,10 +13,15 @@ struct SearchScreen: View {
     let content = SearchStore.shared.content
 
     func onTap(_ item: SearchItem) {
-//        selection = item
-//      BibleStore.shared.update(book: book!, chapter: chapter)
-//      BibleStore.shared.router.removeAll()
-//        HomeStore.shared.selection = .bible
+        if let verse = currBible.stringToVerse(link: item.link) {
+            if currBible.goodLink(verse) {
+//              currVerse = verse
+                BibleStore.shared.update(book: verse.book, chapter: verse.chapter)
+                BibleStore.shared.router.removeAll()
+                HomeStore.shared.selection = .bible
+            }
+        }
+
     }
     
     var body: some View {
