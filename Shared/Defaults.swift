@@ -19,15 +19,12 @@ let bibleDirectory = "bibles"
     let defaultFontSize = CGFloat(14)
     var defaultFontName = "HelveticaNeue"
     var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
+    var defaultAttributes: [NSAttributedString.Key : Any] {
+        [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
+    }
 #else
     let cocoaApp = false
-    let defaultFontSize = CGFloat(18)
-    let defaultFont = Font.system(size: defaultFontSize)
 #endif
-
-var defaultAttributes: [NSAttributedString.Key : Any] {
-    [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
-}
 
 var recentList : [URL] = []
 

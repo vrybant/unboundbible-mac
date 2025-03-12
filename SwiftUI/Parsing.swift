@@ -7,25 +7,23 @@ import Foundation
 import SwiftUI
 
 private func attrStringFromTags(_ string: String, tags: Set<String>, small: Bool) -> AttributedString {
-//  let discount : CGFloat = small ? 2 : 1
+    var s = AttributedString(string)
 
-    let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
-
-    if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.gray  ) }
-    if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: Color.gray  ) }
-    if tags.contains("<v>") { s.addAttribute(.foregroundColor, value: Color.gray  ) }
-    if tags.contains("<a>") { s.addAttribute(.foregroundColor, value: Color.gray  ) }
-    if tags.contains("<J>") { s.addAttribute(.foregroundColor, value: Color.red   ) }
-    if tags.contains("<S>") { s.addAttribute(.foregroundColor, value: Color.brown ) }
-    if tags.contains("<r>") { s.addAttribute(.foregroundColor, value: Color.red   ) }
-    if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: Color.teal  ) }
-    if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: Color.gray  ) }
+    if tags.contains("<m>") { s.foregroundColor = .gray  }
+    if tags.contains("<n>") { s.foregroundColor = .gray  }
+    if tags.contains("<v>") { s.foregroundColor = .gray  }
+    if tags.contains("<a>") { s.foregroundColor = .gray  }
+    if tags.contains("<J>") { s.foregroundColor = .red   }
+    if tags.contains("<S>") { s.foregroundColor = .brown }
+    if tags.contains("<r>") { s.foregroundColor = .red   }
+    if tags.contains("<f>") { s.foregroundColor = .teal  }
+    if tags.contains("<l>") { s.foregroundColor = .gray  }
 
     if tags.intersection(["<S>","<m>","<f>"]) != [] {
-        s.addAttribute(.baselineOffset, value: 5.0)
+        s.baselineOffset = 5.0
     }
     
-    return AttributedString(s)
+    return s
 }
 
 func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> AttributedString {
