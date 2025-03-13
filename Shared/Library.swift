@@ -83,6 +83,37 @@ func xmlToList(string: String) -> [String] {
     return result
 }
 
+typealias Tags = Set<String>
+
+struct TaggedString {
+    let text: String
+    let tags: Tags
+}
+
+func xmlToTaggedStrings(_ string: String) -> [TaggedString] {
+    var result = [TaggedString]()
+    let list = xmlToList(string: string)
+    var tags = Tags()
+    var previous = ""
+    
+    for s in list {
+        var s = s
+        if s.hasPrefix("<") {
+            if s.hasPrefix("</") {
+                tags.remove(s.replace("/", with: ""))
+            } else {
+                tags.insert(s)
+            }
+        } else {
+            if s.hasPrefix(" ") && previous.hasSuffix(" ") { s = s.removeLeadingChar }
+            let taggedString = TaggedString(text: s, tags: tags)
+            result.append(taggedString)
+            previous = s
+        }
+    }
+    return result
+}
+
 func contentsOfDirectory(url: URL) -> [String]? {
     if !FileManager.default.fileExists(atPath: url.path) { return nil }
     var result = [String]()
