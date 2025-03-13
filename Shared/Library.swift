@@ -98,6 +98,7 @@ func xmlToTaggedStrings(_ string: String) -> [TaggedString] {
     
     for s in list {
         var s = s
+        if s.hasPrefix("<a ") { s = "<a>" } // workaround
         if s.hasPrefix("<") {
             if s.hasPrefix("</") {
                 tags.remove(s.replace("/", with: ""))
