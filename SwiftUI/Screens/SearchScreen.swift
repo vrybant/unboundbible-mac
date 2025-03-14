@@ -31,7 +31,9 @@ struct SearchScreen: View {
                     let attrString = parse(item.text)
                     VStack(alignment: .leading) {
                         Text(attrString)
-                        Text(parse(item.link))
+                        Text(item.link)
+                            .foregroundColor(.gray)
+//                          .foregroundColor(Color(UIColor.darkGray))
                     }
 //                  .frame(maxWidth: .infinity, alignment: .leading)
                     .onTapGesture {

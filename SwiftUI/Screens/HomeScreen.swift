@@ -20,15 +20,15 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
-            ShelfScreen()
-                .tag(HomeRoute.shelf)
-                .tabItem {
-                    Label("Modules", systemImage: "books.vertical")
-                }
             BookmarksScreen()
                 .tag(HomeRoute.bookmarks)
                 .tabItem {
                     Label("Bookmarks", systemImage: "bookmark")
+                }
+            ShelfScreen()
+                .tag(HomeRoute.shelf)
+                .tabItem {
+                    Label("Modules", systemImage: "books.vertical")
                 }
             OptionsScreen()
                 .tag(HomeRoute.options)

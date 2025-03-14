@@ -49,6 +49,7 @@ public struct BibleScreen: View {
                     Button(store.title) {
                         store.router.append(.books)
                     }
+                    .bold()
                 }
             }
             .navigationDestination(for: BibleRoute.self) { $0 }
