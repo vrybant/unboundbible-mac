@@ -13,7 +13,9 @@ struct HomeScreen: View {
             BibleScreen()
                 .tag(HomeRoute.bible)
                 .tabItem {
-                    Label("Bible", systemImage: "book")
+//                  Label("Bible", systemImage: "book")
+                    Image(systemName: "book")
+                    Text("Bible")
                 }
             SearchScreen()
                 .tag(HomeRoute.search)
@@ -30,12 +32,17 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Modules", systemImage: "books.vertical")
                 }
-            OptionsScreen()
-                .tag(HomeRoute.options)
-                .tabItem {
-                    Label("Options", systemImage: "gear")
-                }
+            
+            if UIDevice.current.userInterfaceIdiom == .phone {
+                OptionsScreen()
+                    .tag(HomeRoute.options)
+                    .tabItem {
+                        Label("Options", systemImage: "gear")
+                    }
+            }
+            
         }
+        .accentColor(Color("brandPrimary"))
     }
 }
 
