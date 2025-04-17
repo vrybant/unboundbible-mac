@@ -6,7 +6,7 @@
 var tools = Tools.shared
 var currBible : Bible!
 
-class Tools {
+final class Tools {
     static let shared = Tools()
     
     var bibles = [Bible](true)
