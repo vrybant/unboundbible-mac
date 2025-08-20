@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22155"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="23727"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -458,7 +459,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-                        <toolbar key="toolbar" implicitIdentifier="DE7679E1-5C22-4BF6-A118-8237A9B03BF8" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="L2m-g2-jxe">
+                        <toolbar key="toolbar" implicitIdentifier="DE7679E1-5C22-4BF6-A118-8237A9B03BF8" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="L2m-g2-jxe">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="915EF61D-7D80-4B52-B8A6-1E66A13D0540" label="" paletteLabel="" image="NSBookmarksTemplate" sizingBehavior="auto" id="27b-dy-bLb">
                                     <nil key="toolTip"/>
@@ -493,7 +494,7 @@
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="100" height="22"/>
                                     <size key="maxSize" width="180" height="32"/>
-                                    <searchField key="view" wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="n2B-PU-L83">
+                                    <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="YES" id="n2B-PU-L83">
                                         <rect key="frame" x="0.0" y="14" width="180" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                         <searchFieldCell key="cell" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" id="CBo-JE-JPt">
@@ -575,7 +576,7 @@
                                     <segue destination="BCt-5G-3Bm" kind="embed" id="kYT-sn-CgX"/>
                                 </connections>
                             </containerView>
-                            <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sSq-Hi-Axe">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sSq-Hi-Axe">
                                 <rect key="frame" x="8" y="0.0" width="4" height="17"/>
                                 <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="UZk-1v-GWE">
                                     <font key="font" metaFont="message" size="11"/>
@@ -635,18 +636,18 @@
         <scene sceneID="v9Q-6T-5b8">
             <objects>
                 <viewController id="veV-6G-nPF" customClass="LeftView" customModule="Unbound_Bible" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="asP-6E-CbQ">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="425"/>
+                    <view key="view" misplaced="YES" id="asP-6E-CbQ">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="424"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-ew-aFV">
-                                <rect key="frame" x="189" y="10" width="55" height="380"/>
+                                <rect key="frame" x="189" y="10" width="55" height="374"/>
                                 <clipView key="contentView" ambiguous="YES" id="jGA-H2-ssv">
-                                    <rect key="frame" x="1" y="1" width="53" height="378"/>
+                                    <rect key="frame" x="1" y="1" width="53" height="372"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" ambiguous="YES" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="CN0-cZ-GFd">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="378"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="372"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -668,7 +669,7 @@
                                                             <rect key="frame" x="1" y="1" width="125" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-fY-9Sp">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AHp-fY-9Sp">
                                                                     <rect key="frame" x="0.0" y="1" width="125" height="16"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" id="hdz-Zc-Ea2">
                                                                         <font key="font" metaFont="system"/>
@@ -706,23 +707,23 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="0r3-JL-sfA"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="5xk-gW-SrH">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="5xk-gW-SrH">
                                     <rect key="frame" x="-100" y="-100" width="104" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="aSi-6J-gc6">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="aSi-6J-gc6">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rg-jB-Qgd">
-                                <rect key="frame" x="7" y="10" width="175" height="381"/>
+                                <rect key="frame" x="7" y="10" width="175" height="375"/>
                                 <clipView key="contentView" id="tuV-5u-eRZ">
-                                    <rect key="frame" x="1" y="1" width="173" height="379"/>
+                                    <rect key="frame" x="1" y="1" width="173" height="373"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="wp9-kU-pHM">
-                                            <rect key="frame" x="0.0" y="0.0" width="173" height="379"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="173" height="373"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -744,7 +745,7 @@
                                                             <rect key="frame" x="1" y="1" width="141" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <textField focusRingType="none" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mgi-PN-XKz">
                                                                     <rect key="frame" x="0.0" y="0.0" width="141" height="17"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" baseWritingDirection="leftToRight" id="Drs-Nf-FIx">
@@ -778,20 +779,20 @@
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="CdP-Lt-Sf7"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="vUX-OK-8Zh">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="vUX-OK-8Zh">
                                     <rect key="frame" x="-100" y="-100" width="0.0" height="15"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="RVp-uN-YxA">
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="RVp-uN-YxA">
                                     <rect key="frame" x="224" y="17" width="15" height="102"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wYp-2A-PbE">
-                                <rect key="frame" x="4" y="395" width="244" height="25"/>
+                                <rect key="frame" x="4" y="389" width="244" height="25"/>
                                 <popUpButtonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="lv5-Bx-I53" id="emH-PB-qop">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="menu"/>
+                                    <font key="font" metaFont="message"/>
                                     <menu key="menu" id="PWf-6q-HYe">
                                         <items>
                                             <menuItem state="on" id="lv5-Bx-I53"/>
@@ -878,11 +879,11 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="FLv-AR-wz4"/>
                                                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="PbH-Dp-No1"/>
                                                     </constraints>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="dnY-lD-CgE">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="dnY-lD-CgE">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1UZ-2w-Pgf">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1UZ-2w-Pgf">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -918,11 +919,11 @@
                                                             </textView>
                                                         </subviews>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="SlV-ih-q4x">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="SlV-ih-q4x">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vPj-Q9-juv">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="vPj-Q9-juv">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -958,11 +959,11 @@
                                                             </textView>
                                                         </subviews>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="j9Q-Q2-vPc">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="j9Q-Q2-vPc">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LIb-g5-jEQ">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="LIb-g5-jEQ">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -998,11 +999,11 @@
                                                             </textView>
                                                         </subviews>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="MHh-t9-t5u">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="MHh-t9-t5u">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="heq-BC-sH9">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="heq-BC-sH9">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -1038,11 +1039,11 @@
                                                             </textView>
                                                         </subviews>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="4Io-SW-1bn">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="4Io-SW-1bn">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1TK-jC-1H4">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="1TK-jC-1H4">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -1078,11 +1079,11 @@
                                                             </textView>
                                                         </subviews>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="JcB-3d-so2">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="JcB-3d-so2">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Fco-x5-yaH">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Fco-x5-yaH">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -1118,11 +1119,11 @@
                                                             </textView>
                                                         </subviews>
                                                     </clipView>
-                                                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="ho6-7w-6d0">
+                                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="ho6-7w-6d0">
                                                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
-                                                    <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Zcp-DN-7bx">
+                                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Zcp-DN-7bx">
                                                         <rect key="frame" x="614" y="1" width="15" height="390"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
@@ -1246,7 +1247,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="NSBookmarksTemplate" width="22" height="17"/>
+        <image name="NSBookmarksTemplate" width="22" height="18"/>
         <image name="NSSmartBadgeTemplate" width="14" height="14"/>
         <image name="copy" width="16" height="16"/>
     </resources>
