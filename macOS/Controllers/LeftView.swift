@@ -2,7 +2,7 @@
 //  LeftViewController.swift
 //  Unbound Bible
 //
-//  Copyright © 2021 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant. All rights reserved.
 //
 
 import Cocoa
