@@ -17,7 +17,10 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-//        searchField.widthAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+        
+        if #unavailable(macOS 26.0) {
+            searchField.widthAnchor.constraint(lessThanOrEqualToConstant: 200).isActive = true
+        }
         self.windowFrameAutosaveName = "AutosaveWindows"
         if !launchedBefore() { setDefaultFrame() }
 //      DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(1)) { alertUpdate() }
