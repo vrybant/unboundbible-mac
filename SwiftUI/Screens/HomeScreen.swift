@@ -13,7 +13,6 @@ struct HomeScreen: View {
             BibleScreen()
                 .tag(HomeRoute.bible)
                 .tabItem {
-//                  Label("Bible", systemImage: "book")
                     Image(systemName: "book")
                     Text("Bible")
                 }
@@ -33,6 +32,7 @@ struct HomeScreen: View {
                     Label("Modules", systemImage: "books.vertical")
                 }
             
+            #if canImport(UIKit)
             if UIDevice.current.userInterfaceIdiom == .phone {
                 OptionsScreen()
                     .tag(HomeRoute.options)
@@ -40,7 +40,7 @@ struct HomeScreen: View {
                         Label("Options", systemImage: "gear")
                     }
             }
-            
+            #endif
         }
         .accentColor(Color("brandPrimary"))
     }
