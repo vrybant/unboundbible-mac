@@ -6,7 +6,7 @@
 import Foundation
 
 #if COCOA
-    import Cocoa
+    import AppKit
     typealias Color = NSColor
     typealias Font = NSFont
 #else
@@ -127,13 +127,20 @@ func contentsOfDirectory(url: URL) -> [String]? {
     return !result.isEmpty ? result : nil
 }
 
-#if COCOA
-func copyToPasteboard(content: NSAttributedString) {
-    let Pasteboard = NSPasteboard.general
-    Pasteboard.clearContents()
-    Pasteboard.writeObjects([content])
+func copyToPasteboard(_ attrString: NSAttributedString) {
+    #if COCOA
+    let pasteboard = NSPasteboard.general
+    pasteboard.clearContents()
+    pasteboard.writeObjects([attrString])
+    #else
+    UIPasteboard.general.items = [
+        [UTType.rtf.identifier: try! attrString.data(
+            from: NSRange(location: 0, length: attrString.length),
+            documentAttributes: [.documentType: NSAttributedString.DocumentType.rtf]
+        )]
+    ]
+    #endif
 }
-#endif
 
 func getRightToLeft(language: String) -> Bool {
     language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")

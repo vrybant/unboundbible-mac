@@ -69,7 +69,7 @@ class WinController: NSWindowController, NSSearchFieldDelegate {
     
     @IBAction func copyAction(_ sender: NSButton) {
         let verses = tools.get_Verses(options: copyOptions)
-        copyToPasteboard(content: parse(verses))
+        copyToPasteboard(parse(verses))
     }
 
     @IBAction func searchFieldAction(_ sender: NSSearchField) {
