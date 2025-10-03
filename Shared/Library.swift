@@ -11,6 +11,7 @@ import Foundation
     typealias Font = NSFont
 #else
     import SwiftUI
+    import UniformTypeIdentifiers          
 #endif
 
 var darkAppearance: Bool = false
@@ -170,3 +171,4 @@ func copyDefaultsFiles() {
     }
 }
 #endif
+

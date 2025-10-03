@@ -28,9 +28,15 @@ public struct BibleScreen: View {
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {
                         Button("Копировать") {
+                            print("coping...")
+                            print(store.title)
+                                                       
+                            copyToPasteboard(NSAttributedString(attrString))
+                            
                             selection = nil
                         }
                         Button("Сравнить") {
+                            print("compare...")
                             selection = nil
                         }
                         Button("Закладка") {
