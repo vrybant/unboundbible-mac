@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import UniformTypeIdentifiers
 
 var mainView = MainView()
 
@@ -154,7 +155,7 @@ class MainView: NSViewController, NSWindowDelegate {
         dialog.canChooseDirectories    = true
         dialog.canCreateDirectories    = false
         dialog.allowsMultipleSelection = false
-        dialog.allowedFileTypes        = ["rtf"]
+        dialog.allowedContentTypes     = [.rtf]
         
         if dialog.runModal() == .OK {
             if mainView.closeDocument() {
@@ -171,7 +172,8 @@ class MainView: NSViewController, NSWindowDelegate {
         dialog.showsResizeIndicator = true
         dialog.showsHiddenFiles     = false
         dialog.canCreateDirectories = true
-        dialog.allowedFileTypes     = ["rtf"]
+        dialog.allowedContentTypes  = [.rtf]
+        
         if dialog.runModal() == .OK {
             saveDocument(url: dialog.url)
         }
@@ -210,4 +212,3 @@ class MainView: NSViewController, NSWindowDelegate {
     }
     
 }
-
