@@ -143,6 +143,12 @@ func copyToPasteboard(_ attrString: NSAttributedString) {
     #endif
 }
 
+#if !COCOA
+func copyToPasteboard(_ attrString: AttributedString) {
+    copyToPasteboard(NSAttributedString(attrString))
+}
+#endif
+
 func getRightToLeft(language: String) -> Bool {
     language.hasPrefix("he") || language.hasPrefix("ara") || language.hasPrefix("fa")
 }

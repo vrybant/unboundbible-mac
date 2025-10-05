@@ -30,8 +30,9 @@ public struct BibleScreen: View {
                         Button("Копировать") {
                             print("coping...")
                             print(store.title)
-                                                       
-                            copyToPasteboard(NSAttributedString(attrString))
+                            
+                            print(attrString)
+                            copyToPasteboard(attrString)
                             
                             selection = nil
                         }
