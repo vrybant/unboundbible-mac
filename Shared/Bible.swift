@@ -15,8 +15,6 @@ struct Verse {
     var count   = 1
 }
 
-var currVerse = Verse()
-
 struct Book {
     var title   : String
     var abbr    : String
