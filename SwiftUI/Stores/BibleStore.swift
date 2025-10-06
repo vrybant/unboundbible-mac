@@ -1,34 +1,36 @@
 //
 //  Unbound Bible
-//  Copyright © Vladimir Rybant.
+//  Copyright © Vladimir Rybant
 //
 
 import Foundation
 
-@Observable class BibleStore {
+@Observable
+class BibleStore {
     static let shared = BibleStore()
 
-    var book = 1
-    var chapter = 1
-    var content: [IdentifiableString]
+    var verse = currVerse
     var router: [BibleRoute] = []
-
+    
     private init() {
-        content = tools.get_Chapter(book: 1, chapter: 1).identifiable
+//      verse.number = 0
     }
 
+    var content: [IdentifiableString] {
+        tools.get_Chapter(book: verse.book, chapter: verse.chapter).identifiable
+    }
+    
     var title: String {
-        let verse = Verse(book: book, chapter: chapter, count: 1)
-        return currBible.verseToString(verse, cutted: true) ?? ""
+        currBible.verseToString(verse, cutted: true) ?? ""
     }
     
     func update(book: Int, chapter: Int) {
-        self.book = book
-        self.chapter = chapter
-        refresh()
+        currVerse.book = book
+        currVerse.chapter = chapter
+        verse = currVerse
     }
 
     func refresh() {
-        content = tools.get_Chapter(book: book, chapter: chapter).identifiable
+        verse = currVerse
     }
 }
