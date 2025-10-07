@@ -5,20 +5,14 @@
 
 import Foundation
 
-@Observable class SearchStore {
-    static let shared = SearchStore()
-    var searchText = ""
-    var content: [SearchItem] = []
+@Observable class SearchModel {
 
-    private init() {}
+    @ObservationIgnored var searchText = ""
+    var content: [SearchItem] = []
 
     func update(text: String) {
         searchText = text
-        update()
+        content = searchText.isEmpty ? [] : tools.get_Search(string: searchText)
     }
 
-    func update() {
-        content = tools.get_Search(string: searchText)
-    }
-    
 }

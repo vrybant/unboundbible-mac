@@ -6,10 +6,10 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @State var store = HomeStore.shared
+    @State var model = HomeModel.shared
     
     var body: some View {
-        TabView(selection: $store.selection) {
+        TabView(selection: $model.selection) {
             BibleScreen()
                 .tag(HomeRoute.bible)
                 .tabItem {

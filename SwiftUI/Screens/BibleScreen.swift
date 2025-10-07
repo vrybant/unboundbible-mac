@@ -6,13 +6,13 @@
 import SwiftUI
 
 public struct BibleScreen: View {
-    @State var store = BibleStore.shared
+    @State var model = BibleModel.shared
     @State var showDialog = false
     @State var selection: UUID? = nil
 
     public var body: some View {
-        NavigationStack(path: $store.router) {
-            List(store.content, selection: $selection) { item in
+        NavigationStack(path: $model.router) {
+            List(model.content, selection: $selection) { item in
                 let attrString = parse(item.string)
                 let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
                 Text(attrString)
@@ -29,7 +29,7 @@ public struct BibleScreen: View {
                     .confirmationDialog("Change background", isPresented: $showDialog) {
                         Button("Копировать") {
                             print("coping...")
-                            print(store.title)
+                            print(model.title)
                             
                             print(attrString)
                             copyToPasteboard(attrString)
@@ -47,14 +47,14 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                     } message: {
-                        Text(store.title) // verse number
+                        Text(model.title) // verse number
                     }
             }
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Button(store.title) {
-                        store.router.append(.books)
+                    Button(model.title) {
+                        model.router.append(.books)
                     }
                     .bold()
                 }

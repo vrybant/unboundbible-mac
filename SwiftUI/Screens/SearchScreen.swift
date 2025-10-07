@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct SearchScreen: View {
-    @State var store = SearchStore.shared
+    @State var model = SearchModel()
     @State var selection: UUID? = nil
-    let content = SearchStore.shared.content
 
     func onTap(_ item: SearchItem) {
         if let verse = currBible.stringToVerse(link: item.link) {
             if currBible.goodLink(verse) {
 //              currVerse = verse
-                BibleStore.shared.update(book: verse.book, chapter: verse.chapter)
-                BibleStore.shared.router.removeAll()
-                HomeStore.shared.selection = .bible
+                BibleModel.shared.update(book: verse.book, chapter: verse.chapter)
+                BibleModel.shared.router.removeAll()
+                HomeModel.shared.selection = .bible
             }
         }
 
@@ -27,6 +26,7 @@ struct SearchScreen: View {
     var body: some View {
         VStack {
             NavigationStack {
+                let content = model.content
                 List(content, selection: $selection) { item in
                     let attrString = parse(item.text)
                     VStack(alignment: .leading) {
@@ -45,9 +45,9 @@ struct SearchScreen: View {
                 .navigationTitle("Search")
                 .safeNavigationBarTitleDisplayMode(.inline)
             }
-            .searchable(text: $store.searchText, prompt: "Search text")
+            .searchable(text: $model.searchText, prompt: "Search text")
             .onSubmit(of: .search) {
-                store.update(text: store.searchText)
+                model.update(text: model.searchText)
             }
         }
     }

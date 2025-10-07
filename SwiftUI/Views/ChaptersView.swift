@@ -21,8 +21,8 @@ struct ChaptersView: View {
 
     func onTap(_ chapter: Int) {
         selection = chapter
-        BibleStore.shared.update(book: book!, chapter: chapter)
-        BibleStore.shared.router.removeAll()
+        BibleModel.shared.update(book: book!, chapter: chapter)
+        BibleModel.shared.router.removeAll()
     }
     
     var body: some View {

@@ -6,8 +6,8 @@
 import Foundation
 
 @Observable
-class BibleStore {
-    static let shared = BibleStore()
+class BibleModel {
+    static let shared = BibleModel()
 
     var verse = currVerse
     var router: [BibleRoute] = []

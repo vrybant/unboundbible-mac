@@ -5,8 +5,8 @@
 
 import Foundation
 
-@Observable class ShelfStore {
-    static let shared = ShelfStore()
+@Observable class ShelfModel {
+    static let shared = ShelfModel()
     
     var content = tools.get_Shelf().identifiable
 
@@ -15,7 +15,7 @@ import Foundation
     func update(bible: String) {
         tools.setCurrBible(bible)
         content = tools.get_Shelf().identifiable
-        BibleStore.shared.refresh()
+        BibleModel.shared.refresh()
     }
     
     func isCurrent(name: String) -> Bool {

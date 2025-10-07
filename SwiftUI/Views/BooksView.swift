@@ -22,12 +22,12 @@ struct BooksView: View {
                         selection = item
                         selected = selection
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                            BibleStore.shared.router.append(.chapters(selection!))
+                            BibleModel.shared.router.append(.chapters(selection!))
                         }
                     }
 //                    .onLongPressGesture {
 //                        selection = item.id
-//                        BibleStore.shared.router.append(.chapters(item.))
+//                        BibleModel.shared.router.append(.chapters(item.))
 //                    }
                     .onChange(of: selection) {
 //                        print("List changed. Selected item is: \(selection ?? "None")")

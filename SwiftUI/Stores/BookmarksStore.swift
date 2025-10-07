@@ -5,8 +5,8 @@
 
 import Foundation
 
-@Observable class BookmarksStore {
-    static let shared = BookmarksStore()
+@Observable class BookmarksModel {
+    static let shared = BookmarksModel()
 
     var content = ["1","2","3"].identifiable
 

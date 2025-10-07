@@ -8,8 +8,8 @@ import SwiftUI
 public struct ShelfScreen: View {
     @State var selection: UUID? = nil
     
-    var store = ShelfStore.shared
-    let content = ShelfStore.shared.content
+    var model = ShelfModel.shared
+    let content = ShelfModel.shared.content
     
     public var body: some View {
         NavigationStack {
@@ -20,12 +20,12 @@ public struct ShelfScreen: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Spacer()
                         Image(systemName: "checkmark")
-                            .opacity(store.isCurrent(name: item.string) ? 1.0 : 0.0)
+                            .opacity(model.isCurrent(name: item.string) ? 1.0 : 0.0)
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {
                         selection = item.id
-                        store.update(bible: item.string)
+                        model.update(bible: item.string)
                     }
                 }
                 .padding(.top, -20)
