@@ -15,7 +15,9 @@ func attrStringFromTags(_ string: String, tags: Set<String>, jtag: Bool=false, s
 
     let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
     if small { s.addAttribute(.font, value: smallFont) }
-
+    
+    if jtag && tags.contains("<J>") { s.addAttribute(.foregroundColor, value: Color.systemRed) }
+        
     if tags.contains("<m>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
     if tags.contains("<n>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
     if tags.contains("<v>") { s.addAttribute(.foregroundColor, value: Color.systemGray  ) }
@@ -25,10 +27,6 @@ func attrStringFromTags(_ string: String, tags: Set<String>, jtag: Bool=false, s
     if tags.contains("<f>") { s.addAttribute(.foregroundColor, value: Color.systemTeal  ) }
     if tags.contains("<l>") { s.addAttribute(.foregroundColor, value: Color.systemNavy  ) }
 
-    if jtag {
-        if tags.contains("<J>") { s.addAttribute(.foregroundColor, value: Color.systemRed) }
-    }
-    
     if tags.intersection(["<i>","<em>"]) != [] {
         s.addAttribute(.font, value: italicFont )
         s.addAttribute(.foregroundColor, value: Color.secondaryLabelColor)
