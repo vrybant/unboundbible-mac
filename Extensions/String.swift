@@ -171,15 +171,18 @@ extension Substring {
 struct IdentifiableString: Identifiable {
     var string: String
     let id = UUID()
+    var num = 0
 }
 
 extension Array where Element == String {
     
     var identifiable: [IdentifiableString] {
         var result: [IdentifiableString] = []
+        var num = 1
         for item in self {
-            let element = IdentifiableString(string: item)
+            let element = IdentifiableString(string: item, num: num)
             result.append(element)
+            num += 1
         }
         return result
     }
