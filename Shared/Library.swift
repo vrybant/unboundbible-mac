@@ -129,17 +129,21 @@ func contentsOfDirectory(url: URL) -> [String]? {
 }
 
 func copyToPasteboard(_ attrString: NSAttributedString) {
-    #if COCOA
-    let pasteboard = NSPasteboard.general
-    pasteboard.clearContents()
-    pasteboard.writeObjects([attrString])
+    #if os(macOS)
+        let pasteboard = NSPasteboard.general
+        pasteboard.clearContents()
+        pasteboard.writeObjects([attrString])
     #else
-    UIPasteboard.general.items = [
-        [UTType.rtf.identifier: try! attrString.data(
-            from: NSRange(location: 0, length: attrString.length),
-            documentAttributes: [.documentType: NSAttributedString.DocumentType.rtf]
-        )]
-    ]
+        UIPasteboard.general.items = [
+            [
+                UTType.rtf.identifier: try! attrString.data(
+                    from: NSRange(location: 0, length: attrString.length),
+                    documentAttributes: [
+                        .documentType: NSAttributedString.DocumentType.rtf
+                    ]
+                )
+            ]
+        ]
     #endif
 }
 
