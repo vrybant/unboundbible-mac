@@ -21,13 +21,17 @@ class BibleModel {
     }
     
     var title: String {
-        currBible.verseToString(verse, cutted: true) ?? ""
+        currBible.verseToString(verse) ?? ""
     }
     
-    func update(book: Int, chapter: Int) {
+    func update(book: Int, chapter: Int, number: Int = 1) {
         currVerse.book = book
         currVerse.chapter = chapter
+        currVerse.number = number
         verse = currVerse
+        
+        print("updated")
+        print(verse)
     }
 
     func refresh() {

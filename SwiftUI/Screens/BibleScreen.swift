@@ -24,16 +24,13 @@ public struct BibleScreen: View {
 //                  .background(.red)
                     .onTapGesture {
                         selection = item.id
+                        model.update(book: model.verse.book, chapter: model.verse.chapter, number: item.num)
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {
                         Button("Копировать") {
-                            print("coping...")
-                            print(model.title)
-                            
-                            print(attrString)
-                            copyToPasteboard(attrString)
-                            
+                            let verses = tools.get_Verses(options: copyOptions)
+                            copyToPasteboard(parse(verses))
                             selection = nil
                         }
                         Button("Сравнить") {
@@ -47,7 +44,7 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                     } message: {
-                        Text(model.title) // verse number
+                        Text(model.title)
                     }
             }
             .listStyle(.plain)
