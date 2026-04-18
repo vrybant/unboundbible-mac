@@ -200,7 +200,7 @@ final class Tools {
         
         return quote
     }
-    
+        
     func get_Modules() -> [Module] {
         var result : [Module] = []
         for bible      in bibles       { result.append(bible)      }
@@ -229,5 +229,8 @@ final class Tools {
     func get_Info(book: Int, chapter: Int) -> String {
         "Info \(book) \(chapter)"
     }
-    
+
+//
+
 }
+
