@@ -6,13 +6,14 @@
 import SwiftUI
 
 public struct BibleScreen: View {
-    @State var model = BibleModel.shared
+    @State var bibleModel = BibleModel.shared
+    @State var bookmarksModel = BookmarksModel.shared
     @State var showDialog = false
     @State var selection: UUID? = nil
 
     public var body: some View {
-        NavigationStack(path: $model.router) {
-            List(model.content, selection: $selection) { item in
+        NavigationStack(path: $bibleModel.router) {
+            List(bibleModel.content, selection: $selection) { item in
                 let attrString = parse(item.string)
                 let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
                 Text(attrString)
@@ -24,7 +25,7 @@ public struct BibleScreen: View {
 //                  .background(.red)
                     .onTapGesture {
                         selection = item.id
-                        model.update(book: model.verse.book, chapter: model.verse.chapter, number: item.num)
+                        bibleModel.update(book: bibleModel.verse.book, chapter: bibleModel.verse.chapter, number: item.num)
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {
@@ -38,20 +39,22 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                         Button("Закладка") {
+                            bookmarksModel.update(IdentifiableString(string: "***"))
+                            
                             selection = nil
                         }
                         Button("Отмена", role: .cancel) {
                             selection = nil
                         }
                     } message: {
-                        Text(model.title)
+                        Text(bibleModel.title)
                     }
             }
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Button(model.title) {
-                        model.router.append(.books)
+                    Button(bibleModel.title) {
+                        bibleModel.router.append(.books)
                     }
                     .bold()
                 }

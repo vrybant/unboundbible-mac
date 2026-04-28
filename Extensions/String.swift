@@ -167,7 +167,6 @@ extension Substring {
 
 }
 
-
 struct IdentifiableString: Identifiable {
     var string: String
     let id = UUID()

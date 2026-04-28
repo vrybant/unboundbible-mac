@@ -12,8 +12,9 @@ import Foundation
 
     private init() {}
 
-    func update() {
-        content = []
+    func update(_ bookmark: IdentifiableString) {
+//      content = []
+        content.append(bookmark)
     }
 
 }

@@ -6,11 +6,11 @@
 import SwiftUI
 
 struct BookmarksScreen: View {
-    var model = BookmarksModel.shared
+    var bookmarksModel = BookmarksModel.shared
         
     var body: some View {
         NavigationStack {
-            List(model.content) { item in
+            List(bookmarksModel.content) { item in
                 let attrString = parse(item.string)
                 Text(attrString)
             }
