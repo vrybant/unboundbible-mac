@@ -8,6 +8,14 @@
 import Foundation
 import GRDB
 
+struct RowData: Identifiable {
+    var book    = 0
+    var chapter = 0
+    var number  = 0
+    var text    = ""
+    let id = UUID()
+}
+
 struct Verse {
     var book    = 1
     var chapter = 1
@@ -176,8 +184,8 @@ class Bible: Module {
         return nil
     }
 
-    func getChapter(book: Int, chapter: Int) -> [String]? {
-        var result = [String]()
+    func getChapter(book: Int, chapter: Int) -> [RowData] {
+        var result = [RowData]()
         let id = encodeID(book)
         let nt = Module.isNewTestament(book)
         let query = "SELECT * FROM \(z.bible) WHERE \(z.book) = \(id) AND \(z.chapter) = \(chapter)"
@@ -186,12 +194,14 @@ class Bible: Module {
             let rows = try Row.fetchCursor(db, sql: query)
             while let row = try rows.next() {
                 guard let line = row[z.text] as String? else { break }
+                let number  = row[z.verse  ] as Int? ?? 0
                 let text = prepare(line, format: format, nt: nt, purge: false)
-                result.append(text)
+                let rowData = RowData(book: book, chapter: chapter, number: number, text: text)
+                result.append(rowData)
             }
         }
         
-        return result.isEmpty ? nil : result
+        return result
     }
     
     func getRange(_ verse: Verse, raw: Bool = false, purge: Bool = true) -> [String]? {
@@ -397,4 +407,16 @@ extension Array where Element == Bible {
         item.delete()
         self.removeAll(where: { $0 === item })
     }
+}
+
+extension Array where Element == RowData {
+    
+    var content: [String] {
+        var result = [String]()
+        for item in self {
+            result.append(item.text)
+        }
+        return result
+    }
+    
 }

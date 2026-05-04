@@ -6,15 +6,16 @@
 import SwiftUI
 
 public struct BibleScreen: View {
+    @State private var navigationPath: [BibleRoute] = []
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
     @State var showDialog = false
     @State var selection: UUID? = nil
 
     public var body: some View {
-        NavigationStack(path: $bibleModel.router) {
-            List(bibleModel.content, selection: $selection) { item in
-                let attrString = parse(item.string)
+        NavigationStack(path: $navigationPath) {
+            List(bibleModel.content, id: \.id, selection: $selection) { item in
+                let attrString = parse(item.text)
                 let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
                 Text(attrString)
                     .listRowInsets(edgeInsets)
@@ -25,7 +26,7 @@ public struct BibleScreen: View {
 //                  .background(.red)
                     .onTapGesture {
                         selection = item.id
-                        bibleModel.update(book: bibleModel.verse.book, chapter: bibleModel.verse.chapter, number: item.num)
+                        bibleModel.update(number: item.number)
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {

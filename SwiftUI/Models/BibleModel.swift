@@ -11,19 +11,25 @@ class BibleModel {
 
     var verse = currVerse
     var router: [BibleRoute] = []
-    
-    private init() {
-//      verse.number = 0
+
+    private init() {}
+
+    var content: [RowData] {
+        tools.get_Chapter(book: verse.book, chapter: verse.chapter)
     }
 
-    var content: [IdentifiableString] {
-        tools.get_Chapter(book: verse.book, chapter: verse.chapter).identifiable
-    }
-    
     var title: String {
         currBible.verseToString(verse) ?? ""
     }
     
+    func update(number: Int = 1) {
+        currVerse.number = number
+        verse = currVerse
+        
+        print("updated")
+        print(verse)
+    }
+
     func update(book: Int, chapter: Int, number: Int = 1) {
         currVerse.book = book
         currVerse.chapter = chapter
@@ -33,7 +39,7 @@ class BibleModel {
         print("updated")
         print(verse)
     }
-
+    
     func refresh() {
         verse = currVerse
     }
