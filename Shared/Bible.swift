@@ -8,14 +8,6 @@
 import Foundation
 import GRDB
 
-struct RowData: Identifiable {
-    var book    = 0
-    var chapter = 0
-    var number  = 0
-    var text    = ""
-    let id = UUID()
-}
-
 struct Verse {
     var book    = 1
     var chapter = 1
@@ -29,6 +21,14 @@ struct Book {
     var number  : Int
     var id      : Int
 //  var sorting : Int
+}
+
+struct RowData: Identifiable {
+    var book    = 0
+    var chapter = 0
+    var number  = 0
+    var text    = ""
+    let id = UUID()
 }
 
 private protocol BibleAlias {
@@ -411,7 +411,7 @@ extension Array where Element == Bible {
 
 extension Array where Element == RowData {
     
-    var content: [String] {
+    var text: [String] {
         var result = [String]()
         for item in self {
             result.append(item.text)
