@@ -15,7 +15,7 @@ class BibleModel {
     private init() {}
 
     var content: [RowData] {
-        tools.get_Chapter(book: verse.book, chapter: verse.chapter)
+        currBible.getChapter(book: verse.book, chapter: verse.chapter)
     }
 
     var title: String {

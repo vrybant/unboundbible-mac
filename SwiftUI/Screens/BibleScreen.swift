@@ -40,8 +40,8 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                         Button("Закладка") {
-                            let bookmark = IdentifiableString(string: bibleModel.title)
-                            bookmarksModel.update(bookmark)
+//                          let bookmark = IdentifiableString(string: bibleModel.title)
+                            bookmarksModel.update(item)
                             
                             selection = nil
                         }

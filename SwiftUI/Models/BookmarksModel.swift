@@ -8,12 +8,11 @@ import Foundation
 @Observable class BookmarksModel {
     static let shared = BookmarksModel()
 
-    var content = [].identifiable
+    var content = [RowData]()
 
     private init() {}
 
-    func update(_ bookmark: IdentifiableString) {
-//      content = []
+    func update(_ bookmark: RowData) {
         content.append(bookmark)
     }
 

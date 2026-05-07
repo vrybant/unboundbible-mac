@@ -57,6 +57,7 @@
 		E7B185462A42EB3300F8A723 /* ChaptersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B185452A42EB3300F8A723 /* ChaptersView.swift */; };
 		E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */; };
 		E7B7CB6621D66EB600BC292F /* Module.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B7CB6521D66EB600BC292F /* Module.swift */; };
+		E7B82C9D2FAC815C00177292 /* ToolsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B82C9C2FAC815200177292 /* ToolsExt.swift */; };
 		E7C21903201522F300E90AC6 /* NotesText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7C21902201522F300E90AC6 /* NotesText.swift */; };
 		E7C8238E202B07EC00287173 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82390202B07EC00287173 /* InfoPlist.strings */; };
 		E7C82393202B07ED00287173 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E7C82395202B07ED00287173 /* Localizable.strings */; };
@@ -158,6 +159,7 @@
 		E7B185452A42EB3300F8A723 /* ChaptersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaptersView.swift; sourceTree = "<group>"; };
 		E7B54D3521D28FF2003ED5C5 /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		E7B7CB6521D66EB600BC292F /* Module.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Module.swift; sourceTree = "<group>"; };
+		E7B82C9C2FAC815200177292 /* ToolsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsExt.swift; sourceTree = "<group>"; };
 		E7B8B601204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		E7B8B602204EFF6300493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E7B8B603204EFF6400493978 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 		E7D005AD29FFAB3700F0B19A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E7B82C9C2FAC815200177292 /* ToolsExt.swift */,
 				E7A8917B20152879008A7695 /* СustomText.swift */,
 				E73BF4631EF8548C0028FB62 /* BibleText.swift */,
 				E7A8917D20152893008A7695 /* CommonText.swift */,
@@ -569,6 +572,7 @@
 				E7C21903201522F300E90AC6 /* NotesText.swift in Sources */,
 				E73BF4641EF8548C0028FB62 /* BibleText.swift in Sources */,
 				E7B54D3621D28FF2003ED5C5 /* PopoverView.swift in Sources */,
+				E7B82C9D2FAC815C00177292 /* ToolsExt.swift in Sources */,
 				E7B7CB6621D66EB600BC292F /* Module.swift in Sources */,
 				E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */,
 				E7FABB9D21D938F7006B6267 /* Dictionary.swift in Sources */,
