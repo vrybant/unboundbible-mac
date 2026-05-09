@@ -5,8 +5,8 @@
 
 extension Tools {
     
-    func get_Chapter(book: Int, chapter: Int) -> [String] {
-        var result = [String]()
+    func get_Chapter(book: Int, chapter: Int) -> String {
+        var result = String()
         let rowData = currBible.getChapter(book: book, chapter: chapter)
 
         for item in rowData {
