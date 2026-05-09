@@ -17,8 +17,8 @@ extension Tools {
         return result
     }
 
-    func get_SearchList(string: String) -> [String] {
-        var result = [String]()
+    func get_SearchList(string: String) -> (string: String, count: Int) {
+        var result = String()
         let list = tools.get_Search(string: string)
         
         for item in list {
@@ -26,7 +26,7 @@ extension Tools {
             result.append(string)
         }
         
-        return result
+        return (result, list.count)
     }
 
 }

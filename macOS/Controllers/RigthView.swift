@@ -130,10 +130,11 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         
     func loadSearch(text: String) {
         if text.count < 2 { return }
-        let list = tools.get_SearchList(string: text)
-        var string = list.joined()
+        
+        let searchResult = tools.get_SearchList(string: text)
+        var string = searchResult.string
 
-        if list.isEmpty {
+        if searchResult.count == 0 {
             let message = LocalizedString("You search for % produced no results.")
             string = "\(message.replace("%", with: text.quoted))"
         }
@@ -143,7 +144,7 @@ class RigthView: NSViewController, NSTextViewDelegate, NSTabViewDelegate {
         selectTab("search")
         
         let status = LocalizedString("verses was found")
-        mainView.updateStatus("\(list.count) \(status)")
+        mainView.updateStatus("\(searchResult.count) \(status)")
     }
  
     func loadCompare() {
