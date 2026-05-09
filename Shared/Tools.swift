@@ -46,15 +46,10 @@ final class Tools {
         let searchResult = currBible.search(string: target, options: searchOption, range: range)
         for item in searchResult {
             let verse = item.verse
-            guard var link = currBible.verseToString(verse) else { continue }
+            guard let link = currBible.verseToString(verse) else { continue }
             var text = item.text
             text = text.highlight(with: "<r>", target: searchList, options: searchOption)
-            
-            #if COCOA
-                link = "<l>\(link)</l>"
-                text = "\(text)\n\n"
-            #endif
-            
+                     
             let searchItem = SearchItem(link: link, text: text)
             result.append(searchItem)
         }
@@ -62,19 +57,6 @@ final class Tools {
         return result
     }
     
-    #if COCOA
-    func get_SearchList(string: String) -> [String] {
-        var result = [String]()
-        let list = tools.get_Search(string: string)
-        
-        for item in list {
-            let string = item.link + " " + item.text
-            result.append(string)
-        }
-        return result
-    }
-    #endif
-
     func get_Compare() -> [String] {
         var result = [String]()
         
