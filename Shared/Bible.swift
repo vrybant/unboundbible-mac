@@ -18,14 +18,13 @@ struct Book {
     var abbr    : String
     var number  : Int
     var id      : Int
-//  var sorting : Int
 }
 
 struct RowData: Identifiable {
-    var book    = 0
-    var chapter = 0
-    var number  = 0
-    var text    = ""
+    var book    : Int
+    var chapter : Int
+    var number  : Int
+    var text    : String
     let id = UUID()
     
     var verse: Verse {

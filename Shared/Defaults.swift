@@ -15,7 +15,6 @@ var applicationUpdate = false
 let bibleDirectory = "bibles"
 
 #if COCOA
-    let cocoaApp = true
     let defaultFontSize = CGFloat(14)
     var defaultFontName = "HelveticaNeue"
     var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
