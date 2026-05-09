@@ -22,8 +22,6 @@ let bibleDirectory = "bibles"
     var defaultAttributes: [NSAttributedString.Key : Any] {
         [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
     }
-#else
-    let cocoaApp = false
 #endif
 
 var recentList : [URL] = []

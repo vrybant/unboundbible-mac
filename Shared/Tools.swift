@@ -50,10 +50,10 @@ final class Tools {
             var text = item.text
             text = text.highlight(with: "<r>", target: searchList, options: searchOption)
             
-            if cocoaApp {
+            #if COCOA
                 link = "<l>\(link)</l>"
                 text = "\(text)\n\n"
-            }
+            #endif
             
             let searchItem = SearchItem(link: link, text: text)
             result.append(searchItem)
