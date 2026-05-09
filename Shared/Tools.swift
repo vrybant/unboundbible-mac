@@ -36,38 +36,29 @@ final class Tools {
             currVerse = currBible.firstVerse
         }
     }
-    
-    func arrayToVerse(_ array: [String]) -> Verse? {
-        var result = Verse()
-        if array.count < 3 { return nil }
-        result.book    = Int(array[0]) ?? 0
-        result.chapter = Int(array[1]) ?? 0
-        result.number  = Int(array[2]) ?? 0
-        return result
-    }
-    
+
     func get_Search(string: String) -> [SearchItem] {
         var result = [SearchItem]()
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
         let range = currentSearchRange(range: rangeOption)
         
-        if let searchResult = currBible.search(string: target, options: searchOption, range: range) {
-            for item in searchResult {
-                let array = item.components(separatedBy: "\0")
-                if array.count < 4 { continue }
-                guard let verse = arrayToVerse(array) else { continue }
-                guard var link = currBible.verseToString(verse) else { continue }
-                var text = array[3]
-                text = text.highlight(with: "<r>", target: searchList, options: searchOption)
-                if cocoaApp {
-                    link = "<l>\(link)</l>"
-                    text = "\(text)\n\n"
-                }
-                let searchItem = SearchItem(link: link, text: text)
-                result.append(searchItem)
+        let searchResult = currBible.search(string: target, options: searchOption, range: range)
+        for item in searchResult {
+            let verse = item.verse
+            guard var link = currBible.verseToString(verse) else { continue }
+            var text = item.text
+            text = text.highlight(with: "<r>", target: searchList, options: searchOption)
+            
+            if cocoaApp {
+                link = "<l>\(link)</l>"
+                text = "\(text)\n\n"
             }
+            
+            let searchItem = SearchItem(link: link, text: text)
+            result.append(searchItem)
         }
+        
         return result
     }
     

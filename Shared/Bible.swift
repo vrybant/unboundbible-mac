@@ -29,6 +29,10 @@ struct RowData: Identifiable {
     var number  = 0
     var text    = ""
     let id = UUID()
+    
+    var verse: Verse {
+        Verse(book: book, chapter: chapter, number: number, count: 1)
+    }
 }
 
 private protocol BibleAlias {
@@ -194,7 +198,7 @@ class Bible: Module {
             let rows = try Row.fetchCursor(db, sql: query)
             while let row = try rows.next() {
                 guard let line = row[z.text] as String? else { break }
-                let number  = row[z.verse  ] as Int? ?? 0
+                let number  = row[z.verse] as Int? ?? 0
                 let text = prepare(line, format: format, nt: nt, purge: false)
                 let rowData = RowData(book: book, chapter: chapter, number: number, text: text)
                 result.append(rowData)
@@ -238,20 +242,19 @@ class Bible: Module {
         return list.joined(separator: "\n")
     }
     
-    func sortContent(_ list: [String]) -> [String] {
-        var result = [String]()
+    private func sortSearchContent(_ rowData: [RowData]) -> [RowData] {
+        var result = [RowData]()
         for book in books {
-            let prefix = String(book.number) + "\0"
-            for s in list {
-                if s.hasPrefix(prefix) {
-                    result.append(s)
+            for item in rowData {
+                if item.book == book.number {
+                    result.append(item)
                 }
             }
         }
         return result
     }
     
-    func search(string: String, options: SearchOption, range: SearchRange?) -> [String]? {
+    func search(string: String, options: SearchOption, range: SearchRange?) -> [RowData] {
         let list = string.components(separatedBy: CharacterSet.whitespaces).filter { !$0.isEmpty }
         var string = options.contains(.caseSensitive) ? string : string.lowercased().removeLeadingChars
         string = string.replace(" ", with: "%")
@@ -260,7 +263,7 @@ class Bible: Module {
         let query = "SELECT * FROM \(z.bible) WHERE \(z.text) LIKE \'%\(string)%\'" + queryRange
 
         setCaseSensitiveLike(options.contains(.caseSensitive))
-        var result = [String]()
+        var result = [RowData]()
         
         try? database!.read { db in
             let rows = try Row.fetchCursor(db, sql: query)
@@ -272,14 +275,17 @@ class Bible: Module {
                 
                 let book = decodeID(id)
                 let nt = Module.isNewTestament(book)
-                var text = prepare(data, format: format, nt: nt)
-                let s = "\(book)\0\(chapter)\0\(number)\0\(text)"
+                let text = prepare(data, format: format, nt: nt)
+                let test = text.replace("<S>", with: " ").removeTags
                 
-                text = text.replace("<S>", with: " ").removeTags
-                if text.containsEvery(list, options: options) { result.append(s) }
+                if test.containsEvery(list, options: options) {
+                    let rowData = RowData(book: book, chapter: chapter, number: number, text: text)
+                    result.append(rowData)
+                }
             }
         }
-        return !result.isEmpty ? sortContent(result) : nil
+        
+        return sortSearchContent(result)
     }
         
     func goodLink(_ verse: Verse) -> Bool {
