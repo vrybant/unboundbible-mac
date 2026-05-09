@@ -1,8 +1,6 @@
 //
-//  SplitView.swift
 //  Unbound Bible
-//
-//  Copyright © Vladimir Rybant Ministries. All rights reserved.
+//  Copyright © Vladimir Rybant Ministries
 //
 
 import Cocoa

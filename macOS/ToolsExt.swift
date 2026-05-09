@@ -1,6 +1,6 @@
 //
 //  Unbound Bible
-//  Copyright © 2026 Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant
 //
 
 extension Tools {

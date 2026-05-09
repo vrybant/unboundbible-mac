@@ -1,8 +1,6 @@
 //
-//  BibleText.swift
 //  Unbound Bible
-//
-//  Copyright © Vladimir Rybant. All rights reserved.
+//  Copyright © Vladimir Rybant
 //
 
 import Cocoa
