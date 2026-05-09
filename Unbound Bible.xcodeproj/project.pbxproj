@@ -245,6 +245,7 @@
 				E7A0D72423AAA36200C48A54 /* Extensions.swift */,
 				E73BA40024BDFF1000F0FA17 /* PopupMenu.swift */,
 				E77E2AC32D8210E7008751B5 /* Parser.swift */,
+				E7B82C9C2FAC815200177292 /* ToolsExt.swift */,
 				CE2F17F41D33C31800BA91A6 /* Assets.xcassets */,
 				E7F5071A20509AEB0019F546 /* icns.icns */,
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
@@ -365,7 +366,6 @@
 		E7D005AD29FFAB3700F0B19A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E7B82C9C2FAC815200177292 /* ToolsExt.swift */,
 				E7A8917B20152879008A7695 /* СustomText.swift */,
 				E73BF4631EF8548C0028FB62 /* BibleText.swift */,
 				E7A8917D20152893008A7695 /* CommonText.swift */,
