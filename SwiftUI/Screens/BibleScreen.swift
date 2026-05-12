@@ -15,8 +15,9 @@ public struct BibleScreen: View {
     public var body: some View {
         NavigationStack(path: $navigationPath) {
             List(bibleModel.content, id: \.id, selection: $selection) { item in
-                let attrString = parse(item.text)
-                let edgeInsets : EdgeInsets = .init(top: 7, leading: 15, bottom: 7, trailing: 15)
+                let string = "<l>\(item.number).</l> \(item.text)"
+                let attrString = parse(string)
+                let edgeInsets : EdgeInsets = .init(top: 1, leading: 15, bottom: 1, trailing: 15)
                 Text(attrString)
                     .listRowInsets(edgeInsets)
                     .listRowSeparator(.hidden)
