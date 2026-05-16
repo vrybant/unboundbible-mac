@@ -6,14 +6,13 @@
 import SwiftUI
 
 public struct BibleScreen: View {
-    @State private var navigationPath: [BibleRoute] = []
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
     @State var showDialog = false
     @State var selection: UUID? = nil
 
     public var body: some View {
-        NavigationStack(path: $navigationPath) {
+        NavigationStack(path: $bibleModel.router) {
             List(bibleModel.content, id: \.id, selection: $selection) { item in
                 let string = "<l>\(item.number).</l> \(item.text)"
                 let attrString = parse(string)
