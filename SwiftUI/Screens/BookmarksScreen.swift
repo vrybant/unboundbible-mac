@@ -36,6 +36,18 @@ struct BookmarksScreen: View {
             .padding(.top, -20)
             .navigationTitle("Bookmarks")
             .safeNavigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { print("Trash Button Tapped") }) {
+                        Image(systemName: "trash")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: { print("Ellipsis Button Tapped") }) {
+                        Image(systemName: "ellipsis")
+                    }
+                }
+            }
         }
     }
 }
