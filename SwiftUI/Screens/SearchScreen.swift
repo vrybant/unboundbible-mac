@@ -14,7 +14,6 @@ struct SearchScreen: View {
     func onTap(_ item: SearchItem) {
         if let verse = currBible.stringToVerse(link: item.link) {
             if currBible.goodLink(verse) {
-//              currVerse = verse
                 BibleModel.shared.update(book: verse.book, chapter: verse.chapter)
                 BibleModel.shared.router.removeAll()
                 HomeModel.shared.selection = .bible

@@ -10,14 +10,16 @@ struct BookmarksScreen: View {
     @State var selection: UUID? = nil
         
     func onTap(_ item: RowData) {
-        let verse = item.verse
-        if currBible.goodLink(verse) {
-            BibleModel.shared.update(book: verse.book, chapter: verse.chapter)
-            BibleModel.shared.router.removeAll()
-            HomeModel.shared.selection = .bible
-        }
+    //  if currBible.goodLink(item)
+        BibleModel.shared.update(book: item.book, chapter: item.chapter)
+        BibleModel.shared.router.removeAll()
+        HomeModel.shared.selection = .bible
     }
-    
+ 
+    func onTrashTap() {
+        bookmarksModel.content.removeAll()
+    }
+ 
     var body: some View {
         NavigationStack {
             List(bookmarksModel.content,  id: \.id, selection: $selection) { item in
@@ -33,25 +35,29 @@ struct BookmarksScreen: View {
                     onTap(item)
                 }
             }
+            .listStyle(.plain)
             .padding(.top, -20)
             .navigationTitle("Bookmarks")
             .safeNavigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: { print("Trash Button Tapped") }) {
+                    Button(action: onTrashTap) {
                         Image(systemName: "trash")
                     }
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { print("Ellipsis Button Tapped") }) {
-                        Image(systemName: "ellipsis")
+                    Button(action: { print("Change Button Tapped") }) {
+                        Text("Change")
                     }
                 }
             }
+
         }
     }
+    
 }
 
 #Preview {
     BookmarksScreen()
 }
+
