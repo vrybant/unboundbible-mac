@@ -62,11 +62,11 @@ final class Tools {
         
         for bible in bibles {
             if !bible.favorite { continue }
-            if let list = bible.getRange(currVerse, purge: true) {
-                let text = list.joined(separator: " ") + "\n\n"
-                let item = "<l>\(bible.name)</l>\n\(text)"
-                result.append(item)
-            }
+            let list = bible.getRange(currVerse, purge: true)
+            if list.isEmpty { continue }
+            let text = list.joined(separator: " ") + "\n\n"
+            let item = "<l>\(bible.name)</l>\n\(text)"
+            result.append(item)
         }
         return result
     }
@@ -79,10 +79,10 @@ final class Tools {
             info = values.info
             for item in values.data {
                 if let link = currBible.verseToString(item) {
-                    if let lines = currBible.getRange(item, purge: true) {
-                        result += "<l>\(link)</l> "
-                        result += lines.joined(separator: " ") + "\n\n"
-                    }
+                    let lines = currBible.getRange(item, purge: true)
+                    if lines.isEmpty { continue }
+                    result += "<l>\(link)</l> "
+                    result += lines.joined(separator: " ") + "\n\n"
                 }
             }
         }
@@ -126,7 +126,8 @@ final class Tools {
     }
 
     func get_Verses(options: CopyOptions) -> String {
-        guard let list = currBible.getRange(currVerse) else { return "" }
+        let list = currBible.getRange(currVerse)
+        if list.isEmpty { return "" }
         var quote = ""
         
         let abbr = options.contains(.abbreviate)

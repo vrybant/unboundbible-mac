@@ -205,7 +205,7 @@ class Bible: Module {
         return result
     }
     
-    func getRange(_ verse: Verse, raw: Bool = false, purge: Bool = true) -> [String]? {
+    func getRange(_ verse: Verse, raw: Bool = false, purge: Bool = true) -> [String] {
         var result = [String]()
         let id = encodeID(verse.book)
         let nt = Module.isNewTestament(verse.book)
@@ -221,11 +221,12 @@ class Bible: Module {
                 result.append(text)
             }
         }
-        return result.isEmpty ? nil : result
+        return result
     }
     
     func getMyswordFootnote(_ verse : Verse, marker: String) -> String? {
-        guard let range = getRange(verse, raw: true) else { return nil }
+        let range = getRange(verse, raw: true)
+        if range.isEmpty { return nil }
         let xml = xmlToList(string: range[0])
         let tag = marker.hasPrefix("✻") ? "<RF>" : "<RF q=" + marker + ">"
         var list: [String] = []
@@ -286,11 +287,8 @@ class Bible: Module {
     }
         
     func goodLink(_ verse: Verse) -> Bool {
-        if let range = getRange(verse) {
-            return !range.isEmpty
-        } else {
-            return false
-        }
+        let range = getRange(verse)
+        return !range.isEmpty
     }
     
     func goodLink(_ rowData: RowData) -> Bool {
