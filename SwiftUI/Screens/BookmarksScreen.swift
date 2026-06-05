@@ -10,10 +10,11 @@ struct BookmarksScreen: View {
     @State var selection: UUID? = nil
         
     func onTap(_ item: RowData) {
-    //  if currBible.goodLink(item)
-        BibleModel.shared.update(book: item.book, chapter: item.chapter)
-        BibleModel.shared.router.removeAll()
-        HomeModel.shared.selection = .bible
+        if currBible.goodLink(item) {
+            BibleModel.shared.update(book: item.book, chapter: item.chapter)
+            BibleModel.shared.router.removeAll()
+            HomeModel.shared.selection = .bible
+        }
     }
  
     func onTrashTap() {

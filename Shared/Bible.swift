@@ -293,6 +293,10 @@ class Bible: Module {
         }
     }
     
+    func goodLink(_ rowData: RowData) -> Bool {
+        goodLink(rowData.verse)
+    }
+    
     func verseToString(_ verse: Verse, abbr: Bool = false, cutted: Bool = false) -> String? {
         if let n = idxByNum(verse.book) {
             let title = abbr ? books[n].abbr : books[n].title
