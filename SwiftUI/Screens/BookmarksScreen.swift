@@ -41,6 +41,7 @@ struct BookmarksScreen: View {
             .navigationTitle("Bookmarks")
             .safeNavigationBarTitleDisplayMode(.inline)
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: onTrashTap) {
                         Image(systemName: "trash")
@@ -51,6 +52,7 @@ struct BookmarksScreen: View {
                         Text("Change")
                     }
                 }
+                #endif
             }
 
         }
@@ -61,4 +63,3 @@ struct BookmarksScreen: View {
 #Preview {
     BookmarksScreen()
 }
-
