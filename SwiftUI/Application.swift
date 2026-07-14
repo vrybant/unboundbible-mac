@@ -17,6 +17,9 @@ func initialization() {
 @main
 struct Application: App {
     
+    @Environment(\.scenePhase)
+    private var scenePhase
+    
     init() {
         initialization()
     }
@@ -25,5 +28,10 @@ struct Application: App {
         WindowGroup {
             HomeScreen()
         }
-    }
+        .onChange(of: scenePhase) { newPhase, _ in
+            if newPhase == .inactive || newPhase == .background {
+                saveDefaults()
+            }
+        }
+}
 }
