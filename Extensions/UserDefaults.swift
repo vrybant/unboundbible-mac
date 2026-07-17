@@ -12,7 +12,7 @@ extension UserDefaults {
     }
     
     func verse(forKey defaultName: String) -> Verse? {
-        guard let jsonData = UserDefaults.standard.data(forKey: defaultName) else {
+        guard let jsonData = self.data(forKey: defaultName) else {
             return nil
         }
         do {
@@ -25,7 +25,7 @@ extension UserDefaults {
     }
     
     func rowData(forKey defaultName: String) -> [RowData] {
-        guard let jsonData = UserDefaults.standard.data(forKey: defaultName) else {
+        guard let jsonData = self.data(forKey: defaultName) else {
             return []
         }
         do {
@@ -39,13 +39,13 @@ extension UserDefaults {
     
     func set(_ value: Verse, forKey defaultName: String) {
         if let encoded = try? JSONEncoder().encode(value) {
-            UserDefaults.standard.set(encoded, forKey: defaultName)
+            self.set(encoded, forKey: defaultName)
         }
     }
     
     func set(_ value: [RowData], forKey defaultName: String) {
         if let encoded = try? JSONEncoder().encode(value) {
-            UserDefaults.standard.set(encoded, forKey: defaultName)
+            self.set(encoded, forKey: defaultName)
         }
     }
     
