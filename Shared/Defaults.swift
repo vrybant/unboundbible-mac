@@ -21,9 +21,8 @@ let bibleDirectory = "bibles"
     var defaultAttributes: [NSAttributedString.Key : Any] {
         [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
     }
+    var recentList : [URL] = []
 #endif
-
-var recentList : [URL] = []
 
 let bibleHubArray : [String] = ["",
         "genesis","exodus","leviticus","numbers","deuteronomy","joshua","judges","ruth","1_samuel","2_samuel",
@@ -92,10 +91,13 @@ var copyOptions: CopyOptions = []
 
 var defaultCurrBible : String?
 
+func cleanDeaults() {
+    let domain = Bundle.main.bundleIdentifier!
+    UserDefaults.standard.removePersistentDomain(forName: domain)
+}
+
 func readDefaults() {
     let defaults = UserDefaults.standard
-//      let domain = Bundle.main.bundleIdentifier!
-//      defaults.removePersistentDomain(forName: domain) // debug
     defaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
@@ -108,12 +110,12 @@ func readDefaults() {
 
     let value = defaults.integer(forKey: "copyOptions")
     copyOptions = CopyOptions(rawValue: value)
-
-    if let bookmarks = defaults.object(forKey: "bookmarks") as? [Data] {
+  
+    #if COCOA
+    if let bookmarks = defaults.object(forKey: "recents") as? [Data] {
         recentList.append(bookmarks: bookmarks)
     }
     
-    #if COCOA
     if let name = defaults.string(forKey: "fontName") {
         let size = defaults.cgfloat(forKey: "fontSize")
         if let font = Font(name: name, size: size) {
@@ -133,9 +135,9 @@ func saveDefaults() {
     defaults.set(currVerse.number,      forKey: "verseNumber")
     defaults.set(currVerse.count,       forKey: "verseCount")
     defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
-    defaults.set(recentList.bookmarks,  forKey: "bookmarks")
 
     #if COCOA
+        defaults.set(recentList.bookmarks,  forKey: "recents")
         defaults.set(defaultFont.fontName , forKey: "fontName")
         defaults.set(defaultFont.pointSize, forKey: "fontSize")
     #endif
