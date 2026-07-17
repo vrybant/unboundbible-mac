@@ -5,7 +5,8 @@
 
 import Foundation
 
-@Observable class ShelfModel {
+@Observable
+class ShelfModel {
     static let shared = ShelfModel()
     
     var content = tools.get_Shelf().identifiable

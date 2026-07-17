@@ -5,7 +5,8 @@
 
 import Foundation
 
-@Observable class HomeModel {
+@Observable
+class HomeModel {
     static let shared = HomeModel()
     
     var selection = HomeRoute.bible

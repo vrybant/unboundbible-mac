@@ -5,7 +5,8 @@
 
 import Foundation
 
-@Observable class BookmarksModel {
+@Observable
+class BookmarksModel {
     static let shared = BookmarksModel()
     var content: [RowData] = UserDefaults.standard.rowData(forKey: "bookmarks")
     

@@ -5,7 +5,8 @@
 
 import Foundation
 
-@Observable class SearchModel {
+@Observable
+class SearchModel {
 
     @ObservationIgnored var searchText = ""
     var content: [SearchItem] = []
