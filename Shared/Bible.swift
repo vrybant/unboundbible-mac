@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-struct Verse {
+struct Verse: Codable {
     var book    = 1
     var chapter = 1
     var number  = 1
@@ -20,12 +20,12 @@ struct Book {
     var id      : Int
 }
 
-struct RowData: Identifiable {
+struct RowData: Identifiable, Codable {
     var book    : Int
     var chapter : Int
     var number  : Int
     var text    : String
-    let id = UUID()
+    var id = UUID()
     
     var verse: Verse {
         Verse(book: book, chapter: chapter, number: number, count: 1)

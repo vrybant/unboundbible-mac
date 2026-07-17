@@ -7,13 +7,15 @@ import Foundation
 
 @Observable class BookmarksModel {
     static let shared = BookmarksModel()
-
-    var content = [RowData]()
-
-    private init() {}
+    var content: [RowData]
+    
+    private init() {
+        content = UserDefaults.standard.rowData(forKey: "bookmarks")
+    }
 
     func update(_ bookmark: RowData) {
         content.append(bookmark)
+        UserDefaults.standard.set(content, forKey: "bookmarks")
     }
 
 }

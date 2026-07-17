@@ -102,11 +102,7 @@ func readDefaults() {
 
     applicationUpdate = defaults.string(forKey: "applicationVersion") != applicationVersion
     defaultCurrBible  = defaults.string(forKey: "currentBible")
-
-    currVerse.book    = defaults.integer(forKey: "verseBook")
-    currVerse.chapter = defaults.integer(forKey: "verseChapter")
-    currVerse.number  = defaults.integer(forKey: "verseNumber")
-    currVerse.count   = defaults.integer(forKey: "verseCount")
+    currVerse = defaults.verse(forKey: "currVerse") ?? currVerse
 
     let value = defaults.integer(forKey: "copyOptions")
     copyOptions = CopyOptions(rawValue: value)
@@ -128,13 +124,11 @@ func readDefaults() {
 func saveDefaults() {
     if tools.bibles.isEmpty { return }
     let defaults = UserDefaults.standard
-    defaults.set(applicationVersion,    forKey: "applicationVersion")
-    defaults.set(currBible.name,        forKey: "currentBible")
-    defaults.set(currVerse.book,        forKey: "verseBook")
-    defaults.set(currVerse.chapter,     forKey: "verseChapter")
-    defaults.set(currVerse.number,      forKey: "verseNumber")
-    defaults.set(currVerse.count,       forKey: "verseCount")
-    defaults.set(copyOptions.rawValue,  forKey: "copyOptions")
+
+    defaults.set(applicationVersion,   forKey: "applicationVersion")
+    defaults.set(currBible.name,       forKey: "currentBible")
+    defaults.set(currVerse,            forKey: "currVerse")
+    defaults.set(copyOptions.rawValue, forKey: "copyOptions")
 
     #if COCOA
         defaults.set(recentList.bookmarks,  forKey: "recents")
