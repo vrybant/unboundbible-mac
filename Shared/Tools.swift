@@ -5,7 +5,7 @@
 
 var tools = Tools.shared
 var currBible : Bible!
-var currVerse = Verse()
+var currVerse = userDefaults.verse(forKey: "currVerse") ?? Verse()
 
 final class Tools {
     static let shared = Tools()
