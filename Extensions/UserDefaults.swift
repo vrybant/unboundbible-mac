@@ -57,5 +57,19 @@ extension UserDefaults {
         self.set(value.rawValue, forKey: defaultName)
     }
 
+    #if COCOA
+    func font(forKey defaultName: String, forSize defaultSize: String) -> Font? {
+        if let name = self.string(forKey: defaultName) {
+            let size = self.cgfloat(forKey: defaultSize)
+            return Font(name: name, size: size)
+        }
+        return nil
+    }
+
+    func set(_ font: Font, forKey defaultName: String, forSize defaultSize: String) {
+        self.set(font.fontName , forKey: defaultName)
+        self.set(font.pointSize, forKey: defaultSize)
+    }
+    #endif
     
 }

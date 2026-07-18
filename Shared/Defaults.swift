@@ -21,9 +21,9 @@ let bibleDirectory = "bibles"
 let databaseExtensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
 
 #if COCOA
-let defaultFontSize = CGFloat(14)
-var defaultFontName = "HelveticaNeue"
-var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
+var systemFont = Font.systemFont(ofSize: 14)
+var defaultFont = userDefaults.font(forKey: "fontName", forSize: "fontSize") ?? systemFont
+
 var defaultAttributes: [NSAttributedString.Key : Any] {
     [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
 }
@@ -70,13 +70,6 @@ func readDefaults() {
     if let bookmarks = userDefaults.object(forKey: "recents") as? [Data] {
         recentList.append(bookmarks: bookmarks)
     }
-    
-    if let name = userDefaults.string(forKey: "fontName") {
-        let size = userDefaults.cgfloat(forKey: "fontSize")
-        if let font = Font(name: name, size: size) {
-            defaultFont = font
-        }
-    }
 }
 #endif
 
@@ -89,9 +82,8 @@ func saveDefaults() {
     userDefaults.set(copyOptions,        forKey: "copyOptions")
 
     #if COCOA
-        userDefaults.set(recentList.bookmarks,  forKey: "recents")
-        userDefaults.set(defaultFont.fontName , forKey: "fontName")
-        userDefaults.set(defaultFont.pointSize, forKey: "fontSize")
+    userDefaults.set(recentList.bookmarks, forKey: "recents")
+    userDefaults.set(defaultFont, forKey: "fontName", forSize: "fontSize")
     #endif
 }
 
