@@ -10,7 +10,6 @@ import Foundation
 import SwiftUI
 
 func initialization() {
-    readDefaults()
     if tools.bibles.isEmpty { return } // tools.init
 }
 

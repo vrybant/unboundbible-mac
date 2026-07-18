@@ -12,7 +12,8 @@ import Foundation
 let userDefaults = UserDefaults.standard
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
-var applicationUpdate = false
+var applicationUpdate = userDefaults.string(forKey: "applicationVersion") != applicationVersion
+
 let bibleDirectory = "bibles"
 var defaultCurrBible : String? = userDefaults.string(forKey: "currentBible")
 
@@ -96,12 +97,10 @@ func cleanDeaults() {
     userDefaults.removePersistentDomain(forName: domain)
 }
 
+#if COCOA
 func readDefaults() {
     userDefaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
 
-    applicationUpdate = userDefaults.string(forKey: "applicationVersion") != applicationVersion
-
-    #if COCOA
     if let bookmarks = userDefaults.object(forKey: "recents") as? [Data] {
         recentList.append(bookmarks: bookmarks)
     }
@@ -112,8 +111,8 @@ func readDefaults() {
             defaultFont = font
         }
     }
-    #endif
 }
+#endif
 
 func saveDefaults() {
     if tools.bibles.isEmpty { return }
