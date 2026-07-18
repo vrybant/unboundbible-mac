@@ -6,6 +6,8 @@
 import SwiftUI
 
 public struct BibleScreen: View {
+    @Environment(AppModel.self) var appModel
+    
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
     @State var showDialog = false
