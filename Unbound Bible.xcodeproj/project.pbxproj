@@ -39,6 +39,8 @@
 		E7649A022A0130A1009B6B63 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A012A0130A1009B6B63 /* Array.swift */; };
 		E7649A042A0130ED009B6B63 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A032A0130ED009B6B63 /* UserDefaults.swift */; };
 		E7649A062A0131C2009B6B63 /* Int.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7649A052A0131C2009B6B63 /* Int.swift */; };
+		E76D0CAD300BFFA900F33FBC /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D0CAC300BFFA300F33FBC /* Classes.swift */; };
+		E76D0CAE300BFFA900F33FBC /* Classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76D0CAC300BFFA300F33FBC /* Classes.swift */; };
 		E76FD32B2B8A132E004E598A /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E76FD3292B8A132E004E598A /* View.swift */; };
 		E77373BB271EBDE100FFA254 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = E77373BA271EBDE100FFA254 /* Tools.swift */; };
 		E778A4252B8B530900361AF9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E778A4242B8B530900361AF9 /* Parser.swift */; };
@@ -141,6 +143,7 @@
 		E7649A032A0130ED009B6B63 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		E7649A052A0131C2009B6B63 /* Int.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Int.swift; sourceTree = "<group>"; };
 		E7694F0D202B06FE00E807F0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		E76D0CAC300BFFA300F33FBC /* Classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classes.swift; sourceTree = "<group>"; };
 		E76FD3292B8A132E004E598A /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		E77373BA271EBDE100FFA254 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		E778A4242B8B530900361AF9 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -382,6 +385,7 @@
 		E7D39ED820906C4E004D3097 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				E76D0CAC300BFFA300F33FBC /* Classes.swift */,
 				E7A031C626A80A2400AE1D13 /* Defaults.swift */,
 				E7B7CB6521D66EB600BC292F /* Module.swift */,
 				E73A0E9123FFE26B00EE62A8 /* Bible.swift */,
@@ -559,6 +563,7 @@
 				E7A031C726A80A2400AE1D13 /* Defaults.swift in Sources */,
 				E7A0D72523AAA36200C48A54 /* Extensions.swift in Sources */,
 				E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */,
+				E76D0CAE300BFFA900F33FBC /* Classes.swift in Sources */,
 				E7DDA4B01EE960E400022638 /* SplitView.swift in Sources */,
 				E7A8917C20152879008A7695 /* СustomText.swift in Sources */,
 				E71485B923AA5EF6009369D4 /* Library.swift in Sources */,
@@ -599,6 +604,7 @@
 				E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */,
 				E7EA079D2A3B4F0D0079BCD8 /* Prepare.swift in Sources */,
 				E778A4252B8B530900361AF9 /* Parser.swift in Sources */,
+				E76D0CAD300BFFA900F33FBC /* Classes.swift in Sources */,
 				E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */,
 				E7F059942A152550002B6029 /* BibleScreen.swift in Sources */,
 				E7EA07A72A3B4F840079BCD8 /* Int.swift in Sources */,

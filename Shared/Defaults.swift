@@ -13,47 +13,38 @@ let userDefaults = UserDefaults.standard
 let applicationName = "Unbound Bible"
 let applicationVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
 var applicationUpdate = userDefaults.string(forKey: "applicationVersion") != applicationVersion
-
-let bibleDirectory = "bibles"
 var defaultCurrBible : String? = userDefaults.string(forKey: "currentBible")
+var rangeOption : RangeOption = RangeOption.bible
+var searchOption : SearchOption = []
+var copyOptions: CopyOptions = userDefaults.copyOption(forKey: "copyOptions")
+let bibleDirectory = "bibles"
+let databaseExtensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
 
 #if COCOA
-    let defaultFontSize = CGFloat(14)
-    var defaultFontName = "HelveticaNeue"
-    var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
-    var defaultAttributes: [NSAttributedString.Key : Any] {
-        [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
-    }
-    var recentList : [URL] = []
+let defaultFontSize = CGFloat(14)
+var defaultFontName = "HelveticaNeue"
+var defaultFont = Font.init(name: defaultFontName, size: defaultFontSize) ?? Font.systemFont(ofSize: defaultFontSize)
+var defaultAttributes: [NSAttributedString.Key : Any] {
+    [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
+}
+var recentList : [URL] = []
 #endif
 
 let bibleHubArray : [String] = ["",
-        "genesis","exodus","leviticus","numbers","deuteronomy","joshua","judges","ruth","1_samuel","2_samuel",
-        "1_kings","2_kings","1_chronicles","2_chronicles","ezra","nehemiah","esther","job","psalms","proverbs",
-        "ecclesiastes","songs","isaiah","jeremiah","lamentations","ezekiel","daniel","hosea","joel","amos",
-        "obadiah","jonah","micah","nahum","habakkuk","zephaniah","haggai","zechariah","malachi","matthew",
-        "mark","luke","john","acts","romans","1_corinthians","2_corinthians","galatians","ephesians","philippians",
-        "colossians","1_thessalonians","2_thessalonians","1_timothy","2_timothy","titus","philemon","hebrews",
-        "james","1_peter","2_peter","1_john","2_john","3_john","jude","revelation"]
+    "genesis","exodus","leviticus","numbers","deuteronomy","joshua","judges","ruth","1_samuel","2_samuel",
+    "1_kings","2_kings","1_chronicles","2_chronicles","ezra","nehemiah","esther","job","psalms","proverbs",
+    "ecclesiastes","songs","isaiah","jeremiah","lamentations","ezekiel","daniel","hosea","joel","amos",
+    "obadiah","jonah","micah","nahum","habakkuk","zephaniah","haggai","zechariah","malachi","matthew",
+    "mark","luke","john","acts","romans","1_corinthians","2_corinthians","galatians","ephesians","philippians",
+    "colossians","1_thessalonians","2_thessalonians","1_timothy","2_timothy","titus","philemon","hebrews",
+    "james","1_peter","2_peter","1_john","2_john","3_john","jude","revelation"]
 
 var databaseList : [String] {
-    let extensions = [".unbound",".bblx",".bbli",".mybible",".SQLite3"]
-    return contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(extensions) } ?? []
+    contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(databaseExtensions) } ?? []
 }
 
 var unboundBiblesList : [String] {
     contentsOfDirectory(url: dataUrl)?.filter { $0.hasSuffix(".bbl.unbound") } ?? []
-}
-
-enum RangeOption {
-    case bible, oldTestament, newTestament, gospels, epistles, openedBook
-}
-
-var rangeOption : RangeOption = RangeOption.bible
-
-struct SearchRange {
-    var from : Int
-    var to : Int
 }
 
 func currentSearchRange(range: RangeOption) -> SearchRange? {
@@ -66,31 +57,6 @@ func currentSearchRange(range: RangeOption) -> SearchRange? {
         case .openedBook   : return SearchRange(from:  currVerse.book, to:  currVerse.book)
     }
 }
-
-struct SearchOption: OptionSet {
-    let rawValue: Int
-    static let caseSensitive = SearchOption(rawValue: 1 << 0)
-    static let    wholeWords = SearchOption(rawValue: 1 << 1)
-}
-
-var searchOption : SearchOption = []
-
-struct SearchItem: Identifiable {
-    let link: String
-    let text: String
-    let id = UUID()
-}
-
-struct CopyOptions : OptionSet {
-    let rawValue: Int
-    static let  abbreviate = CopyOptions(rawValue: 1 << 0)
-    static let   enumerate = CopyOptions(rawValue: 1 << 1)
-    static let  guillemets = CopyOptions(rawValue: 1 << 2)
-    static let parentheses = CopyOptions(rawValue: 1 << 3)
-    static let  endinglink = CopyOptions(rawValue: 1 << 4)
-}
-
-var copyOptions: CopyOptions = userDefaults.copyOption(forKey: "copyOptions")
 
 func cleanDeaults() {
     let domain = Bundle.main.bundleIdentifier!
