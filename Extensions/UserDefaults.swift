@@ -30,7 +30,7 @@ extension UserDefaults {
         }
     }
     
-    func rowData(forKey defaultName: String) -> [RowData] {
+    func rowDataList(forKey defaultName: String) -> [RowData] {
         guard let jsonData = self.data(forKey: defaultName) else {
             return []
         }
