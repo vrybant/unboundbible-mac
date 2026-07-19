@@ -28,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func initialization() {
-        readDefaults()
+//      userDefaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​") // for debug purpose only
         copyDefaultsFiles()
         if tools.bibles.isEmpty { return } // tools.init
         leftView.loadBibleMenu()

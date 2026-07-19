@@ -63,12 +63,6 @@ func cleanDeaults() {
     userDefaults.removePersistentDomain(forName: domain)
 }
 
-#if COCOA
-func readDefaults() {
-    userDefaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
-}
-#endif
-
 func saveDefaults() {
     if tools.bibles.isEmpty { return }
 
