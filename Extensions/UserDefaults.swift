@@ -70,6 +70,18 @@ extension UserDefaults {
         self.set(font.fontName , forKey: defaultName)
         self.set(font.pointSize, forKey: defaultSize)
     }
-    #endif
     
+    func urlList(forKey defaultName: String) -> [URL] {
+        var result = [URL]()
+        if let bookmarks = self.object(forKey: defaultName) as? [Data] {
+            result.append(bookmarks: bookmarks)
+        }
+        return result
+    }
+    
+    func set(_ value: [URL], forKey defaultName: String) {
+        self.set(value.bookmarks, forKey: defaultName)
+    }
+    #endif
+ 
 }

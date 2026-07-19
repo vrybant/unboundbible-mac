@@ -27,7 +27,7 @@ var defaultFont = userDefaults.font(forKey: "fontName", forSize: "fontSize") ?? 
 var defaultAttributes: [NSAttributedString.Key : Any] {
     [NSAttributedString.Key.font: defaultFont, NSAttributedString.Key.foregroundColor: Color.labelColor]
 }
-var recentList : [URL] = []
+var recentList : [URL] = userDefaults.urlList(forKey: "recents")
 #endif
 
 let bibleHubArray : [String] = ["",
@@ -66,10 +66,6 @@ func cleanDeaults() {
 #if COCOA
 func readDefaults() {
     userDefaults.set(true, forKey: "NSConstraintBasedLayoutVisualizeMutuallyExclusiveConstraints​")
-
-    if let bookmarks = userDefaults.object(forKey: "recents") as? [Data] {
-        recentList.append(bookmarks: bookmarks)
-    }
 }
 #endif
 
@@ -82,7 +78,7 @@ func saveDefaults() {
     userDefaults.set(copyOptions,        forKey: "copyOptions")
 
     #if COCOA
-    userDefaults.set(recentList.bookmarks, forKey: "recents")
+    userDefaults.set(recentList, forKey: "recents")
     userDefaults.set(defaultFont, forKey: "fontName", forSize: "fontSize")
     #endif
 }
