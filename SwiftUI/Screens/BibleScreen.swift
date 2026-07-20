@@ -6,16 +6,21 @@
 import SwiftUI
 
 public struct BibleScreen: View {
-    @Environment(AppModel.self) var appModel
-    
+    @State var appModel = AppModel.shared
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
     @State var showDialog = false
     @State var selection: UUID? = nil
+    
+    var title: String { currBible.verseToString(appModel.verse) ?? "" }
+    
+    var content: [RowData] {
+        currBible.getChapter(book: appModel.verse.book, chapter: appModel.verse.chapter)
+    }
 
     public var body: some View {
         NavigationStack(path: $bibleModel.router) {
-            List(bibleModel.content, id: \.id, selection: $selection) { item in
+            List(content, id: \.id, selection: $selection) { item in
                 let string = "<l>\(item.number).</l> \(item.text)"
                 let attrString = parse(string)
                 let edgeInsets : EdgeInsets = .init(top: 1, leading: 15, bottom: 1, trailing: 15)
@@ -28,7 +33,7 @@ public struct BibleScreen: View {
 //                  .background(.red)
                     .onTapGesture {
                         selection = item.id
-                        bibleModel.update(number: item.number)
+                        appModel.update(number: item.number)
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {
@@ -51,13 +56,13 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                     } message: {
-                        Text(bibleModel.title)
+                        Text(title)
                     }
             }
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .principal) {
-                    Button(bibleModel.title) {
+                    Button(title) {
                         bibleModel.router.append(.books)
                     }
                     .bold()
