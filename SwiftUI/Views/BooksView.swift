@@ -22,7 +22,7 @@ struct BooksView: View {
                         selection = item
                         selected = selection
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                            BibleModel.shared.router.append(.chapters(selection!))
+                            BibleModel.shared.route.append(.chapters(selection!))
                         }
                     }
 //                    .onLongPressGesture {

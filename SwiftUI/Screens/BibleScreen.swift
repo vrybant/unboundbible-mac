@@ -20,7 +20,7 @@ public struct BibleScreen: View {
     }
 
     public var body: some View {
-        NavigationStack(path: $bibleModel.router) {
+        NavigationStack(path: $bibleModel.route) {
             List(content, id: \.id, selection: $selection) { item in
                 let string = "<l>\(item.number).</l> \(item.text)"
                 let attrString = parse(string)
@@ -65,7 +65,7 @@ public struct BibleScreen: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Button(title) {
-                        bibleModel.router.append(.books)
+                        bibleModel.route.append(.books)
                     }
                     .bold()
                 }

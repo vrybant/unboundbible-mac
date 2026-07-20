@@ -21,7 +21,7 @@ struct SearchScreen: View {
         if let verse = currBible.stringToVerse(link: item.link) {
             if currBible.goodLink(verse) {
                 AppModel.shared.update(book: verse.book, chapter: verse.chapter)
-                BibleModel.shared.router.removeAll()
+                BibleModel.shared.route.removeAll()
                 HomeModel.shared.route = .bible
             }
         }

@@ -9,7 +9,7 @@ import Foundation
 class BibleModel {
     static let shared = BibleModel()
 
-    var router: [BibleRoute] = []
+    var route: [BibleRoute] = []
 
     private init() {}
 }

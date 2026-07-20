@@ -12,7 +12,7 @@ struct BookmarksScreen: View {
     func onTap(_ item: RowData) {
         if currBible.goodLink(item) {
             AppModel.shared.update(book: item.book, chapter: item.chapter)
-            BibleModel.shared.router.removeAll()
+            BibleModel.shared.route.removeAll()
             HomeModel.shared.route = .bible
         }
     }
