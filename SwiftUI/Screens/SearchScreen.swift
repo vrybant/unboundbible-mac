@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct SearchScreen: View {
-    @State var model = SearchModel()
     @State var selection: UUID? = nil
+    @State var searchText = ""
+    @State var content: [SearchItem] = []
+
+    func update(text: String) {
+        searchText = text
+        content = searchText.isEmpty ? [] : tools.get_Search(string: searchText)
+    }
 
     func onTap(_ item: SearchItem) {
         if let verse = currBible.stringToVerse(link: item.link) {
@@ -25,7 +31,6 @@ struct SearchScreen: View {
     var body: some View {
         VStack {
             NavigationStack {
-                let content = model.content
                 List(content, selection: $selection) { item in
                     let attrString = parse(item.text)
                     VStack(alignment: .leading) {
@@ -44,9 +49,9 @@ struct SearchScreen: View {
                 .navigationTitle("Search")
                 .safeNavigationBarTitleDisplayMode(.inline)
             }
-            .searchable(text: $model.searchText, prompt: "Search text")
+            .searchable(text: $searchText, prompt: "Search text")
             .onSubmit(of: .search) {
-                model.update(text: model.searchText)
+                update(text: searchText)
             }
         }
     }
