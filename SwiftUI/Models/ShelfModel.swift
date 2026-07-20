@@ -16,7 +16,6 @@ class ShelfModel {
     func update(bible: String) {
         tools.setCurrBible(bible)
         content = tools.get_Shelf().identifiable
-        AppModel.shared.refresh()
     }
     
     func isCurrent(name: String) -> Bool {
