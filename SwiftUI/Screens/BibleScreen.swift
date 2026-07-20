@@ -6,17 +6,16 @@
 import SwiftUI
 
 public struct BibleScreen: View {
-    @State var appModel = AppModel.shared
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
     @State var content: [RowData] = []
     @State var showDialog = false
     @State var selection: UUID? = nil
     
-    var title: String { currBible.verseToString(appModel.verse) ?? "" }
+    var title: String { currBible.verseToString(currVerse) ?? "" }
 
     func update() {
-        content = currBible.getChapter(book: appModel.verse.book, chapter: appModel.verse.chapter)
+        content = currBible.getChapter(book: currVerse.book, chapter: currVerse.chapter)
     }
 
     public var body: some View {
@@ -34,7 +33,7 @@ public struct BibleScreen: View {
 //                  .background(.red)
                     .onTapGesture {
                         selection = item.id
-                        appModel.update(number: item.number)
+                        currVerse.number = item.number
                         showDialog = true
                     }
                     .confirmationDialog("Change background", isPresented: $showDialog) {

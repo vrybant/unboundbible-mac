@@ -6,7 +6,6 @@
 import SwiftUI
 
 public struct ShelfScreen: View {
-    @State var appModel = AppModel.shared
     @State var selection: UUID? = nil
     
     var content: [IdentifiableString] { tools.get_Shelf().identifiable }

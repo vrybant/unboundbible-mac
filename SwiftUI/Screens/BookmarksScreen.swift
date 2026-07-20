@@ -11,7 +11,7 @@ struct BookmarksScreen: View {
         
     func onTap(_ item: RowData) {
         if currBible.goodLink(item) {
-            AppModel.shared.update(book: item.book, chapter: item.chapter)
+            currVerse = Verse(book: item.book, chapter: item.chapter)
             BibleModel.shared.route.removeAll()
             HomeModel.shared.route = .bible
         }
