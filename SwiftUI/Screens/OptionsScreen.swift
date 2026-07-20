@@ -9,7 +9,7 @@ struct OptionsScreen: View {
     
     public var body: some View {
              Button("Button") {
-                 HomeModel.shared.selection = .bible
+                 HomeModel.shared.route = .bible
             }
     }
 }

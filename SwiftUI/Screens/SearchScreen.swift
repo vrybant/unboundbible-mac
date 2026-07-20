@@ -16,7 +16,7 @@ struct SearchScreen: View {
             if currBible.goodLink(verse) {
                 BibleModel.shared.update(book: verse.book, chapter: verse.chapter)
                 BibleModel.shared.router.removeAll()
-                HomeModel.shared.selection = .bible
+                HomeModel.shared.route = .bible
             }
         }
 

@@ -9,7 +9,7 @@ import Foundation
 class HomeModel {
     static let shared = HomeModel()
     
-    var selection = HomeRoute.bible
+    var route = HomeRoute.bible
     
     private init() {}
 }

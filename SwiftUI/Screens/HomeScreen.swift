@@ -9,7 +9,7 @@ struct HomeScreen: View {
     @State var model = HomeModel.shared
     
     var body: some View {
-        TabView(selection: $model.selection) {
+        TabView(selection: $model.route) {
             BibleScreen()
                 .tag(HomeRoute.bible)
                 .tabItem {

@@ -13,7 +13,7 @@ struct BookmarksScreen: View {
         if currBible.goodLink(item) {
             BibleModel.shared.update(book: item.book, chapter: item.chapter)
             BibleModel.shared.router.removeAll()
-            HomeModel.shared.selection = .bible
+            HomeModel.shared.route = .bible
         }
     }
  
