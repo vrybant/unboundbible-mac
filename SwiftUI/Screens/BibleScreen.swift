@@ -15,8 +15,8 @@ public struct BibleScreen: View {
     
     var title: String { currBible.verseToString(appModel.verse) ?? "" }
 
-    func getContent() -> [RowData] {
-        currBible.getChapter(book: appModel.verse.book, chapter: appModel.verse.chapter)
+    func update() {
+        content = currBible.getChapter(book: appModel.verse.book, chapter: appModel.verse.chapter)
     }
 
     public var body: some View {
@@ -60,7 +60,7 @@ public struct BibleScreen: View {
                         Text(title)
                     }
             }
-            .onAppear { content = getContent() }
+            .onAppear { update() }
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .principal) {
