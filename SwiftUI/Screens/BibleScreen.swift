@@ -9,12 +9,13 @@ public struct BibleScreen: View {
     @State var appModel = AppModel.shared
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
+    @State var content: [RowData] = []
     @State var showDialog = false
     @State var selection: UUID? = nil
     
     var title: String { currBible.verseToString(appModel.verse) ?? "" }
-    
-    var content: [RowData] {
+
+    func getContent() -> [RowData] {
         currBible.getChapter(book: appModel.verse.book, chapter: appModel.verse.chapter)
     }
 
@@ -59,6 +60,7 @@ public struct BibleScreen: View {
                         Text(title)
                     }
             }
+            .onAppear { content = getContent() }
             .listStyle(.plain)
             .toolbar {
                 ToolbarItem(placement: .principal) {

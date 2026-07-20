@@ -69,7 +69,6 @@
 		E7E3D4F81E12B1C400912F37 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E3D4F71E12B1C400912F37 /* SearchView.swift */; };
 		E7E40FF126B40CB3001BCDD5 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */; };
 		E7E7A84E24C5C285001F85C8 /* Reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7A84D24C5C285001F85C8 /* Reference.swift */; };
-		E7E7BB2A2B651A0800DBBA3D /* ShelfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E7BB292B651A0800DBBA3D /* ShelfModel.swift */; };
 		E7EA07982A3B4EEC0079BCD8 /* Bible.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73A0E9123FFE26B00EE62A8 /* Bible.swift */; };
 		E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9A21D938D3006B6267 /* Commentary.swift */; };
 		E7EA079A2A3B4EF50079BCD8 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FABB9C21D938F7006B6267 /* Dictionary.swift */; };
@@ -177,7 +176,6 @@
 		E7E3D4F71E12B1C400912F37 /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E7E40FF026B40CB3001BCDD5 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		E7E7A84D24C5C285001F85C8 /* Reference.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reference.swift; sourceTree = "<group>"; };
-		E7E7BB292B651A0800DBBA3D /* ShelfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfModel.swift; sourceTree = "<group>"; };
 		E7F04B802B14F1EA00F3AD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ShelfView.storyboard; sourceTree = "<group>"; };
 		E7F04B8F2B14F6FC00F3AD4D /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/ShelfView.strings; sourceTree = "<group>"; };
 		E7F04B902B14F70400F3AD4D /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/ShelfView.strings; sourceTree = "<group>"; };
@@ -291,7 +289,6 @@
 				E70F00C02B75123F002C0EA8 /* HomeModel.swift */,
 				E7FE64392B5801C30074F30A /* BibleModel.swift */,
 				E77FA4B02B67E7FA00C653AD /* SearchModel.swift */,
-				E7E7BB292B651A0800DBBA3D /* ShelfModel.swift */,
 				E77CC56B2B6BFCCE00DFA7AE /* BookmarksModel.swift */,
 			);
 			path = Models;
@@ -610,7 +607,6 @@
 				E7EA07A72A3B4F840079BCD8 /* Int.swift in Sources */,
 				E71DA9E32A3C8D6600ECBC2F /* ShelfScreen.swift in Sources */,
 				E7EA07992A3B4EF20079BCD8 /* Commentary.swift in Sources */,
-				E7E7BB2A2B651A0800DBBA3D /* ShelfModel.swift in Sources */,
 				E7FE84452B47200C009CD73C /* Tools.swift in Sources */,
 				E7EA07A42A3B4F840079BCD8 /* Array.swift in Sources */,
 				E7EA07A62A3B4F840079BCD8 /* Colors.swift in Sources */,

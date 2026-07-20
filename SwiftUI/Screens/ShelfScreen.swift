@@ -6,11 +6,21 @@
 import SwiftUI
 
 public struct ShelfScreen: View {
+    @State var appModel = AppModel.shared
     @State var selection: UUID? = nil
     
-    var model = ShelfModel.shared
-    let content = ShelfModel.shared.content
-    
+    var content: [IdentifiableString] { tools.get_Shelf().identifiable }
+   
+    func isCurrent(name: String) -> Bool {
+        name == currBible.name
+    }
+
+    func onTap(_ item: IdentifiableString) {
+        let bible = item.string
+        tools.setCurrBible(bible)
+        HomeModel.shared.route = HomeRoute.bible
+    }
+
     public var body: some View {
         NavigationStack {
             VStack {
@@ -20,12 +30,12 @@ public struct ShelfScreen: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                         Spacer()
                         Image(systemName: "checkmark")
-                            .opacity(model.isCurrent(name: item.string) ? 1.0 : 0.0)
+                            .opacity(isCurrent(name: item.string) ? 1.0 : 0.0)
                     }
                     .contentShape(Rectangle())
                     .onTapGesture {
                         selection = item.id
-                        model.update(bible: item.string)
+                        onTap(item)
                     }
                 }
                 .padding(.top, -20)
