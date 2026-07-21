@@ -8,8 +8,5 @@ import Foundation
 @Observable
 class BibleModel {
     static let shared = BibleModel()
-
     var route: [BibleRoute] = []
-
-    private init() {}
 }

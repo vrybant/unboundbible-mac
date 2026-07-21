@@ -8,8 +8,5 @@ import Foundation
 @Observable
 class HomeModel {
     static let shared = HomeModel()
-    
     var route = HomeRoute.bible
-    
-    private init() {}
 }
