@@ -8,10 +8,10 @@ import Foundation
 func attrStringFromTags(_ string: String, tags: Set<String>, jtag: Bool=false, small: Bool) -> NSAttributedString {
     let discount : CGFloat = small ? 2 : 1
 
-    let     smallFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 2)!
+    let     smallFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 2) ?? defaultFont
     let    italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
-    let subscriptFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 5)!
-    let  footnoteFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 3)!
+    let subscriptFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 5) ?? defaultFont
+    let  footnoteFont = Font(name: defaultFont.fontName,   size: defaultFont.pointSize - 3) ?? defaultFont
 
     let s = NSMutableAttributedString(string: string, attributes: defaultAttributes)
     if small { s.addAttribute(.font, value: smallFont) }
@@ -56,7 +56,7 @@ func parse(_ string: String, jtag: Bool = false, small: Bool = false) -> NSMutab
 func attrStringFromHtml(_ string: String, tags: Set<String>, small: Bool) -> NSAttributedString {
     let discount : CGFloat = small ? 2 : 1
     
-    let  smallFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 2)!
+    let  smallFont = Font(name: defaultFont.fontName,  size: defaultFont.pointSize - 2) ?? defaultFont
     let italicFont = Font(name: "HelveticaNeue-Italic", size: defaultFont.pointSize - discount) ?? defaultFont
     let   boldFont = Font(name: "HelveticaNeue-Bold", size: defaultFont.pointSize - discount) ?? defaultFont
     
