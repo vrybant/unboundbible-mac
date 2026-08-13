@@ -6,7 +6,7 @@
 import SwiftUI
 
 struct BookmarksScreen: View {
-    @State var bookmarksModel = BookmarksModel.shared
+    @Bindable var bookmarksModel = BookmarksModel.shared
     @State var selection: UUID? = nil
         
     func onTap(_ item: RowData) {
@@ -23,17 +23,17 @@ struct BookmarksScreen: View {
  
     var body: some View {
         NavigationStack {
-            List(bookmarksModel.content,  id: \.id, selection: $selection) { item in
-                let attrString = parse(item.text)
-                let link = currBible.verseToString(item.verse) ?? "---"
+            List($bookmarksModel.content, id: \.id, editActions: .move, selection: $selection) { $item in
+                let attrString = parse($item.wrappedValue.text)
+                let link = currBible.verseToString($item.wrappedValue.verse) ?? "---"
                 VStack(alignment: .leading) {
                     Text(attrString)
                     Text(link)
                         .foregroundColor(.gray)
                 }
                 .onTapGesture {
-                    selection = item.id
-                    onTap(item)
+                    selection = $item.wrappedValue.id
+                    onTap($item.wrappedValue)
                 }
             }
             .listStyle(.plain)
