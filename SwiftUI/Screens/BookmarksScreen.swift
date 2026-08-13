@@ -20,10 +20,10 @@ struct BookmarksScreen: View {
     func onTrashTap() {
         bookmarksModel.content.removeAll()
     }
- 
+  
     var body: some View {
         NavigationStack {
-            List($bookmarksModel.content, id: \.id, editActions: .move, selection: $selection) { $item in
+            List($bookmarksModel.content, id: \.id, editActions: .all, selection: $selection) { $item in
                 let attrString = parse($item.wrappedValue.text)
                 let link = currBible.verseToString($item.wrappedValue.verse) ?? "---"
                 VStack(alignment: .leading) {
@@ -45,11 +45,6 @@ struct BookmarksScreen: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: onTrashTap) {
                         Image(systemName: "trash")
-                    }
-                }
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { print("Change Button Tapped") }) {
-                        Text("Change")
                     }
                 }
                 #endif
