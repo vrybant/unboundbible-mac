@@ -7,7 +7,8 @@ import SwiftUI
 
 struct BookmarksScreen: View {
     @Bindable var bookmarksModel = BookmarksModel.shared
-    @State var selection: UUID? = nil
+    @State private var selection: UUID? = nil
+    @State private var showAlert = false
         
     func onTap(_ item: RowData) {
         if currBible.goodLink(item) {
@@ -18,7 +19,8 @@ struct BookmarksScreen: View {
     }
  
     func onTrashTap() {
-        bookmarksModel.content.removeAll()
+        showAlert = true
+//
     }
   
     var body: some View {
@@ -37,7 +39,6 @@ struct BookmarksScreen: View {
                 }
             }
             .listStyle(.plain)
-            .padding(.top, -20)
             .navigationTitle("Bookmarks")
             .safeNavigationBarTitleDisplayMode(.inline)
             .toolbar {
@@ -49,7 +50,15 @@ struct BookmarksScreen: View {
                 }
                 #endif
             }
-
+        }
+        .alert("Удалить все закладки?", isPresented: $showAlert) {
+            Button("Удалить", role: .destructive) {
+                bookmarksModel.content.removeAll()
+            }
+            Button("Отмена", role: .cancel) {
+            }
+        } message: {
+            Text("Это действие нельзя отменить.")
         }
     }
     
