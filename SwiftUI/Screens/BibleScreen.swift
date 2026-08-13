@@ -48,8 +48,7 @@ public struct BibleScreen: View {
                         }
                         Button("Закладка") {
 //                          let bookmark = IdentifiableString(string: bibleModel.title)
-                            bookmarksModel.update(item)
-                            
+                            bookmarksModel.content.append(item)
                             selection = nil
                         }
                         Button("Отмена", role: .cancel) {

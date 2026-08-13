@@ -9,11 +9,10 @@ import Foundation
 class BookmarksModel {
     static let shared = BookmarksModel()
     
-    var content: [RowData] = userDefaults.rowDataList(forKey: "bookmarks")
-    
-    func update(_ bookmark: RowData) {
-        content.append(bookmark)
-        UserDefaults.standard.set(content, forKey: "bookmarks")
+    var content: [RowData] = userDefaults.rowDataList(forKey: "bookmarks") {
+        didSet {
+            UserDefaults.standard.set(content, forKey: "bookmarks")
+        }
     }
-
+    
 }
