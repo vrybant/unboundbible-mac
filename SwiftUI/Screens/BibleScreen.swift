@@ -10,7 +10,7 @@ public struct BibleScreen: View {
     @State var bookmarksModel = BookmarksModel.shared
     @State var content: [RowData] = []
     @State var showDialog = false
-    @State var selection: UUID? = nil
+    @State var selection: RowData? = nil
     
     var title: String { currBible.verseToString(currVerse) ?? "" }
 
@@ -32,7 +32,7 @@ public struct BibleScreen: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
 //                  .background(.red)
                     .onTapGesture {
-                        selection = item.id
+                        selection = item
                         currVerse.number = item.number
                         showDialog = true
                     }
@@ -47,9 +47,10 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                         Button("Закладка") {
-//                          let bookmark = IdentifiableString(string: bibleModel.title)
-                            bookmarksModel.content.append(item)
-                            selection = nil
+                            if let bookmark = selection {
+                                bookmarksModel.content.append(bookmark)
+                                selection = nil
+                            }
                         }
                         Button("Отмена", role: .cancel) {
                             selection = nil

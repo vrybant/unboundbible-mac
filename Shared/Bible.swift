@@ -20,7 +20,7 @@ struct Book {
     var id      : Int
 }
 
-struct RowData: Identifiable, Codable {
+struct RowData: Identifiable, Codable, Hashable {
     var book    : Int
     var chapter : Int
     var number  : Int
