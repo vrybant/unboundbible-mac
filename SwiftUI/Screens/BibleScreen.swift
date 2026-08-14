@@ -12,7 +12,13 @@ public struct BibleScreen: View {
     @State var showDialog = false
     @State var selection: RowData? = nil
     
-    var title: String { currBible.verseToString(currVerse) ?? "" }
+    var title: String {
+        currBible.verseToString(currVerse, cutted: true) ?? ""
+    }
+
+    var selectedVerse: String {
+        currBible.verseToString(currVerse, cutted: false) ?? ""
+    }
 
     func update() {
         content = currBible.getChapter(book: currVerse.book, chapter: currVerse.chapter)
@@ -56,7 +62,7 @@ public struct BibleScreen: View {
                             selection = nil
                         }
                     } message: {
-                        Text(title)
+                        Text(selectedVerse)
                     }
             }
             .onAppear { update() }
