@@ -412,13 +412,7 @@ extension Array where Element == Bible {
 }
 
 extension Array where Element == RowData {
-    
     var text: [String] {
-        var result = [String]()
-        for item in self {
-            result.append(item.text)
-        }
-        return result
+        map(\.text)
     }
-    
 }
