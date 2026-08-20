@@ -146,7 +146,7 @@ class Bible: Module {
     }
     
     var firstVerse : Verse {
-        return books.isEmpty ? Verse() : Verse(book: books[0].number, chapter: 1, number: 1, count: 1)
+        books.isEmpty ? Verse() : Verse(book: books[0].number, chapter: 1, number: 1, count: 1)
     }
     
     func getTitles() -> [Title] {
@@ -174,22 +174,14 @@ class Bible: Module {
         return result
     }
     
-    func idxByNum(_ n : Int) -> Int? {
-        if !books.isEmpty {
-            for result in 0...books.count-1 {
-                if books[result].number == n { return result }
-            }
-        }
-        return nil
+    func idxByNum(_ n: Int) -> Int? {
+        books.firstIndex { $0.number == n }
     }
     
-    func bookByName(_ s : String) -> Int? {
-        for book in books {
-            if book.title == s { return book.number }
-        }
-        return nil
+    func bookByName(_ s: String) -> Int? {
+        books.first { $0.title == s }?.number
     }
-
+    
     func getChapter(book: Int, chapter: Int) -> [RowData] {
         var result = [RowData]()
         let id = encodeID(book)
