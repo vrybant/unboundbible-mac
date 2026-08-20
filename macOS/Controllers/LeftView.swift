@@ -15,7 +15,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var constraint: NSLayoutConstraint!
     @IBOutlet weak var textFieldCell: NSTextFieldCell!
     
-    var bookTableViewList: [String] = []
+    var bookTableViewList: [Title] = []
     var chapterTableViewCount: Int = 0
     var writingDirection : NSWritingDirection = .leftToRight
 
@@ -69,7 +69,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
         if tableView == bookTableView {
             let id = NSUserInterfaceItemIdentifier(rawValue: "cellbook")
             cellView = tableView.makeView(withIdentifier: id, owner: self) as? NSTableCellView
-            cellView?.textField!.stringValue = bookTableViewList[row]
+            cellView?.textField!.stringValue = bookTableViewList[row].string
             cellView?.textField!.baseWritingDirection = writingDirection
             let width = tableView.frame.width
             tableView.tableColumns[0].width = width - 12
@@ -97,7 +97,7 @@ class LeftView: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
 
         if tableView == bookTableView {
             if tableView.tag != programmatically {
-                let name = bookTableViewList[tableView.selectedRow]
+                let name = bookTableViewList[tableView.selectedRow].string
                 if let book = currBible.bookByName(name) {
                     currVerse = Verse(book: book, chapter: 1, number: 1, count: 1)
                 }

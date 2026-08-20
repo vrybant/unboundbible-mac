@@ -20,6 +20,11 @@ struct Book {
     var id      : Int
 }
 
+struct Title {
+    var string : String
+    var id : Int
+}
+
 struct RowData: Identifiable, Codable, Hashable {
     var book    : Int
     var chapter : Int
@@ -144,12 +149,15 @@ class Bible: Module {
         return books.isEmpty ? Verse() : Verse(book: books[0].number, chapter: 1, number: 1, count: 1)
     }
     
-    func getTitles() -> [String] {
-        var result = [String]()
-        for book in books { result.append(book.title) }
+    func getTitles() -> [Title] {
+        var result = [Title]()
+        for book in books {
+            let title = Title(string: book.title, id: book.id)
+            result.append(title)
+        }
         return result
     }
-    
+
     func setCaseSensitiveLike(_ value: Bool) {
         try? database!.write() { db in
             try db.execute(sql: "PRAGMA case_sensitive_like = \(value ? 1 : 0)")
