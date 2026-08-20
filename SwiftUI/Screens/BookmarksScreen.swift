@@ -12,7 +12,7 @@ struct BookmarksScreen: View {
         
     func onTap(_ item: RowData) {
         if currBible.goodLink(item) {
-            currVerse = Verse(book: item.book, chapter: item.chapter)
+            currVerse = Verse(book: item.book, chapter: item.chapter, number: item.number)
             BibleModel.shared.route.removeAll()
             HomeModel.shared.route = .bible
         }
@@ -20,12 +20,11 @@ struct BookmarksScreen: View {
  
     func onTrashTap() {
         showAlert = true
-//
     }
   
     var body: some View {
         NavigationStack {
-            List($bookmarksModel.content, id: \.id, editActions: .all, selection: $selection) { $item in
+            List($bookmarksModel.content, id: \.self, editActions: .all, selection: $selection) { $item in
                 let attrString = parse($item.wrappedValue.text)
                 let link = currBible.verseToString($item.wrappedValue.verse) ?? "---"
                 VStack(alignment: .leading) {
@@ -34,7 +33,7 @@ struct BookmarksScreen: View {
                         .foregroundColor(.gray)
                 }
                 .onTapGesture {
-                    selection = $item.wrappedValue.id
+//                    selection = $item.wrappedValue.id
                     onTap($item.wrappedValue)
                 }
             }

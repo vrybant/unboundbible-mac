@@ -20,65 +20,105 @@ public struct BibleScreen: View {
         currBible.verseToString(currVerse, cutted: false) ?? ""
     }
 
+    var currID: Int? {
+        content.first { $0.number == currVerse.number }?.number
+    }
+    
     func update() {
         content = currBible.getChapter(book: currVerse.book, chapter: currVerse.chapter)
     }
 
     public var body: some View {
         NavigationStack(path: $bibleModel.route) {
-            List(content, id: \.id, selection: $selection) { item in
-                let string = "<l>\(item.number).</l> \(item.text)"
-                let attrString = parse(string)
-                let edgeInsets : EdgeInsets = .init(top: 1, leading: 15, bottom: 1, trailing: 15)
-                Text(attrString)
-                    .listRowInsets(edgeInsets)
-                    .listRowSeparator(.hidden)
-                    .font(.body)
-                    .dynamicTypeSize(.xLarge)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-//                  .background(.red)
-                    .onTapGesture {
-                        selection = item
-                        currVerse.number = item.number
-                        showDialog = true
-                    }
-                    .confirmationDialog("Change background", isPresented: $showDialog) {
-                        Button("Копировать") {
-                            let verses = tools.get_Verses(options: copyOptions)
-                            copyToPasteboard(parse(verses))
-                            selection = nil
+            ScrollViewReader { proxy in
+                List(content, id: \.number, selection: $selection) { item in
+                    let string = "<l>\(item.number).</l> \(item.text)"
+                    let attrString = parse(string)
+                    let edgeInsets : EdgeInsets = .init(top: 1, leading: 15, bottom: 1, trailing: 15)
+                    Text(attrString)
+//                      .id(item.number)
+                        .listRowInsets(edgeInsets)
+                        .listRowSeparator(.hidden)
+                        .font(.body)
+                        .dynamicTypeSize(.xLarge)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+//                      .background(.red)
+                        .onTapGesture {
+                            selection = item
+                            currVerse.number = item.number
+                            showDialog = true
                         }
-                        Button("Сравнить") {
-                            print("compare...")
-                            selection = nil
-                        }
-                        Button("Закладка") {
-                            if let bookmark = selection {
-                                bookmarksModel.content.append(bookmark)
+                        .confirmationDialog("Change background", isPresented: $showDialog) {
+                            Button("Копировать") {
+                                let verses = tools.get_Verses(options: copyOptions)
+                                copyToPasteboard(parse(verses))
                                 selection = nil
                             }
+                            Button("Сравнить") {
+                                print("compare...")
+                                selection = nil
+                            }
+                            Button("Закладка") {
+                                if let bookmark = selection {
+                                    bookmarksModel.content.append(bookmark)
+                                    selection = nil
+                                }
+                            }
+                            Button("Отмена", role: .cancel) {
+                                selection = nil
+                            }
+                        } message: {
+                            Text(selectedVerse)
                         }
-                        Button("Отмена", role: .cancel) {
-                            selection = nil
-                        }
-                    } message: {
-                        Text(selectedVerse)
-                    }
-            }
-            .onAppear { update() }
-            .listStyle(.plain)
-            .toolbar {
-                ToolbarItem(placement: .principal) {
-                    Button(title) {
-                        bibleModel.route.append(.books)
-                    }
-                    .bold()
                 }
+
+                .onAppear {
+                    update()
+
+//                  guard /*let currID = currID */else { return }
+//                  guard let last = content.last else { return }
+
+                    if let cid = currID {
+                        Task { @MainActor in
+                            await Task.yield()
+                            withAnimation {
+                                proxy.scrollTo(cid, anchor: .center)
+                            }
+                        }
+                    }
+                    
+                }
+
+                .listStyle(.plain)
+                .toolbar {
+                    ToolbarItem(placement: .principal) {
+                        Button(title) {
+                            bibleModel.route.append(.books)
+                        }
+                        .bold()
+                    }
+                }
+                .navigationDestination(for: BibleRoute.self) { $0 }
+                .safeNavigationBarTitleDisplayMode(.inline)
+                
+                Button("Scroll") {
+                    if let last = content.last {
+                        withAnimation {
+                            proxy.scrollTo(last.number, anchor: .bottom)
+                        }
+                    }
+                }
+
+                Button("*** UP ***") {
+                    if let first = content.first {
+                        withAnimation {
+                            proxy.scrollTo(first.number, anchor: .top)
+                        }
+                    }
+                }
+
             }
-            .navigationDestination(for: BibleRoute.self) { $0 }
-            .safeNavigationBarTitleDisplayMode(.inline)
         }
-        
     }
 }
 

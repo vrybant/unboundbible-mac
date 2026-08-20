@@ -25,12 +25,11 @@ struct Title {
     var id : Int
 }
 
-struct RowData: Identifiable, Codable, Hashable {
+struct RowData: Codable, Hashable {
     var book    : Int
     var chapter : Int
     var number  : Int
     var text    : String
-    var id = UUID()
     
     var verse: Verse {
         Verse(book: book, chapter: chapter, number: number, count: 1)
