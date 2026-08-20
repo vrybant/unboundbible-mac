@@ -6,23 +6,29 @@
 import SwiftUI
 
 var selected: Title? = nil // workaround
+var newt = false
 
 struct BooksView: View {
     @State var selection: Title? = selected
     
-    func onToolbarTap(_ proxy: ScrollViewProxy) {
-        withAnimation {
-            proxy.scrollTo(40, anchor: .top)
+    func scroll(_ proxy: ScrollViewProxy, item: Title?) {
+        if let item = item {
+            Task { @MainActor in
+                await Task.yield()
+                withAnimation {
+                    proxy.scrollTo(item, anchor: .top)
+                }
+            }
         }
     }
-
+    
     public var body: some View {
         let items : [Title] = currBible?.getTitles() ?? []
+        let matthew = items.first { $0.id == 40 }
         
         ScrollViewReader { proxy in
-            List(items, id: \.id, selection: $selection) { item in
+            List(items, id: \.self, selection: $selection) { item in
                 Text(item.string)
-//                    .id(item)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
@@ -30,6 +36,7 @@ struct BooksView: View {
                         selected = selection
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                             if let selection = selection {
+                                newt = selection.id >= 40
                                 BibleModel.shared.route.append(.chapters(selection.string))
                             }
                         }
@@ -47,25 +54,25 @@ struct BooksView: View {
                 
                 
             }
-            .padding(.top, -20)
+ //         .padding(.top, -20)
+            .listStyle(.plain)
             .navigationTitle("Books")
             .toolbar {
                 #if os(iOS)
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { onToolbarTap(proxy) }) {
+                    Button(action: {
+                        if let matthew = matthew {
+                            proxy.scrollTo(matthew, anchor: .top)
+                        }
+                    }) {
                         Image(systemName: "arrow.down.circle")
                     }
                 }
                 #endif
             }
             .onAppear {
-                if let selection = selection {
-                    Task { @MainActor in
-                        await Task.yield()
-                        withAnimation {
-                            proxy.scrollTo(selection.id, anchor: .center)
-                        }
-                    }
+                if newt {
+                    scroll(proxy, item: matthew)
                 }
             }
             
