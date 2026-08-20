@@ -150,14 +150,11 @@ class Bible: Module {
     }
     
     func getTitles() -> [Title] {
-        var result = [Title]()
-        for book in books {
-            let title = Title(string: book.title, id: book.id)
-            result.append(title)
+        books.map {
+            Title(string: $0.title, id: $0.id)
         }
-        return result
     }
-
+    
     func setCaseSensitiveLike(_ value: Bool) {
         try? database!.write() { db in
             try db.execute(sql: "PRAGMA case_sensitive_like = \(value ? 1 : 0)")
