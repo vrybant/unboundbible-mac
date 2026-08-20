@@ -7,7 +7,7 @@ import SwiftUI
 
 struct BookmarksScreen: View {
     @Bindable var bookmarksModel = BookmarksModel.shared
-    @State private var selection: UUID? = nil
+    @State var selection: RowData? = nil
     @State private var showAlert = false
         
     func onTap(_ item: RowData) {
@@ -33,7 +33,7 @@ struct BookmarksScreen: View {
                         .foregroundColor(.gray)
                 }
                 .onTapGesture {
-//                    selection = $item.wrappedValue.id
+                    selection = item
                     onTap($item.wrappedValue)
                 }
             }
