@@ -5,10 +5,10 @@
 
 import SwiftUI
 
-var selected: String? // workaround
+var selected: Title? = nil // workaround
 
 struct BooksView: View {
-    @State var selection: String? = selected
+    @State var selection: Title? = selected
     
     func onToolbarTap(_ proxy: ScrollViewProxy) {
         withAnimation {
@@ -26,22 +26,24 @@ struct BooksView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        selection = item.string
+                        selection = item
                         selected = selection
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                            BibleModel.shared.route.append(.chapters(selection!))
+                            if let selection = selection {
+                                BibleModel.shared.route.append(.chapters(selection.string))
+                            }
                         }
                     }
 //                    .onLongPressGesture {
 //                        selection = item.id
 //                        BibleModel.shared.router.append(.chapters(item.))
 //                    }
-                    .onChange(of: selection) {
+//                    .onChange(of: selection) {
 //                        print("List changed. Selected item is: \(selection ?? "None")")
 //                        withAnimation {
 //                            proxy.scrollTo(newValue, anchor: .center)
 //                        }
-                    }
+//                    }
                 
                 
             }
@@ -58,16 +60,19 @@ struct BooksView: View {
             }
             .onAppear {
                 if let selection = selection {
-                    proxy.scrollTo(selection, anchor: .center)
+                    Task { @MainActor in
+                        await Task.yield()
+                        withAnimation {
+                            proxy.scrollTo(selection.id, anchor: .center)
+                        }
+                    }
                 }
             }
             
             Button("Scroll") {
-                    withAnimation {
-//                        let id = 40
-                        proxy.scrollTo(1, anchor: .top)
-//                      proxy.scrollTo(last.id, anchor: .bottom)
-                    }
+                withAnimation {
+                    proxy.scrollTo(1, anchor: .top)
+                }
             }
             
         }

@@ -20,11 +20,6 @@ struct Book {
     var id      : Int
 }
 
-struct Title {
-    var string : String
-    var id : Int
-}
-
 struct RowData: Codable, Hashable {
     var book    : Int
     var chapter : Int
@@ -34,6 +29,11 @@ struct RowData: Codable, Hashable {
     var verse: Verse {
         Verse(book: book, chapter: chapter, number: number, count: 1)
     }
+}
+
+struct Title: Hashable {
+    var string : String
+    var id : Int
 }
 
 private protocol BibleAlias {

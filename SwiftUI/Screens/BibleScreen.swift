@@ -75,9 +75,6 @@ public struct BibleScreen: View {
                 .onAppear {
                     update()
 
-//                  guard /*let currID = currID */else { return }
-//                  guard let last = content.last else { return }
-
                     if let cid = currID {
                         Task { @MainActor in
                             await Task.yield()
