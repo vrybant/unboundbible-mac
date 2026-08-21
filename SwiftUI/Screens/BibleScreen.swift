@@ -98,22 +98,6 @@ public struct BibleScreen: View {
                 .navigationDestination(for: BibleRoute.self) { $0 }
                 .safeNavigationBarTitleDisplayMode(.inline)
                 
-                Button("Scroll") {
-                    if let last = content.last {
-                        withAnimation {
-                            proxy.scrollTo(last.number, anchor: .bottom)
-                        }
-                    }
-                }
-
-                Button("*** UP ***") {
-                    if let first = content.first {
-                        withAnimation {
-                            proxy.scrollTo(first.number, anchor: .top)
-                        }
-                    }
-                }
-
             }
         }
     }

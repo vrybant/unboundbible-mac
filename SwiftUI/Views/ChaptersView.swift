@@ -31,7 +31,7 @@ struct ChaptersView: View {
                 .onTapGesture {
                     handleAction(for: item)
                 }
-                .onLongPressGesture {
+                .onLongPressGesture() {
                     handleAction(for: item)
                 }
         }
