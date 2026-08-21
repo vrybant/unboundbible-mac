@@ -19,32 +19,36 @@ struct ChaptersView: View {
         }
     }
 
-    func onTap(_ chapter: Int) {
-        selection = chapter
-        currVerse = Verse(book: book!, chapter: chapter)
-        BibleModel.shared.route.removeAll()
-    }
-    
     var body: some View {
         let chaptersCount = currBible.chaptersCount(book: book!)
         let chapters = 1...chaptersCount
         
         List(chapters, id: \.self, selection: $selection) { item in
             Text("Глава \(item)")
+                .id(item)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    onTap(item)
+                    handleAction(for: item)
                 }
                 .onLongPressGesture {
-                    onTap(item)
+                    handleAction(for: item)
                 }
-
         }
         .padding(.top, -20)
+        .listStyle(.plain)
         .navigationTitle(name!)
 
     }
+    
+    private func handleAction(for item: Int) {
+        selection = item
+        currVerse = Verse(book: book!, chapter: item)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            BibleModel.shared.route.removeAll()
+        }
+    }
+
 }
 
 #Preview {

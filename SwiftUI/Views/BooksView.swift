@@ -21,14 +21,11 @@ struct BooksView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        selection = item
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                            if let selection = selection {
-                                BibleModel.shared.route.append(.chapters(selection.string))
-                            }
-                        }
+                        handleAction(for: item)
                     }
-//                  .onLongPressGesture
+                    .onLongPressGesture {
+                        handleAction(for: item)
+                    }
             }
 //          .padding(.top, -20)
             .listStyle(.plain)
@@ -53,11 +50,18 @@ struct BooksView: View {
                             }
                         }
                     }) {
-                        Image(systemName: newtestament ? "arrow.up.circle" : "arrow.down.circle")
+                        Image(systemName: newtestament ? "arrow.up" : "arrow.down")
                     }
                 }
             }
             #endif
+        }
+    }
+    
+    private func handleAction(for item: Title) {
+        selection = item
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+            BibleModel.shared.route.append(.chapters(item.string))
         }
     }
     
