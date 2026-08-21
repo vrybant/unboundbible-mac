@@ -5,18 +5,17 @@
 
 import SwiftUI
 
-var selected: Title? = nil // workaround
-var newt = false
-
 struct BooksView: View {
-    @State var selection: Title? = selected
-    
-    func scroll(_ proxy: ScrollViewProxy, item: Title?) {
-        if let item = item {
+    @State var selection: Title?
+    @State var newt: Bool = false
+
+    func scroll(_ proxy: ScrollViewProxy, id: Title?, animation: Bool) {
+        if let id = id {
             Task { @MainActor in
                 await Task.yield()
-                withAnimation {
-                    proxy.scrollTo(item, anchor: .top)
+                let animation = animation ? Animation.default : nil
+                withAnimation(animation) {
+                    proxy.scrollTo(id, anchor: .top)
                 }
             }
         }
@@ -24,16 +23,17 @@ struct BooksView: View {
     
     public var body: some View {
         let items : [Title] = currBible?.getTitles() ?? []
+        let first = items.first
         let matthew = items.first { $0.id == 40 }
         
         ScrollViewReader { proxy in
             List(items, id: \.self, selection: $selection) { item in
                 Text(item.string)
+                    .id(item)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         selection = item
-                        selected = selection
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
                             if let selection = selection {
                                 newt = selection.id >= 40
@@ -41,47 +41,38 @@ struct BooksView: View {
                             }
                         }
                     }
-//                    .onLongPressGesture {
-//                        selection = item.id
-//                        BibleModel.shared.router.append(.chapters(item.))
-//                    }
-//                    .onChange(of: selection) {
-//                        print("List changed. Selected item is: \(selection ?? "None")")
-//                        withAnimation {
-//                            proxy.scrollTo(newValue, anchor: .center)
-//                        }
-//                    }
-                
-                
+//                  .onLongPressGesture
             }
  //         .padding(.top, -20)
             .listStyle(.plain)
             .navigationTitle("Books")
-            .toolbar {
-                #if os(iOS)
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        if let matthew = matthew {
-                            proxy.scrollTo(matthew, anchor: .top)
-                        }
-                    }) {
-                        Image(systemName: "arrow.down.circle")
-                    }
-                }
-                #endif
-            }
             .onAppear {
                 if newt {
-                    scroll(proxy, item: matthew)
+                    scroll(proxy, id: matthew, animation: false)
                 }
             }
             
-            Button("Scroll") {
-                withAnimation {
-                    proxy.scrollTo(1, anchor: .top)
+            #if os(iOS)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        newt = !newt
+                        let id = newt ? matthew : first
+                        scroll(proxy, id: id, animation: true)
+                        
+//                        if let id = id {
+//                            withAnimation {
+//                                proxy.scrollTo(id, anchor: .top)
+//                            }
+//                        }
+                        
+                    }) {
+                        Image(systemName: newt ? "arrow.up.circle" : "arrow.down.circle")
+                    }
                 }
             }
-            
+            #endif
+
         }
     }
     
