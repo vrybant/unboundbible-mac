@@ -35,7 +35,6 @@ struct ChaptersView: View {
                     handleAction(for: item)
                 }
         }
-//      .padding(.top, -20)
         .listStyle(.plain)
         .navigationTitle(name!)
 
@@ -44,7 +43,8 @@ struct ChaptersView: View {
     private func handleAction(for item: Int) {
         selection = item
         currVerse = Verse(book: book!, chapter: item)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
+        Task {
+            try? await Task.sleep(for: .seconds(0.05))
             BibleModel.shared.route.removeAll()
         }
     }

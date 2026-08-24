@@ -23,15 +23,16 @@ struct BooksView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
                         .onTapGesture {
-                            print("onTapGesture")
-                            handleAction(for: item)
+                            if selection == nil {
+                                handleAction(for: item)
+                            }
                         }
                         .onLongPressGesture {
-                            print("onLongPressGesture")
-                            handleAction(for: item)
+                            if selection == nil {
+                                handleAction(for: item)
+                            }
                         }
                 }
-                //          .padding(.top, -20)
                 .listStyle(.plain)
                 .navigationTitle("Books")
                 .onAppear {
@@ -42,23 +43,6 @@ struct BooksView: View {
                         }
                     }
                 }
-#if os(iOS)
-//                .toolbar {
-//                    ToolbarItem(placement: .navigationBarTrailing) {
-//                        Button(action: {
-//                            newtestament = !newtestament
-//                            let id = newtestament ? matthew : first
-//                            if let id = id {
-//                                withAnimation {
-//                                    proxy.scrollTo(id, anchor: .top)
-//                                }
-//                            }
-//                        }) {
-//                            Image(systemName: newtestament ? "arrow.up" : "arrow.down")
-//                        }
-//                    }
-//                }
-#endif
                 if isButtonVisible {
                     Button {
                         Task {
@@ -66,7 +50,7 @@ struct BooksView: View {
                             try? await Task.sleep(for: .seconds(0.2))
                             isButtonVisible = true
                         }
-                        newtestament = !newtestament
+                        newtestament.toggle()
                         if let id = newtestament ? matthew : first {
                             withAnimation {
                                 proxy.scrollTo(id, anchor: .top)
@@ -91,10 +75,13 @@ struct BooksView: View {
     
     private func handleAction(for item: Title) {
         selection = item
-        BibleModel.shared.route.append(.chapters(item.string))
-        selection = nil
         Task {
-            try? await Task.sleep(for: .seconds(0.1))
+            try? await Task.sleep(for: .seconds(0.05))
+            BibleModel.shared.route.append(.chapters(item.string))
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(0.5))
+            selection = nil
         }
     }
     
