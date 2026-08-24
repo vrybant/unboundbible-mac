@@ -35,7 +35,7 @@ struct ChaptersView: View {
                     handleAction(for: item)
                 }
         }
-        .padding(.top, -20)
+//      .padding(.top, -20)
         .listStyle(.plain)
         .navigationTitle(name!)
 
