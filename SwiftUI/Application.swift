@@ -4,7 +4,7 @@
 //
 
 // https://developer.apple.com/support/app-store/
-// 82% of all devices use iOS 18
+// 86% of all devices use iOS 26
 
 import Foundation
 import SwiftUI

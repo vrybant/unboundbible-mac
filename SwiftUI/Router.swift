@@ -10,7 +10,7 @@ enum HomeRoute {
     case search
     case shelf
     case bookmarks
-    case options
+    case about
 }
 
 enum BibleRoute: Hashable, View {

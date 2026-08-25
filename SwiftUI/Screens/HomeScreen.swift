@@ -31,15 +31,12 @@ struct HomeScreen: View {
                 .tabItem {
                     Label("Modules", systemImage: "books.vertical")
                 }
-            
-            #if canImport(UIKit)
-            if UIDevice.current.userInterfaceIdiom == .phone {
-                OptionsScreen()
-                    .tag(HomeRoute.options)
-                    .tabItem {
-                        Label("Options", systemImage: "gear")
-                    }
-            }
+            #if os(iOS)
+            AboutScreen()
+                .tag(HomeRoute.about)
+                .tabItem {
+                    Label("About", systemImage: "info")
+                }
             #endif
         }
         .accentColor(Color("brandPrimary"))

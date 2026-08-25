@@ -5,15 +5,14 @@
 
 import SwiftUI
 
-struct OptionsScreen: View {
+struct AboutScreen: View {
     
     public var body: some View {
-             Button("Button") {
-                 HomeModel.shared.route = .bible
+             Button("About") {
             }
     }
 }
 
 #Preview {
-    OptionsScreen()
+    AboutScreen()
 }
