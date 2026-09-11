@@ -40,6 +40,7 @@ struct SearchScreen: View {
 //                          .foregroundColor(Color(UIColor.darkGray))
                     }
 //                  .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
                     .onTapGesture {
                         selection = item.id
                         onTap(item)

@@ -20,6 +20,7 @@ struct BookmarksScreen: View {
                     Text(link)
                         .foregroundColor(.gray)
                 }
+                .contentShape(Rectangle())
                 .onTapGesture {
                     handleAction(for: item.wrappedValue)
                 }
@@ -63,7 +64,7 @@ struct BookmarksScreen: View {
         }
     }
 
-    func onTrashTap() {
+    private func onTrashTap() {
         showAlert = true
     }
   

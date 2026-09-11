@@ -42,6 +42,7 @@ public struct BibleScreen: View {
                         .font(.body)
                         .dynamicTypeSize(.xLarge)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .contentShape(Rectangle())
 //                      .background(.red)
                         .onTapGesture {
                             selection = item
