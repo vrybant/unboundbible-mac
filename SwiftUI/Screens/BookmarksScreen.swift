@@ -10,18 +10,6 @@ struct BookmarksScreen: View {
     @State var selection: RowData? = nil
     @State private var showAlert = false
         
-    func onTap(_ item: RowData) {
-        if currBible.goodLink(item) {
-            currVerse = Verse(book: item.book, chapter: item.chapter, number: item.number)
-            BibleModel.shared.route.removeAll()
-            HomeModel.shared.route = .bible
-        }
-    }
- 
-    func onTrashTap() {
-        showAlert = true
-    }
-  
     var body: some View {
         NavigationStack {
             List($bookmarksModel.content, id: \.self, editActions: .all, selection: $selection) { item in
@@ -33,8 +21,7 @@ struct BookmarksScreen: View {
                         .foregroundColor(.gray)
                 }
                 .onTapGesture {
-                    selection = item.wrappedValue
-                    onTap(item.wrappedValue)
+                    handleAction(for: item.wrappedValue)
                 }
             }
             .listStyle(.plain)
@@ -60,7 +47,26 @@ struct BookmarksScreen: View {
             Text("Это действие нельзя отменить.")
         }
     }
-    
+
+    private func handleAction(for item: RowData) {
+        selection = item
+        if !currBible.goodLink(item) { return }
+        Task {
+            try? await Task.sleep(for: .seconds(0.05))
+            currVerse = Verse(book: item.book, chapter: item.chapter, number: item.number)
+            BibleModel.shared.route.removeAll()
+            HomeModel.shared.route = .bible
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(0.5))
+            selection = nil
+        }
+    }
+
+    func onTrashTap() {
+        showAlert = true
+    }
+  
 }
 
 #Preview {
