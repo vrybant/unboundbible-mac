@@ -31,7 +31,7 @@ public struct BibleScreen: View {
     public var body: some View {
         NavigationStack(path: $bibleModel.route) {
             ScrollViewReader { proxy in
-                List(content, id: \.number, selection: $selection) { item in
+                List(content, id: \.self, selection: $selection) { item in
                     let string = "<l>\(item.number).</l> \(item.text)"
                     let attrString = parse(string)
                     let edgeInsets : EdgeInsets = .init(top: 1, leading: 15, bottom: 1, trailing: 15)
@@ -45,18 +45,13 @@ public struct BibleScreen: View {
                         .contentShape(Rectangle())
 //                      .background(.red)
                         .onTapGesture {
-                            selection = item
-                            currVerse.number = item.number
                             showDialog = true
+                            handleAction(for: item)
                         }
-                        .confirmationDialog("Change background", isPresented: $showDialog) {
+                        .confirmationDialog("", isPresented: $showDialog) {
                             Button("Копировать") {
                                 let verses = tools.get_Verses(options: copyOptions)
                                 copyToPasteboard(parse(verses))
-                                selection = nil
-                            }
-                            Button("Сравнить") {
-                                print("compare...")
                                 selection = nil
                             }
                             Button("Закладка") {
@@ -72,7 +67,6 @@ public struct BibleScreen: View {
                             Text(selectedVerse)
                         }
                 }
-
                 .onAppear {
                     update()
 
@@ -86,7 +80,6 @@ public struct BibleScreen: View {
                     }
                     
                 }
-
                 .listStyle(.plain)
                 .toolbar {
                     ToolbarItem(placement: .principal) {
@@ -102,6 +95,16 @@ public struct BibleScreen: View {
             }
         }
     }
+    
+    private func handleAction(for item: RowData) {
+        selection = item
+        Task {
+            try? await Task.sleep(for: .seconds(0.05))
+            currVerse.number = item.number
+            showDialog = true
+        }
+    }
+
 }
 
 #Preview {

@@ -50,8 +50,8 @@ struct BookmarksScreen: View {
     }
 
     private func handleAction(for item: RowData) {
-        selection = item
         if !currBible.goodLink(item) { return }
+        selection = item
         Task {
             try? await Task.sleep(for: .seconds(0.05))
             currVerse = Verse(book: item.book, chapter: item.chapter, number: item.number)
