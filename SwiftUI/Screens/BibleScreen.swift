@@ -45,10 +45,9 @@ public struct BibleScreen: View {
                         .contentShape(Rectangle())
 //                      .background(.red)
                         .onTapGesture {
-                            showDialog = true
                             handleAction(for: item)
                         }
-                        .confirmationDialog("", isPresented: $showDialog) {
+                        .confirmationDialog(selectedVerse, isPresented: $showDialog, titleVisibility: .visible) {
                             Button("Копировать") {
                                 let verses = tools.get_Verses(options: copyOptions)
                                 copyToPasteboard(parse(verses))
@@ -63,8 +62,6 @@ public struct BibleScreen: View {
                             Button("Отмена", role: .cancel) {
                                 selection = nil
                             }
-                        } message: {
-                            Text(selectedVerse)
                         }
                 }
                 .onAppear {
