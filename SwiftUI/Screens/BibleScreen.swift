@@ -9,7 +9,7 @@ public struct BibleScreen: View {
     @State var bibleModel = BibleModel.shared
     @State var bookmarksModel = BookmarksModel.shared
     @State var content: [RowData] = []
-    @State var showDialog = false
+    @State var showAlert = false
     @State var selection: RowData? = nil
     
     var title: String {
@@ -36,7 +36,7 @@ public struct BibleScreen: View {
                     let attrString = parse(string)
                     let edgeInsets : EdgeInsets = .init(top: 1, leading: 15, bottom: 1, trailing: 15)
                     Text(attrString)
-//                      .id(item.number)
+                        .id(item)
                         .listRowInsets(edgeInsets)
                         .listRowSeparator(.hidden)
                         .font(.body)
@@ -47,7 +47,7 @@ public struct BibleScreen: View {
                         .onTapGesture {
                             handleAction(for: item)
                         }
-                        .confirmationDialog(selectedVerse, isPresented: $showDialog, titleVisibility: .visible) {
+                        .alert(selectedVerse, isPresented: $showAlert, actions: {
                             Button("Копировать") {
                                 let verses = tools.get_Verses(options: copyOptions)
                                 copyToPasteboard(parse(verses))
@@ -56,13 +56,14 @@ public struct BibleScreen: View {
                             Button("Закладка") {
                                 if let bookmark = selection {
                                     bookmarksModel.content.append(bookmark)
-                                    selection = nil
                                 }
+                                selection = nil
                             }
                             Button("Отмена", role: .cancel) {
                                 selection = nil
                             }
-                        }
+                        })
+                    
                 }
                 .onAppear {
                     update()
@@ -95,10 +96,10 @@ public struct BibleScreen: View {
     
     private func handleAction(for item: RowData) {
         selection = item
+        currVerse.number = item.number
         Task {
             try? await Task.sleep(for: .seconds(0.05))
-            currVerse.number = item.number
-            showDialog = true
+            showAlert = true
         }
     }
 
