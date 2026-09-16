@@ -43,9 +43,10 @@ public struct BibleScreen: View {
                         .dynamicTypeSize(.xLarge)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
-//                      .background(.red)
                         .onTapGesture {
                             handleAction(for: item)
+                        }
+                        .onLongPressGesture {
                         }
                         .alert(selectedVerse, isPresented: $showAlert, actions: {
                             Button("Копировать") {
