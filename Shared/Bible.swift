@@ -237,15 +237,9 @@ class Bible: Module {
     }
     
     private func sortSearchContent(_ rowData: [RowData]) -> [RowData] {
-        var result = [RowData]()
-        for book in books {
-            for item in rowData {
-                if item.book == book.number {
-                    result.append(item)
-                }
-            }
+        books.flatMap { book in
+            rowData.filter { $0.book == book.number }
         }
-        return result
     }
     
     func search(string: String, options: SearchOption, range: SearchRange?) -> [RowData] {
