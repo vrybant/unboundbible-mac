@@ -37,26 +37,31 @@ final class Tools {
         }
     }
 
-    func get_Search(string: String) -> [SearchItem] {
-        var result = [SearchItem]()
+    func get_SearchData(_ string: String) -> [RowData] {
+        var result = [RowData]()
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
         let range = currentSearchRange(range: rangeOption)
         
         let searchResult = currBible.search(string: target, options: searchOption, range: range)
         for item in searchResult {
-            let verse = item.verse
-            guard let link = currBible.verseToString(verse) else { continue }
-            var text = item.text
-            text = text.highlight(with: "<r>", target: searchList, options: searchOption)
-                     
-            let searchItem = SearchItem(link: link, text: text)
-            result.append(searchItem)
+            var item = item
+            item.text = item.text.highlight(with: "<r>", target: searchList, options: searchOption)
+            result.append(item)
         }
         
         return result
     }
     
+    #if COCOA
+    func get_Search(string: String) -> [SearchItem] {
+        get_SearchData(string).compactMap { item in
+            guard let link = currBible.verseToString(item.verse) else { return nil }
+            return SearchItem(link: link, text: item.text)
+        }
+    }
+    #endif
+
     func get_Compare() -> [String] {
         var result = [String]()
         

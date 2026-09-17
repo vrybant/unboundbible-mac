@@ -20,11 +20,12 @@ struct SearchOption: OptionSet {
     static let    wholeWords = SearchOption(rawValue: 1 << 1)
 }
 
-struct SearchItem: Identifiable {
+#if COCOA
+struct SearchItem {
     let link: String
     let text: String
-    let id = UUID()
 }
+#endif
 
 struct CopyOptions : OptionSet {
     let rawValue: Int
