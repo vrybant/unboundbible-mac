@@ -19,11 +19,13 @@ extension Tools {
 
     func get_SearchList(string: String) -> (string: String, count: Int) {
         var result = String()
-        let list = tools.get_Search(string: string)
-        
+        let list = get_Search(string: string)
+
         for item in list {
-            let string = "<l>\(item.link)</l> \(item.text)\n\n"
-            result.append(string)
+            if let link = currBible.verseToString(item.verse) {
+                let string = "<l>\(link)</l> \(item.text)\n\n"
+                result.append(string)
+            }
         }
         
         return (result, list.count)

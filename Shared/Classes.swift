@@ -20,13 +20,6 @@ struct SearchOption: OptionSet {
     static let    wholeWords = SearchOption(rawValue: 1 << 1)
 }
 
-#if COCOA
-struct SearchItem {
-    let link: String
-    let text: String
-}
-#endif
-
 struct CopyOptions : OptionSet {
     let rawValue: Int
     static let  abbreviate = CopyOptions(rawValue: 1 << 0)

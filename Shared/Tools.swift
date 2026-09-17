@@ -37,7 +37,7 @@ final class Tools {
         }
     }
 
-    func get_SearchData(_ string: String) -> [RowData] {
+    func get_Search(string: String) -> [RowData] {
         var result = [RowData]()
         let target = searchOption.contains(.caseSensitive) ? string : string.lowercased()
         let searchList = target.components(separatedBy: " ")
@@ -53,15 +53,6 @@ final class Tools {
         return result
     }
     
-    #if COCOA
-    func get_Search(string: String) -> [SearchItem] {
-        get_SearchData(string).compactMap { item in
-            guard let link = currBible.verseToString(item.verse) else { return nil }
-            return SearchItem(link: link, text: item.text)
-        }
-    }
-    #endif
-
     func get_Compare() -> [String] {
         var result = [String]()
         
@@ -193,7 +184,4 @@ final class Tools {
         "Info \(book) \(chapter)"
     }
 
-//
-
 }
-
