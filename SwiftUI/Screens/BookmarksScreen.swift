@@ -20,9 +20,12 @@ struct BookmarksScreen: View {
                     Text(link)
                         .foregroundColor(.gray)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .contentShape(Rectangle())
                 .onTapGesture {
                     handleAction(for: item.wrappedValue)
+                }
+                .onLongPressGesture {
                 }
             }
             .listStyle(.plain)

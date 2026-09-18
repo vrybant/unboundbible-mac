@@ -24,11 +24,13 @@ struct SearchScreen: View {
                             .foregroundColor(.gray)
 //                          .foregroundColor(Color(UIColor.darkGray))
                     }
-//                  .frame(maxWidth: .infinity, alignment: .leading)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         selection = item
-//                        handleAction(for: item)
+                        handleAction(for: item)
+                    }
+                    .onLongPressGesture {
                     }
                 }
                 .listStyle(.plain)
@@ -47,24 +49,20 @@ struct SearchScreen: View {
         content = searchText.isEmpty ? [] : tools.get_Search(string: searchText)
     }
 
-//    private func handleAction(for item: SearchItem) {
-//            if let verse = currBible.stringToVerse(link: item.link) {
-//                if currBible.goodLink(verse) {
-//                    currVerse = verse
-//                    BibleModel.shared.route.removeAll()
-//                    HomeModel.shared.route = .bible
-//                }
-//            }
-//
-//        Task {
-//            try? await Task.sleep(for: .seconds(0.05))
-////            BibleModel.shared.route.append(.chapters(item.string))
-//        }
-//        Task {
-//            try? await Task.sleep(for: .seconds(0.5))
-////            selection = nil
-//        }
-//    }
+    private func handleAction(for item: RowData) {
+        if !currBible.goodLink(item) { return }
+        selection = item
+        Task {
+            try? await Task.sleep(for: .seconds(0.05))
+            currVerse = Verse(book: item.book, chapter: item.chapter, number: item.number)
+            BibleModel.shared.route.removeAll()
+            HomeModel.shared.route = .bible
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(0.5))
+            selection = nil
+        }
+    }
 
 }
 

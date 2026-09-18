@@ -31,6 +31,7 @@ public struct ShelfScreen: View {
                         Image(systemName: "checkmark")
                             .opacity(isCurrent(name: item.string) ? 1.0 : 0.0)
                     }
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
                         selection = item.id
