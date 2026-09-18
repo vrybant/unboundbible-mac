@@ -6,29 +6,19 @@
 extension Tools {
     
     func get_Chapter(book: Int, chapter: Int) -> String {
-        var result = String()
-        let rowData = currBible.getChapter(book: book, chapter: chapter)
-
-        for item in rowData {
-           let string = " <l>\(item.number)</l> \(item.text)\n"
-           result.append(string)
-        }
-
-        return result
+        return currBible.getChapter(book: book, chapter: chapter)
+            .map { " <l>\($0.number)</l> \($0.text)\n" }
+            .joined()
     }
 
     func get_SearchList(string: String) -> (string: String, count: Int) {
-        var result = String()
         let list = get_Search(string: string)
-
-        for item in list {
-            if let link = currBible.verseToString(item.verse) {
-                let string = "<l>\(link)</l> \(item.text)\n\n"
-                result.append(string)
+            .map {
+                let link = currBible.verseToString($0.verse) ?? "Unknown"
+                return "<l>\(link)</l> \($0.text)\n\n"
             }
-        }
         
-        return (result, list.count)
+        return (list.joined(), list.count)
     }
 
 }
