@@ -8,42 +8,27 @@
 import SwiftUI
 
 struct SearchScreen: View {
-    @State var selection: UUID? = nil
+    @State var content: [RowData] = []
+    @State var selection: RowData? = nil
     @State var searchText = ""
-    @State var content: [SearchItem] = []
 
-    func update(text: String) {
-        searchText = text
-        content = searchText.isEmpty ? [] : tools.get_Search(string: searchText)
-    }
-
-    func onTap(_ item: SearchItem) {
-        if let verse = currBible.stringToVerse(link: item.link) {
-            if currBible.goodLink(verse) {
-                currVerse = verse
-                BibleModel.shared.route.removeAll()
-                HomeModel.shared.route = .bible
-            }
-        }
-
-    }
-    
     var body: some View {
         VStack {
             NavigationStack {
-                List(content, selection: $selection) { item in
-                    let attrString = parse(item.text)
+                List(content, id: \.self, selection: $selection) { item in
+                    let attrText = parse(item.text)
+                    let link = currBible.verseToString(item.verse) ?? "Unknown"
                     VStack(alignment: .leading) {
-                        Text(attrString)
-                        Text(item.link)
+                        Text(attrText)
+                        Text(link)
                             .foregroundColor(.gray)
 //                          .foregroundColor(Color(UIColor.darkGray))
                     }
 //                  .frame(maxWidth: .infinity, alignment: .leading)
                     .contentShape(Rectangle())
                     .onTapGesture {
-                        selection = item.id
-                        onTap(item)
+                        selection = item
+//                        handleAction(for: item)
                     }
                 }
                 .listStyle(.plain)
@@ -56,6 +41,31 @@ struct SearchScreen: View {
             }
         }
     }
+    
+    func update(text: String) {
+        searchText = text
+        content = searchText.isEmpty ? [] : tools.get_Search(string: searchText)
+    }
+
+//    private func handleAction(for item: SearchItem) {
+//            if let verse = currBible.stringToVerse(link: item.link) {
+//                if currBible.goodLink(verse) {
+//                    currVerse = verse
+//                    BibleModel.shared.route.removeAll()
+//                    HomeModel.shared.route = .bible
+//                }
+//            }
+//
+//        Task {
+//            try? await Task.sleep(for: .seconds(0.05))
+////            BibleModel.shared.route.append(.chapters(item.string))
+//        }
+//        Task {
+//            try? await Task.sleep(for: .seconds(0.5))
+////            selection = nil
+//        }
+//    }
+
 }
 
 #Preview {
