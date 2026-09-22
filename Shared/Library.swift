@@ -38,7 +38,7 @@ enum Errors : Error {
 //      return style == "Dark"
 //  }
 
-let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
+let languageCode = Bundle.main.preferredLocalizations.first ?? "en"
 
 var russianSpeaking: Bool {
     ["ru","uk"].contains(languageCode)
