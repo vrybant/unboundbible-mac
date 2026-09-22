@@ -21,6 +21,7 @@
 		E7228FB6205142AE00C78C3C /* titles in Resources */ = {isa = PBXBuildFile; fileRef = E7228FB5205142AE00C78C3C /* titles */; };
 		E722F3423062E35B006AF496 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E722F3413062E35B006AF496 /* Localizable.xcstrings */; };
 		E722F3493062E35C006AF496 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E722F3483062E35C006AF496 /* InfoPlist.xcstrings */; };
+		E722F34B3062E49F006AF496 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = E722F3413062E35B006AF496 /* Localizable.xcstrings */; };
 		E725BA1E2193196000247627 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = E725BA1D2193196000247627 /* View.swift */; };
 		E72DF9E21DE8651C00A46DA1 /* LeftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72DF9E11DE8651C00A46DA1 /* LeftView.swift */; };
 		E7382CBA21CC006400DF8772 /* Prepare.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7382CB921CC006400DF8772 /* Prepare.swift */; };
@@ -244,7 +245,6 @@
 				CE2F17F91D33C31800BA91A6 /* Info.plist */,
 				E7522CC8214AAD2900EB8788 /* macOS.entitlements */,
 				E722F3483062E35C006AF496 /* InfoPlist.xcstrings */,
-				E722F3413062E35B006AF496 /* Localizable.xcstrings */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -381,6 +381,7 @@
 			children = (
 				E75525942051334A00BDD425 /* bibles */,
 				E7228FB5205142AE00C78C3C /* titles */,
+				E722F3413062E35B006AF496 /* Localizable.xcstrings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -515,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E71E2CBA2A12647A00136566 /* Preview Assets.xcassets in Resources */,
+				E722F34B3062E49F006AF496 /* Localizable.xcstrings in Resources */,
 				E71E2CB72A12647A00136566 /* Assets.xcassets in Resources */,
 				E7EA07A92A3B79010079BCD8 /* bibles in Resources */,
 				E7EA07AA2A3B79070079BCD8 /* titles in Resources */,
