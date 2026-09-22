@@ -38,13 +38,7 @@ enum Errors : Error {
 //      return style == "Dark"
 //  }
 
-var languageCode: String {
-    if #available(macOS 13, iOS 16, *) {
-        NSLocale.autoupdatingCurrent.language.languageCode?.identifier ?? "en"
-    } else {
-        NSLocale.autoupdatingCurrent.languageCode ?? "en"
-    }
-}
+let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
 
 var russianSpeaking: Bool {
     ["ru","uk"].contains(languageCode)
