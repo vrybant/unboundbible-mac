@@ -1,0 +1,198 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "2SO-EV-3Lb.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Bible\"; ObjectID = \"2SO-EV-3Lb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Bible"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Библия"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Біблія"
+          }
+        }
+      }
+    },
+    "eHI-5h-gvX.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"New Testament\"; ObjectID = \"eHI-5h-gvX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "New Testament"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новый Завет"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Новый Заповіт"
+          }
+        }
+      }
+    },
+    "gMq-DU-2HZ.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Old Testament\"; ObjectID = \"gMq-DU-2HZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Old Testament"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ветхий Завет"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Старий Заповіт"
+          }
+        }
+      }
+    },
+    "Jsl-bf-oPL.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Epistles\"; ObjectID = \"Jsl-bf-oPL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Epistles"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Послания"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Послання"
+          }
+        }
+      }
+    },
+    "LkG-Gf-DKF.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Whole Words\"; ObjectID = \"LkG-Gf-DKF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Whole Words"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слова целиком"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слова цілком"
+          }
+        }
+      }
+    },
+    "Mjh-aU-nKD.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Case Sensitive\"; ObjectID = \"Mjh-aU-nKD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Case Sensitive"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регистр"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Регістр"
+          }
+        }
+      }
+    },
+    "Oto-h3-oqx.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Opened Book\"; ObjectID = \"Oto-h3-oqx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Opened Book"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открытая книга"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрита книга"
+          }
+        }
+      }
+    },
+    "Q1p-bp-wGb.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Gospels\"; ObjectID = \"Q1p-bp-wGb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Gospels"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Евангелия"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Євангелія"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}

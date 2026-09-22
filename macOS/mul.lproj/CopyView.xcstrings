@@ -1,0 +1,246 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "7F3-HB-8V5.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Set Default\"; ObjectID = \"7F3-HB-8V5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Set Default"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запомнить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запам'ятати"
+          }
+        }
+      }
+    },
+    "8te-6p-FvW.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Link in the end\"; ObjectID = \"8te-6p-FvW\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Link in the end"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ссылка в конце"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Посилання в кінці"
+          }
+        }
+      }
+    },
+    "9u5-aY-4Uf.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Enumerated\"; ObjectID = \"9u5-aY-4Uf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Enumerated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нумерация стихов"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нумерація віршів"
+          }
+        }
+      }
+    },
+    "cUK-bZ-8qs.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Cancel\"; ObjectID = \"cUK-bZ-8qs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cancel"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отменить"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скасувати"
+          }
+        }
+      }
+    },
+    "jdo-Md-VZH.title" : {
+      "comment" : "Class = \"NSBox\"; title = \"Options\"; ObjectID = \"jdo-Md-VZH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Options"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Настройки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Параметри"
+          }
+        }
+      }
+    },
+    "KqZ-gE-4Jf.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Copy\"; ObjectID = \"KqZ-gE-4Jf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copy"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копировать"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копіювати"
+          }
+        }
+      }
+    },
+    "PCc-8o-Uk2.title" : {
+      "comment" : "Class = \"NSViewController\"; title = \"Copy Verses\"; ObjectID = \"PCc-8o-Uk2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Copy Verses"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копировать стихи"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Копіювати вірші"
+          }
+        }
+      }
+    },
+    "QUt-xM-S51.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Guillemets\"; ObjectID = \"QUt-xM-S51\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Guillemets"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Кавычки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лапки"
+          }
+        }
+      }
+    },
+    "SBl-eG-OsH.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Abbreviation\"; ObjectID = \"SBl-eG-OsH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Abbreviation"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Короткая ссылка"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Коротке посилання"
+          }
+        }
+      }
+    },
+    "yG9-Hw-MDN.title" : {
+      "comment" : "Class = \"NSButtonCell\"; title = \"Parentheses\"; ObjectID = \"yG9-Hw-MDN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Parentheses"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Круглые скобки"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Круглі дужки"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}
