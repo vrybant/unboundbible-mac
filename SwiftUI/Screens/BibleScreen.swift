@@ -49,7 +49,7 @@ public struct BibleScreen: View {
                         .onLongPressGesture {
                         }
                         .alert(selectedVerse, isPresented: $showAlert, actions: {
-                            Button("Копировать") {
+                            Button("Copy") {
                                 let verses = tools.get_Verses(options: copyOptions)
                                 copyToPasteboard(parse(verses))
                                 selection = nil
