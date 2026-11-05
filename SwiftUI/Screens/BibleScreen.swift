@@ -66,6 +66,22 @@ public struct BibleScreen: View {
                         })
                     
                 }
+                .gesture(
+                    DragGesture(minimumDistance: 30)
+                        .onEnded { value in
+                            let dx = value.translation.width
+                            let dy = value.translation.height
+
+                            // Определяем горизонтальный свайп
+                            guard abs(dx) > abs(dy) else { return }
+
+                            if dx < -50 {
+                                nextChapter()
+                            } else if dx > 50 {
+                                previousChapter()
+                            }
+                        }
+                )
                 .onAppear {
                     update()
 
@@ -102,6 +118,16 @@ public struct BibleScreen: View {
             try? await Task.sleep(for: .seconds(0.05))
             showAlert = true
         }
+    }
+
+    func previousChapter() {
+        currVerse.chapter = currVerse.chapter - 1
+        update()
+    }
+    
+    func nextChapter() {
+        currVerse.chapter = currVerse.chapter + 1
+        update()
     }
 
 }
