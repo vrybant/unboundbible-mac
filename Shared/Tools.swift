@@ -184,4 +184,12 @@ final class Tools {
         "Info \(book) \(chapter)"
     }
 
+    func previousChapter() {
+        currVerse.chapter = currVerse.chapter - 1
+    }
+    
+    func nextChapter() {
+        currVerse.chapter = currVerse.chapter + 1
+    }
+
 }

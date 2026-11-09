@@ -76,9 +76,11 @@ public struct BibleScreen: View {
                             guard abs(dx) > abs(dy) else { return }
 
                             if dx < -50 {
-                                nextChapter()
+                                tools.nextChapter()
+                                update()
                             } else if dx > 50 {
-                                previousChapter()
+                                tools.previousChapter()
+                                update()
                             }
                         }
                 )
@@ -118,16 +120,6 @@ public struct BibleScreen: View {
             try? await Task.sleep(for: .seconds(0.05))
             showAlert = true
         }
-    }
-
-    func previousChapter() {
-        currVerse.chapter = currVerse.chapter - 1
-        update()
-    }
-    
-    func nextChapter() {
-        currVerse.chapter = currVerse.chapter + 1
-        update()
     }
 
 }
