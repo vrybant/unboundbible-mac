@@ -76,10 +76,10 @@ public struct BibleScreen: View {
                             guard abs(dx) > abs(dy) else { return }
 
                             if dx < -50 {
-                                tools.nextChapter()
+                                currBible.nextChapter(verse: &currVerse)
                                 update()
                             } else if dx > 50 {
-                                tools.previousChapter()
+                                currBible.previousChapter(verse: &currVerse)
                                 update()
                             }
                         }

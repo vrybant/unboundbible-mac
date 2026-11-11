@@ -184,33 +184,4 @@ final class Tools {
         "Info \(book) \(chapter)"
     }
 
-    func previousChapter() {
-        if currVerse.chapter == 1 {
-            if let book = currBible.previousBook(book: currVerse.book) {
-                currVerse.book = book
-                currVerse.chapter = currBible.chaptersCount(book: currVerse.book)
-            }
-        } else {
-            currVerse.chapter = currVerse.chapter - 1
-        }
-        currVerse.number = 1
-        currVerse.count = 1
-    }
-    
-    func nextChapter() {
-        let chaptersCount = currBible.chaptersCount(book: currVerse.book)
-        
-        if currVerse.chapter == chaptersCount {
-            if let book = currBible.nextBook(book: currVerse.book) {
-                currVerse.book = book
-                currVerse.chapter = 1
-            }
-        } else {
-            currVerse.chapter = currVerse.chapter + 1
-        }
-        
-        currVerse.number = 1
-        currVerse.count = 1
-    }
-
 }

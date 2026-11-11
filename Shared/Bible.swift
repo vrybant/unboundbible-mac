@@ -145,7 +145,11 @@ class Bible: Module {
     }
     
     var firstVerse : Verse {
-        books.isEmpty ? Verse() : Verse(book: books[0].number, chapter: 1, number: 1, count: 1)
+        var result = Verse()
+        if let firstBook = books.first {
+            result.book = firstBook.number
+        }
+        return result
     }
     
     func getTitles() -> [Title] {
@@ -350,14 +354,41 @@ class Bible: Module {
         return nil
     }
     
-    func previousBook(book: Int) -> Int? {
+    private func previousBook(book: Int) -> Int? {
         books.prefix(while: { $0.number != book }).last?.number
     }
     
-    func nextBook(book: Int) -> Int? {
+    private func nextBook(book: Int) -> Int? {
         books.drop(while: { $0.number != book }).dropFirst().first?.number
     }
 
+    func previousChapter(verse: inout Verse) {
+        if verse.chapter == 1 {
+            if let previousBook = previousBook(book: verse.book) {
+                verse.book = previousBook
+                verse.chapter = chaptersCount(book: previousBook)
+            }
+        } else {
+            verse.chapter = verse.chapter - 1
+        }
+        verse.number = 1
+        verse.count = 1
+    }
+    
+    func nextChapter(verse: inout Verse) {
+        if verse.chapter == chaptersCount(book: verse.book) {
+            if let nextBook = nextBook(book: verse.book) {
+                verse.book = nextBook
+                verse.chapter = 1
+            }
+        } else {
+            verse.chapter = verse.chapter + 1
+        }
+        verse.number = 1
+        verse.count = 1
+    }
+
+ 
 }
 
 extension Array where Element == Bible {
