@@ -350,6 +350,14 @@ class Bible: Module {
         return nil
     }
     
+    func previousBook(book: Int) -> Int? {
+        books.prefix(while: { $0.number != book }).last?.number
+    }
+    
+    func nextBook(book: Int) -> Int? {
+        books.drop(while: { $0.number != book }).dropFirst().first?.number
+    }
+
 }
 
 extension Array where Element == Bible {
